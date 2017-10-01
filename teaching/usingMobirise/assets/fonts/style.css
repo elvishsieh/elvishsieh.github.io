@@ -1,0 +1,12 @@
+@font-face {
+   font-family: 'GenJyuuGothic-Bold';
+   src: url('GenJyuuGothic-Bold/font.ttf');
+}
+@font-face {
+   font-family: 'GenJyuuGothic-Medium';
+   src: url('GenJyuuGothic-Medium/font.ttf');
+}
+@font-face {
+   font-family: 'GenJyuuGothic-Normal';
+   src: url('GenJyuuGothic-Normal/font.ttf');
+}
