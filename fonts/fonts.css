@@ -1,0 +1,93 @@
+/*
+ * cwTeX 字型(Chinese Traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+    font-family: 'cwTeXYen';
+    font-style: normal; /* italic, oblique, inherit */
+    font-weight: 500;
+    src: url('cwTeX/cwTeXYen-zhonly.woff') format('woff'),
+         url('cwTeX/cwTeXYen-zhonly.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'cwTeXKai';
+    font-style: normal;
+    font-weight: 500;
+    src: url('cwTeX/cwTeXKai-zhonly.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'cwTeXHei';
+    font-style: normal;
+    font-weight: 500;
+    src: url('cwTeX/cwTeXHei-zhonly.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'cwTeXFangSong';
+    font-style: normal;
+    font-weight: 500;
+    src: url('cwTeX/cwTeXFangSong-zhonly.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'cwTeXMing';
+    font-style: normal;
+    font-weight: 500;
+    src: url('cwTeX/cwTeXMing-zhonly.ttf') format('truetype');
+}
+/*
+* Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 100;
+  src: url(NotoSansCJKtc/NotoSansTC-Thin.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 300;
+  src: url(NotoSansCJKtc/NotoSansTC-Light.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 400;
+   src: url(NotoSansCJKtc/NotoSansTC-Regular.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 500;
+   src: url(NotoSansCJKtc/NotoSansTC-Medium.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 700;
+   src: url(NotoSansCJKtc/NotoSansTC-Bold.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 900;
+   src: url(NotoSansCJKtc/NotoSansTC-Black.otf) format('opentype');
+ }
+/* 
+ *  Google 英文字型 
+ */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal; 
+    font-weight: 500;
+    src: url(Oswald/Oswald-Regular.ttf);
+}
+@font-face {
+    font-family: 'Oswald';
+    font-weight: 700;
+    src: url(Oswald/Oswald-Bold.ttf);
+}
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 300;
+    src: url(Oswald/Oswald-Light.ttf);
+}

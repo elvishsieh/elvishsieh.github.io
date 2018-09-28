@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh_TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>資訊系統的應用</title>
+
+<meta name="description" content="Management Information System">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- 每一個 section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+            <section>
+                    <section>
+                        <h2>系統構建前之管控</h2>
+                        <ul>
+                            <li class="fragment">目的：確保資訊系統能符合使用者的需求</li>
+                            <li class="fragment">定義系統的目標與限制及建立一指導機構以管控整個計畫的進行</li>
+                            <li class="fragment">及早瞭解其顧客及組織內部對資訊的需求</li>
+                            <li class="fragment">明訂評估資訊系統績效之標準</li>
+                            <li class="fragment">設定資訊系統的設計與操作標準</li>
+                            <li class="fragment">定義一個可接受的測試程式</li>
+                            <li class="fragment">需定期加以檢討，以確保系統符合標準</li>
+                            <li class="fragment">建立一維護及修改與擴張資訊系統的程序</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>系統構建後之管控(1/2)</h2>
+                        <ul>
+                            <li class="fragment">目的：保護系統的安全與確保績效</li>
+                            <li class="fragment">組織結構方面：針對其個別的工作領域來維持或發展，各司其職</li>
+                            <li class="fragment">應用軟體/程式館方面：檔案與軟體的管理與保存，宜備份在機房以外的地點</li>
+                            <li class="fragment">設備維護方面：執行維修任務、及監督電腦執行的績效</li>
+                            <li class="fragment">環境控制與設施的安全方面：</li>
+                            <ul>
+                                <li class="fragment">清潔、溫度、濕度</li>
+                                <li class="fragment">不斷電系統(UPS)、穩壓器</li>
+                                <li class="fragment">保全，如電腦房上鎖、或重要資料上鎖</li>
+                            </ul>
+                        </ul>
+                    </section>
+                   <section>
+                        <h2>系統構建後之管控(2/2)</h2>
+                        <ul>
+                            <li class="fragment">災難計劃</li>
+                            <ul>
+                                <li class="fragment"><b>緊急計劃：</b>主要是降低災難的影響，優先考慮員工的安全，可採用警鈴、緊急照明、逃生設施、消防設備等</li>
+                                <li class="fragment"><b>備份計劃：</b>如何在災難後能繼續發揮功能直到回復運作為止</li>
+                                <li class="fragment"><b>重要紀錄辨識計劃：</b>辨識出重要的資料檔，並指出保存備份地點</li>
+                                <li class="fragment"><b>復原計劃：</b>使資訊系統能短時間重新組合，如替換設備等方案</li>
+                            </ul>
+                        </ul>
+                    </section>
+                    </section>
+                    <section>
+                        <h2>確保資訊系統品質</h2>
+                        <ul>
+                            <li class="fragment"><b>適當的應用系統開發工具：</b>要能夠提供有條不紊、完整的開發流程</li>
+                            <li class="fragment"><b>資源分配：</b>需考量系統成本、開發時間及指派執行專案的員工</li>
+                            <li class="fragment"><b>軟體績效：</b>可透過問卷調查，了解系統建置後使用的狀況</li>
+                        </ul>
+                    </section>
+                
+    </div>
+</div>
+
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		// Specifies which side of the presentation the menu will 
+		// be shown. Use 'left' or 'right'.
+		side: 'left',
+
+		// Specifies the width of the menu.
+		// Can be one of the following:
+		// 'normal', 'wide', 'third', 'half', 'full', or
+		// any valid css length value
+		width: 'normal',
+
+		// Add slide numbers to the titles in the slide list.
+		// Use 'true' or format string (same as reveal.js slide numbers)
+		numbers: false,
+
+		// Specifies which slide elements will be used for generating
+		// the slide titles in the menu. The default selects the first
+		// heading element found in the slide, but you can specify any
+		// valid css selector and the text from the first matching
+		// element will be used.
+		// Note: that a section data-menu-title attribute or an element
+		// with a menu-title class will take precedence over this option
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+		// If slides do not have a matching title, attempt to use the
+		// start of the text content as the title instead
+		useTextContentForMissingTitles: false,
+
+		// Hide slides from the menu that do not have a title.
+		// Set to 'true' to only list slides with titles.
+		hideMissingTitles: false,
+
+		// Adds markers to the slide titles to indicate the 
+		// progress through the presentation. Set to 'false'
+		// to hide the markers.
+		markers: true,
+
+		// Specify custom panels to be included in the menu, by
+		// providing an array of objects with 'title', 'icon'
+		// properties, and either a 'src' or 'content' property.
+		custom: true,
+
+		// Specifies the themes that will be available in the themes
+		// menu panel. Set to 'true' to show the themes menu panel
+		// with the default themes list. Alternatively, provide an
+		// array to specify the themes to make available in the
+		// themes menu panel, for example...
+		// [
+		//     { name: 'Black', theme: 'css/theme/black.css' },
+		//     { name: 'White', theme: 'css/theme/white.css' },
+		//     { name: 'League', theme: 'css/theme/league.css' }
+		// ]
+		themes: true,
+
+		// Specifies the path to the default theme files. If your
+		// presentation uses a different path to the standard reveal
+		// layout then you need to provide this option, but only
+		// when 'themes' is set to 'true'. If you provide your own 
+		// list of themes or 'themes' is set to 'false' the 
+		// 'themesPath' option is ignored.
+		themesPath: '/reveal-js/css/theme/',
+
+		// Specifies if the transitions menu panel will be shown.
+		// Set to 'true' to show the transitions menu panel with
+		// the default transitions list. Alternatively, provide an
+		// array to specify the transitions to make available in
+		// the transitions panel, for example...
+		// ['None', 'Fade', 'Slide']
+		transitions: true,
+
+		// Adds a menu button to the slides to open the menu panel.
+		// Set to 'false' to hide the button.
+		openButton: true,
+
+		// If 'true' allows the slide number in the presentation to
+		// open the menu panel. The reveal.js slideNumber option must 
+		// be displayed for this to take effect
+		openSlideNumber: false,
+
+		// If true allows the user to open and navigate the menu using
+		// the keyboard. Standard keyboard interaction with reveal
+		// will be disabled while the menu is open.
+		keyboard: true,
+
+		// Normally the menu will close on user actions such as
+		// selecting a menu item, or clicking the presentation area.
+		// If 'true', the sticky option will leave the menu open
+		// until it is explicitly closed, that is, using the close
+		// button or pressing the ESC or m key (when the keyboard 
+		// interaction option is enabled).
+		sticky: false,
+
+		// If 'true' standard menu items will be automatically opened
+		// when navigating using the keyboard. Note: this only takes 
+		// effect when both the 'keyboard' and 'sticky' options are enabled.
+		autoOpen: true,
+
+		// If 'true' the menu will not be created until it is explicitly
+		// requested by calling RevealMenu.init(). Note this will delay
+		// the creation of all menu panels, including custom panels, and
+		// the menu button.
+		delayInit: false,
+
+		// If 'true' the menu will be shown when the menu is initialised.
+		openOnInit: false,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+        loadIcons: true,
+        
+        custom: [
+			{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>This slidedeck is created with reveal.js</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+]
+});
+
+</script>
+
+</body>
+</html>

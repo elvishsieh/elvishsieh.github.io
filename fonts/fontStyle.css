@@ -1,0 +1,16 @@
+@import url(./fonts.css);
+
+.deck-container {
+    font-family: 'Times New Roman', 'cwTeXYen', "Gill Sans", "Gill Sans MT", Calibri, sans-serif;}
+
+pre, code, kbd, samp {
+  font-family: "Times New Roman",'cwTeXYen', 'Oswald', monospace, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Times New Roman', 'cwTeXYen', 'Oswald', "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+blockquote {
+  font-family: 'Times New Roman', 'cwTeXYen', 'Oswald', "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
