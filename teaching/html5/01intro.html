@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>網際網路基本觀念</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+<h2>網際網路基本觀念</h2>
+<ul>
+    <li>網際網路的歷史</li>
+    <li>網頁、網站、網站伺服器</li>
+    <li>網域、網址與網路架構</li>
+    <li>網際網路的應用</li>
+</ul>
+</section>
+<section>
+<section>
+<h2>網際網路的歷史(1/4)</h2>
+<ul>
+    <li>在1960年初期，一些科學家及軍事界的人員，發現電腦可共享研發資訊，將帶來的可觀的價值</li>
+    <li>在1962年：</li>
+    <ul>
+        <li>麻省理工學院J.C.R. Licklider首先提出全球網路的概念</li>
+        <li>由國防尖端研究專案機構(DARPA)接手進行研發</li>
+        <li><b>加州大學洛杉磯分校的Leonard Kleinrock 教授</b>發展出封包交換技術理論，為網際網路連結奠基</li>
+        <li><b>麻省理工學院的 Lawrence Roberts 利用撥接式電話線</b>，將麻州的電腦與加州的電腦相連</li>
+        <li>同時也發現電話線的電路交換技術不敷運用，<b>Kleinrock 的封包交換理論受到肯定</b></li>
+    </ul>
+</ul>
+</section>
+
+<section>
+<h2>網際網路的歷史(2/4)</h2>
+<ul>
+    <li>於1969年麻省理工學院的 Roberts 轉到<b>國防尖端研究專案機構(DARPA)</b>，開始發展他所籌畫的Advanced Research Projects Agency (ARPA)</li>
+    <li>1970年美國各大學紛紛加入 ARPANet</li>
+    <li>197~ 年由 BBN 的 <b>Bob Kahn 所提出 TCP/IP的架構</b>，後來由史丹福的Kahn與Vint Cerf及其他人在70年代期間開發</li>
+    <li>在1978年時由貝爾實驗室發明 Unix to Unix備份通訊協定(UUCP)</li>
+    <li>1979年時新聞討論群(Usenet) 根據UUCP開始啟用</li>
+</ul>
+</section>
+
+<section>
+<h2>網際網路的歷史(3/4)</h2>
+<ul>
+    <li>1980年時美國國防部所採納 TCP/IP，取代先前的網路控制通訊協定(NCP)</li>
+    <li>1983年廣為全球使用，例如 Archive, telnet, mail, ftp</li>
+    <li>1989年粒子物理學歐洲實驗室(CERN)的 <b>Tim Berners Lee</b> 研發出 <b>World Wide Web(W3)通訊協定</b></li>
+    <li>1991年明尼蘇達大學開發出 Gopher(小田鼠)</li>
+    <img src="images/lee.jpg"; style="width: 400px; height: 300px; margin-left: 100px" alt="Tim Berners Lee">
+</ul>
+</section>
+
+<section>
+<h2>網際網路的歷史(4/4)</h2>
+<ul>
+    <li>1993年超電算應用國家中心(NCSA)的 <b>Marc Andreessen 與他的小組成員開發了圖形瀏覽器Mosaic</b></li>
+    <li>1993年之後，Andreessen 更轉往網景公司(Netscape)，開發<b>領航員(Navigator)</b></li>
+    <li>1998年微軟(Microsoft)將開發出<b>Windows 98 的作業系統(O.S)與 Internet Explorer(IE)瀏覽器緊密整合</b></li>
+    <li>之後，<b>Netscape 公司開放原始程式碼(open source)</b>，yield Mozilla Firefox browser</li>
+</ul>
+</section>
+</section>
+<section>
+<h2>瀏覽器(Browser)</h2>
+<ul>
+<li>瀏覽器(Browser)：一種觀看網頁的軟體，例如：IE, Firefox, Chrome, Safari 等軟體；使用者可以透過瀏覽器(Browser)來觀看網站伺服器內的網頁</li>
+<li>常見瀏覽器(Browser)的軟體：</li>
+<ul>
+    <li><b>Lynx</b>(<a href="http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png">http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png</a>)</li>
+    <li>IE(Internet Explorer)、<b>Edge(Windows 10)</b></li>
+    <li><a href="https://www.mozilla.org/zh-TW/firefox/new/">Firefox(Mozilla)</a></li>
+    <li><a href="https://www.google.com.tw/intl/zh-TW/chrome/browser/desktop/index.html">Chrome(Google)</a></li>
+    <li><a href="http://www.opera.com/zh-tw">Opera</a></li>
+    <li><a href="http://www.apple.com/tw/safari/">Safari(Apple)</a></li>
+</ul>
+</ul>
+</section>
+<section>
+<section>
+<h2>Web 的基本觀念</h2>
+<ul>
+    <li>網頁(Web Page)</li>
+    <li>網站(Web Site)</li>
+    <li>首頁(Home Page)</li>
+    <li>網站伺服器(Web Server)</li>
+    <li>何謂 URL, Hostname, DNS, IP</li>
+    <li>何謂 HTML, XML, XHTML</li>
+</ul>
+</section>
+
+<section>
+<h2>網頁、網站與網站伺服器</h2>
+<ul>
+    <li>網頁(Web Page)：<b>由HTML 語法、CSS(cascading Style Sheet)、Javascript 語言撰寫而成的頁面</b></li>
+    <li>網站(Web Site)：由許多網頁及一些多媒體的檔案所構成的網頁架構</li>
+    <li>首頁(Home Page)：網站的第一個頁面，<b>檔名通常是 index.html, index.htm, index.asp, index.php, index.aspx</b></li>
+    <li>網站伺服器(Web Server)：主要是<b>提供網頁製作者存放他們製作的網頁或網站的一種軟體</b>，例如： <a href="http://www.iis.net/overview">IIS</a>, <a href="http://www.apachelounge.com/download/">Apache HTTP Server ("httpd")</a>, <a href="http://nginx.org/">nginx</a>, <a href="https://www.lighttpd.net/">lighttpd </a>等</li>
+</ul>
+</section>
+
+<section>
+<h2>用戶端/主機端架構</h2>
+<h3>Client/Server Architecture</h3>
+<ul>
+    <li>2-Tier <b>Client / Server</b> 架構</li>
+        <ul>
+            <li>e.g. 郵政信箱 / 郵局</li>
+            <li><b>Outlook, Thunderbird</b> / Mail Server(sendmail, postfix,qmail)</li>
+            <li><b>Browser</b> / Web server(Apache, IIS, lighttpd)</li>
+            <li><b>Wsftp, FileZilla</b> / FTP server(FileZilla Server,ftpd)</li>
+        </ul>
+    <li>3-Tier 架構：
+        <ul>
+            <li>Client PC / Application Server / <b>Database</b> Server</li>
+        </ul>
+    </li>
+</ul>
+</section>
+
+<section data-markdown><script type="text/template">
+## Domain Name Server Tree
+![樹狀結構的網域名稱](./images/domainTree.jpg "樹狀結構的網域名稱")
+</script>
+
+<section>
+<h2>IP &amp; 主機名稱(Hostname)</h2>
+<ul>
+    <li>電腦只懂得 0 與 1</li>
+    <li><b>IP Address 是給電腦看的</b>(e.g. 163.17.131.8)</li>
+    <li><b>Hostname 是給人看的</b>(e.g. web2.nutc.edu.tw)</li>
+    <li>DNS(Domain Name Server)</li>
+        <ul>
+            <li><b>將 Hostname 轉成 IP</b></li>
+            <li>Internet Corporation for Assigned Names and Numbers (ICANN): 管理所有的 Domain Name, e.g. .cn, .tw, .uk</li>
+            <li>台灣網路資訊中心(TWNIC): .tw Domain Name</li>
+            <li>Domain Name(e.g. nutc.edu.tw, gov.tw, idv.tw, com.tw)</li>
+        </ul>
+    <li>特殊的 IP Address：</li>
+    <ul>
+        <li><b>localhost: 127.0.0.1</b></li>
+        <li>詳細說明請參考<a href="http://linux.vbird.org/linux_server/0110network_basic.php">「鳥哥的 Linux 私房菜」</a></li>
+    </ul>
+</ul>
+</section>
+    
+</section>
+<section>
+<h3>測試 IP &amp; Hostname</h3>
+<ul>
+    <li>開啟 cmd.exe 程式：開始>執行>輸入 cmd</li>
+    <li>輸入：<b>nslookup www.nutc.edu.tw</b> //問 DNS www.nutc.edu.tw 這個 Host(主機)的 ip 是什麼</li>
+    <li>輸入：<b>ping www.yahoo.com.tw</b> // 測試 www.yahoo.com.tw 網站是否存活在網路上</li>
+    <li>輸入：<b>ping localhost</b></li>
+    <li>輸入：<b>nslookup localhost</b></li>
+    <li>輸入：<b>ipconfig  /all</b> //取得電腦ip 位址、實體網卡位址(<b>MAC</b>, <b>M</b>edia <b>A</b>ccess <b>C</b>ontrol)</li>
+    <li>輸入：<b>ipconfig  /all | find /I "ip"</b> //將 ipconfig /all 指令取得的訊息傳給find 指令，/I：不分字母大小寫尋找字串(string)
+    <li>輸入：<b>ipconfig  /all | find /I "實體"</b> //找 MAC，Laptop 可能找出多個值
+</ul>
+</section>
+
+<section>
+<h3>通訊協定與連接阜</h3>
+<ul>
+    <li>IPv4: 4 bytes, 32bits</li>
+    <li>IPv6: 6 Bytes, 48bits</li>
+    <li>Application Layer:</li>
+        <ul>
+            <li><b>HTTP(Hypertext Transfer Protocal), 80 port</b></li>
+            <li>HTTPS(Security), 443 port</li>
+            <li><b>FTP(File Transfer Protocal), 21 port</b></li>
+            <li>SMTP(Simple Mail Transfer Protocal), <b>25 port</b></li>
+        </ul>
+    <li>Presentation Layer:</li>
+        <ul>
+            <li>SSL(Secure Sockets Layer)</li>
+            <li>TLS(Transport Layer Security)</li>
+        </ul>
+    <li>Unix /etc/services</li>
+</ul>
+</section>
+
+<section>
+<h3>練習：IP、MAC、Hostname</h3>
+<ol>
+    <li>請檢查 www.ntu.edu.tw 與 ftp.ntu.edu.tw 這二台伺服器(Server)是否有存在網路上？ </li>
+    <li>請查詢 www.ntu.edu.tw 的 ip 位址</li>
+    <li>請查詢 ftp.ntu.edu.tw 的 ip 位址</li>
+    <li>請檢查自己電腦中網路卡的實體位址(MAC)</li>
+    <li>請將你電腦 IPv4 的位址直接顯示螢幕上？</li>
+    <li>請在瀏覽器的網址列中，輸入你在練習題一所查到 ftp.ntu.edu.tw 這台伺服器的 ip 位址</li>
+    <li>在上一個練習題中，輸入 ip 位址之前加入 ftp:// 與 http:// 協定，觀察其顯示的結果有何不同？</li>
+</ol>
+</section>
+<section>
+<h2>練習：網址、首頁、連接阜</h2>
+<p>請使用瀏覽器連結下列網址，看看其顯示結果有何異同？</p>             
+<ul>
+    <li>台灣大學的網址：<a href="http://www.ntu.edu.tw/">http://www.ntu.edu.tw/</a></li>
+    <li>台灣大學首頁的網址：<a href="http://www.ntu.edu.tw/index.html">http://www.ntu.edu.tw/index.html</a></li>
+    <li>使用 80 port 來連結台灣大學首頁的網址：<br /><a href="http://www.ntu.edu.tw:80/index.html">http://www.ntu.edu.tw:80/index.html</a></li>
+    <li>使用 ftp 協定連結台灣大學 FTP Server：<br /><a href="ftp://ftp.ntu.edu.tw:21/">ftp://ftp.ntu.edu.tw:21/</a></li>
+</ul>
+</section>
+<section>
+<h2>何謂 URL?</h2>
+<ul>
+    <li><b>URL</b> is <b>U</b>niform <b>R</b>esource <b>L</b>ocator 第一個英文字母的縮寫</li>
+    <li>A subset(子集合) of <b>U</b>niform <b>R</b>esource <b>I</b>dentifier (<b>URI</b>) </li>
+    <li>URI syntax(語法)： resource_type://hostname:port/filepathname?query_string#anchor</li>
+    <li>Example:</li>
+        <ul>
+            <li><a href="http://www.ntu.edu.tw/">http://www.ntu.edu.tw/</a></li>
+            <li><a href="http://www.ntu.edu.tw/index.html">http://www.ntu.edu.tw/index.html</a></li>
+            <li><a href="http://www.ntu.edu.tw:80/index.html">http://www.ntu.edu.tw:80/index.html</a></li>
+            <li><a href="ftp://ftp.ntu.edu.tw:21/">ftp://ftp.ntu.edu.tw:21/</a></li>
+        </ul>
+</ul>
+</section>
+
+<section>
+<h2>何謂 HTML?</h2>
+<ul>
+    <li><b>HTML</b> 是 <b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
+</ul>
+<pre><code class="line-numbers">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+&lt;html>
+&lt;head>
+&lt;meta http-equiv="Content-Type" content="text/html;
+charset=utf-8" />
+&lt;title>這是標題文字&lt;/title>
+&lt;/head>
+
+&lt;body>
+&lt;p>網頁的內容都在這裡呈現&lt;/p>
+&lt;p>這是段落&lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+
+<section>
+<h2>HTML 的缺點</h2>
+<ul>
+    <li>HTML 標籤不能夠表示單一的意義，容易產生混淆</li>
+    <li>廠商自行定義一些標籤，<b>造成不一致性</b></li>
+        <ul>
+            <li>IE  的 &lt;IFFRAME&gt; 標籤</li>
+            <li>Netscape 的 &lt;LAYER&gt;標籤</li>
+        </ul>
+    <li><b>不夠嚴謹的結束標籤</b></li>
+        <ul>
+            <li>HTML &lt;br&gt;</li>
+            <li>XHTML &lt;br&gt; &lt;br /&gt;</li>
+        </ul>
+</ul>
+</section>
+
+<section>
+<h2>何謂 XML?</h2>
+    <ul>
+        <li><b>XML</b> 是 e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
+        <li>可以轉換成各式各樣的資料型態：</li>
+            <ul>
+                <li>Microsoft Office 2007 Version: .docx, .xlsx, pptx</li>
+                <li>可轉成文字檔 e.g. text, html, rtf, odf</li>
+                <li>可轉成圖形檔 e.g. svg</li>
+                <ul>
+                <li><a href="http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg">http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg</a></li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg">https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg</a></li>
+                <li><a href="view-source:https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg">原始程式碼</a></li>
+                </ul>
+            </ul>
+    </ul>
+</section>
+
+<section>
+<h2>何謂 XHTML?</h2>
+<ul>
+    <li><b>XHTML</b> 是 e<b>X</b>tensible <b>HTML</b> 的縮寫</li>
+    <li>為了實現 XML 的過度產品</li>
+    <li>修補了 HTML 的部份缺失 e.g.&lt;br&gt; &lt;br /&gt;</li>
+    <li>無法實現 XML 的所有特性 e.g. svg 檔案格式</li>
+    <li>自從 2010 年 W3C 核定了 HTML5 標準以後，支持XML語法的陣營退出 XHTML 標準的制定</li>
+</ul>
+</section>
+
+<section>
+<h2>HTML5</h2>
+<pre><code class="line-numbers">&lt;!DOCTYPE html>
+&lt;html lang="zh-TW">
+&lt;head>
+&lt;meta charset=utf-8" />
+&lt;title>這是標題文字&lt;/title>
+&lt;link rel="stylesheet" type="text/css" href="css/style.css" /&gt;
+&lt;/head>
+
+&lt;body>
+&lt;p>網頁的內容&lt;/p>
+&lt;p>這是段落&lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+
+<section>
+<h2>SGML 與 DTD</h2>
+<ul>
+    <li><b>SGML</b> 是 <b>S</b>tandard <b>G</b>eneralized <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
+    <li>它是 World Wide Web Consortium (W3C) 所制定的標準；HTML 是它的一個子集合</li>
+    <li><b>DTD</b> 是 <b>D</b>ocument <b>T</b>ype <b>D</b>efinition 的縮寫</li>
+</ul>
+<img src="images/dtd.png" alt="dtd figure">
+</section>
+
+</section>
+
+<section>
+<section>
+<h2>網際網路應用(1/2)</h2>
+<ul>
+    <li>部落格(Blog)又稱為 Web Blog；Bloger-部落客</li>
+    <li><b>與 HTML(網頁) 最大差別在於「提供雙向的交流的管道」</b></li>
+    <li>建置部落格的軟體(Blog's Software)</li>
+        <ul>
+            <li><a href="https://zh-tw.wordpress.com/" target="_blank">WordPress</a>(需要 Apache+php+MySQL)</li>
+            <li><a href="http://www.lifetype.org.tw/" target="_blank">LifeType</a></li>
+            <li><a href="http://www.s9y.org/" target="_blank">Serendipity(s9y)</a></li>
+        </ul>
+</ul>
+</section>
+
+<section>
+<h2>網際網路應用(2/2)</h2>
+<ul>
+    <li>微網誌(Micro-blogging)：Plurk, Facebook, Twitter 都是Micro-blogging的一種</li>
+    <li><b>與 Blog 最大的差別在於「時間軸」</b></li>
+    <li>CMS, Blog, Micro-blogging, Wiki 都是 Web 2.0的應用</li>
+    <li>Web2.0：是一個架構在知識上的環境，人與人之間互動而產生出的內容，經由服務導向架構中的程式，在這個環境被發佈，管理和使用</li>
+    <li>Web 3.0：一個抽象的名詞(爭論不休)；加入 3D 虛擬實際及邁向人工智慧進化的道路</li>
+</ul>
+</section>
+<section>
+<h2>What is CMS?</h2>
+<ul>
+<li>The abbrev. of Content Management System，中文翻譯成：內容管理系統</li>
+<li>是「網站伺服器 + 資料庫 + HTML + 程式語言」的組合，特別是 PHP 程式語言，最常被使用的程式語言</li>
+<li>List of CMS(Open Source Code)</li>
+    <ul>
+        <li><a href="https://www.drupal.org/" target="_blank">Drupal</a></li>
+        <li><a href="https://www.joomla.org/download.html" target="_blank">Joomla</a></li>
+        <li><a href="https://www.phpnuke.org/" target="_blank">phpnuke</a></li>
+        <li><a href="http://www.xoops.org/" target="_blank">Xoops</a></li>
+    </ul>
+<li><a href="https://drupalcamp.stanford.edu/">DrupalCamp @ Stanford</a></li>
+</ul>
+</section>
+</section>
+<section>
+<h2>上傳到檔案伺服器</h2>
+<ul>
+    <li><a href="http://web3.nutc.edu.tw/homepage.htm">台中科技大學網站伺服器</a></li>
+    <li><a href="http://web3.nutc.edu.tw/">帳號是：s+學號</a>，密碼是：<a href="http://cc.nutc.edu.tw/files/11-1008-937-1.php">單一簽入系統的密碼</a></li>
+    <li>登入系統以後，請將網頁上傳到 www 目錄底下，如果沒有 www 目錄，請自己建立</li>
+    <li>首頁的檔名必須是： index.html 或者 index.htm</li>
+    <li>Command line ftp 指令：</li>
+    <ul>
+        <li>ftp web3.nutc.edu.tw</li>
+        <li>mkdir www</li>
+    </ul>
+</ul>
+</section>
+<section>
+<h2>第一次作業</h2>
+<ul>
+    <li>編輯一個網頁，內容必須包括:</li>
+        <ul>
+            <li>頁籤的標題&lt;title&gt;：XXX的第一次作業</li>
+            <li>背景顏色：使用 CSS 範例的顏色</li>
+            <li>連結&lt;a&gt;: 你的 email 位址</li>
+            <li>網頁的標題&lt;h1&gt;: XXX(4120154)的第一次作業</li>
+        </ul>
+    <li>使用 HTML5 的標準, utf-8字元編碼</li>
+    <li>檔案名稱： hw1.html(副檔名是小寫的HTML)</li>
+    <li>繳交方式：上傳到 web2.nutc.edu.tw 網站</li>
+    <li>繳交日期： 10/17 日晚上 8 點以前上傳完成</li>
+</ul>
+</section>
+</div>
+
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+]
+});
+
+</script>
+
+</body>
+</html>

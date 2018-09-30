@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Cascading Style Sheet</title>
+
+		<meta name="description" content="Tutorial of web design for primer">
+		<meta name="author" content="Elvis Hsieh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+        <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+        <link rel="stylesheet" href="/css/custom4revealjs.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+        <link rel="stylesheet" href="/css/style4font.css">
+        <!-- Printing and PDF exports -->
+        <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal-js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+	</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+    <h2>階層式樣式表(CSS)</h2>
+    <ul>
+        <li class="fragment"><b>CSS 的英文全名是：Cascading Style Sheet</b>，中文翻譯成：階層式樣式表</li>
+        <li class="fragment"><b>問題是：什麼是 CSS ？</b></li>
+        <li class="fragment">我們說：每一個標籤都是某一種特定功能的標籤，像 <code>&lt;h1&gt;</code>標籤會將字體加粗、加大</li>
+        <li class="fragment">這些標籤內的<b>字體、字體大小、顏色等等可以改變嗎？</b></li>
+         <li class="fragment">答案是：<b>可以的</b>，<b>CSS 就是改變標籤屬性、屬性值的一種語法</b></li>
+        <li class="fragment"><b>CSS 是專有名詞</b>，當同學了解這個專有名詞的意義以後，希望同學能慢慢地把「階層式樣式表」這個<b>中文翻譯的詞忘掉</b></li>
+    </ul>
+</section>
+<section>
+<section>
+    <h2>標籤的屬性與屬性值(1/2)</h2>
+    <ul>
+        <li>每個不同標籤有不同的功用，也有不同的屬性及屬性值</li>
+        <li>例如：編號第 2 列 &lt;html lang="zh-Hant-TW"> 中， lang 是 &lt;html> 標籤的屬性， zh-Hant-TW 是 &lt;html> 標籤 lang 屬性的屬性值，</li>
+        <li><b>特別注意： 標籤字母與屬性之間必須空至少一個空格</b></li>
+    </ul>
+    <pre><code class="line-numbers">&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+&lt;head>
+    &lt;meta charset="UTF-8" />
+    &lt;title>頁籤上的標題&lt;/title>
+&lt;/head>
+&lt;body>
+      
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+<section>
+    <h2>標籤的屬性與屬性值(2/2)</h2>
+    <ul>
+        <li>第一種格式：屬性="屬性值1" 屬性="屬性值2"</li>
+        <ul>
+            <li>屬性="屬性值1" 與屬性="屬性值2" 中間也必須要空格
+            <li>例如： &lt;hr width="90%" color="red" />，屬性與屬性之間是空格，不可以接連著寫在一起，若接連著寫在一起，這樣瀏覽器無法正確解析第 2 個屬性與屬性值。</li>
+        </ul>
+        <li>第二種格式：style="屬性: 屬性值1; 屬性: 屬性值2"，</li>
+        <ul>
+            <li>這種格式是使用 <b>style</b> 這個保留字，配合 <b>=</b> 號並將屬性與屬性值放置在 <b>""</b> 號內，<b>屬性與屬性值中間以 : 號做區隔，以 ; 號作為結束符號</b>。</li>
+            <li>例如：<b> &lt;hr style="width: 90%; color: red;" /></b>， 屬性與屬性值之間是 : 號，以 ; 號作為結束。</li>
+            <li><b>特別注意：不管是 : 號或者是 ; 號，都是半形的英文</b></li>
+        </ul>
+    </ul>
+</section>
+</section>
+<section>
+<section>
+    <h2>CSS 的寫法</h2>
+    <ul>
+        <li><b>Inline(內含)：就是標籤內的屬性與屬性值</b></li>
+        <li><b>Internal(內部)：</b>使用 style 標籤</li>
+        <pre><code class="line-numbers">&lt;head>
+    &lt;style>
+        p{
+            /*  這是備註的符號，與 <!-- 不同 --> */
+            font-family: "Times New Roman", "標楷體";
+            font-size: 16pt;
+            line-height: 1.7em;
+        }
+    &lt;/style>
+&lt;/head></code></pre>
+        <li><b>External(外部)：</b>連結到外部的 css 檔案</li>
+        <pre><code class="line-numbers">&lt;link rel="stylesheet" href="./css/style.css"></code></pre>
+    </ul>
+</section>
+<section>
+    <h2>Selector</h2>
+    <ul>
+        <li>Type Selector</li>
+        <pre><code>p{
+    font-size: 16px;
+}
+</code></pre>
+        <li>ID Selector</li>
+        <pre><code>#cat{
+    color: gray;
+}</code></pre>
+        <li>Class Selector</li>
+        <pre><code>.dog{
+    margin: 10px 5px 10px 5px /* 上 右 下 左 */
+    padding 10px 5px 10px 5px /* 上 右 下 左 */            
+}
+p.box{
+    margin: 10px 5px 10px 5px /* 上 右 下 左 */
+}</code></pre>
+    </ul>
+</section>
+<section>
+    <h2>CSS 的練習(1/3)</h2>
+    <ul>
+        <li><b>請複製 drill03_01.html 檔案到 temp 目錄</b>，修改 link 中 drill03_01.css 相對位置的連結來恢復背景顏色</li>
+        <li>使用 Multi-Selection 功能(Ctrl + B)，選取h1 &dash; h6 標籤內的 style="color: white"，然後移動游標，<b>把 white 改成 red </b></li>
+        <li><b>Inline：</b>接著在 h1 &dash; h6 標籤的 style 內新增 text-align: center ，<b>注意：使用 ; 來區隔樣式的設定</b></li>
+        <li><b>Internal &amp; id ：</b>將第一個 p 標籤 &ltp style="color: white"> 改成 &ltp id="note">，然後在 head 標籤中加入下面的程式碼：</li>
+<pre><code>&lt;style>
+    #note{
+            font-family: "Times New Roman", "標楷體";
+            font-size: 3em;
+            color:black;
+    }
+&lt;/style></code></pre>
+    </ul>
+</section>
+<section>
+    <h2>CSS 的練習(2/3)</h2>
+    <ul>
+        <li><b>Class:</b>使用 Multi-Selection 功能(Ctrl + B)，選取h1 &dash; h6 標籤內的 style="color: red"，把它改成 class="highlight"</li>
+        <li><b>Class:</b>在 style 標籤中加入下面的程式碼：</li>
+<pre><code> .highlight{
+            color: brown;
+            text-align: center;
+            text-transform: uppercase;    
+}</code></pre>
+        <li>請分別將 temp/drill03_01.html 檔案中第 3 &dash; 5 個 p 標籤的 style="color: white" 改成 id="first", id="second", <b>class="third"</b></li>
+        <li><b>External &amp; class：</b>在 drill/drill03_01.css 檔案中加入下一頁的程式碼：</li>
+    </ul>
+</section>
+<section>
+    <h2 style="text-transform: normal">CSS 的練習(3/3)</h2>
+    <ul>
+        <li>下面程式碼是接續上一頁的 Slide 內容</li>
+    </ul>
+<pre><code>#first{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:sandybrown;            
+}
+p#second{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:black;               
+}
+p.third{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:red;            
+}</code></pre>
+</section>
+</section>
+
+<section>
+<section>
+    <h2>CSS Priority(優先順序)</h2>
+    <ol>
+        <li>!important</li>
+<pre><code>a {
+    background-color: #555 !important;
+}</code></pre>
+        <li>Embedding the Styles</li>
+            <ul>
+                <li>Inline Styles</li>
+                <li>Internal Styles</li>
+                <li>External Styles</li>
+            </ul>
+        <li>Selectors</li>
+        <ul>
+            <li>ID Selector</li>
+            <li>Class Selector</li>
+            <li>Type Selector</li>
+        </ul>
+        <li>Default Browser Styles</li>
+    </ol>
+</section>
+</section>
+    <section>
+    <section>
+        <h2>瀏覽器的預設樣式</h2>
+        <ul>
+            <li>Firefox (Gecko): 在網址列中輸入 resource://gre-resources/html.css</li>
+            <li>Chrome/Safari (WebKit):<a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css"> html.css</a></li>
+            <ul>
+                <li>Chrome (Blink): <a href="https://src.chromium.org/viewvc/blink/trunk/">Chromium Source Code</a></li>
+            </ul>
+            <li>Chrome Default Font and Encoding：</li>
+            <ul>
+                <li>中文版的 Chrome：<br>
+                &#9776; &Gg; 設定 &Gg; 顯示進階設定 &Gg; 網頁內容 (自訂字型) </li> 
+                <li>英文版的 Chrome：<br>
+                &#9776; &Gg; Settings &Gg; Show advanced settings... &Gg; Web Content (Customize fonts...) &Gg; <a href="#/5/1">下一張圖</a></li> 
+            </ul>
+            <li>修改瀏覽器預設字型的大小，與字型縮放的動作相同，<b>下次再開啟瀏覽器時，字型大小還是維持修改後的設定值</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Chrome Default Fonts</h2>
+        <img src="./images/chrome.png" height="550px" alt="Chrome Settings">
+    </section>
+    </section>
+
+</div>
+
+</div>
+
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+]
+});
+
+</script>
+
+</body>
+</html>

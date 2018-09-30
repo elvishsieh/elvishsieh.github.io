@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Linking</title>
+
+		<meta name="description" content="Tutorial of web design for primer">
+		<meta name="author" content="Elvis Hsieh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+        <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+        <link rel="stylesheet" href="/css/custom4revealjs.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+        <link rel="stylesheet" href="/css/style4font.css">
+        <!-- Printing and PDF exports -->
+        <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal-js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    
+<body>
+
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+    <section>
+    <section>
+        <h2>目錄結構</h2>
+        <img src="./images/dir.png" alt="dir.png">
+        <ul>
+            <li>上圖是課程投影片的目錄結構，把網頁程式碼、圖檔、CSS、Javascript 等分門別類</li>
+        </ul>
+    </section>
+    <section>
+        <h2>相對位址(1/2)</h2>
+        <img src="./images/dir2.png" alt="dir2.png">
+        <ul>
+            <li>以 01intro.html 檔案為主，相對於其他的目錄下的檔案稱為相對位址</li>
+            <li>例如：01intro.html 檔案與 images 目錄下的 big5.png 檔案，兩者之間存在著相對的位址</li>
+        </ul>
+    </section>
+    <section>
+        <h2>相對位址(2/2)</h2>
+        <ul>
+            <li>在標準規範把 ./ 視為 01intro.html 檔案的位址，要連結到 big5.png 這個檔案，則是<b>./images/big5.png</b></li>
+            <li> <b>/</b> 表示目錄或根目錄； <b>.</b> 表示目前的目錄； <b>..</b> 表示上一層目錄</li>
+            <li>例如：01intro.html 程式碼這樣寫 ./images/big5.png ，就是表示要連結到<b>與目前目錄相同的 images 的 big5.png 檔案</b></li>
+            <li>例如：01intro.html 程式碼這樣寫 ../lecture/index.html ，就是表示要連結到<b>上一層目錄的 lecture 的 index.html 檔案</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>相對位置的練習</h2>
+        <ul>
+            <li>請同學先在 drill 目錄之下，再建立 <b>css, images, temp </b>三個目錄</li>
+            <li>請先使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該有背景顏色)</b></li>
+            <li>請將 drill03_01.css 檔案移到 drill/css 目錄，請再使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該看不見)</b></li>
+            <li>請修改 drill03_01.html 檔案中的 link 的內容，將 <b>href="drill03_01.css"</b> 改成 <b>href="./css/drill03_01.css"</b></li>
+            <li>請再使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該可以看見)</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>絕對位址</h2>
+        <ul>
+            <li><a href="./01intro.html#/3/8">URL 是一個絕對位址</a></li>
+            <li>c: 是一個絕對位址，但是要使用 file:/// 開頭</li>
+            <li>例如：<a href="file:///G:/HTML5/slides/01intro.html">file:///G:/HTML5/slides/01intro.html</a></li>
+            <li>缺點：如果檔案在都在隨身碟，那它如果拿到別台電腦時，會永遠像上面的例子一樣，<b>都是指定到 G: 嗎？</b></li>
+            <li>但是，Google 的網址 <a href="http://www.google.com">http://www.google.com</a> 會改變嗎？</li>
+        </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>超連結(Hyper Link)</h2>
+        <ul>
+            <li>超連結(&lt;a&gt;)標籤：<b>a</b>nchor</li>
+           <li><b>使用 URL (絕對位置)連結：</b><br/>&lt;a href="https://www.google.com.tw"&gt;Google 的網站&lt;/a&gt;</li>
+           <li><b>開啟不同頁籤的連結：</b>加入 target="_blank"</li>
+           <li><b>連結 Email ：</b> href="mailto:elvis.hsieh@gmail.com"</li>
+           <li><b>相對位置的連結 ：</b> href="./hw1.html" 或者 href="hw1.html"<br/>(Why? 因為作業系統預設的尋找路徑就是在目前的目錄)</li>
+           <li><b>在同一個網頁內部的連結(&#35;)：</b>
+           <ul>
+               <li>先在要連結的位置命一個名 &lt;a id="goToBottom"&gt;&lt;/a&gt;，</li>
+               <li>然後使用 href="檔名#goToBottom"。</li>
+           </ul>
+           <li><b>連結網頁的某一個位置：</b>
+           <ul>
+               <li>檔名(包括副檔名 .html) + &#35; + id 名稱</li>
+               <li>例如：在 hw2.html 中連結 href="hw1.html&#35;name"</li>
+           </ul>
+        </ul>
+    </section>
+     <section>
+        <h2>超連結的程式碼</h2>
+        <pre><code class="line-numbers">&lt;h1 id="link">超連結的例子&lt;/h1>
+&lt;ul>
+    &lt;li>&lt;a href="https://www.google.com">Google 首頁&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="https://www.google.com" target="_blank">Google 首頁(開啟頁籤)&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="https://www.google.com" target="_self">Google 首頁(預設值是在自己的頁籤開啟網頁)&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="mailto:elvis.hsieh@gmail.com">我的 Email 位址&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="#link">連結到相同檔案的某一個位置&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="./drill04_01.html">連結到相同目錄下的檔案&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="./drill04_01.html#love">連結到檔案的某一個位置&lt;/a>&lt;/li>
+&lt;/ul></code></pre>
+   <ul>
+       <li>上面程式碼是的檔名為：<a href="./drill/drill03_01.html"><b>drill03_01.html</b></a></li>
+       <li>在 <b>drill03_01.html</b> 的原始程式碼中有一個標籤命名為：<b>id="link" </b></li>
+       <li>在 <b>drill04_01.html</b> 的原始程式碼中有一個標籤命名為：<b>id="love" </b></li>
+       <li>linking : <a href="./drill/drill03_01.html#link">#link</a> | <a href="./drill/drill04_01.html">drill04_01.html</a> | <a href="./drill/drill04_01.html#love">drill04_01.html#love</a></li>
+   </ul>
+    </section>
+    <section>
+        <h2>超連結的練習</h2>
+        <ul>
+            <li>在 drill/temp/ 目錄下<b>新增一個 temp.html 檔案</b></li>
+            <li>在 &lt;body&gt; 標籤內建立 5 個超連結，項目符號使用 unorder list，即 ul 標籤包含 5 個項目(lists)及 5 個超連結(a 標籤)</li>
+            <ul>
+                <li>作法：用 Brackets 在 body 中輸入 <b>ul&gt;li*5>a</b> + <b>Tab 鍵</b></li>
+            </ul>
+            <li><b>絕對位置超連結：</b>編輯一個超連結，連結到 Google 首頁</li>
+            <li><b>開啟不同頁籤的連結：</b>開啟新頁籤方式來連到 Google 首頁</li>
+            <li><b>Email 連結：</b>請加入一個自己 Email 位址的連結</li>
+            <li><b>外部檔案位置的連結：</b>編輯一個超連結，連結到 drill04_01.html 檔案中 id="love"的位置</li>
+            <li><b>檔案內部的連結：</b>在 temp.html 檔案中，建立一個&lt;li id="elvis" &gt; 書籤，然後連結到這個書籤</li>
+            <li class="fragment"><b>請複製 drill04_01.html 檔案到 temp 目錄，你能修改相關的連結來恢復網頁的樣子嗎？</b></li>
+        </ul>
+    </section>
+    </section>
+    
+    </div>
+
+		</div>
+        <script src="/reveal-js/lib/js/head.min.js"></script>
+        <script src="/reveal-js/js/reveal.min.js"></script>
+        
+        <script>
+        
+        Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: false,
+        center: true,
+        slideNumber: true,
+        
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        
+            menu: {
+                side: 'left',
+                width: 'normal',
+                numbers: false,
+                titleSelector: 'h1, h2, h3, h4, h5, h6',
+                useTextContentForMissingTitles: false,
+                hideMissingTitles: false,
+                markers: true,
+                custom: true,
+                themes: true,
+                themesPath: '/reveal-js/css/theme/',
+                transitions: true,
+                openButton: true,
+                openSlideNumber: false,
+                keyboard: true,
+                sticky: false,
+                autoOpen: true,
+                delayInit: false,
+                openOnInit: false,
+                loadIcons: true,
+                
+                custom: [
+                        { title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+                        { title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
+                ]
+            },
+        
+        customcontrols: { 
+                slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+                controls: [ 
+                    { icon: '<i class="fa fa-caret-left"></i>', 
+                      css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+                      action: 'Reveal.prev(); return false;' 
+                    }, 
+                    { icon: '<i class="fa fa-caret-right"></i>', 
+                      css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+                      action: 'Reveal.next(); return false;' 
+                    }
+                ] 
+            },
+        // Optional reveal.js plugins
+        dependencies: [
+        { src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+        { src: '/reveal-js/plugin/notes/notes.js', async: true },
+        { src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+        { src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+        { src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+        { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+        { src: '/reveal-js/plugin/anything/anything.js', async: true },
+        { src: '/reveal-js/plugin/menu/menu.js', async: true},
+        { src: '/math-katex/math-katex.js', async: true },
+        ]
+        });
+        
+        </script>
+
+	</body>
+</html>

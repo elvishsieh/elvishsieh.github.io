@@ -1,0 +1,21 @@
+body{
+    background: #a1dbff;
+	background: -moz-linear-gradient(left,  #a1dbff 23%, #cbebff 56%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(23%,#a1dbff), color-stop(56%,#cbebff));
+	background: -webkit-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -o-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -ms-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: linear-gradient(to right,  #a1dbff 23%,#cbebff 56%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#cbebff',GradientType=1 );
+    /* 字型設定  */
+    /* font-family: 'Oswald', 'cwTeXYen', sans-serif; */
+    font-size: 30px;
+    margin: 0 5% 0 5%;
+}
+h1{
+    font-size: 60px;
+    margin: inherit;
+}
+hr{
+    height:3px; border:none; color:rgb(60,90,180); background-color:rgb(60,90,180);
+}

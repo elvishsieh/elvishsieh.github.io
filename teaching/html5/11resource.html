@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Useful Resource</title>
+
+		<meta name="description" content="Tutorial of web design for primer">
+		<meta name="author" content="Elvis Hsieh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+        <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+        <link rel="stylesheet" href="/css/custom4revealjs.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+        <link rel="stylesheet" href="/css/style4font.css">
+        <!-- Printing and PDF exports -->
+        <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal-js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+   <section>
+       <h2>Content Delivery Network</h2>
+       <ul>
+           <li><b>CDN:</b> Content Delivery Network 的縮寫，中文翻譯：內容傳遞網路。</li>
+           <li>CDN 網路所有者在世界各地建置許多內容完全相同的網站，讓使用者可以依照所在的位置，就近存取到幾乎完全一樣的網站內容。</li>
+           <li><a href="http://code.google.com/apis/libraries/devguide.html" target="_blank">Google CDN</a></li>
+           <li><a href="http://www.asp.net/ajax/cdn" target="_blank">Microsoft Ajax Content Delivery Network</a></li>
+           <li><a href="https://cdnjs.com/" target="_blank">cdnjs.com</a>: 提供 Open Source Javascript, CSS 的 CDN</li>
+           <li><a href="http://www.jsdelivr.com/" target="_blank">jsDelivr JavaScript CDN</a></li>
+       </ul>
+   </section>
+   <section>
+       <h2>Imgix.js and Holder.js</h2>
+       <ul>
+           <li><a href="https://www.imgix.com/imgix-js" target="_blank">imgix.js</a> 是 <a href="https://placehold.it/" target="_blank">placehold.it</a> 網站的製作人，提供各種不同樣式把 images 展現在網頁</li>
+           <li><a href="https://github.com/imgix/imgix.js/" target="_blank">imgix.js on GitHub</a> 是 imgix.js 的原始程式碼，也可以拿來修改、處理 images 檔</li>
+           <li>有一位 <a href="http://imsky.co/" target="_blank">Ivan Malopinsky</a> 也寫了一個類似於 placehold.it 網站的 Javascript Library，放在 <a href="https://github.com/imsky/holder" target="_blank">Holder on GitHub</a>，讓網頁設計者可以在離線的時候也可以做出圖形</li>
+           <ul>
+               <li>Useage: <pre><code>&lt;script src="holder.js">&lt;/script>
+               
+&lt;img src="holder.js/300x200"></code></pre></li>
+               <li>範例 1: <a href="./example/holderJS.html">簡單的 holder.js 範例</a></li>
+               <li>範例 2: <a href="./example/holderJS.orig.html">holder.js 原始範例</a></li>
+           </ul>
+       </ul>
+   </section>
+   <section>
+   <section>
+       <h2>Git 版本控制系統</h2>
+       <ul>
+           <li>在撰寫文件、程式時，可能需要版本控制系統來管理你所寫的文件或程式碼，以便紀錄不同版本之間的差異及控制版本的內容。</li>
+           <li>網路上有許多版本控制系統，大都採開放原始程式碼方式發行，較流行的版本控制系統有：<a href="https://git-scm.com/" target="_blank">Git</a>, <a href="http://subversion.apache.org/" target="_blank">SVN(Subversion)</a>, <a href="https://www.mercurial-scm.org/" target="_blank">Mercurial</a></li>
+           <li>Git 版本控制系統是 Linux 創始者 <a href="http://torvalds-family.blogspot.tw/" target="_blank">Linus Torvalds</a> 所提出，對於開放原始程式碼的另一項重大的貢獻。</li>
+           <li>我們使用 <a href="https://isocpp.org/" target="_blank">isocpp.org</a> 成員 <a href="http://nuwen.net/mingw.html">STL 編譯好的 with git 檔案</a></li>
+           <li>C++ IDE，初學者建議先使用 <a href="http://www.codeblocks.org/" target="_blank">CodeBlocks</a>，未來可以使用 <a href="https://www.qt.io/" target="_blank">Qt</a> or <a href="https://www.visualstudio.com/" target="_blank">Visual Studio</a></li>
+       </ul>
+   </section>
+   <section>
+       <h2>Installing and Using Git</h2>
+       <ul>
+           <li><b>Download:</b><a href="https://nuwen.net/mingw.html" target="_blank"> STL's MinGW Distro</a></li>
+           <li><b>Install:</b></li>
+           <ol>
+               <li>Running the self-extracting archiv under C: or D: or ...</li>
+               <li>make a Shortcut on your Desktop.</li>
+           </ol>
+           <li><b>Using:</b></li>
+           <ul>
+               <li>Click the Shortcut</li>
+               <li>Make and Change directory: <br>
+               <b>md d:\projects &amp; cd /d d:\projects</b></li>
+               <li>git clone: git clone URL</li>
+               <li>Example: <br>
+               <b>git clone <a href="https://github.com/OwlFonk/OwlCarousel" target="_blank">https://github.com/OwlFonk/OwlCarousel</a></b></li>
+           </ul>
+       </ul>
+   </section>
+   </section>
+   <section>
+   <section>
+       <h2>Node.js 與套件管理系統</h2>
+       <ul>
+           <li><a href="https://nodejs.org/en/" target="_blank">Node.js®</a> is a JavaScript runtime built on Chrome's V8 JavaScript engine.</li>
+           <ul>
+               <li>不需要 Browser 就可以開發、執行、測試 Javascript 程式</li>
+           </ul>
+           <li><a href="https://www.npmjs.com/" target="_blank">npm</a> is the package manager for JavaScript. </li>
+           <ul>
+               <li>安裝某一個套件時，會將與這個套件相關的版本、套件一起安裝，不需要自己手動的安裝</li>
+               <li>安裝 Node.js 之後，npm 就一起安裝</li>
+           </ul>
+           <li><a href="http://bower.io/" target="_blank">bower</a>: 另一種 JavaScript 的套件管理軟體</li>
+           <ul>
+               <li>安裝： <b>npm install -g bower</b></li>
+               <li>指令說明： 使用 npm 安裝 bower 軟體</li>
+               <li>指令說明： -g 表示 Global 全面性，就是安裝到這個系統，而不是在目前的目錄底下</li>
+           </ul>
+       </ul>
+   </section>
+   <section>
+       <h2>編譯 Less 原始程式碼</h2>
+       <ul>
+           <li class="fragment">安裝 less ： <b>npm install -g less</b></li>
+           <li class="fragment">撰寫 less 原始程式碼：(<b>副檔名： .less</b>)</li>
+<pre class="fragment"><code class="line-numbers">@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+  color: @light-blue;
+}
+#footer{
+    color: @light-blue;
+}</code></pre>
+           <li class="fragment">編譯 less 原始程式碼：<br>
+           <ul>
+               <li class="fragment">範例： <b>lessc style.less style.css</b></li>
+           </ul>
+<pre class="fragment"><code class="line-numbers">#header {
+  color: #6c94be;
+}
+#footer {
+  color: #6c94be;
+}</code></pre>
+       </ul>
+   </section>
+   <section>
+       <h2>Less 開發環境安裝與建置</h2>
+        <ul>
+           <li class="fragment">切換到專案的目錄： <b>cd /d d:\projects </b></li>
+           <li class="fragment">安裝必要的軟體套件：</li>
+           <ul>
+            <li class="fragment">安裝 <b>gulp</b> or grunt</li>
+               <ul>
+                   <li class="fragment"><b>npm install gulp</b></li>
+                   <li class="fragment"><b>npm install gulp-less</b></li>
+               </ul>
+           </ul>
+           <li class="fragment">在專案的目錄(projects)中建立 一個 gulpfile.js 檔</li>
+<pre class="fragment"><code class="line-numbers">var gulp  = require('gulp');  
+var less  = require('gulp-less');
+
+gulp.task('default', function() {  
+  gulp.src('./src/lessTesting.less')
+    .pipe(less())
+    .pipe(gulp.dest('./css/'));
+});</code></pre>
+           <li class="fragment">執行 gulp: <b>gulp</b></li>
+        </ul>
+   </section>
+  <section>
+       <h2>Package Manager</h2>
+       <ul>
+           <li><a href="https://getcomposer.org/" target="_blank">Composer:</a> Dependency Manager for PHP</li>
+           <li><a href="https://pypi.python.org/pypi/pip/" target="_blank">pip:</a> The PyPA(Python Pacakges) recommended tool for installing Python packages.</li>
+           <li><a href="https://rubygems.org/pages/download" target="_blank">RubyGems:</a> RubyGems is a package management framework for Ruby.</li>
+           <li>Unix-Like System: apt-get, dpkg, yum, APT, aptitude, etc ...</li>
+       </ul>
+   </section>
+   <section>
+       <h2>Summary</h2>
+       <table>
+           <tbody>
+               <tr>
+                   <td>Function</td>
+                   <td>Javascript</td>
+                   <td>Windows</td>
+                   <td>Unix</td>
+               </tr>
+               <tr>
+                   <td>版本控制</td>
+                   <td>git, svn, <br>Mercurial</td>
+                   <td> the same</td>
+                   <td>the same</td>
+               </tr>
+               <tr>
+                   <td>套件管理</td>
+                   <td>npm, bower, <br>gem(Ruby)</td>
+                   <td>NuGet</td>
+                   <td>APT, dpkg</td>
+               </tr>
+               <tr>
+                   <td>自動編譯</td>
+                   <td>gulp, grunt</td>
+                   <td>Maven(Java)</td>
+                   <td>make(C++), cmake</td>
+               </tr>
+           </tbody>
+       </table>
+   </section>
+   </section>
+   <section>
+       <h3>Installing Bootstrap from Source Code </h3>
+       <ul>
+           <li>Installing git: 請參考 <a href="#/2">Installing and Using Git</a></li>
+           <li>安裝 Node.js</li>
+           <li>Update npm packages: <b>npm update -g</b></li>
+           <li>Install bower: <b>npm install -g bower</b></li>
+           <li>Install grunt: <b>npm install -g grunt-cli</b></li>
+           <li>切換到 projects 目錄： <b>cd /d d:\projects</b></li>
+           <li>安裝 bootstrap： <b>bower install bootstrap</b></li>
+           <li>切換到 bootstrap 並安裝相關的檔案： <br>
+           <b>cd bower_components\bootstrap &amp; npm install</b></li>
+           <li>Build Bootstrap： <b>grunt</b></li>
+           <li>完成上面的步驟，在 dist 目錄就會產生 Bootstrap 的 css, fonts, js 檔案</li>
+       </ul>
+   </section>
+    <section>
+       <h2>Gnu Wget</h2>
+       <ul>
+           <li><a href="https://www.gnu.org/software/wget/" target="_blank">GNU Wget</a> : a tool of mirror a website</li>
+           <li>Download for Windows:</li>
+           <ul>
+               <li><a href="http://wget.addictivecode.org/FrequentlyAskedQuestions?action=show&redirect=Faq#download" target="_blank">download information on the Wget Wgiki</a></li>
+               <li><a href="https://eternallybored.org/misc/wget/" target="_blank">Windows binaries of GNU Wget</a></li>
+           </ul>
+           <li>Mirror a website: wget -m URL</li>
+           <li>Example: <b>wget -m http://v3.bootcss.com/</b></li>
+           <li><b>再輸入上面範例的指令時，請特別注意：「環境變數」的這個問題</b>，換句話說，就是要將目錄切換到 wget 解壓縮的目錄底下，才能輸入上面的指令</li>
+       </ul>
+   </section>
+</div>
+
+</div>
+
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+]
+});
+
+</script>
+
+</body>
+</html>

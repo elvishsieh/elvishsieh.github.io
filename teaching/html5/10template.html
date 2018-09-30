@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Bootstrap RWD Framework</title>
+
+		<meta name="description" content="Tutorial of web design for primer">
+		<meta name="author" content="Elvis Hsieh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+        <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
+        <link rel="stylesheet" href="/css/custom4revealjs.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+        <link rel="stylesheet" href="/css/style4font.css">
+        <!-- Printing and PDF exports -->
+        <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal-js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+<section>
+    <h2>Rwd Framework</h2>
+    <ul>
+        <li><b><a href="http://getbootstrap.com/" target="_blank">Bootstrap:</a></b> is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</li>
+        <li><b><a href="http://foundation.zurb.com/" target="_blank">Zurb Foundation:</a></b> The most advanced responsive front-end framework in the world.</li>
+        <li><b><a href="http://purecss.io/" target="_blank">pure.css :</a></b> A set of small, responsive CSS modules that you can use in every web project.</li>
+    </ul>
+</section>
+<section>
+    <h2> Web Template</h2>
+    <ul>
+        <li><b>Bootstrap Framework:</b></li>
+        <ul>
+            <li>安裝：請參考 <a href="http://getbootstrap.com/getting-started/" target="_blank"> Bootstrap Gatting Started</a></li>
+            <li><a href="http://getbootstrap.com/getting-started/#examples" target="_blank">Template or Theme</a></li>
+        </ul>
+        <li><b>Zurb Foundation Framework:</b></li>
+        <ul>
+            <li>安裝：請參考 <a href="http://foundation.zurb.com/sites/download.html/" target="_blank">Foundation Doc.</a></li>
+            <li><a href="http://foundation.zurb.com/templates.html" target="_blank">Template or Theme</a></li>
+        </ul>
+        <li>相關的檔案已經下載到 <b>Website.7z</b> 檔案，請在<b>根目錄中解壓縮</b></li>
+        <ul>
+            <li>請先下載 <a href="http://www.developershome.com/7-zip/">7zip 壓縮程式</a>，安裝並解壓縮 Website.7z 檔案</li>
+            <li>執行 Website/Bootstrap/installMemu.bat</li>
+            <li>執行 Website/foundation/installMemu.bat</li>
+            <li>Template or Theme 的名稱與網站上面的名稱相同</li>
+        </ul>
+    </ul>
+</section>
+</section>
+<section>
+<section>
+    <h2>Bootstrap 的版本及文件</h2>
+    <ul>
+        <li>Bootstrap 版本</li>
+        <ul>
+            <li>目前的穩定版是 v3.3.6 版</li>
+            <li>開發中的版本是 v4 alpha 版</li>
+            <li>v3.x 版本與 v4.x 版開發的原始程式碼由 <a href="http://lesscss.org/" target="_blank">Less</a> 換成 <a href="http://sass-lang.com/" target="_blank">Sass</a></li>
+        </ul>
+    <li>Bootstrap 參考文件</li>
+    <ul>
+        <li><a href="http://getbootstrap.com/getting-started/" target="_blank">Bootstrap 原始文件</a>：<b>建議先參考這份文件，輔以中文文件</b></li>
+        <li><a href="http://v3.bootcss.com/getting-started/" target="_blank">Bootstrap 簡體中文文件</a>：較新 Bootstrap 版本的中文文件</li>
+        <li><a href="https://kkbruce.tw/bs3/GettingStarted" target="_blank">Bootstrap 繁體中文文件</a>：僅翻譯到 Bootstrap  v3.3.1 版本</li>
+    </ul>
+    </ul>
+</section>
+<section>
+    <h2>Bootstrap 的安裝</h2>
+    <ul>
+        <li><a href="http://getbootstrap.com/getting-started/" target="_blank">Bootstrap</a> 有下列安裝方式 ：</li>
+        <ol>
+            <li><b><a href="http://getbootstrap.com/getting-started/#download" target="_blank">Bootstrap CDN:</a></b></li>
+            <li><b>Bootstrap:</b> 事先已經編譯好的套件</li>
+            <li><b>Source code:</b> 從 Less 原始程式碼來安裝</li>
+            <li><b>Sass:</b> 從 Sass 原始程式碼來安裝</li>
+        </ol>
+        <li>一般的使用者請採用第二種 Precompiled Bootstrap 來方式安裝 Bootstrap 套件</li>
+        <li>在網站中下載下來的 <b>Precompiled Bootstrap 套件沒有樣版、主題的範例</b>，請到 Bootstrap Gatting started 的 <a href="http://getbootstrap.com/getting-started/#examples">Examples</a> 中<a href="https://github.com/twbs/bootstrap/archive/v3.3.6.zip" target="_blank">下載包含原始程式碼的完整套件</a></li>
+        <li>Webstie.zip 已經將這些安裝的步驟及相關的連結都處理好，<b>請執行 installMenu.bat 批次檔即可</b></li>
+    </ul>
+</section>
+<section>
+    <h2>Bootstrap 目錄結構</h2>
+<pre><code>bootstrap-3.3.6-dist/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   ├── bootstrap.min.css.map
+│   ├── bootstrap-theme.css
+│   ├── bootstrap-theme.css.map
+│   ├── bootstrap-theme.min.css
+│   └── bootstrap-theme.min.css.map
+├── js/
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    ├── glyphicons-halflings-regular.woff
+    └── glyphicons-halflings-regular.woff2</code></pre>
+    <ul>
+        <li>上面是 Precompiled Bootstrap 的目錄結構</li>
+        <li>這種 Precompiled Bootstrap 安裝方式，<b>需要加入 jQuery 及相關的套件才來能正常被使用</b></li>
+    </ul>
+</section>
+<section>
+    <h2>Bootstrap Templates</h2>
+    <ul>
+        <li><a href="http://getbootstrap.com/getting-started/#template" target="_blank">最陽春的樣版</a>： Copy and Paste into Bracktes Editor</li>
+        <li>安裝 Bootstrap Skeleton 擴充套件：</li>
+        <ul>
+            <li>點選擴充套件圖示 ≫ 輸入 Bootstrap Skeleton ≫ 點 install</li>
+            <li>Ctrl + n ≫ Ctrl + s ≫ 命名 ≫ Edit ≫ New Bootstrap Document</li>
+            <li>修正 lang, title 等設定值</li>
+            <li>如果想要在離線下編輯網頁，請修改 css, js 等相對位置的連結</li>
+        </ul>
+        <li><a href="http://getbootstrap.com/getting-started/#examples" target="_blank">Examples:</a> 請檢視自己想要的是哪一種樣版，記下樣版的英文名稱，再使用 Website/bootstrap/installMenu.bat 來安裝 </li>
+        <li>Website 安裝步驟<b><a href="#/0/1" target="_blank">請參考這一張 slide 的說明</a></b></li>
+    </ul>
+</section>
+<section>
+    <h2>Website's Bootstrap 目錄結構</h2>
+<pre><code>Bootstrap/
+├── assets/
+│   ├── brand/
+│   ├── css/
+│   ├── flash/
+│   ├── img/
+│   └── js/
+├── dist/        
+│   ├── css/
+│   │   ├── bootstrap.css
+│   │   ├── bootstrap.css.map
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap.min.css.map
+│   │   ├── bootstrap-theme.css
+│   │   ├── bootstrap-theme.css.map
+│   │   ├── bootstrap-theme.min.css
+│   │   └── bootstrap-theme.min.css.map
+│   ├── js/
+│   │   ├── bootstrap.js
+│   │   └── bootstrap.min.js
+│   └── fonts/
+│       ├── glyphicons-halflings-regular.eot
+│       ├── glyphicons-halflings-regular.svg
+│       ├── glyphicons-halflings-regular.ttf
+│       ├── glyphicons-halflings-regular.woff
+│       └── glyphicons-halflings-regular.woff2
+├── img/favicon.ico
+│
+├── templates/ ...
+│
+├── index.html
+│
+└── installMenu.bat
+</code></pre>
+    <ul>
+        <li>與上一張 Precompiled Bootstrap 的目錄結構差別在於： assets/ 與 templates/ 目錄</li>
+        <li>assets/ 存放相關套件檔案，templates/ 則存 Bootstrap 樣版</li>
+    </ul>
+</section>
+</section>
+<section>
+<section>
+    <h2>Grid System of Bootstrap</h2>
+    <ul>
+        <li>Grid System 把它想像成是一個無框方格</li>
+        <li>每一個 grid 由 12 columns(行)組成一個 row(列)，換句話說，就是要湊成 12 columns</li>
+        <li>Bootstrap 規定每一個 grid system 包覆在 row 類別中，而 row 又不須被 container(or container-fluid)所包覆</li>
+<pre><code>&lt;div class="container">
+     &lt;div class="row">
+      &lt;div class="col-md-8">.col-md-8&lt;/div>
+      &lt;div class="col-md-4">.col-md-4&lt;/div>
+    &lt;/div>
+&lt;/div></code></pre>
+        <li><a href="./example/bsGridSystem.html" target="_blank">範例</a></li>
+    </ul>
+</section>
+<section>
+    <h2>Bootstrap 範例的實作步驟</h2>
+    <ul>
+        <li class="fragment">建立基本框架：
+        <ul>
+            <li class="fragment">新增一個 .html 檔，步驟如下：</li>
+            <li class="fragment">開啟 <b>Brackets ≫ Ctrl + n ≫ Ctrl + s ≫ 輸入檔名.html ≫ Edit ≫ New Bootstrap Document</b></li>
+        </ul></li>
+        <li class="fragment">修改相關的 css, js 檔案連結：</li>
+        <ul>
+            <li class="fragment">bootstrap.min.css：預設是使用 CDN</li>
+            <li class="fragment">bootstrap-theme.min.css：預設是使用 CDN</li>
+            <li class="fragment">jquery.min.js：預設是使用 CDN</li>
+            <li class="fragment">bootstrap.min.js：預設是使用 CDN</li>
+            <li class="fragment"><b>docs.min.css</b>：在 copy 範例程式碼時需要這個檔案</li>
+        </ul>
+        <li class="fragment">加入<code>&lt;div class="container"&gt;</code></li>
+        <li class="fragment">複製程式碼到 <code>&lt;div class="container"&gt;</code>內部 </li>
+    </ul>
+</section>
+<section>
+    <h2>Documentation of Bootstrap</h2>
+    <ul>
+        <li>git clone <a href="https://github.com/twbs/bootstrap" target="_blank">bootstrap:</a><br><b>git clone https://github.com/twbs/bootstrap</b></li>
+        <li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=50395" target="_blank">Download and install Powershell</a></li>
+        <li><a href="https://chocolatey.org/install" target="_blank">Installing Chocolatey:</a> Open an administrative command prompt and paste the text from the chocolatey website</li>
+        <li>Install Ruby via Chocolatey: <b>choco install ruby -y</b></li>
+        <li>Reopen a command prompt and install Jekyll: <br><b>gem install jekyll</b></li>
+        <li>Install bundler: <b>gem install bundler</b></li>
+        <li>From the root /bootstrap directory, run <b>bundle install</b> and <br> <b>bundle exec jekyll serve</b></li>
+        <li>Open http://localhost:9001 in your browser</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Table of Bootstrap</h2>
+    <ul>
+        <li class="fragment">請確認 docs.min.css 的連結是否正確？</li>
+        <li class="fragment"><a href="http://localhost:9001/css/#tables-contextual-classes" target="_blank">Table 的範例</a></li>
+        <li class="fragment">檢視原始程式碼，Ctrl + f 搜尋 contextual</li>
+        <li class="fragment">複製原始程式碼</li>
+<pre class="fragment"><code class="line-numbers">&lt;div class="bs-example" data-example-id="contextual-table">
+    &lt;table class="table">
+      &lt;thead>
+        &lt;tr>
+          &lt;th>#&lt;/th>
+          &lt;th>Column heading&lt;/th>
+          &lt;th>Column heading&lt;/th>
+          &lt;th>Column heading&lt;/th>
+        &lt;/tr>
+      &lt;/thead>
+      
+      ...
+      
+    &lt;/table>
+  &lt;/div><!-- /example --></code></pre>
+    </ul>
+</section>
+<section>
+    <h2>練習</h2>
+    <ul>
+        <li>請開啟 Brackets 安裝 Bootstrap Skeleton 擴充套件，並且使用這個套件建立 Bootstrap 最陽春的樣版，將檔案名稱命名為 drill10_01.html</li>
+        <li>請嘗試安裝 Website.7z 到電腦系統</li>
+        <li>請將 drill10_01.html, drill10_02.html, drill10_03.html 檔案複製到 Website/bootstrap 目錄，修改相關的連結，讓網頁可以正常顯示</li>
+        <li>請複製 <a href="http://getbootstrap.com/css/" target="_blank">Bootstrap CSS</a> 文件中的某一個程式碼到 drill10_02.html 檔案</li>
+    </ul>
+</section>
+</section>
+
+</div>
+
+</div>
+
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+]
+});
+
+</script>
+
+</body>
+</html>

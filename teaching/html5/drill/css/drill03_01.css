@@ -1,0 +1,32 @@
+/* http://css3generator.com/ >> Gradient >>http://www.colorzilla.com/gradient-editor/　*/
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,207cca+30,207cca+73,7db9e8+100 */
+/* @import url("../fonts/fonts.css"); */
+body{
+    background: #a1dbff;
+	background: -moz-linear-gradient(left,  #a1dbff 23%, #cbebff 56%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(23%,#a1dbff), color-stop(56%,#cbebff));
+	background: -webkit-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -o-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -ms-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: linear-gradient(to right,  #a1dbff 23%,#cbebff 56%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#cbebff',GradientType=1 );
+    margin: 1% 10%;
+    text-transform: lowercase
+    /* font-family: 'Oswald', 'cwTeXYen', sans-serif; */
+    /* font-size: 1.5em; */
+}
+#first{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:sandybrown;            
+}
+p#second{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:black;               
+}
+p.third{
+        font-family: "Times New Roman", "標楷體";
+        font-size: 2em;
+        color:red;            
+}
