@@ -29,7 +29,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 	loadResource(options.path + '/toolbar.css', 'stylesheet', 'toolbar-defaults', function() {
 		loadResource(options.path + '/lib/screenfull/screenfull.min.js', 'script', null, function() {
 			if (loadIcons) {
-				loadResource('/font-awesome/css/fontawesome-all.min.css', 'stylesheet', '', loadPlugin);
+				loadResource('/font-awesome/css/all.min.css', 'stylesheet', '', loadPlugin);
 			} else {
 				loadPlugin();
 			}
