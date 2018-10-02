@@ -1,0 +1,19 @@
+@import url(../../fonts/fonts.css);
+body{
+    background: #a1dbff;
+	background: -moz-linear-gradient(left,  #a1dbff 23%, #cbebff 56%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(23%,#a1dbff), color-stop(56%,#cbebff));
+	background: -webkit-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -o-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: -ms-linear-gradient(left,  #a1dbff 23%,#cbebff 56%);
+	background: linear-gradient(to right,  #a1dbff 23%,#cbebff 56%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#cbebff',GradientType=1 );
+    font-family: 'Oswald', 'cwTeXYen', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0 5% 0 5%;
+}
+h1{
+    font-size: 60px;
+}

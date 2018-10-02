@@ -18,8 +18,7 @@
         <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
         <link rel="stylesheet" href="/css/custom4revealjs.css">
         <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
-		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+		<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
         <link rel="stylesheet" href="/css/style4font.css">
         <!-- Printing and PDF exports -->
         <script>
@@ -43,7 +42,6 @@
             ul ul.emoji{
               list-style: kimoji;
             }
-            .em
         </style>
     </head>
 
@@ -97,12 +95,12 @@
             <ol>
                 <li>選擇你想要的英文字體 &Gt;<b>按右上角紅色的+號</b> &Gt; 點選下方黑色的<b>Family Selected</b> &Gt;</li>
                 <li>在 header 標籤中加入 fonts 網址的連結</li>
+                <li>在 CSS 中加入 font-family 的設定</li>
+            </ol>
 <pre><code>&lt;head>
 &lt;link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 &lt;/head></code></pre>
-                <li>在 CSS 中加入 font-family 的設定</li>
-<pre><code>font-family: 'Oswald', sans-serif;</code></pre>
-            </ol>
+ <pre><code>font-family: 'Oswald', sans-serif;</code></pre>
         </ul>
     </section>
     <section>
@@ -197,14 +195,12 @@
         <pre><code class="line-numbers">@font-face {
     font-family: 'cwTeXYen';
     font-style: normal;
-    src: url('fonts/cwTeX/cwTeXYen-zhonly.ttf') format('truetype');
-}
+    src: url('fonts/cwTeX/cwTeXYen-zhonly.ttf') format('truetype');}
 @font-face {
     font-family: 'Oswald';
     font-style: normal;
     font-weight: 200;
-    src: url("fonts/Oswald/Oswald-Regular.ttf");
-}
+    src: url("fonts/Oswald/Oswald-Regular.ttf");}
 body{
     font-family: 'Oswald', 'cwTeXYen', sans-serif;
     font-size: 2em;}
@@ -239,7 +235,6 @@ body{
         <ul>
            <li>&commat;font-face 的設定檔案全部放在 fonts/fonts.css 檔案內</li>
            <li><b>再使用 &commat;import 指令把 fonts/fonts.css 匯入</b></li>
-        </ul>
         <pre><code class="line-numbers">@font-face {
     font-family: 'cwTeXYen';
     font-style: normal; /* italic, oblique, inherit */
@@ -329,6 +324,7 @@ body{
     font-weight: 300;
     src: url(Oswald/Oswald-Light.ttf);
 }</code></pre>
+</ul>
     </section>
     <section>
         <h2>下載字型設定的範例</h2>
@@ -579,17 +575,32 @@ body{
         <ul>
             <li><a href="http://www.unicode.org/reports/tr51/" target="_blank">Emoji Unicode 標準</a></li>
             <li><a href="http://getemoji.com/" target="_blank">Emoji 字型的網址</a></li>
-            <li><a href="http://caniemoji.com/microsoft-windows/" target="_blank">Can I Emoji ❓</a></li>
+            <li><a href="http://caniemoji.com/microsoft-windows/" target="_blank">Can I Emoji ?</a></li>
             <li><b>注意： Chrome 不支援 Emoji 字型，所以看不到彩色圖案</b></li>
         </ul>
-        <p style="font-family: Segoe UI Emoji; font-size: 1em">
-        ⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 ⛳️ 🏌 🏓 🏸 🏒 🏑 🏏 🎿 ⛷ 🏂 ⛸ 🏹 🎣 🚣 🏊 🏄 🛀 ⛹ 🏋 🚴 🚵 🏇 🕴 🏆 🎽 🏅 🎖 🎗 🏵 🎫 🎟 🎭 🎨 🎪 🎤 🎧 🎼 🎹 🎷 🎺 🎸 🎻 🎬 🎮 👾 🎯 🎲 🎰 🎳 🐘 🐐 🐏 🐑 🐎 🐖 🐀 🐁 🐓 🦃 🕊 🐕 🐩 🐈 🐇 🐿 🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘ 🍀 🎍 🎋 🍃 🍂 🍁 🌾 🌺 🌻 🚶🏽 🏃🏽 💃🏽 💪🏽 👈🏽 👉🏽 ☝️🏽 👆🏽 🖕🏽 👇🏽 ✌️🏽 🖖🏽 🤘🏽 🖐🏽 ✊🏽 ✋🏽 👊🏽 👌🏽 👍🏽 👎🏽 👋🏽 👏🏽 👐🏽 ✍🏽 💅🏽 👂🏽 👃🏽 🚣🏽 🛀🏽 🏄🏽 🏇🏽 🏊🏽 ⛹🏽 🏋🏽 🚴🏽 🚵🏽 💅🏻 👂🏻 👃🏻 🚣🏻 🛀🏻 🏄🏻 🏇🏻 🏊🏻 ⛹🏻 🏋🏻 🚴🏻 🚵🏻
+        <p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+        ⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 ⛳️ 🏌 🏓 🏸 🏒 🏑 🏏 🎿 ⛷ 🏂 ⛸ 🏹 🎣 🚣 🏊 🏄
+         🛀 ⛹ 🏋 🚴 🚵 🏇 🕴 🏆 🎽 🏅 🎖 🎗 🏵 🎫 🎟 🎭 🎨 🎪 🎤 🎧 🎼 🎹 🎷 🎺 🎸
+          🎻 🎬 🎮 👾 🎯 🎲 🎰 🎳 🐘 🐐 🐏 🐑 🐎 🐖 🐀 🐁 🐓 🦃 🕊 🐕 🐩 🐈 🐇 🐿 
+          🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘ 🍀 🎍 🎋 🍃 🍂 🍁 🌾 🌺 🌻 🚶🏽 🏃🏽 💃🏽 💪🏽 👈🏽 
+          👉🏽 ☝️🏽 👆🏽 🖕🏽 👇🏽 ✌️🏽 🖖🏽 🤘🏽 🖐🏽 ✊🏽 ✋🏽 👊🏽 👌🏽 👍🏽 👎🏽 👋🏽 👏🏽 👐🏽 ✍🏽 💅🏽 👂🏽 👃🏽 🚣🏽 🛀🏽 🏄🏽 🏇🏽 🏊🏽 
+          ⛹🏽 🏋🏽 🚴🏽 🚵🏽 💅🏻 👂🏻 👃🏻 🚣🏻 🛀🏻 🏄🏻 🏇🏻 🏊🏻 ⛹🏻 🏋🏻 🚴🏻 🚵🏻
         </p>
    </section>
    <section>
        <h2>Emoji Fonts(2/3)</h2>
-        <p style="font-family: Segoe UI Emoji; font-size: 1em">
-        ❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 ☢ ☣ 📴 📳 🈶 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘 ⛔️ 📛 🚫 ❌ ⭕️ 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 💯 🔅 🔆 🔱 ⚜ 〽️ ⚠️ 🚸 🔰 ♻️ 🈯️ 💹 ❇️ ✳️ ❎ ✅ 💠 🌀 ➿ 🌐 Ⓜ️ 🏧 🈂️ 🛂 🛃 🛄 🛅 ♿️ 🚭 🚾 🅿️ 🚰 🚹 🚺 🚼 🚻 🚮 🎦 📶 🈁 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 ▶️ ⏸ ⏯ ⏹ ⏺ ⏭ ⏮ ⏩ ⏪ 🔀 🔁 🔂 ◀️ 🔼 🔽 ⏫ ⏬ ➡️ ⬅️ ⬆️ ⬇️ ↗️ ↘️ ↙️ ↖️ ↕️ ↔️ 🔄 ↪️ ↩️ ⤴️ ⤵️ #️⃣ *️⃣ ℹ️ 🔤 🔡 🔠 🔣 🎵 🎶 〰️ ➰ ✔️ 🔃 ➕ ➖ ➗ ✖️ 💲 💱 ©️ ®️ ™️ 🔚 🔙 🔛 🔝 🔜 ☑️ 🔘 ⚪️ ⚫️ 🔴 🔵 🔸 🔹 🔶 🔷 🔺 ▪️ ▫️ ⬛️ ⬜️ 🔻 ◼️ ◻️ ◾️ ◽️ 🔲 🔳 🔈 🔉 🔊 🔇 📣 📢 🔔 🔕 🃏 🀄️ ♠️ ♣️ ♥️ ♦️ 🎴 👁‍🗨 💭 🗯 💬 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣</p>
+        <p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+        ❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 
+        🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 
+        ☢ ☣ 📴 📳 🈶 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘
+         ⛔️ 📛 🚫 ❌ ⭕️ 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 💯 🔅 🔆 🔱 ⚜ 〽️ ⚠️ 🚸
+          🔰 ♻️ 🈯️ 💹 ❇️ ✳️ ❎ ✅ 💠 🌀 ➿ 🌐 Ⓜ️ 🏧 🈂️ 🛂 🛃 🛄 🛅 ♿️ 🚭 🚾 🅿️ 🚰 🚹 
+          🚺 🚼 🚻 🚮 🎦 📶 🈁 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 
+          ▶️ ⏸ ⏯ ⏹ ⏺ ⏭ ⏮ ⏩ ⏪ 🔀 🔁 🔂 ◀️ 🔼 🔽 ⏫ ⏬ ➡️ ⬅️ ⬆️ ⬇️ ↗️ ↘️ ↙️ ↖️ ↕️ ↔️ 
+          🔄 ↪️ ↩️ ⤴️ ⤵️ #️⃣ *️⃣ ℹ️ 🔤 🔡 🔠 🔣 🎵 🎶 〰️ ➰ ✔️ 🔃 ➕ ➖ ➗ ✖️ 💲 💱 ©️ ®️ ™️ 🔚
+           🔙 🔛 🔝 🔜 ☑️ 🔘 ⚪️ ⚫️ 🔴 🔵 🔸 🔹 🔶 🔷 🔺 ▪️ ▫️ ⬛️ ⬜️ 🔻 ◼️ ◻️ ◾️ ◽️ 🔲 🔳 🔈 🔉 🔊 
+           🔇 📣 📢 🔔 🔕 🃏 🀄️ ♠️ ♣️ ♥️ ♦️ 🎴 👁‍🗨 💭 🗯 💬 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 
+           🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣</p>
    </section>
    <section>
        <h2>Emoji Fonts(3/3)</h2>
@@ -600,7 +611,7 @@ body{
                <li>加入 style="font-family: Segoe UI Emoji" 的設定，</li>
            </ul>
            <li>範例的程式碼：</li>
-<pre><code>&lt;p style="font-family: Segoe UI Emoji; font-size: 1em">
+<pre><code>&lt;p style="font-family: Segoe UI Emoji; font-size: 0.8em">
 ❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 
 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 ☢ ☣ 📴 📳 🈶 
 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘 ⛔️ 📛 🚫 ❌
@@ -781,7 +792,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         loadIcons: true,
         
         custom: [
-				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
 				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
 		]
 	},
@@ -799,6 +810,41 @@ customcontrols: {
 			}
 		] 
 	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
 // Optional reveal.js plugins
 dependencies: [
 { src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -808,12 +854,14 @@ dependencies: [
 { src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
 { src: '/reveal-js/plugin/notes/notes.js', async: true },
 { src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
 { src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
 { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
 { src: '/reveal-js/plugin/anything/anything.js', async: true },
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
 { src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]
 });
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5/CSS3 偵測</title>
+    <script src="./modernizr-latest.js"></script>
+</head>
+<body>
+    <p>這是使用 modernizr-latest.js Library 偵測 HTML5/CSS3 ... <br>
+    <span id="elvis" style="color:red"></span></p>
+    <script>
+    // 找這個網頁中命名為 elvis 的標籤元件來顯示其結果
+    var elvis = document.getElementById("elvis");
+
+    if (Modernizr.draganddrop) {
+        elvis.innerHTML = "恭喜！ 你的瀏覽器支援拖放(drag-and-drop)功能";
+    }
+    else {
+        elvis.innerHTML = "抱歉！你的瀏覽器不支援拖放(drag-and-drop)功能";
+    }
+    </script>
+</body>
+</html>

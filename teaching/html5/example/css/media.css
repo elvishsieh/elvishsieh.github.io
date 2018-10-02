@@ -1,0 +1,26 @@
+body{
+    background-color: aliceblue;
+    margin: 2pt 30pt;
+    font-family: "Times New Roman", "標楷體";
+    font-size: 16pt;
+}
+header{
+    text-align: center;
+}
+header h1{
+    color: brown;
+}
+aside{
+    float: right;
+    width: 20%;
+}
+aside li{
+    margin: 30pt 0pt;
+}
+p.paragraph{
+    margin-top: 20pt;
+    font-weight: bolder;
+    /* text-shadow generator from http://www.cssportal.com/css3-text-shadow-generator/ */
+    text-shadow: 7px 0px 5px #E01682;
+    color: #370FFF;
+}

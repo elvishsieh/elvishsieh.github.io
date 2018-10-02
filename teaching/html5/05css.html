@@ -18,8 +18,7 @@
         <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
         <link rel="stylesheet" href="/css/custom4revealjs.css">
         <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
-		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+		<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
         <link rel="stylesheet" href="/css/style4font.css">
         <!-- Printing and PDF exports -->
         <script>
@@ -118,16 +117,13 @@
 </code></pre>
         <li>ID Selector</li>
         <pre><code>#cat{
-    color: gray;
-}</code></pre>
+    color: gray;}</code></pre>
         <li>Class Selector</li>
         <pre><code>.dog{
     margin: 10px 5px 10px 5px /* 上 右 下 左 */
-    padding 10px 5px 10px 5px /* 上 右 下 左 */            
-}
+    padding 10px 5px 10px 5px /* 上 右 下 左 */}
 p.box{
-    margin: 10px 5px 10px 5px /* 上 右 下 左 */
-}</code></pre>
+    margin: 10px 5px 10px 5px /* 上 右 下 左 */}</code></pre>
     </ul>
 </section>
 <section>
@@ -141,8 +137,7 @@ p.box{
     #note{
             font-family: "Times New Roman", "標楷體";
             font-size: 3em;
-            color:black;
-    }
+            color:black;}
 &lt;/style></code></pre>
     </ul>
 </section>
@@ -189,8 +184,7 @@ p.third{
     <ol>
         <li>!important</li>
 <pre><code>a {
-    background-color: #555 !important;
-}</code></pre>
+    background-color: #555 !important;}</code></pre>
         <li>Embedding the Styles</li>
             <ul>
                 <li>Inline Styles</li>
@@ -272,7 +266,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         loadIcons: true,
         
         custom: [
-				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
 				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
 		]
 	},
@@ -290,6 +284,41 @@ customcontrols: {
 			}
 		] 
 	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
 // Optional reveal.js plugins
 dependencies: [
 { src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -299,12 +328,14 @@ dependencies: [
 { src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
 { src: '/reveal-js/plugin/notes/notes.js', async: true },
 { src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
 { src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
 { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
 { src: '/reveal-js/plugin/anything/anything.js', async: true },
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
 { src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]
 });
 

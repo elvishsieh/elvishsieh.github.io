@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of respimage.js</title>
+    <script src="https://afarkas.github.io/respimage/respimage.js" async=""></script>
+	<script type="text/javascript" src="./js/shCore.js"></script>
+	<script type="text/javascript" src="./js/shBrushJScript.js"></script>
+	<script type="text/javascript" src="./js/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="./css/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+    <style>
+        @import url(../fonts/fonts.css);
+
+        @counter-style elvis-style{
+          system: fixed;
+          symbols: ㈠ ㈡ ㈢ ㈣ ㈤ ㈥ ㈦ ㈧ ㈨ ㈩;
+          suffix: " ";
+        }
+        body {
+            font-size: 1.5em;
+            max-width: 1000px;
+            font-family: 'Oswald', 'cwTeXYen', sans-serif;
+            margin: auto;
+         /* color: #117fe8; */
+        }
+        h1{
+            font-variant: small-caps;
+            text-transform: capitalize;
+            text-align: center;
+        }
+        #fignote{
+            text-align: right;
+        }
+        img {
+          max-width: 100%;
+        }
+        p.explanation{
+             margin-bottom: 2em;   
+        }
+        ul {
+          list-style: elvis-style;
+          margin-bottom: 2em;
+        }
+        ul>li{
+            padding-left: 20px; /* 輸入文字的左邊要補白 */
+           /* padding: 0px 20px 0px 100px; /* 上、右、下、左 */ 
+        }
+    </style>
+</head>
+<body>
+<h1>respimage</h1>
+<picture>
+	<!--[if IE 9]><video style="display: none;"><![endif]-->
+    <!-- placehold.it/寬x高/背景顏色/文字顏色 -->
+	<source	srcset="http://placehold.it/525x225/88e2a9/fff 1.5x,
+        	http://placehold.it/350x150/88e2a9/fff 1x"
+			media="(max-width: 380px)" />
+	<source srcset="http://placehold.it/1400x600/e8117f/fff 1.5x,
+        	http://placehold.it/1024x439/e8117f/fff 1x"
+			media="(max-width: 1050px)" />
+	<!--[if IE 9]></video><![endif]-->
+	<img srcset="http://placehold.it/2100x900/117fe8/fff 1.5x,
+            	http://placehold.it/1400x600/117fe8/fff 1x"
+            src="http://placehold.it/420x180/117fe8/fff"
+			alt="image with artdirection" />
+</picture>
+<p id="fignote"><a href="https://github.com/aFarkas/respimage" target="_blank">respimage polyfill(填空期=空窗期)</a></p>
+<a href="https://iamsteve.me/blog/entry/images-with-srcset-picture"></a>
+
+<p><b>head 標籤內的部分原始程式碼：</b></p>
+<pre class="brush: xml;">&lt;head>
+    &lt;script src="https://afarkas.github.io/respimage/respimage.js" async="">&lt;/script>
+&lt;/head></pre>
+<p><b>程式碼說明：</b> 
+<ul>
+    <li>直接連結到 respimage.js 套件存放在 GitHub 網站的程式碼</li>
+    <li>注意： 不管是 CDN 還是這種方式，一定要能連上網路，如果你想樣離線開發，就必須要下載 .js 檔案</li>
+    <li>async : respimage.js 套件處理 DOM(Document Object Model) 時採用非同步的方式來處理，就是不需要等待 respimage.js，先處理別的事情，等 respimage.js 完成後再才處理 respimage.js 的要求</li>
+</ul>
+
+<p><b>body 標籤內的部分原始程式碼：</b></p>
+<pre class="brush: xml;">&lt;picture>
+    <!-- placehold.it/寬x高/背景顏色/文字顏色 -->
+	&lt;source  srcset="http://placehold.it/525x225 1.5x,
+        	    http://placehold.it/350x150 1x"
+			    media="(max-width: 380px)" />
+	&lt;source	srcset="http://placehold.it/1400x600/e8117f/fff 1.5x,
+        	    http://placehold.it/1024x439/e8117f/fff 1x"
+			    media="(max-width: 1050px)" />
+	&lt;img	srcset="http://placehold.it/2100x900/117fe8/fff 1.5x,
+            http://placehold.it/1400x600/117fe8/fff 1x"
+            src="http://placehold.it/420x180/117fe8/fff"
+			alt="image with artdirection" />
+&lt;/picture>
+</pre>
+<p><b>程式碼說明：</b>
+<ul>
+    <li>當寬度在 380px 以下[media="(max-width: 380px)"] 顯示 <a href="http://placehold.it/350x150" target="_blank">http://placehold.it/350x150</a> 的圖形；但是若解析度(放大)是 1.5 倍時，就顯示 525x225 圖</li>
+    <li>相同地，當寬度在 1050px 以下就顯示 <a href="http://placehold.it/1024x439/e8117f/fff" target="_blank">http://placehold.it/1024x439/e8117f/fff</a> 的圖形；但是若解析度(放大)是 1.5 倍時，就顯示 1400x600 圖</li>
+    <li>不在上面的範圍內時，就顯示 <a href="http://placehold.it/1400x600/117fe8/fff" target="_blank">http://placehold.it/1400x600/117fe8/fff</a> 圖</li>
+</ul>
+<p><b> placehold.it 網站圖檔的使用及說明：</b>
+<ul>
+    <li><a href="https://placehold.it/" target="_blank">http://placehold.it/</a> 是提供任何大小圖檔作為網頁設計者測試的網站，是 <a href="https://www.imgix.com/" target="">imgix</a> 所擁有及維護</li>
+    <li>基本的用法：http://placehold.it/寬x高/背景顏色/文字顏色</li>
+    <li><b>例如：</b><a href="http://placehold.it/1400x600/117fe8/fff">http://placehold.it/1400x600/117fe8/fff</a></li>
+    <li><b>說明：</b> 寬x高 &dash; 1400x600，背景顏色&dash; e8117f，文字顏色 &dash; fff(白色)</li>
+</ul>
+</body>
+</html>

@@ -18,8 +18,7 @@
         <link rel="stylesheet" href="/reveal-js/css/theme/black.min.css" id="theme">
         <link rel="stylesheet" href="/css/custom4revealjs.css">
         <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
-		<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+		<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
         <link rel="stylesheet" href="/css/style4font.css">
         <!-- Printing and PDF exports -->
         <script>
@@ -108,7 +107,8 @@
 </section>
 <section>
     <h2>Bootstrap 目錄結構</h2>
-<pre><code>bootstrap-3.3.6-dist/
+<p style=text-align:center>
+<small><pre><code>bootstrap-3.3.6-dist/
 ├── css/
 │   ├── bootstrap.css
 │   ├── bootstrap.css.map
@@ -126,7 +126,7 @@
     ├── glyphicons-halflings-regular.svg
     ├── glyphicons-halflings-regular.ttf
     ├── glyphicons-halflings-regular.woff
-    └── glyphicons-halflings-regular.woff2</code></pre>
+    └── glyphicons-halflings-regular.woff2</code></pre></small></p>
     <ul>
         <li>上面是 Precompiled Bootstrap 的目錄結構</li>
         <li>這種 Precompiled Bootstrap 安裝方式，<b>需要加入 jQuery 及相關的套件才來能正常被使用</b></li>
@@ -149,6 +149,7 @@
 </section>
 <section>
     <h2>Website's Bootstrap 目錄結構</h2>
+<p><small>
 <pre><code>Bootstrap/
 ├── assets/
 │   ├── brand/
@@ -160,31 +161,21 @@
 │   ├── css/
 │   │   ├── bootstrap.css
 │   │   ├── bootstrap.css.map
-│   │   ├── bootstrap.min.css
-│   │   ├── bootstrap.min.css.map
-│   │   ├── bootstrap-theme.css
-│   │   ├── bootstrap-theme.css.map
-│   │   ├── bootstrap-theme.min.css
-│   │   └── bootstrap-theme.min.css.map
+│   │   ├── ...
 │   ├── js/
 │   │   ├── bootstrap.js
 │   │   └── bootstrap.min.js
 │   └── fonts/
 │       ├── glyphicons-halflings-regular.eot
 │       ├── glyphicons-halflings-regular.svg
-│       ├── glyphicons-halflings-regular.ttf
-│       ├── glyphicons-halflings-regular.woff
-│       └── glyphicons-halflings-regular.woff2
+│       ├── ...
 ├── img/favicon.ico
-│
 ├── templates/ ...
-│
 ├── index.html
-│
 └── installMenu.bat
-</code></pre>
+</code></pre></small></p>
     <ul>
-        <li>與上一張 Precompiled Bootstrap 的目錄結構差別在於： assets/ 與 templates/ 目錄</li>
+        <li>與上一張的目錄結構差別在於： assets/ 與 templates/ 目錄</li>
         <li>assets/ 存放相關套件檔案，templates/ 則存 Bootstrap 樣版</li>
     </ul>
 </section>
@@ -245,8 +236,11 @@
         <li class="fragment">請確認 docs.min.css 的連結是否正確？</li>
         <li class="fragment"><a href="http://localhost:9001/css/#tables-contextual-classes" target="_blank">Table 的範例</a></li>
         <li class="fragment">檢視原始程式碼，Ctrl + f 搜尋 contextual</li>
-        <li class="fragment">複製原始程式碼</li>
-<pre class="fragment"><code class="line-numbers">&lt;div class="bs-example" data-example-id="contextual-table">
+        <li class="fragment">複製原始程式碼( <a href="#/3/4"> 下一張 slide)</a></li>
+    </ul>
+</section>
+<section data-markdown><script type="text/template">
+<pre><code class="line-numbers">&lt;div class="bs-example" data-example-id="contextual-table">
     &lt;table class="table">
       &lt;thead>
         &lt;tr>
@@ -261,7 +255,7 @@
       
     &lt;/table>
   &lt;/div><!-- /example --></code></pre>
-    </ul>
+</script>
 </section>
 <section>
     <h2>練習</h2>
@@ -314,7 +308,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         loadIcons: true,
         
         custom: [
-				{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
 				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Hyper Text Markup Language</p>' }
 		]
 	},
@@ -332,6 +326,41 @@ customcontrols: {
 			}
 		] 
 	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
 // Optional reveal.js plugins
 dependencies: [
 { src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -341,12 +370,14 @@ dependencies: [
 { src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
 { src: '/reveal-js/plugin/notes/notes.js', async: true },
 { src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
 { src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
 { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
 { src: '/reveal-js/plugin/anything/anything.js', async: true },
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
 { src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]
 });
 

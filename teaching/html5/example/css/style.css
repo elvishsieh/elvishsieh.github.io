@@ -1,0 +1,10 @@
+@import url(../../fonts/fonts.css);
+body{
+    font-family: 'Oswald', 'cwTeXYen', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+}
+h1{
+    font-size: 60px;
+}

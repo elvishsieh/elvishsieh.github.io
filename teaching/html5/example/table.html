@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hant-TW">
+<head>
+ <meta charset="UTF-8">
+ <title>表格的例子</title>
+ <link rel="stylesheet" type="text/css" href="./css/table.css" />
+
+</head>
+<body>
+
+<table class="tag">
+<caption>HTML5 所定義的表格標籤</caption>
+	<tr id="header">
+		<th>Tag</th>
+		<th>Description</th>
+	</tr>
+	<tr class="even">
+		<td>&lt;table&gt;</td>
+		<td>定義一個表格</td>
+	</tr>
+	<tr class="odd">
+		<td>&lt;th&gt;</td>
+		<td>表格的檔頭</td>
+	</tr>
+	<tr class="even">
+		<td>&lt;tr&gt;</td>
+		<td>表格的列</td>
+	</tr>
+	<tr class="odd">
+		<td>&lt;td&gt;</td>
+		<td>表格列內的一格</td>
+	</tr>
+	<tr class="even">
+		<td>&lt;caption&gt;</td>
+		<td>表格的標題文字</td>
+	</tr>
+	<tr class="odd">
+		<td>&lt;thead&gt;</td>
+		<td>設定哪一群標籤是屬於表格的檔頭</td>
+	</tr>
+	<tr class="even">
+		<td>&lt;tbody&gt;</td>
+		<td>設定哪一群標籤是屬於表格的主體</td>
+	</tr>
+	<tr class="odd">
+		<td>&lt;tfoot&gt;</td>
+		<td>設定哪一群標籤是屬於表格的表尾</td>
+	</tr>
+</table>
+<br />
+<table id ="ex1" class="example">
+  <caption>表格的第一個例子</caption>
+	<tr>
+		<th>Month</th>
+		<th>Savings</th>
+	</tr>
+	<tr>
+		<td>January</td>
+		<td>$100</td>
+	</tr>
+	<tr>
+		<td>February</td>
+		<td>$200</td>
+	</tr>
+	<tr>
+		<td>March</td>
+		<td>$300</td>
+	</tr>
+	<tr>
+		<td>April</td>
+		<td>$400</td>
+	</tr>
+</table>
+<div id=src>
+<h4> HTML 程式碼 </h4>
+<pre>
+&lt;table class="example"&gt;
+<strong>&lt;caption&gt;表格的第一個例子&lt;/caption&gt;</strong>
+<strong>&lt;tr&gt;</strong>
+	&lt;th&gt;Month&lt;/th&gt;
+	&lt;th&gt;Savings&lt;/th&gt;
+<strong>&lt;/tr&gt;</strong>
+<strong>&lt;tr&gt;</strong>
+	&lt;td&gt;January&lt;/td&gt;
+	&lt;td&gt;$100&lt;/td&gt;
+<strong>&lt;/tr&gt;</strong>
+<strong>&lt;tr&gt;</strong>
+	&lt;td&gt;February&lt;/td&gt;
+	&lt;td&gt;$200&lt;/td&gt;
+<strong>&lt;/tr&gt;</strong>
+<strong>&lt;tr&gt;</strong>
+	&lt;td&gt;March&lt;/td&gt;
+	&lt;td&gt;$300&lt;/td&gt;
+<strong>&lt;/tr&gt;</strong>
+<strong>&lt;tr&gt;</strong>
+	&lt;td&gt;April&lt;/td&gt;
+	&lt;td&gt;$400&lt;/td&gt;
+<strong>&lt;/tr&gt;</strong>
+&lt;/table&gt;
+</pre>
+</div>
+<table class="example">
+  <caption>表格的第二個例子</caption>
+	<thead>
+		<tr>
+			<th>Month</th>
+			<th>Savings</th>
+		</tr>
+	</thead>
+
+	<tfoot> <!-- 這是表格的底部，雖然寫在 <tbody> 的前面，但是，會顯示在後面 -->
+		<tr style="color: red">
+			<td>Sum</td>
+			<td>$180</td>
+		</tr>
+	</tfoot>
+
+	<tbody>
+		<tr>
+			<td>January</td>
+			<td>$100</td>
+		</tr>
+		<tr>
+			<td>February</td>
+			<td>$80</td>
+		</tr>
+	</tbody>
+</table>
+<div id=src>
+<h4> HTML 程式碼 </h4>
+<pre><code>
+&lt;table class="example"&gt;
+<strong>&lt;caption&gt;表格的第二個例子&lt;/caption&gt;</strong>
+<strong>&lt;thead&gt;</strong>
+&lt;tr&gt;
+	&lt;th&gt;Month&lt;/th&gt;
+	&lt;th&gt;Savings&lt;/th&gt;
+&lt;/tr&gt;
+<strong>&lt;/thead&gt;</strong>
+<strong style="color: red">&lt;tfoot&gt;</strong>
+&lt;tr&gt;
+	&lt;td&gt;Sum&lt;/td&gt;
+	&lt;td&gt;$180&lt;/td&gt;
+&lt;/tr&gt;
+<strong style="color: red">&lt;/tfoot&gt;</strong>
+<strong>&lt;tbody&gt;</strong>
+&lt;tr&gt;
+	&lt;td&gt;January&lt;/td&gt;
+	&lt;td&gt;$100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td&gt;February&lt;/td&gt;
+	&lt;td&gt;$80&lt;/td&gt;
+&lt;/tr&gt;
+<strong>&lt;/tbody&gt;</strong>
+&lt;/table&gt;
+</code></pre>
+</div>
+<br />
+<footer>
+<a class="up" href="table.html#ex1">回到第一個例子</a>
+</footer>
+</body>
+</html>

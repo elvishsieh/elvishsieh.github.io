@@ -1,0 +1,110 @@
+@import url('../../fonts/fonts.css'); /* 匯入fonts/fonts.css 設定 */
+
+html{
+    overflow-y: scroll; 
+    /* 設定超出 y 軸的部分旁邊會出現卷軸，這是瀏覽器的預設值*/
+}
+
+body{
+	font-size:1.3em; /* em 是字體大小的單位，就是一個 M 字體的大小 */
+	color:#000000;
+	background-color:#ffffff;
+	margin:0px; 
+    /* margin: 10px 0px 10px 0px */ 
+    /*順時針方向可以設定上、右、下、左 */
+    /* margin: 10px 0px 上下、左右 */
+	background-repeat:repeat-x;
+}
+body,p,h1,h2,h3,h4,table,td,th,ul,ol,textarea,input{
+	font-family:'Oswald', 'cwTeXYen', sans-serif;
+}
+
+table.tag{
+	background-color:#ffffff;
+	border:1px solid CornflowerBlue;/*格線: 1px 的實線，顏色 CornflowerBlue */
+	border-collapse:collapse;
+	width:80%;
+	margin: auto;
+}
+table.tag th{ 
+	background-color:LightSkyBlue;
+	border:1px solid CornflowerBlue; /* 格線: 1px 實線，顏色 CornflowerBlue */
+	padding:3px; /* 補白 */
+	vertical-align:top; /* 垂直的排列：上方 */
+	text-align: left; /* 字體的排列：向左*/
+}
+table.tag td{
+	border:1px solid CornflowerBlue;
+	padding:3px;
+	vertical-align:top;
+}
+table.tag caption{
+	color:DarkBlue;
+	padding:3px;
+}
+table.example{
+	border: 1px solid black; /* 邊線 1px 實線 黑色 */
+	border-collapse:collapse; /* 不要外框 */
+	padding: 10px;  
+    width: 80%;
+    margin: auto;
+}
+table.example caption{
+	font-size: 28px;
+}
+table.example th{
+	background-color:LightSkyBlue;
+	border:1px solid CornflowerBlue; /*邊線 1px 的實線，顏色是 CornflowerBlue */
+	padding:3px;
+	vertical-align:top;
+	text-align: center;
+}
+
+table.example td{
+	border:1px solid CornflowerBlue; 
+    /* 1px 的實線，顏色是 CornflowerBlue */
+	width: 50%;
+	padding:3px;
+    text-align: center;
+    border: 1px solid silver;
+}
+
+/* 將 tr 標籤分成 odd, even 兩類，分別設定其中的樣式 */
+tr #header{
+    background-color: darkcyan;
+}
+tr.odd{
+	background-color: whitesmoke;
+	vertical-align:top;
+	text-align: left;
+}
+
+tr.even{
+	background-color:lightcyan;
+	vertical-align:top;
+}
+#src{
+	background-color: lightgray;
+    font-size: 16px;
+    text-align: left;
+	margin: 0 10%;
+}
+#src h4{
+	text-align: center;
+	font-size: 20px;
+    border-bottom: 1px dotted #2e2304;
+}
+#src pre{
+	padding: 0 0 0 150px; 
+}
+
+footer a.up{
+	float:right;
+	padding: 1px 10px;
+	color: #fff; /* R G B 顏色的設定 */
+    background: #204656; /* 20(R), 46(G), 56(B) */ 
+	border-radius: 14px; /* 邊線的圓弧度設定 */
+}
+footer  a.up:hover { /* hower: 當滑鼠移到上方時 */ 
+    background: rgba(58, 101, 241, 0.8); /* rgba 的 a 就透明度 */
+}

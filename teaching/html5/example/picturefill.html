@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of picturefill.js</title>
+    <!-- 使用 jsDelivr JavaScript CDN 來連結 picturefill.js 套件 -->
+    <script src="https://cdn.jsdelivr.net/picturefill/3.0.2/picturefill.min.js"></script>
+	<script type="text/javascript" src="./js/shCore.js"></script>
+	<script type="text/javascript" src="./js/shBrushJScript.js"></script>
+	<script type="text/javascript" src="./js/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="./css/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+    <style>
+        @import url(../fonts/fonts.css);
+
+        @counter-style elvis-style{
+          system: fixed;
+          symbols: ㈠ ㈡ ㈢ ㈣ ㈤ ㈥ ㈦ ㈧ ㈨ ㈩;
+          suffix: " ";
+        }
+
+       body {
+            font-size: 1.5em;
+            max-width: 1000px;
+            margin: auto;
+            font-family: 'Oswald', 'cwTeXYen', sans-serif;
+            /* color: #117fe8; */
+        }
+        img {
+          margin: 2em 0em;
+          max-width: 100%;
+        }
+        p.explanation{
+             margin-bottom: 2em;   
+        }
+        ul {
+          list-style: elvis-style;
+          margin-bottom: 2em;
+        }
+        ul>li{
+            padding-left: 20px; /* 輸入文字的左邊要補白 */
+           /* padding: 0px 20px 0px 100px; /* 上、右、下、左 */ 
+        }
+ 
+    </style>
+</head>
+<body>
+    <img sizes="(min-width: 40em) 80vw, 100vw"
+        srcset="http://placehold.it/375x175/88e2a9/fff 375w,
+         http://placehold.it/480x175/e8117f/fff 480w,
+         http://placehold.it/768x175/117fe8/fff 768w" alt="…">
+
+  <p>head標籤內的部分原始程式碼：</p>
+<pre class="brush: xml;">&lt;head>
+    &lt;!-- 使用 jsDelivr JavaScript CDN 來連結 picturefill.js 套件 -->
+    &lt;script src="https://cdn.jsdelivr.net/picturefill/3.0.2/picturefill.min.js">&lt;/script
+&lt;/head></pre>
+ <p class="explanation"><b>程式碼說明：</b>使用 CDN 方式將 picturefill.min.js 套件匯入到這個網頁，同學也可以下載 picturefill.min.js 套件來使用</p>
+  <p>body標籤內的部分原始程式碼：</p>
+  <pre class="brush: xml;">&lt;img sizes="(min-width: 40em) 80vw, 100vw"
+    srcset="http://placehold.it/375x175/88e2a9/fff 375w,
+    http://placehold.it/480x175/e8117f/fff 480w,
+    http://placehold.it/768x175/117fe8/fff 768w" alt="…"></pre>
+    <p><b>程式碼說明：</b></p>
+    <ul>
+        <li>img 標籤是插入圖檔，W3C 標準已經制定完成，但是只有 src 的屬性，尚未正式公布 srcset, sizes 這兩個屬性的設定，所以需要 picturefill.js 套件來暫時替代</li>
+        <li>sizes 屬性： 設定 Media, Viewport 的寬度</li>
+        <li>srcset 屬性：當符合 sizes 設定的寬度時，會對應的擷取不同大小的圖檔</li>
+        <li>vw：是 viewport 的長度單位，所謂 viewport 是站在使用者觀看角度時的長度</li>
+        <li>w：width 寬度的意思</li>
+    </ul>
+   <p style="margin-top: 3em;">vw 是 Viewport 的縮寫，是 W3C 制定的一種<b>相對</b>的長度單位，標準的文件可以參考 <a href="https://www.w3.org/TR/css3-values/#viewport-relative-lengths" target="_blank">Viewport-percentage lengths</a> ，下面是一個換算的範例：</p>
+   <pre><code>h1 {
+   font-size: 8vw
+}</code></pre>
+<p class="explanation"><b>程式碼說明：</b> 如果 viewport 的寬度是 200mm, 則 h1 字體的 16mm (i.e. (8×200mm)/100).
+</p>
+<p><b>全部的原始程式碼：</b></p>
+<pre class="brush:xml;">&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Example of picturefill.js&lt;/title>
+    <!-- 使用 jsDelivr JavaScript CDN 來連結 picturefill.js 套件 -->
+    &lt;script src="https://cdn.jsdelivr.net/picturefill/3.0.2/picturefill.min.js">&lt;/script>
+	&lt;script type="text/javascript" src="./js/shCore.js">&lt;/script>
+	&lt;script type="text/javascript" src="./js/shBrushJScript.js">&lt;/script>
+	&lt;script type="text/javascript" src="./js/shBrushXml.js">&lt;/script>
+	&lt;link type="text/css" rel="stylesheet" href="./css/shCoreDefault.css"/>
+	&lt;script type="text/javascript">SyntaxHighlighter.all();&lt;/script>
+    &lt;style>
+        @import url(../fonts/fonts.css);
+
+        @counter-style elvis-style{
+          system: fixed;
+          symbols: ㈠ ㈡ ㈢ ㈣ ㈤ ㈥ ㈦ ㈧ ㈨ ㈩;
+          suffix: " ";
+        }
+
+       body {
+            font-size: 1.5em;
+            max-width: 1000px;
+            margin: auto;
+            font-family: 'Oswald', 'cwTeXYen', sans-serif;
+            /* color: #117fe8; */
+        }
+        img {
+          margin: 2em 0em;
+          max-width: 100%;
+        }
+        p.explanation{
+             margin-bottom: 2em;   
+        }
+        ul {
+          list-style: elvis-style;
+        }
+        ul>li{
+            padding-left: 20px; /* 輸入文字的左邊要補白 */
+           /* padding: 0px 20px 0px 100px; /* 上、右、下、左 */ 
+        }
+ 
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;img sizes="(min-width: 40em) 80vw, 100vw"
+        srcset="http://placehold.it/375x175/88e2a9/fff 375w,
+         http://placehold.it/480x175/e8117f/fff 480w,
+         http://placehold.it/768x175/117fe8/fff 768w" alt="…">
+
+  &lt;p>head標籤內的部分原始程式碼：&lt;/p>
+&lt;pre class="brush: xml;">&lt;head>
+    &lt;!-- 使用 jsDelivr JavaScript CDN 來連結 picturefill.js 套件 -->
+    &lt;script src="https://cdn.jsdelivr.net/picturefill/3.0.2/picturefill.min.js">&lt;/script
+&lt;/head>&lt;/pre>
+ &lt;p class="explanation">&lt;b>程式碼說明：&lt;/b>使用 CDN 方式將 picturefill.min.js 套件匯入到這個網頁，同學也可以下載 picturefill.min.js 套件來使用&lt;/p>
+  &lt;p>body標籤內的部分原始程式碼：&lt;/p>
+  &lt;pre class="brush: xml;">&lt;img sizes="(min-width: 40em) 80vw, 100vw"
+    srcset="http://placehold.it/375x175/88e2a9/fff 375w,
+    http://placehold.it/480x175/e8117f/fff 480w,
+    http://placehold.it/768x175/117fe8/fff 768w" alt="…">&lt;/pre>
+    &lt;p>&lt;b>程式碼說明：&lt;/b>&lt;/p>
+    &lt;ul>
+        &lt;li>img 標籤是插入圖檔，W3C 標準已經制定完成，但是只有 src 的屬性，尚未正式公布 srcset, sizes 這兩個屬性的設定，所以需要 picturefill.js 套件來暫時替代&lt;/li>
+        &lt;li>sizes 屬性： 設定 Media, Viewport 的寬度&lt;/li>
+        &lt;li>srcset 屬性：當符合 sizes 設定的寬度時，會對應的擷取不同大小的圖檔&lt;/li>
+        &lt;li>vw：是 viewport 的長度單位，所謂 viewport 是站在使用者觀看角度時的長度&lt;/li>
+        &lt;li>w：width 寬度的意思&lt;/li>
+    &lt;/ul>
+   &lt;p>vw 是 Viewport 的縮寫，是 W3C 制定的一種&lt;b>相對&lt;/b>的長度單位，標準的文件可以參考 &lt;a href="https://www.w3.org/TR/css3-values/#viewport-relative-lengths" target="_blank">Viewport-percentage lengths&lt;/a> ，下面是一個換算的範例：&lt;/p>
+   &lt;pre>&lt;code>h1 {
+   font-size: 8vw
+}&lt;/code>&lt;/pre>
+&lt;p class="explanation">&lt;b>程式碼說明：&lt;/b> 如果 viewport 的寬度是 200mm, 則 h1 字體的 16mm (i.e. (8×200mm)/100).
+&lt;/p>
+&lt;/body>
+&lt;/html>
+</pre>        
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Video & Audio</title>
+    <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body>
+    <header>
+        <h1>Example of Video & Audio Tag</h1>
+    </header>
+    
+    <aside id="rside">
+       <ul>
+           <li><a class="alink" href="mediaTag.html#iframe">iframe 標籤的例子</a></li>
+           <li><a class="alink" href="mediaTag.html#video">Video 標籤的例子</a></li>
+           <li><a class="alink" href="mediaTag.html#audio">Audio 標籤的例子</a></li>
+       </ul>
+    </aside>
+    
+    <section>
+        <p class="paragraph">iframe 標籤: 
+            <a href="https://www.youtube.com/watch?v=DTsCDUNzCtQ">link to YouTube video: An Angel</a>
+        </p>
+        <iframe id="iframe" style="width: 854px; height:480px;" src="https://www.youtube.com/embed/DTsCDUNzCtQ" frameborder="0" allowfullscreen>
+        如果瀏覽器不支援 video 標籤，會顯示這段文字
+        </iframe>
+        <p class="paragraph">Video 標籤: C++ Conformance by Herb Sutter</p>
+        <video id="video" controls="true">
+        <source src="./media/CPlusPlusConformance.mp4" />
+        如果瀏覽器不支援 video 標籤，會顯示這段文字
+        </video>
+
+        <p class="paragraph">Audio 標籤：
+        <a href="http://www.bbc.co.uk/learningenglish/english/features/6-minute-english/ep-151126">            BBC's 6 Minute English</a>
+        </p>
+        <audio id="audio" controls="true">
+            <source src="./media/6min_english.mp3" type="audio/mpeg" />
+            <source src="./media/6min_english.ogg" type="audio/ogg" />
+        </audio>
+    </section>
+</body>
+
+</html>
