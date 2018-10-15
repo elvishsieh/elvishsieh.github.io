@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>課程簡介及基本操作</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section data-background="./images/front.png" data-menu-title="Front Page">
+<span style="position: fixed; bottom: 0; right: 0; color: black">
+改變你/妳的思維，<br>
+擴展你/妳的視野。
+</span>
+</section>
+<section>
+<section data-markdown><script type="text/template">
+# 電腦基本操作
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 注音、英文輸入法
+- 切換輸入法： Ctrl + Shift
+- 切換中、英輸入法： Ctrl + Space
+- 開啟輸入法整合器： Ctrl + Alt + ,
+    * 輸入「 號：開啟輸入法整合器(Ctrl + Alt + ,)，再輸入 =
+    * 輸入 」號：開啟輸入法整合器(Ctrl + Alt + ,)，再輸入 \
+- 輸入常用中文標點符號：
+    * 逗號：`, (ESC 鍵下方的 ~ 鍵)
+    * 句號： `.
+    * 頓號： `'
+    * 分號：`;
+    * 冒號： ` + Shift + :
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 你/妳都知道了嗎？
+
+<ul>
+	<li class="fragment">複製(Copy)： Ctrl + c</li>
+	<li class="fragment">剪下(Cut)： Ctrl + x</li>
+	<li class="fragment">貼上(Paste)： Ctrl + v</li>
+	<li class="fragment">全選(Select All)： Ctrl + a</li>
+	<li class="fragment">開啟新檔(New File)： Ctrl + n</li>
+	<li class="fragment">儲存檔案(Save)： Ctrl + s</li>
+	<li class="fragment">列印：Ctrl + p</li>
+	<li class="fragment">回復(Undo)： Ctrl + z</li>
+	<li class="fragment">重作(Redo)： Ctrl + y</li>
+</ul>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 知道以後，做到了嗎？
+
+<ul>
+	<li class="fragment">Ctrl + F：搜尋</li>
+		<ul>
+			<li class="fragment">大家都知道, 也曾經使用過 Google, 對吧!</li>
+			<li class="fragment">但是, 當 Google 顯示搜尋結果以後呢？</li>
+		</ul>
+	<li class="fragment">你/妳還會再按下 Ctrl + F 繼續搜尋嗎？</li>
+		<ul>
+			<li class="fragment">範例：空專學生要找上課的電腦教室</li>
+			<li class="fragment">google "台中科技大學 空專"</li>
+			<li class="fragment">接著, 再按 Ctrl + F，輸入：電腦教室</li>
+		</ul>
+</ul>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 關鍵字(keyword)
+
+<ul>
+	<li class="fragment">電腦有一項很強大的能力</li>
+		<ul>
+			<li class="fragment">搜尋能力 (Ctrl + f)</li>
+			<li class="fragment">Google 把這項能力擴展、延伸：搜尋全世界所有網站的資料</li>
+		</ul>
+	<li class="fragment">使用資訊設備時, 心中要存有"關鍵字"</li>
+		<ul>
+			<li class="fragment">開啟 word, excel, 小畫家, 記事本, 控制台</li>
+			<li class="fragment">尋資料, Google 以後，按 Ctrl + F, 輸入 "關鍵字"</li>
+		</ul>
+</ul>
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# Unicode 編碼
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 為何要輸入 Unicode 編碼？
+
+- 所謂特殊字元是： &Gt;, &copy;, &amp;, &#x2614;</li>
+- 特殊字元的 Unicode 編碼：
+<table>
+<tr>
+	<td>Character</td>
+	<td>Unicode</td>
+	<td>Name</td>
+	<td>Decimal</td>
+	<td>Hex</td>
+</tr>
+<tr>
+	<td>&copy;</td>
+	<td>U+00A9</td>
+	<td>&amp;copy;</td>
+	<td>&amp;#169;</td>
+	<td>&amp;#x00A9;</td>
+</tr>
+<tr>
+	<td>&amp;</td>
+	<td>U+0026</td>
+	<td>&amp;amp;</td>
+	<td>&amp;#0038;</td>
+	<td>&amp;#x0026</td>
+</tr>
+<tr>
+	<td>&#x2614;</td>
+	<td>U+2614</td>
+	<td><b>undefine</b></td>
+	<td>&amp;#9748;</td>
+	<td>&amp;#x2614;</td>
+</tr>
+</table>
+
+- 請問，如何輸入羅馬數字 3？
+	* 簡單：iii, 連續輸入 3 個 i, 正確嗎？
+
+- 如何輸入中文的「𪸏」字？
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 如何輸入 Unicode？
+- 找 Unicode 編碼？
+	- Google 輸入 "unicode charts" 關鍵字
+	- 範例：在 [Unicode 協會網站](http://unicode.org/charts/), 按 Ctrl + f 找到 Number Forms, 在 Unicode 編碼, 找到羅馬數字 3 的編碼是 2172
+	- 中文的難字可以到[全字庫](https://www.cns11643.gov.tw/)找 unicode 的編碼
+
+- 輸入 Unicode 編碼
+	1. 切換到「注音輸入法」
+	2. 在「注音輸入法」的狀態之下，按「`u + unicode 編碼」
+	3. 注意事項：<b>不可以使用數字鍵盤</b>
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 練習： 尋找及輸入 Unicode
+- 尋找 Unicode 編碼
+	* 請上網找「大寫羅馬數字 6」 的編碼？
+	* 請到全字庫網站找「堃」的 Unicode 編碼
+
+- 輸入 Unicode 編碼
+	* 請輸入[「小寫羅馬數字 6」](./examples/U2150.pdf) 的 unicode 編碼： 2175
+	* 請輸入中文的「峯」字的編碼： U+5cef
+
+</script>
+</section>
+<section>
+	<h2>Emoji Fonts</h2>
+	<ul>
+		<li><a href="http://www.unicode.org/reports/tr51/" target="_blank">Emoji Unicode 標準</a></li>
+		<li><a href="http://getemoji.com/" target="_blank">Emoji 字型的網址</a></li>
+		<li><a href="http://caniemoji.com/microsoft-windows/" target="_blank">Can I Emoji ?</a></li>
+	</ul>
+	<p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+	⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 ⛳️ 🏌 🏓 🏸 🏒 🏑 🏏 🎿 ⛷ 🏂 ⛸ 🏹 🎣 🚣 🏊 🏄
+		🛀 ⛹ 🏋 🚴 🚵 🏇 🕴 🏆 🎽 🏅 🎖 🎗 🏵 🎫 🎟 🎭 🎨 🎪 🎤 🎧 🎼 🎹 🎷 🎺 🎸
+		🎻 🎬 🎮 👾 🎯 🎲 🎰 🎳 🐘 🐐 🐏 🐑 🐎 🐖 🐀 🐁 🐓 🦃 🕊 🐕 🐩 🐈 🐇 🐿 
+		🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘ 🍀 🎍 🎋 🍃 🍂 🍁 🌾 🌺 🌻 🚶🏽 🏃🏽 💃🏽 💪🏽 👈🏽 
+		👉🏽 ☝️🏽 👆🏽 🖕🏽 👇🏽 ✌️🏽 🖖🏽 🤘🏽 🖐🏽 ✊🏽 ✋🏽 👊🏽 👌🏽 👍🏽 👎🏽 👋🏽 👏🏽 👐🏽 ✍🏽 💅🏽 👂🏽 👃🏽 🚣🏽 🛀🏽 🏄🏽 🏇🏽 🏊🏽 
+		⛹🏽 🏋🏽 🚴🏽 🚵🏽 💅🏻 👂🏻 👃🏻 🚣🏻 🛀🏻 🏄🏻 🏇🏻 🏊🏻 ⛹🏻 🏋🏻 🚴🏻 🚵🏻
+	</p>
+</section>
+<section data-markdown><script type="text/template">
+## 如何反轉得知 Unicode 編碼？
+
+- 已經知道輸入「峯」字, 如何反轉得知 unicode 編碼？
+	* 在「峯」字之後按 Alt + x
+
+- 🏀 的 unicode 編碼？
+	* 🏀 是 U+1f3c0
+
+- 自行練習：
+	* 反轉「小寫羅馬數字 6」的 Unicode 編碼？
+</script>
+</section>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 摘要
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Summary
+<ul>
+<li class="fragment" data-fragment-index="1">快速鍵 (Shortcut)</li>
+	<ul>
+		<li class="fragment" data-fragment-index="1">哪一些快速鍵，可以協助你增進日常文書編輯、電腦操作？</li>
+		<li class="fragment" data-fragment-index="2">當 Ctrl + c, Ctrl + x 以後, 剪貼簿的內容是？</li>
+		<li class="fragment" data-fragment-index="3">當 Ctrl + F 以後，心中是否還存有另一個關鍵字？</li>
+	</ul>
+
+<li class="fragment" data-fragment-index="4">Unicode 編碼</li>
+	<ul>
+		<li class="fragment" data-fragment-index="4">Unicode : `u + unicode, 鍵盤上方的數字鍵</li>
+		<li class="fragment" data-fragment-index="5">反轉 Unicode : Alt + x</li>
+		<li class="fragment" data-fragment-index="6">Alt + x 反轉 Unicode 編碼的目的：找其他相關的 Unicode 編碼</li>
+	</ul>
+</ul>
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 密碼設定
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 密碼的限制
+
+- 為何密碼不容易記憶？
+	* 密碼的長度及設定規則太複雜
+
+	* 每個網站都需要申請帳號及密碼，造成密碼太多
+
+- 單一密碼可行嗎？
+	* 密碼必須在使用一段時間就要更換密碼
+
+	* 重要的帳號容易被盜用
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 如何設定你的密碼？
+
+- 以「中文名字」當作密碼
+	* 在「英文」輸入狀態下，用「注音」輸入你的中文名字
+
+	* 例如：劉德華，英文輸入狀態：xu.62k6cj86
+
+- 檢查碼
+	* 例如：123456, 總和 21 ，檢查碼設為 1，密碼為 1234561
+
+	* 與眾不同：奇數或偶數位數加總
+
+- 密碼管理軟體
+	* [keePass](https://keepass.info/)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 密碼設定原則
+<ul>
+<li class="fragment" data-fragment-index="1">不重要的帳號</li>
+<ul>
+	<li class="fragment" data-fragment-index="2">以「中文名字」當作密碼</li>
+	<li class="fragment" data-fragment-index="3">使用一段時間就要更換密碼：華德劉</li>
+	<li class="fragment" data-fragment-index="4">相信自己, 始終如一：第一次輸入錯誤, 第二次用第 2 個密碼</li>
+</ul>
+
+<li class="fragment" data-fragment-index="5">重要的帳號</li>
+<ul>
+	<li class="fragment" data-fragment-index="6">加料：XXX 很帥, XXX 很美</li>
+	<li class="fragment" data-fragment-index="7">使用密碼管理軟體</li>
+</ul>
+	
+</ul>
+
+</script>
+</section>
+<section data-background="./images/end.png" data-menu-title="The End">
+<span style="position: fixed; bottom: 0; right: 0; color: black">
+改變你/妳的思維，<br>
+開闊你/妳的視野。
+</span>
+</section>
+</section>
+</div>
+
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
