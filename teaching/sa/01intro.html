@@ -37,671 +37,687 @@
 
 	<body>
 
-		<div class="reveal">
+<div class="reveal">
 
-			<!-- 每一個 section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-				    <h2>系統分析與設計概論</h2>
-				    <h3>Introduction to System Analysis and Design</h3>
-				    <small id="today" style="text-align: right"></small>
+<!-- 每一個 section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section data-markdown><script type="text/template">
+# 系統分析與設計概論
 
-				</section>
-				<section>
-				<section>
-					<h2>簡介(Introduction)</h2>
-					<ul>
-						<li>公司使用資訊系統增加產能、產品的品質與服務、維護客戶忠誠度、經營管理決策等</li>
-						<li>資訊系統的成功與否?意謂著影響公司的成功與失敗</li>
-					</ul><img src="/images/intro.png" alt="intro.png" />				    
-				</section>				
-				<section>
-					<h2>何謂資訊系統<br />(Information System)？</h2>
-					<ul>
-						<li><b>資料(Data)：</b><span class="highlight-blue">有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</span>	</li>
-						<li class="fragment"><b>資訊(Information)：</b>多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
-						<li class="fragment"><b>資訊系統(Information System)：</b>在一企業組織中負責資訊收集、儲存與傳播之體系，藉此輔助企業之決策、控制、領導以及溝通協調等內部運作功能，<b>資訊系統藉由輸入、處理與輸出的機制，轉換資料為有用的資訊。</b></li>
-					</ul>
-				</section>
+## Introduction to <br> System Analysis and Design
+<small id="today" style="text-align: right"></small>
+</script>
+</section>
+<section>
+<section>
+	<h2>簡介(Introduction)</h2>
+	<ul>
+		<li>公司使用資訊系統增加產能、產品的品質與服務、維護客戶忠誠度、經營管理決策等</li>
+		<li>資訊系統的成功與否?意謂著影響公司的成功與失敗</li>
+	</ul><img src="/images/mis/intro.png" alt="intro.png" />				    
+</section>
+<section>
+	<h2>何謂資訊系統<br />(Information System)？</h2>
+	<ul>
+		<li>資料(Data)：<span class="highlight-blue">有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</span>	</li>
+		<li class="fragment">資訊(Information)：多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
+		<li class="fragment">資訊系統(Information System)：在一企業組織中負責資訊收集、儲存與傳播之體系，藉此輔助企業之決策、控制、領導以及溝通協調等內部運作功能，資訊系統藉由輸入、處理與輸出的機制，轉換資料為有用的資訊。</li>
+	</ul>
+</section>
 
-				<section>
-				    <h2>What is Information System?</h2>
-				    <img src="/images/infosystem.png" alt="infosystem.png" />				    
-				</section>
-				<section>
-				    <h2>從功能面來看資訊系統</h2>
-				    <img src="/images/infosystem2.png" alt="infosystem2.png">
-				</section>
-				</section>
-				<section>
-				    <h2>資訊系統的重要性</h2>
-				    <img src="/images/businessInfosystem.png" style="width:80%"  alt="businessInfosystem.png">
-				</section>
-				<section>
-					<section>
-							<h2>對資訊技術的影響(1/2)</h2>
-							<ul>
-								<li class="fragment"><b>資訊技術(IT, Information Technology)</b>：結合硬體與軟體的產品和服務，公司使用資訊技術來管理、存取、通訊與分享資訊</li>
-								<li class="fragment">未來衝擊</li>
-								<ul>
-									<li class="fragment"><b>世界的改變</b> </li>
-									<li class="fragment"><b>技術的改變</b></li>
-									<li class="fragment"><b>用戶端需求的改變</b></li>
-								</ul>
-							</ul>
-						</section>
-						<section>
-								<h2>對資訊技術的影響(2/2)</h2>
-								<ul>
-									<li class="fragment">系統開發(System Development)</li>
-									<ul>
-										<li class="fragment"><b>系統開發(System Development)</b>：企業的資訊系統是由具備專業資訊技能，以企業為導向及高度需求動機的一群人設計、開發而成</li>
-										<li class="fragment">系統開發者必須是良好的溝通者，且具備強健的分析能力與批判思維的能力</li>
-									</ul>
-									<li class="fragment">Systems Analysis and Design</li>
-									<ul>
-										<li class="fragment"><b>Systems Analysis and Design</b>：依照步驟的程序來開發高品質的資訊系統</li>
-										<li class="fragment"><b>系統分析師(Systems Analyst)</b>：規劃、開發、維護資訊系統的人員</li>
-									</ul>
-								</ul>
-							</section>				
-				</section>
+<section>
+	<h2>What is Information System?</h2>
+	<img src="/images/mis/infosystem.png" alt="infosystem.png" />				    
+</section>
+<section>
+	<h2>從功能面來看資訊系統</h2>
+	<img src="/images/mis/infosystem2.png" alt="infosystem2.png">
+</section>
+<section data-markdown><script type="text/template">
+## 以診所使用的資訊系統為例
+- 掛號管理系統
+	* 病人的個人資料
+	* 病人看診的紀錄及次數
+- 醫生用藥系統
+	* 藥物名稱管理系統
+	* 病人診斷紀錄
+	* 病人用藥紀錄
+- 藥局領藥管理系統
+	* 藥物管理系統
+	* 病人領藥紀錄
+	* 病人藥物諮詢紀錄
+</script>
+</section>
+</section>
+<section>
+	<h2>資訊系統的重要性</h2>
+	<img src="/images/mis/businessInfosystem.png" style="width:80%"  alt="businessInfosystem.png">
+</section>
+<section>
+<section>
+		<h2>對資訊技術的影響(1/2)</h2>
+		<ul>
+			<li class="fragment">資訊技術(IT, Information Technology)：結合硬體與軟體的產品和服務，公司使用資訊技術來管理、存取、通訊與分享資訊</li>
+			<li class="fragment">未來衝擊</li>
+			<ul>
+				<li class="fragment">世界的改變 </li>
+				<li class="fragment">技術的改變</li>
+				<li class="fragment">用戶端需求的改變</li>
+			</ul>
+		</ul>
+	</section>
+<section>
+		<h2>對資訊技術的影響(2/2)</h2>
+		<ul>
+			<li class="fragment">系統開發(System Development)</li>
+			<ul>
+				<li class="fragment">系統開發(System Development)：企業的資訊系統是由具備專業資訊技能，以企業為導向及高度需求動機的一群人設計、開發而成</li>
+				<li class="fragment">系統開發者必須是良好的溝通者，且具備強健的分析能力與批判思維的能力</li>
+			</ul>
+			<li class="fragment">Systems Analysis and Design</li>
+			<ul>
+				<li class="fragment">Systems Analysis and Design：依照步驟的程序來開發高品質的資訊系統</li>
+				<li class="fragment">系統分析師(Systems Analyst)：規劃、開發、維護資訊系統的人員</li>
+			</ul>
+		</ul>
+	</section>				
+</section>
 
-				<section>
-					<section>
-						<h2>Information System Components</h2>
-						<ul>
-							<li class="fragment">Hardware</li>
-							<li class="fragment">Software: System Software, Application Software, Enterprise applications</li>
-							<li class="fragment">Data</li>
-							<li class="fragment">Processes</li>
-							<li class="fragment">People: Stakeholders(利害關係人), User and End User</li>
-					</ul>
-					</section>
-				</section>
-				<section>
-						<h2>資訊系統幫助企業達成的目標</h2>
-						<ul>
-							<li>支援企業日常性作業</li>
-							<ul>
-								<li>零售商店使用資訊系統結帳、紀錄顧客購買紀錄、追蹤存貨等作業</li>
-								<li>企業使用資訊系統管理員工出勤、個人資料及支付員工薪資等日常性作
-							</ul>
-							<li>支援管理決策的制定</li>
-							<ul>
-								<li>哪條生產線應該增加產量、哪條生產線應該要停產等重要決策</li>
-								<li>投資選擇的決策</li>
-							</ul>
-							<li>支援策略性競爭優勢</li>
-							<ul>
-								<li>經由資訊系統分析後，可以找尋超越對手的競爭策略</li>
-								<li>例如：商店經理決定安裝觸控式螢幕訂貨系統</li>
-							</ul>
-						</ul>
-					</section>
-					<section>
-						<h3>The New Role of Info. Systems in Organizations</h3>
-						<img src="/images/role.png" style="width:80%" alt="role.png">
-					</section>
-					</section>        
+<section>
+<section>
+	<h2>Information System Components</h2>
+	<ul>
+		<li class="fragment">Hardware</li>
+		<li class="fragment">Software: System Software, Application Software, Enterprise applications</li>
+		<li class="fragment">Data</li>
+		<li class="fragment">Processes</li>
+		<li class="fragment">People: Stakeholders(利害關係人), User and End User</li>
+</ul>
+</section>
+</section>
+<section>
+	<h2>資訊系統幫助企業達成的目標</h2>
+	<ul>
+		<li>支援企業日常性作業</li>
+		<ul>
+			<li>零售商店使用資訊系統結帳、紀錄顧客購買紀錄、追蹤存貨等作業</li>
+			<li>企業使用資訊系統管理員工出勤、個人資料及支付員工薪資等日常性作
+		</ul>
+		<li>支援管理決策的制定</li>
+		<ul>
+			<li>哪條生產線應該增加產量、哪條生產線應該要停產等重要決策</li>
+			<li>投資選擇的決策</li>
+		</ul>
+		<li>支援策略性競爭優勢</li>
+		<ul>
+			<li>經由資訊系統分析後，可以找尋超越對手的競爭策略</li>
+			<li>例如：商店經理決定安裝觸控式螢幕訂貨系統</li>
+		</ul>
+	</ul>
+</section>
+	<section>
+		<h3>The New Role of Info. Systems in Organizations</h3>
+		<img src="/images/mis/role.png" style="width:80%" alt="role.png">
+	</section>
+</section>        
 
-					<section>
-							<h2>星期五、尿布與啤酒的故事</h2>
-							<ul>
-								<li class="fragment">你如果是一位零售業的主管，你會想要把尿布與啤酒擺放在一起賣嗎？</li>
-								<li class="fragment">沃爾瑪(Wal-Mart)是美國最大的零售業，資訊工程師在分析結帳數據時發現，<b>每到星期五晚上，尿布和啤酒的銷售量有正向關聯性。</b></li>
-								<li class="fragment">透過調查才知道，原來美國週五晚上，父親常常幫家裡到超市買尿布，順便為週末球賽會購買啤酒回家。</li>
-								<li class="fragment">沃爾瑪採取合購策略，<b>固定在每週五，啤酒和尿布擺設放在同一區域，意外讓這兩項產品的銷售量提升30%。</b></li>
-							</ul>
-						</section>
+<section>
+<h2>星期五、尿布與啤酒的故事</h2>
+<ul>
+<li class="fragment">你如果是一位零售業的主管，你會想要把尿布與啤酒擺放在一起賣嗎？</li>
+<li class="fragment">沃爾瑪(Wal-Mart)是美國最大的零售業，資訊工程師在分析結帳數據時發現，每到星期五晚上，尿布和啤酒的銷售量有正向關聯性。</li>
+<li class="fragment">透過調查才知道，原來美國週五晚上，父親常常幫家裡到超市買尿布，順便為週末球賽會購買啤酒回家。</li>
+<li class="fragment">沃爾瑪採取合購策略，固定在每週五，啤酒和尿布擺設放在同一區域，意外讓這兩項產品的銷售量提升30%。</li>
+</ul>
+</section>
 
-						<section>
-							<section>
-								<h2>各類型的資訊系統(1/2)</h2>
-								<ul>
-									<li>策略性資訊系統(SIS, Strategic Information System)</li>
-									<li>終端用戶系統(EUC, End-User Computing)</li>
-									<li><b>決策支援系統</b>(DSS, Decision Support System)</li>
-									<li>高階主管資訊系統(EIS, Executive Information System)</li>
-									<li>團體支援系統(GSS, Group Support System)</li>
-									<li><b>辦公室自動化</b>(OA, Office Automation)</li>
-									<li>分散式資料處理(DDP, Distributed Data Processing)</li>
-									<li><b>專家系統</b>(ES, Expert System)</li>
-								</ul>
-							</section>
-							<section>
-							<h2>各類型的資訊系統(1/2)</h2>
-								<ul>
-									<li>企業再造(Re-engineering)</li>
-									<li>委外經營(Outsourcing)</li>
-									<li><b>虛擬企業</b>(VC, Virtual Corporation)</li>
-									<li><b>電子商務</b>(EC, Electronic Commerce)</li>
-									<li>供應鏈管理(SCM, Supply Chain Management)</li>
-									<li>顧客關係管理(CRM, Customer Relationship Management)</li>
-									<li><b>企業資源規劃</b>(ERP, Enterprise Resource Planning)</li>
-									<li><b>知識管理</b>(KM, Knowledge Management)</li>
-									<li><b>大數據分析</b>(Big Data Analysis)</li>
-								</ul>
-							</section>
-						</section>
-   
-						<section>
-							<section>
-								<h2>ERP 系統</h2>
-								<ul>
-									<li>企業系統(Enterprise System)又稱為企業資源規劃系統(Enterprise Resource Planning, ERP)，<b>是包含一組整合的軟體模組與一個集中式資料庫，可以使資料為企業中許多不同的企業流程與功能領域所分享。</b></li>
-								</ul>
-								<img src="/images/erp.png" alt="ERP">
-							</section>
-							<section>
-								<h2>導入 ERP 系統的效益</h2>
-								<ul>
-									<li><b>品質與效率：</b>ERP 創造一個整合架構，並改善公司內部處理流程，顯著改善顧客服務、產品及配送的品質與效率</li>
-									<li><b>降低成本：</b>可以降低交易處理成本，並且改善舊有未整合系統硬體、軟體及資訊科技支援人力應用情形</li>
-									<li><b>決策支援：</b>快速提供管理者所需企業績效資訊，讓管理者能適時地制定更加的決策</li>
-									<li><b>企業靈敏化：</b>打破企業與功能所形成的籓籬，整合企業程序、資訊系統與資訊資源的鴻溝。建立具彈性的組織結構、管理職責與工作角色，讓組織更加靈敏、更能調適環境，並進而掌握新的商業機會</li>
-								</ul>
-							</section>
-							<section>
-								<h2>Open Source of ERP(1/2)</h2>
-								<ul>
-									<li><a href="https://github.com/inoerp/inoERP" target="_blank">inoERP</a> is a PHP-based open source enterprise management system. The ERP system contains all the functionalities required for running any manufacturing, service or distribution organization.</li>
-									<li><a href="http://ofbiz.apache.org/index.html" target="_blank">Apache OFBiz™</a> is the Apache Foundation's enterprise business package.The suite includes many ERP functions including e-commerce, catalog management, promotion and pricing management, order management, warehouse management, accounting, manufacturing management, PoS and other features.</li>
-									<li><a href="https://xtuple.com/" target="_blank">xTuple (Qt and Postgres)</a>  claims to be the world's number one open source ERP suite and has been around in one form or another since 200</li>
-								</ul>
-							</section>
-							<section>
-								<h2>Open Source of ERP(2/2) </h2>
-								<ul>
-									<li><a href="https://www.odoo.com/" target="_blank">Odoo (Python, JavaScript, PostgresSQL)</a> is the new name for an open source ERP suite previously known as OpenERP</li>
-									<li><a href="http://www.opentaps.org/" target="_blank">Opentaps</a> is an integrated open source ERP and CRM suite sponsored by Open Source Strategies, Inc. and used by organizations including Toyota and Honeywell. </li>
-									<li><a href="https://github.com/frappe/erpnext" target="_blank">ERPNext</a> is Open Source ERP built for the Web. Uses Python, MariaDB.</li>
-									<li><a href="https://www.dolibarr.org/" target="_blank">Dolibarr</a> is an open source business suite designed for small companies and individual traders that includes ERP and CRM functionality</li>
-								</ul>
-								[Reference : <a href="http://www.enterpriseappstoday.com/erp/slideshows/ten-open-source-erp-options.html" target="_blank">10 Open Source ERP Options</a> Posted July 27, 2015 by Paul Rubens in Enterprise Apps Today]
-							</section>
-							<section>
-								<h2>ERP 的案例分析(1/3)</h2>
-								<ul>
-									<li>Y公司是一家知名汽車企業，在產能大幅度提升的情況下，於 2005 年開始實施 ERP 系統，<b>第一期主要上了生產、物料、採購、銷售、財務、成本六個模塊，並於 2008 年 7 月全面單軌運行，現有模塊主要覆蓋的單位為生產物流部、採購部、規劃部、財務部。</b></li>
-									<li>Y公司具有汽車製造業的經典特征，並且在管理上經歷幾次流程優化，具備完整的程式文件，在引入 ERP 時沒有進行業務流程重組，在實施過程中幾乎是完全按照Y公司的業務流程來的。</li>
-								</ul>
-							</section>
-							<section>
-								<h2>ERP 的案例分析(2/3)</h2>
-								<ul>
-									<li><b>ERP之前，採購控制點無法到位：</b></li>
-									<ul>
-										<li>Y公司的採購部分為外協技術科、生產材料採購科、一般材料採購科。其中外協技術科是負責需要外協採購的零部件的生產準備，而生產材料採購科負責需要外協採購的零部件的採購商務職能，一般材料採購科負責一般材料的採購以及基本建設、技術、技改及維修機件工程的外委、發包。</li>
-										<li>從公司的業務流程來說，一直都有採購四分開的規定，也就是申請、採購、驗收、結算四分開。</li>
-										<li>在這個採購四分開的規定中，其實<b>採購部門在其中是一個控制點，對物資使用部門從申請到驗收中間應該起到控制作用。但是在現實實踐中，採購部門並沒有能夠很好地履行這一控制作用。</b></li>
-									</ul>
-								</ul>
-							</section>
-							<section>
-								<h2>ERP 的案例分析(3/3)</h2>
-								<ul>
-									<li>ERP建置後，採購部制定了完備的業務流程圖，藉助ERP系統的非人格化特點，試圖把所有的行為都規範地納入到ERP的流程，實現採購四分開中採購部的控製作用。</li>
-									<li>由於業務的差別，生產材料採購和一般材料的採購流程有一定差異，但是在採購四分開中的控制原理都是一致的，就是對於<b>實物部門的收貨行為，前有採購部的協議(或者訂單)的控制，後有採購部的預製發票的控制。</b></li>
-									<li>沒有採購部門的協議(或者訂單)，這一流程就流不到收貨的庫管員那裡，計劃員擅自要貨的行為是無法得到後面庫管員收貨的支持。即使庫管員擅自收貨了，由於流程沒有流到採購部預製發票,所以最後是沒有辦法實現財務結算的。</li>
-									<li>實施 ERP 以後，生產材料採購和一般材料的採購流程可以在<b>發票和驗收單兩個方面都實現控制</b></li>
-								</ul>
-							</section>
-							</section>
-							<section>
-							<section>
-								<h2>供應鏈管理(1/2)</h2>
-								<ul>
-									<li><b>供應鏈管理(Supply Chain Management, SCM)</b>的興起主要是：外界競爭環境的變化，企業以往的經營模式遭受挑戰，企業無法獨自因應，必須聯合供應鏈上的成員，形成新的合夥或聯盟關係，透過資訊科技的協助，有效地進行供應鏈管理，提升企業競爭力</li>
-									<li><b>供應鏈管理：</b>在市場競爭變化下，一種基於策略性、整體性思考的解決方案</li>
-									<li>供應鏈管理不僅止於使物流順暢，<b>更需要徹底做到顧客導向，將顧客需求透過供應鏈管理系統迅速傳給事業單位與合作夥伴</b></li>
-									<li>供應鏈應具備跨功能企業的特性，透過資訊科技管理公司關鍵流程，並且可以處理與供應商、顧客及企業夥伴的連結關係</li>
-								</ul>
-							</section>
-							<section>
-								<h2>供應鏈管理(2/2)</h2> 
-								<ul>
-									<li>目的：建立一個快速、有效率、且低成本的企業關係或供應鏈，讓公司的產品能滿足顧客的需求</li>            
-								</ul>
-								<img src="/images/scm.jpg" style="width: 68%" alt="SCM"><br/>
-								<!--[Image Source From: <a href="http://www.allwayslogisticsgroup.com/supply.php">All - Ways Logistics</a>] -->        
-							</section>
-						
-							<section>
-								<h2>供應鏈相關的資訊系統</h2>
-								<ul>
-									<li><b>電子交換系統(Electronic Data Interchange, EDI)</b></li>
-									<li><b>電子訂貨系統(Electronic Order System, EOS)</b></li>
-									<li><b>連續補貨系統(Continuous Replenishment Practice, CRP)</b></li>
-									<li><b>供應商管理庫存系統(Vendor Managed Inventory, VMI)</b></li>
-								<hr>
-									<li><b>無線射頻辨識系統(Radio Frequency Identification, RFID)</b></li>
-									<ul>
-										<li>小於 2mm 平方，如芝麻顆粒大小，由無線通信 IC 晶片和天線組成的非接觸式自動辨識系統</li>
-										<li>搭配專用的讀寫裝置，就可以將 Tag 的資料送到後端電腦做整合運用</li>
-										<li>Wal-Mark, Microsoft, IBM, Tesco 等公司投入相當多的資金做研發及應用</li>
-									</ul>
-								</ul>
-							</section>
-							</section>
-							<section>
-							<section>
-								<h2>顧客關係管理</h2>
-								<ul>
-									<li><b>顧客關係管理(Customer Relationship Management, CRM)</b>是企業為了贏取新顧客、鞏固既有顧客，以及增進顧客利潤貢獻度，透過不斷的溝通以了解並影響顧客行為的方法</li>
-									<li>CRM 主要元素：服務(Support)、銷售(Sale)及行銷(Marketing)</li>
-								</ul>
-									<img src="/images/crm.png" style="width:68%" alt="CRM">
-							</section>
-							<section>
-								<h2>Open Source of CRM</h2>
-								<ul>
-									<li><a href="https://github.com/salesagility/SuiteCRM" target="_blank">SuiteCRM</a> is the award winning Customer Relationship Management application. It’s customisable to suit any business size or requirement and more importantly, it’s FREE and Open Source.</li>
-									<li><a href="https://github.com/fatfreecrm/fat_free_crm" target="_blank">Fat Free CRM</a> is an open source Ruby on Rails-based customer relationship management platform. Out of the box it features group collaboration, campaign and lead management, contact lists, and opportunity tracking. 
-									<li><a href="https://github.com/MyCollab/mycollab">MyCollab</a> is the free and open source collaboration tools, it has three existing modules: Project Management, CRM and Document Management.</li>
-								</ul>
-							</section>
-							</section>
-							<section>
-							<section>
-								<h2>產品生命週期管理</h2>
-								<ul>
-									<li><b>產品生命周期管理(Product Lifecycle Management, PLM)</b>是涵蓋了從產品誕生到消亡的產品生命週期全程、開放、交互作用的一整套應用方案。</li>
-									<li>PLM 系統理想情況下，讓所有參與某項產品的系統和部門，有權使用同一個資料庫：從計劃(PPS/ERP)，設計(CAD)，計算(CAE)，成形到控制(CAM)，銷售和服務。</li>
-									<li>PLM可以從企業資源規劃(ERP)、供應鏈管理(SCM)、客戶關係管理(CRM)系統中擷取相關的資訊，並使之與產品知識發生關聯，進而使之用於擴展型企業，使從製造到市場、從採購到支持的所有人都能夠更快速、高效地工作。</li>
-									<li>PLM 允許在公司間的整個網路上共同工作來進行概念設計、產品設計、產品生產、產品維護</li>
-								</ul>
-							</section>
-							<section>
-								<h2>產品生命週期管理的效益</h2>
-								<ul>
-									<li>縮短研發時程</li>
-									<li>有效降低研發成本</li>
-									<li>提昇資料再利用價值</li>
-									<li>完善紀錄工程變更</li>
-									<li>提昇產品品質</li>
-									<li>提昇專案透明度</li>
-								<img src="/images/plm.png" alt="PLM">
-								</ul>
-							</section>
-							</section>
-							<section>
-								<section>
-									<h2>決策支援系統<br>(Decision Support System,DSS)</h2>
-									<ul>
-										<li class="fragment">提供工具幫助管理者用其自己的方式來解決半結構化或非結構化問題的系統，經常會包括某種型態的操作環境以協助建立模式</li>
-										<li class="fragment">提供管理能產生所需的資訊以作成決策</li>
-										<li class="fragment">支援作決策的過程</li>
-									</ul>
-								</section>
-								<section>
-									<h2>決策支援系統的特質</h2>
-									<ul>
-										<li class="fragment">專注於半結構化或非結構化的決策</li>
-										<ul>
-											<li class="fragment">半結構化是指決策無法事先定義及無遵循特定的程序</li>
-											<li class="fragment">DSS僅提供決策參考的資訊</li>
-											<li class="fragment">決策支援系統將定義的問題轉化成模式，由電腦執行此模式並提供結果做為決策參考</li>
-										</ul>
-										<li class="fragment">具有彈性能隨需要而改變</li>
-										<ul>
-											<li class="fragment">設計系統時不設定在固定的資訊需求上，僅提供一些工具及功能給使用者，使得輸出結果能符合他們的需求</li>
-											<li class="fragment">DSS要像個百寶箱：由於使用者的需求事先未決定，但要能滿足使用者可能以任何一種型式來要求資訊</li>
-										</ul>
-										<li class="fragment">容易學習與使用</li>
-										<ul>
-											<li class="fragment">DSS 的使用者並非是電腦專業人員</li>
-											<li class="fragment">使用者為導向的介面</li>
-										</ul>
-									</ul>
-							
-								</section>
-								<section>
-									<h2>EDPS 與 DSS 的比較</h2>
-									<table>
-										<tr>
-											<td>特質</td>
-											<td>決策支援系統</td>
-											<td>資料處理系統</td>
-										</tr>
-										<tr>
-											<td>問題的本質</td>
-											<td>針對半結構化或非結構的問題</td>
-											<td>針對結構化的問題</td>
-										</tr>
-										<tr>
-											<td>系統的彈性</td>
-											<td>通常很具有彈性</td>
-											<td>較為嚴肅</td>
-										</tr>
-							
-										<tr>
-											<td>使用容易度</td>
-											<td>較易使用</td>
-											<td>較不易使用</td>
-										</tr>
-										<tr>
-											<td>系統績效評量</td>
-											<td>較不易量化</td>
-											<td>較易量化</td>
-										</tr>
-										<tr>
-											<td>系統開發方式</td>
-											<td>較常用雛型發展法</td>
-											<td>較常以系統生命週期法</td>
-										</tr>
-									</table>
-							
-								 </section>
-								 <section>
-									 <h2>決策支援系統的組成項目</h2>
-									 <ul>
-										 <li class="fragment">特定資料庫：與系統相關的各類資料庫，如財務、行銷及製造等等</li>
-										 <li class="fragment">模式庫：是軟體元件，由計算與分析程式的模型所組成，可能包含統計模式、模擬模式及預測模式</li>
-										 <li class="fragment">互動式電腦化程序：資料庫管理系統、模式庫管理系統及使用者介面系統等</li>
-									 </ul>
-								 </section>
-								</section>
-								<section>
-								<section>
-									<h2>高階主管資訊系統<br>(Executive Information System)</h2>
-									<ul>
-										<li class="fragment">能快速有效的提供資訊並直接取得管理報告</li>
-										<li class="fragment">資訊呈現方式包括圖表支援、例外的資訊報告及追根究底的功能</li>
-										<li class="fragment">預期效益：</li>
-										<ul>
-											<li class="fragment">得到及時之資訊</li>
-											<li class="fragment">配合管理者提供各類管理性的報告</li>
-											<li class="fragment">減少各類書面報告及相對應的準備成本</li>
-										</ul>
-									</ul>
-								</section>
-								<section>
-									<h2>EIS 與 DSS 差異</h2>
-									<ul>
-										<li class="fragment">DSS偏重於提供各種可行的規畫模式及廣泛的分析功能以預測決策變動所產生的效果</li>
-										<li class="fragment">EIS著重於提供在一定期間內的資訊，以直接而快速顯現的方式表現所需要的報告與圖表</li>
-										<li class="fragment">DSS與EIS的整合趨勢；經營決策支援系統</li>
-										<li class="fragment">EIS 結合網際網路的環境</li>
-										<li class="fragment">EIS 群組軟體的應用，建構群體決策的環境</li>
-									</ul>
-								</section>
-								<section>
-									<h2>Open Source of DSS</h2>
-										<ul>
-											<li><a href="http://openrules.com/">OpenRules®</a> is a general purpose Business Rules and Decision Management System available as an Open Source product.</li>
-											<li><a href="http://www.opencds.org/" target="_blank">OpenCDS</a> is a multi-institutional, collaborative effort to develop open-source, <b>standards-based clinical decision support (CDS) tools</b> and resources that can be widely adopted to enable CDS at scale.</li>
-											<li>The <a href="http://www.prosuite.org/web/guest/prosuite-decision-support-system-dss">PROSUITE Decision Support System</a> is a software for <b>assessing economic,environmental and social aspects of technologies</b> within a life cycle approach.</li>
-											<li>The <a href="https://farmbot.io/" target="_blank">Farmbot Decision Support System (DSS) Engine</a> coordinates all of the channels and modules, scheduling and running the modules for each channel, producing an optimized schedule of operations for the Farmbot to grow plants.</li>
-										</ul>
-								</section>
-								</section>
-								<section>
-								<section>
-									<h2>知識是什麼？</h2>
-									<ul>
-										<li><b>資料(Data)：</b>有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</li>
-										<li class="fragment"><b>資訊(Information)：</b>多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
-										<li class="fragment"><b>知識：</b>是指專家對某項特定事務的認知與其豐富的經驗，就是資訊再加上經驗</li>
-										<li class="fragment"><b>智慧：</b>一種直覺性知識，能有效率地把知識應用於某方面</li>
-										<hr class="fragment">
-										<li class="fragment"><b>資訊須經過學習過程與價值認知才能形成知識</b></li>
-										<li class="fragment">知識管理使用科技來分享和利用資訊，以達到創新的能力</li>
-									</ul>
-								</section>
-							
-							
-								<section>
-									<h2>知識管理</h2>
-									<ul>
-										<li class="fragment">知識管理的重要性：</li>
-										<ul>
-											<li class="fragment">勞工的工作被機械設備取代</li>
-											<li class="fragment">員工必須「思考」才能讓企業保持優勢</li>
-										</ul>
-										<li class="fragment">知識管理的定義：<b>幫助企業保存重要知識，以提供企業員工使用，以提昇對內的創造力及對外的競爭力</b></li>
-										<li class="fragment">組織知識，而後分享知識及創造知識</li>
-										<li class="fragment">知識的分類：</li>
-										<ul>
-											<li class="fragment">內隱知識：個人主觀的經驗性知識，難以用文字、程式或圖形具體形式向外傳遞，如經驗、見解及技術等</li>
-											<li class="fragment">外顯知識：客觀的理性知識，可用媒介或語言傳遞的知識，如標準作業手冊</li>
-										</ul>
-									</ul>
-								</section>
-								<section>
-									<h2>知識創造的過程與來源</h2>
-									<ul>
-										<li class="fragment">知識創造的過程：</li>
-										<ul>
-											<li class="fragment"><b>共同化：</b>內隱知識團體化，如經驗分享、師徒傳授等</li>
-											<li class="fragment"><b>外顯化：</b>使用語言、文字將知識表達成具體且有效的知識，如讀書心得</li>
-											<li class="fragment"><b>內部化與組合：</b>吸收知識，並進一步組合，創造價值</li>
-										</ul>
-										<li class="fragment">知識的來源：</li>
-										<ul>
-											<li class="fragment">企業資料：公司基本資料、外部競爭者的資料、市場調查資料等經年累月的企業智慧</li>
-											<li class="fragment">資訊：如文件、表單使之易於搜尋、重複使用及管理</li>
-											<li class="fragment">知識：個人「潛藏的經驗」</li>
-											<li class="fragment">企業的營運流程：<b>流程是一種知識</b>；在流程中自動收集資訊，適時提供決策</li>
-										</ul>
-									</ul>
-								</section>
-								<section>
-									<h2>Knowledge Management(KM)</h2>
-									<ul>
-										<li class="fragment">運用管理的技術，幫助企業保存重要知識，以提供企業員工使用，且能不斷地產生新的知識 ，以提昇對內的創造力及對外的競爭力</li>
-										<li class="fragment">在適當的時間在將適當的知識傳達給需要的人，協助人們分享與使用資訊，以改善企業績效</li>
-										<li class="fragment">基本精神在於將工作時員工所創新創造的知識等不可見但非常寶貴的想法，均建立成知識庫，且與企業的資源資料庫整合，提供決策時之整體方案</li>
-									</ul>
-								</section>
-								<section>
-									<h2>知識管理的效益</h2>
-									<ul>
-										<li class="fragment">促進組織內部的知識流通：讓需要資訊的人隨時可取得資訊</li>
-										<li class="fragment">協助組織發展核心能力：KM可發掘客戶需求的資訊，可為顧客量身定做產品與服務</li>
-										<li class="fragment">改善決策品質：知識可快速傳達，回應決策所需</li>
-										<li class="fragment">改善企業程序：可簡化不必要的流程，節省時間與更有效率的運作</li>
-										<li class="fragment">增加組織整體知識的涵量與價值</li>
-										<li class="fragment">形成有利於知識創新的企業文化與價值觀</li>
-									</ul>
-								</section>
-								<section>
-									<h2>知識管理的過程</h2>
-									<ul>
-										<li class="fragment">確保「讓對的知識在對的時間傳遞給對的人」</li>
-										<li class="fragment">創造知識：累積組織內部與外部的知識，加上創新及腦力激盪以創造新的知識</li>
-										<li class="fragment">知識的分類與編碼：建立知識庫</li>
-										<li class="fragment">擴散新知：建立激勵制度，鼓勵員工分享與創新知識</li>
-										<li class="fragment">資訊科技的支援：透過網路和資料庫，使得資訊隨手取得</li>
-									</ul>
-								</section>
-								<section>
-									<h2>知識管理的組織型態</h2>
-									<ul>
-										<li class="fragment">公司分散在各地，或分為許多工作團隊：難以分享經驗，及過高的溝通成本</li>
-										<li class="fragment">固定產生大量文件資料，須要費心管理的公司：花費太多時間在查詢、尋找資料</li>
-										<li class="fragment">以創意、個人經驗為最重要價值的公司：難以收集知識工作者思考、計畫的過程，且這類知識也代表優勢與權力</li>
-									</ul>
-								</section>
-								<section>
-									<h2>Open Source of KM</h2>
-									<ul>
-										<li><a href="https://sourceforge.net/projects/openkm/?source=directory" target="_blank">OpenKM</a> allows businesses to control the production, storage, management and distribution of electronic documents, yielding greater effectiveness and the ability to reuse information and to control the flow of the documents.</li>
-										<li><a href="https://sourceforge.net/projects/bonita/?source=directory-featured" target="_blank">Bonitasoft</a> is a premier provider of Business Process Management Solutions (BPMS) that model, automate, and monitor business processes to streamline operations while lowering costs and improving quality.</li>
-										<li><a href="https://www.exoplatform.com/" target="_blank">eXo Platform</a> is an open source social collaboration software designed for enterprises.</li>
-									</ul>
-								</section>
-								</section>
-			</div>
+<section>
+<section>
+<h2>各類型的資訊系統(1/2)</h2>
+<ul>
+	<li>策略性資訊系統(SIS, Strategic Information System)</li>
+	<li>終端用戶系統(EUC, End-User Computing)</li>
+	<li>決策支援系統(DSS, Decision Support System)</li>
+	<li>高階主管資訊系統(EIS, Executive Information System)</li>
+	<li>團體支援系統(GSS, Group Support System)</li>
+	<li>辦公室自動化(OA, Office Automation)</li>
+	<li>分散式資料處理(DDP, Distributed Data Processing)</li>
+	<li>專家系統(ES, Expert System)</li>
+</ul>
+</section>
+<section>
+<h2>各類型的資訊系統(1/2)</h2>
+<ul>
+	<li>企業再造(Re-engineering)</li>
+	<li>委外經營(Outsourcing)</li>
+	<li>虛擬企業(VC, Virtual Corporation)</li>
+	<li>電子商務(EC, Electronic Commerce)</li>
+	<li>供應鏈管理(SCM, Supply Chain Management)</li>
+	<li>顧客關係管理(CRM, Customer Relationship Management)</li>
+	<li>企業資源規劃(ERP, Enterprise Resource Planning)</li>
+	<li>知識管理(KM, Knowledge Management)</li>
+	<li>大數據分析(Big Data Analysis)</li>
+</ul>
+</section>
+</section>
 
-		</div>
+<section>
+<section>
+<h2>ERP 系統</h2>
+<ul>
+	<li>企業系統(Enterprise System)又稱為企業資源規劃系統(Enterprise Resource Planning, ERP)，是包含一組整合的軟體模組與一個集中式資料庫，可以使資料為企業中許多不同的企業流程與功能領域所分享。</li>
+</ul>
+<img src="/images/mis/erp.png" alt="ERP">
+</section>
+<section>
+<h2>導入 ERP 系統的效益</h2>
+<ul>
+	<li>品質與效率：ERP 創造一個整合架構，並改善公司內部處理流程，顯著改善顧客服務、產品及配送的品質與效率</li>
+	<li>降低成本：可以降低交易處理成本，並且改善舊有未整合系統硬體、軟體及資訊科技支援人力應用情形</li>
+	<li>決策支援：快速提供管理者所需企業績效資訊，讓管理者能適時地制定更加的決策</li>
+	<li>企業靈敏化：打破企業與功能所形成的籓籬，整合企業程序、資訊系統與資訊資源的鴻溝。建立具彈性的組織結構、管理職責與工作角色，讓組織更加靈敏、更能調適環境，並進而掌握新的商業機會</li>
+</ul>
+</section>
+<section>
+<h2>Open Source of ERP(1/2)</h2>
+<ul>
+	<li><a href="https://github.com/inoerp/inoERP" target="_blank">inoERP</a> is a PHP-based open source enterprise management system. The ERP system contains all the functionalities required for running any manufacturing, service or distribution organization.</li>
+	<li><a href="http://ofbiz.apache.org/index.html" target="_blank">Apache OFBiz™</a> is the Apache Foundation's enterprise business package.The suite includes many ERP functions including e-commerce, catalog management, promotion and pricing management, order management, warehouse management, accounting, manufacturing management, PoS and other features.</li>
+	<li><a href="https://xtuple.com/" target="_blank">xTuple (Qt and Postgres)</a>  claims to be the world's number one open source ERP suite and has been around in one form or another since 200</li>
+</ul>
+</section>
+<section>
+<h2>Open Source of ERP(2/2) </h2>
+<ul>
+	<li><a href="https://www.odoo.com/" target="_blank">Odoo (Python, JavaScript, PostgresSQL)</a> is the new name for an open source ERP suite previously known as OpenERP</li>
+	<li><a href="http://www.opentaps.org/" target="_blank">Opentaps</a> is an integrated open source ERP and CRM suite sponsored by Open Source Strategies, Inc. and used by organizations including Toyota and Honeywell. </li>
+	<li><a href="https://github.com/frappe/erpnext" target="_blank">ERPNext</a> is Open Source ERP built for the Web. Uses Python, MariaDB.</li>
+	<li><a href="https://www.dolibarr.org/" target="_blank">Dolibarr</a> is an open source business suite designed for small companies and individual traders that includes ERP and CRM functionality</li>
+</ul>
+[Reference : <a href="http://www.enterpriseappstoday.com/erp/slideshows/ten-open-source-erp-options.html" target="_blank">10 Open Source ERP Options</a> Posted July 27, 2015 by Paul Rubens in Enterprise Apps Today]
+</section>
+<section>
+<h2>ERP 的案例分析(1/3)</h2>
+<ul>
+	<li>Y公司是一家知名汽車企業，在產能大幅度提升的情況下，於 2005 年開始實施 ERP 系統，第一期主要上了生產、物料、採購、銷售、財務、成本六個模塊，並於 2008 年 7 月全面單軌運行，現有模塊主要覆蓋的單位為生產物流部、採購部、規劃部、財務部。</li>
+	<li>Y公司具有汽車製造業的經典特征，並且在管理上經歷幾次流程優化，具備完整的程式文件，在引入 ERP 時沒有進行業務流程重組，在實施過程中幾乎是完全按照Y公司的業務流程來的。</li>
+</ul>
+</section>
+<section>
+<h2>ERP 的案例分析(2/3)</h2>
+<ul>
+	<li>ERP之前，採購控制點無法到位：</li>
+	<ul>
+		<li>Y公司的採購部分為外協技術科、生產材料採購科、一般材料採購科。其中外協技術科是負責需要外協採購的零部件的生產準備，而生產材料採購科負責需要外協採購的零部件的採購商務職能，一般材料採購科負責一般材料的採購以及基本建設、技術、技改及維修機件工程的外委、發包。</li>
+		<li>從公司的業務流程來說，一直都有採購四分開的規定，也就是申請、採購、驗收、結算四分開。</li>
+		<li>在這個採購四分開的規定中，其實採購部門在其中是一個控制點，對物資使用部門從申請到驗收中間應該起到控制作用。但是在現實實踐中，採購部門並沒有能夠很好地履行這一控制作用。</li>
+	</ul>
+</ul>
+</section>
+<section>
+<h2>ERP 的案例分析(3/3)</h2>
+<ul>
+	<li>ERP建置後，採購部制定了完備的業務流程圖，藉助ERP系統的非人格化特點，試圖把所有的行為都規範地納入到ERP的流程，實現採購四分開中採購部的控製作用。</li>
+	<li>由於業務的差別，生產材料採購和一般材料的採購流程有一定差異，但是在採購四分開中的控制原理都是一致的，就是對於實物部門的收貨行為，前有採購部的協議(或者訂單)的控制，後有採購部的預製發票的控制。</li>
+	<li>沒有採購部門的協議(或者訂單)，這一流程就流不到收貨的庫管員那裡，計劃員擅自要貨的行為是無法得到後面庫管員收貨的支持。即使庫管員擅自收貨了，由於流程沒有流到採購部預製發票,所以最後是沒有辦法實現財務結算的。</li>
+	<li>實施 ERP 以後，生產材料採購和一般材料的採購流程可以在發票和驗收單兩個方面都實現控制</li>
+</ul>
+</section>
+</section>
+<section>
+<section>
+<h2>供應鏈管理(1/2)</h2>
+<ul>
+	<li>供應鏈管理(Supply Chain Management, SCM)的興起主要是：外界競爭環境的變化，企業以往的經營模式遭受挑戰，企業無法獨自因應，必須聯合供應鏈上的成員，形成新的合夥或聯盟關係，透過資訊科技的協助，有效地進行供應鏈管理，提升企業競爭力</li>
+	<li>供應鏈管理：在市場競爭變化下，一種基於策略性、整體性思考的解決方案</li>
+	<li>供應鏈管理不僅止於使物流順暢，更需要徹底做到顧客導向，將顧客需求透過供應鏈管理系統迅速傳給事業單位與合作夥伴</li>
+	<li>供應鏈應具備跨功能企業的特性，透過資訊科技管理公司關鍵流程，並且可以處理與供應商、顧客及企業夥伴的連結關係</li>
+</ul>
+</section>
+<section>
+<h2>供應鏈管理(2/2)</h2> 
+<ul>
+	<li>目的：建立一個快速、有效率、且低成本的企業關係或供應鏈，讓公司的產品能滿足顧客的需求</li>            
+</ul>
+<img src="/images/mis/scm.jpg" style="width: 68%" alt="SCM"><br/>
+<!--[Image Source From: <a href="http://www.allwayslogisticsgroup.com/supply.php">All - Ways Logistics</a>] -->        
+</section>
 
-		<script src="/reveal-js/lib/js/head.min.js"></script>
-		<script src="/reveal-js/js/reveal.min.js"></script>
+<section>
+<h2>供應鏈相關的資訊系統</h2>
+<ul>
+	<li>電子交換系統(Electronic Data Interchange, EDI)</li>
+	<li>電子訂貨系統(Electronic Order System, EOS)</li>
+	<li>連續補貨系統(Continuous Replenishment Practice, CRP)</li>
+	<li>供應商管理庫存系統(Vendor Managed Inventory, VMI)</li>
+<hr>
+	<li>無線射頻辨識系統(Radio Frequency Identification, RFID)</li>
+	<ul>
+		<li>小於 2mm 平方，如芝麻顆粒大小，由無線通信 IC 晶片和天線組成的非接觸式自動辨識系統</li>
+		<li>搭配專用的讀寫裝置，就可以將 Tag 的資料送到後端電腦做整合運用</li>
+		<li>Wal-Mark, Microsoft, IBM, Tesco 等公司投入相當多的資金做研發及應用</li>
+	</ul>
+</ul>
+</section>
+</section>
+<section>
+<section>
+<h2>顧客關係管理</h2>
+<ul>
+	<li>顧客關係管理(Customer Relationship Management, CRM)是企業為了贏取新顧客、鞏固既有顧客，以及增進顧客利潤貢獻度，透過不斷的溝通以了解並影響顧客行為的方法</li>
+	<li>CRM 主要元素：服務(Support)、銷售(Sale)及行銷(Marketing)</li>
+</ul>
+	<img src="/images/mis/crm.png" style="width:68%" alt="CRM">
+</section>
+<section>
+<h2>Open Source of CRM</h2>
+<ul>
+	<li><a href="https://github.com/salesagility/SuiteCRM" target="_blank">SuiteCRM</a> is the award winning Customer Relationship Management application. It’s customisable to suit any business size or requirement and more importantly, it’s FREE and Open Source.</li>
+	<li><a href="https://github.com/fatfreecrm/fat_free_crm" target="_blank">Fat Free CRM</a> is an open source Ruby on Rails-based customer relationship management platform. Out of the box it features group collaboration, campaign and lead management, contact lists, and opportunity tracking. 
+	<li><a href="https://github.com/MyCollab/mycollab">MyCollab</a> is the free and open source collaboration tools, it has three existing modules: Project Management, CRM and Document Management.</li>
+</ul>
+</section>
+</section>
+<section>
+<section>
+<h2>產品生命週期管理</h2>
+<ul>
+	<li>產品生命周期管理(Product Lifecycle Management, PLM)是涵蓋了從產品誕生到消亡的產品生命週期全程、開放、交互作用的一整套應用方案。</li>
+	<li>PLM 系統理想情況下，讓所有參與某項產品的系統和部門，有權使用同一個資料庫：從計劃(PPS/ERP)，設計(CAD)，計算(CAE)，成形到控制(CAM)，銷售和服務。</li>
+	<li>PLM可以從企業資源規劃(ERP)、供應鏈管理(SCM)、客戶關係管理(CRM)系統中擷取相關的資訊，並使之與產品知識發生關聯，進而使之用於擴展型企業，使從製造到市場、從採購到支持的所有人都能夠更快速、高效地工作。</li>
+	<li>PLM 允許在公司間的整個網路上共同工作來進行概念設計、產品設計、產品生產、產品維護</li>
+</ul>
+</section>
+<section>
+<h2>產品生命週期管理的效益</h2>
+<ul>
+	<li>縮短研發時程</li>
+	<li>有效降低研發成本</li>
+	<li>提昇資料再利用價值</li>
+	<li>完善紀錄工程變更</li>
+	<li>提昇產品品質</li>
+	<li>提昇專案透明度</li>
+<img src="/images/mis/plm.png" alt="PLM">
+</ul>
+</section>
+</section>
+<section>
+<section>
+	<h2>決策支援系統<br>(Decision Support System,DSS)</h2>
+	<ul>
+		<li class="fragment">提供工具幫助管理者用其自己的方式來解決半結構化或非結構化問題的系統，經常會包括某種型態的操作環境以協助建立模式</li>
+		<li class="fragment">提供管理能產生所需的資訊以作成決策</li>
+		<li class="fragment">支援作決策的過程</li>
+	</ul>
+</section>
+<section>
+	<h2>決策支援系統的特質</h2>
+	<ul>
+		<li class="fragment">專注於半結構化或非結構化的決策</li>
+		<ul>
+			<li class="fragment">半結構化是指決策無法事先定義及無遵循特定的程序</li>
+			<li class="fragment">DSS僅提供決策參考的資訊</li>
+			<li class="fragment">決策支援系統將定義的問題轉化成模式，由電腦執行此模式並提供結果做為決策參考</li>
+		</ul>
+		<li class="fragment">具有彈性能隨需要而改變</li>
+		<ul>
+			<li class="fragment">設計系統時不設定在固定的資訊需求上，僅提供一些工具及功能給使用者，使得輸出結果能符合他們的需求</li>
+			<li class="fragment">DSS要像個百寶箱：由於使用者的需求事先未決定，但要能滿足使用者可能以任何一種型式來要求資訊</li>
+		</ul>
+		<li class="fragment">容易學習與使用</li>
+		<ul>
+			<li class="fragment">DSS 的使用者並非是電腦專業人員</li>
+			<li class="fragment">使用者為導向的介面</li>
+		</ul>
+	</ul>
+
+</section>
+<section>
+	<h2>EDPS 與 DSS 的比較</h2>
+	<table>
+		<tr>
+			<td>特質</td>
+			<td>決策支援系統</td>
+			<td>資料處理系統</td>
+		</tr>
+		<tr>
+			<td>問題的本質</td>
+			<td>針對半結構化或非結構的問題</td>
+			<td>針對結構化的問題</td>
+		</tr>
+		<tr>
+			<td>系統的彈性</td>
+			<td>通常很具有彈性</td>
+			<td>較為嚴肅</td>
+		</tr>
+
+		<tr>
+			<td>使用容易度</td>
+			<td>較易使用</td>
+			<td>較不易使用</td>
+		</tr>
+		<tr>
+			<td>系統績效評量</td>
+			<td>較不易量化</td>
+			<td>較易量化</td>
+		</tr>
+		<tr>
+			<td>系統開發方式</td>
+			<td>較常用雛型發展法</td>
+			<td>較常以系統生命週期法</td>
+		</tr>
+	</table>
+
+	</section>
+	<section>
+		<h2>決策支援系統的組成項目</h2>
+		<ul>
+			<li class="fragment">特定資料庫：與系統相關的各類資料庫，如財務、行銷及製造等等</li>
+			<li class="fragment">模式庫：是軟體元件，由計算與分析程式的模型所組成，可能包含統計模式、模擬模式及預測模式</li>
+			<li class="fragment">互動式電腦化程序：資料庫管理系統、模式庫管理系統及使用者介面系統等</li>
+		</ul>
+	</section>
+</section>
+<section>
+<section>
+	<h2>高階主管資訊系統<br>(Executive Information System)</h2>
+	<ul>
+		<li class="fragment">能快速有效的提供資訊並直接取得管理報告</li>
+		<li class="fragment">資訊呈現方式包括圖表支援、例外的資訊報告及追根究底的功能</li>
+		<li class="fragment">預期效益：</li>
+		<ul>
+			<li class="fragment">得到及時之資訊</li>
+			<li class="fragment">配合管理者提供各類管理性的報告</li>
+			<li class="fragment">減少各類書面報告及相對應的準備成本</li>
+		</ul>
+	</ul>
+</section>
+<section>
+	<h2>EIS 與 DSS 差異</h2>
+	<ul>
+		<li class="fragment">DSS偏重於提供各種可行的規畫模式及廣泛的分析功能以預測決策變動所產生的效果</li>
+		<li class="fragment">EIS著重於提供在一定期間內的資訊，以直接而快速顯現的方式表現所需要的報告與圖表</li>
+		<li class="fragment">DSS與EIS的整合趨勢；經營決策支援系統</li>
+		<li class="fragment">EIS 結合網際網路的環境</li>
+		<li class="fragment">EIS 群組軟體的應用，建構群體決策的環境</li>
+	</ul>
+</section>
+<section>
+	<h2>Open Source of DSS</h2>
+		<ul>
+			<li><a href="http://openrules.com/">OpenRules®</a> is a general purpose Business Rules and Decision Management System available as an Open Source product.</li>
+			<li><a href="http://www.opencds.org/" target="_blank">OpenCDS</a> is a multi-institutional, collaborative effort to develop open-source, standards-based clinical decision support (CDS) tools and resources that can be widely adopted to enable CDS at scale.</li>
+			<li>The <a href="http://www.prosuite.org/web/guest/prosuite-decision-support-system-dss">PROSUITE Decision Support System</a> is a software for assessing economic,environmental and social aspects of technologies within a life cycle approach.</li>
+			<li>The <a href="https://farmbot.io/" target="_blank">Farmbot Decision Support System (DSS) Engine</a> coordinates all of the channels and modules, scheduling and running the modules for each channel, producing an optimized schedule of operations for the Farmbot to grow plants.</li>
+		</ul>
+</section>
+</section>
+<section>
+<section>
+	<h2>知識是什麼？</h2>
+	<ul>
+		<li>資料(Data)：有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</li>
+		<li class="fragment">資訊(Information)：多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
+		<li class="fragment">知識：是指專家對某項特定事務的認知與其豐富的經驗，就是資訊再加上經驗</li>
+		<li class="fragment">智慧：一種直覺性知識，能有效率地把知識應用於某方面</li>
+		<hr class="fragment">
+		<li class="fragment">資訊須經過學習過程與價值認知才能形成知識</li>
+		<li class="fragment">知識管理使用科技來分享和利用資訊，以達到創新的能力</li>
+	</ul>
+</section>
+
+
+<section>
+	<h2>知識管理</h2>
+	<ul>
+		<li class="fragment">知識管理的重要性：</li>
+		<ul>
+			<li class="fragment">勞工的工作被機械設備取代</li>
+			<li class="fragment">員工必須「思考」才能讓企業保持優勢</li>
+		</ul>
+		<li class="fragment">知識管理的定義：幫助企業保存重要知識，以提供企業員工使用，以提昇對內的創造力及對外的競爭力</li>
+		<li class="fragment">組織知識，而後分享知識及創造知識</li>
+		<li class="fragment">知識的分類：</li>
+		<ul>
+			<li class="fragment">內隱知識：個人主觀的經驗性知識，難以用文字、程式或圖形具體形式向外傳遞，如經驗、見解及技術等</li>
+			<li class="fragment">外顯知識：客觀的理性知識，可用媒介或語言傳遞的知識，如標準作業手冊</li>
+		</ul>
+	</ul>
+</section>
+<section>
+	<h2>知識創造的過程與來源</h2>
+	<ul>
+		<li class="fragment">知識創造的過程：</li>
+		<ul>
+			<li class="fragment">共同化：內隱知識團體化，如經驗分享、師徒傳授等</li>
+			<li class="fragment">外顯化：使用語言、文字將知識表達成具體且有效的知識，如讀書心得</li>
+			<li class="fragment">內部化與組合：吸收知識，並進一步組合，創造價值</li>
+		</ul>
+		<li class="fragment">知識的來源：</li>
+		<ul>
+			<li class="fragment">企業資料：公司基本資料、外部競爭者的資料、市場調查資料等經年累月的企業智慧</li>
+			<li class="fragment">資訊：如文件、表單使之易於搜尋、重複使用及管理</li>
+			<li class="fragment">知識：個人「潛藏的經驗」</li>
+			<li class="fragment">企業的營運流程：流程是一種知識；在流程中自動收集資訊，適時提供決策</li>
+		</ul>
+	</ul>
+</section>
+<section>
+	<h2>Knowledge Management(KM)</h2>
+	<ul>
+		<li class="fragment">運用管理的技術，幫助企業保存重要知識，以提供企業員工使用，且能不斷地產生新的知識 ，以提昇對內的創造力及對外的競爭力</li>
+		<li class="fragment">在適當的時間在將適當的知識傳達給需要的人，協助人們分享與使用資訊，以改善企業績效</li>
+		<li class="fragment">基本精神在於將工作時員工所創新創造的知識等不可見但非常寶貴的想法，均建立成知識庫，且與企業的資源資料庫整合，提供決策時之整體方案</li>
+	</ul>
+</section>
+<section>
+	<h2>知識管理的效益</h2>
+	<ul>
+		<li class="fragment">促進組織內部的知識流通：讓需要資訊的人隨時可取得資訊</li>
+		<li class="fragment">協助組織發展核心能力：KM可發掘客戶需求的資訊，可為顧客量身定做產品與服務</li>
+		<li class="fragment">改善決策品質：知識可快速傳達，回應決策所需</li>
+		<li class="fragment">改善企業程序：可簡化不必要的流程，節省時間與更有效率的運作</li>
+		<li class="fragment">增加組織整體知識的涵量與價值</li>
+		<li class="fragment">形成有利於知識創新的企業文化與價值觀</li>
+	</ul>
+</section>
+<section>
+	<h2>知識管理的過程</h2>
+	<ul>
+		<li class="fragment">確保「讓對的知識在對的時間傳遞給對的人」</li>
+		<li class="fragment">創造知識：累積組織內部與外部的知識，加上創新及腦力激盪以創造新的知識</li>
+		<li class="fragment">知識的分類與編碼：建立知識庫</li>
+		<li class="fragment">擴散新知：建立激勵制度，鼓勵員工分享與創新知識</li>
+		<li class="fragment">資訊科技的支援：透過網路和資料庫，使得資訊隨手取得</li>
+	</ul>
+</section>
+<section>
+	<h2>知識管理的組織型態</h2>
+	<ul>
+		<li class="fragment">公司分散在各地，或分為許多工作團隊：難以分享經驗，及過高的溝通成本</li>
+		<li class="fragment">固定產生大量文件資料，須要費心管理的公司：花費太多時間在查詢、尋找資料</li>
+		<li class="fragment">以創意、個人經驗為最重要價值的公司：難以收集知識工作者思考、計畫的過程，且這類知識也代表優勢與權力</li>
+	</ul>
+</section>
+<section>
+	<h2>Open Source of KM</h2>
+	<ul>
+		<li><a href="https://sourceforge.net/projects/openkm/?source=directory" target="_blank">OpenKM</a> allows businesses to control the production, storage, management and distribution of electronic documents, yielding greater effectiveness and the ability to reuse information and to control the flow of the documents.</li>
+		<li><a href="https://sourceforge.net/projects/bonita/?source=directory-featured" target="_blank">Bonitasoft</a> is a premier provider of Business Process Management Solutions (BPMS) that model, automate, and monitor business processes to streamline operations while lowering costs and improving quality.</li>
+		<li><a href="https://www.exoplatform.com/" target="_blank">eXo Platform</a> is an open source social collaboration software designed for enterprises.</li>
+	</ul>
+</section>
+</section>
+</div>
+
+</div>
+
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
 		
-		<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		// Specifies which side of the presentation the menu will 
+		// be shown. Use 'left' or 'right'.
+		side: 'left',
+
+		// Specifies the width of the menu.
+		// Can be one of the following:
+		// 'normal', 'wide', 'third', 'half', 'full', or
+		// any valid css length value
+		width: 'normal',
+
+		// Add slide numbers to the titles in the slide list.
+		// Use 'true' or format string (same as reveal.js slide numbers)
+		numbers: false,
+
+		// Specifies which slide elements will be used for generating
+		// the slide titles in the menu. The default selects the first
+		// heading element found in the slide, but you can specify any
+		// valid css selector and the text from the first matching
+		// element will be used.
+		// Note: that a section data-menu-title attribute or an element
+		// with a menu-title class will take precedence over this option
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+		// If slides do not have a matching title, attempt to use the
+		// start of the text content as the title instead
+		useTextContentForMissingTitles: false,
+
+		// Hide slides from the menu that do not have a title.
+		// Set to 'true' to only list slides with titles.
+		hideMissingTitles: false,
+
+		// Adds markers to the slide titles to indicate the 
+		// progress through the presentation. Set to 'false'
+		// to hide the markers.
+		markers: true,
+
+		// Specify custom panels to be included in the menu, by
+		// providing an array of objects with 'title', 'icon'
+		// properties, and either a 'src' or 'content' property.
+		custom: true,
+
+		// Specifies the themes that will be available in the themes
+		// menu panel. Set to 'true' to show the themes menu panel
+		// with the default themes list. Alternatively, provide an
+		// array to specify the themes to make available in the
+		// themes menu panel, for example...
+		// [
+		//     { name: 'Black', theme: 'css/theme/black.css' },
+		//     { name: 'White', theme: 'css/theme/white.css' },
+		//     { name: 'League', theme: 'css/theme/league.css' }
+		// ]
+		themes: true,
+
+		// Specifies the path to the default theme files. If your
+		// presentation uses a different path to the standard reveal
+		// layout then you need to provide this option, but only
+		// when 'themes' is set to 'true'. If you provide your own 
+		// list of themes or 'themes' is set to 'false' the 
+		// 'themesPath' option is ignored.
+		themesPath: '/reveal-js/css/theme/',
+
+		// Specifies if the transitions menu panel will be shown.
+		// Set to 'true' to show the transitions menu panel with
+		// the default transitions list. Alternatively, provide an
+		// array to specify the transitions to make available in
+		// the transitions panel, for example...
+		// ['None', 'Fade', 'Slide']
+		transitions: true,
+
+		// Adds a menu button to the slides to open the menu panel.
+		// Set to 'false' to hide the button.
+		openButton: true,
+
+		// If 'true' allows the slide number in the presentation to
+		// open the menu panel. The reveal.js slideNumber option must 
+		// be displayed for this to take effect
+		openSlideNumber: false,
+
+		// If true allows the user to open and navigate the menu using
+		// the keyboard. Standard keyboard interaction with reveal
+		// will be disabled while the menu is open.
+		keyboard: true,
+
+		// Normally the menu will close on user actions such as
+		// selecting a menu item, or clicking the presentation area.
+		// If 'true', the sticky option will leave the menu open
+		// until it is explicitly closed, that is, using the close
+		// button or pressing the ESC or m key (when the keyboard 
+		// interaction option is enabled).
+		sticky: false,
+
+		// If 'true' standard menu items will be automatically opened
+		// when navigating using the keyboard. Note: this only takes 
+		// effect when both the 'keyboard' and 'sticky' options are enabled.
+		autoOpen: true,
+
+		// If 'true' the menu will not be created until it is explicitly
+		// requested by calling RevealMenu.init(). Note this will delay
+		// the creation of all menu panels, including custom panels, and
+		// the menu button.
+		delayInit: false,
+
+		// If 'true' the menu will be shown when the menu is initialised.
+		openOnInit: false,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true,
 		
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-		controls: false,
-		progress: true,
-		history: false,
-		center: true,
-		slideNumber: true,
-		
-		transition: 'slide', // none/fade/slide/convex/concave/zoom
-		
-			menu: {
-				// Specifies which side of the presentation the menu will 
-				// be shown. Use 'left' or 'right'.
-				side: 'left',
-		
-				// Specifies the width of the menu.
-				// Can be one of the following:
-				// 'normal', 'wide', 'third', 'half', 'full', or
-				// any valid css length value
-				width: 'normal',
-		
-				// Add slide numbers to the titles in the slide list.
-				// Use 'true' or format string (same as reveal.js slide numbers)
-				numbers: false,
-		
-				// Specifies which slide elements will be used for generating
-				// the slide titles in the menu. The default selects the first
-				// heading element found in the slide, but you can specify any
-				// valid css selector and the text from the first matching
-				// element will be used.
-				// Note: that a section data-menu-title attribute or an element
-				// with a menu-title class will take precedence over this option
-				titleSelector: 'h1, h2, h3, h4, h5, h6',
-		
-				// If slides do not have a matching title, attempt to use the
-				// start of the text content as the title instead
-				useTextContentForMissingTitles: false,
-		
-				// Hide slides from the menu that do not have a title.
-				// Set to 'true' to only list slides with titles.
-				hideMissingTitles: false,
-		
-				// Adds markers to the slide titles to indicate the 
-				// progress through the presentation. Set to 'false'
-				// to hide the markers.
-				markers: true,
-		
-				// Specify custom panels to be included in the menu, by
-				// providing an array of objects with 'title', 'icon'
-				// properties, and either a 'src' or 'content' property.
-				custom: true,
-		
-				// Specifies the themes that will be available in the themes
-				// menu panel. Set to 'true' to show the themes menu panel
-				// with the default themes list. Alternatively, provide an
-				// array to specify the themes to make available in the
-				// themes menu panel, for example...
-				// [
-				//     { name: 'Black', theme: 'css/theme/black.css' },
-				//     { name: 'White', theme: 'css/theme/white.css' },
-				//     { name: 'League', theme: 'css/theme/league.css' }
-				// ]
-				themes: true,
-		
-				// Specifies the path to the default theme files. If your
-				// presentation uses a different path to the standard reveal
-				// layout then you need to provide this option, but only
-				// when 'themes' is set to 'true'. If you provide your own 
-				// list of themes or 'themes' is set to 'false' the 
-				// 'themesPath' option is ignored.
-				themesPath: '/reveal-js/css/theme/',
-		
-				// Specifies if the transitions menu panel will be shown.
-				// Set to 'true' to show the transitions menu panel with
-				// the default transitions list. Alternatively, provide an
-				// array to specify the transitions to make available in
-				// the transitions panel, for example...
-				// ['None', 'Fade', 'Slide']
-				transitions: true,
-		
-				// Adds a menu button to the slides to open the menu panel.
-				// Set to 'false' to hide the button.
-				openButton: true,
-		
-				// If 'true' allows the slide number in the presentation to
-				// open the menu panel. The reveal.js slideNumber option must 
-				// be displayed for this to take effect
-				openSlideNumber: false,
-		
-				// If true allows the user to open and navigate the menu using
-				// the keyboard. Standard keyboard interaction with reveal
-				// will be disabled while the menu is open.
-				keyboard: true,
-		
-				// Normally the menu will close on user actions such as
-				// selecting a menu item, or clicking the presentation area.
-				// If 'true', the sticky option will leave the menu open
-				// until it is explicitly closed, that is, using the close
-				// button or pressing the ESC or m key (when the keyboard 
-				// interaction option is enabled).
-				sticky: false,
-		
-				// If 'true' standard menu items will be automatically opened
-				// when navigating using the keyboard. Note: this only takes 
-				// effect when both the 'keyboard' and 'sticky' options are enabled.
-				autoOpen: true,
-		
-				// If 'true' the menu will not be created until it is explicitly
-				// requested by calling RevealMenu.init(). Note this will delay
-				// the creation of all menu panels, including custom panels, and
-				// the menu button.
-				delayInit: false,
-		
-				// If 'true' the menu will be shown when the menu is initialised.
-				openOnInit: false,
-		
-				// By default the menu will load it's own font-awesome library
-				// icons. If your presentation needs to load a different
-				// font-awesome library the 'loadIcons' option can be set to false
-				// and the menu will not attempt to load the font-awesome library.
-				loadIcons: true,
-				
-				custom: [
-					{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-					{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>The slides created by Elvis Hsieh for teaching</p>' }
-				]
-			},
-		
-		customcontrols: { 
-				slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
-				controls: [ 
-					{ icon: '<i class="fa fa-caret-left"></i>', 
-					  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
-					  action: 'Reveal.prev(); return false;' 
-					}, 
-					{ icon: '<i class="fa fa-caret-right"></i>', 
-					  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
-					  action: 'Reveal.next(); return false;' 
-					}
-				] 
-			},
-		// Optional reveal.js plugins
-		dependencies: [
-		{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-		{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-		{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
-		{ src: '/reveal-js/plugin/notes/notes.js', async: true },
-		{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-		{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
-		{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
-		{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
-		{ src: '/reveal-js/plugin/anything/anything.js', async: true },
-		{ src: '/reveal-js/plugin/menu/menu.js', async: true},
-		{ src: '/math-katex/math-katex.js', async: true },
+		custom: [
+			{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>The slides created by Elvis Hsieh for teaching</p>' }
 		]
-		});
-		
-		</script>
+	},
 
-	</body>
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+				css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+				action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+				css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+				action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	// Optional reveal.js plugins
+	dependencies: [
+	{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+	{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+	{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+	{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+	{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+	{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+	{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+	{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+	{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+	{ src: '/math-katex/math-katex.js', async: true },
+	]
+	});
+
+</script>
+
+</body>
 </html>

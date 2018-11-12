@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>文件排版與字型選用</title>
+<title>版面配置與段落編排</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -41,47 +41,207 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 <section>
 <section data-markdown><script type="text/template">
+# 版面配置與設定
+</script>
+</section>	
+<section data-markdown><script type="text/template">
 ## 頁面的幾何尺寸
-![dimension](./images/dimension.png)
+![dimension](/images/office/dimension.png)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![pageOdd](./images/pageOdd.png)
+![pageOdd](/images/office/pageOdd.png)
 #### 書籍的排版 (1)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![pageEven](./images/pageEven.png)
+![pageEven](/images/office/pageEven.png)
 #### 書籍的排版 (2)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![page](./images/page.png)
-#### 版面設定
+## 版面配置的頁籤
+
+- 切換 [版面配置] 索引標籤 ≫ 點選 [版面設定], 開啟 [版面設定] 頁面
+- [邊界] 頁籤：設定邊界尺寸及頁面的方向
+- [紙張] 頁籤：設定紙張規格與尺寸
+- [版面配置] 頁籤： 設定章節起始頁面、頁首及頁尾、頁面垂直對齊方式
+- [文件格線] 頁籤：設定頁面直書/橫書、欄位、格線及行數
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![odd](./images/odd.png)
-#### 版面配置
+# 紙張及邊界
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 奇、偶數頁面邊界設定
+## 紙張及邊界頁籤
+![page](/images/office/page.png)
+</script>
+</section>
 
-<img src="./images/margin.png" alt="margin.png" style="float: right; height: 600px">
-1. 版面配置 >> 版面設定 >> 頁數
+<section data-markdown><script type="text/template">
+## 紙張規格及尺寸
+<table><tr>
+<td class="middle" style="width:50%">
 
-2. 多頁 >> 左右對稱
+<table>
+	<thead>常用紙張規格表</thead>
+	<tr>
+		<td>紙張規格</td>
+		<td>紙張尺寸 (cm)</td>
+	</tr>
+	<tr>
+		<td>Letter</td>
+		<td>21.6 cm x 28 cm</td>
+	</tr>
+	<tr>
+		<td>Legal</td>
+		<td>21.6 cm x 35.6 cm</td>
+	</tr>
+	<tr>
+		<td>A4</td>
+		<td>21 cm x 29.7 cm</td>
+	</tr>
+	<tr>
+		<td>B4</td>
+		<td>25 cm x 35.3 cm</td>
+	</tr>
+	<tr>
+		<td>B5</td>
+		<td>25.7 cm × 18.2 cm</td>
+	</tr>
+</table>
+</td>
+<td style="width:50%"><img src="/images/office/A_size.svg" style="background-color: white;" height="550px" alt="A_size.svg"></td>
+</tr></table>
+</script>
+</section>
 
-3. [範例: paragraph.docx](./examples/word/paragraph.docx) 
+<section data-markdown><script type="text/template">
+## 設定紙張大小及邊界
+- 設定紙張大小
+	1. 切換 [版面配置] 索引標籤 ≫ 點選 [版面設定], 開啟 [版面設定] 頁面
+	2. 點選 [紙張] 頁籤 ≫ 設定 [紙張大小]
+- 設定邊界
+	1. 切換 [版面配置] 索引標籤 ≫ 點選 [版面設定], 開啟 [版面設定] 頁面
+	2. 點選 [邊界] 頁籤 ≫ 設定上、下、左、右邊界值為 2.54 cm
+	3. 設定 [方向]： 頁面直向或橫向
+	* 設定 [頁數]： 標準、左右對稱、單頁雙頁、書籍對頁、反向書籍對折
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 邊界 [頁數] 的設定項目
+- 標準：單頁頁面，邊界、頁首、頁尾等設定值完全一樣
+- 左右對稱：
+	1. 編輯書籍的頁面邊界值設定，左邊界值變成內邊界，右邊界值變成外邊界，目的是提供雙面列印裝訂成冊，內文向裝訂邊內縮，裝訂邊寬度相同，頁面一致
+	2. 點選 [紙張] 頁籤 ≫ 設定 [紙張大小]
+- 單頁雙頁：張紙以兩頁來編排 (頁碼也是兩頁), 如卡片製作
+- 書籍對頁：紙張 2 面各印 2 頁, 將紙張摺疊起來後, 就是一本書
+- 反向書籍對折：建立中式摺疊手冊, 從右至左書寫或東亞語系支援的情況下適用，例如：阿拉伯文或希伯來文，或是中文直書的書寫方式
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 書籍頁面的邊界設定
+<table class="transparent"><tr>
+<td class="middle" style="width:50%">
+<ol>
+	<li>切換 [版面配置] 索引標籤 ≫ 點選 [版面設定], 開啟 [版面設定] 頁面</li>
+	<li>點選 [邊界] 頁籤 ≫ [頁數]  ≫ [多頁] </li>
+	<li>點選 [左右對稱] 選項</li>
+	<li>[範例: paragraph.docx](./examples/word/paragraph.docx) </li>
+</ol>
+</td>
+<td style="width:50%"><img src="/images/office/margin.png" alt="margin.png" style="float: right; height: 600px"></td>
+</tr></table>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+# 版面配置<br>與<br>文件格線
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 版面配置與文件格線頁籤
+![odd](/images/office/odd.png)
 </script>
 </section>
 </section>
+<section data-markdown><script type="text/template">
+## 設定版面配置
+- 節：章節起始處
+	* 接續本頁、自下欄起、新增頁面、自下個偶數頁起、自下個奇數頁起
+- 頁首及頁尾
+	* 奇偶頁不同、第一頁不同
+	* 與頁緣距離：頁首及頁尾
+- 頁面：垂直對齊方式
+	* 靠上、置中、左右對齊、靠下
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 設定文件格線
+- 直書/橫書：章節起始處
+	* 方向：直向或橫向
+	* 欄：[投稿的論文](./examples/2columnPaper.pdf)版面通常是 2 欄的格式
+- 格線
+	* 請先開啟 [文件格線], 開啟的步驟是： [繪製格線] ≫ [顯示格線] 中勾選 [在螢幕上顯示格線]
+	* 請分別勾選 [沒有格線]、[文字貼齊格線]，檢視文字間距與行距的變化
+- 字元數
+	* 配合 [格線] 的 [指定行與字元的格線] 設定每一頁的字元個數
+- 行數
+	* 配合 [格線] 的 [指定每頁行數] 來限制每一頁的行數
+</script>
+</section>
+</section>
+</section>
 
+<section>
+<section data-markdown><script type="text/template">
+# 行距與段落間距
+</script>
+</section>
 <section data-markdown><script type="text/template">
 ## 行距與段落間距
-![版面配置](./images/paragraph.png)
+![版面配置](/images/office/paragraph.png)
 </script>
+</section>
+<section data-markdown><script type="text/template">
+## 設定行距與段落間距
+- [常用] 索引標籤 ≫ [段落] 群組 ≫ 開啟 [段落] 頁面
+- [段落與行距] 頁籤
+	* 一般：
+		- 設定 [對齊方式] 與 [大綱階層]
+		- 勾選 [格線] 的[文字貼齊格線], 無法設定 [對齊方式]
+	* 縮排：
+		- 設定左、右縮排的距離
+		- 指定方式：[第一行] 是指定第 1 行內縮的距離
+	* 段落間距：設定前、後段落距離與行距
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Enter 鍵的功能
+- Enter 鍵隱含的特殊意義
+	* 延續上一個 [內文] 樣式所使用的字型、段落及行距, 不可以 [Shift + Enter] 來斷行
+	* 若目前正在編輯 [項目符號] 或 [編號], 則延續會 [清單段落] 的樣式, 自動增加 [項目符號] 或 [編號]
+- 不可以隨便輸入 Enter 及空白鍵
+	* 一致化的段落、行距及字型
+	* [編號] 的順序自動編號
+	* 第 1 行縮排 2 個字元, 不可以直接按空白鍵 2 下, 請使用 [縮排] 的 [第一行] 是指定第 1 行內縮的距離
+- 錯誤範例： [noAutoNumber](./examples/word/noAutoNumber.docx)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 項目符號及編號的編排
+
+- 調整項目符號與文字的間距
+	* 使用尺規來調整，注意 [編號] 可能有 10 位、100 位數字時，編號與文字的間距
+- Enter 輸入時機
+	* 文字後面輸入 Enter 鍵 
+	* 在前 1 個 項目符號中輸入 Enter 鍵
+- 階層式項目符號與編號
+	* 使用 [減少縮排] 與 [增加縮排] 來排版下一階層的項目符號或編號
+	* 不可以使用空白鍵來縮排
+	* 剪貼文字請先輸入 2 次 Enter 鍵後再進行 [貼上] 的動作
+</script>
+</section>
 </section>
 </div>
 </div>

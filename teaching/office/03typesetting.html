@@ -42,16 +42,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section>
 <section data-markdown><script type="text/template">
 ## 文件排版：易讀
-<a href="./examples/word/typesetting.docx">![排版的比較](./images/typesetting.png)</a>
+<a href="./examples/word/typesetting.docx">![排版的比較](/images/office/typesetting.png)</a>
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![pageOdd](./images/pageOdd.png)
+![pageOdd](/images/office/pageOdd.png)
 #### 原文書籍的排版 (1)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-![pageEven](./images/pageEven.png)
+![pageEven](/images/office/pageEven.png)
 #### 原文書籍的排版 (2)
 </script>
 </section>
@@ -73,7 +73,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 中、英字體的分類
 
-<img src="./images/tiger.png" alt="tiger" width="35%" style="float: right;">
+<img src="/images/office/tiger.png" alt="tiger" width="35%" style="float: right;">
 
 - 中文字體
 	* 宋體：細明體、源樣、源流
@@ -165,7 +165,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 標點符號居中？還是「下標」的位置
 - 註解編號不對, 應在標點符號的後面
 
-<img src="./images/typesetting.png" width="650" height="480" alt="排版的比較">
+<img src="/images/office/typesetting.png" width="650" height="480" alt="排版的比較">
 </script>
 </section>
 <section data-markdown><script type="text/template">
@@ -173,10 +173,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 圖、表編號
 	* 「表一」, 應為<a href="./examples/word/typesetting.docx">「表 1」</a>
 	* 「圖一」, 應為<a href="./examples/word/typesetting.docx">「圖 1」</a>
-
 - 日期寫法
 	* 「二O一八年十月八日」, 應寫成「2018 年 10 月 8 日」
-
 - 章節編號
 	* 「第一章第二節第三小節」, 應寫成「第 1 章第 2.3 節」
 </script>
@@ -198,15 +196,59 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 版面配置與段落間距
-- A4 紙張邊界應留有適當的空白, 建議四周邊界至少留 2.54 cm 的空白
-- 「行距」與「段落間距」大小有別
-	* 行距較小, 段落間距較大
-- 一致的格式
+## 一致化的格式
+- 版面配置
+	* 邊界應留有適當空白, 建議四周邊界至少留 2.54 cm 的空白
+- 段落間距
+	* 「行距」與「段落間距」大小有別, 行距較小, 段落間距較大
 	* 文稿的行距、段落間距應保持一致
+- 字體大小及圖表標號
 	* 章節標題與圖、表說明文字選用的字體與大小都應相同
 	* 表在上：表編號 (表 1) 在表的上方
 	* 圖在下：圖編號 (圖 1) 在圖的下方
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 安裝 cwTeX Font 字型
+- cwTeX 字型是一款標點符號在下標位置的字型
+
+- cwTeX 字型的下載網址：[https://github.com/l10n-tw/cwtex-q-fonts](https://github.com/l10n-tw/cwtex-q-fonts)
+	* 點選網站右邊綠色的 「clone or download」文字，下載字型
+	* 下載的字型是壓縮檔，請使用壓縮軟體如 [7zip](https://www.developershome.com/7-zip/) 解壓縮
+
+- 安裝 cwTeX 字型的步驟
+	* 解壓縮下載的字型以後，點選字型並按下滑鼠右鍵 ≫ 點選「安裝」
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 字型選用及設定
+
+- 字型選用
+	* 標題、章節字體：黑體、圓體、無襯線體 (Sans-serif)
+	* 內文字體：明體 (宋體)、襯線體 (Serif)
+- 修改[內文] 樣式的預設字型
+	* 將 Word 預設的新細明體字型改成 cwTeX Font 的明體字型, 英文字型改成 Times New Roman 字型
+	* 設定步驟：
+		1. [常用] 索引標籤 ≫ [字型] 群組
+		2. [中文字型] 選用 cwTeX 明體; [英文字型] 選用 Times New Roman 字型
+		3. 點選 [設定成預設值] 按鈕 ≫ [以 Normal.dotm 為範本的所有文件]
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 標題字型的設定
+
+- 選用 [標題] 字型及大小
+	* 英文字型選用時，注意英文字型高度與中文字型的差異
+	* 調整標題字型與內文字型大小的差異
+- 修改 [標題] 樣式的字型
+	* 將 Word [標題] 樣式預設的新細明體字型改成 [微軟正黑體]
+	* 設定步驟：
+		1. 移動滑鼠到 [標題] 樣式上方, 按滑鼠右鍵 ≫ 點選 [修改] 
+		2. 在 [修改樣式] 頁面點選 [格式] 按鈕 ≫ 點選 [字型] ≫ 修改 [中文字型] 設定, 改成 [微軟正黑體] 點選 ≫ [確定] 按鈕
+		3. 點選 [依據此範本建立的新文件]  ≫ 點選 [確定] 按鈕
+
 </script>
 </section>
 </section>
