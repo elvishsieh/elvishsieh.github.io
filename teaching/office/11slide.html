@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>樣式與樣版</title>
+<title>認識簡報及編輯技巧</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -41,74 +41,73 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 <section>
 <section data-markdown><script type="text/template">
-# 樣式與樣版
+# 簡報及編輯技巧
 </script>
 </section>	
 <section data-markdown><script type="text/template">
-## 何謂樣式(Style)
-- 樣式(style)包括：
-	* 字型(中、英文字型)
-	* 段落之間的行距
-	* 文字的縮排
-	* 版面的尺寸大小等等
-- 樣版 (範本)
-	* 一個檔案，檔案包含內文、標題、副標、題標題 1、標題 2、無間距等各種樣式
-	* 附檔名： .dotx, .dotm
+## 簡報的技巧
+- 訂定題目
+	* 聽眾是誰?
+	* 傳達什麼訊息?
+- 製作投影片
+	* 簡報製作的原則是 KISS (Keep It Simple, Stupid)
+- 不斷的練習：時間的掌握要精準
+- 簡報時注意事項
+	* 提前到場試播投影片、分發講稿等
+- 檢討與改進
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 如何修改內文樣式?
-- 修改樣式的步驟:
-	* 開啟 Word 編輯軟體，將滑鼠移動到右上方的內文樣式上面
-	* 按滑鼠右鍵，開啟[修改]樣式的頁面，再點選[格式 ≫ 段落]修改段落的設定值，將段落設定值改成「左右對齊」
-	* 最後，點選「依據此範本建立新文件」選項，然後按「確定」按鈕
-- 將修改的樣式轉存成樣版 (範本)檔
-	* 另存新檔 ≫ 存成範本檔
+## 簡報的時間分配
+- 簡報分成開場、簡報主體及結尾三大部分， 時間分配 1：8：1 的黃金比例
+- 10 分鐘的演講，建議時間分配是
+	* 開場 1 分鐘
+	* 簡報主體 8 分鐘
+	* 結尾 1 分鐘
+- 若簡報時間為 20 分鐘，就等比變成 2 分鐘：1 6分鐘：2 分鐘
+
+<br>
+[Source from: 上場前該知道的時間分配黃金比例](http://www.businesstoday.com.tw/article/category/80407/post/201703100015/%E4%B8%8A%E5%A0%B4%E5%89%8D%E8%A9%B2%E7%9F%A5%E9%81%93%E7%9A%84%E6%99%82%E9%96%93%E5%88%86%E9%85%8D%E9%BB%83%E9%87%91%E6%AF%94%E4%BE%8B)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 練習
-- 修改下列樣式的設定
-	* 標題樣式：字體改成 18 pt 字型大小、藍色
-	* 內文樣式：段落設定值改成「左右對齊」，字體改成自己喜愛的字型,
-	 字型大小 12 pt
-- 最後，點選「在文件」選項，然後按「確定」按鈕
-- 將修改後的樣式轉存成 [sample.dotx](./examples/word/sample.dotx) 樣版 (範本)檔
-	* 檔案 ≫ 另存新檔 ≫ 存檔類型選擇 [Word 範本(.dotx)]
-	* 檔名： sample
+## 簡報製作的技巧
+- 製作屬於自己的範本
+	* 一致化的樣式
+- 儘可能使用圖、表，文字儘量減短
+- 字體的選用
+	* 字體大小適中
+	* 中文字體選用黑體、圓體
+	* 英文字體選用無襯線體
+- 加入色彩及動畫效果
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 製作投影片的步驟
+- 選取範本
+	* 套用 Microsoft 提供的範本
+	* 網路下載的範本
+	* 自製範本
+- 編輯投影片母片
+	* 修改範本母片的樣式
+- 編輯投影片
+	* 編輯文字、轉場、動畫、播放的設定等
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Word 的副檔名
-- .docx
-	* doc: document 的 DOC, x 是 xml 的 x
-- .dotx
-	* docx 與 dotx 只是 c 與 t 的差別
-	* t 是 template 的 t, template 就是樣版
-- .dotm
-	* dotx 與 dotm 只是 t 與 m 的差別
-	* m 是 macro 的 m, macro 是巨集
-	* 樣版又含有巨集指令的意思
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 複製預設範本檔
-- 預設範本檔的檔名是 Normal.dotm
-- 預設範本檔的儲存位置
-	* %appdata%\Microsoft\Templates
-	* 開啟預設範本檔的位置的方式： 搜尋 ≫ %appdata%\Microsoft\Templates
-- 複製 Normal.dotm 到其他電腦
-	* 修改的預設樣式，可以複製到其他電腦，不需要再重複設定
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 修改範本檔
-- 問題：
-	* 點選範本檔以後，開啟新的檔案，不是範本檔
-- 修改範本的步驟
-	* 開啟檔案總管，移動到範本檔的位置
-	* 滑鼠移動到範本檔的上方，按下滑鼠右鍵 ≫ 點選 [開啟]
-- 檢查開啟的檔案是否是範本檔的檔名
+## 建立投影片
+- 蒐集資源
+	* 網路上免費的範本、字體、圖形
+- 開啟 Power Pointer, 選取範本
+	* 若套用 Microsoft 提供的範本，點選 [建立] 按鈕
+- 編輯投影片母片
+	* 修改範本母片的背景圖檔、字體、版面配置等
+- 編輯投影片
+	* 加入演講的文字及內容
+	* 加入圖片、轉場、動畫、播放的設定等
 </script>
 </section>
 </section>

@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/reveal-js/lib/css/zenburn.css">
-<link rel="stylesheet" href="/highlight-js/styles/default.min.css">  
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
 <link rel="stylesheet" href="/css/style4font.css">
 <!-- Printing and PDF exports -->
 <script>
@@ -129,6 +129,418 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	* 用戶端不只取出最新檔案快照, 還把整個倉儲做個鏡像 (複製)
 	* 如 Git, Mercurial, Bazaar and Darcs
 <img src="/images/git/distributed.png" alt="distributed.png" height="400px">
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/html">
+# Git 儲存庫與軟體安裝
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Git 儲存庫 (repository) 網站
+- [Github 網站](https://github.com/)
+	* GitHub 同時提供公共倉庫和私有倉庫，但如果要使用私有倉庫，是需要付費的
+	*  Microsoft 公司以 75 億美元併購 Github 公司，宣稱會維持對開發者的三大承諾：「自由、開放，以及創新」
+	* 新聞報導： 2018/6/4 日當天，這一波逃亡潮正式開啟，包括 GIMP, Gnome 等
+- [GitLab 網站](https://about.gitlab.com/)
+	* GitLab 允許在上面創建私人的免費倉庫
+
+- [Bitbucket 網站](https://bitbucket.org/)
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 申請 Github 儲存庫的帳號
+- [Github 網站](https://github.com/)輸入下列資料
+	* 帳號： 以英文字母及數字命名，中間可以使用 - 作為分隔符號
+	* Email 信箱： 可以收到信件的 Email 位址，確認申請的帳號是否正確
+	* 密碼： 請輸入不容易忘記的密碼
+<img src="/images/git/githubAccount.png" alt="githubAccount.png" height="300px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Sign in Github 網站
+- Sign in (登入) [Github 網站](https://github.com/)，右上角的選項
+	* Your profile 選項： 修改個人資料, 確認 Email, 修改密碼等 
+	* Your repository 選項： 顯示目前儲存庫內的所有專案名稱
+<img src="/images/git/profile.png" alt="profile.png">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+##  git 版本控制軟體
+- 指令式的軟體：[git 網站](https://git-scm.com/downloads)
+- [圖形化介面的軟體](https://git-scm.com/downloads/guis) 
+	* [SourceTree](https://www.sourcetreeapp.com/), [GitHub Desktop](https://desktop.github.com/) 
+	[TortoiseGit](https://tortoisegit.org/), [GitKraken](https://www.gitkraken.com/), ...
+	* [Github Desktop](https://desktop.github.com/): Github 網站開發的 git 軟體 
+<img src="/images/git/gitDesktop.png" alt="gitDesktop.png" height="350px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 安裝 git 版本控制軟體
+- 安裝 git 軟體
+	* 執行 Github Desktop 或者 git 安裝軟體程式
+<img src="/images/git/install.png" alt="install.png" height="450px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 摘要
+- 申請 Github 網站的帳號
+	* 選擇一組英文、數字組成的帳號
+	* 需要一個 Email 位址，作為認證 Githhub 帳號
+
+- 登入 Github 網站, 測試帳密是否正確？
+	* Your profile 選項： 修改個人資料, 確認 Email, 修改密碼等
+	* Your repository 選項： 顯示目前儲存庫內的所有專案
+- Git 軟體
+	* 圖形化介面的軟體：[GitHub Desktop](https://desktop.github.com/), [SourceTree](https://www.sourcetreeapp.com/),  
+	[TortoiseGit](https://tortoisegit.org/), [GitKraken](https://www.gitkraken.com/), ...
+	* 指令式的軟體： git
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/html">
+# Github Desktop <br>啟動與設定
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Github Desktop 啟動與設定(1/5)
+- 登入 Github 網站, or 跳過這個步驟
+<img src="/images/git/gitDesktop2.png" alt="gitDesktop2.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Github Desktop 啟動與設定(2/5)
+- 輸入帳號 (or Email) 及密碼
+<img src="/images/git/gitDesktop3.png" alt="gitDesktop3.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Github Desktop 啟動與設定(3/5)
+- 設定 git 軟體在提交 (commit) or 發佈 (publish) 到儲存庫所顯示的使用者名稱及 Email   
+<img src="/images/git/gitDesktop4.png" alt="gitDesktop4.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Github Desktop 啟動與設定(4/5)
+- 提供 Github Desktop 使用上的建議, 請取消勾選
+<img src="/images/git/gitDesktop5.png" alt="gitDesktop5.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Github Desktop 啟動與設定(5/5)
+- 啟動與設定完成畫面, 結果顯示：目前本地儲存庫是空的
+<img src="/images/git/gitDesktop6.png" alt="gitDesktop6.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+# 建立儲存庫及分支
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立本地儲存庫(1/3)
+- 新增資料夾，當作本地儲存庫 (local repository)
+	* 開啟檔案總管, 新增一個資料夾, 例如: e:\github
+2. 按 Create new repository, 指定到 e:\github 資料夾
+<img src="/images/git/gitDesktop6.png" alt="gitDesktop6.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立本地儲存庫(2/3)
+- 輸入儲存庫的名稱、指定儲存庫所在的資料夾及勾選產生初始化的 README 檔案
+<img src="/images/git/website.png" alt="website.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立本地儲存庫(3/3)
+- 完成的畫面, 儲存庫預設分支的名稱是 master 
+<img src="/images/git/website2.png" alt="website2.png" height="500px">
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/html">
+# 儲存庫的操作
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(1/6)
+- 假設儲存庫至指定在 e:\github 資料夾內, 且本地儲存庫有一個 sop12334.github.io 的專案名稱
+<img src="/images/git/website3.png" alt="website3.png" height="450px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(2/6)
+- 開啟 Mobirise 網頁編輯軟體, 點選右上角的 Publish 按鈕
+
+<img src="/images/mobirise/localfolder.png" alt="localfolder.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(3/6)
+- 將編輯的網頁檔案 publish 到 e:\github\sop12334.github.io 資料夾
+<img src="/images/mobirise/localfolder2.png" alt="localfolder2.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(4/6)
+- Mobirise 的檔案 publish 到儲存庫以後, Github Desktop 顯示儲存庫內部有資料變更
+<img src="/images/git/addfile.png" alt="addfile.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(5/6)
+- 輸入新增或修改的說明文字, 然後再按 commit 按鈕
+<img src="/images/git/gdcommit.png" alt="gdcommit.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至儲存庫(6/6)
+- 完成 commit 以後, 新增或修改的檔案已經 commit 到儲存庫
+<img src="/images/git/gdnochange.png" alt="gdnochange.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+# 更新遠端儲存庫
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 更新遠端儲存庫(1/3)
+- 按 Publish repository, 輸入說明文字及取消 private 的選項
+<img src="/images/git/gdpublish.png" alt="gdpublish.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 更新遠端儲存庫(2/3)
+- 正在上傳 Github 網站的畫面
+<img src="/images/git/gdpublishing.png" alt="gdpublishing.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 更新遠端儲存庫(3/3)
+- 上傳完成後的畫面
+<img src="/images/git/gdcomplete.png" alt="gdcomplete.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+# 檢查網站是否更新 
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 檢查 Github 網站是否更新
+- 輸入 Githubio 網址
+	* 規則: 帳號名稱 + github.io + 專案名稱
+	* 例如: sop12334.github.io/sop12334.github.io/
+<img src="/images/mobirise/checkgithubio.png" alt="checkgithubio.png">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## github.io 的網址與專案名稱 
+- 專案名稱與網址不相同
+	* 網址: 帳號名稱 + github.io + 專案名稱
+	* 例如: 帳號是 sop12334, 專案名稱也是 testing, 網頁的網址為 sop12334.github.io/testing
+	* 讀取 gh-pages 分支的網頁資料
+- 專案名稱與網址相同
+	* 網址: 帳號名稱 + github.io
+	* 例如: 若專案名稱是 sop12334.github.io, 且帳號是 sop12334, 則網址簡化為 sop12334.github.io
+	* 僅讀取 master 分支的網頁資料
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## Summary
+- 初始化 local repository (本地儲存庫)
+	* 新增儲存庫所在的資料夾
+	* 勾選產生初始化的 README 檔案 
+- 新增或修改程式碼
+	* 將 Mobirise 檔案 Publish 到 e:\github 資料夾
+- commit (提交) 到 local repository
+	* 輸入新增或修改的說明文字, 然後再按 commit 按鈕
+- Publish 到 Github repositories
+	* 必須確認 Github Desktop 啟動時是否已經登入 Github 網站
+	* 按 Publish 按鈕 
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/html">
+# 建立新專案及<br> gh-pages 分支
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立 testing 專案(1/2)
+- 輸入儲存庫的名稱、指定儲存庫所在的資料夾及勾選產生初始化的 README 檔案
+<img src="/images/git/newtesting.png" alt="newtesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立 testing 專案(2/2)
+- 開啟本地儲存庫的資料夾
+<img src="/images/git/openrepository.png" alt="openrepository.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立 gh-pages 分支(1/3)
+- 目前分支是 master, 按 "New Branch" 按鈕
+<img src="/images/git/branchtesting.png" alt="branchtesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立 gh-pages 分支(2/3)
+- 輸入 gh-pages 分支名稱, 並按 Create branch 按鈕
+<img src="/images/git/branchtesting2.png" alt="branchtesting2.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建立 gh-pages 分支(3/3)
+- 建立 gh-pages 分支完成的畫面
+	* 完成 gh-pages 分支以後, 將程式碼發佈到 testing 儲存庫
+<img src="/images/git/nochangetesting.png" alt="nochangetesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 新增檔案至 testing 專案
+- 加入檔案，並且檢視本地儲存庫的差異性
+<img src="/images/git/difftesting.png" alt="difftesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 提交到 testing 專案
+- 輸入本次修改的說明，並且 commit(提交) 到 local repository
+<img src="/images/git/committesting.png" alt="committesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 更新遠端儲存庫(1/2)
+- 按 Publish repoistory, 輸入說明文字及取消 private 的選項, 把修改的版本上傳到遠端儲存庫
+<img src="/images/git/publishtesting.png" alt="publishtesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 更新遠端儲存庫(2/2)
+- 上傳完成遠端儲存庫的畫面
+<img src="/images/git/nochangetesting.png" alt="nochangetesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 檢查遠端儲存庫是否更新
+<img src="/images/git/checktesting.png" alt="checktesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 檢視專案修改紀錄
+-  按 "History" 可檢視 testing 專案修改的歷史紀錄
+<img src="/images/git/historytesting.png" alt="historytesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 與遠端專案名稱相同
+- 專案名稱已經存在 Github 網站
+	* 刪除 Github 網站的專案 or local repository
+<img src="/images/git/thesametesting.png" alt="thesametesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 刪除 local repository
+- 開啟檔案總管, 移動檔案到其他資料夾
+<img src="/images/git/deletetesting.png" alt="deletetesting.png" height="500px">
+</script>
+<section data-markdown><script type="text/html">
+## Summary
+- Initial local repository
+	* 新增儲存庫所在的資料夾
+	* 勾選產生初始化的 README 檔案 
+- Create gh-pages branch
+- 新增或修改程式碼
+	* 將 Mobirise 檔案 Publish 到 e:\github\testing 資料夾
+- commit (提交) 到 local repository
+	* 輸入新增或修改的說明文字, 然後再按 commit 按鈕
+- Publish 到 Github repositories
+- 確認 Ghithub 是否更新
+	* 規則： 帳號名稱 + github.io + 專案名稱
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/html">
+## 新增儲存庫 (New Repositories)
+- 網站右上角 + 圖示的 New repositories 選項
+	* New repositories: 存放在 github 網站上的專案，像電腦的資料夾 
+<img src="/images/git/newrepository.png" alt="newpository.png">
+</script>
+</section>
+
+<section data-markdown><script type="text/html">
+## 新增儲存庫 (New Repositories)
+- 網站右上角 + 圖示的 New repositories 選項
+	* New repositories: 存放在 github 網站上的專案，像電腦的資料夾 
+<img src="/images/git/newrepository.png" alt="newpository.png">
+</script>
+</section>
+
+<section data-markdown><script type="text/html">
+## 輸入儲存庫名稱
+- Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
+<img src="/images/git/repositoryName.png" alt="positoryName.png" height="520px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 建置完成的畫面
+- 完成上一張 slide 的步驟，會顯示下圖的畫面
+<img src="/images/git/initialgit.png" alt="initialgit.png" height="520px">
+</script>
+</section>
+<section>
+<h1> 初始化本地儲存庫</h1>
+<pre><code class="line-numbers">echo "# testing" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sop12334/testing.git
+git push -u origin master	
+</code></pre>
+
+</section>
+<section data-markdown><script type="text/html">
+##  Github.io 網頁
+- Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
+<img src="/images/git/repositoryName.png" alt="positoryName.png" height="520px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 初始化本地 git 儲存庫
+- Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
+<img src="/images/git/repositoryName.png" alt="positoryName.png" height="520px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 刪除儲存庫步驟 (1/2)
+1. Sign in ≫ Your repositories ≫ 點選 Repository 的名稱
+2. 點選 Setting 頁籤 ≫ 滑動滑鼠中間滾輪，把螢幕移動到最下方的 Danger Zone (危險區域)
+<img src="/images/git/setting.png" alt="setting.png">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 刪除儲存庫步驟 (2/2)
+
+3. 在 Danger Zone (危險區域)內點選 Delete this repository 按鈕
+
+4. 開啟 Are you absolutely sure? 頁面
+<img src="/images/git/dangerZone.png" alt="dangerZone.png">
+</script>
+</section>
+
+<section data-markdown><script type="text/html">
+## 刪除儲存庫步驟 (3/3)
+5. 在 Are you absolutely sure? 頁面中輸入專案的名稱
+
+6. 按下 I understand the consquences, delete the repository. 按鈕
+<img src="/images/git/confirm.png" alt="confirm.png">
 </script>
 </section>
 </section>               
@@ -264,7 +676,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         loadIcons: true,
         
         custom: [
-			{ title: 'Links', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
 			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>This slidedeck is created with reveal.js</p>' }
 		]
 	},
