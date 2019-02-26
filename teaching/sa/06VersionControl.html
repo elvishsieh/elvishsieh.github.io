@@ -357,11 +357,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	* 勾選產生初始化的 README 檔案 
 - 新增或修改程式碼
 	* 將 Mobirise 檔案 Publish 到 e:\github 資料夾
-- commit (提交) 到 local repository
+- Commit (提交) 到 local repository
 	* 輸入新增或修改的說明文字, 然後再按 commit 按鈕
 - Publish 到 Github repositories
 	* 必須確認 Github Desktop 啟動時是否已經登入 Github 網站
-	* 按 Publish 按鈕 
+	* 按 Publish 按鈕
+- 檢查遠端儲存庫是否更新
+	* 規則: 帳號名稱 + github.io + (專案名稱)
 </script>
 </section>
 </section>
@@ -428,6 +430,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-markdown><script type="text/html">
 ## 檢查遠端儲存庫是否更新
+- 帳號名稱 + github.io + 專案名稱
 <img src="/images/git/checktesting.png" alt="checktesting.png" height="500px">
 </script>
 </section>
@@ -437,18 +440,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <img src="/images/git/historytesting.png" alt="historytesting.png" height="500px">
 </script>
 </section>
-<section data-markdown><script type="text/html">
-## 與遠端專案名稱相同
-- 專案名稱已經存在 Github 網站
-	* 刪除 Github 網站的專案 or local repository
-<img src="/images/git/thesametesting.png" alt="thesametesting.png" height="500px">
-</script>
-</section>
-<section data-markdown><script type="text/html">
-## 刪除 local repository
-- 開啟檔案總管, 移動檔案到其他資料夾
-<img src="/images/git/deletetesting.png" alt="deletetesting.png" height="500px">
-</script>
 <section data-markdown><script type="text/html">
 ## Summary
 - Initial local repository
@@ -464,17 +455,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	* 規則： 帳號名稱 + github.io + 專案名稱
 </script>
 </section>
+<section data-markdown><script type="text/html">
+# 問題與討論
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 與遠端專案名稱相同
+- 專案名稱已經存在 Github 網站
+	* 刪除 Github 網站的專案 or local repository
+<img src="/images/git/thesametesting.png" alt="thesametesting.png" height="500px">
+</script>
+</section>
+<section data-markdown><script type="text/html">
+## 刪除 local repository
+- 開啟檔案總管, 移動檔案到其他資料夾
+<img src="/images/git/deletetesting.png" alt="deletetesting.png" height="500px">
+</script>
+</section>
 </section>
 
 <section>
 <section data-markdown><script type="text/html">
-## 新增儲存庫 (New Repositories)
-- 網站右上角 + 圖示的 New repositories 選項
-	* New repositories: 存放在 github 網站上的專案，像電腦的資料夾 
-<img src="/images/git/newrepository.png" alt="newpository.png">
+# 遠端儲存庫操作與維護 
 </script>
 </section>
-
 <section data-markdown><script type="text/html">
 ## 新增儲存庫 (New Repositories)
 - 網站右上角 + 圖示的 New repositories 選項
@@ -482,7 +486,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <img src="/images/git/newrepository.png" alt="newpository.png">
 </script>
 </section>
-
+<section data-markdown><script type="text/html">
+## 新增儲存庫 (New Repositories)
+- 網站右上角 + 圖示的 New repositories 選項
+	* New repositories: 存放在 github 網站上的專案，像電腦的資料夾 
+<img src="/images/git/newrepository.png" alt="newpository.png">
+</script>
+</section>
 <section data-markdown><script type="text/html">
 ## 輸入儲存庫名稱
 - Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
@@ -496,7 +506,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 <section>
-<h1> 初始化本地儲存庫</h1>
+<h2> 設定 Git 本地儲存庫</h2>
+<ul>
+	<li>Setup Github Desktop</li>
+	<li>Create a new repositiry on command line</li>
+</ul>
 <pre><code class="line-numbers">echo "# testing" >> README.md
 git init
 git add README.md
@@ -504,42 +518,32 @@ git commit -m "first commit"
 git remote add origin https://github.com/sop12334/testing.git
 git push -u origin master	
 </code></pre>
+</section>
+</section>
 
-</section>
-<section data-markdown><script type="text/html">
-##  Github.io 網頁
-- Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
-<img src="/images/git/repositoryName.png" alt="positoryName.png" height="520px">
-</script>
-</section>
-<section data-markdown><script type="text/html">
-## 初始化本地 git 儲存庫
-- Repository Name: 例如, 專案名稱是 testing, 則輸入 testing
-<img src="/images/git/repositoryName.png" alt="positoryName.png" height="520px">
-</script>
-</section>
+<section>
+
 <section data-markdown><script type="text/html">
 ## 刪除儲存庫步驟 (1/2)
-1. Sign in ≫ Your repositories ≫ 點選 Repository 的名稱
-2. 點選 Setting 頁籤 ≫ 滑動滑鼠中間滾輪，把螢幕移動到最下方的 Danger Zone (危險區域)
+* 登入 Github  ≫ Your repositories ≫ 點選 Repository 的名稱
+* 點選 Setting 頁籤 ≫ 滑動滑鼠中間滾輪，把螢幕移動到最下方的 Danger Zone (危險區域)
 <img src="/images/git/setting.png" alt="setting.png">
 </script>
 </section>
 <section data-markdown><script type="text/html">
 ## 刪除儲存庫步驟 (2/2)
+* 在 Danger Zone (危險區域)內點選 Delete this repository 按鈕
 
-3. 在 Danger Zone (危險區域)內點選 Delete this repository 按鈕
-
-4. 開啟 Are you absolutely sure? 頁面
+* 開啟 Are you absolutely sure? 頁面
 <img src="/images/git/dangerZone.png" alt="dangerZone.png">
 </script>
 </section>
 
 <section data-markdown><script type="text/html">
 ## 刪除儲存庫步驟 (3/3)
-5. 在 Are you absolutely sure? 頁面中輸入專案的名稱
+* 在 Are you absolutely sure? 頁面中輸入專案的名稱
 
-6. 按下 I understand the consquences, delete the repository. 按鈕
+* 按下 I understand the consquences, delete the repository. 按鈕
 <img src="/images/git/confirm.png" alt="confirm.png">
 </script>
 </section>
