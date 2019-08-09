@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh_TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>資訊系統的開發</title>
+
+<meta name="description" content="Management Information System">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="reveal.js.tw/css/reveal.css">
+<link rel="stylesheet" href="reveal.js.tw/css/theme/sky.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="reveal.js.tw/lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js.tw/css/print/pdf.css' : 'reveal.js.tw/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js.tw/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- 每一個 section element inside of this container is displayed as a slide -->
+    <div class="slides">
+    <section>
+    <section>
+        <h2>資訊系統開發的挑戰</h2>
+        <ul>
+            <li class="fragment"><b>快速上線的緊縮時程</b></li>
+            <li class="fragment"><b>多媒體展現</b></li>
+            <li class="fragment"><b>大量客製化</b></li>
+            <li class="fragment"><b>支援多國語言</b></li>
+            <li class="fragment"><b>大規模佈署</b></li>
+            <li class="fragment"><b>日益增加的系統複雜度及高度整合要求</b></li>
+        </ul>
+        <hr class="fragment">
+        <ul>
+            <li class="fragment"><b>因此，需要團隊運作的系統化開發流程</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>資訊系統的開發方法</h2>
+        <ul>
+            <li class="fragment"><b>系統發展生命週期(System Development Life Cycle, SDLC)</b></li>
+            <li class="fragment"><b>雛型發展(Prototyping)</b></li>
+            <li class="fragment"><b>套裝軟體(Application Software Packages)</b></li>
+            <li class="fragment"><b>終端使用者自行開發(End-user Development)</b></li>
+            <li class="fragment"><b>外包(Outsourcing)</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>System Development Life Cycle</h2>
+        <ul>
+            <li class="fragment"><b>需求分析：</b>了解現行作業內容、蒐集資料</li>
+            <li class="fragment"><b>可行方案：</b>是否可行？</li>
+            <li class="fragment"><b>分析與設計：</b>決定電腦化系統的架構與功能</li>
+            <li class="fragment"><b>開發：</b>軟體設計，程式寫作及測試</li>
+            <li class="fragment"><b>建構：</b>導入新系統，最好與舊系統並行</li>
+            <li class="fragment"><b>維護：</b>維持運作，提高效能、因應改變</li>
+        </ul>
+        <hr class="fragment">
+        <ul>
+            <li class="fragment"><b>需要不同的專業人員：</b></li>
+            <ul>
+                <li class="fragment"><b>系統分析師：</b>負責開發週期前三個階段的專業人員，需要熟悉資訊科技與企業管理的實際作業</li>
+                <li class="fragment"><b>程式設計師：</b>撰寫程式</li>
+                <li class="fragment"><b>專案經理：</b>管理整個資訊系統建立的過程</li>
+            </ul>
+            <li class="fragment"><b>特色：</b>每階段工作完成後的產品是文件，如需求分析書</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Prototyping</h2>
+        <ul>
+            <li class="fragment">快速的發展出實驗性系統，以便使用者能加以評估及後續改善的進行；資訊系統的測試版</li>
+            <li class="fragment"><b>雛型發展(Prototyping)四個步驟：</b></li>
+            <ul>
+                <li class="fragment"><b>瞭解使用者需求：</b>獲得基本資訊後，便開發雛型</li>
+                <li class="fragment"><b>開發雛型：</b>快速開發一雛型系統，僅具備主要功能</li>
+                <li class="fragment"><b>使用雛型系統：</b>瞭解是否適用及提出改善</li>
+                <li class="fragment"><b>修改與加強雛型：</b>修正系統及測試系統</li>
+            </ul>
+            <li class="fragment">可較高的使用者滿意度，尤其是使用者介面，但不適用於大型系統的開發</li>
+        </ul>
+    </section>
+    <section>
+    <h2>Packages &amp; End-user Development</h2>
+    <ul>
+        <li class="fragment"><b>套裝軟體(Application software packages)</b></li>
+        <ul>
+            <li class="fragment">已撰寫好的應用軟體，再進行客製化的修改</li>
+            <li class="fragment">成本較低，開發時間也較短</li>
+            <li class="fragment">較不符合使用者的所有需求</li>
+            <li class="fragment">終端使用者自行開發</li>
+        </ul>
+        <li class="fragment"><b>End-user Development</b></li>
+        <ul>
+            <li class="fragment">利用功能強大的軟體自行開發符合自己需求的系統，如利用試算表軟體</li>
+            <li class="fragment">凌亂不易整合，企業較不鼓勵</li>
+        </ul>
+    </ul>
+    </section>
+    <section>
+        <h2>Outsourcing</h2>
+        <ul>
+            <li class="fragment">委外專業軟體開發公司提供服務</li>
+            <li class="fragment">租用式的資訊系統，公用計費的概念</li>
+            <li class="fragment"><b>缺點：</b></li>
+            <ul>
+                <li class="fragment">監督廠商的花費</li>
+                <li class="fragment">廠商溝通困難</li>
+                <li class="fragment">受制於人</li>
+                <li class="fragment">商業機密可能外洩</li>
+                <li class="fragment">不易創造競爭優勢</li>
+            </ul>
+            <li class="fragment"><b>適用於非策略性的資訊系統</b></li>
+        </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>資訊系統開發的概念與技術(1/5)</h2>
+        <ul>
+            <li class="fragment"><b>1970年代：</b>強調「結構化程式設計」、「專案管理」和「資料庫管理系統」</li>
+            <li class="fragment"><b>結構化程式設計的四點特色：</b></li>
+            <li class="fragment">採用資料流程圖(DFD)描述「資料」與「處理」間的關係</li>
+            <li class="fragment">採用資料辭典，正式定義資料</li>
+            <li class="fragment">採用工具以描述「處理邏輯」，如結構化英文、決策表、決策樹及虛擬碼等</li>
+            <li class="fragment">用結構圖定義程式模組</li>
+        </ul>
+    </section>
+    <section>
+        <h2>資訊系統開發的概念與技術(2/5)</h2>
+        <ul>
+            <li class="fragment"><b>結構化程式設計的好處：</b></li>
+            <ul>
+                <li class="fragment"><b>增進規律性：</b>建立標準的處理方式和文件，消除個人風格，以達到一定的品質</li>
+                <li class="fragment"><b>可信度和錯誤校正：</b>使用標準的方法和工具可即早發現疏失或錯誤，予以修正</li>
+                <li class="fragment"><b>有效運用資源：</b>此方法可節省成本、提升生產力及較佳的人力資源分派</li>
+            </ul>
+            <li class="fragment"><b>1980年代：</b>第四代語言(4GL)</li>
+            <ul>
+                <li class="fragment">僅告訴電腦「做什麼」，如 SQL、試算表軟體等</li>
+                <li class="fragment"><b>雛型系統設計和終端使用者自行開發</b></li>
+                <li class="fragment">電腦輔助軟體工具，需嚴格遵守一套軟體發展程序</li>
+                <li class="fragment">軟體再使用性，造成「物件導向」技術的躍進</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>資訊系統開發的概念與技術(3/5)</h2>
+        <ul>
+            <li class="fragment"><b>1990年代：</b>物件導向技術</li>
+            <li class="fragment"><b>物件導向技術：</b>系統是一些物件的組合，再透過物件間訊息傳遞來決定系統的行為。而每個物件擁有自己的資料儲存空間及方式，並提供一組介面以供外界呼叫</li>
+            <li class="fragment"><b>物件導向流行的原因：</b></li>
+            <ul>
+                <li class="fragment"><b>電腦應用領域的變化：</b>系統大都屬資料為主的應用，越來越複雜的資料型態及操作環境，使得傳統的程序導向的設計，會使得模組間變得更複雜不易掌握</li>
+                <li class="fragment"><b>軟體工程上的問題：</b>傳統開發的方法，造成程序模組不具有可再用性，造成工程師的負擔</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>資訊系統開發的概念與技術(4/5)</h2>
+        <ul>
+            <li class="fragment"><b>1990年代：</b>網際網路應用系統之開發工具</li>
+                <ul>
+                    <li class="fragment">建立動態網頁的技術(如HTML、DHTML)</li>
+                    <li class="fragment">Web伺服器上執行的應用程式(VBScript、JavaScript)</li>
+                    <li class="fragment">安全協定、電子付款等技術</li>
+                </ul>
+                <li class="fragment"><b>1990年代：</b>強調快速的資訊系統開發方法</li>
+                <ul>
+                    <li class="fragment"><b>聯合應用系統開發方法(JAD)：</b>以使用者為主導，以管理者為核心，再由資訊人員輔導的群體系統開發方法</li>
+                </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>資訊系統開發的概念與技術(5/5)</h2>
+        <ul>
+            <li class="fragment"><b>1990年代：</b>大型整合應用系統：</li>
+                <ul>
+                    <li class="fragment">整合型套裝軟體的興起，如ERP、SCM與CRM等模組的整合</li>
+                    <li class="fragment">企業選擇適合的模組整合，再加上部份外掛模組即可</li>
+                </ul>
+                <li class="fragment"><b>1990年代：</b>微型應用程式</li>
+                <ul>
+                    <li class="fragment">APP(Application)：泛指電腦內、或智慧型手機內的應用程式</li>
+                    <li class="fragment">以手機四大作業系統為銷售平台：Apple 的 iOS、Google的 Android、微軟的 Windows Mobile 以及 RIM 的黑莓機等</li>
+                </ul>
+        </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>系統構建前之管控</h2>
+        <ul>
+            <li class="fragment">目的：確保資訊系統能符合使用者的需求</li>
+            <li class="fragment">定義系統的目標與限制及建立一指導機構以管控整個計畫的進行</li>
+            <li class="fragment">及早瞭解其顧客及組織內部對資訊的需求</li>
+            <li class="fragment">明訂評估資訊系統績效之標準</li>
+            <li class="fragment">設定資訊系統的設計與操作標準</li>
+            <li class="fragment">定義一個可接受的測試程式</li>
+            <li class="fragment">需定期加以檢討，以確保系統符合標準</li>
+            <li class="fragment">建立一維護及修改與擴張資訊系統的程序</li>
+        </ul>
+    </section>
+    <section>
+        <h2>系統構建後之管控(1/2)</h2>
+        <ul>
+            <li class="fragment">目的：保護系統的安全與確保績效</li>
+            <li class="fragment">組織結構方面：針對其個別的工作領域來維持或發展，各司其職</li>
+            <li class="fragment">應用軟體/程式館方面：檔案與軟體的管理與保存，宜備份在機房以外的地點</li>
+            <li class="fragment">設備維護方面：執行維修任務、及監督電腦執行的績效</li>
+            <li class="fragment">環境控制與設施的安全方面：</li>
+            <ul>
+                <li class="fragment">清潔、溫度、濕度</li>
+                <li class="fragment">不斷電系統(UPS)、穩壓器</li>
+                <li class="fragment">保全，如電腦房上鎖、或重要資料上鎖</li>
+            </ul>
+        </ul>
+    </section>
+   <section>
+        <h2>系統構建後之管控(2/2)</h2>
+        <ul>
+            <li class="fragment">災難計劃</li>
+            <ul>
+                <li class="fragment"><b>緊急計劃：</b>主要是降低災難的影響，優先考慮員工的安全，可採用警鈴、緊急照明、逃生設施、消防設備等</li>
+                <li class="fragment"><b>備份計劃：</b>如何在災難後能繼續發揮功能直到回復運作為止</li>
+                <li class="fragment"><b>重要紀錄辨識計劃：</b>辨識出重要的資料檔，並指出保存備份地點</li>
+                <li class="fragment"><b>復原計劃：</b>使資訊系統能短時間重新組合，如替換設備等方案</li>
+            </ul>
+        </ul>
+    </section>
+    </section>
+    <section>
+        <h2>確保資訊系統品質</h2>
+        <ul>
+            <li class="fragment"><b>適當的應用系統開發工具：</b>要能夠提供有條不紊、完整的開發流程</li>
+            <li class="fragment"><b>資源分配：</b>需考量系統成本、開發時間及指派執行專案的員工</li>
+            <li class="fragment"><b>軟體績效：</b>可透過問卷調查，了解系統建置後使用的狀況</li>
+        </ul>
+    </section>
+    <section>
+    <section>
+        <h2>行業別系統開發的流程</h2>
+            <ol>
+                <li class="fragment"><b>蒐集行業電子化需求：</b><a href="#/4/1"><span>&#8618;</span> Next Slide </a></li>
+                <li class="fragment"><b>系統分析：</b>找出可開發的行業後，由資深顧問師主導系統分析、擬定系統架構、確求行業需求重點</li>
+                <li class="fragment"><b>系統設計：</b>根據前述為基礎，撰寫規格，而後交付審查，複審無誤後納入系統版號管控</li>
+                <li class="fragment"><b>程式撰寫：</b>撰寫程式後，進行單元測試，再交付審查測試</li>
+                <li class="fragment"><b>系統測試：</b>經測試後，須制定整合測試文件，進行內部的整合測試，也可請客戶試用測試</li>
+                <li class="fragment"><b>撰寫手冊：</b>系統操作手冊的撰寫</li>
+                <li class="fragment"><b>產品包裝：</b> 包括程式包裝、系統作業環境、資料庫安裝、更新整合測試等等</li>
+            </ol>
+    </section>
+    <section>
+        <h2>蒐集行業電子化需求</h2>
+        <ul>
+            <li class="fragment"><b>行業客群定義與蒐集：</b>定義出目標行業，挑選可行性的行業，再進行名單的蒐集，可從公會會員名單，或網站名單蒐集</li>
+            <li class="fragment"><b>需求蒐集人員：</b>具系統開發與產業輔導經驗豐富的資深顧問師</li>
+            <li class="fragment"><b>需求訪談對象：</b>名單電訪、公會訪談及業者訪談</li>
+        </ul>
+        <p class="fragment" style="text-align: right"><a href="#/4">Back <span>&#8617;</span></a></p>
+    </section>
+    </section>
+    <section>
+        <h2>Open Source of Project Management</h2>
+        <ul>
+            <li><a href="https://github.com/MyCollab/mycollab">MyCollab</a> is a multi-purpose solution which features tools for customer relationship management, document management, and project management.</li>
+            <li><a href="https://github.com/Agilefant/agilefant">Agilefant</a> has focuses on agile approaches involving Kanban and Scrum, but also can be bent to support traditional approaches to project management such as the waterfall method.</li>
+            <li><a href="https://github.com/LibrePlan/libreplan">LibrePlan</a> is a web-based application, making project management available to not just the project manager, but the entire project team, and if necessary across organizations.</li>
+        </ul>
+    </section>
+    </div>
+</div>
+
+<script src="reveal.js.tw/lib/js/head.min.js"></script>
+<script src="reveal.js.tw/js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'reveal.js.tw/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal.js.tw/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal.js.tw/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal.js.tw/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+    d = new Date();
+    document.getElementById("today").innerHTML = d.yyyymmdd(); // Tag id should be set with today.
+
+</script>
+
+</body>
+</html>

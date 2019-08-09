@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh_TW">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>管理資訊系統概論</title>
+
+		<meta name="description" content="使用 Microsoft Access 介紹資料庫系統的教學教材">
+		<meta name="author" content="Elvis Hsieh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="reveal.js.tw/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js.tw/css/theme/sky.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js.tw/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js.tw/css/print/pdf.css' : 'reveal.js.tw/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js.tw/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- 每一個 section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+				    <h2>管理資訊系統概論</h2>
+				    <h3>Management Information System</h3>
+				    <small id="today" style="text-align: right"></small>
+
+				</section>
+				<section>
+				<section>
+					<h2>何謂資訊系統<br />(Information System)？</h2>
+					<ul>
+						<li><b>資料(Data)：</b>有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</li>
+						<li class="fragment"><b>資訊(Information)：</b>多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
+						<li class="fragment"><b>資訊系統(Information System)：</b>在一企業組織中負責資訊收集、儲存與傳播之體系，藉此輔助企業之決策、控制、領導以及溝通協調等內部運作功能，<b>資訊系統藉由輸入、處理與輸出的機制，轉換資料為有用的資訊。</b></li>
+					</ul>
+				</section>
+
+				<section>
+				    <h2>What is Information System?</h2>
+				    <img src="./images/infosystem.png" alt="infosystem.png" />				    
+				</section>
+				<section>
+				    <h2>從功能面來看資訊系統</h2>
+				    <img src="./images/infosystem2.png" alt="infosystem2.png">
+				</section>
+				</section>
+				<section>
+				    <h2>何謂管理資訊系統?</h2>
+				    <ul>
+                        <li class="fragment"><b>資訊系統是可以人工的，也可以電腦化的。</b>這門課程主要是針對一結構化且以電腦為基礎的資訊系統來討論，這種系統稱為電腦化的資訊系統(CBIS, Computer-based information systems)</li>
+                        <li class="fragment"><b>電腦化的資訊系統(CBIS, Computer-based information systems)</b> ：以電腦軟體與硬體為基礎的資訊系統，用來處理與傳布資訊。</li>
+				        <li class="fragment"><b>何謂 MIS</b>：是一種包含一些<b>以電腦為基礎和人工組成成分的一個整合性組合的資訊系統</b>，能夠提供管理者用來規劃與控制公司作業的資訊系統，以幫助公司的運作，並支援管理決策。</li>              
+				    </ul>
+				</section>
+				<section>
+				<section>
+				    <h2>資訊系統的重要性(1/2)</h2>
+				    <img src="./images/businessInfosystem.png" style="width:80%"  alt="businessInfosystem.png">
+				</section>
+				<section>
+				    <h2>資訊系統的重要性(2/2)</h2>
+				    <img src="./images/contemporary.png" style="width:77%" alt="contemporary.png">
+				</section>
+				<section>
+				    <h2>資訊系統幫助企業達成的目標</h2>
+				    <ul>
+				        <li>支援企業日常性作業</li>
+				        <ul>
+				            <li>零售商店使用資訊系統結帳、紀錄顧客購買紀錄、追蹤存貨等作業</li>
+				            <li>企業使用資訊系統管理員工出勤、個人資料及支付員工薪資等日常性作
+				        </ul>
+				        <li>支援管理決策的制定</li>
+				        <ul>
+				            <li>哪條生產線應該增加產量、哪條生產線應該要停產等重要決策</li>
+				            <li>投資選擇的決策</li>
+				        </ul>
+				        <li>支援策略性競爭優勢</li>
+				        <ul>
+				            <li>經由資訊系統分析後，可以找尋超越對手的競爭策略</li>
+				            <li>例如：商店經理決定安裝觸控式螢幕訂貨系統</li>
+				        </ul>
+				    </ul>
+				</section>
+				<section>
+				    <h3>The New Role of Info. Systems in Organizations</h3>
+				    <img src="./images/role.png" style="width:80%" alt="role.png">
+				</section>
+                </section>        
+				<section>
+				    <h2>星期五、尿布與啤酒的故事</h2>
+				    <ul>
+				        <li class="fragment">你如果是一位零售業的主管，你會想要把尿布與啤酒擺放在一起賣嗎？</li>
+				        <li class="fragment">沃爾瑪(Wal-Mart)是美國最大的零售業，資訊工程師在分析結帳數據時發現，<b>每到星期五晚上，尿布和啤酒的銷售量有正向關聯性。</b></li>
+				        <li class="fragment">透過調查才知道，原來美國週五晚上，父親常常幫家裡到超市買尿布，順便為週末球賽會購買啤酒回家。</li>
+				        <li class="fragment">沃爾瑪採取合購策略，<b>固定在每週五，啤酒和尿布擺設放在同一區域，意外讓這兩項產品的銷售量提升30%。</b></li>
+				    </ul>
+				</section>
+                <section>
+                    <h2>管理資訊系統的目的與任務?</h2>
+                    <ul>
+				        <li class="fragment"><b>MIS 的目的</b>：組織引入資訊科技所產生的各種問題，分析其原因，並提出解決問題的策略與方法，並促使原組織能夠適應資訊技術蛻變成新組織一套知識。</li>
+				        <li class="fragment"><b>MIS 的任務：</b></li>
+				        <ol>
+				            <li class="fragment">知曉目前可用的資訊科技</li>
+				            <li class="fragment">引進某一資訊科技後，組織會發生什麼樣的變化，包括組織如何運作(operate)與如何競爭(compete)</li>
+				            <li class="fragment">組織是否採用此項資訊科技</li>
+				            <li class="fragment">擔任引進資訊科技的組織變革推動者(change agent)</li>
+				            <li class="fragment">管理組織的資訊資源</li>
+				            <li class="fragment">預測資訊科技的未來發展</li>
+				        </ol>
+				    </ul>
+				</section>
+				
+				<section>
+				    <section>
+				        <h2>各類型的資訊系統(1/2)</h2>
+				        <ul>
+				            <li>策略性資訊系統(SIS, Strategic Information System)</li>
+				            <li>終端用戶系統(EUC, End-User Computing)</li>
+				            <li><b>決策支援系統</b>(DSS, Decision Support System)</li>
+				            <li>高階主管資訊系統(EIS, Executive Information System)</li>
+				            <li>團體支援系統(GSS, Group Support System)</li>
+				            <li><b>辦公室自動化</b>(OA, Office Automation)</li>
+				            <li>分散式資料處理(DDP, Distributed Data Processing)</li>
+				            <li><b>專家系統</b>(ES, Expert System)</li>
+				        </ul>
+				    </section>
+				    <section>
+                    <h2>各類型的資訊系統(1/2)</h2>
+				        <ul>
+				            <li>企業再造(Re-engineering)</li>
+				            <li>委外經營(Outsourcing)</li>
+				            <li><b>虛擬企業</b>(VC, Virtual Corporation)</li>
+				            <li><b>電子商務</b>(EC, Electronic Commerce)</li>
+				            <li>供應鏈管理(SCM, Supply Chain Management)</li>
+				            <li>顧客關係管理(CRM, Customer Relationship Management)</li>
+				            <li><b>企業資源規劃</b>(ERP, Enterprise Resource Planning)</li>
+				            <li><b>知識管理</b>(KM, Knowledge Management)</li>
+				            <li><b>大數據分析</b>(Big Data Analysis)</li>
+				        </ul>
+				    </section>
+				</section>
+
+				<section>
+				    <h2>學習 MIS 對個人的意義?</h2>
+				    <ul>
+				        <li class="fragment"><b>更有效的溝通：</b>工作環境是具有 MIS 知識背景的人員，學習 MIS 課程，能夠短時間內有效的與人員工溝通。</li>
+				        <li class="fragment"><b>可建立較高品質的資訊系統：</b>使用者可以清楚的告知資訊服務提供者，從而可以開發出更實際需求的資訊系統。</li>
+				        <li class="fragment"><b>提高工作效率：</b>了解 MIS ，並且能善加利用，提供個人的工作效率。</li>
+				        <li class="fragment"><b>較佳的工作機會：</b>由於 MIS 的重要，對 MIS 有較深入了解，自然較他人具有更佳的工作機會。</li>
+				    </ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js.tw/lib/js/head.min.js"></script>
+		<script src="reveal.js.tw/js/reveal.js"></script>
+		<script src="elvis.js/date.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				// Display the page number of the current slide
+    			slideNumber: true,
+    			// Enable keyboard shortcuts for navigation
+    			keyboard: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'reveal.js.tw/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js.tw/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js.tw/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js.tw/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js.tw/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal.js.tw/plugin/notes/notes.js', async: true }
+				]
+			});
+
+            d = new Date();
+            document.getElementById("today").innerHTML = d.yyyymmdd(); // Tag id should be set with today.
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh_TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>電子化策略之規劃與實施</title>
+
+<meta name="description" content="Management Information System">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="reveal.js.tw/css/reveal.css">
+<link rel="stylesheet" href="reveal.js.tw/css/theme/sky.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="reveal.js.tw/lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js.tw/css/print/pdf.css' : 'reveal.js.tw/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js.tw/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- 每一個 section element inside of this container is displayed as a slide -->
+    <div class="slides">
+    <section>
+    <section>
+        <h2>經營模式</h2>
+        <ul>
+            <li class="fragment">在網際網路的經營環境下，企業對於<b>內部 E 化以改善企業體質的需求迫切</b></li>
+            <li class="fragment">但研究顯示，<b>企業經營的成效，並不一定與 IT 的投資或應用程度呈正比的關係</b></li>
+            <li class="fragment">原因是：企業致勝之道，非單一因素所造成的，而是<b>要發展出有效的經營模式</b></li>
+            <li class="fragment">何謂經營模式？是一家公司用來建立並使用資源，以<b>提供比其競爭對手更好的價值給其顧客，並藉此賺取利潤的方法</b></li>
+            <li class="fragment">企業的經營模式可以<b>類比為一種系統的概念</b>，它是由各種要素所組成，要素之間互相連結，並且可以動態的</li>
+        </ul>
+    </section>
+    <section>
+        <h2>常見的企業經營模式(1/2)</h2>
+        <ul>
+            <li class="fragment"><b>經紀模式：</b>公司扮演市場製造者的角色，將買賣雙方聚集起來，並由交易上抽取傭金</li>
+            <li class="fragment"><b>廣告模式：</b>網站之所有人提供許多內容與服務以吸引訪客，而網站經營賺錢的方法通常是來自於收取網站上面的橫幅廣告費、固定性按鈕或其他能將顧客的訊息帶給網站訪客之廣告收費</li>
+            <li class="fragment"><b>經銷商模式：</b>公司向製造商購買成品，然後賣給社會大眾或其他公司，例如亞馬遜(<a href="http://www.amazon.com/">Amazon.com</a>)公司</li>
+            <li class="fragment"><b>製造商模式：</b>利用網際網路試著直接與最終的使用者聯繫而不透過批發商或零售商，例如 Dell, HP 公司組合電腦零組件賣給消費者</li>
+        </ul>
+    </section>
+    <section>
+        <h2>常見的企業經營模式(2/2)</h2>
+        <ul>
+            <li class="fragment"><b>結盟模式：</b>訪客由結盟的經銷商網站購買商品，該結盟友便能獲取傭金</li>
+            <li class="fragment"><b>社區模式：</b>透過社群成員的凝聚力，對於相關商品的交易</li>
+            <li class="fragment"><b>訂閱模式：</b>以期間為基礎來收取固定費用，使用者在期間之內可以自由地至網站上享受某些服務，例如中華電信 ISP 的服務</li>
+            <li class="fragment"><b>計費模式：</b>依照使用的多寡來付費，各項活動都被量化，使用者則依其消費的服務量付費，例如線上遊戲業者提供的服務</li>
+        </ul>
+    </section>
+    <section>
+        <h2>企業經營模式分類彙總(1/2)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>主要收入模式</td>
+                    <td>基本概念</td>
+                    <td>說明案例</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>經紀</td>
+                    <td>依交易額的大小收費</td>
+                    <td>旅行社、贊助經理人等</td>
+                </tr>
+                <tr>
+                    <td>廣告</td>
+                    <td>最終使用者接受廣告的輔助</td>
+                    <td>一般入口網站如 Yahoo</td>
+                </tr>
+                <tr>
+                    <td>經銷商</td>
+                    <td>向製造商購買產品，再次轉手賣出以賺取差價</td>
+                    <td>虛擬零售商、型錄零售商如 Amazon.com</td>
+                </tr>
+                <tr>
+                    <td>製造商</td>
+                    <td>在生產方面加值</td>
+                    <td>Dell 或微軟等軟硬體製造商</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>企業經營模式分類彙總(2/2)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>主要收入模式</td>
+                    <td>基本概念</td>
+                    <td>說明案例</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>結盟</td>
+                    <td>與其他廠商結盟，互相促成交易以抽取佣金</td>
+                    <td>如贊助商的廣告連結</td>
+                </tr>
+                <tr>
+                    <td>社區</td>
+                    <td>透過社群的凝聚力，促進周邊商品的交易</td>
+                    <td>Facebook, Twitter 等社群</td>
+                </tr>
+                <tr>
+                    <td>訂閱</td>
+                    <td>一次收費無限使用</td>
+                    <td>ISP 業者</td>
+                </tr>
+                <tr>
+                    <td>計費</td>
+                    <td>依實際的服務而收費</td>
+                    <td>線上遊戲業者</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>企業電子化規劃與建置(1/2)</h2>
+        <ul>
+            <li class="fragment">成功的企業電子化，不應該是為電子化而電子化的把現有的作業流程電腦化，而<b>是利用資訊科技幫助企業改善作業流程</b></li>
+            <li class="fragment">企業電子化的規劃需要考量</li>
+            <ul>
+                <li class="fragment"><b>企業所面臨的挑戰，對企業內部做結構性分析</b></li>
+                <li class="fragment"><b>將企業管理議題納入考量</b></li>
+                <li class="fragment"><b>設定管理目標的關鍵績效指標(Key Perfromance Indicator, KPI)</b></li>
+            </ul>
+            <li class="fragment">要達到以上的管理目標所需要改變的<b>經營模式、流程模式及具備的資訊技術</b>，進而架構符合企業戰略需求的資訊系系統</li>
+        </ul>
+    </section>
+    <section>
+        <h2>企業電子化規劃與建置(2/2)</h2>
+        <ul>
+            <li class="fragment"><b>企業電子化導入步驟</b></li>
+        <ul>
+            <li class="fragment">先期診斷</li>
+            <li class="fragment">整體規劃</li>
+            <li class="fragment">營運模式改善</li>
+            <li class="fragment">整體資訊規劃</li>
+            <li class="fragment">管理制度建置導入</li>
+            <li class="fragment">企業電子化績效評估</li>
+        </ul>
+        <li class="fragment">依照<b>專案時程，企業導入電子化專案可分成四個時期</b></li>
+            <ul>
+                <li class="fragment">準備期</li>
+                <li class="fragment">評估期</li>
+                <li class="fragment">規劃期</li>
+                <li class="fragment">建置期</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>企業導入電子化專案- <b>準備期</b></h2>
+        <ul>
+            <li class="fragment"><b>確定企業電子化需求：</b></li>
+            <ul>
+                <li class="fragment">高階主管的訪談、或經營會議討論的結議</li>
+            </ul>
+            <li class="fragment"><b>建立企業電子化共識：</b></li>
+            <ul>
+                <li class="fragment">高階主管的承諾</li>
+                <li class="fragment">中階主管的支持與信賴(主要的執行者)</li>
+            </ul>
+            <li class="fragment"><b>成立電子化小組：</b></li>
+            <ul>
+                <li class="fragment">相關的各功能部門之成員</li>
+                <li class="fragment">需包括對企業營運有相當了解程度的成員</li>
+                <li class="fragment">創意與潛力之成員</li>
+                <li class="fragment">包括財務、資訊、行政部門代表</li>
+            </ul>
+            <li class="fragment"><b>召開會議，宣示電子化的開始：</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>企業導入電子化專案- <b>評估期</b></h2>
+        <ul>
+            <li class="fragment">企業之電子化先期診斷─<b>做好自我評估</b></li>
+            <li class="fragment"><b>五大評估構面：</b></li>
+            <ul>
+                <li class="fragment"><b>企業策略/環境評估：</b>檢視內外在環境及產業成功關鍵因素</li>
+                <li class="fragment"><b>顧客評估/標竿學習：</b>確認最適合的顧客種類、及確認營運的關鍵績效目標(KPI)</li>
+                <li class="fragment"><b>流程評估：</b>確包括企業內部、企業與顧客、供應商之間的流程，以進行企業流程改造</li>
+                <li class="fragment"><b>組織評估：</b>檢視組織改變的阻力與助力</li>
+                <li class="fragment"><b>資訊技術應用評估：</b>了解資訊技術發展的衝擊及如何運用</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h3>企業導入電子化專案- <b>規劃期(1/2)</b></h3>
+        <ul>
+            <li class="fragment"><b>企業策略規劃：</b></li>
+            <ul>
+                <li class="fragment">成長策略(如新市場開發)或撤退策略</li>
+                <li class="fragment">實現策略需仰賴企業的競爭優勢，包含產品差異化、低成本與專業化</li>
+            </ul>
+            <li class="fragment"><b>To-Be營運模式之規劃：</b></li>
+            <ul>
+                <li class="fragment">如何獲取利潤</li>
+            </ul>
+            <li class="fragment"><b>關鍵績效指標(KPI)之評估與選擇：</b></li>
+            <ul>
+                <li class="fragment">選取適當的KPI(Key Performance Indicator)</li>
+                <li class="fragment">企業努力的目標</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h3>企業導入電子化專案- <b>規劃期(2/2)</b></h3>
+        <ul>
+            <li class="fragment"><b>企業流程設計：</b></li>
+            <ul>
+                <li class="fragment">建立未來的流程模式以建構未來的藍圖</li>
+                <li class="fragment">牽扯到部門權責的重劃、管理政策的調整、流程存廢等問題</li>
+            </ul>
+            <li class="fragment"><b>組織面之重整：</b></li>
+            <ul>
+                <li class="fragment">新營運模式下的組織架構及管理，包括科技、作業流程、與人員等三方面對組織的關係</li>
+            </ul>
+            <li class="fragment"><b>資訊系統規劃：</b></li>
+            <ul>
+                <li class="fragment">訂定 IT 發展應達成的目標，進而擬定軟硬體系統架構與執行之</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>企業導入電子化專案- <b>建置期</b></h2>
+        <ul>
+            <li class="fragment"><b>電子化系統整合：</b></li>
+            <ul>
+                <li class="fragment">系統的設計(容易操作的介面、產生報表的內容、提供管理者決策的資訊等)</li>
+                <li class="fragment">整合的準備(企業內及企業間)</li>
+            </ul>
+            <li class="fragment"><b>流程再造與組織重整：</b></li>
+            <ul>
+                <li class="fragment">先研擬行動方案，列舉出如何進行及進行的項目</li>
+            </ul>
+            <li class="fragment"><b>管理制度導入：</b></li>
+            <ul>
+                <li class="fragment">利用各種方法消除變革的阻力、設立獎勵制度</li>
+                <li class="fragment">不斷的教育訓練，溝通觀念，建立共識</li>
+            </ul>
+            <li class="fragment"><b>稽核與績效評估機制：</b>(KPI 關鍵績效指標)</li>
+            <ul>
+                <li class="fragment">時程是否依計畫進行？</li>
+                <li class="fragment">系統使用狀況是否良好？</li>
+                <li class="fragment">是否符合預期效益？</li>
+            </ul>
+        </ul>
+    </section>  
+    </section>
+    <section>
+    <section>
+        <h3>傳統金字塔階層組織結構的缺點</h3>
+        <ul>
+            <li class="fragment"><b>資訊流通問題：</b>由於採取層層上報的制度，顧客及工作現場的訊息無法迅速傳達到決策者，決策者的命令也無法迅速下達工作現場及基層工作人員</li>
+            <li class="fragment"><b>員工技能問題：</b>在分工制度下，員工僅能具備特定技能，工作較為單調無趣，且逐漸產生本位主義而無法綜觀全局並改善整體流程，如此不僅扼殺員工的創造及革新及革新能力，亦無法提供產品及服務品質</li>
+            <li class="fragment"><b>部分最佳化問題：</b>在分工制度下，一般人不了解整個跨部門的作業流程，也沒有專人負責整個流程的成效，即每個部門將工作做好，也不能保證整體工作的結果達到最佳化</li>
+            <li class="fragment"><b>責任歸屬問題：</b>由於一件工作由不同部門執行，工作在部門與部門交接時，相關部門必須採取一些額外的步驟來釐清責任歸屬</li>
+        </ul>
+    </section>
+    <section>
+        <h2>企業流程再造(1/2)</h2>
+        <ul>
+            <li class="fragment">Hammer 與 Champy 於 1993 年對企業流程再造(Business Process Reengineering, BPR)的定義：企業流程改造為根本重新思考，徹底翻新作業流程，以便能在衡量績效的標準下，獲得戲劇化(dramatic)的改善</li>
+            <li class="fragment"><b>根本(Foundamental)：</b>在改造過程中，企業負責人必須持續自問一些最根本的問題？</li>
+             <ul>
+                 <li class="fragment">為什麼要執行此事？</li>
+                 <li class="fragment">為什麼要如此執行？</li>
+                 <li class="fragment">藉由反問重新審視經營企業的策略與手法</li>
+             </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>企業流程再造(2/2)</h2>
+        <ul>
+            <li class="fragment"><b>徹底(Redical)：</b>從根改造，不只是表面化的改變、改善或是修補現行流程，而是根除現有不合時宜的架構與流程，另闢新徑來完成</li>
+            <li class="fragment"><b>流程(Processes)：</b>流程是企業再造中最關鍵的字眼，其基本定義是「企業集合各種原料，製造顧客所產品的一連串活動」；任何策略願景的實現、資訊系統的導入、企業文化價值觀的具體呈現，終究將落到「流程」上</li>
+            <li class="fragment"><b>戲劇化(Dramatic)：</b>改造並非是緩和、漸進式的改善，而是一日千里的大躍進</li>
+        </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>Case Study(1/3)</h2>
+        <ul>
+            <li><b>富強鑫精密工業</b>於 1974 年成立，<b>主要是從事塑膠射出成型機專業製造廠商</b>，客戶為五金類、光電產業、手機製造、連接器、LCD 產業、車零件產業等</li>
+            <li>台灣業界中<b>首批榮獲歐洲 CE 安全標誌及 ISO 9001 認證的廠商</b></li>
+            <li>除了台灣、東莞及寧波設有製造廠，於<b>世界各地亦設有 29 處代理商</b></li>
+            <li>1997 年即成功導入 ERP，2003 年「體系企業間電子化計畫」SCM (供應端供應鏈管理系統)的上線，<b>2005 年進行全球多品牌服務加值網計畫，2008年完成</b></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Case Study(2/3)</h2>
+        <ul>
+            <li>於 2000 年策劃了 2001~2015 的企業願景：</li>
+            <ul>
+                <li><b>「全球十大、顧客第一、快樂成長、利潤共享」</b></li>
+            </ul>
+            <li>以<b>「十年願景、百億宏圖」</b>的明確願景及<b>「產品能滿足顧客需求、服務能讓顧客滿意」</b>為經營的主軸，作為組織努力的方向</li>
+            <li><b>以集團全球化管理的模式做規劃：</b></li>
+            <ul>
+             <li>統籌全球客戶資料管理</li>               
+             <li>規劃中長期需求(包括市場的資訊分析、訂單預測、實際訂單需求、預防保養需求等)</li>    
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>Case Study(3/3)</h2>
+        <img src="./images/07caseStudy.png" alt="Case Study">
+    </section>
+    </section>
+    </div>
+</div>
+
+<script src="reveal.js.tw/lib/js/head.min.js"></script>
+<script src="reveal.js.tw/js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'reveal.js.tw/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal.js.tw/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal.js.tw/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal.js.tw/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+    d = new Date();
+    document.getElementById("today").innerHTML = d.yyyymmdd(); // Tag id should be set with today.
+
+</script>
+
+</body>
+</html>

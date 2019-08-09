@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh_TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>資訊系統的應用</title>
+
+<meta name="description" content="Management Information System">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="reveal.js.tw/css/reveal.css">
+<link rel="stylesheet" href="reveal.js.tw/css/theme/sky.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="reveal.js.tw/lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js.tw/css/print/pdf.css' : 'reveal.js.tw/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js.tw/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- 每一個 section element inside of this container is displayed as a slide -->
+    <div class="slides">
+    <section>
+    <section>
+        <h2>資訊系統的應用</h2>
+        <ul>
+            <li class="fragment">資料處理，而後延伸資訊與決策的支援、再延伸到知識管理的應用</li>
+            <li class="fragment">資料處理系統的基本工作</li>
+            <ul>
+                <li class="fragment"><b>資料搜集：</b>公司的運作及交易的資料</li>
+                <li class="fragment"><b>資料處理：</b>分類、排序、計算、彙總</li>
+                <li class="fragment"><b>資料儲存</b></li>
+                <li class="fragment"><b>文件準備：</b>依行動、或依時間輸出報表</li>
+            </ul>
+            <li class="fragment">運用資料庫管理系統，更結合資料倉儲與資料挖掘的技術</li>
+        </ul>
+    </section>
+    <section>
+        <h2>決策支援系統<br>(Decision Support System,DSS)</h2>
+        <ul>
+            <li class="fragment">提供工具幫助管理者用其自己的方式來解決半結構化或非結構化問題的系統，經常會包括某種型態的操作環境以協助建立模式</li>
+            <li class="fragment">提供管理能產生所需的資訊以作成決策</li>
+            <li class="fragment">支援作決策的過程</li>
+        </ul>
+    </section>
+    <section>
+        <h2>決策支援系統的特質</h2>
+        <ul>
+            <li class="fragment">專注於半結構化或非結構化的決策</li>
+            <ul>
+                <li class="fragment">半結構化是指決策無法事先定義及無遵循特定的程序</li>
+                <li class="fragment">DSS僅提供決策參考的資訊</li>
+                <li class="fragment">決策支援系統將定義的問題轉化成模式，由電腦執行此模式並提供結果做為決策參考</li>
+            </ul>
+            <li class="fragment">具有彈性能隨需要而改變</li>
+            <ul>
+                <li class="fragment">設計系統時不設定在固定的資訊需求上，僅提供一些工具及功能給使用者，使得輸出結果能符合他們的需求</li>
+                <li class="fragment">DSS要像個百寶箱：由於使用者的需求事先未決定，但要能滿足使用者可能以任何一種型式來要求資訊</li>
+            </ul>
+            <li class="fragment">容易學習與使用</li>
+            <ul>
+                <li class="fragment">DSS 的使用者並非是電腦專業人員</li>
+                <li class="fragment">使用者為導向的介面</li>
+            </ul>
+        </ul>
+
+    </section>
+    <section>
+        <h2>EDPS 與 DSS 的比較</h2>
+        <table>
+            <tr>
+                <td>特質</td>
+                <td>決策支援系統</td>
+                <td>資料處理系統</td>
+            </tr>
+            <tr>
+                <td>問題的本質</td>
+                <td>針對半結構化或非結構的問題</td>
+                <td>針對結構化的問題</td>
+            </tr>
+            <tr>
+                <td>系統的彈性</td>
+                <td>通常很具有彈性</td>
+                <td>較為嚴肅</td>
+            </tr>
+
+            <tr>
+                <td>使用容易度</td>
+                <td>較易使用</td>
+                <td>較不易使用</td>
+            </tr>
+            <tr>
+                <td>系統績效評量</td>
+                <td>較不易量化</td>
+                <td>較易量化</td>
+            </tr>
+            <tr>
+                <td>系統開發方式</td>
+                <td>較常用雛型發展法</td>
+                <td>較常以系統生命週期法</td>
+            </tr>
+        </table>
+
+     </section>
+     <section>
+         <h2>決策支援系統的組成項目</h2>
+         <ul>
+             <li class="fragment">特定資料庫：與系統相關的各類資料庫，如財務、行銷及製造等等</li>
+             <li class="fragment">模式庫：是軟體元件，由計算與分析程式的模型所組成，可能包含統計模式、模擬模式及預測模式</li>
+             <li class="fragment">互動式電腦化程序：資料庫管理系統、模式庫管理系統及使用者介面系統等</li>
+         </ul>
+     </section>
+    </section>
+    <section>
+    <section>
+        <h2>高階主管資訊系統<br>(Executive Information System)</h2>
+        <ul>
+            <li class="fragment">能快速有效的提供資訊並直接取得管理報告</li>
+            <li class="fragment">資訊呈現方式包括圖表支援、例外的資訊報告及追根究底的功能</li>
+            <li class="fragment">預期效益：</li>
+            <ul>
+                <li class="fragment">得到及時之資訊</li>
+                <li class="fragment">配合管理者提供各類管理性的報告</li>
+                <li class="fragment">減少各類書面報告及相對應的準備成本</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>EIS 與 DSS 差異</h2>
+        <ul>
+            <li class="fragment">DSS偏重於提供各種可行的規畫模式及廣泛的分析功能以預測決策變動所產生的效果</li>
+            <li class="fragment">EIS著重於提供在一定期間內的資訊，以直接而快速顯現的方式表現所需要的報告與圖表</li>
+            <li class="fragment">DSS與EIS的整合趨勢；經營決策支援系統</li>
+            <li class="fragment">EIS 結合網際網路的環境</li>
+            <li class="fragment">EIS 群組軟體的應用，建構群體決策的環境</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Open Source of DSS</h2>
+            <ul>
+                <li><a href="http://openrules.com/">OpenRules®</a> is a general purpose Business Rules and Decision Management System available as an Open Source product.</li>
+                <li><a href="http://www.opencds.org/" target="_blank">OpenCDS</a> is a multi-institutional, collaborative effort to develop open-source, <b>standards-based clinical decision support (CDS) tools</b> and resources that can be widely adopted to enable CDS at scale.</li>
+                <li>The <a href="http://www.prosuite.org/web/guest/prosuite-decision-support-system-dss">PROSUITE Decision Support System</a> is a software for <b>assessing economic,environmental and social aspects of technologies</b> within a life cycle approach.</li>
+                <li>The <a href="https://farmbot.io/" target="_blank">Farmbot Decision Support System (DSS) Engine</a> coordinates all of the channels and modules, scheduling and running the modules for each channel, producing an optimized schedule of operations for the Farmbot to grow plants.</li>
+            </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>知識是什麼？</h2>
+        <ul>
+            <li><b>資料(Data)：</b>有關人、事、物，或是概念、知識等具體的事實。例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等。</li>
+            <li class="fragment"><b>資訊(Information)：</b>多數的資料經過處理、分析以後，能給使用者(特別是管理者)具有特定意義與價值時，稱之為資訊。</li>
+            <li class="fragment"><b>知識：</b>是指專家對某項特定事務的認知與其豐富的經驗，就是資訊再加上經驗</li>
+            <li class="fragment"><b>智慧：</b>一種直覺性知識，能有效率地把知識應用於某方面</li>
+            <hr class="fragment">
+            <li class="fragment"><b>資訊須經過學習過程與價值認知才能形成知識</b></li>
+            <li class="fragment">知識管理使用科技來分享和利用資訊，以達到創新的能力</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>知識管理</h2>
+        <ul>
+            <li class="fragment">知識管理的重要性：</li>
+            <ul>
+                <li class="fragment">勞工的工作被機械設備取代</li>
+                <li class="fragment">員工必須「思考」才能讓企業保持優勢</li>
+            </ul>
+            <li class="fragment">知識管理的定義：<b>幫助企業保存重要知識，以提供企業員工使用，以提昇對內的創造力及對外的競爭力</b></li>
+            <li class="fragment">組織知識，而後分享知識及創造知識</li>
+            <li class="fragment">知識的分類：</li>
+            <ul>
+                <li class="fragment">內隱知識：個人主觀的經驗性知識，難以用文字、程式或圖形具體形式向外傳遞，如經驗、見解及技術等</li>
+                <li class="fragment">外顯知識：客觀的理性知識，可用媒介或語言傳遞的知識，如標準作業手冊</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>知識創造的過程與來源</h2>
+        <ul>
+            <li class="fragment">知識創造的過程：</li>
+            <ul>
+                <li class="fragment"><b>共同化：</b>內隱知識團體化，如經驗分享、師徒傳授等</li>
+                <li class="fragment"><b>外顯化：</b>使用語言、文字將知識表達成具體且有效的知識，如讀書心得</li>
+                <li class="fragment"><b>內部化與組合：</b>吸收知識，並進一步組合，創造價值</li>
+            </ul>
+            <li class="fragment">知識的來源：</li>
+            <ul>
+                <li class="fragment">企業資料：公司基本資料、外部競爭者的資料、市場調查資料等經年累月的企業智慧</li>
+                <li class="fragment">資訊：如文件、表單使之易於搜尋、重複使用及管理</li>
+                <li class="fragment">知識：個人「潛藏的經驗」</li>
+                <li class="fragment">企業的營運流程：<b>流程是一種知識</b>；在流程中自動收集資訊，適時提供決策</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h2>Knowledge Management(KM)</h2>
+        <ul>
+            <li class="fragment">運用管理的技術，幫助企業保存重要知識，以提供企業員工使用，且能不斷地產生新的知識 ，以提昇對內的創造力及對外的競爭力</li>
+            <li class="fragment">在適當的時間在將適當的知識傳達給需要的人，協助人們分享與使用資訊，以改善企業績效</li>
+            <li class="fragment">基本精神在於將工作時員工所創新創造的知識等不可見但非常寶貴的想法，均建立成知識庫，且與企業的資源資料庫整合，提供決策時之整體方案</li>
+        </ul>
+    </section>
+    <section>
+        <h2>知識管理的效益</h2>
+        <ul>
+            <li class="fragment">促進組織內部的知識流通：讓需要資訊的人隨時可取得資訊</li>
+            <li class="fragment">協助組織發展核心能力：KM可發掘客戶需求的資訊，可為顧客量身定做產品與服務</li>
+            <li class="fragment">改善決策品質：知識可快速傳達，回應決策所需</li>
+            <li class="fragment">改善企業程序：可簡化不必要的流程，節省時間與更有效率的運作</li>
+            <li class="fragment">增加組織整體知識的涵量與價值</li>
+            <li class="fragment">形成有利於知識創新的企業文化與價值觀</li>
+        </ul>
+    </section>
+    <section>
+        <h2>知識管理的過程</h2>
+        <ul>
+            <li class="fragment">確保「讓對的知識在對的時間傳遞給對的人」</li>
+            <li class="fragment">創造知識：累積組織內部與外部的知識，加上創新及腦力激盪以創造新的知識</li>
+            <li class="fragment">知識的分類與編碼：建立知識庫</li>
+            <li class="fragment">擴散新知：建立激勵制度，鼓勵員工分享與創新知識</li>
+            <li class="fragment">資訊科技的支援：透過網路和資料庫，使得資訊隨手取得</li>
+        </ul>
+    </section>
+    <section>
+        <h2>知識管理的組織型態</h2>
+        <ul>
+            <li class="fragment">公司分散在各地，或分為許多工作團隊：難以分享經驗，及過高的溝通成本</li>
+            <li class="fragment">固定產生大量文件資料，須要費心管理的公司：花費太多時間在查詢、尋找資料</li>
+            <li class="fragment">以創意、個人經驗為最重要價值的公司：難以收集知識工作者思考、計畫的過程，且這類知識也代表優勢與權力</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Open Source of KM</h2>
+        <ul>
+            <li><a href="https://sourceforge.net/projects/openkm/?source=directory" target="_blank">OpenKM</a> allows businesses to control the production, storage, management and distribution of electronic documents, yielding greater effectiveness and the ability to reuse information and to control the flow of the documents.</li>
+            <li><a href="https://sourceforge.net/projects/bonita/?source=directory-featured" target="_blank">Bonitasoft</a> is a premier provider of Business Process Management Solutions (BPMS) that model, automate, and monitor business processes to streamline operations while lowering costs and improving quality.</li>
+            <li><a href="https://www.exoplatform.com/" target="_blank">eXo Platform</a> is an open source social collaboration software designed for enterprises.</li>
+        </ul>
+    </section>
+    </section>
+    <section>
+    <section>
+        <h2>Case Study(1/2)</h2>
+        <ul>
+            <li class="fragment">房仲業經營關鍵點：掌握最豐富，最即時的房屋消息</li>
+            <li class="fragment">信義房屋：</li>
+            <ul>
+                <li class="fragment">民國 70 年成立</li>
+                <li class="fragment">民國78年內部電腦化</li>
+                <li class="fragment">民國89年讓100多家分店可流通資訊</li>
+                <li class="fragment">民國90年即時化的客戶關係管理，且自行開發CRM系統；第一線單位配置筆電，提供顧客E化服務</li>
+            </ul>
+            <li class="fragment">CRM(Customer Relationship Management)系統採用集中式資料庫</li>
+            <li class="fragment">業務資料的彙整，方便其他業務員的使用</li>
+            <li class="fragment">改變業務人員的使用習慣：從店長填到業務人員著手填寫日報表</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Case Study(2/2)</h2>
+        <ul>
+            <li class="fragment">與網華科技合作，建置「企業知識管理入口網站」</li>
+            <li class="fragment">累積知識量，再決定知識的品質，不好的下架</li>
+            <li class="fragment">萃取業務優良的店長及業務員的「專業知識」，再轉化訓練課程</li>
+            <li class="fragment">CRM 系統的加權分析：可讓顧客快速找到所需要的房屋資訊</li>
+            <li class="fragment">業務員配置 PDA(Personal Digital Assistant) 處理事務</li>
+        </ul>
+    </section>
+    </section>
+ 
+    </div>
+</div>
+
+<script src="reveal.js.tw/lib/js/head.min.js"></script>
+<script src="reveal.js.tw/js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'reveal.js.tw/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal.js.tw/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js.tw/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal.js.tw/plugin/zoom-js/zoom.js', async: true },
+            { src: 'reveal.js.tw/plugin/notes/notes.js', async: true }
+        ]
+    });
+
+    d = new Date();
+    document.getElementById("today").innerHTML = d.yyyymmdd(); // Tag id should be set with today.
+
+</script>
+
+</body>
+</html>
