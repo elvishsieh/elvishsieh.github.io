@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>長篇文件與目錄編排</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+<section data-markdown><script type="text/template">
+# 長篇文件
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 何謂長篇文件
+- 封面頁：沒有頁碼
+- 目錄頁：小寫羅馬數字的頁碼
+	* 目錄、圖目錄、表目錄
+- 章、節標題
+	* [章]標題都會在單數頁，若剛好在偶數頁，則偶數頁空白
+	* [頁首]右邊是節標題
+	* [偶數頁]左邊是章標題
+- 內文文字
+- 附錄頁
+- 索引
+</script>
+</section>	
+<section data-markdown><script type="text/template">
+## 章節標題及內文文件
+- 使用範本的標題 1、標題 2、標題3 ... 等樣式編輯文件的標題、次標題、次次標題
+- 使用範本的內文樣式編輯內文文件
+- 使用項目符號或項目編號編輯項次的文字
+- 不可以隨意按下 Enter 來處理段落間距
+- 使用定位點(Tab 鍵)來處理文件內多個空白分隔
+- 空白鍵來處理中文字與英文字間的間格
+- 插入表格及圖形
+- 使用交叉參照來編排文件
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 封面頁及目錄頁
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 頁面樣式的種類
+- 預設頁面
+- 第一頁
+- 封面
+- 左頁(章標題，雙數頁碼)、右頁(節標題，單數頁碼)
+- 註腳(footnote)
+- 索引 ...
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 新增封面頁步驟
+1. 點選側邊欄的頁面樣式
+2. 點選[第一頁]頁面樣式 ≫ 按滑鼠右鍵 ≫ 點選 [新增]
+3. [名稱]欄位輸入 [封面頁] ≫ 下一個樣式點選 [第一頁] 
+4. 按下 [確定]
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 插入封面頁
+1. 滑鼠移動到文件最頂端第一個字的前面
+2. 點選[插入更多隔斷符] ≫ [手動分隔] ≫ 彈出[插入隔斷符]視窗
+3. [頁面樣式]欄位點選 [封面頁]
+4. 勾選 [變更頁碼]
+4. 按下 [確定]
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 插入目錄頁(第1頁)
+1. 滑鼠移動到封面頁文件最頂端第一個字的前面
+2. 點選[插入更多隔斷符] ≫ [手動分隔] ≫ 彈出[插入隔斷符]視窗
+3. [頁面樣式]欄位點選 [第一頁]
+4. 勾選 [變更頁碼]
+4. 按下 [確定]
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 插入目錄頁(第2頁)
+1. 滑鼠移動到文件最頂端第一個字的前面
+2. 點選[插入更多隔斷符] ≫ [手動分隔] ≫ 彈出[插入隔斷符]視窗
+3. [頁面樣式]欄位點選 [第一頁]
+4. 不要勾選 [變更頁碼]
+4. 按下 [確定]
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 插入頁碼
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 插入頁碼操做步驟
+- 操作步驟
+	1. 移動游標到頁尾或頁首
+	2. 點選[頁尾(預設樣式)] or [頁首(預設樣式)]
+	3. 點選[置中]對齊
+	4. [插入] ≫ 頁碼；或[欄位] ≫ [更多欄位] ≫ [頁碼] ≫ 選擇頁碼的格式
+- 使用[偏移]來調整頁碼的編號
+</script>
+</section>
+</section>
+</div>
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Software</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
