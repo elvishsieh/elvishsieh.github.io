@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Syllabus of Office Suites</title>
+<title>Linux Fundamentals and System Administration</title>
 
 <meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
@@ -41,7 +41,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 
 <section data-markdown><script type="text/template">
-## Office Suites
+## Linux 基礎與系統管理
 
 <br />
 
@@ -57,34 +57,42 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 評分標準(Grading)
 - 出席率:10 or 20%
-- 四次作業: 30% or 20%
+- N 次作業: 30% or 20%
 - 期中考: 30%
 - 期末考: 30%
 </script>
 </section>
 
+<section>
 <section data-markdown><script type="text/template">
 ## 課程大綱(Syllabus)
-- [Ch01-課程簡介及基本操作](./01intro.html)
-- [Ch02-網路自由使用的資源](./02resource.html)
-- [Ch03-文件排版與字型選用](./03typesetting.html)
-- [Ch04-版面配置與段落編排](./04page.html)
-- [Ch05-插入特殊字元、圖片與表格](./05figure.html)
-- [Ch06-樣式與樣版](./06template.html)
-- [Ch07-長篇文件與目錄編排](./07toc.html)
+- [Week01-Unix/Linux 簡介](./01intro.html)
+- [Week02-Linux 系統安裝](./02install.html)
+- [Week03-X Window 環境與命令提示列環境操作](./03environment.html)
+- [Week04-基本指令介紹與操作](./04command.html)
+- [Week05-帳號管理](./05userAccount.html)
+- [Week06-檔案權限管理](./06filePermission.html)
+- [Week07-套件管理](./07pm.html)
+- [Week08-重導與檔案查尋](./08redirection.html)
+- Week09-期中考
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## 課程大綱(Syllabus)
-- [Ch08-頁腳、頁尾與交叉參照](./08reference.html)
-- [Ch09-郵件與合併列印](./09merge.html)
-- [Ch10-修訂追蹤與註解](./10comment.html)
-- [Ch11-認識簡報及編輯技巧](./11ppt.html)
-- [Ch12-套用樣版及母片編輯、修改](./12masterSlide.html)
-- [Ch13-轉場、動畫效果編輯技巧](./13transition.html)
-- [Ch14-超連結編輯、互動式、影音多媒體設計](./14media.html)
+- [Week10-Vim 編輯器](./10vim.html)
+- [Week11-檔案打包與壓縮](./11filePkg.html)
+- [Week12-處理程序管理](./12process.html)
+- [Week13-Shell Script 基礎](./13shell.html)
+- [Week14-Shell Script 程式設計](./14shellProgramming.html)
+- [Week15-網路管理](./15network.html)
+- [Week16-SSH 伺服器](./16sshd.html)
+- [Week17-Apache Web 伺服器](./17apache.html)
+- Week18-期末考
 </script>
 </section>
+</section>
+
+<section>
 <section data-markdown><script type="text/template">
 ## 注意事項
 - 儘可能不要缺席，缺席可能會跟不上進度
@@ -95,17 +103,24 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-markdown><script type="text/template">
 ## 教科書 & 參考書
-- 教科書：LibreOffice 7.x 實用範例輕鬆學/ 侯語彤, 碁峰資訊股份有限公司 , 2021-12-06, ISBN: 9864766279
-- 參考書：[Designing with LibreOffice](https://designingwithlibreoffice.com/)/Author: Bruce Byfield
-- 中文版：[LibreOffice 排版設計](https://sites.google.com/view/slat-bookstore/辦公文書類/libreoffice-排版設計?authuser=0)，翻譯：曾政嘉、黃柏諺、翁佳驥
+- 教科書：
+	- Ubuntu 20 管理入門與實作/王進德, 2021/06/25
+	- 博碩文化股份有限公司
+	- ISBN: 9789864347834
+- 參考書：
+	- [Ubuntu 20.04 Essentials: A Guide to Ubuntu 20.04 Desktop and Server Editions](https://www.answertopia.com/ubuntu/ubuntu-essentials/)
+	- Author: Neil Smyth
+- 參考文件：[Official Ubuntu Documentation](https://help.ubuntu.com/)(官方文件)
 </script>
 </section>
 <section data-markdown><script type="text/template">
 # 上課教材
 - Slides 的網址：
-<p style="text-align:center">[https://elvishsieh.github.io/teaching/office/](https://elvishsieh.github.io/teaching/office/)</p>
-- [課程教材](https://drive.google.com/drive/u/2/folders/10YFJWlTEUqalm_g-wTC0Pd_RzZXPM2ds)
+<p style="text-align:center">[https://elvishsieh.github.io/teaching/linux/](https://elvishsieh.github.io/teaching/linux/)</p>
+- [課程教材](https://drive.google.com/drive/folders/1QQuKtvYCAYJ6XzJHyNbOXpGdvDHFZAyN?usp=sharing)
 </script>
+</section>
+
 </section>
 </div>
 
@@ -149,7 +164,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         
         custom: [
 				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>The Slides is designed for teaching Gnu/Linux fundamental and system administration. Ubuntu is a popular Linux distribution which is used in this course. </p>' }
 		]
 	},
 

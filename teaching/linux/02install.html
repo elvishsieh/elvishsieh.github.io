@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Linux 系統安裝</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Gnu/Linux <br />系統安裝
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Ubuntu/Debian System
+- Ubuntu is an ancient African word meaning **‘humanity to others’**.
+- Gnu/Linux was already established in 2004, but it was fragmented into proprietary and unsupported community editions
+- Mark Shuttleworth **gathered a small team of Debian developers** who together founded Canonical and set out to create an **easy-to-use Linux desktop called Ubuntu**.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Ubuntu Release
+- In 2006 Ubuntu decided that ** every six months and every fourth release**, 
+made **every two years**, would receive **Long-Term Support** for large-scale deployments.
+- e.g. **Ubuntu 20.04 LTS** , Ubuntu 20.10, Ubuntu 21.04, Ubuntu 21.10, **Ubuntu 22.04 LTS**
+- This is the origin of the term [LTS for stable](https://ubuntu.com/about), maintained releases.
+- Ubuntu **Desktop**, Ubuntu **Server**, Ubuntu for [IoT(Internet of Things)](https://en.wikipedia.org/wiki/Internet_of_things), Ubuntu **Cloud**
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+# How to <br />install Ubuntu	
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Variety of installation
+- Ubuntu with Windows
+	- You can install Ubuntu **inside a virtualbox in Windows**
+	- You can install Ubuntu on **WSL2 on Windows 10, 11**
+	- You can install [dual boot Ubuntu with Windows](https://www.bing.com/videos/search?q=%e9%9b%99+ubuntu+on+windows+10&&view=detail&mid=A00A36E6014F4535DD3FA00A36E6014F4535DD3F&&FORM=VRDGAR)
+- Ubuntu only itself
+- **Live Ubuntu**: boot from a USB stick or a DVD
+- Install Ubuntu on [a disk drive](https://www.bing.com/videos/search?q=%e9%9b%99+ubuntu+on+windows+10&&view=detail&mid=6073A0B71B57E529CF806073A0B71B57E529CF80&&FORM=VRDGAR) or a USB
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installation Options
+- [Ubuntu Desktop](https://www.ubuntu-tw.org/modules/tinyd0/): A graphical desktop environment is used on
+**desktop and laptop** systems and is only available for 64-bit x86 systems.
+- Ubuntu Server: This image is available for **x86, ARM, IBM POWER (PowerPC) and s390x**.
+- Standard Live Server **ISO Image**: This allows the installation to be performed without needing a network.
+- Network Installer ISO Image: Contains the **minimum needed** to begin the installation process.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Preparing to Install
+- Recommended **system requirements**:
+	- 2 GHz dual-core processor
+	- better 4 GB system memory
+	- 25 GB of free hard drive space or a flash drive (8GB as a minimum, 12GB or above recommended)
+- A utility for creating **bootable USB drives**
+	- [Rufus](http://rufus.ie/en/) is a utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc.
+- **ISO image**: Download from [Ubuntu website](https://www.ubuntu-tw.org/modules/tinyd0/)
+</script>
+</section>
+</section><!--end block-->
+
+<section> <!--start block-->
+<section data-markdown><script type="text/template">
+## Install Ubuntu on <br />WSL2 on Windows	
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Windows Subsystem<br /> for Linux(WSL)
+- Reason Why: Access the **Linux terminal on Windows**, develop **cross-platform applications**, and manage IT infrastructure without leaving Windows.
+- Enble **virtualization in BIOS** or **Virtual Machine Platform** optional feature is enabled
+- Using **"wsl --install" command** to install WSL
+- Enable **Windows Subsystem for Linux** and **virtual platform** on Windows 10, 11, then install Ubuntu from the **Microsoft Store** or WSL command
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Enble virtualization in BIOS
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup BIOS step 1
+<figure>
+<img src="/images/linux/bios.jpg" width="800" height="500" alt="BIOS main screen">
+<figcaption> 連續輕敲 F2 or Del 鍵 </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup BIOS step 2
+<figure>
+<img src="/images/linux/biosAdvanced.jpg" width="800" height="500" alt="BIOS advanced screen">
+<figcaption> 按向左的方向鍵 </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup BIOS step 3
+<figure>
+<img src="/images/linux/biosAdvanced2.jpg" width="800" height="500" alt="BIOS configuration">
+<figcaption> 按向下的方向鍵 </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup BIOS step 4
+<figure>
+<img src="/images/linux/biosAdvanced3.jpg" width="800" height="500" alt="BIOS virtualization">
+<figcaption> 確認是否 Enable </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup BIOS step 5
+<figure>
+<img src="/images/linux/biosSave.jpg" width="800" height="500" alt="BIOS save and exit screen">
+<figcaption> 切換 Save and Change & Reset </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## WSL Install Command
+<figure>
+<img src="/images/linux/wslinstall.png" width="800" height="500" alt="wsl install command">
+<figcaption> wsl --install with Administrator to install WSL </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Enable WSL and Virtual Machine Platform
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 開啟 Windows 功能
+<figure>
+<img src="/images/linux/feature.png" width="800" height="500" alt="Windows feature">
+<figcaption> 放大鏡輸入"Windows 功能" </figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 勾選 WSL and VM Platform
+<figure>
+<img src="/images/linux/enableVM.png" width="800" height="500" alt="Windows feature">
+<figcaption> 勾選上圖紅色框的項目 </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Download & Install Ubuntu
+- Download [ConEmu Windows Terminal](https://conemu.github.io/) and install ConEmu software on Windows System, then run it with Administrator.
+- Variety of installing Ubuntu on Windows
+	- Installing Ubuntu from ConEmu that keyin "**wsl --install -d ubuntu**" on command line screen.
+	- Installing Ubuntu from **Microsoft Store**.
+	- **wsl --list --oneline** command to list which are linux distribution could install on Windows. 
+- Video for teaching how to use ["wsl --install" command](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) or [Microsoft store](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) to install Windows Subsystem for Linux.
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Troubleshooting #1
+<figure>
+<img src="/images/linux/withoutVm.png" width="800" height="500" alt="without Enable VM">
+<figcaption>Without Enable Virtual Machine Platform</figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Troubleshooting #2
+<figure>
+<img src="/images/linux/withoutVm2.png" width="800" height="500" alt="without Enable VM2">
+<figcaption>Without Enable Virtual Machine Platform</figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Solution of TS #1-#2
+<figure>
+<img src="/images/linux/enableVm.png" width="800" height="500" alt="without Enable VM2">
+<figcaption>Enable Virtual Machine Platform</figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Troubleshooting #3
+<figure>
+<img src="/images/linux/withoutWsl2.png" width="800" height="500" alt="without WSL2">
+<figcaption>Update to WSL2</figcaption>
+</figure> 
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Solution of TS #3
+<figure>
+<img src="/images/linux/updateWsl2.png" width="800" height="500" alt="update to WSL2">
+<figcaption>[Download WSL2 and installation](https://docs.microsoft.com/zh-tw/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)</figcaption>
+</figure> 
+</script>
+</section>
+</section><!--end block-->
+
+<section> <!--start block-->
+<section data-markdown><script type="text/template">
+# Install <br />GNOME<br /> on WSL2
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Preparing for installation
+- **Requirements**
+	- WSL 2
+	- Ubuntu 20.04 (other distros not tested)
+	- An X server for Windows, such as [VcXsrv](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/), GWSL
+	- Basic knowledege on how to run GUI apps with WSL 2 (not required but highly recommended)
+- **Upgrade Ubuntu System**
+	- sudo apt update -y
+	- sudo apt upgrade -y
+</script>
+</section>
+
+<section>
+<h2>Install Command</h2>
+<ul>
+	<li><span style="color:red">Install GNOME with command</span> as following
+		<ul>
+			<li>sudo apt install ubuntu-desktop gnome</li>
+		</ul>
+	</li> 
+	<li><span style="color:red">Open up your ~/.bashrc</span> and  paste this in at the end and save
+<pre><code>export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export LIBGL_ALWAYS_INDIRECT=1</code></pre> 
+	</li>
+	<li>Run the following command to <span  style="color:red">enable systemd</span>
+<pre><code>git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+cd ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh</code></pre>
+	</li>
+</ul>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing and Setting <br />X server on Windows
+</script>
+
+</section>
+<section data-markdown><script type="text/template">
+## Download and Setup [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
+<figure>
+<img src="/images/linux/vcXsrv.png" width="800" height="500" alt="VcXsrv setup">
+<figcaption> Display number 修改成 0 </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step2
+<figure>
+<img src="/images/linux/vcXsrv2.png" width="800" height="500" alt="VcXsrv setup2">
+<figcaption> 使用預設的 Start on client </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step3
+<figure>
+<img src="/images/linux/vcXsrv3.png" width="800" height="500" alt="VcXsrv setup3">
+<figcaption> **勾選 Disable access control** </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step4
+<figure>
+<img src="/images/linux/vcXsrv4.png" width="800" height="500" alt="VcXsrv setup4">
+<figcaption> 點選 "save configuration" or 完成 </figcaption>
+</figure> 
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# install Ubuntu <br/>on virtualbox
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Rreparing for installation
+- Recommended **system requirements**:
+	- 2 GHz dual-core processor
+	- better 4 GB system memory
+	- **25 GB** of free hard drive space
+- Download VirtualBox for Windows[(Windows hosts)](https://www.virtualbox.org/wiki/Downloads) from VirtualBox Website.
+- Download [Ubuntu Desktop Images](https://ubuntu.com/download/desktop)(ISO file) from Ubuntu Website
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing VirtualBox and<br /> Ubuntu on VirtualBox
+- Installation
+	- **Installing VirtualBox** on Windows Operating System
+	- **Installing Ubuntu 22.04 LTS** x86 64-bits on VirtualBox Virtual Platform
+	- [Tutorial video](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) for installing VirtualBox and Ubuntu
+- Setup VirtualBox and Ubuntun
+	- Setting **VirtualBox Guest Additions** for full screen with Ubuntu
+	- Overview of **GNOME** desktop environment
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Migrating VirtualBox
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## How to Migrate <br /> VirtualBox VMs to another
+- All of files in VirtualBox VMs folder
+	- Copy all of files from VirtualBox VMs folder
+	- **Add(加入)** VMs with VirtualBox's Tools
+- Export/Import VirtualBox VMs file
+	- **Export/Import(匯出/匯入)** .ova file from VirtualBox 
+- New a VMs with VirtualBox Image file
+	- New(新增) a VMs from VirtualBox image file(.vdi) 
+	- Setup memory, boot, cpu, clipboard, and so on.
+- [Tutorial Video](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) for migrating VirtualBox
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# summary
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Ubuntu/Debian System
+- Ubuntu/Debian System is an **easy-to-use Linux desktop**
+- Ubuntu Release
+	- Ubuntu 20.04 LTS , ... , **Ubuntu 21.10, Ubuntu 22.04 LTS**
+	- Ubuntu **Desktop**, Ubuntu **Server**, Ubuntu **IoT**, Ubuntu **cloud**
+- Variety of installation
+	- **WSL, VirtualBox, Dual boot with Windows, a disk drive**
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Migrate VirtualBox VMs
+- All of files in VirtualBox VMs folder
+	- Copy all of files from VirtualBox VMs folder
+	- **Add(加入)** VMs with VirtualBox's Tools
+- Export/Import VirtualBox VMs file
+	- **Export/Import(匯出/匯入)** .ova file from VirtualBox 
+- New a VMs with VirtualBox Image file
+	- New(新增) a VMs from VirtualBox image file(.vdi) 
+	- Setup memory, boot, cpu, clipboard, and so on.
+</script>
+
+</section>
+</section><!--end block-->
+</div>
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Software</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+//{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

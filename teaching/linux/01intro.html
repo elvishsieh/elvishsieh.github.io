@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Unix/Linux 簡介</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-background="/images/office/front.png" data-menu-title="Front Page">
+<span style="position: fixed; bottom: 0; right: 0; color: black">
+改變你/妳的思維，<br>
+擴展你/妳的視野。
+</span>
+</section>
+
+<section data-markdown><script type="text/template">
+## Slides in English
+- Apple Inc. **iPhone**, iPad, iPod, iWatch, ..., etc.
+- **Microsoft Windows** XP, Windows 7, Windows 10, Windows 11, Microsoft Teams, ..., etc.
+- **Google Map**, Google Drive, Google Glass, Google Watch, Google Meet, ..., etc.
+- **Facebook, YouTube**, Twitter, Instagram, Line, ..., etc.
+- **Asus** Inc., **Acer** Inc., HP Inc. IBM Inc., Canon Inc., ..., etc.
+- **Louis Vuitton(LV)**, Gucci, Dior, Coach, ..., etc.
+</script>
+</section>
+
+<section data-background="/images/office/end.png" data-menu-title="The End">
+<span style="position: fixed; bottom: 0; right: 0; color: black">
+改變你/妳的思維，<br>
+開闊你/妳的視野。
+</span>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Unix/Linux <br />作業系統簡介
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## What is Operating System?
+<figure style="float: right">
+<img src="/images/linux/Operating_system.png" alt="OS placement">
+<figcaption  style="font-size: 10pt"> image source from <a href="https://en.wikipedia.org/wiki/File:Operating_system_placement.svg">Wikipedia</a></figcaption>
+</figure>
+- Modern OS include
+	- **Process management**
+	- Interrupts
+	- Memory management
+	- **File system**
+	- Device drivers
+	- **Networking**
+	- Security
+	- **I/O(Input/Output)**
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Which one do you know?
+- DOS(Disk Operating System): **MS-DOS**, Apple DOS, IBM PC DOS
+- Windows: Windows 3.1, 95, 98, XP, **Windows 7, 8, 10, 11**
+- **MacOS(X)**: a Unix operating system developed and marketed by Apple Inc.
+- **iOS, Android**: It was designed primarily for touchscreen mobile devices such as smartphones and tablets
+- Unix-like: **Linux** distribution, **BSD** distribution
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Unix-like distribution
+- Unix distribution
+	- **University of California, Berkeley (BSD)**, Microsoft (Xenix), Sun Microsystems (SunOS/Solaris), HP/HPE (HP-UX), and IBM (AIX), etc.
+- Linux distribution
+	- commercially backed: Fedora Linux (Red Hat), openSUSE (SUSE) and **Ubuntu (Canonical Ltd.)**, etc.
+	- community-driven: **Debian**, Slackware, Gentoo and Arch Linux, etc.
+- BSD distribution
+	- 4BSD-Lite: **FreeBSD**, NetBSD, OpenBSD and DragonFly BSD, etc.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## UNIX System
+- UNIX is a family of multitasking(多工), multiuser(多人) computer operating systems(作業系統)
+- In 1969 at the Bell Labs research center by [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson), [Dennis Ritchie](https://en.wikipedia.org/wiki/Dennis_Ritchie), and others.
+- **AT&T licensed Unix** to outside parties in the late 1970s
+- Leading to a variety of both academic and commercial Unix, i.e., **BSD and System V**
+- UNIX System： kernel(核心), Development environment, Commands(shell), file system(檔案系統), Documentation
+- UNIX 簡史：[網路農夫](http://mirror.sars.tw/UNIX_C_Shell/no1-1-01.html)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## the Gnu Operating System
+- [GNU](https://www.gnu.org/) stands for “GNU's Not Unix.” 
+- In September 1983, the GNU operating system was initiated by [Richard Stallman](https://en.wikipedia.org/wiki/Richard_Stallman) while he worked at MIT Artificial Intelligence Laboratory.
+- The [Free Software Foundation](https://www.fsf.org/) was founded in October 1985
+- By 1990 GNU teams had either found or written all the major components **except one—the kernel**.
+- **Linux, a Unix-like kernel**, was developed by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) in 1991 and **made free software in 1992**.
+- GNU/Linux systems, typically via GNU/Linux distributions
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Gnu/Linux <br />Operating System
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Overview of Linux System
+<figure>
+<a href="https://en.wikipedia.org/wiki/Linux"><img src="/images/linux/linuxStructure.svg" alt="Linux structure"></a>
+<figcaption>Linux System Structure</figcaption>
+</figure>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/Tux.svg" alt="OS placement">
+<figcaption  style="font-size: 10pt"> image source from <a href="https://en.wikipedia.org/wiki/File:Operating_system_placement.svg">Wikipedia</a></figcaption>
+</figure>
+
+##  Gnu/Linux System <br/>Installed components
+- **A bootloader**, for example GNU GRUB, LILO, SYSLINUX or systemd-boot
+- **An init program**, such as the traditional sysvinit and the newer systemd, OpenRC and Upstart.
+- **Software libraries**, which contain code that can be used by running processes
+- **Basic Unix commands**, with GNU coreutils being the standard implementation.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/Tux.svg" alt="OS placement">
+<figcaption  style="font-size: 10pt"> image source from <a href="https://en.wikipedia.org/wiki/File:Operating_system_placement.svg">Wikipedia</a></figcaption>
+</figure>
+## Gnu/Linux System <br />Installed components
+- Widget toolkits are the libraries used to build graphical user interfaces (GUIs) for software applications.
+- A **package management system**, such as dpkg, RPM, apt, Pacman, ..., etc.
+- **User interface programs** such as command shells or windowing environments(X Window).
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## The Linux Booting Process
+- **UEFI or BIOS**
+	- The Unified Extensible Firmware Interface (UEFI), > 2TB
+	- Basic Input/Output System (BIOS), < 2TB
+- **GPT**/MBR(GUID Partition Table/Master Boot Record)
+	- GUID is an acronym for 'Globally Unique Identifier
+	- Booting UEFI systems from GPT-partitioned disks is commonly called **UEFI-GPT booting**.
+	- UEFI booting to be performed from EFI system partition on MBR-partitioned disks which is called UEFI-MBR.
+- Boot Loader
+	- **GNU GRUB**(GRand Unified Bootloader), which is the typical boot loader for **most modern Linux systems**.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## The Linux Booting Process
+- Kernel
+	- GRUB **first mounts the root file system** that's specified in the grub.conf file. Then it **executes the /sbin/init program**, which is always the first program to be executed.
+- Init
+	- At this point, your system executes runlevel programs. At one point it would look for an init file, usually **found at /etc/inittab** to decide the Linux run level.
+- Runlevel programs
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## UEFI Booting Process<br/> for Linux
+<figure>
+<img src="/images/linux/UEFIboot.png" alt="Linux structure">
+<figcaption> UEFI-GPT Booting Process </figcaption>
+</figure>
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Summary
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Operating System
+- Modern Operating System include Process management, Interrupts, Memory management, File system, Device drivers, Networking, Security, I/O(Input/Output)
+- **All of system are modern Operatin System** which is Windows10 or 11, MacOS, iOS, Android, Gnu/Linux distribution, BSD distribution, ..., etc.
+- **GNU/Linux installed component** have that bootloader, init program, software libraries, basic unix command, Widgets toolkits, package management system, user interface program.
+- **Linux Process**: UEFI or BIOS, GPT/MBR, Boot Loader, Kernel, Init program, Runlevel Program
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## UEFI Booting Process<br/> for Linux
+<figure>
+<img src="/images/linux/UEFIboot.png" alt="Linux structure">
+<figcaption>UEFI-GPT Booting Process</figcaption>
+</figure>
+</script>
+</section>
+</section><!--end block-->
+</div>
+
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
