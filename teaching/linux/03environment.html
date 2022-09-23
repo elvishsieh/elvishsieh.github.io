@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>命令提示列與 X Window 環境</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Command Line Interface(CLI)
+</script>
+</section>
+
+<section  data-markdown><script type="text/template">
+## WSL CLI
+![](/images/linux/wslCli.png)
+<p style="text-align: center">	WSL Command Line Interface</p>
+</script>
+</section>
+<section  data-markdown><script type="text/template">
+## Gnome CLI
+![](/images/linux/gnomeCli.png)
+<p style="text-align: center">	GNOME Command Line Interface</p>
+</script></section>
+
+<section  data-markdown><script type="text/template">
+## Using CLI from Zero
+- Exchange between GUI and Terminal on VirtualBox
+	- Ctrl + Alt + F2: X Window
+	- **Ctrl + Alt + F3**: Terminal
+- Command Line Format
+	- **commmand [option] [argument]**
+	- for example: "**du -m ./**" // estimate file space usage, -m: mega byte, **./: current directory**
+- Basic Command for Linux
+	- **whoami**: 我是誰
+	- **uname -a**: print system information, -a: all of information
+	- **reboot -n**, **shutdown -h now** // -h halt  
+</script> </section>
+<section data-markdown><script type="text/template">
+## Help Document for Unix-like
+- **Man**ual **Pager** Utils: an interface to the system reference manuals
+	- For example
+		- man man
+		- man man.7
+		- man -k // **keyword**
+		- man -f / // **Equivalent to whatis**.
+		- man whoami
+- info - read Info documents
+	- For example
+		- info ls
+		- info cat
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Help Document for Unix-like
+- The table below shows the section numbers of the manual followed by the types of pages they contain.
+	1. **Executable programs or shell commands**
+	2. System calls (functions provided by the kernel)
+	3. **Library calls** (functions within program libraries)
+	4. Special files (usually found in /dev)
+	5. **File formats and conventions** eg /etc/passwd
+	6. Games
+	7. Miscellaneous  (including  macro  packages  and  conventions), e.g. man(7), groff(7)
+	8. System administration commands (only for root)
+	9. Kernel routines [Non standard]
+</script>
+</section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# X Window
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/Xfree86Logo.gif" width="150" alt="Xfree86 Logo">
+<figcaption  style="font-size: 10pt"> Xfree86 Logo</figcaption>
+</figure>
+
+## What is X Window
+- The X originated as part of Project Athena at **MIT in 1984** as a collaboration between **Jim Gettys** and **Bob Scheifler**.
+- The X protocol has been at **version 11 (hence "X11")** since September 1987 and the [X.Org Foundation](https://www.x.org/wiki/) leads the X project.
+- **XFree86** was widely used by most Unix-like computer operating systems before its license change with version 4.4.0., it has since then been superseded by X.org.
+- The X Window System (X11, or simply X) is **a windowing system** for bitmap displays, common on **Unix-like operating systems**.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/X11Logo.svg" width="100" alt="X11 Logo">
+<figcaption  style="font-size: 10pt"> X.org Logo</figcaption>
+</figure>
+## X Is Client / Server
+- X uses a **client/server model**. An **X server program** runs on a computer with a graphical display and communicates with **various client programs**.
+- The X Window System was designed to allow **multiple programs** to share access to **a common set of hardware**. This hardware includes both **input devices** such as **mice** and **keyboards**, and **output devices: video adapters**.
+- The X server typically provides its service to many simultaneous clients. The X server runs **longer than most of the clients** do, and listens for incoming connections from new clients.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## A Example for X Window 
+- The X server receives input from a **local keyboard** and **mouse** and **displays** to a screen.
+<img style="float: right; margin: 0 0 0 1em" src="/images/linux/Xexample.svg" alt="X11 example">
+
+- A **web browser** and a **terminal emulator** run on the user's workstation 
+and a **terminal emulator runs on a remote computer** but is controlled 
+and **monitored from the user's machine**
+- **GNOME desktop**, which is a Window desktop environment, was **a client program** for X Window on Unix-like system. 
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Installing and Setting <br />X server on Windows
+</script>
+
+</section>
+<section>
+<figure style="float: right">
+<img src="/images/linux/X11Logo.svg" width="200" alt="X.org Logo">
+<figcaption  style="font-size: 10pt"> X.org Logo</figcaption>
+</figure>
+<h2>Setting IP and <br/>Enable systemd</h2>
+<ul>
+	<li><span style="color:red">Open up your ~/.bashrc</span> and  paste this in at the end and save
+<pre><code>export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export LIBGL_ALWAYS_INDIRECT=1</code></pre> 
+	</li>
+	<li>Run the following command to <span  style="color:red">enable systemd</span>
+<pre><code>git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+cd ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh</code></pre>
+	</li>
+</ul>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# VcXsrv<br/>  X Server
+</script></section>
+<section data-markdown><script type="text/template">
+## Download and Setup [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
+<figure>
+<img src="/images/linux/vcXsrv.png" width="800" height="500" alt="VcXsrv setup">
+<figcaption> Display number 修改成 0 </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step2
+<figure>
+<img src="/images/linux/vcXsrv2.png" width="800" height="500" alt="VcXsrv setup2">
+<figcaption> 使用預設的 Start on client </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step3
+<figure>
+<img src="/images/linux/vcXsrv3.png" width="800" height="500" alt="VcXsrv setup3">
+<figcaption> **勾選 Disable access control** </figcaption>
+</figure> 
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Setup VcXsrv step4
+<figure>
+<img src="/images/linux/vcXsrv4.png" width="800" height="500" alt="VcXsrv setup4">
+<figcaption> 點選 "save configuration" or 完成 </figcaption>
+</figure> 
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# GWSL X Server
+</script></section>
+<section data-markdown><script type="text/template">
+## [GWSL](https://opticos.github.io/gwsl/) for Windows
+- **GWSL is an XServer** that lets you easily run graphical Linux apps on Windows 10. GWSL automates the process of running X on top of WSL and over SSH.
+- The Feature-Packed, **Highly-Integrated** Windows 10 XServer
+<img src="/images/linux/gwslLogo.png" style="float: right" alt="GWSL logo">
+- Install GWSL on Windows
+	- Search GWSL on Microsoft Store
+	- **Get(取得)** GWSL
+	- **Lanuch(開啟)** GWSL
+</script></section>
+</section><!--end block-->
+
+<section><!--star block-->
+<section data-markdown><script type="text/template">
+## X Window Environments
+- [Enlightenment](https://www.enlightenment.org/) Desktop Environment
+<figure style="float: right">
+<img src="/images/linux/xeyes.png" width="150" alt="xeyes">
+<figcaption  style="font-size: 10pt">xeyes is a client of X</figcaption>
+</figure>
+	- sudo apt install enlightenment
+	- sudo enlightenment_start
+- [Xfce](https://xfce.org/) Desktop Environment
+	- sudo apt install xfce4
+<figure style="float: right">
+<img src="/images/linux/xclock.png" width="150" alt="xclock">
+<figcaption  style="font-size: 10pt">xclock is the other client of X</figcaption>
+</figure>
+	- sudo apt install xubuntu-desktop
+	- sudo xfce4-session
+- GNOME Desktop Series
+	- [GNOME](https://www.gnome.org/),[Unity](https://ubuntuunity.org/), 
+	[Cinnamon](https://spins.fedoraproject.org/cinnamon/), [MATE](https://mate-desktop.org/)
+	- sudo apt install ubuntu-unity-desktop
+	- sudo apt install cinnamon-desktop-environment
+	- sudo apt install ubuntu-mate-desktop
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## X Window Environments
+- KDE Desktop Series
+	- KDE Plasma 5 , [Trinity Desktop Environment (TDE)](https://www.trinitydesktop.org/)
+	- sudo apt install kde-full or apt install kubuntu-desktop
+	- **ls /usr/bin/kde* | grep session** which command to find KDE execution program 
+- [LXDE (Lightweight X11 Desktop Environment)](https://www.lxde.org/), LXQt
+	- sudo apt install lxde
+	- lxsession or sudo lxsession
+- **Common Desktop Environment (CDE)**
+	- The CDE is X Windows desktop environment that was commonly used 
+	on commercial UNIX variants such as Sun Solaris, HP-UX and IBM AIX.
+</script>
+</section>
+</section><!--end block-->
+
+<section> <!--start block-->
+<section data-markdown><script type="text/template">
+## Install GNOME on WSL2
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Preparing for installation
+- **Requirements**
+	- **WSL 2**
+	- **Ubuntu 22.04 LTS**(other distros not tested)
+	- An **X server for Windows**, such as [VcXsrv](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/), GWSL
+	- Basic knowledege on how to run GUI apps with WSL 2 (not required but highly recommended)
+- **Upgrade Ubuntu System**
+	- sudo apt update -y
+	- sudo apt upgrade -y
+- Installing Axel, a Command-Line Download Accelerator for Linux
+	- **sudo apt install axel**
+</script>
+</section>
+
+<section>
+<figure style="float: right">
+<img src="/images/linux/gnomeLogo.png" width="150" alt="GNOME Logo">
+<figcaption  style="font-size: 10pt"> GNOME Logo</figcaption>
+</figure>
+<h2>Install Command</h2>
+<ul>
+	<li><span style="color:red">Install GNOME with command</span> as following
+		<ul>
+			<li>sudo apt install ubuntu-desktop gnome</li>
+		</ul>
+	</li> 
+	<li><span style="color:red">Open up your ~/.bashrc</span> and  paste this in at the end and save
+<pre><code>export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export LIBGL_ALWAYS_INDIRECT=1</code></pre> 
+	</li>
+	<li>Run the following command to <span  style="color:red">enable systemd</span>
+<pre><code>git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+cd ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh</code></pre>
+	</li>
+</ul>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/gnomeLogo.png" width="150" alt="GNOME Logo">
+<figcaption  style="font-size: 10pt"> GNOME Logo</figcaption>
+</figure>
+## Run GNOME on WSL2
+- **Run VcXsrv X server** such as last slides which is a example for setup X server
+- **Reboot Ubunu** on WSL2
+	- wsl --shutdown (ConEmu command line)
+- Run GNOME with as following command
+	- **sudo gnome-session**
+	- You should make sure that **GNOME have been installed** on WSL2 as below command
+	- **sudo apt install ubuntu-desktop gnome**
+</script>
+</section>
+</section><!--end block-->
+	
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Install Deepin Desktop <br />on Ubuntu 22.04 LTS
+
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/deepinLogo.png" width="400" alt="xclock">
+<figcaption  style="font-size: 10pt">Logo get from Deepin website</figcaption>
+</figure>
+## Deepin Desktop Environment
+- Deepin is a Linux distribution based on the **Debian "stable" branch**.
+- It features [the Deepin Desktop Environment (DDE)](https://www.deepin.org/index/en), built on **Qt** and available for a variety of distributions.
+-  **Deepin Technology**, a wholly owned subsidiary of **UnionTech (統信軟件)**, is based in **Wuhan, China**.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Install Deepin on Ubuntu
+- Step 1: Installing Axel
+	- axel can be installed anywhere and used not only to **download multiple files simultaneously** over HTTP/FTP links but also to **speed them up** as well.
+	- **sudo apt install axel**
+- Step 2: **Add Deepin Desktop PPA**
+	- sudo add-apt-repository ppa:ubuntudde-dev/stable
+	- sudo apt-get update
+- Step 3:  Install Deepin Desktop on Ubuntu and Derivatives
+	- **sudo apt install ubuntudde-dde**
+- Setp 4: Starting VcXsrv and DDE
+	- **sudo deepin-session**
+</script>
+</section>
+</section><!--end block-->	
+
+</div>
+
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+//{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

@@ -258,87 +258,6 @@ made **every two years**, would receive **Long-Term Support** for large-scale de
 </section>
 </section><!--end block-->
 
-<section> <!--start block-->
-<section data-markdown><script type="text/template">
-# Install <br />GNOME<br /> on WSL2
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## Preparing for installation
-- **Requirements**
-	- WSL 2
-	- Ubuntu 20.04 (other distros not tested)
-	- An X server for Windows, such as [VcXsrv](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/), GWSL
-	- Basic knowledege on how to run GUI apps with WSL 2 (not required but highly recommended)
-- **Upgrade Ubuntu System**
-	- sudo apt update -y
-	- sudo apt upgrade -y
-</script>
-</section>
-
-<section>
-<h2>Install Command</h2>
-<ul>
-	<li><span style="color:red">Install GNOME with command</span> as following
-		<ul>
-			<li>sudo apt install ubuntu-desktop gnome</li>
-		</ul>
-	</li> 
-	<li><span style="color:red">Open up your ~/.bashrc</span> and  paste this in at the end and save
-<pre><code>export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-export LIBGL_ALWAYS_INDIRECT=1</code></pre> 
-	</li>
-	<li>Run the following command to <span  style="color:red">enable systemd</span>
-<pre><code>git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
-cd ubuntu-wsl2-systemd-script/
-bash ubuntu-wsl2-systemd-script.sh</code></pre>
-	</li>
-</ul>
-</section>
-
-<section data-markdown><script type="text/template">
-## Installing and Setting <br />X server on Windows
-</script>
-
-</section>
-<section data-markdown><script type="text/template">
-## Download and Setup [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
-<figure>
-<img src="/images/linux/vcXsrv.png" width="800" height="500" alt="VcXsrv setup">
-<figcaption> Display number 修改成 0 </figcaption>
-</figure> 
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## Setup VcXsrv step2
-<figure>
-<img src="/images/linux/vcXsrv2.png" width="800" height="500" alt="VcXsrv setup2">
-<figcaption> 使用預設的 Start on client </figcaption>
-</figure> 
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## Setup VcXsrv step3
-<figure>
-<img src="/images/linux/vcXsrv3.png" width="800" height="500" alt="VcXsrv setup3">
-<figcaption> **勾選 Disable access control** </figcaption>
-</figure> 
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## Setup VcXsrv step4
-<figure>
-<img src="/images/linux/vcXsrv4.png" width="800" height="500" alt="VcXsrv setup4">
-<figcaption> 點選 "save configuration" or 完成 </figcaption>
-</figure> 
-</script>
-</section>
-</section><!--end block-->
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # install Ubuntu <br/>on virtualbox
@@ -525,7 +444,7 @@ dependencies: [
 { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
 { src: '/reveal-js/plugin/anything/anything.js', async: true },
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
-//{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/math-katex/math-katex.js', async: true },
 { src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
 { src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]

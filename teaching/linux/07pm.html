@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>Linux Fundamentals and System Administration</title>
+<title>套件管理(Package Management)</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
 <!-- Printing and PDF exports -->
 <script>
@@ -33,100 +33,49 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## Linux 基礎與系統管理
+## apt-fast 
+- sudo add-apt-repository ppa:apt-fast/stable 
+- sudo apt -y install apt-fast
+- select 
+- sudo nano /etc/apt-fast.conf
+	- 
+- sudo apt-fast install ubuntu-desktop gnome 
 
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
 </script>
 </section>
 
-<section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率:10 or 20%
-- N 次作業: 30% or 20%
-- 期中考: 30%
-- 期末考: 30%
-</script>
-</section>
-
+</section><!--end block-->
+<section><!--start block-->
 <section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-Unix/Linux 簡介](./01intro.html)
-- [Week02-Linux 系統安裝](./02install.html)
-- [Week03-命令提示列與X Window環境](./03environment.html)
-- [Week04-基本指令介紹與操作](./04command.html)
-- [Week05-帳號管理](./05userAccount.html)
-- [Week06-檔案權限管理](./06filePermission.html)
-- [Week07-套件管理](./07pm.html)
-- [Week08-重導與檔案查尋](./08redirection.html)
-- Week09-期中考
-</script>
+# Troubleshooting
 </section>
 <section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-Vim 編輯器](./10vim.html)
-- [Week11-檔案打包與壓縮](./11filePkg.html)
-- [Week12-處理程序管理](./12process.html)
-- [Week13-Shell Script 基礎](./13shell.html)
-- [Week14-Shell Script 程式設計](./14shellProgramming.html)
-- [Week15-網路管理](./15network.html)
-- [Week16-SSH 伺服器](./16sshd.html)
-- [Week17-Apache Web 伺服器](./17apache.html)
-- Week18-期末考
+## gpg key problems
+- add-apt-repository fails due to gpg key timeout
+	- Error: retrieving gpg key timed out.
+	- sudo add-apt-repository -k hkp://keyserver.ubuntu.com:80 -y ppa:apt-fast/stable
+- apt-get --allow-releaseinfo-change
+	- sudo apt-get --allow-releaseinfo-change update
+- Switch keyserver
+	-  editing the ~/.gnupg/gpg.conf file to use a different keyserver: keyserver keys.openpgp.org
+	- gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
+	- gpg --keyserver hkp://keys.gnupg.net --recv-keys 94558F59
+	- gpg --keyserver hkp://pgp.mit.edu --recv-keys 94558F59
 </script>
 </section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- Ubuntu 20 管理入門與實作/王進德, 2021/06/25
-	- 博碩文化股份有限公司
-	- ISBN: 9789864347834
-- 參考書：
-	- [Ubuntu 20.04 Essentials: A Guide to Ubuntu 20.04 Desktop and Server Editions](https://www.answertopia.com/ubuntu/ubuntu-essentials/)
-	- Author: Neil Smyth
-- 參考文件：[Official Ubuntu Documentation](https://help.ubuntu.com/)(官方文件)
-</script>
-</section>
-<section data-markdown><script type="text/template">
-# 上課教材
-- Slides 的網址：
-<p style="text-align:center">[https://elvishsieh.github.io/teaching/linux/](https://elvishsieh.github.io/teaching/linux/)</p>
-- [課程教材](https://drive.google.com/drive/folders/1QQuKtvYCAYJ6XzJHyNbOXpGdvDHFZAyN?usp=sharing)
-</script>
-</section>
-
-</section>
+</section><!--end block-->
 </div>
 
 </div>
-
-
 <script src="/reveal-js/lib/js/head.min.js"></script>
 <script src="/reveal-js/js/reveal.min.js"></script>
 
@@ -164,7 +113,7 @@ transition: 'slide', // none/fade/slide/convex/concave/zoom
         
         custom: [
 				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>The Slides is designed for teaching Gnu/Linux fundamental and system administration. Ubuntu is a popular Linux distribution which is used in this course. </p>' }
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
 		]
 	},
 
@@ -232,7 +181,7 @@ dependencies: [
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
 { src: '/math-katex/math-katex.js', async: true },
 { src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
-{ src: '/reveal-js/plugin/toolbar/toolbar.js', async: true }
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]
 });
 
