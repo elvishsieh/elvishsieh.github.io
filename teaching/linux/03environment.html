@@ -56,38 +56,99 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Gnome CLI
 ![](/images/linux/gnomeCli.png)
 <p style="text-align: center">	GNOME Command Line Interface</p>
-</script></section>
+</script></section> 
 
 <section  data-markdown><script type="text/template">
 ## Using CLI from Zero
-- Exchange between GUI and Terminal on VirtualBox
-	- Ctrl + Alt + F2: X Window
-	- **Ctrl + Alt + F3**: Terminal
+- Exchange between **GUI and Terminal** on VirtualBox
+	- **Ctrl + Alt + F7**: X Window
+	- **Ctrl + Alt + F1 - F6**:  Terminal(tty1~6)
+- Unix-like 系統在 CLI 環境，英文字母**大寫、小寫字母有差別**，要特別注意。
 - Command Line Format
-	- **commmand [option] [argument]**
-	- for example: "**du -m ./**" // estimate file space usage, -m: mega byte, **./: current directory**
-- Basic Command for Linux
-	- **whoami**: 我是誰
-	- **uname -a**: print system information, -a: all of information
-	- **reboot -n**, **shutdown -h now** // -h halt  
+
+| Command Format |  command    | [option]   | [arguments] |
+| :---           | :------:    | :------:   | :--------:  |
+| Example 1      | _ls_        | _-a_       |   _/etc/_   | 
+| Example 2      | _cal_       |            |             |
+|[  ] 表示可有可無|             | 中間空白隔開| 中間空白隔開 | |
+
+* _斜體字型_是 CLI 的 **command** 
+</script> </section>
+<section  data-markdown><script type="text/template">
+## First Time Using CLI(1)
+- Frequently Usage Command
+	- _whoami_ (我是誰), _date_(日期),
+	- _cal_(日歷), sudo apt install **ncal**(after 20.04)
+	- _clear_ 清理螢幕
+	- _uname -a_ // print system information, -a: all of information
+	- _reboot -n_ //**現在**重新開機  
+	- _shutdown -h now_ // 馬上關機, -h halt(停止)  
+	- _du_ [OPTION]... [FILE]... // estimate file space usage
+		- -h, **--human-readable**
+		- -m, --block-size=1M
+</script> </section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself
+- _whoami_
+-  *TZ='America/Los_Angeles' date*
+	- [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+	- CST表示中國標準時間(China Standard Time), PDT表示太平洋夏令時間(Pacific Daylight Time)
+- _cal_
+- _uname_ -a
+- _clear_
+- _cal_ 6 2022
+- _du_ -m ~
+	-  **~** home directory
+- _du_ -h ~
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## World Time Zone Map
+![](/images/linux/TimeZonesMap.png)
+
+<p style="text-align:center">UTC = Coordinated Universal Time, or Zulu</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## First Time Using CLI(2)
+- Navigating Directory/Files Command
+	- _ls_ [options] [file… | directory …] // list directory contents
+		- -a, --all // do not ignore entries **starting with .**
+		- -l, format=long // use a long listing format
+		- -lc // show ctime(time of last modification of file)
+	- _cd_ [OPTIONS] directory // cd(change directory) command  is a shell builtin which is used to change the current working directory.
+		- _cd ~_ // home directory, _cd ../_ // go to up layer directory
+	- *pwd [OPTION]...* // print name of current/working directory
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself
+- *ls*
+- *ls -al /*
+- _cd /usr/bin_
+- _pwd_
+- _cd ~_
+- _cd ../../_
+- *pwd*
+- _cd /etc ; ls -a_
+- *cd ~*
+- *ls -la ./*
 </script> </section>
 <section data-markdown><script type="text/template">
 ## Help Document for Unix-like
 - **Man**ual **Pager** Utils: an interface to the system reference manuals
 	- For example
-		- man man
-		- man man.7
-		- man -k // **keyword**
-		- man -f / // **Equivalent to whatis**.
-		- man whoami
+		- _man man_
+		- _man -k keyword_ // find man page with **keyword**
+		- _man -f command_ // **Equivalent to whatis**.
+		- _man whoami_
 - info - read Info documents
 	- For example
-		- info ls
-		- info cat
+		- _info ls_
+		- _info cat_
 </script></section>
 
 <section data-markdown><script type="text/template">
-## Help Document for Unix-like
+##  The types of Man pages
 - The table below shows the section numbers of the manual followed by the types of pages they contain.
 	1. **Executable programs or shell commands**
 	2. System calls (functions provided by the kernel)
@@ -100,6 +161,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	9. Kernel routines [Non standard]
 </script>
 </section>
+<section data-markdown><script type="text/template">
+## Example of Man Page Document
+- **man** command
+	- man man
+	- man man.7
+- **printf** command
+	- **man printf** : default is **Executable programs or shell commands**
+	- **man printf.3** : **Library calls** (functions within program libraries)
+</script> </section>
 </section><!--end block-->
 <section><!--start block-->
 <section data-markdown><script type="text/template">
