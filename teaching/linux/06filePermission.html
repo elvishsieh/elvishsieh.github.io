@@ -43,22 +43,66 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 ## Unix file types
-- The seven standard Unix file types are regular, directory, symbolic link, 
-FIFO special, block special, character special, and socket as defined by POSIX.
+- The seven standard Unix file types are **regular**, **directory**, **symbolic link**, 
+**FIFO special**, **block special**, **character special**, and **socket** as defined by POSIX.
+- Summary of the seven different types of Linux file types:
+<pre><code>– : regular file.
+d : directory.
+c : character device file.
+b : block device file.
+s : local socket file.
+p : named pipe.
+l : symbolic link.</code></pre>
+- Look at Linux file types is running 'ls' command:
+	- **_ls -la /run_**
 </script>
 </section>
 
 <section data-markdown><script type="text/template">
-## You Try it
-- ls -la > tryit.txt
-- cat tr press TAB keyborad then press Enter
-- mv tryit.txt trythat.txt
-- stat trythat.txt
-- ls -la trythat.txt
-- ls -lc trythat.txt 
+## The result of Ls command
+
+![](/images/linux/fileList.png)
 </script></section>
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Permissions
+</script></section>
+<section data-markdown><script type="text/template">
+## File Permissions
+| Directory Listing | Value | Permission |
+| :----             | :---: | :---       |
+| ---				| 0     | No read, no write, no execute|
+| --x			    | 1     | No read, no write, execute |
+| -w-				| 2		| No read, write, no execute |
+| -wx				| 3		| No read, write, execute  	|
+| r--				| 4		| Read, no write, no execute |
+| r-x				| 5		| Read, no write, execute  |
+| rw-				| 6		| Read, write, no execute  |
+| rwx				| 7		| Read, write, execute  ||
+<pre><code>	drwxrwxr-x 2 runner wheel 4096 Oct  4 16:31 Desktop
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Documents
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Downloads
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Music
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Pictures
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Public
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Templates
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Oh My Posh
+
+![](/images/linux/hero.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install Oh My Posh
+
+</script></section>
+</section><!--end block-->
 </div>
 
 </div>

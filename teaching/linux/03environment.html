@@ -78,12 +78,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## First Time Using CLI(1)
 - Frequently Usage Command
 	- _whoami_ (我是誰), _date_(日期),
-	- _cal_(日歷), sudo apt install **ncal**(after 20.04)
-	- _clear_ 清理螢幕
-	- _uname -a_ // print system information, -a: all of information
-	- _reboot -n_ //**現在**重新開機  
-	- _shutdown -h now_ // 馬上關機, -h halt(停止)  
-	- _du_ [OPTION]... [FILE]... // estimate file space usage
+	- **_cal_**(日歷), sudo apt install **ncal**(after 20.04)
+	- **_clear_** 清理螢幕
+	- **_uname -a_** // print system information, -a: all of information
+	- **_reboot -n_** //**現在**重新開機  
+	- **_shutdown -h now_** // 馬上關機, -h halt(停止)  
+	- **_du_ [OPTION]... [FILE]...** // estimate file space usage
 		- -h, **--human-readable**
 		- -m, --block-size=1M
 </script> </section>
@@ -93,7 +93,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 -  *TZ='America/Los_Angeles' date*
 	- [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 	- CST表示中國標準時間(China Standard Time), PDT表示太平洋夏令時間(Pacific Daylight Time)
-- _cal_
+- **_cal_** //-A2 //after 2 month, -B2 // before 2 month
 - _uname_ -a
 - _clear_
 - _cal_ 6 2022
@@ -111,13 +111,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## First Time Using CLI(2)
 - Navigating Directory/Files Command
-	- _ls_ [options] [file… | directory …] // list directory contents
+	- **_ls_ [options] [file… | directory …]** // list directory contents
 		- -a, --all // do not ignore entries **starting with .**
-		- -l, format=long // use a long listing format
+		- -l, --format=long // use a long listing format
 		- -lc // show ctime(time of last modification of file)
-	- _cd_ [OPTIONS] directory // cd(change directory) command  is a shell builtin which is used to change the current working directory.
+	- **_cd_ [OPTIONS] directory** // cd(change directory) command  is a shell builtin which is used to change the current working directory.
 		- _cd ~_ // home directory, _cd ../_ // go to up layer directory
-	- *pwd [OPTION]...* // print name of current/working directory
+	- **_pwd [OPTION]..._** // print name of current/working directory
 </script>
 </section>
 <section data-markdown><script type="text/template">
@@ -133,6 +133,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - *cd ~*
 - *ls -la ./*
 </script> </section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Man Page
+</script></section>
 <section data-markdown><script type="text/template">
 ## Help Document for Unix-like
 - **Man**ual **Pager** Utils: an interface to the system reference manuals
@@ -141,12 +147,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 		- _man -k keyword_ // find man page with **keyword**
 		- _man -f command_ // **Equivalent to whatis**.
 		- _man whoami_
-- info - read Info documents
+- **info** - read Info documents
 	- For example
 		- _info ls_
 		- _info cat_
 </script></section>
-
 <section data-markdown><script type="text/template">
 ##  The types of Man pages
 - The table below shows the section numbers of the manual followed by the types of pages they contain.
@@ -162,15 +167,61 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Example of Man Page Document
-- **man** command
-	- man man
-	- man man.7
-- **printf** command
-	- **man printf** : default is **Executable programs or shell commands**
-	- **man printf.3** : **Library calls** (functions within program libraries)
+## Examples of Help System
+- Man Page Example
+	- **man** command
+		- *man man*
+		- *man man.7*
+	- **printf** command
+		- **man printf** : default is **Executable programs or shell commands**
+		- **man printf.3** : **Library calls** (functions within program libraries)
+- info Example
+	- *info ls*
+	- *info*
 </script> </section>
+
+<section data-markdown><script type="text/template">
+# Q & A
+</script></section>
+<section data-markdown><script type="text/template">
+## Q1 & A1
+- Q1:可不可以更改密碼？
+- A1: 可以。但是，我已經忘記指令了；不過，可以使用 man page 查詢系統有哪些指令可以更改密碼。
+	- _man -k chp_
+		* chpasswd (8)  - update passwords in batch mode
+	- **_chpasswd_** command
+		* Each line is the format: **user_name:password**
+		* 不需要輸入舊密碼，直接更新密碼，**這是 SuperUser 的權限**
+	- **_passwd_** command
+		* **_passwd_** or **_passwd userName_** ,**需要知道原來的密碼**
+</script></section>
+<section data-markdown><script type="text/template">
+## You Try It
+- **_chpasswd_**
+	* UserName:NewPassword
+- **_sudo chpasswd_**
+	* 輸入系統管理者的密碼
+	* UserName:NewPassword
+	* 按 Ctrl + c
+- **_su_** or **_su root_**
+	* 密碼:
+	* 驗證失敗
+- **_sudo chpasswd_**
+	* root:NewPassword
+- **_su_** 使用新密碼，看看是否可以登入，最後輸入 **_exit_** 登出 root
+</script></section>
+<section data-markdown><script type="text/template">
+## Q2 & A2
+- Q2:我忘記密碼，是否可以刪除使用者在重新建立一個新的帳號？
+- A2: 可以。
+	* **_man -k deluser_**
+	* deluser (8)  - remove a user or group from the system
+	* **_sudo deluser userName_**
+	* By  default,  deluser will remove the user **without removing the home directory, the mail spool  or any other files** on the system owned by the user.
+	* Removing the home directory and mail spool can be achieved **using the --remove-home option**.
+</script></section>
 </section><!--end block-->
+
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # X Window
@@ -218,6 +269,31 @@ and **monitored from the user's machine**
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# nano Editor
+</script></section>
+
+<section data-markdown><script type="text/template">
+## nano shortcut key
+
+|Nano Display| Keyboard shortcut   | Description  |
+| :---       | :---                | :-------:    | 
+| ^ + O      | Ctrl + O      | Write Out(存檔)    | 
+| ^ + W      | Ctrl + W      | Where Is(搜尋)     |
+| ^ + \      | Ctrl + \      | Replace (取代)     | 
+| ^ + K      | Ctrl + K      | Cut (剪下)         |
+| ^ + U      | Ctrl + U      | Paste (貼上)       | 
+| ^ + X      | Ctrl + X      | Exit (跳出)        | 
+| ^ + C      | Ctrl + C      | Cancel (取消)      |
+| M + U      | Alt + U       | Undo (回復)        | 
+| M + E      | Alt + E       | Redo (重作)        | 
+| ^ 表示 Ctrl 鍵              ||                   |
+| M 表示 Alt 鍵               ||                   ||
+
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 ## Installing and Setting <br />X server on Windows
 </script>
 
@@ -244,7 +320,10 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# VcXsrv<br/>  X Server
+# X Server
+</script></section>
+<section data-markdown><script type="text/template">
+## VcXsrv  X Server
 </script></section>
 <section data-markdown><script type="text/template">
 ## Download and Setup [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
@@ -281,11 +360,9 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 </figure> 
 </script>
 </section>
-</section><!--end block-->
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
-# GWSL X Server
+## GWSL X Server
 </script></section>
 <section data-markdown><script type="text/template">
 ## [GWSL](https://opticos.github.io/gwsl/) for Windows
@@ -300,9 +377,30 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 </section><!--end block-->
 
 <section><!--star block-->
+<section  data-markdown><script type="text/template">
+# Window Environment
+</script></section>
+<section data-markdown><script type="text/template">
+## Dm, Wm and De
+- A **Display Manager(DM)** is a graphical login manager which **starts a login session on an X server** from the same or another computer.
+	- GDM3 (for GNOME), SDDM (for KDE Plasma 5 and LXQt), **LightDM (cross-desktop, by Canonical Ltd)**
+- A **Window Manager(WM)** is system software that controls the placement and appearance of windows within a windowing system in a graphical user interface.
+	- [i3WM](https://i3wm.org/), [xfwm4](https://github.com/topics/xfwm) (for Xfce4 DE), [Enlightenment](https://www.enlightenment.org/)
+- A **Desktop Environment(DE)** typically consists of Windows Manager, File Manager, Display Manager and some packages too.
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Ubuntu Desktop Environment
+- Ubuntu default desktop - **GNOME** Desktop Environment
+- [Kubuntu desktop](https://kubuntu.org/): Kubuntu unites Ubuntu with **KDE** and the **fabulous Plasma desktop**, bringing you a full set of applications.
+- [Xubnutu desktop](https://xubuntu.org/): Xubuntu is an elegant and easy-to-use operating system. 
+	Xubuntu comes with **Xfce**, which is a stable, light and configurable desktop environment.
+- [Lubuntu desktop](https://lubuntu.me/): Lubuntu is an official Ubuntu flavor which uses the Lightweight **Qt Desktop Environment (LXQt)**
+</script></section>
 <section data-markdown><script type="text/template">
 ## X Window Environments
-- [Enlightenment](https://www.enlightenment.org/) Desktop Environment
+- [Enlightenment](https://www.enlightenment.org/) Window Manager
 <figure style="float: right">
 <img src="/images/linux/xeyes.png" width="150" alt="xeyes">
 <figcaption  style="font-size: 10pt">xeyes is a client of X</figcaption>
@@ -437,7 +535,25 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 	- **sudo deepin-session**
 </script>
 </section>
-</section><!--end block-->	
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Chnage <br />Display Manager
+</script></section>
+<section data-markdown><script type="text/template">
+## Change to GDM3
+- Make sure GDM3 have been installed
+	- _which gdm3_
+	- _sudo apt install gdm3_
+- Change to GDM3 display manager
+	- sudo dpkg-reconfigure gdm3
+- Stop Display Manager
+	- **_sudo systemctl stop lightdm_**, or _sudo service lightdm stop_
+- Start GDM3 Display Manager
+	- **_sudo systemctl stop gdm3_**, or _sudo service gdm3 stop_
+</script></section>
+</section><!--end block-->
 
 </div>
 

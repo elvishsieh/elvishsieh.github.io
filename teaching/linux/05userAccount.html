@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>帳號管理</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
+<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Add User
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## adduser/useradd
+- **useradd is a command** and **adduser is a perl script**. You can input the following commmand to understand it.
+	- **_which adduser_**
+	- ** _less /usr/sbin/adduser_**
+	- **_which useradd_**
+	- ** _less /usr/sbin/useradd_**
+- Using adduser script to create a user on Linux system.
+	- **_sudo adduser userName_**
+	- Follow the adduser script to input the information for this user.
+</script></section>
+<section data-markdown><script type="text/template">
+## adduser's Interactive Model 
+<pre><code>runner@LAPTOP-PT5NIKQ8:~$ sudo adduser jenny
+[sudo] password for runner:
+Adding user 'jenny' ...
+Adding new group 'jenny' (1002) ...
+Adding new user 'jenny' (1002) with group 'jenny' ...
+Creating home directory '/home/jenny' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for jenny
+Enter the new value, or press ENTER for the default
+		Full Name []: jenny hsieh
+		Room Number []:
+		Work Phone []:
+		Home Phone []:
+		Other []:
+Is the information correct? [Y/n]
+</code></pre>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## what does it<br /> have been done?
+- **_adduser_** command do 
+	- Adding new user 'jenny' (1002) with group  'jenny' ... **(/etc/passwd)**
+	- Create a password for jenny... **(/etc/shadow)** 
+	- Adding new group 'jenny' (1002) ...**(/etc/group)**
+	- Creating home directory '/home/jenny' and copying files from **'/etc/skel'** ...
+- su [options] [-] [user [argument...]] // run a command with substitute user and group ID
+	- **_su userName_**
+</script></section>
+<section data-markdown><script type="text/template">
+## /etc/passwd file Format
+- Delimiter with **:**
+<pre><code>elvis:x:1001:1001:elvis hsieh,,,:/home/elvis:/bin/bash
+sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-976848:/home/sam:/bin/bash</code></pre>
+1. **user name**: elvis, sam
+2. **user password**: x
+3. **user ID**: 1001, 1002
+4. **group ID**: 1001, 1002
+5. user information: incude user full name, work, home, and other Phone
+6. **home directory**: user home directory
+7. **command/shell**: The absolute path of a command or shell (/bin/bash)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Try It by Yourself
+- **_sudo adduser userName_**
+	- userName 是登入系統的英文使用者名稱，自己設一個英文名稱
+	- Full Name [ ]: 輸入英文的全名
+	- 其他欄位可以都輸入 Enter
+- **_su userName_**(剛剛建立的使用者名稱) or 點選右上角人頭小圖示，登入(login)
+- **_less /etc/passwd_**
+- **_sudo less /etc/shadow_**
+- **_ sudo less /etc/group_**
+- **_who_** 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Delete User 
+</script></section>
+<section data-markdown><script type="text/template">
+## deluser/userdel
+- **userdel is a command** and **deluser is a perl script**. You can input the following commmand to understand it.
+	- **_which deluser_**
+	- ** _less /usr/sbin/deluser_**
+- Using deluser script to create a user on unix-like system.
+	- **_sudo deluser userName_**
+<pre><code>runner@LAPTOP-PT5NIKQ8:~$ sudo deluser jenny
+[sudo] password for runner:
+Removing user `jenny' ...
+Warning: group `jenny' has no more members.
+Done.
+</code></pre>
+- ** _sudo rm -rf /home/jenny_**
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section  data-markdown><script type="text/template">
+# Types of Account
+</script></section>
+<section  data-markdown><script type="text/template">
+## Account Types of Unix
+- **The Superuser Account** <br /> 
+The **superuser account**, usually called **root**, is used to manage the system with **no limitations on privileges**.
+- **System accounts**<br />
+System accounts are used to **run services** such as **DNS, mail, and web servers**.
+If all services ran as the superuser, they could act without restriction.
+- **User accounts**<br/>
+User accounts are assigned to real people and are used to log in and use the system. Each user can set up their **own environment**
+by configuring their **default shell**, editor, key bindings, and **language settings**.
+</script></section>
+
+<section  data-markdown><script type="text/template">
+## Managing Users and Groups
+- **/etc/passwd**: Keeps the **user account** and **password information**. This file holds the majority of information about accounts on the Unix system.
+- **/etc/shadow**: Holds the **encrypted password** of the corresponding account. Not all the systems support this file.
+- **/etc/group**: This file contains the group information for each account.
+- **/etc/gshadow**: This file contains **secure group account** information.
+</script></section>
+<section  data-markdown><script type="text/template">
+## Users and Groups Command
+
+| Command    | Description  |
+| :---                | :-------    | 
+| **adduser**/useradd     | Adds accounts to the system    | 
+| usermod     | Modifies account attributes     |
+| **deluser**/userdel     | Deletes accounts from the system    | 
+| **addgroup**/groupadd    | Adds groups to the system        |
+| groupmod      | Modifies group attributes     | 
+| **delgroup**/groupdel      | Removes groups from the system      | |
+</script>
+</section>
+<section  data-markdown><script type="text/template">
+## Create/Modify a Group
+- Add a developer group
+	- **_sudo addgroup developers_**
+- Change the developers group name to students
+	- **_sudo groupmod -n students developer_**
+- Change the group GID to 545
+	- **_sudo groupmod -g 545 developer_**
+- Delete a Group
+	- **_sudo groupdel developer_** 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Groups Account
+</script></section>
+<section data-markdown><script type="text/template">
+## Create an Account in Group
+- adduser command
+	- **_sudo adduser --ingroup students userName_**
+	- **_sudo addgroup userName students_**
+- useradd command
+	- useradd -d homedir -g groupname -m -s shell -u userid accountname
+	- **_sudo useradd -d /home/jenny -g students -s /bin/bash jenny_**
+- Set its password using the passwd command
+	- **_passwd jenny_**
+</script></section>
+<section  data-markdown><script type="text/template">
+## Modify/Delete an Account
+- **_usermod [options] USERNAME_** // modify a user account
+	- -d, --home HOME_DIR
+	- -l, --login NEW_LOGIN
+	- -m, --move-home
+- Modify an Account
+	- change the account name **jenny to jennt90**
+	- **_sudo usermod -d /home/jenny90 -m -l jenny jenny90_**
+- Delete an account
+	- **_sudo userdel -r jenny90_**  // remove home and spool mail files
+- Delete userName from group
+	- **_sudo delgroup userName groupName_** 
+</script></section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself(1/2)
+- Create a group
+	- **_sudo addgroup students_** 
+- Create several accounts
+	- **_sudo adduser --ingroup students alice_**
+	- **_sudo adduser --ingroup students bob_**
+	- **_sudo adduser --ingroup students sam90_**
+	- Setting the password is **the same user name**.
+- Login every one user into system and check the home directory file 
+	- **_su userName_**
+	- **_cd ~; ls -la_**
+- Logout system (exit)   
+</script></section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself(2/2)
+- Modify sam90 Account
+	- **_sudo ls -la /home_**
+	- **_sudo usermod -d /home/sam -m -l sam90 sam_**
+	- **_sudo ls -la /home_**
+- Delete alice account
+	- **_sudo deluser --remove-all-files alice_**
+	- **_sudo delgroup alice students_**
+- Check alice account delete or not
+	- _less /etc/passwd_ // find "alice"
+	- _less /etc/group_ // find "students"
+	- **_sudo ls -la /home_**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# System Adminstrator
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Super User
+- root account
+	- **_su -_** or _su root_
+- who is sudo group in the /etc/group
+- Add an account or a group in **/etc/sudoers** file
+	- ** _sudo visudo_** //visudo will **call the default editor** of system, which could **check sudoers file format**, to edit the /etc/sudoers file.
+	- sudoers file format and **man sudoers** for more information
+<pre><code>UserName HostName = (asUser:asGroup) /pathname/command</code></pre>
+	- An example from [sudo project](https://www.sudo.ws/sudoers)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## A simple example of sudoers
+<pre><code># User alias specification
+User_Alias	WEBADMIN = will, wendy, wim
+# Runas alias specification
+Runas_Alias	OP = root, operator
+# Host alias specification
+Host_Alias	SPARC = bigtime, eclipse, moet, anchor:\
+			  SGI = grolsch, dandelion, black
+
+# root and users in group wheel can run anything on any machine as any user
+root	  ALL = (ALL) ALL
+%wheel	ALL = (ALL) ALL
+
+# users in the WEBADMIN User_Alias (will, wendy, and wim) may run any command
+# as user www (which owns the web pages) or simply su to www.
+WEBADMIN	www = (www) ALL, (root) /usr/bin/su www
+
+# bob may run anything on the sparc and sgi machines as any user listed in the Runas_Alias "OP".
+bob		SPARC = (OP) ALL : SGI = (OP) ALL
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Conclusion of sudoers (1/2)
+- Alias_Type NAME = item1, item2, ...
+	- where Alias_Type is one of **User_Alias, Runas_Alias, Host_Alias**, or **Cmnd_Alias**.  A NAME is a string of **uppercase letters**, numbers, and underscore characters (‘_’).
+	A NAME must **start with an uppercase letter**. 
+	- It is possible to put several alias definitions of the same type on a single line, joined by a colon (‘:’).  E.g.,
+	<pre><code>Alias_Type NAME = item1, item2, item3 : NAME2 = item4, item5</code></pre>
+- User specification
+	- A user specification determines which **commands a user may run (and as what user) on specified hosts**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Conclusion of sudoers (2/2)
+- User specification
+	- The basic structure of a user specification is<br /> **“who where = (as_whom) what”**. a example as below:
+	<pre><code>bob	SPARC = (OP) ALL : SGI = (OP) ALL</code></pre>
+	- Let's break that down into its **constituent parts :**
+- Runas_Spec
+	- A Runas_Spec determines **the user and/or the group** that a command may be run as.  A fully-specified Runas_Spec consists of two 
+	Runas_Lists (as defined above) **separated by a colon (‘:’)** and **enclosed in a set of parentheses**.
+	<pre><code>dgb  SGI = (bob, bin : wheel, system) /bin/ls, (root) /bin/kill</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself(1/2)
+- Create a wheel group
+	- **_sudo addgroup wheel_**
+- Add several users which are the wheel group
+	- **_sudo adduser --ingroup wheel bob_**
+	- **_sudo adduser --ingroup wheel alice_**
+- Modified sudouers file for wheel group as system adminstrator
+	- **_sudo visudo_**
+	- add '**wheel  ALL = (ALL) ALL**' on it
+- Check bob whether can run 'sudo' command or not?
+	- **_su bob_**
+	- **_sudo less /etc/shadow_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself(2/2)
+- How to create **an exist account into 'wheel' group**
+	- Add sam account and check the group of sam
+	- **_sudo adduser sam_**
+	- **_su sam; cd ~; ls -la_** 
+- Create a wheel group
+	- **_sudo addgroup wheel_**
+- Change sam into wheel group
+	- **_sudo usermod -g wheel sam_**
+- Check sam whether have changed to wheel group
+	- **_ls -la_** or **_less /etc/passwd_** //find gid of sam 
+</script></section>
+<section data-markdown><script type="text/template">
+## The runner User
+- The group is 'runner' group
+![](/images/linux/runner.png)
+- The group have changed 'wheel' group while run <br />**_usermod -g wheel_** after
+![](/images/linux/wheel.png)
+</script></section>
+</section><!--end block-->
+</div>
+
+</div>
+<script src="/reveal-js/lib/js/head.min.js"></script>
+<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script>
+
+Reveal.initialize({
+controls: false,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	menu: {
+		side: 'left',
+		width: 'normal',
+		numbers: false,
+		titleSelector: 'h1, h2, h3, h4, h5, h6',
+		useTextContentForMissingTitles: false,
+		hideMissingTitles: false,
+		markers: true,
+		custom: true,
+		themes: true,
+		themesPath: '/reveal-js/css/theme/',
+		transitions: true,
+		openButton: true,
+		openSlideNumber: false,
+		keyboard: true,
+		sticky: false,
+		autoOpen: true,
+		delayInit: false,
+		openOnInit: false,
+        loadIcons: true,
+        
+        custom: [
+				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+		]
+	},
+
+customcontrols: { 
+		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
+		controls: [ 
+			{ icon: '<i class="fa fa-caret-left"></i>', 
+			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.prev(); return false;' 
+			}, 
+			{ icon: '<i class="fa fa-caret-right"></i>', 
+			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
+			  action: 'Reveal.next(); return false;' 
+			}
+		] 
+	},
+	toolbar: {
+		// Specifies where the toolbar will be shown: 'top' or 'bottom'
+		position: 'bottom',
+
+		// Add button to toggle fullscreen mode for the presentation
+		fullscreen: true,
+
+		// Add button to toggle the overview mode on and off
+		overview: true,
+
+		// Add button to pause (hide) the presentation display
+		pause: true,
+
+		// Add button to show the speaker notes
+		notes: false,
+
+		// Add button to show the help overlay
+		help: false,
+
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
+
+		// If true, the playback control will be moved into the toolbar.
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
+
+		// By default the menu will load it's own font-awesome library
+		// icons. If your presentation needs to load a different
+		// font-awesome library the 'loadIcons' option can be set to false
+		// and the menu will not attempt to load the font-awesome library.
+		loadIcons: true
+	},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
+{ src: '/reveal-js/plugin/notes/notes.js', async: true },
+{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
+//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
+{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
+{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
+{ src: '/reveal-js/plugin/anything/anything.js', async: true },
+{ src: '/reveal-js/plugin/menu/menu.js', async: true},
+{ src: '/math-katex/math-katex.js', async: true },
+{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
+{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

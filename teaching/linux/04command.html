@@ -93,14 +93,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- -i, --interactive // prompt before overwrite
 - **_touch [OPTION]... FILE..._** // change file timestamps
 	- -m // change only the modification time
-- ** _source FILENAME [ARGUMENTS]_** // source is a shell built-in in Bash which reload functions, variables, and configuration files into shell scripts.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
+- **_mkdir ~/newDir/test ~/src_**
 - *mkdir -p ~/newDir/test ~/src*
-- **cd ~/ne TAB/te TAB**
+- **cd ~/ne TAB te TAB**
 - *ls -a / > -foo*
 - *ls -la* 
+- **_mv -foo .foo_**
 - *mv ./-foo .foo*
 - *ls -a*
 - *cp -pR ~/newDir ~/src*
@@ -108,8 +109,255 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - *cd newDir*
 - *ls -la test/*
 </script></section>
+
+<section data-markdown><script type="text/template">
+## Bash buill-in Command
+</script></section>
+<section data-markdown><script type="text/template">
+## Most useful Command(1/2)
+- **_source FILENAME [ARGUMENTS]_** // source is a shell built-in in Bash which reload functions, variables, and configuration files into shell scripts.
+- **_fg [jobspec]_**  // Resume  jobspec  in  the  foreground,  and make it the current job. 
+- **_ bg [jobspec ...]_** // Resume each suspended job jobspec in the background, as if it had been **started with &**.
+- **_alias [-p] [name[=value] ...]_** // Alias with no arguments or with the -p option prints the list of aliases in the form alias name=value on standard output.
+</script></section>
+<section data-markdown><script type="text/template">
+## Most useful Command(2/2)
+- **_export [-fn] [name[=word]] ..._** // The supplied names are marked for automatic export to the environment of subsequently executed commands.
+- **_echo [-neE] [arg ...]_** // Output the args, separated by spaces, followed by a newline.
+- **_ eval [arg ...]_** // The  args  are read and concatenated together into a single command.
+- **_exit [n]_** // Cause the shell to exit with a status of n.  If n is omitted, the exit status is that of the last command executed.
+</script></section>
+<section data-markdown><script type="text/template">
+## Try It by Yourself(Cont.)
+- **_cd ~/src/n TAB t TAB_**
+- *cp .foo touch.txt*
+- _ls -la_ **// watch out the time of touch.txt file**
+- *touch touch.txt // input this command after 1 minute later*
+- _ls -la_ **// watch out the time of touch.txt file again** 
+- _cd ~;_ *rm -rf ~/src ~/newDir*
+- *python* // it didn't work and python3 can work
+- **_nano .bashrc_** // add the following line on line number 94
+	<pre><code>alias python='python3'</code></pre>
+-  **_source ~/.bashrc_**
+- **_python_** // exit() to exit python environment
+</script></section>
+<section data-markdown><script type="text/template">
+## W Letter Command
+- **_whatis_** // display one-line manual page descriptions
+	- **_whatis ls_**
+- **_which_** // locate a command
+	- **_which_** gnome-session  
+- **_whereis_** // locate the binary, source, and manual page files for a command
+- **_who_** // show who is logged on
+- **_whoami_** // print effective userid
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Text File Viewer
+- **_cat [OPTION]... [FILE]..._** // concatenate files and print on the standard output
+	- _cat ~/.bashrc_
+- **_more [OPTION]... FILE..._** // file perusal filter for crt viewing
+	- 空白鍵 // next page
+	- q // exit
+	- / // search
+- **_less [OPTION]... FILE..._** //  opposite of more
+- **_head [OPTION]... [FILE]..._** // output the first part of files
+	- **_head -n 3_**
+	- default is 10 lines
+- **_tail [OPTION]... [FILE]..._** // output the last part of files
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Try It by Yourself
+- *cat ~/.bashrc*
+- *more ~/.bashrc*
+	- **press / to search "color" keyword**
+	- **press n to search next pattern**
+- ** _cat ~/.bashrc | more_**
+- *less ~/.bashrc*
+	- **_press / to search "prompt" keyword_** 
+	- **press n to search next pattern**
+- _head ~/.bashrc_
+- _tail -n 5 ~/.bashrc_
+</script></section>
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Internationalization
+</script></section>
+<section data-markdown><script type="text/template">
+## I18N Setting How To(1/2)
+- Setting **English Language**
+	- add the following line to **~/.profile**
+<pre><code>LANG="en_US.UTF-8"
+	LANGUAGE="en_US.UTF-8"
+	</code></pre>
+	-  **or** add the following line to ~/.bashrc
+<pre><code>LANG="en_US.UTF-8"
+	LANGUAGE="en_US.UTF-8"
+	export LANG LANGUAGE
+	</code></pre>
+- Reload variable and check locale information
+	- **_source ~/.profile_** or _source ~/.bashrc_
+	- **_locale_** // get locale-specific information
+	- _man useradd_ or **_nano ~/.profile_**
+</script></section>
+
+<section data-markdown><script type="text/template">
+## I18N Setting How To(2/2)
+- Setting **Chinese Language**
+	- add the following line to **~/.profile**
+<pre><code>LANG="zh_TW.UTF-8"
+	LANGUAGE="zh_TW.UTF-8"
+	</code></pre>
+	-  **or** add the following line to ~/.bashrc
+<pre><code>LANG="zh_TW.UTF-8"
+	LANGUAGE="zh_TW.UTF-8"
+	export LANG LANGUAGE
+	</code></pre>
+- Reload variable and check locale information
+	- **_source ~/.profile_** or _source ~/.bashrc_
+	- **_locale_** // get locale-specific information
+	- _man useradd_ or **_nano ~/.profile_**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Hard/Symbolic Links
+</script></section>
+<section data-markdown><script type="text/template">
+## Hard Link
+- A hard link to a file is indistinguishable(難以區別) from the original file because it is a **reference to  the  object  underlying  the
+original filename**.
+- Each of the hard links to a file is a reference to **the same inode number**, where an inode
+number is an index into the inode table, which contains **metadata about all files** on a filesystem.
+-  Hard links **may not refer** to **directories** and may not refer  to  **files  on  different filesystems**
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Symbolic(Soft) Link
+- A  symbolic  link  is  a  special type of file whose contents are a string that is the **pathname of another file**, the file to
+which the link refers.
+- A  symbolic link is **a  pointer  to  another name**, and not to an underlying object.  For this reason, symbolic links may refer to directories and
+may cross filesystem boundaries.
+-  Symbolic links may refer to other symbolic links, in which case the links **are dereferenced** until an object that is not a symbolic link is found, a symbolic  link  that
+refers to a file which **does not exist is found**, or **a loop is detected**.
+</script></section>
+
+<section  data-markdown><script type="text/template">
+## Differences between <br />soft and hard link
+- Symbolic links can be made to **files and directories** while hard links can only be made between **files**.
+- Symbolic links can be made between **different file systems**, hard ones cannot.
+- Hard links **share the inode number**, symbolic links do not.
+- With symbolic links, if the **original file or directory is deleted, the information is lost**, with hard links it is not.
+- Hard links are exact copies of the file while symbolic links are mere **pointers or “shortcuts”**.
+</script></section>
+<section  data-markdown><script type="text/template">
+## Hard/Soft Link Features
+- Features of Hard Link
+	- 若**原始檔案被刪除**, **hard Link 檔案保持不變**
+	- hard Link **檔案的任何更改，都會反映在原始檔案中**
+	- **無法建立目錄的 hard link**
+- Features of Symbolic Link
+	- 編輯 Symbolic Link, 也**就是在編輯原始的檔案**
+	- **刪除 Symbolic Link, 不會影響原始檔案**；但刪除原始檔案, symbolic Link 變成無效
+	- **可以為目錄建立 Symbolic Link** 
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Example of Hard Link
+- _mkdir -p ~/tmp/dir_
+- _cd tmp/dir_
+- ** _ln ~/.profile test.txt_**
+- _stat test.txt_ // check the **iNode number**
+- _stat ~/.profile_ // check the **iNode number**
+- _nano test.txt_ // add $HOME path into line number 21
+- _less -N test.txt_
+- _less -N ~/.profile_ // Did it have been changed?
+- _rm -rf test.txt_
+- _ls -a ~/.profile_
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Example of Soft Link
+- _nano origin.txt_ // This is origin file.
+- **_ln -s ~/tmp/dir/origin.txt ~/linkFile.txt_**
+-  _cd ~_
+- **_nano linkFile.txt_ // Add a word on link file.**
+- **_less ~/tmp/dir/origin.txt_**
+- _ln ~/tmp/dir ~/linkDir_
+- _ln -s ~/tmp/dir ~/linkDir_
+- _cd linkDir_
+- _rm -i origin.txt_ // y
+- _cd ~; nano linkFile.txt_ // Add new Word on it.
+- **_less ~/tmp/dir/origin.txt_**
+- **_rm tmp_**
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Windows Link Command
+- MKLINK [[/D] | [/H] | [/J]] Link Target // Creates a symbolic link.
+	- /D  Creates a directory symbolic link.  Default is a file symbolic link.
+	- /H  Creates a hard link instead of a symbolic link.
+	- Link  Specifies the new symbolic link name.
+	- Target  Specifies the path (relative or absolute) that the new link refers to.
+- **檔案總管 >> 新增 >> 捷徑**
+	- 先切換到要建立捷徑的資料夾，再點選「新增 >> 捷徑」
+	- 點選目標的資料夾
+	- 輸入捷徑的名稱
+</script>
+</section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Direcroty Structure
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Linux system directory
+<pre><code>
+/bin->usr/bin  🎸Essential binary fles.
+/boot  🎸Static fles of the boot loader.
+/dev  🎸Files needed to access host-specific devices.
+/etc  🎸Host-specific system configuration fles.
+/home  🎸Holds the home directories of all users who have accounts on the system.
+/lib->usr/lib  🎸Essential shared libraries and kernel modules.
+/lost+found  🎸A construct used by the fsck system utility.
+/media  🎸Mount points for removable media.
+/mnt  🎸Mount point for temporarily mounting a fle system.
+/opt  🎸Add-on application software packages.
+/root  🎸Home directory for the superuser root.
+/sbin->usr/sbin  🎸Essential system binaries.
+/snap  🎸Directory for snap package manager
+/srv  🎸Data for services provided by the system.
+/tmp  🎸Temporary fles.
+/user  🎸Secondary hierarchy with read-only data.
+/var  🎸Variable data such as log fles.
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## More info. of Directory(1/2)
+- /bin
+	- Contains the **basic shell commands** that may be used both by root and by other users.
+	These commands include **ls , mkdir , cp , mv , rm and rmdir** . /bin also contains **Bash**.
+- /boot
+	- Contains data required for booting, such as the **boot loader**, the **kernel**, and other data.
+- /etc
+	- Contains **local configuration fles** that **control the operation** of programs like the X Window System.
+</script></section>
+<section data-markdown><script type="text/template">
+## More info. of Directory(2/2)
+- /root
+	- Home directory for **the root user**. The personal data of root is located here.
+- /usr
+	- /usr has **nothing to do with users**, but is the acronym for Unix system resources. /usr holds several subdirectories, such as **/usr/bin** , /usr/
+	sbin , /usr/local and **/usr/share/doc** .
+- /var
+	- /var is for data which is written during system operation and thus is variable data, such as **log fles** or **spooling data**, such as **/var/log, /var/spool/mail**.
+</script></section>
+</section><!--end block-->
 </div>
 
 </div>
