@@ -48,12 +48,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## adduser/useradd
 - **useradd is a command** and **adduser is a perl script**. You can input the following commmand to understand it.
-	- **_which adduser_**
-	- ** _less /usr/sbin/adduser_**
-	- **_which useradd_**
-	- ** _less /usr/sbin/useradd_**
+	- **_which ␣ adduser_**
+	- ** _less ␣ /usr/sbin/adduser_**
+	- **_which ␣ useradd_**
+	- ** _less ␣ /usr/sbin/useradd_**
 - Using adduser script to create a user on Linux system.
-	- **_sudo adduser userName_**
+	- **_sudo ␣ adduser ␣ userName_**
 	- Follow the adduser script to input the information for this user.
 </script></section>
 <section data-markdown><script type="text/template">
@@ -87,7 +87,7 @@ Is the information correct? [Y/n]
 	- Adding new group 'jenny' (1002) ...**(/etc/group)**
 	- Creating home directory '/home/jenny' and copying files from **'/etc/skel'** ...
 - su [options] [-] [user [argument...]] // run a command with substitute user and group ID
-	- **_su userName_**
+	- **_su ␣ userName_**
 </script></section>
 <section data-markdown><script type="text/template">
 ## /etc/passwd file Format
@@ -104,14 +104,14 @@ sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-9768
 </script></section>
 <section  data-markdown><script type="text/template">
 ## Try It by Yourself
-- **_sudo adduser userName_**
-	- userName 是登入系統的英文使用者名稱，自己設一個英文名稱
+- **_sudo ␣ adduser ␣ userName_**
+	- userName 是登入系統的英文使用者名稱，自己設一個英文名稱，for example alice, bob, sam90
 	- Full Name [ ]: 輸入英文的全名
 	- 其他欄位可以都輸入 Enter
-- **_su userName_**(剛剛建立的使用者名稱) or 點選右上角人頭小圖示，登入(login)
-- **_less /etc/passwd_**
-- **_sudo less /etc/shadow_**
-- **_ sudo less /etc/group_**
+- **_su ␣ userName_**(剛剛建立的使用者名稱) or 點選右上角人頭小圖示，登入(login)
+- **_less ␣ /etc/passwd_**
+- **_sudo ␣ less ␣ /etc/shadow_**
+- **_ sudo ␣ less ␣ /etc/group_**
 - **_who_** 
 </script></section>
 </section><!--end block-->
@@ -123,17 +123,17 @@ sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-9768
 <section data-markdown><script type="text/template">
 ## deluser/userdel
 - **userdel is a command** and **deluser is a perl script**. You can input the following commmand to understand it.
-	- **_which deluser_**
-	- ** _less /usr/sbin/deluser_**
+	- **_which ␣ deluser_**
+	- ** _less ␣ /usr/sbin/deluser_**
 - Using deluser script to create a user on unix-like system.
-	- **_sudo deluser userName_**
+	- **_sudo ␣ deluser ␣ userName_**
 <pre><code>runner@LAPTOP-PT5NIKQ8:~$ sudo deluser jenny
 [sudo] password for runner:
 Removing user `jenny' ...
 Warning: group `jenny' has no more members.
 Done.
 </code></pre>
-- ** _sudo rm -rf /home/jenny_**
+- ** _sudo ␣ rm ␣ -rf ␣ /home/jenny_**
 </script></section>
 </section><!--end block-->
 <section><!--start block-->
@@ -175,13 +175,13 @@ by configuring their **default shell**, editor, key bindings, and **language set
 <section  data-markdown><script type="text/template">
 ## Create/Modify a Group
 - Add a developer group
-	- **_sudo addgroup developers_**
+	- **_sudo ␣ addgroup ␣ developers_**
 - Change the developers group name to students
-	- **_sudo groupmod -n students developer_**
+	- **_sudo ␣ groupmod ␣ -n ␣ students ␣ developer_**
 - Change the group GID to 545
-	- **_sudo groupmod -g 545 developer_**
+	- **_sudo ␣ groupmod ␣ -g ␣ 545 ␣ developer_**
 - Delete a Group
-	- **_sudo groupdel developer_** 
+	- **_sudo ␣ groupdel ␣ developer_** 
 </script></section>
 </section><!--end block-->
 
@@ -192,13 +192,13 @@ by configuring their **default shell**, editor, key bindings, and **language set
 <section data-markdown><script type="text/template">
 ## Create an Account in Group
 - adduser command
-	- **_sudo adduser --ingroup students userName_**
-	- **_sudo addgroup userName students_**
+	- **_sudo ␣ adduser ␣ --ingroup ␣ students ␣ userName_**
+	- **_sudo ␣ addgroup ␣ userName ␣ students_**
 - useradd command
 	- useradd -d homedir -g groupname -m -s shell -u userid accountname
-	- **_sudo useradd -d /home/jenny -g students -s /bin/bash jenny_**
+	- **_sudo ␣ useradd ␣ -d ␣ /home/jenny ␣ -g ␣ students ␣ -s ␣ /bin/bash ␣ jenny_**
 - Set its password using the passwd command
-	- **_passwd jenny_**
+	- **_passwd ␣ jenny_**
 </script></section>
 <section  data-markdown><script type="text/template">
 ## Modify/Delete an Account
@@ -207,40 +207,39 @@ by configuring their **default shell**, editor, key bindings, and **language set
 	- -l, --login NEW_LOGIN
 	- -m, --move-home
 - Modify an Account
-	- change the account name **jenny to jennt90**
-	- **_sudo usermod -d /home/jenny90 -m -l jenny jenny90_**
+	- **_sudo ␣ usermod ␣ -d ␣ /home/jenny90 ␣ -m ␣ -l ␣ jenny ␣ jenny90_** //change **jenny to jennt90**
 - Delete an account
-	- **_sudo userdel -r jenny90_**  // remove home and spool mail files
+	- **_sudo ␣ userdel ␣ -r ␣ jenny90_**  // remove home and spool mail files
 - Delete userName from group
-	- **_sudo delgroup userName groupName_** 
+	- **_sudo ␣ delgroup ␣ userName ␣ groupName_** 
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself(1/2)
 - Create a group
-	- **_sudo addgroup students_** 
+	- **_sudo ␣ addgroup ␣ students_** 
 - Create several accounts
-	- **_sudo adduser --ingroup students alice_**
-	- **_sudo adduser --ingroup students bob_**
-	- **_sudo adduser --ingroup students sam90_**
+	- **_sudo ␣ adduser ␣ --ingroup ␣ students ␣ alice_**
+	- **_sudo ␣ adduser ␣ --ingroup ␣ students ␣ bob_**
+	- **_sudo ␣ adduser ␣ --ingroup ␣ students ␣ sam90_**
 	- Setting the password is **the same user name**.
 - Login every one user into system and check the home directory file 
-	- **_su userName_**
-	- **_cd ~; ls -la_**
+	- **_su ␣ userName_**
+	- **_cd ␣ ~ ; ␣ ls ␣ -la_**
 - Logout system (exit)   
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself(2/2)
 - Modify sam90 Account
-	- **_sudo ls -la /home_**
-	- **_sudo usermod -d /home/sam -m -l sam90 sam_**
-	- **_sudo ls -la /home_**
+	- **_sudo ␣ ls ␣ -la ␣ /home_**
+	- **_sudo ␣ usermod ␣ -d ␣ /home/sam ␣ -m ␣ -l ␣ sam90 ␣ sam_**
+	- **_sudo ␣ ls ␣ -la ␣ /home_**
 - Delete alice account
-	- **_sudo deluser --remove-all-files alice_**
-	- **_sudo delgroup alice students_**
+	- **_sudo ␣ deluser ␣ --remove-all-files ␣ alice_**
+	- **_sudo ␣ delgroup ␣ alice ␣ students_**
 - Check alice account delete or not
-	- _less /etc/passwd_ // find "alice"
-	- _less /etc/group_ // find "students"
-	- **_sudo ls -la /home_**
+	- _less ␣ /etc/passwd_ // find "alice"
+	- _less ␣ /etc/group_ // find "students"
+	- **_sudo ␣ ls ␣ -la /home_**
 </script></section>
 </section><!--end block-->
 
@@ -252,11 +251,12 @@ by configuring their **default shell**, editor, key bindings, and **language set
 <section data-markdown><script type="text/template">
 ## Super User
 - root account
-	- **_su -_** or _su root_
+	- **_su ␣ -_** or _su ␣ root_
 - who is sudo group in the /etc/group
+	- **_sudo ␣ addgroup ␣ alice ␣ sudo_**
 - Add an account or a group in **/etc/sudoers** file
-	- ** _sudo visudo_** //visudo will **call the default editor** of system, which could **check sudoers file format**, to edit the /etc/sudoers file.
-	- sudoers file format and **man sudoers** for more information
+	- ** _sudo ␣ visudo_** //visudo will **call the default editor** of system, which could **check sudoers file format**, to edit the /etc/sudoers file.
+	- **man sudoers** for more information
 <pre><code>UserName HostName = (asUser:asGroup) /pathname/command</code></pre>
 	- An example from [sudo project](https://www.sudo.ws/sudoers)
 </script></section>
@@ -306,30 +306,32 @@ bob		SPARC = (OP) ALL : SGI = (OP) ALL
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself(1/2)
-- Create a wheel group
-	- **_sudo addgroup wheel_**
-- Add several users which are the wheel group
-	- **_sudo adduser --ingroup wheel bob_**
-	- **_sudo adduser --ingroup wheel alice_**
-- Modified sudouers file for wheel group as system adminstrator
-	- **_sudo visudo_**
-	- add '**wheel  ALL = (ALL) ALL**' on it
-- Check bob whether can run 'sudo' command or not?
-	- **_su bob_**
-	- **_sudo less /etc/shadow_**
+- Can not less the /etc/shadow file without root permission 
+	- **_less ␣ /etc/shadow_**
+- Setting /etc/sudoers to view /etc/shadow file 
+	- **_sudo ␣ visudo_**
+	- Add the following lines into /etc/sudoers
+<pre><code>User_Alias VIEW = alice, bob
+Cmnd_Alias LS = /bin/less /etc/shadow
+VIEW  ALL = (root)	LS
+</code></pre>
+- Check alice or bob whether can run 'sudo' command or not?
+	- **_su ␣ bob_**
+	- **_sudo ␣ less ␣ /etc/shadow_**
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself(2/2)
-- How to create **an exist account into 'wheel' group**
-	- Add sam account and check the group of sam
-	- **_sudo adduser sam_**
-	- **_su sam; cd ~; ls -la_** 
-- Create a wheel group
-	- **_sudo addgroup wheel_**
-- Change sam into wheel group
-	- **_sudo usermod -g wheel sam_**
-- Check sam whether have changed to wheel group
-	- **_ls -la_** or **_less /etc/passwd_** //find gid of sam 
+- How to create **an exist account into 'sudo' group**
+	- **_sudo ␣ adduser ␣ sam_**
+	- **_sudo ␣ addgroup ␣ sam ␣ sudo_**
+	- **_su ␣ sam ; ␣ cd ␣ ~ ; ␣ ls ␣ -la_**
+	- **_sudo ␣ less ␣ /etc/shadow _** 
+- Create a wheel group and add sam into the group
+	- **_sudo ␣ addgroup ␣ wheel_**
+	- **_sudo ␣ usermod ␣ -G ␣ wheel ␣ sam_**
+	- **_sudo ␣ usermod ␣ -g ␣ wheel ␣ sam_**
+- Check sam whether have changed to wheel group or not
+	- **_ls ␣ -la_** or **_less ␣ /etc/passwd_** //find gid of sam 
 </script></section>
 <section data-markdown><script type="text/template">
 ## The runner User
@@ -339,6 +341,157 @@ bob		SPARC = (OP) ALL : SGI = (OP) ALL
 ![](/images/linux/wheel.png)
 </script></section>
 </section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Add/Delete <br />Mulit-Users
+</script></section>
+<section data-markdown><script type="text/template">
+## For Loop of Bash Shell
+<pre><code>1. #!/usr/bin/bash
+
+2. GPNAME="students developers"
+3. for gp in $GPNAME
+4. 	do
+5. 	echo ${gp}
+6. done
+</code></pre>
+
+- Input the above code **line by line from 2-6 line numbers** in Ubuntu System.
+- **What is the result** when you have done it?
+- **for, in, do, done** is bash shell keyword which is **for loop statement**. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Variabe Name of Bash Shell
+- Variable name
+	- GPNAME="students developers", GPNAME=developers, GPNAME='student, develop'
+- Calling variable name
+	- $VariableName, for example: **_echo ␣ $GPNAME_**
+	- ${parameter}<br />
+	The value of parameter is substituted. The braces are required when parameter is
+a **positional parameter** with more than one digit, or when parameter is followed 
+by **a character** which is **not to be interpreted as part of its name**.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Add Multi-Users with Bash
+<pre><code>#!/usr/bin/bash
+
+PASSWD="s123456"
+
+for gp in students developers
+	do
+		sudo groupadd $gp
+
+	for usr in ${gp}"001" ${gp}"002" ${gp}"003"
+		do
+		sudo useradd -g ${gp} -m -k /etc/skel -s /bin/bash ${usr}
+		# All of users are setted up the password with $PASSWD
+		echo ${usr}":"$PASSWD | sudo chpasswd
+		sudo usermod -G ${gp}   ${usr}
+		echo ; echo "useradd & password changed for ${usr}"
+	done
+done</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## New version of the code
+<pre><code>#!/usr/bin/bash
+GPNAME="students developers"
+PASSWD="s123456"
+for gp in $GPNAME
+	do
+		sudo groupadd $gp
+
+	for inc in `seq -w 001 003`
+		do
+		sudo useradd -g ${gp} -m -k /etc/skel -s /bin/bash ${gp}${inc}
+		# All of users are setted up the password with $PASSWD
+		echo ${gp}${inc}":"$PASSWD | sudo chpasswd
+		sudo usermod -G ${gp}    ${gp}${inc}
+		echo ; echo "useradd & password changed for ${gp}${inc}"
+	done
+done</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 0.1v of Del Multi-User Code
+<pre><code>#!/usr/bin/bash
+
+GPNAME="students developers"
+UNAME="students001 students002 students003 developers001 developers002 developers003"
+
+for rmuser in $UNAME
+	do
+	echo "$rmuser"
+	sudo userdel -r "$rmuser"
+done
+
+for gp in $GPNAME
+	do
+	sudo groupdel $gp
+done
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 0.2v of Del Multi-User Code
+<pre><code>#!/usr/bin/bash
+
+GPNAME="students developers"
+
+for inc in `seq -w 001 003`
+	do
+	for rmuser in students${inc} developers$inc
+		do
+		echo "$rmuser"
+		sudo userdel -r "$rmuser"
+	done
+done
+
+## delete group
+for gp in $GPNAME
+	do
+		sudo groupdel $gp
+done
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Platform Issue
+</script></section>
+<section data-markdown><script type="text/template">
+## EOL in Windows and Unix
+- What is an End of Line(EOL) character
+	- LF(**character:\n**, Unicode : U+000A, ASCII : 10): This is simply the '\n' character which
+	is commonly known as the **Line Feed**
+	- CR(character:\r, Unicode : U+000D, ASCII : 13) : This is simply the 'r' character.
+	This character is commonly known as **Carriage Return**.
+- Difference newline character between Windows and Unix
+	- Windows EOL encoded file, the newline characters of CR LF will appear (\r\n).
+	-  If the file is Unix or Mac EOL encoded, then it will only show LF (\n).
+</script></section>
+<section data-markdown><script type="text/template">
+## How to execute code<br /> on Unix-like 
+- The Codes of File Permission
+	- File Permission will be showed up on next chapter. File must **be executed by Owners, groups or others**
+	 if it was a executable shell script or codes.
+	It can be changed with **'chmod +x filename'** command.
+- Setting path of shell on first line of the codes
+<pre><code>#!/usr/bin/bash</code></pre>
+- Execute codes with shell
+<pre><code>bash filename.sh</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Try it by Yourself
+- Download and execute [CRLFaddUser.sh](/teaching/src/bash/CRLFaddUser.sh) shell
+- Download and execute [addUser.sh](/teaching/src/bash/addUser.sh) shell
+- Download and execute [addMultiUser.sh](/teaching/src/bash/addMultiUser.sh) shell
+- Download and execute [rmUser.sh](/teaching/src/bash/rmUser.sh) shell
+- Download and execute [rmMultiUser.sh](/teaching/src/bash/rmMultiUser.sh) shell
+- All of shells as above which should change mode of file permission with **_chmod ␣ +x ␣ filename_** command.
+</script></section>
+</section><!--end block-->
+
 </div>
 
 </div>
@@ -445,7 +598,7 @@ dependencies: [
 { src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
 { src: '/reveal-js/plugin/anything/anything.js', async: true },
 { src: '/reveal-js/plugin/menu/menu.js', async: true},
-{ src: '/math-katex/math-katex.js', async: true },
+//{ src: '/math-katex/math-katex.js', async: true },
 { src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
 { src: '/reveal-js/plugin/toolbar/toolbar.js' }
 ]

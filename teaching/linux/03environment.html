@@ -68,21 +68,21 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 | Command Format |  command    | [option]   | [arguments] |
 | :---           | :------:    | :------:   | :--------:  |
-| Example 1      | _ls_        | _-a_       |   _/etc/_   | 
+| Example 1      | _ls_    ␣   | _-a_     ␣  |   _/etc/_   | 
 | Example 2      | _cal_       |            |             |
 |[  ] 表示可有可無|             | 中間空白隔開| 中間空白隔開 | |
 
-* _斜體字型_是 CLI 的 **command** 
+<p> &nbsp; &nbsp; _斜體字型_是 CLI 的 **command** ； **␣ 符號表示空白**</p>
 </script> </section>
 <section  data-markdown><script type="text/template">
 ## First Time Using CLI(1)
 - Frequently Usage Command
 	- _whoami_ (我是誰), _date_(日期),
-	- **_cal_**(日歷), sudo apt install **ncal**(after 20.04)
+	- **_cal_**(日歷), _sudo ␣ apt ␣ install ␣ **ncal**_(after 20.04)
 	- **_clear_** 清理螢幕
-	- **_uname -a_** // print system information, -a: all of information
-	- **_reboot -n_** //**現在**重新開機  
-	- **_shutdown -h now_** // 馬上關機, -h halt(停止)  
+	- **_uname ␣ -a_** // print system information, -a: all of info.
+	- **_reboot ␣ -n_** //**現在**重新開機  
+	- **_shutdown ␣ -h ␣ now_** // 馬上關機, -h halt(停止)  
 	- **_du_ [OPTION]... [FILE]...** // estimate file space usage
 		- -h, **--human-readable**
 		- -m, --block-size=1M
@@ -94,12 +94,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 	- CST表示中國標準時間(China Standard Time), PDT表示太平洋夏令時間(Pacific Daylight Time)
 - **_cal_** //-A2 //after 2 month, -B2 // before 2 month
-- _uname_ -a
+- _uname ␣ -a_
 - _clear_
-- _cal_ 6 2022
-- _du_ -m ~
+- _cal ␣ 6 ␣ 2022_
+- _du ␣ -m ␣ ~
 	-  **~** home directory
-- _du_ -h ~
+- _du ␣ -h ␣ ~_
 </script>
 </section>
 <section data-markdown><script type="text/template">
@@ -116,22 +116,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 		- -l, --format=long // use a long listing format
 		- -lc // show ctime(time of last modification of file)
 	- **_cd_ [OPTIONS] directory** // cd(change directory) command  is a shell builtin which is used to change the current working directory.
-		- _cd ~_ // home directory, _cd ../_ // go to up layer directory
+		- _cd ␣ ~_ // home directory
+		- _cd ../_ // go to up layer directory
 	- **_pwd [OPTION]..._** // print name of current/working directory
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
 - *ls*
-- *ls -al /*
-- _cd /usr/bin_
+- *ls ␣ -al ␣ /*
+- _cd ␣ /usr/bin_
 - _pwd_
-- _cd ~_
-- _cd ../../_
+- _cd ␣ ~_
+- _cd ␣ ../../_
 - *pwd*
-- _cd /etc ; ls -a_
-- *cd ~*
-- *ls -la ./*
+- _cd ␣ /etc ; ␣ ls ␣ -a_
+- *cd ␣ ~*
+- *ls ␣ -la ␣ ./*
 </script> </section>
 </section><!--end block-->
 
@@ -143,14 +144,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Help Document for Unix-like
 - **Man**ual **Pager** Utils: an interface to the system reference manuals
 	- For example
-		- _man man_
-		- _man -k keyword_ // find man page with **keyword**
-		- _man -f command_ // **Equivalent to whatis**.
-		- _man whoami_
+		- _man ␣ man_
+		- _man ␣ -k ␣ keyword_ // find man page with **keyword**
+		- _man ␣ -f ␣ command_ // **Equivalent to whatis**.
+		- _man ␣ whoami_
 - **info** - read Info documents
 	- For example
-		- _info ls_
-		- _info cat_
+		- _info ␣ ls_
+		- _info ␣ cat_
 </script></section>
 <section data-markdown><script type="text/template">
 ##  The types of Man pages
@@ -170,13 +171,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Examples of Help System
 - Man Page Example
 	- **man** command
-		- *man man*
-		- *man man.7*
+		- *man ␣ man*
+		- *man ␣ man.7* or _man ␣ 7 ␣ man_
 	- **printf** command
-		- **man printf** : default is **Executable programs or shell commands**
-		- **man printf.3** : **Library calls** (functions within program libraries)
+		- **_man ␣ printf_** : default is **Executable programs or shell commands**
+		- **_man ␣ printf.3_** : **Library calls** (functions within program libraries)
 - info Example
-	- *info ls*
+	- *info ␣ ls*
 	- *info*
 </script> </section>
 
@@ -187,26 +188,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Q1 & A1
 - Q1:可不可以更改密碼？
 - A1: 可以。但是，我已經忘記指令了；不過，可以使用 man page 查詢系統有哪些指令可以更改密碼。
-	- _man -k chp_
+	- _man ␣ -k ␣ chp_
 		* chpasswd (8)  - update passwords in batch mode
 	- **_chpasswd_** command
 		* Each line is the format: **user_name:password**
 		* 不需要輸入舊密碼，直接更新密碼，**這是 SuperUser 的權限**
 	- **_passwd_** command
-		* **_passwd_** or **_passwd userName_** ,**需要知道原來的密碼**
+		* **_passwd_** or **_passwd ␣ userName_** ,**需要知道原來的密碼**
 </script></section>
 <section data-markdown><script type="text/template">
 ## You Try It
 - **_chpasswd_**
 	* UserName:NewPassword
-- **_sudo chpasswd_**
+- **_sudo ␣ chpasswd_**
 	* 輸入系統管理者的密碼
 	* UserName:NewPassword
 	* 按 Ctrl + c
 - **_su_** or **_su root_**
 	* 密碼:
 	* 驗證失敗
-- **_sudo chpasswd_**
+- **_sudo ␣ chpasswd_**
 	* root:NewPassword
 - **_su_** 使用新密碼，看看是否可以登入，最後輸入 **_exit_** 登出 root
 </script></section>
@@ -214,9 +215,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Q2 & A2
 - Q2:我忘記密碼，是否可以刪除使用者在重新建立一個新的帳號？
 - A2: 可以。
-	* **_man -k deluser_**
+	* **_man ␣ -k ␣ deluser_**
 	* deluser (8)  - remove a user or group from the system
-	* **_sudo deluser userName_**
+	* **_sudo ␣ deluser ␣ userName_**
 	* By  default,  deluser will remove the user **without removing the home directory, the mail spool  or any other files** on the system owned by the user.
 	* Removing the home directory and mail spool can be achieved **using the --remove-home option**.
 </script></section>
@@ -288,7 +289,6 @@ and **monitored from the user's machine**
 | M + E      | Alt + E       | Redo (重作)        | 
 | ^ 表示 Ctrl 鍵              ||                   |
 | M 表示 Alt 鍵               ||                   ||
-
 </script></section>
 </section><!--end block-->
 
@@ -405,22 +405,22 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 <img src="/images/linux/xeyes.png" width="150" alt="xeyes">
 <figcaption  style="font-size: 10pt">xeyes is a client of X</figcaption>
 </figure>
-	- sudo apt install enlightenment
-	- sudo enlightenment_start
+	- _sudo ␣ apt ␣ install ␣ enlightenment_
+	- *sudo ␣ enlightenment_start*
 - [Xfce](https://xfce.org/) Desktop Environment
-	- sudo apt install xfce4
+	- _sudo ␣ apt ␣ install ␣ xfce4_
 <figure style="float: right">
 <img src="/images/linux/xclock.png" width="150" alt="xclock">
 <figcaption  style="font-size: 10pt">xclock is the other client of X</figcaption>
 </figure>
-	- sudo apt install xubuntu-desktop
-	- sudo xfce4-session
+	- _sudo ␣ apt ␣ install ␣ xubuntu-desktop_
+	- _sudo ␣ xfce4-session_
 - GNOME Desktop Series
 	- [GNOME](https://www.gnome.org/),[Unity](https://ubuntuunity.org/), 
 	[Cinnamon](https://spins.fedoraproject.org/cinnamon/), [MATE](https://mate-desktop.org/)
-	- sudo apt install ubuntu-unity-desktop
-	- sudo apt install cinnamon-desktop-environment
-	- sudo apt install ubuntu-mate-desktop
+	- _sudo ␣ apt ␣ install ␣ ubuntu-unity-desktop_
+	- _sudo ␣ apt ␣ install ␣ cinnamon-desktop-environment_
+	- _sudo ␣ apt ␣ install ␣ ubuntu-mate-desktop_
 </script>
 </section>
 
@@ -428,14 +428,13 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 ## X Window Environments
 - KDE Desktop Series
 	- KDE Plasma 5 , [Trinity Desktop Environment (TDE)](https://www.trinitydesktop.org/)
-	- sudo apt install kde-full or apt install kubuntu-desktop
-	- **ls /usr/bin/kde* | grep session** which command to find KDE execution program 
+	- _apt ␣ install ␣ kde-full_ or _apt ␣ install ␣ kubuntu-desktop_
+	- **_ls  ␣ /usr/bin/kde*  ␣ |  ␣ grep  ␣ session_** which command to find KDE execution program 
 - [LXDE (Lightweight X11 Desktop Environment)](https://www.lxde.org/), LXQt
-	- sudo apt install lxde
-	- lxsession or sudo lxsession
+	- _sudo ␣ apt ␣ install ␣ lxde_
+	- _lxsession_ or _sudo ␣ lxsession_
 - **Common Desktop Environment (CDE)**
-	- The CDE is X Windows desktop environment that was commonly used 
-	on commercial UNIX variants such as Sun Solaris, HP-UX and IBM AIX.
+	- The CDE is X Windows DE that was used on commercial UNIX variants such as Sun Solaris, HP-UX and IBM AIX.
 </script>
 </section>
 </section><!--end block-->
@@ -454,10 +453,10 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 	- An **X server for Windows**, such as [VcXsrv](https://sourceforge.net/projects/vcxsrv/files/vcxsrv/), GWSL
 	- Basic knowledege on how to run GUI apps with WSL 2 (not required but highly recommended)
 - **Upgrade Ubuntu System**
-	- sudo apt update -y
-	- sudo apt upgrade -y
+	- _sudo ␣ apt ␣ update ␣ -y_
+	- _sudo ␣ apt ␣ upgrade ␣ -y_
 - Installing Axel, a Command-Line Download Accelerator for Linux
-	- **sudo apt install axel**
+	- **_sudo ␣ apt ␣ install ␣ axel_**
 </script>
 </section>
 
@@ -493,11 +492,11 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 ## Run GNOME on WSL2
 - **Run VcXsrv X server** such as last slides which is a example for setup X server
 - **Reboot Ubunu** on WSL2
-	- wsl --shutdown (ConEmu command line)
+	- _wsl ␣ --shutdown_ (ConEmu command line)
 - Run GNOME with as following command
-	- **sudo gnome-session**
+	- **_sudo ␣ gnome-session_**
 	- You should make sure that **GNOME have been installed** on WSL2 as below command
-	- **sudo apt install ubuntu-desktop gnome**
+	- **_sudo ␣ apt ␣ install ␣ ubuntu-desktop gnome_**
 </script>
 </section>
 </section><!--end block-->
@@ -525,14 +524,14 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 ## Install Deepin on Ubuntu
 - Step 1: Installing Axel
 	- axel can be installed anywhere and used not only to **download multiple files simultaneously** over HTTP/FTP links but also to **speed them up** as well.
-	- **sudo apt install axel**
+	- **_sudo  ␣ apt  ␣ install  ␣ axel_**
 - Step 2: **Add Deepin Desktop PPA**
-	- sudo add-apt-repository ppa:ubuntudde-dev/stable
-	- sudo apt-get update
+	- _sudo ␣ add-apt-repository  ␣ ppa:ubuntudde-dev/stable_
+	- _sudo ␣ apt-get ␣ update_
 - Step 3:  Install Deepin Desktop on Ubuntu and Derivatives
-	- **sudo apt install ubuntudde-dde**
+	- **_sudo ␣ apt ␣ install ␣ ubuntudde-dde_**
 - Setp 4: Starting VcXsrv and DDE
-	- **sudo deepin-session**
+	- **_sudo ␣ deepin-session_**
 </script>
 </section>
 </section><!--end block-->
@@ -544,14 +543,14 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 <section data-markdown><script type="text/template">
 ## Change to GDM3
 - Make sure GDM3 have been installed
-	- _which gdm3_
-	- _sudo apt install gdm3_
+	- _which ␣ gdm3_
+	- _sudo ␣ apt ␣ install gdm3_
 - Change to GDM3 display manager
-	- sudo dpkg-reconfigure gdm3
+	- _sudo ␣ dpkg-reconfigure ␣ gdm3_
 - Stop Display Manager
-	- **_sudo systemctl stop lightdm_**, or _sudo service lightdm stop_
+	- **_sudo ␣ systemctl ␣ stop ␣ lightdm_**, or _sudo ␣ service ␣ lightdm ␣ stop_
 - Start GDM3 Display Manager
-	- **_sudo systemctl stop gdm3_**, or _sudo service gdm3 stop_
+	- **_sudo ␣ systemctl ␣ stop ␣ gdm3_**, or _sudo ␣ service ␣ gdm3 ␣ stop_
 </script></section>
 </section><!--end block-->
 

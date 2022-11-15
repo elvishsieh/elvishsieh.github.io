@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>套件管理(Package Management)</title>
+<title>Shell Script 程式設計</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -39,70 +39,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-# Introduction
-</script></section>
-<section data-markdown><script type="text/template">
-## Package Management
-- Ubuntu's package management system is derived from the same system used by
-the Debian GNU/Linux distribution
-- Debian package files typically have the extension .deb, and usually exist in repositories 
-which are collections of packages found online or on physical media, such as CD-ROM discs.
-- Packages are normally in a pre-compiled binary format;
-thus installation is quick and requires no compiling of software.
-- Many packages use dependencies. Dependencies are additional packages 
-required by the principal package in order to function properly.
-</script></section>
-</section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# APT
-</script></section>
-<section data-markdown><script type="text/template">
-## APT command
-- The apt command is a powerful command-line tool, which works with Ubuntu's 
-Advanced Packaging Tool (APT) performing such functions as installation of 
-new software packages, upgrade of existing software packages, updating of the 
-package list index, and even upgrading the entire Ubuntu system.
-
-</script></section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-## apt-fast 
-- sudo add-apt-repository ppa:apt-fast/stable 
-- sudo apt -y install apt-fast
-- select 
-- sudo nano /etc/apt-fast.conf
-	- 
-- sudo apt-fast install ubuntu-desktop gnome 
-
+## Read File
+- CRLF problem
+	- Windows system is CRLF, Unix-like system is LF
+	- [CRLFaddUser.sh file](/teaching/src/bash/CRLFaddUser.sh)
+<pre><code>while read line; do echo $line; done < userName.txt
+</code></pre>
+- versin of read file
+	- [read file 0.1 version](/teaching/src/bash/readFile0.1.sh)
+	- [read file 0.2 version](/teaching/src/bash/readFile0.2.sh)
 </script>
 </section>
 
 </section><!--end block-->
-<section><!--start block-->
-<section>
-# Troubleshooting
-</section>
-<section data-markdown><script type="text/template">
-## gpg key problems
-- add-apt-repository fails due to gpg key timeout
-	- Error: retrieving gpg key timed out.
-	- sudo add-apt-repository -k hkp://keyserver.ubuntu.com:80 -y ppa:apt-fast/stable
-- apt-get --allow-releaseinfo-change
-	- sudo apt-get --allow-releaseinfo-change update
-- Switch keyserver
-	-  editing the ~/.gnupg/gpg.conf file to use a different keyserver: keyserver keys.openpgp.org
-	- gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
-	- gpg --keyserver hkp://keys.gnupg.net --recv-keys 94558F59
-	- gpg --keyserver hkp://pgp.mit.edu --recv-keys 94558F59
-</script>
-</section>
-</section><!--end block-->
+
 </div>
 
 </div>

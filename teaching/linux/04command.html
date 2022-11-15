@@ -70,18 +70,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
-- *cd ~*
-- *mkdir ~/test*
-- *ls -a / > ~/test/.foo*
-- *rmdir test*
-- *cd ~/test*
-- *rm -i .foo* , **Ans: n**
-- *rm .foo*
-- *cd ../*
-- *rmdir test*
-- *ls -a / > ~/-foo*
-- *rm -foo*
-- *rm -- -foo* **or** *rm ~/-foo*
+- *cd ␣ ~*
+- *mkdir ␣ ~/test*
+- *ls ␣ -a ␣ /  ␣ > ␣ ~/test/.foo*
+- *rmdir ␣ test*
+- *cd ␣ ~/test*
+- *rm ␣ -i ␣ .foo* , **Ans: n**
+- *rm ␣ .foo*
+- *cd ␣ ../*
+- *rmdir ␣ test*
+- *ls ␣ -a ␣ / ␣ > ␣ ~/-foo*
+- *rm ␣ -foo*
+- *rm ␣ -- ␣ -foo* **or** *rm ␣ ~/-foo*
 </script></section>
 <section data-markdown><script type="text/template">
 ## Copy/Move Files
@@ -96,18 +96,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
-- **_mkdir ~/newDir/test ~/src_**
-- *mkdir -p ~/newDir/test ~/src*
-- **cd ~/ne TAB te TAB**
-- *ls -a / > -foo*
-- *ls -la* 
-- **_mv -foo .foo_**
-- *mv ./-foo .foo*
-- *ls -a*
-- *cp -pR ~/newDir ~/src*
-- *cd ~/src; ls*
-- *cd newDir*
-- *ls -la test/*
+- **_mkdir ␣ ~/newDir/test ␣ ~/src_**
+- *mkdir ␣ -p ␣ ~/newDir/test ␣ ~/src*
+- **cd ␣ ~/ne TAB te TAB**
+- *ls ␣ -a ␣ / ␣ > ␣ -foo*
+- *ls ␣ -la* 
+- **_mv ␣ -foo ␣ .foo_**
+- *mv ␣ ./-foo ␣ .foo*
+- *ls ␣ -a*
+- *cp ␣ -pR ␣ ~/newDir ␣ ~/src*
+- *cd ␣ ~/src; ls*
+- *cd ␣ newDir*
+- *ls ␣ -la ␣ test/*
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -129,22 +129,22 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself(Cont.)
-- **_cd ~/src/n TAB t TAB_**
-- *cp .foo touch.txt*
-- _ls -la_ **// watch out the time of touch.txt file**
-- *touch touch.txt // input this command after 1 minute later*
-- _ls -la_ **// watch out the time of touch.txt file again** 
-- _cd ~;_ *rm -rf ~/src ~/newDir*
+- **_cd ␣ ~/src/n TAB t TAB_**
+- _cp ␣ .foo ␣ touch.txt_
+- _ls ␣ -la_ **// watch out the time of touch.txt file**
+- *touch ␣ touch.txt //input the command after 1 minute later*
+- _ls ␣ -la_ **// watch out the time of touch.txt file again** 
+- _cd ␣ ~_ ; ␣ *rm ␣ -rf ␣ ~/src ␣ ~/newDir*
 - *python* // it didn't work and python3 can work
-- **_nano .bashrc_** // add the following line on line number 94
+- **_nano ␣ .bashrc_** // add the following line on line number 94
 	<pre><code>alias python='python3'</code></pre>
--  **_source ~/.bashrc_**
+-  **_source ␣ ~/.bashrc_**
 - **_python_** // exit() to exit python environment
 </script></section>
 <section data-markdown><script type="text/template">
 ## W Letter Command
 - **_whatis_** // display one-line manual page descriptions
-	- **_whatis ls_**
+	- **_whatis ␣ ls_**
 - **_which_** // locate a command
 	- **_which_** gnome-session  
 - **_whereis_** // locate the binary, source, and manual page files for a command
@@ -155,30 +155,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Text File Viewer
 - **_cat [OPTION]... [FILE]..._** // concatenate files and print on the standard output
-	- _cat ~/.bashrc_
+	- _cat ␣ ~/.bashrc_
 - **_more [OPTION]... FILE..._** // file perusal filter for crt viewing
 	- 空白鍵 // next page
 	- q // exit
 	- / // search
 - **_less [OPTION]... FILE..._** //  opposite of more
 - **_head [OPTION]... [FILE]..._** // output the first part of files
-	- **_head -n 3_**
+	- **_head ␣ -n ␣ 3_**
 	- default is 10 lines
 - **_tail [OPTION]... [FILE]..._** // output the last part of files
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
-- *cat ~/.bashrc*
-- *more ~/.bashrc*
+- *cat ␣ ~/.bashrc*
+- *more ␣ ~/.bashrc*
 	- **press / to search "color" keyword**
 	- **press n to search next pattern**
-- ** _cat ~/.bashrc | more_**
-- *less ~/.bashrc*
+- ** _cat ␣ ~/.bashrc ␣ | ␣ more_**
+- *less ␣ ~/.bashrc*
 	- **_press / to search "prompt" keyword_** 
 	- **press n to search next pattern**
-- _head ~/.bashrc_
-- _tail -n 5 ~/.bashrc_
+- _head ␣ ~/.bashrc_
+- _tail ␣ -n ␣ 5 ␣ ~/.bashrc_
 </script></section>
 </section><!--end block-->
 
@@ -199,9 +199,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	export LANG LANGUAGE
 	</code></pre>
 - Reload variable and check locale information
-	- **_source ~/.profile_** or _source ~/.bashrc_
+	- **_source ␣ ~/.profile_** or _source ~/.bashrc_
 	- **_locale_** // get locale-specific information
-	- _man useradd_ or **_nano ~/.profile_**
+	- _man ␣ useradd_ or **_nano ␣ ~/.profile_**
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -217,9 +217,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	export LANG LANGUAGE
 	</code></pre>
 - Reload variable and check locale information
-	- **_source ~/.profile_** or _source ~/.bashrc_
+	- **_source ␣ ~/.profile_** or _source ␣ ~/.bashrc_
 	- **_locale_** // get locale-specific information
-	- _man useradd_ or **_nano ~/.profile_**
+	- _man ␣ useradd_ or **_nano ␣ ~/.profile_**
 </script></section>
 </section><!--end block-->
 
@@ -268,32 +268,32 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 
 <section data-markdown><script type="text/template">
 ## Example of Hard Link
-- _mkdir -p ~/tmp/dir_
-- _cd tmp/dir_
-- ** _ln ~/.profile test.txt_**
-- _stat test.txt_ // check the **iNode number**
-- _stat ~/.profile_ // check the **iNode number**
-- _nano test.txt_ // add $HOME path into line number 21
-- _less -N test.txt_
-- _less -N ~/.profile_ // Did it have been changed?
-- _rm -rf test.txt_
-- _ls -a ~/.profile_
+- _mkdir ␣ -p ␣ ~/tmp/dir_
+- _cd ␣ tmp/dir_
+- ** _ln ␣ ~/.profile ␣ test.txt_**
+- _stat ␣ test.txt_ // check the **iNode number**
+- _stat ␣ ~/.profile_ // check the **iNode number**
+- _nano ␣ test.txt_ // add $HOME path into line number 21
+- _less ␣ -N ␣ test.txt_
+- _less ␣ -N ␣ ~/.profile_ // Did it have been changed?
+- _rm ␣ -rf ␣ test.txt_
+- _ls ␣ -a ␣ ~/.profile_
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Example of Soft Link
-- _nano origin.txt_ // This is origin file.
-- **_ln -s ~/tmp/dir/origin.txt ~/linkFile.txt_**
--  _cd ~_
-- **_nano linkFile.txt_ // Add a word on link file.**
-- **_less ~/tmp/dir/origin.txt_**
-- _ln ~/tmp/dir ~/linkDir_
-- _ln -s ~/tmp/dir ~/linkDir_
-- _cd linkDir_
-- _rm -i origin.txt_ // y
-- _cd ~; nano linkFile.txt_ // Add new Word on it.
-- **_less ~/tmp/dir/origin.txt_**
-- **_rm tmp_**
+- _nano ␣ origin.txt_ // This is origin file.
+- **_ln ␣ -s ␣ ~/tmp/dir/origin.txt ␣ ~/linkFile.txt_**
+-  _cd ␣ ~_
+- **_nano ␣ linkFile.txt_ // Add a word on link file.**
+- **_less ␣ ~/tmp/dir/origin.txt_**
+- _ln ␣ ~/tmp/dir ␣ ~/linkDir_
+- _ln ␣ -s ␣ ~/tmp/dir ␣ ~/linkDir_
+- _cd ␣ linkDir_
+- _rm ␣ -i ␣ origin.txt_ // y
+- _cd ␣ ~ ; ␣ nano ␣ linkFile.txt_ // Add new Word on it.
+- **_less ␣ ~/tmp/dir/origin.txt_**
+- **_rm ␣ -rf ␣ tmp_**
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -312,7 +312,7 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 </section><!--end block-->
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Direcroty Structure
+# Directory Structure
 </script></section>
 
 <section data-markdown><script type="text/template">

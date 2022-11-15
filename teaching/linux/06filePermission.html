@@ -42,6 +42,29 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+ # File Information
+</script></section>
+<section data-markdown><script type="text/template">
+## List of Files
+<pre><code>ls -la /run
+drwxr-xr-x 29 root	root   780 Oct 29 20:02  .
+drwxr-xr-x 19 root	root  4096 Oct 29 20:02  ..
+drwxr-xr-x  3 root	root    60 Oct 29 20:02  NetworkManager
+drwxr-xr-x  2 root	root    80 Oct 29 20:02  WSL
+srw-------  1 root	root     0 Oct 29 20:02  apport.socket
+prw-------  1 root	root     0 Oct 29 20:02  initctl
+drwxrwxrwt  4 root	root    80 Oct 29 20:02  lock
+drwxr-xr-x  3 root	root    60 Oct 29 20:02  log
+drwx------  2 root	root    60 Oct 29 20:02  lvm
+-rw-r--r--  1 root	root   811 Oct 29 20:02  motd.dynamic
+-rw-r--r--  1 root	root   142 Oct 29 20:02  nologin
+srw-rw-rw-  1 root	root     0 Oct 29 20:02  snapd.socket
+drwx--x--x  3 root	root    60 Oct 29 20:02  sudo
+drwxrwxrwt  2 root	utmp    40 Oct 29 20:02  screen
+--------------------------------------------------------------
+T O  G  A  Ln Owner  Group  Size Modifiy Date  Name</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
 ## Unix file types
 - The seven standard Unix file types are **regular**, **directory**, **symbolic link**, 
 **FIFO special**, **block special**, **character special**, and **socket** as defined by POSIX.
@@ -73,25 +96,150 @@ l : symbolic link.</code></pre>
 ## File Permissions
 | Directory Listing | Value | Permission |
 | :----             | :---: | :---       |
-| ---				| 0     | No read, no write, no execute|
-| --x			    | 1     | No read, no write, execute |
+| - - -				| 0     | No read, no write, no execute|
+| - -x			    | 1     | No read, no write, execute |
 | -w-				| 2		| No read, write, no execute |
 | -wx				| 3		| No read, write, execute  	|
-| r--				| 4		| Read, no write, no execute |
+| r- -				| 4		| Read, no write, no execute |
 | r-x				| 5		| Read, no write, execute  |
 | rw-				| 6		| Read, write, no execute  |
 | rwx				| 7		| Read, write, execute  ||
-<pre><code>	drwxrwxr-x 2 runner wheel 4096 Oct  4 16:31 Desktop
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Documents
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Downloads
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Music
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Pictures
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Public
-	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Templates
+<pre><code>	 drwxrwxr-x 2 runner wheel 4096 Oct  4 16:31 Desktop
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Documents
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Downloads
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Music
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Pictures
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Public
+	 drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Templates
 </code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Permission
+<pre><code>	-rw-r--r--  1 runner wheel 3955 Oct 26 20:11 .bashrc
+	drwx------ 10 runner wheel 4096 Oct  3 23:22 .config
+	drwxrwxr-x  2 runner wheel 4096 Oct 26 19:42 bin
+	-rw-rw-rw-  1 runner wheel  437 Sep 25 11:01 trythat.txt
+</code></pre>
+- **.bashrc file**
+	- a regular file(-), owner rw-(read and write), group r - -(read only), others r - -(read only)
+- .config directory
+	- a directory(d), owner rwx(read, write and exec), <br />group - - -(cann't rwx), others - - -(cann't rwx)
+- **bin directory**
+	- a directory(d), owner rwx(read, write and exec), group rwx(the same owner), others r-x(rx)
+</script></section>
+<section data-markdown><script type="text/template">
+## File Permission Command
+- **_chmod [OPTION] MODE[,MODE]... FILE..._** // change file mode bits
+	- **Symbolic mode**(rwxr-xr-x) and **Numeric mode**(755)
+	- Each **MODE** is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.
+	- -R, --recursive // change files and directories recursively
+- Change owner or group to access files
+	- **_chown [OPTION]... [OWNER][:[GROUP]] FILE..._** // change file owner and group
+		-  **_chown root:developer ~/src_** // change the owner and group of ~/src to "root" and "staff" respectively. 
+	- **_chgrp [OPTION]... GROUP FILE..._**
 </script></section>
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Symbolic Permissions
+</script></section>
+<section data-markdown><script type="text/template">
+## Symbolic Permissions List
+| Option 			| Letter | Represents 					|
+| :----     		| :---:	 | :---       					|
+| (who)				| u      | User							|
+| (who)			    | g      | Group owner 					|
+| (who)				| o		 | Other 						|
+| (who)				| a		 | All ("world")				|
+| (action)			| +		 | Adding permissions 			|
+| (action)			| -		 | Removing permissions 		|
+| (action)			| =		 | Explicitly set permissions 	|
+| (permissions)		| r		 | Read 						|
+| (permissions)		| w		 | Write						|
+| (permissions)		| x		 | Execute 						|
+</script></section>
+<section data-markdown><script type="text/template">
+## Symbolic Permissions(cont.)
+| Option 			| Letter | Represents 					|
+| :----     		| :---:	 | :---       					|
+| (permissions)		| t		 | Sticky bit					|
+| (permissions)		| s		 | Set UID or GID				|
+
+
+- **chmod  never  changes**  the permissions of **symbolic links**;
+the chmod system call cannot change their permissions.
+This is **not a problem** since the **permissions** of symbolic links are **never used**.
+
+	- for example: **_ls ␣ -la /_** // all of permissions are rwx
+
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of <br />Symbolic Permission
+- **_mkdir ␣ perm ␣; cd ␣ perm_**
+- _ls ␣ -la ␣ / ␣ > ␣ symbloic.txt_
+- **_ls ␣ -la ␣ symbolic.txt_**
+- **_sudo ␣ chmod ␣ g+w,o-r ␣ symbolic.txt_**
+- **_ls ␣ -la ␣ symbolic.txt_**
+- **_cd ../ ; sudo usermod -g developer  ␣ perm_**
+- **_sudo ␣ chmod ␣ g+w,o-rx ␣ perm_**
+- **_ls ␣ -la_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Sticky bits
+- Restricted Deletion Flag or Sticky Bit <br />
+The restricted deletion flag or sticky bit is a single bit, whose interpretation depends on the file  type.   For
+directories, it prevents unprivileged users from removing or renaming a file in the directory unless they own the
+file or the directory; this is called the restricted deletion flag for the directory, and is  commonly  found  on
+world-writable  directories like /tmp.  For regular files on some older systems, the bit saves the program's text
+image on the swap device so it will load more quickly when run; this is called the sticky bit.
+</script></section>
+<section data-markdown><script type="text/template">
+## UID and GID Bits
+- Set UID and Set GID Bits<br />
+chmod clears the set-group-ID bit of a regular file if the file's group ID does not match 
+the  user's  effective group  ID  or one of the user's supplementary group IDs, 
+unless the user has appropriate privileges.
+For directories chmod preserves set-user-ID and set-group-ID bits unless you explicitly 
+specify otherwise. You can  set or clear the bits with symbolic modes like u+s and g-s and 
+with a numeric mode requires an additional leading zero, or leading = like 00755 , or =755
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Numeric Permission
+</script></section>
+<section data-markdown><script type="text/template">
+## List of Numeric Permission
+| Owner  | Group  | Other    | Value  | Permission |
+| :---- | :---   | :---     | :---:  | :---       |
+| r w x	| r - x	 | r - x	| 755    | group read and execute, other read and execute|
+| r w x	| r - x	 | r - -	| 754    | group read and execute, other only read|
+| r w x	| r - x	 | - - -	| 750    | group read and execute|
+| r w - | r w -	 | r - -	| 664    | group read and write, other only read |
+| r w - | r - x	 | r - x	| 655    | group read and execute, other read and execute|
+| r w - | r - -	 | r - -	| 644    | group only read , other only read |
+| r w - | - - -	 | - - -	| 600    | only owner can read and write |
+
+<pre><code>	drwxrwxr-x 2 runner wheel 4096 Oct  4 16:31 Desktop
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Documents
+	drwxr-xr-x 2 runner wheel 4096 Oct  4 16:31 Downloads
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of <br />Symbolic Permission
+- **_mkdir ␣ num ␣; cd ␣ num_**
+- _ls ␣ -la ␣ / ␣ > ␣ numeric.txt_
+- **_ls ␣ -la ␣ numeric.txt_** (644)
+- **_sudo ␣ chmod ␣ 660 ␣ numeric.txt_**
+- **_ls ␣ -la ␣ numeric.txt_**
+- **_sudo ␣ chmod ␣ 750 ␣ numeric.txt_**(合適嗎?)
+- **_cd ../ ; sudo usermod -g developer  ␣ num_**(755)
+- **_sudo ␣ chmod ␣ 770 ␣ num_**
+- **_ls ␣ -la_**
+</script></section>
+</section><!--end block-->
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # Oh My Posh

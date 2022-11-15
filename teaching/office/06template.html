@@ -39,7 +39,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # 樣式與樣版
 </script>
@@ -47,17 +47,71 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 何謂樣式(Style)
 - 樣式(style)包括：
-	* 字型(中、英文字型)
-	* 段落之間的行距
+	* 字體、字型大小(包含中、英文字型)
+	* **段落間距**或行距
 	* 文字的縮排
-	* 版面的尺寸大小等等
-- 樣版 (範本)
-	* 一個檔案，檔案包含內文、標題、副標、題標題 1、標題 2、無間距等各種樣式
-	* 附檔名： .dotx, .dotm
+	* **項目符號**
+	* **頁面**或版面
+- 樣版 (範本, template)
+	* 一個檔案，檔案包含內文、標題、副標、題標題1、標題2、段落間距、行距、字體、字型大小、頁面、項目符號等樣式
+	* 附檔名：
+		- **LibreOffice Writer: .ott**
+		- Microsoft Word: .dotx, .dotm
+</script>
+</section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 設定、修改樣式
+</script></section>
+<section data-markdown><script type="text/template">
+## LibreOffice Writer 樣式設定
+</script></section>
+<section data-markdown><script type="text/template">
+## Writer 樣式種類
+- **段落樣式**：設定字型、縮排與間距、對齊等頁籤，個別設定字型、段落間距、行距、對齊方式等樣式
+- 字元樣式：主要設定字型、字型效果等樣式
+- 外框樣式：主要設定圖形外框環繞、區塊、多欄等樣式
+- **頁面樣式**：主要設定頁面頁首、頁尾、區塊、多欄等樣式
+- **清單樣式**：主要項目符號、編號等樣式
+- 表格樣式：主要設定表格的樣式
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 如何修改內文樣式?
+## 修改 Writer 的段落樣式
+- 修改「預設段落樣式」的步驟:
+	- 開啟側邊欄的**樣式**，移動滑鼠到「預設段落樣式」上方，**按下右鍵「修改」**
+	- 出現「段落樣式 : 預設段落樣式」視窗，**分別點選「字型、縮排與間距、對齊等頁籤，個別設定字型、段落間距、行距、對齊方式」**等。
+	- 設定完成上述步驟以後，點選**「確定」按鈕**
+- 修改「標題1」的步驟:
+	- 點選**「標題 >> 標題1」**，按下右鍵「修改」
+	- **同預設段落樣樣式修改步驟**，修改字型、縮排與間距、對齊等
+	- 設定完成上述步驟以後，點選「確定」按鈕
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 新增段落樣式與儲存成範本
+- 新增「段落樣式」的步驟:
+	- 移動滑鼠到「預設段落樣式」上方，**按下右鍵「新增」**
+	- 出現「段落樣式 : 預設段落樣式」視窗，輸入新樣式的名稱
+	- 分別點選「字型、縮排與間距、對齊等頁籤，個別設定字型、段落間距、行距、對齊方式等。
+	- 設定完成上述步驟以後，點選「確定」按鈕
+- 儲存成範本：
+	- 完成樣式新增或修改以後，**儲存成範本，可以保留修增、修改的樣式**，未來可以再次使用這些樣式
+	- 步驟：**另存新檔 >> 存檔類型 >> ODF 文字文件範本**
+- 其他段落樣式的修改步驟：
+	- 例如：標題2、內文等，修改步驟與「預設段落樣式」相同
+
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Micorsoft Word 樣式設定
+</script></section>
+<section data-markdown><script type="text/template">
+## Word 如何修改內文樣式?
 - 修改樣式的步驟:
 	* 開啟 Word 編輯軟體，將滑鼠移動到右上方的內文樣式上面
 	* 按滑鼠右鍵，開啟[修改]樣式的頁面，再點選[格式 ≫ 段落]修改段落的設定值，將段落設定值改成「左右對齊」
@@ -91,6 +145,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	* 樣版又含有巨集指令的意思
 </script>
 </section>
+</section><!--end block-->
 <section data-markdown><script type="text/template">
 ## 複製預設範本檔
 - 預設範本檔的檔名是 Normal.dotm
