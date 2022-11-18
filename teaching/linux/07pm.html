@@ -41,18 +41,131 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Introduction
+# What's it PM
 </script></section>
 <section data-markdown><script type="text/template">
 ## Package Management
+- A package manager or [package-management system](https://en.wikipedia.org/wiki/List_of_software_package_management_systems) 
+	is a **collection of software tools** that **automates** the process of installing, upgrading, configuring,
+	and removing computer programs for a computer in a consistent manner.
+- A package manager deals with **packages**, **distributions** of software and data in archive files.
+- Package managers typically **maintain a database** of **software dependencies** and **version information** to prevent software mismatches and missing prerequisites.
+- They work closely with **software repositories**, **binary repository managers**, and app stores.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Linux System's PM
+- Most Linux distributions have a package management system with **online repositories**
+containing **thousands** of packages.
+- the Debian package format **.deb** and its tools **dpkg, apt-get and aptitude, APT**.
+This should be similar on **Debian, Ubuntu, Mint** and all derived distributions.
+- the **Red Hat** package format **.rpm** and its tools **rpm and yum**. This should
+be similar on **Red Hat, Fedora, CentOS** and all derived distributions.
+</script></section>
+<section data-markdown><script type="text/template">
+## List of Debian PM tools(1/2)
+
+| Tools 	| Description |
+| :---		| :---		  |
+| dpkg 		| low level package management system for Debian (file based) |
+| apt 		| the most basic APT-based package management tools |
+| apt-get 	| the most basic APT-based package management tools |
+| apt-cache	| the most basic APT-based package management tools |
+| aptitude 	| **APT front-end** to **interactively** manage packages with full screen console: aptitude(8) |
+| synaptic 	| **graphical** package manager (GTK APT front-end) |
+| tasksel 	| **APT front-end** to install selected tasks: tasksel(8) |
+</script></section>
+<section data-markdown><script type="text/template">
+## List of Debian PM tools(2/2)
+
+| package 	| description |
+| :---		| :---		  |
+| apt-file | APT package searching utility — command-line interface |
+| unattended-upgrades 	| enhancement package for APT to enable automatic installation of security upgrades |
+| gnome-software 	| Software Center for GNOME (GUI APT front-end) |
+| apt-utils |	APT utility programs: apt-extracttemplates(1), apt-ftparchive(1), and apt-sortpkgs(1) |
+| apt-listchanges |	package change history notification tool |
+| apt-listbugs | lists critical bugs before each APT installation |
+| apt-rdepends |	recursively lists package dependencies  |
+</script></section>
+<section data-markdown><script type="text/template">
+## Debian/Ubuntu's PM
 - Ubuntu's package management system is derived from the same system used by
 the Debian GNU/Linux distribution
-- Debian package files typically have the extension .deb, and usually exist in repositories 
-which are collections of packages found online or on physical media, such as CD-ROM discs.
-- Packages are normally in a pre-compiled binary format;
-thus installation is quick and requires no compiling of software.
-- Many packages use dependencies. Dependencies are additional packages 
-required by the principal package in order to function properly.
+- Debian package files typically have **the extension .deb**, and usually exist in **repositories** 
+which are collections of packages found **online** or on physical media, such as CD-ROM discs.
+- The most basic **APT-based** package management tools which are **apt-get**, **aptitude** and **apt**, are a front end for **dpkg** and are themselves a **back end for synaptic** and
+other graphical tools.
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# APT-based PM's Configuration
+</script></section>
+<section data-markdown><script type="text/template">
+## Apt-based configuration file
+- Apt-based package management tools use the same configuration information in **/etc/apt/**. Thus adding
+a repository for one of them, will automatically add it for them.
+	- The resource list is located in **/etc/apt/sources.list**.
+	This file contains a list of http or ftp sources where packages for the distribution can be downloaded.
+- Apt-based package management tools **keeps a copy** of downloaded packages in **/var/cache/apt/archives**
+	- You can list all of \*.deb files with the below command.<br />
+	 ** _ls ␣ -a ␣ /var/cache/apt/archives_**
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# apt-get Command
+</script></section>
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/linux/apt-get-logo.jpg" alt="OS placement">
+<figcaption  style="font-size: 10pt"> image source from <a href="http://domoticx.com/wp-content/uploads/2014/11/apt-get-logo.jpg">Unofficial Apt-get logo</a></figcaption>
+</figure>
+# apt-get
+- Debian has been using apt-get to manage packages **since 1998**. **Some experts** claim aptitude is better at handling dependencies than apt-get.
+- apt-get syntax: 
+<pre><code>apt-get [option] [command] [package name]</code></pre>
+- For example<br />
+ **_apt-get ␣ --fix-missing ␣ install ␣ xfce4_**
+</script></section>
+<section data-markdown><script type="text/template">
+## List of apt-get Command
+
+| command | description |
+| :---			  | :---		|
+| apt-get update  | Fetch archive metadata from remote archive and **update local metadata** for use by APT. |
+| apt-get upgrade |	Fetch selected binary packages from remote archive and **install binary files**. |
+| apt-get install |	Installing one or more packages by appending their name behind apt-get install.	|
+| apt-get remove, autoremove | Removed one or more packages by appending their name behind apt-get remove. |
+| apt-cache search|	To **search for availability** of a package. |
+| apt-get clean	  |	Removed all .deb files from /var/cache/apt/archives directory.	|
+
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Aptitude
+</script></section>
+<section data-markdown><script type="text/template">
+## Aptitude Screenshot
+![](/images/linux/aptitude.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Aptitude text-based Tools
+- It offers the fullscreen **interactive text** and **command line** user interface.
+- It is **most suitable** for the **daily interactive package management** such as installed or searching packages.
+- Installing the aptitude text-based package manager
+	- **_sudo ␣ apt ␣ install ␣ aptitude_**
+- Shortcut key of aptitude in interactive text mode
+
+| key   | function  | key   | function | key   | function |  key   | function |
+| :-- : | :---		| :-- : | :---	   | :-- : | :---     |  :---: | :---	  | 
+| C-t	| Menu 		| q 	| Quit 	   | u 	   | update   | /     | Find | 
+| + 	| Install   | - 	| remove    | C-U   | Undo 	  | \	  | Back find |
+| n     | Find next | UP 	| Move up  |  DWON | Move down| Enter | Expand or collapse |
+
 </script></section>
 </section><!--end block-->
 
@@ -61,42 +174,149 @@ required by the principal package in order to function properly.
 # APT
 </script></section>
 <section data-markdown><script type="text/template">
-## APT command
-- The apt command is a powerful command-line tool, which works with Ubuntu's 
-Advanced Packaging Tool (APT) performing such functions as installation of 
-new software packages, upgrade of existing software packages, updating of the 
-package list index, and even upgrading the entire Ubuntu system.
+## APT package tools
+- **Advanced package tool**, or APT, is a free-software user interface that works with core libraries to handle the **installation** and **removal**
+ of software on **Debian**, and **Debian-based** Linux distributions.
+- The apt command is a high-level command line interface for package management. It is basically **a wrapper of apt-get, apt-cache** and **similar commands**,
+ originally intended as an end-user interface and enables some options better suited for interactive usage by default.
+- The **main goal** for this novelty was to **merge** the most commonly used **apt-get** and **apt-cache** commands under the same command prefix. 
+</script></section>
+<section data-markdown><script type="text/template">
+## APT configuration file
+<pre><code>
+🎸/etc/apt/sources.list: Locations to fetch packages from.
+🎸/etc/apt/sources.list.d/: Additional source list fragments.
+🎸/etc/apt/apt.conf: APT configuration file.
+🎸/etc/apt/apt.conf.d/: APT configuration file fragments.
+🎸/etc/apt/preferences.d/: Directory with version preferences
+	files. This is where you would specify "pinning", i.e. a 
+	preference to get certain packages from a separate source
+	or from a different version of a distribution.
+🎸/var/cache/apt/archives/: Storage area for retrieved package
+	files.
+🎸/var/cache/apt/archives/partial/: Storage area for package
+	files in transit.
+🎸/var/lib/apt/lists/: Storage area for state information for
+	each package resource specified in sources.list
+🎸/var/lib/apt/lists/partial/: Storage area for state 
+	information in transit.
+</code></pre>
+</script></section>
 
+<section data-markdown><script type="text/template">
+## APT Command
+- **Update** and **Upgrade** Command
+	- apt update, apt upgrade, apt full-upgrade
+	- full-upgrade differ from upgrade which is will **remove currently installed packages** if system is needed to do.
+- **Install** and **Remove** Command
+	- apt install, apt remove, apt autoremove
+- **Search** Package Name for installation
+	- apt search regex
+- **Clean** and **Purge** Command
+	- apt clean, apt purage [Package Name]
+- All of these commands only could be executed **as a system administrator**.
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Summary Commands 
+</script></section>
+<section data-markdown><script type="text/template">
+## Apt-based Command
+| Command  	| apt-get   				| aptitude  					| apt 	|
+| :--- 	   	| :---  	   				| :---	   						| :---   |
+| Update   	| update    				| update	   					| update |
+| Upgrade  	| upgrade, dis-upgrade 		| safe-upgrade, full-upgrade	| upgrade, full-upgrade |
+| Install	| install [pkgName]			| install [pkgName]				| install [pkgName] 	|
+| Remove	| remove, autoremove		| remove						| remove, autoremove	|
+| Search	| **apt-cache** search keyword	| search keyword			| search keyword		|
+| Clean		| clean, autoclean			| clean, autoclean				| clean, autoclean		|
+| Purage	| purage					| purage						| purage				|
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## apt-fast 
-- sudo add-apt-repository ppa:apt-fast/stable 
-- sudo apt -y install apt-fast
-- select 
-- sudo nano /etc/apt-fast.conf
-	- 
-- sudo apt-fast install ubuntu-desktop gnome 
-
-</script>
-</section>
+# graphical interface PM
+</script></section>
+<section data-markdown><script type="text/template">
+# synaptic
+![](/images/linux/synaptic.png)
+</script></section>
 
 </section><!--end block-->
+
 <section><!--start block-->
-<section>
-# Troubleshooting
+<section data-markdown><script type="text/template">
+# Speed up <br />Pkg Download
+</script></section>
+<section data-markdown><script type="text/template">
+# Nala
+</script></section>
+<section data-markdown><script type="text/template">
+## Nala install and usage
+- Install nala package: **_sudo ␣ apt ␣ install ␣ nala_**
+- list of nala's commands
+<pre><code>Commands:
+autopurge   Autopurge packages that are no longer needed.
+autoremove  Autoremove packages that are no longer needed.
+clean       Clear out the local archive of downloaded package files.
+fetch       Fetch fast mirrors to speed up downloads.
+history     Show transaction history.
+install     Install packages.
+list        List packages based on package names.
+purge       Purge packages.
+remove      Remove packages.
+search      Search package names and descriptions.
+show        Show package details.
+update      Update package list.
+upgrade     Update package list and upgrade the system.</code></pre>
+</script></section>
+<section  data-markdown><script type="text/template">
+## Select Mirrors with nala
+![](/images/linux/nala.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# APT-FAST
+</script></section>
+<section data-markdown><script type="text/template">
+## Install and Settup apt-fast
+- install either axel or aria2
+	- **_sudo ␣ apt ␣ install ␣ axel_** , or aria2
+- Add the required PPA to your list of software resources
+	- **_sudo ␣ add-apt-repository ␣ ppa:apt-fast/stable_**
+- Update your local apt repository and install apt-fast
+	- **_sudo ␣ apt ␣ update ␣ && ␣ sudo ␣ apt ␣ -y ␣ install ␣ apt-fast_**
+	- Quick install apt-fast with the below command
+<pre><code>/bin/bash -c "$(curl -sL https://git.io/vokNn)"</code></pre>
+- Configuration of apt-fast
+	- sudo ␣ nano ␣ /etc/apt-fast.conf
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Configuring apt-fast
+![](/images/linux/apt-fast.webp)
+
+- You can add alias apt="apt-fast" in .bashrc
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Trouble<br/> shooting
+</script>
 </section>
 <section data-markdown><script type="text/template">
 ## gpg key problems
 - add-apt-repository fails due to gpg key timeout
-	- Error: retrieving gpg key timed out.
-	- sudo add-apt-repository -k hkp://keyserver.ubuntu.com:80 -y ppa:apt-fast/stable
+<pre><code>sudo add-apt-repository -k hkp://keyserver.ubuntu.com:80 -y ppa:apt-fast/stable</code></pre>
 - apt-get --allow-releaseinfo-change
 	- sudo apt-get --allow-releaseinfo-change update
 - Switch keyserver
-	-  editing the ~/.gnupg/gpg.conf file to use a different keyserver: keyserver keys.openpgp.org
+	-  editing the ~/.gnupg/gpg.conf file to use a different keyserver
 	- gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 	- gpg --keyserver hkp://keys.gnupg.net --recv-keys 94558F59
 	- gpg --keyserver hkp://pgp.mit.edu --recv-keys 94558F59

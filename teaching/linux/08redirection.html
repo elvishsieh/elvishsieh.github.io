@@ -39,10 +39,42 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Redirection <br />and Regex
+</script>
+</section>
+<section data-markdown><script type="text/template">
+# Redirection
+</script>
+</section>
+
+</section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# Regular Expressions
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## What's it Regex
+-  A regular expression (shortened as **regex** or regexp) is **a pattern** that describes **a set of strings**.  Regular expressions are constructed analogously to **arithmetic** expressions, 
+	by **using various operators** to combine smaller expressions.
+- The IEEE POSIX standard has three sets of compliance: **BRE** (Basic Regular Expressions), **ERE** (Extended Regular Expressions), and **SRE** (Simple Regular Expressions).
+- [PCRE](https://www.pcre.org/) (Perl Compatible Regular Expressions) have become a de facto standard, having a rich and powerful set of atomic expressions.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## BRE/ERE 
+- **Any meta-character with special** meaning may be quoted by preceding it with **a backslash**.
+- The **period .** matches any **single character**.
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+
+<section data-markdown><script type="text/template">
 ## grep command
+- GNU grep has the following options: "grep -E" for ERE, and "grep -G" for BRE (the default), and "grep -P" for Perl regexes. 
 <pre><code>search for a user named ‘alice’ and ‘bob’ using the egrep command:
 	grep -Ew '^(alice|bob)' /etc/passwd
 	

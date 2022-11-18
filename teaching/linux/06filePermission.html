@@ -242,13 +242,26 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 </section><!--end block-->
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Oh My Posh
+# [Oh My Posh](https://ohmyposh.dev/)
 
 ![](/images/linux/hero.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Install Oh My Posh
-
+- Download [Oh-My-Posh](https://github.com/jandedobbeleer/oh-my-posh) software and themes
+	- You also can download from this link which is the file folder of<br /> [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
+- Download [Nerd Fonts](https://www.nerdfonts.com/) and install into Linux system
+- Setting up Oh-My-Posh
+	- change the file mode of Oh-My-Posh to execute in linux
+		- **_chmod ␣ +x ␣ posh-linux-amd64_**
+	- Add the following code in .bashrc
+<pre><code>eval "$(~/bin/posh-linux-amd64 init bash --config ~/.poshthemes/atomic.omp.json)"</code></pre>
+- Setting terminal console font using Nerd fonts
+	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of Oh-My-Posh
+![](/images/linux/ohmyposh.png)
 </script></section>
 </section><!--end block-->
 </div>
