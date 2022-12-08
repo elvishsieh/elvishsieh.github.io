@@ -14,18 +14,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
-<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">  
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
@@ -40,6 +43,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
+<section>
 <section data-markdown><script type="text/template">
 ## Office Suites
 
@@ -62,7 +66,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 期末考: 30%
 </script>
 </section>
+</section>
 
+<section>
 <section data-markdown><script type="text/template">
 ## 課程大綱(Syllabus)
 - [Ch01-課程簡介及基本操作](./01intro.html)
@@ -85,6 +91,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - [Ch14-超連結編輯、互動式、影音多媒體設計](./14media.html)
 </script>
 </section>
+</section>
+
+<section>
 <section data-markdown><script type="text/template">
 ## 注意事項
 - 儘可能不要缺席，缺席可能會跟不上進度
@@ -102,122 +111,125 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-markdown><script type="text/template">
 # 上課教材
-- Slides 的網址：
-<p style="text-align:center">[https://elvishsieh.github.io/teaching/office/](https://elvishsieh.github.io/teaching/office/)</p>
+- Slides 的網址：[https://elvishsieh.github.io/teaching/office/](https://elvishsieh.github.io/teaching/office/)
+
 - [課程教材](https://drive.google.com/drive/u/2/folders/10YFJWlTEUqalm_g-wTC0Pd_RzZXPM2ds)
 </script>
 </section>
-</div>
+</section>
 
 </div>
+</div>
 
-
-<script src="/reveal-js/lib/js/head.min.js"></script>
-<script src="/reveal-js/js/reveal.min.js"></script>
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
 
 <script>
-
 Reveal.initialize({
-controls: false,
+controls: true,
 progress: true,
-history: false,
+history: true,
 center: true,
 slideNumber: true,
-
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-	menu: {
-		side: 'left',
-		width: 'normal',
-		numbers: false,
-		titleSelector: 'h1, h2, h3, h4, h5, h6',
-		useTextContentForMissingTitles: false,
-		hideMissingTitles: false,
-		markers: true,
-		custom: true,
-		themes: true,
-		themesPath: '/reveal-js/css/theme/',
-		transitions: true,
-		openButton: true,
-		openSlideNumber: false,
-		keyboard: true,
-		sticky: false,
-		autoOpen: true,
-		delayInit: false,
-		openOnInit: false,
-        loadIcons: true,
-        
-        custom: [
-				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
-		]
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
 	},
-
-customcontrols: { 
-		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
-		controls: [ 
-			{ icon: '<i class="fa fa-caret-left"></i>', 
-			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.prev(); return false;' 
-			}, 
-			{ icon: '<i class="fa fa-caret-right"></i>', 
-			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.next(); return false;' 
-			}
-		] 
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
 	},
-	toolbar: {
-		// Specifies where the toolbar will be shown: 'top' or 'bottom'
-		position: 'bottom',
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
 
-		// Add button to toggle fullscreen mode for the presentation
-		fullscreen: true,
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
 
-		// Add button to toggle the overview mode on and off
-		overview: true,
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
 
-		// Add button to pause (hide) the presentation display
-		pause: true,
+	// Add button to toggle the overview mode on and off
+	overview: true,
 
-		// Add button to show the speaker notes
-		notes: false,
+	// Add button to pause (hide) the presentation display
+	pause: true,
 
-		// Add button to show the help overlay
-		help: false,
+	// Add button to show the speaker notes
+	notes: false,
 
-		// If true, the reveal.js-menu will be moved into the toolbar.
-		// Set to false to leave the menu on its own.
-		captureMenu: true,
+	// Add button to show the help overlay
+	help: false,
 
-		// If true, the playback control will be moved into the toolbar.
-		// This is only relevant if the presentation is configured to autoSlide.
-		// Set to false to leave the menu on its own.
-		capturePlaybackControl: true,
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
 
-		// By default the menu will load it's own font-awesome library
-		// icons. If your presentation needs to load a different
-		// font-awesome library the 'loadIcons' option can be set to false
-		// and the menu will not attempt to load the font-awesome library.
-		loadIcons: true
-	},
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
 
 // Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
 dependencies: [
-{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
-{ src: '/reveal-js/plugin/notes/notes.js', async: true },
-{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
-{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
-{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
-{ src: '/reveal-js/plugin/anything/anything.js', async: true },
-{ src: '/reveal-js/plugin/menu/menu.js', async: true},
-{ src: '/math-katex/math-katex.js', async: true },
-{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
-{ src: '/reveal-js/plugin/toolbar/toolbar.js', async: true }
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
 ]
 });
 

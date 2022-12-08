@@ -14,20 +14,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
-<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
+
 
 <!--[if lt IE 9]>
 <script src="reveal-js/lib/js/html5shiv.js"></script>
@@ -49,16 +54,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## adduser/useradd
 - **useradd is a command** and **adduser is a perl script**. You can input the following commmand to understand it.
 	- **_which ␣ adduser_**
-	- ** _less ␣ /usr/sbin/adduser_**
+	- **_less ␣ /usr/sbin/adduser_**
 	- **_which ␣ useradd_**
-	- ** _less ␣ /usr/sbin/useradd_**
+	- **_less ␣ /usr/sbin/useradd_**
 - Using adduser script to create a user on Linux system.
 	- **_sudo ␣ adduser ␣ userName_**
 	- Follow the adduser script to input the information for this user.
 </script></section>
 <section data-markdown><script type="text/template">
 ## adduser's Interactive Model 
-<pre><code>runner@LAPTOP-PT5NIKQ8:~$ sudo adduser jenny
+<pre><code data-trim>runner@LAPTOP-PT5NIKQ8:~$ sudo adduser jenny
 [sudo] password for runner:
 Adding user 'jenny' ...
 Adding new group 'jenny' (1002) ...
@@ -91,8 +96,9 @@ Is the information correct? [Y/n]
 </script></section>
 <section data-markdown><script type="text/template">
 ## /etc/passwd file Format
-- Delimiter with **:**
-<pre><code>elvis:x:1001:1001:elvis hsieh,,,:/home/elvis:/bin/bash
+- Delimiter with :
+
+<pre><code data-trim>elvis:x:1001:1001:elvis hsieh,,,:/home/elvis:/bin/bash
 sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-976848:/home/sam:/bin/bash</code></pre>
 1. **user name**: elvis, sam
 2. **user password**: x
@@ -111,7 +117,7 @@ sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-9768
 - **_su ␣ userName_**(剛剛建立的使用者名稱) or 點選右上角人頭小圖示，登入(login)
 - **_less ␣ /etc/passwd_**
 - **_sudo ␣ less ␣ /etc/shadow_**
-- **_ sudo ␣ less ␣ /etc/group_**
+- **_sudo ␣ less ␣ /etc/group_**
 - **_who_** 
 </script></section>
 </section><!--end block-->
@@ -124,16 +130,16 @@ sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-9768
 ## deluser/userdel
 - **userdel is a command** and **deluser is a perl script**. You can input the following commmand to understand it.
 	- **_which ␣ deluser_**
-	- ** _less ␣ /usr/sbin/deluser_**
+	- **_less ␣ /usr/sbin/deluser_**
 - Using deluser script to create a user on unix-like system.
 	- **_sudo ␣ deluser ␣ userName_**
 <pre><code>runner@LAPTOP-PT5NIKQ8:~$ sudo deluser jenny
 [sudo] password for runner:
 Removing user `jenny' ...
 Warning: group `jenny' has no more members.
-Done.
-</code></pre>
-- ** _sudo ␣ rm ␣ -rf ␣ /home/jenny_**
+Done.</code></pre>
+
+	- **_sudo ␣ rm ␣ -rf ␣ /home/jenny_**
 </script></section>
 </section><!--end block-->
 <section><!--start block-->
@@ -255,7 +261,7 @@ by configuring their **default shell**, editor, key bindings, and **language set
 - who is sudo group in the /etc/group
 	- **_sudo ␣ addgroup ␣ alice ␣ sudo_**
 - Add an account or a group in **/etc/sudoers** file
-	- ** _sudo ␣ visudo_** //visudo will **call the default editor** of system, which could **check sudoers file format**, to edit the /etc/sudoers file.
+	- **_sudo ␣ visudo_** //visudo will **call the default editor** of system, which could **check sudoers file format**, to edit the /etc/sudoers file.
 	- **man sudoers** for more information
 <pre><code>UserName HostName = (asUser:asGroup) /pathname/command</code></pre>
 	- An example from [sudo project](https://www.sudo.ws/sudoers)
@@ -263,7 +269,7 @@ by configuring their **default shell**, editor, key bindings, and **language set
 
 <section data-markdown><script type="text/template">
 ## A simple example of sudoers
-<pre><code># User alias specification
+<pre><code data-trim data-line-numbers># User alias specification
 User_Alias	WEBADMIN = will, wendy, wim
 # Runas alias specification
 Runas_Alias	OP = root, operator
@@ -296,7 +302,7 @@ bob		SPARC = (OP) ALL : SGI = (OP) ALL
 <section data-markdown><script type="text/template">
 ## Conclusion of sudoers (2/2)
 - User specification
-	- The basic structure of a user specification is<br /> **“who where = (as_whom) what”**. a example as below:
+	- The basic structure of a user specification is<br /> **“who where = (as_whom) what”**. A example as below:
 	<pre><code>bob	SPARC = (OP) ALL : SGI = (OP) ALL</code></pre>
 	- Let's break that down into its **constituent parts :**
 - Runas_Spec
@@ -325,7 +331,7 @@ VIEW  ALL = (root)	LS
 	- **_sudo ␣ adduser ␣ sam_**
 	- **_sudo ␣ addgroup ␣ sam ␣ sudo_**
 	- **_su ␣ sam ; ␣ cd ␣ ~ ; ␣ ls ␣ -la_**
-	- **_sudo ␣ less ␣ /etc/shadow _** 
+	- **_sudo ␣ less ␣ /etc/shadow_** 
 - Create a wheel group and add sam into the group
 	- **_sudo ␣ addgroup ␣ wheel_**
 	- **_sudo ␣ usermod ␣ -G ␣ wheel ␣ sam_**
@@ -347,13 +353,13 @@ VIEW  ALL = (root)	LS
 </script></section>
 <section data-markdown><script type="text/template">
 ## For Loop of Bash Shell
-<pre><code>1. #!/usr/bin/bash
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 
-2. GPNAME="students developers"
-3. for gp in $GPNAME
-4. 	do
-5. 	echo ${gp}
-6. done
+GPNAME="students developers"
+for GP in $GPNAME
+	do
+	echo ${GP}
+done
 </code></pre>
 
 - Typing the above code **line by line from 2-6 line** numbers **without digit number** in bash shell System.
@@ -374,62 +380,62 @@ by **a character** which is **not to be interpreted as part of its name**.
 
 <section data-markdown><script type="text/template">
 ## Add Multi-Users with Bash
-<pre><code>#!/usr/bin/bash
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 
 PASSWD="s123456"
 
-for gp in students developers
+for GP in students developers
 	do
-		sudo groupadd $gp
+		sudo groupadd $GP
 
-	for usr in ${gp}"001" ${gp}"002" ${gp}"003"
+	for USER in ${GP}"001" ${GP}"002" ${GP}"003"
 		do
-		sudo useradd -g ${gp} -m -k /etc/skel -s /bin/bash ${usr}
+		sudo useradd -g ${GP} -m -k /etc/skel -s /bin/bash ${usr}
 		# All of users are setted up the password with $PASSWD
-		echo ${usr}":"$PASSWD | sudo chpasswd
-		sudo usermod -G ${gp}   ${usr}
-		echo ; echo "useradd & password changed for ${usr}"
+		echo ${USER}":"$PASSWD | sudo chpasswd
+		sudo usermod -G ${GP}   ${USER}
+		echo ; echo "useradd & password changed for ${USER}"
 	done
 done</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## New version of the code
-<pre><code>#!/usr/bin/bash
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 GPNAME="students developers"
 PASSWD="s123456"
-for gp in $GPNAME
+for GP in $GPNAME
 	do
-		sudo groupadd $gp
+		sudo groupadd $GP
 
-	for inc in `seq -w 001 003`
+	for INC in `seq -w 001 003`
 		do
-		sudo useradd -g ${gp} -m -k /etc/skel -s /bin/bash ${gp}${inc}
+		sudo useradd -g ${GP} -m -k /etc/skel -s /bin/bash ${GP}${INC}
 		# All of users are setted up the password with $PASSWD
-		echo ${gp}${inc}":"$PASSWD | sudo chpasswd
-		sudo usermod -G ${gp}    ${gp}${inc}
-		echo ; echo "useradd & password changed for ${gp}${inc}"
+		echo ${GP}${INC}":"$PASSWD | sudo chpasswd
+		sudo usermod -G ${GP}    ${GP}${INC}
+		echo ; echo "useradd & password changed for ${GP}${INC}"
 	done
 done</code></pre>
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## 0.1v of Del Multi-User Code
-<pre><code>#!/usr/bin/bash
+
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 
 GPNAME="students developers"
 UNAME="students001 students002 students003 developers001 developers002 developers003"
 
-for rmuser in $UNAME
+for RMUSER in $UNAME
 	do
-	echo "$rmuser"
-	sudo userdel -r "$rmuser"
+	echo "$RMUSER"
+	sudo userdel -r "$RMUSER"
 done
 
-for gp in $GPNAME
+for GP in $GPNAME
 	do
-	sudo groupdel $gp
-done
-</code></pre>
+	sudo groupdel $GP
+done</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## 0.2v of Del Multi-User Code
@@ -437,19 +443,19 @@ done
 
 GPNAME="students developers"
 
-for inc in `seq -w 001 003`
+for INC in `seq -w 001 003`
 	do
-	for rmuser in students${inc} developers$inc
+	for RMUSER in students${INC} developers$INC
 		do
-		echo "$rmuser"
-		sudo userdel -r "$rmuser"
+		echo "$RMUSER"
+		sudo userdel -r "$RMUSER"
 	done
 done
 
 ## delete group
-for gp in $GPNAME
+for GP in $GPNAME
 	do
-		sudo groupdel $gp
+		sudo groupdel $GP
 done
 </code></pre>
 </script></section>
@@ -493,114 +499,117 @@ done
 </section><!--end block-->
 
 </div>
-
 </div>
-<script src="/reveal-js/lib/js/head.min.js"></script>
-<script src="/reveal-js/js/reveal.min.js"></script>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
 
 <script>
-
 Reveal.initialize({
-controls: false,
+controls: true,
 progress: true,
-history: false,
+history: true,
 center: true,
 slideNumber: true,
-
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-	menu: {
-		side: 'left',
-		width: 'normal',
-		numbers: false,
-		titleSelector: 'h1, h2, h3, h4, h5, h6',
-		useTextContentForMissingTitles: false,
-		hideMissingTitles: false,
-		markers: true,
-		custom: true,
-		themes: true,
-		themesPath: '/reveal-js/css/theme/',
-		transitions: true,
-		openButton: true,
-		openSlideNumber: false,
-		keyboard: true,
-		sticky: false,
-		autoOpen: true,
-		delayInit: false,
-		openOnInit: false,
-        loadIcons: true,
-        
-        custom: [
-				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
-		]
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
 	},
-
-customcontrols: { 
-		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
-		controls: [ 
-			{ icon: '<i class="fa fa-caret-left"></i>', 
-			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.prev(); return false;' 
-			}, 
-			{ icon: '<i class="fa fa-caret-right"></i>', 
-			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.next(); return false;' 
-			}
-		] 
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
 	},
-	toolbar: {
-		// Specifies where the toolbar will be shown: 'top' or 'bottom'
-		position: 'bottom',
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
 
-		// Add button to toggle fullscreen mode for the presentation
-		fullscreen: true,
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
 
-		// Add button to toggle the overview mode on and off
-		overview: true,
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
 
-		// Add button to pause (hide) the presentation display
-		pause: true,
+	// Add button to toggle the overview mode on and off
+	overview: true,
 
-		// Add button to show the speaker notes
-		notes: false,
+	// Add button to pause (hide) the presentation display
+	pause: true,
 
-		// Add button to show the help overlay
-		help: false,
+	// Add button to show the speaker notes
+	notes: false,
 
-		// If true, the reveal.js-menu will be moved into the toolbar.
-		// Set to false to leave the menu on its own.
-		captureMenu: true,
+	// Add button to show the help overlay
+	help: false,
 
-		// If true, the playback control will be moved into the toolbar.
-		// This is only relevant if the presentation is configured to autoSlide.
-		// Set to false to leave the menu on its own.
-		capturePlaybackControl: true,
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
 
-		// By default the menu will load it's own font-awesome library
-		// icons. If your presentation needs to load a different
-		// font-awesome library the 'loadIcons' option can be set to false
-		// and the menu will not attempt to load the font-awesome library.
-		loadIcons: true
-	},
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
 
 // Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
 dependencies: [
-{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
-{ src: '/reveal-js/plugin/notes/notes.js', async: true },
-{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
-{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
-{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
-{ src: '/reveal-js/plugin/anything/anything.js', async: true },
-{ src: '/reveal-js/plugin/menu/menu.js', async: true},
-//{ src: '/math-katex/math-katex.js', async: true },
-{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
-{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
 ]
 });
 

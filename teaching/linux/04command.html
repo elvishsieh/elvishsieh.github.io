@@ -14,20 +14,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-<link rel="stylesheet" href="/reveal-js/css/reveal.min.css">
-<link rel="stylesheet" href="/reveal-js/css/theme/night.min.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlight-js/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
+
 
 <!--[if lt IE 9]>
 <script src="reveal-js/lib/js/html5shiv.js"></script>
@@ -42,7 +47,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Basic CLI Command <br />for Linux 
+# Basic CLI <br />Command for Linux 
 </script>
 </section>
 <section data-markdown><script type="text/template">
@@ -88,7 +93,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - **_cp [OPTION]... SOURCE [DEST | DIRECTORY]_** 
 	- -p  // same as --preserve=mode,ownership,timestamps
 	- -R, -r, --recursive // copy directories recursively
-- ** _mv [OPTION]... SOURCE [DEST | DIRECTORY]_** // move **(rename)** files
+- **_mv [OPTION]... SOURCE [DEST | DIRECTORY]_** // move **(rename)** files
 	- -f, --force // do not prompt before overwriting
 	- -i, --interactive // prompt before overwrite
 - **_touch [OPTION]... FILE..._** // change file timestamps
@@ -117,14 +122,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Most useful Command(1/2)
 - **_source FILENAME [ARGUMENTS]_** // source is a shell built-in in Bash which reload functions, variables, and configuration files into shell scripts.
 - **_fg [jobspec]_**  // Resume  jobspec  in  the  foreground,  and make it the current job. 
-- **_ bg [jobspec ...]_** // Resume each suspended job jobspec in the background, as if it had been **started with &**.
+- **_bg [jobspec ...]_** // Resume each suspended job jobspec in the background, as if it had been **started with &**.
 - **_alias [-p] [name[=value] ...]_** // Alias with no arguments or with the -p option prints the list of aliases in the form alias name=value on standard output.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Most useful Command(2/2)
 - **_export [-fn] [name[=word]] ..._** // The supplied names are marked for automatic export to the environment of subsequently executed commands.
 - **_echo [-neE] [arg ...]_** // Output the args, separated by spaces, followed by a newline.
-- **_ eval [arg ...]_** // The  args  are read and concatenated together into a single command.
+- **_eval [arg ...]_** // The  args  are read and concatenated together into a single command.
 - **_exit [n]_** // Cause the shell to exit with a status of n.  If n is omitted, the exit status is that of the last command executed.
 </script></section>
 <section data-markdown><script type="text/template">
@@ -173,7 +178,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - *more ␣ ~/.bashrc*
 	- **press / to search "color" keyword**
 	- **press n to search next pattern**
-- ** _cat ␣ ~/.bashrc ␣ | ␣ more_**
+- **_cat ␣ ~/.bashrc ␣ | ␣ more_**
 - *less ␣ ~/.bashrc*
 	- **_press / to search "prompt" keyword_** 
 	- **press n to search next pattern**
@@ -191,17 +196,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Setting **English Language**
 	- add the following line to **~/.profile**
 <pre><code>LANG="en_US.UTF-8"
-	LANGUAGE="en_US.UTF-8"
-	</code></pre>
+LANGUAGE="en_US.UTF-8"</code></pre>
 	-  **or** add the following line to ~/.bashrc
 <pre><code>LANG="en_US.UTF-8"
-	LANGUAGE="en_US.UTF-8"
-	export LANG LANGUAGE
-	</code></pre>
+LANGUAGE="en_US.UTF-8"
+export LANG LANGUAGE</code></pre>
 - Reload variable and check locale information
 	- **_source ␣ ~/.profile_** or _source ~/.bashrc_
 	- **_locale_** // get locale-specific information
-	- _man ␣ useradd_ or **_nano ␣ ~/.profile_**
 </script></section>
 
 <section data-markdown><script type="text/template">
@@ -209,17 +211,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Setting **Chinese Language**
 	- add the following line to **~/.profile**
 <pre><code>LANG="zh_TW.UTF-8"
-	LANGUAGE="zh_TW.UTF-8"
-	</code></pre>
+LANGUAGE="zh_TW.UTF-8"</code></pre>
 	-  **or** add the following line to ~/.bashrc
 <pre><code>LANG="zh_TW.UTF-8"
-	LANGUAGE="zh_TW.UTF-8"
-	export LANG LANGUAGE
-	</code></pre>
+LANGUAGE="zh_TW.UTF-8"
+export LANG LANGUAGE</code></pre>
 - Reload variable and check locale information
 	- **_source ␣ ~/.profile_** or _source ␣ ~/.bashrc_
 	- **_locale_** // get locale-specific information
-	- _man ␣ useradd_ or **_nano ␣ ~/.profile_**
 </script></section>
 </section><!--end block-->
 
@@ -270,7 +269,7 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 ## Example of Hard Link
 - _mkdir ␣ -p ␣ ~/tmp/dir_
 - _cd ␣ tmp/dir_
-- ** _ln ␣ ~/.profile ␣ test.txt_**
+- **_ln ␣ ~/.profile ␣ test.txt_**
 - _stat ␣ test.txt_ // check the **iNode number**
 - _stat ␣ ~/.profile_ // check the **iNode number**
 - _nano ␣ test.txt_ // add $HOME path into line number 21
@@ -317,8 +316,7 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 
 <section data-markdown><script type="text/template">
 ## Linux system directory
-<pre><code>
-/bin->usr/bin  🎸Essential binary fles.
+<pre><code data-trim data-line-numbers>/bin->usr/bin  🎸Essential binary fles.
 /boot  🎸Static fles of the boot loader.
 /dev  🎸Files needed to access host-specific devices.
 /etc  🎸Host-specific system configuration fles.
@@ -334,8 +332,7 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 /srv  🎸Data for services provided by the system.
 /tmp  🎸Temporary fles.
 /user  🎸Secondary hierarchy with read-only data.
-/var  🎸Variable data such as log fles.
-</code></pre>
+/var  🎸Variable data such as log fles.</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## More info. of Directory(1/2)
@@ -358,115 +355,119 @@ refers to a file which **does not exist is found**, or **a loop is detected**.
 	- /var is for data which is written during system operation and thus is variable data, such as **log fles** or **spooling data**, such as **/var/log, /var/spool/mail**.
 </script></section>
 </section><!--end block-->
-</div>
 
 </div>
-<script src="/reveal-js/lib/js/head.min.js"></script>
-<script src="/reveal-js/js/reveal.min.js"></script>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
 
 <script>
-
 Reveal.initialize({
-controls: false,
+controls: true,
 progress: true,
-history: false,
+history: true,
 center: true,
 slideNumber: true,
-
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-	menu: {
-		side: 'left',
-		width: 'normal',
-		numbers: false,
-		titleSelector: 'h1, h2, h3, h4, h5, h6',
-		useTextContentForMissingTitles: false,
-		hideMissingTitles: false,
-		markers: true,
-		custom: true,
-		themes: true,
-		themesPath: '/reveal-js/css/theme/',
-		transitions: true,
-		openButton: true,
-		openSlideNumber: false,
-		keyboard: true,
-		sticky: false,
-		autoOpen: true,
-		delayInit: false,
-		openOnInit: false,
-        loadIcons: true,
-        
-        custom: [
-				{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-				{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
-		]
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
 	},
-
-customcontrols: { 
-		slideNumberCSS : 'position: fixed; display: block; right: 90px; top: auto; left: auto; width: 50px; bottom: 30px; z-index: 31; font-family: Helvetica, sans-serif; font-size:  12px; line-height: 1; padding: 5px; text-align: center; border-radius: 10px; background-color: rgba(128,128,128,.5);', 
-		controls: [ 
-			{ icon: '<i class="fa fa-caret-left"></i>', 
-			  css: 'position: fixed; right: 60px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.prev(); return false;' 
-			}, 
-			{ icon: '<i class="fa fa-caret-right"></i>', 
-			  css: 'position: fixed; right: 30px; bottom: 30px; z-index: 30; font-size: 24px;', 
-			  action: 'Reveal.next(); return false;' 
-			}
-		] 
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
 	},
-	toolbar: {
-		// Specifies where the toolbar will be shown: 'top' or 'bottom'
-		position: 'bottom',
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
 
-		// Add button to toggle fullscreen mode for the presentation
-		fullscreen: true,
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
 
-		// Add button to toggle the overview mode on and off
-		overview: true,
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
 
-		// Add button to pause (hide) the presentation display
-		pause: true,
+	// Add button to toggle the overview mode on and off
+	overview: true,
 
-		// Add button to show the speaker notes
-		notes: false,
+	// Add button to pause (hide) the presentation display
+	pause: true,
 
-		// Add button to show the help overlay
-		help: false,
+	// Add button to show the speaker notes
+	notes: false,
 
-		// If true, the reveal.js-menu will be moved into the toolbar.
-		// Set to false to leave the menu on its own.
-		captureMenu: true,
+	// Add button to show the help overlay
+	help: false,
 
-		// If true, the playback control will be moved into the toolbar.
-		// This is only relevant if the presentation is configured to autoSlide.
-		// Set to false to leave the menu on its own.
-		capturePlaybackControl: true,
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
 
-		// By default the menu will load it's own font-awesome library
-		// icons. If your presentation needs to load a different
-		// font-awesome library the 'loadIcons' option can be set to false
-		// and the menu will not attempt to load the font-awesome library.
-		loadIcons: true
-	},
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
 
 // Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
 dependencies: [
-{ src: '/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-{ src: '/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: '/reveal-js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: '/reveal-js/plugin/zoom-js/zoom.js', async: true },
-{ src: '/reveal-js/plugin/notes/notes.js', async: true },
-{ src: '/reveal-js/plugin/customcontrols/customcontrols.js', async: true },
-//{ src: '/reveal-js/plugin/chalkboard/chalkboard.js', async: true },
-{ src: '/reveal-js/plugin/fullscreen/fullscreen.js', async: true },
-{ src: '/reveal-js/plugin/chart/Chart.min.js', async: true },
-{ src: '/reveal-js/plugin/anything/anything.js', async: true },
-{ src: '/reveal-js/plugin/menu/menu.js', async: true},
-{ src: '/math-katex/math-katex.js', async: true },
-{ src: '/reveal-js/plugin/line-numbers/line-numbers.js'},
-{ src: '/reveal-js/plugin/toolbar/toolbar.js' }
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
 ]
 });
 
