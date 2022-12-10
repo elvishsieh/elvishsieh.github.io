@@ -245,7 +245,37 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 ![](/images/linux/hero.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Install Oh My Posh
+## Install Oh-My-Posh
+- Refer [Offical Website Document](https://ohmyposh.dev/docs/installation/linux) to install Oh-My-Posh
+	1. Download Oh My Posh
+	2. Download the themes
+	3. Install and configure your terminal/editor to use the Nerd font
+	4. Configure your shell to use Oh My Posh
+- Install Oh-My-Posh from [teaching material directory](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) which was packaged the software, themes and fonts.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Offical Installation Method(1/2)
+1. Download Oh My Posh
+
+<pre><code data-trim data-line-numbers>sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh</code></pre>
+2. Download the themes
+
+<pre><code data-trim data-line-numbers>mkdir ~/.poshthemes
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.*
+rm ~/.poshthemes/themes.zip</code></pre>
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Offical Installation Method(2/2)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 
 - Download [Oh-My-Posh](https://github.com/jandedobbeleer/oh-my-posh) software and themes
 	- You also can download from the below link which is in the "file" folder<br /> of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
 - Download [Nerd Fonts](https://www.nerdfonts.com/) and installed it on Linux system
@@ -256,7 +286,8 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 <pre><code>eval "$(~/bin/posh-linux-amd64 init bash --config ~/.poshthemes/atomic.omp.json)"</code></pre>
 - Setting terminal console font using Nerd fonts
 	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型
-</script></section>
+</script>
+</section>
 <section data-markdown><script type="text/template">
 ## The result of Oh-My-Posh
 ![](/images/linux/ohmyposh.png)

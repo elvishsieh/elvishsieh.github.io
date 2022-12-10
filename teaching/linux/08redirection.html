@@ -150,9 +150,66 @@ ccc</code></pre>
 </section>
 <section data-markdown><script type="text/template">
 ## BRE/ERE 
-- **Any meta-character with special** meaning may be quoted by preceding it with **a backslash**.
+- Most characters, including all letters and digits, are regular expressions that match themselves.
+- **Any meta-character with special** meaning may be quoted by preceding it with **a backslash(\\)**.
 - The **period .** matches any **single character**.
+- Bracket Expressions
+	- A bracket expression is **a list of characters enclosed by [ and ]**.  It matches any single character in that list.
+	- If **the first character of the list is the caret ^** then it matches any character **not** in the list.
+	- For example, the regular expression [0123456789] matches any single digit.
 </script></section>
+<section data-markdown><script type="text/template">
+## BRE/ERE
+- Bracket Expressions
+	- **A range expression** consists of two characters separated by **a hyphen**. For example, [a-d]  is equivalent to [abcd].
+- Character Classes
+	- Certain named classes of characters are predefined within bracket expressions, as follows. they are [:alnum:], [:alpha:], [:cntrl:], [:digit:], [:graph:], [:lower:],  [:print:],  [:punct:],  [:space:],  [:upper:],  and  [:xdigit:].
+	- For  example,	[[:alnum:]]  means  the character class of numbers and letters in the current locale. In the C locale and ASCII character set encoding, this is the	same as [0-9A-Za-z].
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## BRE/ERE
+- Anchoring
+	- The caret ^ and the dollar sign $ are meta-characters that respectively match the empty string at the beginning and end of a line.
+- The Backslash Character and Special Expressions
+	- The symbols \\< and \\> respectively match the empty string at the beginning and end of a word.  The symbol \b matches the empty string at  the  edge
+	of  a  word,  and  \B  matches  the  empty string provided it's not at the edge of a word.  The symbol \w is a synonym for [\_[:alnum:]] and \W is a
+	synonym for [\^_[:alnum:]].
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## BRE/ERE Repetition
+- A regular expression may be followed by one of several repetition operators:
+| operators	| Description	|
+| :---		| :---			|
+| ? 		| The preceding item is optional and matched at most once.	|
+| *			| The preceding item will be matched zero or more times.	|
+| + 		| The preceding item will be matched one or more times.		|
+| {n}		| The preceding item is matched exactly n times.			|
+| {n,}		| The preceding item is matched n or more times.			|
+| {,m}		| The preceding item is matched at most m times.  This is a GNU extension.	|
+| {n,m}		| The preceding item is matched at least n times, but not more than m times.	|
+</script>
+</section>
+<section data-markdown><script type="text/template">
+- Alternation
+	- Two  regular  expressions  may  be  joined  by  the infix operator |; the resulting regular expression matches any string matching either alternate
+	expression.
+
+- Precedence
+	- Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  A whole expression may be enclosed in parentheses
+	to override these precedence rules and form a subexpression.
+
+- Back References and Subexpressions
+	- The  back-reference  \n,  where n is a single digit, matches the substring previously matched by the nth parenthesized subexpression of the regular
+	expression.
+
+- Basic vs Extended Regular Expressions
+	In basic regular expressions the meta-characters ?, +, {, |, (, and ) lose their special meaning; instead use the backslashed versions \?, \+,  \{,
+	\|, \(, and \).
+</script>
+</section>
 </section><!--end block-->
 <section><!--start block-->
 
@@ -168,6 +225,24 @@ ccc</code></pre>
 </script>
 </section>
 
+<section data-markdown><script type="text/template">
+## Popular port numbers in Linux
+- HTTP – TCP 80
+- HTTPS – TCP 443
+- POP3 – TCP 110
+- SMTP – TCP 25
+- SSH – TCP 22
+- DNS/DOMAIN – TCP/UDP 53
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Query port number with cat, grep Command
+- cat /etc/services
+- grep -w 80 /etc/services
+- egrep -w '53/(tcp|udp)' /etc/services
+</script>
+</section>
 </section><!--end block-->
 
 </div>
