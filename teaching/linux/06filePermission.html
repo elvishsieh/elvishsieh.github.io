@@ -174,7 +174,7 @@ This is **not a problem** since the **permissions** of symbolic links are **neve
 </script></section>
 <section data-markdown><script type="text/template">
 ## Example of <br />Symbolic Permission
-- **_mkdir ␣ perm ␣; cd ␣ perm_**
+- **_mkdir ␣ perm ␣ ; cd ␣ perm_**
 - _ls ␣ -la ␣ / ␣ > ␣ symbloic.txt_
 - **_ls ␣ -la ␣ symbolic.txt_**
 - **_sudo ␣ chmod ␣ g+w,o-r ␣ symbolic.txt_**
@@ -256,28 +256,33 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 
 <section data-markdown><script type="text/template">
 ## Offical Installation Method(1/2)
-1. Download Oh My Posh
+1. Download Oh My Posh with the following command
 
 <pre><code data-trim data-line-numbers>sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh</code></pre>
-2. Download the themes
+2. Download the themes with the following command
 
 <pre><code data-trim data-line-numbers>mkdir ~/.poshthemes
 wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
 unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip</code></pre>
-
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## Offical Installation Method(2/2)
+3. Install and configure your terminal/editor to use the Nerd font
+	- Download Nerd fonts from offical webiste as following [https://www.nerdfonts.com/](https://www.nerdfonts.com/)
+	- Extract files and copy to ~/.local/share/fonts
+	- Configured terminal to use Nerd font.
+4. Configured .bashrc to user Oh My Posh
+
+<pre><code>eval "$(/usr/local/bin/oh-my-posh init bash --config ~/.poshthemes/atomic.omp.json)"</code></pre>
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## 
-- Download [Oh-My-Posh](https://github.com/jandedobbeleer/oh-my-posh) software and themes
-	- You also can download from the below link which is in the "file" folder<br /> of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
+## Usage special packaged files to install oh-my-posh
+- Download from the "file" folder of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
 - Download [Nerd Fonts](https://www.nerdfonts.com/) and installed it on Linux system
 - Setting up Oh-My-Posh
 	- change the file mode of Oh-My-Posh to execute in linux
@@ -288,6 +293,42 @@ rm ~/.poshthemes/themes.zip</code></pre>
 	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型
 </script>
 </section>
+<section data-markdown><script type="text/template">
+# Install oh-my-posh with shell(1/2)
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
+
+mkdir ~/bin
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O ~/bin/oh-my-posh
+chmod +x ~/bin/oh-my-posh
+mkdir ~/.poshthemes
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.*
+rm ~/.poshthemes/themes.zip
+
+echo 'eval "$(~/bin/oh-my-posh init bash --config ~/.poshthemes/atomic.omp.json)"' >> ~/.bashrc
+echo "You should run 'chmod +x $0' to make this shell script to be executed on Linux system."
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+# Install oh-my-posh with shell(2/2)
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
+
+OMP=oh-my-posh.tgz
+FN=InconsolataLGC.zip
+
+if [[ -f $OMP ]]; then
+	tar zxvf oh-my-posh.tgz -C ~/
+fi
+if [[ -f $FN ]]; then
+	unzip InconsolataLGC.zip -d ~/.local/share/fonts
+fi
+chmod +x ~/bin/posh-linux-amd64
+echo 'eval "$(~/bin/posh-linux-amd64 init bash --config ~/.poshthemes/atomic.omp.json)"' >> ~/.bashrc
+rm -i $OMP $FN
+
+echo "You should run 'chmod +x $0' to make this shell script to be executed on Linux system."</code></pre>
+</script></section>
 <section data-markdown><script type="text/template">
 ## The result of Oh-My-Posh
 ![](/images/linux/ohmyposh.png)

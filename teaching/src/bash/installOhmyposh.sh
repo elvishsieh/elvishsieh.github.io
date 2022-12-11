@@ -10,3 +10,5 @@ chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
 
 echo 'eval "$(~/bin/oh-my-posh init bash --config ~/.poshthemes/atomic.omp.json)"' >> ~/.bashrc
+
+echo "You should run 'chmod +x $0' to make this shell script to be executed on Linux system."

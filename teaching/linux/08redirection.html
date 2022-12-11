@@ -75,10 +75,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **_echo ␣ This is a paragraph of article ␣ > ␣ word.txt_**
 	- **_cat ␣ word.txt_**
 - Why is the output file erased
-	- **_cho ␣ This is another paragraph of article ␣ > ␣ word.txt_**
+	- **_echo ␣ This is another paragraph of article ␣ > ␣ word.txt_**
 	- **_cat ␣ word.txt_**
 - append >>
-	- **_echo ␣ This is another paragraph of article ␣ > ␣ word.txt_**
+	- **_echo ␣ This is a paragraph of article ␣ >> ␣ word.txt_**
 	- **_cat ␣ word.txt_**
 </script></section>
 <section data-markdown><script type="text/template">
@@ -90,6 +90,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - stderr and stdout 2>&1
 	- **_cho  ␣ This is a word ␣ 2>&1_**
 	- **_echo ␣ This is a word ␣ > letter.txt 2>&1_**
+	- **_cho ␣ This is a word ␣ >> letter.txt 2>&1_**
 - joining stdout and stderr &>
 	- **_cho ␣ This is a book ␣ &> ␣ outFile.txt_**
 	- **_echo ␣ This is a book ␣ &>> ␣ outFile.txt_**
@@ -99,14 +100,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Standard input
 - stdin <
 	- **_cat ␣ > ␣ text.txt_**
-<pre><code>nutc
-mis</code></pre>
+	- Input many sentences in terminal, then press Ctrl + D to end of line.
+	- **_cat ␣ < ␣ text.txt_** //equal to cat text.txt
 	- **_tr ␣ 'nutc' ␣ 'NUTC' ␣ < text.txt_**
 - here document <<
 	- **_cat ␣ << ␣ EOF ␣ > ␣ abc.txt_**
-<pre><code>aaa
-bbb
-ccc</code></pre>
+	- Input aaa, bbb and ccc which split 3 lines respectively.
 	- The EOF marker can be typed **literally** or can be called with **Ctrl-D**.
 </script></section>
 <section data-markdown><script type="text/template">
@@ -137,6 +136,34 @@ ccc</code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# Pipe
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Examples of Pipe(管路)
+- Search patterm with grep/egrep
+	- search a user in /etc/passwd: **_sudo ␣ less ␣ /etc/passwd ␣ | ␣ grep runner_**
+	- search **sudo group** in /etc/groups: **_sudo ␣ less ␣ /etc/group ␣ | ␣ grep sudo_**
+- tr character with pipe
+	- **_tr ␣ 'nutc' ␣ 'NUTC' ␣ < text.txt_**
+	- cat ␣ text.txt | tr ␣ 'nutc' ␣ 'NUTC'
+
+- Try all of examples in this slide by yourself
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Examples of Pipe
+- [Setting IP for X server on Windows Linux Subsystem](./03environment.html#/4/1)
+
+<pre><code>cat /etc/resolv.conf | grep nameserver | awk '{print $2}'</code></pre>
+- Did you understand what to do the above line of command ?  
+
+- **awk '{print $2}'** mean to prints the second field in the input record.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Regular Expressions
 </script>
 </section>
@@ -149,30 +176,30 @@ ccc</code></pre>
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## BRE/ERE 
+## BRE/ERE Backslash and Bracket
 - Most characters, including all letters and digits, are regular expressions that match themselves.
-- **Any meta-character with special** meaning may be quoted by preceding it with **a backslash(\\)**.
+- **Any meta-backcharacter with special** meaning may be quoted by preceding it with **a backslash(\\)**.
 - The **period .** matches any **single character**.
 - Bracket Expressions
 	- A bracket expression is **a list of characters enclosed by [ and ]**.  It matches any single character in that list.
 	- If **the first character of the list is the caret ^** then it matches any character **not** in the list.
-	- For example, the regular expression [0123456789] matches any single digit.
+	- For example, the regular expression **[0123456789] matches any single digit**.
 </script></section>
 <section data-markdown><script type="text/template">
-## BRE/ERE
+## BRE/ERE Character Classes
 - Bracket Expressions
-	- **A range expression** consists of two characters separated by **a hyphen**. For example, [a-d]  is equivalent to [abcd].
+	- **A range expression** consists of two characters separated by **a hyphen**. For example, **[a-d]  is equivalent to [abcd]**.
 - Character Classes
 	- Certain named classes of characters are predefined within bracket expressions, as follows. they are [:alnum:], [:alpha:], [:cntrl:], [:digit:], [:graph:], [:lower:],  [:print:],  [:punct:],  [:space:],  [:upper:],  and  [:xdigit:].
-	- For  example,	[[:alnum:]]  means  the character class of numbers and letters in the current locale. In the C locale and ASCII character set encoding, this is the	same as [0-9A-Za-z].
+	- For  example,	**[[:alnum:]]  means  the character class of numbers and letters** in the current locale. In the C locale and ASCII character set encoding, this is **the	same as [0-9A-Za-z]**.
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## BRE/ERE
+## BRE/ERE Anchoring
 - Anchoring
-	- The caret ^ and the dollar sign $ are meta-characters that respectively match the empty string at the beginning and end of a line.
+	- The **caret ^ and the dollar sign $** are meta-characters that respectively match the empty string at **the beginning and end of a line**.
 - The Backslash Character and Special Expressions
-	- The symbols \\< and \\> respectively match the empty string at the beginning and end of a word.  The symbol \b matches the empty string at  the  edge
+	- The **symbols \\< and \\>** respectively match the empty string at **the beginning and end of a word**.  The symbol \b matches the empty string at  the  edge
 	of  a  word,  and  \B  matches  the  empty string provided it's not at the edge of a word.  The symbol \w is a synonym for [\_[:alnum:]] and \W is a
 	synonym for [\^_[:alnum:]].
 </script>
@@ -181,28 +208,31 @@ ccc</code></pre>
 <section data-markdown><script type="text/template">
 ## BRE/ERE Repetition
 - A regular expression may be followed by one of several repetition operators:
-| operators	| Description	|
-| :---		| :---			|
-| ? 		| The preceding item is optional and matched at most once.	|
-| *			| The preceding item will be matched zero or more times.	|
-| + 		| The preceding item will be matched one or more times.		|
-| {n}		| The preceding item is matched exactly n times.			|
-| {n,}		| The preceding item is matched n or more times.			|
-| {,m}		| The preceding item is matched at most m times.  This is a GNU extension.	|
-| {n,m}		| The preceding item is matched at least n times, but not more than m times.	|
+| operator	| Description	|
+| :---:		| :---			|
+| ? 		| The preceding item is optional and matched at **most once**.	|
+| *			| The preceding item will be matched **zero or more times**.	|
+| + 		| The preceding item will be matched **one or more times**.		|
+| {n}		| The preceding item is matched **exactly n times**.			|
+| {n,}		| The preceding item is matched **n or more times**.			|
+| {,m}		| The preceding item is matched **at most m times**.  This is a GNU extension.	|
+| {n,m}		| The preceding item is matched **at least n times, but not more than m times**.	|
 </script>
 </section>
 <section data-markdown><script type="text/template">
+## BRE/ERE Alternation and Precedence 
 - Alternation
-	- Two  regular  expressions  may  be  joined  by  the infix operator |; the resulting regular expression matches any string matching either alternate
+	- Two  regular expressions may be **joined by the infix operator |** ; the resulting regular expression matches any string matching either alternate
 	expression.
-
 - Precedence
-	- Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  A whole expression may be enclosed in parentheses
+	- Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  **A whole expression may be enclosed in parentheses**
 	to override these precedence rules and form a subexpression.
-
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## BRE/ERE Back References
 - Back References and Subexpressions
-	- The  back-reference  \n,  where n is a single digit, matches the substring previously matched by the nth parenthesized subexpression of the regular
+	- The **back-reference \n,  where n is a single digit**, matches the substring previously matched by the nth parenthesized subexpression of the regular
 	expression.
 
 - Basic vs Extended Regular Expressions
@@ -210,37 +240,66 @@ ccc</code></pre>
 	\|, \(, and \).
 </script>
 </section>
+<section data-markdown><script type="text/template">
+## Regular Expression Examples(1/3)
+- **a|b\*** denotes {ε, "a", "b", "bb", "bbb", ...}
+
+- **(a|b)\*** denotes the set of all strings with no symbols other than "a" and "b", including the empty string: {ε, "a", "b", "aa", "ab", "ba", "bb", "aaa", ...}
+
+- **ab\*(c|ε)** denotes the set of strings starting with "a", then zero or more "b"s and finally optionally a "c": {"a", "ac", "ab", "abc", "abb", "abbc", ...}
+
+- **(0|(1(01\*0)\*1))\*** denotes the set of binary numbers that are multiples of 3: { ε, "0", "00", "11", "000", "011", "110", "0000", "0011", "0110", "1001", "1100", "1111", "00000", ... }
+</script></section>
+<section data-markdown><script type="text/template">
+## Regular Expression Examples(2/3)
+- **.at** matches any three-character string ending with "at", including "hat", "cat", "bat", "4at", "#at" and " at" (starting with a space).
+
+- **[hc]at** matches "hat" and "cat".
+
+- **[^b]at** matches all strings matched by .at except "bat".
+
+- **[^hc]at** matches all strings matched by .at other than "hat" and "cat".
+- **^[hc]at** matches "hat" and "cat", but only at the beginning of the string or line.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Regular Expression Examples(3/3)
+- **[hc]at$** matches "hat" and "cat", but only at the end of the string or line.
+
+- **\[.\]** matches any single character surrounded by "[" and "]" since the brackets are escaped, for example: "[a]", "[b]", "[7]", "[@]", "[]]", and "[ ]" (bracket space bracket).
+
+- **s.\*** matches s followed by zero or more characters, for example: "s", "saw", "seed", "s3w96.7", and "s6#h%(>>>m n mQ".
+</script>
+</section>
 </section><!--end block-->
 <section><!--start block-->
-
 <section data-markdown><script type="text/template">
-## grep command
-- GNU grep has the following options: "grep -E" for ERE, and "grep -G" for BRE (the default), and "grep -P" for Perl regexes. 
+# Grep and Examples
+</script></section>
+<section data-markdown><script type="text/template">
+## Grep Command
+- GNU grep has the following options: **"grep -E" for ERE**, and **"grep -G" for BRE** (the default), and "grep -P" for Perl regexes. 
 
-<pre><code data-trim>search for a user named ‘alice’ and ‘bob’ using the egrep command:
-	grep -Ew '^(alice|bob)' /etc/passwd
-	
-	The -E enables extended regular expressions and the -w option match only whole Unix user names.
-</code></pre>
+- The example will search for a user named ‘alice’ and ‘bob’ using the egrep command:
+	- **_grep ␣ -Ew ␣ '^(alice|bob)' ␣ /etc/passwd_**
+	- The -E enables extended regular expressions and **the -w option match only whole Unix user names**.
+	- The -i is ignore-case which a example is: **_grep ␣ -i ␣ 'network' ␣ /etc/passwd_**
 </script>
 </section>
 
 <section data-markdown><script type="text/template">
-## Popular port numbers in Linux
-- HTTP – TCP 80
-- HTTPS – TCP 443
-- POP3 – TCP 110
-- SMTP – TCP 25
-- SSH – TCP 22
-- DNS/DOMAIN – TCP/UDP 53
-</script>
-</section>
+## Grep services of system
+- Popular port numbers in Linux
+| Service	| Protocol	| Port NO	| Service	| Protocol	| Port NO	|
+| :---		| :---		| :---:		| :---		| :---		| :---:		| 
+| HTTP		| TCP		| **80**	| HTTPS		| TCP 		| **443**	|
+| POP3		| TCP		| 110		| SMTP 		| TCP		| 25		|
+| SSH 		| TCP		| **22**	| DNS/DOMAIN| TCP/UDP	| 53		|
 
-<section data-markdown><script type="text/template">
-## Query port number with cat, grep Command
-- cat /etc/services
-- grep -w 80 /etc/services
-- egrep -w '53/(tcp|udp)' /etc/services
+- Query port number with cat, grep Command
+	- **_cat ␣ /etc/services_**
+	- **_grep ␣ -w ␣ 80 ␣ /etc/services_**
+	- **_egrep ␣ -w ␣ '53/(tcp|udp)' ␣ /etc/services_**
 </script>
 </section>
 </section><!--end block-->
