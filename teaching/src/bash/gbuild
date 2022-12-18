@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+
+C=gcc
+CC=g++
+CFLAGS="-O3 -s"
+CXXFLAGS="-std=c++2a"
+#LDFLAGS="LIB PATH"
+# concept is not support on clang++ yet, it should be used g++ to compile the source code with using concept.
+
+fullfile="$1"
+filename=$(basename -- "$fullfile")
+suffix="${filename##*.}"
+# remove matching perfix pattern, see man bash; /## // search ## on man page.
+filename="${filename%.*}"
+
+if [[ $# < 1 ]]; then
+    echo "You forgot the filename to complie it."
+elif [[ ! -f "$fullfile" ]]; then
+    echo "File \"$fullfile\" does not exist."
+    echo "Note: To compile it, the extension of filename should be changed to .c, .C, .cpp, .cxx or .cc."
+elif [[ $suffix == "c" || $suffix == "C" ]]; then
+    $C $CFLAGS $@ -o $filename.exe
+elif [[ $suffix == "cpp" || $suffix == "cxx" || $suffix == "cc" ]]; then
+    $CC $CFLAGS $CXXFLAGS $@ -o $filename.exe
+
+fi
+
+# if error, then show it.
+if [[ $? == "1" ]]; then
+    echo $status
+fi

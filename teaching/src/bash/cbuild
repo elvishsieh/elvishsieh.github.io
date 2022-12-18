@@ -1,0 +1,32 @@
+#!/usr/bin/bash
+
+C=clang
+CC=clang++
+#CFLAGS="-fuse-ld=lld -O3 -s"
+CFLAGS="-O3 -s"
+CXXFLAGS="-std=c++20 -stdlib=libc++ -lc++ -lc++abi"
+#CXXFLAGS="-std=c++17"
+#LDFLAGS="LIB PATH"
+# -stdlib=libc++ is not work on clang++ without -lc++abi, and it will be change to -stdlib=libc++ for unix-like system.
+
+fullfile="$1"
+filename=$(basename -- "$fullfile")
+suffix="${filename##*.}"
+# remove matching perfix pattern, see man bash; /## // search ## on man page.
+filename="${filename%.*}"
+
+if [[ $# < 1 ]]; then
+    echo "You forgot the filename to complie it."
+  elif [[ ! -f "$fullfile" ]]; then
+    echo "File \"$fullfile\" does not exist."
+    echo "Note: To compile it, the extension of filename should be changed to .c, .C, .cpp, .cxx or .cc."
+  elif [[ $suffix == "c" || $suffix == "C" ]]; then
+     $C $CFLAGS $@ -o $filename.exe
+  elif [[ $suffix == "cpp" || $suffix == "cxx" || $suffix == "cc" ]]; then
+     $CC $CFLAGS $CXXFLAGS $@ -o $filename.exe
+fi
+
+# if error, then show it.
+if [[ $? == "1" ]]; then
+    echo $status
+fi
