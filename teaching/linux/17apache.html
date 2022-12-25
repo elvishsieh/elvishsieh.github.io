@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Apache Web 伺服器</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Apache HTTP Server
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Install Apache
+- To install Apache, install **the latest meta-package apache2** by running:
+<pre><code>sudo apt update
+sudo apt install apache2</code></pre>
+- After letting the command run, all required packages are installed and we can **test it out by typing in our IP address** for the web server.
+	- Open web browser and typing http://localhost to test the web server whether is working or not?
+- By default, Apache comes with a basic site enable in /var/www/html
+</script></section>
+<section data-markdown><script type="text/template">
+## Apache2 is Working Page
+![](/images/linux/apache2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## localhost on a Vritual Host(1/2)
+1. Create a directory
+	- **_sudo ␣ mkdir ␣ -p ␣ /var/www/example.com/html_**
+2. Edit a index.html in /var/www/example.com/html
+<pre><code>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+&lt;/head>
+&lt;body>
+	<h1>example.com home page</h1>
+	<p>It is www.example.com virtual hosts</p>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## localhost on a Vritual Host (2/2)
+4. Copy configure file: **_sudo ␣ cp ␣ /etc/apache2/sites-available/{000-default.conf,example.conf}_**
+5. Modify example.conf file as following
+<pre><code>&lt;VirtaulHost *:80>
+ServerName localhost
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/example.com/html
+&lt;/VirtualHost></code></pre>
+6. Enable example.com site
+	- **_sudo ␣ a2ensite ␣ example.conf_**
+7. Reload apache2 configuration
+	- **_sudo ␣ systemctl ␣ reload ␣ apache2_**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Set up SSL on Apache
+</script></section>
+<section data-markdown><script type="text/template">
+## Create public/private Key
+1. Install OpenSSL
+	- **_sudo ␣ apt ␣ install ␣ openssl ␣ -y_**
+2. Create public/private key with openssl
+	- **_sudo ␣ openssl ␣ req ␣ -x509 ␣ -nodes ␣ -days ␣ 365 ␣ -newkey ␣ rsa:2048 ␣ -keyout ␣ /etc/ssl/private/example-com.key ␣ -out ␣ /etc/ssl/certs/example-com.crt_**
+<pre><code>Country Name (2 letter code) [AU]:TW
+State or Province Name (full name) [Some-State]:Taiwan
+Locality Name (eg, city) []:Taichung
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:nutc
+Organizational Unit Name (eg, section) []:mis
+Common Name (e.g. server FQDN or YOUR name) []:www.example.com
+Email Address []:admin@localhost</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Configure SSL on Apache(1/2)
+1. Copy configure file
+	- **_sudo ␣ cp ␣ /etc/apache2/sites-available/{default-ssl.conf,example-ssl.conf}_**
+2. **Modify example-ssl.conf file** which is content as following
+
+<pre><code data-trim data-line-numbers>&lt;IfModule mod_ssl.c>
+	&lt;VirtualHost _default_:443>
+		ServerName  localhost
+		ServerAdmin webmaster@localhost
+		DocumentRoot /var/www/example.com/html
+		SSLEngine on
+		SSLCertificateFile  /etc/ssl/certs/example-com.crt
+		SSLCertificateKeyFile  /etc/ssl/private/example-com.key
+	&lt;/VirtualHost>
+&lt;/IfModule></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Configure SSL on Apache(2/2)
+3. Enable the example-ssl.conf configure file
+	- **_sudo ␣ a2ensite ␣ example-ssl.conf_**
+4. Enable ssl mode of Apache
+	- **_sudo ␣ a2enmod ␣ ssl_**
+5. make sure the following file **whether exist or not**
+	- /var/www/example.com/html/index.html
+6. Open website using https protocol
+	- **_lynx ␣ [https://localhost](https://localhost)_** or **see next slides**
+</script></section>
+<section data-markdown><script type="text/template">
+## Allow the Insecure <br />Connection Errors(1/3)
+![](/images/linux/sslApache.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Allow the Insecure <br />Connection Errors(2/3)
+![](/images/linux/sslApache2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Allow the Insecure <br />Connection Errors(3/3)
+![](/images/linux/sslApache3.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Virtual Hosts for <br />Multiple Hostname
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting Up Hostname on Linux
+- Your server has multiple hostnames that resolve to a single address, and you want to respond differently for www.example.com and www.cgi-domain.com.
+- Setting up multiple hostnames on Ubuntu
+	- sudo nano /etc/hosts
+
+<pre><code data-trim data-line-numbers># This file was automatically generated by WSL. To stop automatic generation of this file, add the following entry to /etc/wsl.conf:
+# [network]
+# generateHosts = false
+127.0.0.1	www.example.com		 exampleAlias
+127.0.1.1	LAPTOP-PT5NIKQ8.		LAPTOP-PT5NIKQ8
+127.0.0.2	www.cgi-domain.com.	 cgi-domain
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting up Virtual Host(1/3)
+- Testing hostname with ping command
+	- ping www.example.com // or ping exampleAlias
+	- ping www.cgi-domain.com // or ping cgi-domain
+- Refer to [localhost on a Vritual Host (2/2)](./17apache.html#/0/4) and modify example.conf file as following
+<pre><code>	ServerName  www.example.com</code></pre>
+- Reload Apache2 for modified example.con configure file
+	- **_sudo systemctl reload apache2example.conf_**
+- Testing [http://www.example.com](http://www.example.com) hostname whether is working or not
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting up Virtual Host(2/3)
+1. Create a directory
+	- **_sudo ␣ mkdir ␣ -p ␣ /var/www/cgi-domain.com/html_**
+2. Edit a index.html in /var/www/cgi-domain.com/html
+<pre><code>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+&lt;/head>
+&lt;body>
+	<h1>cgi-domain home page</h1>
+	<p>It is www.cgi-domain.com virtual hosts</p>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting up Virtual Host(3/3)
+4. Copy configure file: **_sudo ␣ cp ␣ /etc/apache2/sites-available/{000-default.conf,cgi-domain.conf}_**
+5. Modify cgi-domain.conf file as following
+<pre><code>&lt;VirtaulHost *:80>
+ServerName www.cgi-domain.com
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/cgi-domain.com/html
+&lt;/VirtualHost></code></pre>
+6. Enable cgi-domain.com site
+	- **_sudo ␣ a2ensite ␣ cgi-domain.conf_**
+7. Reload apache2 configuration
+	- **_sudo ␣ systemctl ␣ reload ␣ apache2_**
+</script></section>	
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Configure Apache
+</script></section>
+<section data-markdown><script type="text/template">
+## Add a new filename of home page
+1. Modify /etc/apache2/sites-available/cgi-domain.conf file
+
+<pre><code data-trim>&lt;VirtaulHost *:80>
+ServerName www.cgi-domain.com
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/cgi-domain.com/html
+DirectoryIndex  welcome.html index.html index.php index.htm 
+&lt;/VirtualHost></code></pre>
+2. **_sudo systemctl reload apache2_**
+3. Move index.html to welcome.html
+	- **_sudo ␣ mv ␣ /var/www/cgi-domain.com/html/{index.html,welcome.html}_**
+4. lynx [http://www.cgi-domain.com](http://www.cgi-domain.com)
+</script></section>
+<section data-markdown><script type="text/template">
+## Configure the HTTPD port No
+1. Add the following text into /etc/apache2/port.conf file
+	- **_sudo ␣ nano ␣ /etc/apache2/port.conf_**
+<pre><code>Listen 8080</code></pre>
+2. sudo ␣ nano ␣ /etc/apache2/sites-available/cgi-domain.conf
+<pre><code>&lt;VirtualHost *.8080>
+... ## don't modify the content
+&lt;/VirtualHost>
+</code></pre>
+3. **_sudo systemctl reload apache2_** // reload configure
+4. lynx [http://cgi-domain:8080](http:cgi-domain:8080)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Managing <br />Apache Server
+</script></section>
+<section data-markdown><script type="text/template">
+## Systemctl Command
+- systemctl - Control the systemd system and service manager
+- SYNOPSIS: **systemctl [OPTIONS...] COMMAND [UNIT...]**
+- COMMANDS:
+	1. **status** [PATTERN...| PID...] // systemctl status bluetooth
+	2. **start, stop, reload, restart** PATTERN... 
+		- **_systemctl ␣ start ␣ apache2_**
+	3. **kill** PATTERN... // Send a signal to one or more processes of the unit.
+	4. **clean** PATTERN... // Remove the configuration, state, cache, logs or runtime data of the specified units.
+</script></section>
+<section data-markdown><script type="text/template">
+## Service Command
+- service - **run a System V init script**
+- SYNOPSIS: 
+	- **service** SCRIPT COMMAND [OPTIONS]
+- FILES: /etc/init.d // The directory containing System V init scripts.
+- COMMANDS:
+	1. **status** // service apache2 status
+	2. **start, stop, reload, restart** command 
+- Example of Command 
+	- **_service ␣ apache2 ␣ {status,start,stop,reload,restart}_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Managing Command for HTTPD
+- Command only for Debian/Ubuntu System
+	- **a2ensite, a2dissite, a2enmod, a2dismod, a2enconf, a2disconf**
+	- A example: **_a2ensite example.conf_** // Enable www.example.com site configure file.
+- Apache HTTPD Command 
+	- **/usr/sbin/{apache2,apache2ctl,apachectl}** // apachectl command is a symbolic to apache2ctl
+	- **apache2** [-k start|restart|graceful|graceful-stop|stop]
+	- **apache2ctl** start|stop|restart|graceful|graceful-stop|configtest|status|fullstatus|help
+	- A example: **_apache2 ␣ -k ␣ restart_** or **_apache2ctl ␣ restart_**
+</script></section>
+</section><!--end block-->
+
+<section><!-- start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+<section data-markdown><script type="text/template">
+## Booting with systemd on WSL
+1. **Create /etc/wsl.conf** file on Ubuntu which is the content as following
+<pre><code>[boot]
+systemd=true
+</code></pre>
+2. Exit Ubuntu system
+3. Shutdown WSL System
+	- **_wsl ␣ --shutdown_**
+4. Reboot Ubuntu on WSL.
+	- **_ubuntu_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting up hostname on WSL
+1. **Create /etc/wsl.conf** file on Ubuntu which is the content as following
+<pre><code>[network]
+generateHosts = false # don't automatic to generate /etc/hosts file.
+generateReslovConf = false
+hostname = www.test.edu.tw
+</code></pre>
+2. Exit Ubuntu system
+3. Shutdown WSL System
+	- **_wsl ␣ --shutdown_**
+4. Run hostname on Ubuntu
+	- **_hostname_**
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
