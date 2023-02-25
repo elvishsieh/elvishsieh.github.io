@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Orange 資料載入</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# The Orange's<br /> Data Format
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading and saving data
+- Orange can read files in proprietary **tab-delimited** format, or can load data from any of the **major standard spreadsheet file types**, like CSV, Excel, Google Sheet and LibreOffice Calc, etc. 
+	- Comma-separated values (*.csv) file,
+	- Tab-separated values (*.tab, *.tsv) file,
+	- Excel spreadsheet (*.xls, *.xlsx),
+	- Python pickle (A module of Python for reading and saved data)
+- In addition, the text-based files (CSV, TSV) can be compressed with **gzip, bzip2 or xz** (e.g. *.csv.gz).
+- [The SQL widget](https://orange3.readthedocs.io/projects/orange-visual-programming/en/latest/widgets/data/sqltable.html)  can connect to PostgreSQL or SQL Server.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Input
+![](/images/datamining/format.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Three-line header format(1/2)
+- **Feature names** on the first line. Feature names can include any combination of characters.
+- **Feature types** on the second line. The type is determined automatically, or, if set, can be any of the following:
+	- discrete (or d) — imported as Discrete Variable,
+	- a space-separated **list of discrete values**, like "male female", which will result in Discrete Variable with those values and in that order. If the individual values contain a space character, it needs to be escaped (prefixed) with, as common, a backslash ('\') character.
+	- continuous (or c) — imported as Continuous Variable,
+</script></section>
+<section data-markdown><script type="text/template">
+## Three-line header format(2/2)
+- **Feature types** on the second line:
+	- string (or s, or text) — imported as String Variable,
+	- time (or t) — imported as Time Variable,
+- **Flags (optional)**
+	- class (or c) — a class variable.
+	- meta (or m) — a meta-attribute,
+	- weight (or w) — the feature marks the weight of examples
+	- ignore (or i) — feature will not be imported,
+	- \<key\>=\<value\> are custom attributes recognized in specific contexts.
+</script></section>
+<section data-markdown><script type="text/template">
+## Object Feature and Instance
+![](/images/datamining/instance.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Single-line header format
+- Single-line header consists of feature names prefixed by an optional **"\<flags\>#"** string, i.e. **flags followed by a hash ('#') sign**. The flags can be a consistent **combination** of:
+	- **c for class feature** (also known as a target variable or dependent variable),
+	- **i for feature to be ignored**,
+	- **m for meta attributes** (not used in learning),
+	- **C** for features that are **continuous (numeric)**,
+	- **D** for features that are **discrete (categorical)**,
+	- **T** for features that represent **date and/or time** in one of the **ISO 8601 formats**,
+	- **S** for **string** features.
+</script></section>
+<section data-markdown><script type="text/template">
+## Single-line header Dataset
+![](/images/datamining/singleLine.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading dataset from Orange
+![](/images/datamining/clenses.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading data from Google Sheet
+- File >> URL: [The share URL of Goolge Sheet](https://docs.google.com/spreadsheets/d/1BdM81vwA7zjPS1yywMyNJEmmqBjGMFdlPuDIhkCmpzg/edit#gid=0)
+![](/images/datamining/googleSheet.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Unformat dataset of Orange
+- File >> loading tlenses.tab dataset >> Data Table
+![](/images/datamining/tlenses.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Loading dataset <br />from Python IDE
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading clenses.tab dataset
+![](/images/datamining/loadPython.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## All Commands for previous slide
+1. Change directory into the iPython.exe file folder
+2. Running iPython.exe
+3. Import Orange and os packages
+4. Change into the directory of clenses.tab dataset
+5. Loading clenses.tab dataset and being setted to the data variable 
+6. Reading attribute from data variable
+7. Reading class.var from data variable  
+<pre><code data-trim data-line-numbers>cd 'C:\Program Files\Orange\Scripts\'
+ipy TAB
+import Orange,os
+os.chdir("C:/Users/USER/Documents/dataMining/dataset")
+data = Orange.data.Table("clenses")
+data.Domain.attributes
+data.Domain.class_var
+</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Do it by yourself
+- Loading a **file.gz dataset**
+	- You could download a .gz dataset from my Google Drive
+- Loading a **dataset of Google Sheet**
+	- Making a dataset of Google Sheet by yourself if have had an account on Google.
+- Loading **clenses.tab dataset from Python IDE**
+	- Making sure to view the attributes and claas_var of clenses.tab on the Pthon IDE screen.
+</script></section>
+<section data-markdown><script type="text/template">
+## Prescription dataset by Python
+<pre><code data-trim>import Orange,os
+os.chdir("C:/Users/USER/Documents/dataMining/dataset")
+data = Orange.data.Table("clenses")
+print("Attributes:", ", ".join(x.name for x in data.domain.attributes))
+print("Class:", data.domain.class_var.name)
+print("Data instances", len(data))
+target = "soft"
+print("Data instances with %s prescriptions:" % target)
+atts = data.domain.attributes
+for d in data:
+	if d.get_class() == target:  # 找 target feature 內 value = soft 的 instance
+		print(" ".join(["%14s" % str(d[a]) for a in atts]))</code></pre>
+![](/images/datamining/03_01findTarget.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Prescription dataset Workflow
+- File >> Data Table >> Select Row >> Data Table
+![](/images/datamining/findTarget.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## No target dataset
+![](/images/datamining/noTarget.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting target dataset
+![](/images/datamining/target.gif)
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# iris dataset
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## A dataset of three kinds of iris
+![](/images/datamining/iris.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Lists of instance data
+<pre><code data-trim>import Orange
+
+data = Orange.data.Table("iris")
+print("First three data instances:")
+for d in data[:3]:
+	print(d)
+
+print("25-th data instance:")
+print(data[24])
+
+name = "sepal width"
+print("Value of '%s' for the first instance:" % name, data[0][name])
+print("The 3rd value of the 25th data instance:", data[24][2])</code></pre>
+
+</script></section>
+<section data-markdown><script type="text/template">
+## The resoult of previous slide
+![](/images/datamining/listInstance.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Reading Row from Orange
+![](/images/datamining/threeInstance.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Selecting Setosa dataset Only
+- File >> 03_02selectSetosa.ows
+![](/images/datamining/setosa.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Do it by yourself
+- Drilling for prescription dataset
+	- Running the **03_01findTarget.py** script in iPthon IDE
+		- You could download 03_01findTarget.py file from src directory of my Google Drive
+	- Loading the **03_01findTarget.ows** to know how to make this workflow
+- Drilling for Setting target dataset
+	- **Making a dataset of Google Sheet by yourself**
+- Reading iris instance from iPython IDE and Orange
+	- Running **03_02listInstance.py** script in iPython IDE
+	- Loadnig **03_02selectSetosa.ows** file by Orange
+	- Could you **read only iris-virginica instances** from iris dataset by used Orange data mining?
+</script></section>
+
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+<section data-markdown><script type="text/template">
+## Directory structure of Orange
+- Root directory of Orange if it **was installed in D:\Orange**
+<pre><code>D:\Orange\Lib\site-packages\Orange\</code></pre>
+- Orange datasets folder
+<pre><code>D:\Orange\Lib\site-packages\Orange\datasets</code></pre>
+- **classification, clustering, modeling, preprocessing**, etc. 
+	- It was the same name directory of functions that correspond to root-base's subdirectory.
+<pre><code>D:\Orange\Lib\site-packages\Orange\classification</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Datasets
+- [World Bank Open Data](https://data.worldbank.org/) is the platform where you get free access to global development data.
+- [Data.gov](https://data.gov/) - You will find all the open data collected and processed by the US Govt. in Data.gov.
+- [BigQuery public datasets](https://cloud.google.com/bigquery/public-data/) - Many public datasets are stored on BigQuery. Google makes the dataset accessible for free through the Google Cloud Public Dataset Program.
+- [Open Datasets: Kaggle](https://www.kaggle.com/datasets) offers an ocean of public data and computer codes for data science projects.
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets) is an open-source dataset that contains topic-centric public data.
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>資料探勘 (Data Mining) 簡介</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 何謂資料探勘 (Data Mining)?
+- 資料探勘是一種從資料當中挖掘**隱性、先前未知、有用的資訊**，並將其轉換成可理解的結構，以進一步使用。
+- 資料探勘除了原始分析步驟，它還涉及到**資料庫和資料管理方面**、**資料預處理**、**模型與推斷方面考量**、**興趣度度量**、**複雜度**的考慮，以及**發現結構、視覺化、線上更新**等後置處理。
+- 資料探勘是資料庫內知識探索 (Knowledge-Discovery in Databases, KDD) 的分析步驟，本質上屬於機器學習的範疇。
+![](/images/datamining/kdd.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 星期五、尿布與啤酒的故事
+<ul>
+	<li class="fragment">你如果是一位零售業的主管，你會想要把尿布與啤酒擺放在一起賣嗎？</li>
+	<li class="fragment">沃爾瑪(Wal-Mart)是美國最大的零售業，資訊工程師在分析結帳數據時發現，<b>每到星期五晚上，尿布和啤酒的銷售量有正向關聯性。</b></li>
+	<li class="fragment">透過調查才知道，原來美國週五晚上，父親常常幫家裡到超市買尿布，順便為週末球賽會購買啤酒回家。</li>
+	<li class="fragment">沃爾瑪採取合購策略，<b>固定在每週五，啤酒和尿布擺設放在同一區域，意外讓這兩項產品的銷售量提升30%。</b></li>
+</ul>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 到處都是大型的資料
+<figure style="float: right">
+<img src="/images/datamining/largedata.png" alt="large data">
+</figure>
+
+- 網路安全 (Cyber Security)
+- 電子商務 (E-Commeric)
+- 交通網路 (Traffic Pattern)
+- 社會網絡
+	- Twitter, Facebook, Line
+- 感知器網路
+	- 路口監視器、太空遙測 
+- 計算模擬
+	- 化學、物理、天文等
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 為何需要資料探勘 - 商業觀點
+<figure style="float: right">
+<img src="/images/datamining/google.png" alt="large data">
+</figure>
+
+- 許多資料被蒐集與儲存
+	- **Web Data**
+		- Google 公司擁有 **peta Bytes** Web 資料
+		- Facebook 有十億的使用者上線
+	- 購物的資料
+		- 在百貨公司、雜貨店、電子商務購物
+		- Amazon 每天處理百萬的瀏覽者
+	- 銀行/信用卡交易資料
+- 強烈的競爭壓力
+	- **提供更好、客製化的服務**，例如：顧客關係管理
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 為何需要資料探勘 - 科學觀點
+<figure style="float: right">
+<img src="/images/datamining/science.png" alt="scinece">
+</figure>
+
+- 在極快速產出的資料下蒐集資料
+	- 在衛星上的遙感測器
+		- NASA EOSDIS 每年蒐集 **Peta Bytes** <br />的地球科學資料
+	- 望遠鏡掃描天空
+		- 天空調查的資料
+	- 高產出的生物的資料
+	- 科學模擬 (scientific simulations)
+	
+- 資料探勘可以幫助科學家做什麼
+	- 自動分析龐大的資料集
+	- 臆測結構
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 資料探勘的應用
+![](/images/datamining/majorProblem.png) 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Intro. to Data Mining
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料探勘的任務 (1/2)
+- **預測 (Predictive tasks)**
+	- 主要是在其他資料集 (dataset) 的屬性值中，預設出特別的屬性值
+	- 被預測的屬性值稱為目標 (target) 或 相依變數 (dependent variables)
+	- 做預測的屬性值被稱為解譯 (explanatory) 或者獨立變數 (independent variables)
+- **描述 (Descriptive tasks)**
+	- 主要是在資料集中導引出範例 (pattern)，總結一些潛在的關係
+	- 描述性的資料探勘需要後置處理 (postprocessing) 技術來驗證解釋的結果
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料探勘的任務 (2/2)
+![](/images/datamining/task.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 分類 (classification) 的範例
+![](/images/datamining/employ.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 預測建模 - 分類 (classification)
+![](/images/datamining/training.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 分群 (Clustering)
+- 從資料集 (dataset) 物件中**找出相同的群體**，或者從物件中**找出不同的群體**，這種資料操作的技術稱為分群 (clustering)
+![](/images/datamining/clustering.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯法則 (Association Rule)
+- 從已知的資料集中，利用關聯法則**找出每一個項目之間的關聯性，得到商品的相關性**
+	- 透過資料探勘關聯法則 (Association Rule)技術，得知**尿布、牛奶與啤酒有相關**
+![](/images/datamining/diaper.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Data Mining Software(1/2)
+- [Weka](https://git.cms.waikato.ac.nz/weka/weka) is a collection of machine learning algorithms for data mining tasks. It contains tools for data preparation, **classification, regression, clustering, association rules** mining, and visualization.
+- The [RapidMiner](https://github.com/rapidminer) is a software platform for data science teams that unites data prep, machine learning, and predictive model deployment.
+- [Apache Mahout(TM)](https://mahout.apache.org/) is a distributed linear algebra framework and mathematically expressive Scala DSL designed to let mathematicians, statisticians, and data scientist quickly implement their own algorithms.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Mining Software(2/2)
+- [Scikit-learn](https://scikit-learn.org/stable/) is a popular **Python library** for data analysis and data mining that is built on top of SciPy, Numpy and Matplotlib.
+- [Rattle GUI](https://rattle.togaware.com/) is a free and open source software (GNU GPL v2) package providing a graphical user interface (GUI) for data mining using the **R statistical programming language**. 
+- [Orange data mining](https://orangedatamining.com/) is an open source machine learning and data visualization. Build data analysis workflows visually, with a large, diverse toolbox.
+</script></section>
+</section><!--end block-->
+
+<section><!--start blokc-->
+<section data-markdown><script type="text/template">
+# DataBase <br />v.s <br />Data Warehouse
+</script></section>
+<section data-markdown><script type="text/template">
+## What is a Data Warehouse
+- Defined in many different ways, but not rigorously.
+	- **A decision support database** that is maintained **separately from the organization's operational database**
+	- Support information processing by providing **a solid platform** of consolidated, historical data for analysis.
+- “A data warehouse is a **subject-oriented, integrated, time-variant, and nonvolatile** collection of data in support of management's decision-making process.”—W. H. Inmon
+- Data warehousing:
+	- The process of constructing and using data warehouses
+</script></section>
+<section data-markdown><script type="text/template">
+## A Sample Data Cube
+![](/images/datamining/cube.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## OLTP vs. OLAP
+![](/images/datamining/olap.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## A Multi-Tiered Architecture
+![](/images/datamining/multiTiered.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 附錄 (Appendix)
+</script></section>
+<section data-markdown><script type="text/template">
+## 機器學習 (Machine Learning)
+- 機器學習是人工智慧 (Artificial Intelligence) 的分支，在**探索領域 (inquary field) **中致力在**電腦學習新的事物**與**建立學習演算法**，機器學習演算法是基於取樣資料上建立一個模型，被稱為訓練資料 (training data)，
+	**不需要明確地編寫程式**完成預測或決策的任務。
+- 機器學習具有以下功能：
+	- 描述 (description) - 機器學習可以使用資料**解析發生了什麼？**
+	- 預測 (prediction) - 機器學習可以使用資料**預測會發生了什麼？**
+	- 處方 (prescription) - 機器學習可以使用資料**在採取行動時提出建議？**
+</script></section>
+<section data-markdown><script type="text/template">
+## 機器學習的分類
+- 監督式學習 (Supervised Learning)
+	- 由**訓練資料**中學到或建立一個**學習模型** (learning model)，並依此模式**推測新的實例**
+	- **數學練習，參考數學的答案以後，得到數學的基本概念，再依照這個基本概念來求解其他的問題**
+- 非監督式學習 (Unsupervised Learning)
+	- **沒有**給定**事先標記過的訓練樣版 (Pattern)**，自動對輸入的資料進行分類或分群
+- 半監督式學習 (Semi-supervised Learning)
+	- 監督式與非監督式學習的組合
+- 強化式學習 (Reinforcement Learning)
+	- **強調如何基於環境而行動**，以取得**最大化**的預期利益
+</script></section>
+<section data-markdown><script type="text/template">
+## Supervised Learning Algorithm
+- **支持向量機 (Support-vector machines, SVM)**
+- 羅吉斯回歸 (Logistic regression)
+<figure style="float: right">
+<img src="/images/datamining/supervised.png" width = "60%" alt="large data">
+</figure>
+- 線性回歸 (Linear regression)
+- 單純貝式 (Naive Bayes)
+- **決策樹 (Decision trees)**
+- 線性判別分析 (Linear discriminant analysis)
+- **最近鄰居演算法 (K-nearest neighbor algorithm)**
+- 類神經網路 (Neural networks, Multilayer perceptron)
+- 相似性學習 (Similarity learning)
+</script></section>
+<section data-markdown><script type="text/template">
+## Unsupervised Learning Algorithm
+- 分群 (Clustering)
+	- **階層式分群 (hierarchical clustering)**, **K-平均 (k-means)**, 混合模型 (mixture models), DBSCAN (Density-based spatial clustering of applications with noise), and OPTICS (Ordering points to identify the clustering structure) algorithm
+- 異常檢測 (Anomaly detection)
+	- 局部異常因子 (Local Outlier Factor), and 孤立森林 (Isolation Forest)
+- 學習潛在變數模型的方法 (Approaches for learning latent variable models)
+	- Expectation–maximization algorithm (EM), Method of moments, and Blind signal separation techniques.
+</script></section>
+<section data-markdown><script type="text/template">
+## Machine Learning Algorithm
+![](/images/datamining/cheatSheet.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 深度學習 (Deep Learning)
+- 特徵以往是透過由**人力**撰寫演算法，並且經過**各領域的專家對資料進行許多的分析及研究**，了解資料的特性後，才能產生出有用、效果良好的特徵。
+- **特徵學習 (feature learning)** 或**表徵學習 (representation learning)** 是學習一個特徵技術的集合，將原始數據轉換成為能夠被機器學習來有效開發的一種形式。它**避免了手動提取特徵的麻煩**，允許計算機學習使用特徵的同時，也學習如何提取特徵，學習如何學習。
+- 深度學習是**機器學習**中一種基於**對資料進行表徵學習**的演算法。觀測值（例如一幅圖像）可以使用多種方式來表示，如每個像素強度值的向量，或者更抽象地表示成一系列邊、特定形狀的區域等。而使用某些特定的表示方法更容易從實例中學習任務（例如，臉部辨識或面部表情辨識）。
+</script></section>
+<section data-markdown><script type="text/template">
+## 人工智慧 (Artificial Intelligence)
+- 人工智慧 (artificial intelligence, AI) 亦稱智械、機器智慧，指**由人製造出來的機器所表現出來的智慧**。
+通常人工智慧是指透過普通電腦程式來呈現人類智慧的技術，
+該詞也指出研究這樣的智慧系統是否能夠實現，以及如何實現。同時，通過**醫學、神經科學、機器人學及統計學**等的進步，常態預測則認為人類的很多職業也逐漸被其取代。
+An AI example: [學生用ChatGPT抄作業？台大資工教授深度解析ChatGPT](https://www.youtube.com/watch?v=Cw2LGRRch-c)
+<figure style="float: right;width: 25%">
+<img src="/images/datamining/AI_hierarchy.svg" alt="scinece">
+</figure>
+
+- 人工智慧的四個主要組成部分是：
+	- 專家系統
+	- 啟發式問題解決
+	- 自然語言處理
+	- 計算機視覺
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 資料探勘與機器學習
+</script></section>
+<section data-markdown><script type="text/template">
+## Data mining
+- Data mining is the process of **discovering pattern in a data set**.
+- We perform Data mining by using **programming methods and algorithms**.
+- We can use it to **extract useful information** from a large amount of raw data.
+- It help us in making **the data understandable and usable**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Machine learning
+- Machine learning is a technique to **make computer learn new things without explicitly programming**.
+- It is based on pattern recognition **computational learning theory** and **artificial intelligence**.
+- Some of **main uses** of Machine learning are **predictive analysis** and **classification**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data mining v.s Machine learning
+- The important differnece here is that in Data mining, we explicitly **look for patterns**, 
+whereas in Machine learning our **algorithm/model identifies the patterns**.
+- Data mining involves **manual efforts** to find knowledge and insights in data. Machine learning **create algorithm to train the system** to learn about in insights.
+- Data mining is **limited in efforts** due to **manual work**. Machine learning **model** can work on **a large dataset with hight efficiency** in accuracy.
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

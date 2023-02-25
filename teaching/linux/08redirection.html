@@ -291,31 +291,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Examples for grep/egrep(1/3)
 - Run the [ex4grep.sh](../src/bash/ex4grep.sh) shell script to output a text file which named grepList.txt.(Don't forget to run chmod)
 - Using BRE to search the keyword in grepList.txt file.
-	- **_grep ␣ n ␣ grepList.txt_** // search 'n' in grepList.txt
-	- **_grep ␣ -i ␣ n ␣ grepList.txt_** // search 'n' in grepList.txt but is ignore-case.
-	- **_grep ␣ ie ␣ grepList.txt_** // search 'ie' in grepList.txt
+	- **_grep ␣ n ␣ grepList.txt_** // Searching 'n' in grepList.txt
+	- **_grep ␣ -i ␣ n ␣ grepList.txt_** // Searching 'n' in grepList.txt but is ignore-case.
+	- **_grep ␣ ie ␣ grepList.txt_** // Searching 'ie' in grepList.txt
 - Using ERE to search the keyword in grepList.txt file.
-	- **_grep ␣ -E ␣ 'i|e' ␣ grepList.txt_** // search 'i or e' in grepList.txt
-	- **_grep ␣ -Ei ␣ '^(E|N)' ␣ grepList.txt_** // search the beginning with 'E, e or N, n' in grepList.txt
+	- **_grep ␣ -E ␣ 'i|e' ␣ grepList.txt_** // Searching 'i or e' in grepList.txt
+	- **_grep ␣ -Ei ␣ '^(E|N)' ␣ grepList.txt_** // Searching the beginning with 'E, e or N, n' in grepList.txt
 </script></section>
 
 <section data-markdown><script type="text/template">
 ## Examples for grep/egrep(2/3)
 - Caret ^ and Dollar sing $
-	- **_grep ␣ [^iet] ␣ grepList.txt_** // search pattern in grepList.txt that didn't include 'i, e or t' character.
-	- **_grep ␣ tc$ ␣ grepList.txt_** // search the end of 'tc' in grepList.txt.
-	- **_grep ␣ -Ew ␣ '^(e|E)lvis' ␣ grepList.txt_** // search the beginning with 'E or e' + lvis in grepList.txt
-	- **_grep ␣ -E ␣ '(tc$|TC$)' ␣ grepList.txt_** // search the end of 'tc or TC' in grepList.txt
-	- **_grep ␣ -i␣ tc$ ␣ grepList.txt_** // the result of searching is **the same as above**. 	
+	- **_grep ␣ [^iet] ␣ grepList.txt_** // Searching pattern in grepList.txt that didn't include 'i, e or t' character.
+	- **_grep ␣ tc$ ␣ grepList.txt_** // Searching the end of 'tc' in grepList.txt.
+	- **_grep ␣ -Ew ␣ '^(e|E)lvis' ␣ grepList.txt_** // Searching the beginning with 'E or e' + lvis in grepList.txt
+	- **_grep ␣ -E ␣ '(tc$|TC$)' ␣ grepList.txt_** // Searching the end of 'tc or TC' in the grepList.txt file.
+	- **_grep ␣ -i␣ tc$ ␣ grepList.txt_** // Searching the end of 'tc' in the grepList.txt file. 	
 </script></section>
 <section data-markdown><script type="text/template">
 ## Examples for grep/egrep(3/3)
 - zero, one or more times characters
-	- **_grep ␣ -E 'w*' ␣ grepList.txt_** // search zero or more 'w' character in grepList.txt
-	- **_grep ␣ -E 'w+' ␣ grepList.txt_** // search one or more 'w' character in grepList.txt
-	- **_grep ␣ -E 'w{2}' ␣ grepList.txt_** // search 'w' character with repeating 2 times in grepList.txt
-	- **_grep ␣ -E 'w{1,3}' ␣ grepList.txt_** // search 'w' character with repeating 1-3 times in grepList.txt	
-	- **_grep ␣ -E '.e' ␣ grepList.txt_** // search the grepList.txt behind a single character 'e' 
+	- **_grep ␣ -E 'w*' ␣ grepList.txt_** // Searching zero or more 'w' character in grepList.txt
+	- **_grep ␣ -E 'w+' ␣ grepList.txt_** // Searching one or more 'w' character in grepList.txt
+	- **_grep ␣ -E 'w{2}' ␣ grepList.txt_** // Searching 'w' character with repeating 2 times in grepList.txt
+	- **_grep ␣ -E 'w{1,3}' ␣ grepList.txt_** // Searching 'w' character with repeating 1-3 times in grepList.txt	
+	- **_grep ␣ -E '.e' ␣ grepList.txt_** // Searching the grepList.txt behind a single character 'e' 
 </script></section>
 <section data-markdown><script type="text/template">
 ## Grep services of system

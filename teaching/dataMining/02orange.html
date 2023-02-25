@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Orange Data Mining 簡介</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Orange Data Mining
+![](/images/datamining/orange_title_scaled.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Orange Data Mining tools 
+- Developed at the Faculty of Computer and information Science, University of Ljubljana(盧比安納), Slovenia(斯洛維尼亞) 
+- Orange is a data mining and **visualization toolbox** for novice and expert alike. To explore data with Orange, one requires **no programming or in-depth mathematical knowledge**. We believe that **workflow-based** data science tools democratize data science by hiding complex underlying mechanics and exposing intuitive concepts. Anyone who owns data, or is motivated to peek into data, should have the means to do so.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Orange Mining Feature
+- 開放原始程式碼 (**Open Source**)
+	- GPL 3.0 (as well as LGPL 2.1) License 版權宣告，所有**初學者**或者資料科學專業人士皆可使用
+- 視覺化的程序設計 (Visual Programming)
+	- **交談式資料視覺化** (Data visualization) 介面
+- 利用**附加 (Add-on)** 擴充 Orange 功能
+- 不需要撰寫程式碼 (**No programming**) 或高深的數學知識 (in-depth mathematical knowledge)
+- 支援手動學習 (Hand on learning)
+</script></section>
+<section data-markdown><script type="text/template">
+## Orange Mining 的應用
+- **資料探勘與分析** (Data Mining and Analysis)
+- 資料視覺化 (Data Visualization)
+- **機器學習** (Machine Learning)
+- 生物資訊與文字探勘 (**Bioinformation and Text Mining**)
+- 一個 Python 的函示庫
+	- Python Script: Terminal Windows
+	- Environment: Like PyCharm or PythonWin
+	- Shell: iPython
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Installing Orange
+- Standalone installer (標準安裝程式)
+	- Download Orange Mining software from [Orange Website](https://orangedatamining.com/)，下載 Windows 系統的安裝版
+- Portable Orange **(可攜式版)**
+	- 電腦教室請下載可攜式版，下載以後，**將檔案解壓縮到 D 磁碟**
+- Anaconda
+	- conda config --add channels conda-forge
+- Pip
+	- pip install PyQt5 PyQtWebEngine
+	- pip install orange3
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing all of the add-ons
+![](/images/datamining/addons.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Python-based Orange
+- Setting Environment Variable for Python
+	- Make sure your Orange data mining **where is installed on Windows system**? It was installed in d:\Orange for example.
+	- 系統 >> 進階系統設定 >> 環境變數 >> 編輯 path 變數 >> 加入 d:\Orange, d:\Orange\Script 兩個路徑(**要往上移，提高修先順序**)
+- Running iPython on Command Line
+	- 開啟 CMD 提示命令列 >> 輸入 ipython >> 出現 iPython 交談式環境介面
+	- 測試： 輸入 12 + 45 按下 Enter，是否會出現 57 的答案
+	- 測試： **import os; os.chdir("path/to/"); run towerGui.py** 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Building Workflows
+</script></section>
+<section data-markdown><script type="text/template">
+## Getting start with Orange
+![](/images/datamining/getingStart.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Interface of Orange
+- File >> 02_01gettingStart.ows
+![](/images/datamining/interface.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading dataset into Orange
+![](/images/datamining/loading.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Simple workflow
+- 開啟 orange ，將 File 圖示拖曳到右邊畫布 (canvas)，在 File 小圖示右邊拖曳出一條線，**輸入 data 後**按下 Enter
+![](/images/datamining/file.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Visualization
+- File >> Scatter Plot
+![](/images/datamining/visual.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Workflows with subsets
+- File >> Scatter Plot >> Data Table >> Open Scatter Plot and Data Table >> Selecting cell from Scatter Plot
+![](/images/datamining/subset.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Highlighting workflows
+- File(02_02hilight.ows)>> Data Table >> Scatter Plot >> Open Scatter Plot and Data Table >> Selecting instance from Data Table
+![](/images/datamining/hilight.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Do it by yourself
+- Making a simpe workflow to **load iris.tab dataset** with Orange that you can refer to the sample workflow slide.
+- Downloaded and Load 02_01gettingStart.ows **from my Google Drive**
+	- Testing the information, align, text, arrow functions on Orange with 02_01gettingStart.ows file
+- Loading 02_02hilight.ows file into Orange
+	- Could you **view the data table of subset** which is selected from Scatter Plot
+- Plotting a visualization with **line plot** and **bar plot** on Orange 
+</script></section>
+<section data-markdown><script type="text/template">
+## Coloring with Color Widget(1/2)
+- File >> Scatter Plot
+![](/images/datamining/originColor.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Coloring with Color Widget(2/2)
+- File(02_03color.ows) >> Color >> Scatter Plot
+![](/images/datamining/color.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Orange and Python
+</script></section>
+<section data-markdown><script type="text/template">
+## Python for Data mining and ML
+- Installing scikit-learn
+	- **pip install --pre -U scikit**
+- Installing pycaret that is an open-source, low-code machine learning library in Python
+	- **pip install --pre -U pycaret**
+- Install jupyerlab and notebook
+	- **pip install jupyerlab**
+	- **pip install notebook**
+- Running jupyter with notebook
+	- **jupyter notebook**
+</script></section>
+<section data-markdown><script type="text/template">
+# Setting font size <br />of Orange or <br />Qt Application
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting Font size of Orange
+1. Editing a **orange.cmd file** that is as following variable
+<pre><code>set QT_SCALE_FACTOR=1.3
+start d:\Orange\pythonw.exe -m Orange.canvas</code></pre>
+
+2. Remove the orange.com file **into Orange system folder**
+
+3. Make a symbols link on your operation system
+	- 在 orange.cmd 檔案按滑鼠右鍵 >> **傳送到 >> 桌面(建立連結)**
+
+4. 修改連結內容 >> **開始位置 >> D:\Orange**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# R and Data Science
+</script></section>
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<a href="https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/"><img src="/images/datamining/Rmining.png" alt="Rmining.png"></a> 
+</figure>
+
+## An R Companion for <br />Introduction to Data Mining
+- An **R** Companion for Introduction to Data Mining by **Michael Hahsler**
+- [This online book](https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/) contains documented **R examples to accompany several chapters** of the popular data mining textbook **Introduction to Data Mining** by Pang-Ning Tan, Michael Steinbach, Anuj Karpatne and Vipin Kumar. 
+- The code examples collected in this book were developed for the course CS 7331 - Data Mining taught at SMU **since Spring 2013** and **will be regularly updated and improved**.
+- Book and R examples source codes can get from [author's github repository](https://github.com/mhahsler/Introduction_to_Data_Mining_R_Examples)
+</script></section>
+<section data-markdown><script type="text/template">
+## What is R?
+- R is a free software environment for **statistical computing and graphics**. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+- It is a **GNU project** which is similar to the S language and environment which was developed at **Bell Laboratories** by **John Chambers and colleagues**.
+- R provides a wide variety of statistical (linear and nonlinear **modelling**, classical statistical tests, time-series analysis, **classification**, **clustering**, …) and graphical techniques, and is highly extensible.
+- One of R's strengths is the ease with which **well-designed publication-quality plots** can be produced, including **mathematical symbols** and **formula** where needed.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The R environment
+- R is an integrated suite of software facilities for **data manipulation, calculation and graphical display.**
+	- an **effective data handling** and storage facility,
+	- a suite of operators for **calculations on arrays**, in **particular matrices**,
+	- a large, coherent, integrated collection of **intermediate tools for data analysis**,	
+	- **graphical facilities** for data analysis and display either **on-screen** or on **hardcopy**, and
+	- a well-developed, **simple and effective programming language** which includes conditionals, loops, user-defined recursive functions and input and output facilities.
+</script></section>
+<section data-markdown><script type="text/template">
+## R language installation
+- Download R installer software from [CRAN(The Comprehensive R Archive Network)](https://cran.r-project.org/mirrors.html)
+	1. Selecting [a CRAN mirror webiste in Taiwan](https://cran.csie.ntu.edu.tw/)
+	2. Click the link of "Download R for Windows" and "base"
+	3. Click "Download R-4.2.2 for Windows" to download R installer (this version is present release version by R project teams)
+- Installing contributed packages from CRAN
+	- Run R environment in your system, then typing the following if your want to install the **tidyverse** package
+	- install.packages("tidyverse")
+	- It is the same command to installl the other R package from CRAN
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## The required packages for <br />codes of examples of the book
+- **install.packages(c**("tidyverse", "GGally", "sampling", "plotly", "factoextra", "arules", "proxy", "caret", "hexbin", "seriation", "ggcorrplot", "mlbench", "rpart.plot", "doParallel", "snow", "FSelector", "party", "kernlab", "xgboost", "keras", "C50", "arulesViz", "dbscan", "mclust", "scatterpie","fpc")**)**
+</script></section>
+<section data-markdown><script type="text/template">
+## Loading the required packages for <br />codes of examples of the book
+- **lapply(c**("tidyverse", "GGally", "sampling", "plotly", "factoextra", "arules", "proxy", "caret", "hexbin", "seriation", "ggcorrplot", "mlbench", "rpart.plot", "doParallel", "snow", "FSelector", "party", "kernlab", "xgboost", "keras", "C50", "arulesViz", "dbscan", "mclust", "scatterpie","fpc"), require, **character.only = TRUE)**
+</script></section>
+<section data-markdown><script type="text/template">
+## The others requirement <br />for the codes of examples
+- Installing AdoptOpenJDK from [Adoptium.net](https://adoptium.net/download/)
+	- install.packages("FSelector") // need to set java_home for library(FSelector)
+- Setting python variable for administrator or all users that is required in the section 4.5 of book: Deep Learning with keras/tensorflow
+	- Installing tensorflow with pip which Python have installed in c:\python3 and environment have setted in path variable. 
+		- **pip install tensorflow** and load **library(reticulate)**
+		- use_python("c:\\python3")
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

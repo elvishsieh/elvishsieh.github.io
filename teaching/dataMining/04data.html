@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>資料 (Data)</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Objects <br />and <br />Attribute Types
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Objects
+- Data sets are **made up** (組成) of data objects. A **data object** represents an entity.
+	- In a university database, the objects may be students, professors and courses.
+	- In a sales database, the objects may be customers, store items and sales.
+- Data objects can also be referred to as **samples, examples, instances, data points or objects**.
+-  If the data objects are stored in a database, they are data tuples. That is, the **rows** of a database correspond to the **data objects**, and the **columns** correspond to the **attributes**. 
+</script></section>
+<section data-markdown><script type="text/template">
+## What Is an Attribute?
+- An attribute is a data field, representing a characteristic or feature of a data object.
+- The nouns **attribute, dimension, feature, and variable** are often used interchangeably in the literature.
+	- The term dimension is commonly used in **data warehousing**.
+	- **Machine learning** literature tends to use the term feature, while **statisticians** prefer the term variable.
+	- **Data mining and database** professionals commonly use the term attribute
+</script></section>
+<section data-markdown><script type="text/template">
+## List of feature and instance
+![](/images/datamining/attribute.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Attribute Types(1/2)
+- **Nominal** Attributes
+	- Nominal means “relating to names.” The values of a nominal attribute are **symbols or names of things**.
+	- Hair_color = **{black, blond, brown, grey, red, white}**
+	- marital status, occupation, ID numbers, zip codes
+- **Binary** Attributes
+	- A binary attribute is a nominal attribute with only two categories or states: **0 or 1**,
+	- where	**0** typically means that the attribute is **absent**, and **1** means that it is **present**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Attribute Types(2/2)
+- **Ordinal** Attributes
+	- Values have a **meaningful order (ranking)** but magnitude between successive values is not known.
+	- Size = **{small, medium, large}**, grades, army rankings
+- **Numeric** Attributes
+	- A numeric attribute is **quantitative**; that is, it is a measurable quantity, represented in	**integer or real values.**
+	- Numeric attributes can be **interval-scaled or ratio-scaled**
+</script></section>
+<section data-markdown><script type="text/template">
+## Numeric Attribute Types
+- Interval-scaled
+	- Measured on a scale of **equal-sized units**
+	- Values have order
+		- E.g., temperature in C˚or F˚, calendar dates
+	- **No true zero-point**
+- Ratio-scaled
+	- **Inherent(固有的) zero-point**
+	- We can speak of values as being an order of magnitude larger than the unit of measurement (10 K˚ is twice as high as 5 K˚).
+		- e.g., temperature in Kelvin, length, counts, monetary quantities
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Discrete attribute<br /> vs. <br />Continuous attribute
+</script></section>
+<section data-markdown><script type="text/template">
+## Discrete vs. Continuous
+- A **discrete** attribute has a **finite or countably infinite** set of values, which may or may not be represented as integers.
+	- Hair_color, ID numbers, zip codes, integer variables
+	- Binary are a special case of discrete attributes 
+- If an attribute is **not discrete, it is continuous**. The terms **numeric** and **continuous** are often used interchangeably in the literature.
+	- This can be confusing	because, **continuous values are real numbers**, whereas **numeric values** can be either **integers** or **real numbers**.
+	- Continuous attributes are typically represented as **floating-point** variables.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Basic Statistical Descriptions of Data
+</script></section>
+<section data-markdown><script type="text/template">
+## Measuring the Central Tendency
+- Suppose that we have some attribute `$X$`, like salary, which has been recorded for a set of objects.
+Let `$ x_1, x_2, \cdots , x_N $` be the set of `$N$` observed values or observations for `$X$`. The **mean** of this set of values is
+`$$ \overline{x}=\frac{1}{N} \sum_{i=1}^{N} x_{i}=\frac{x_{1}+\cdots+x_{N}}{N} $$`
+- Example 2.6 Mean. Suppose we have the following values for salary (in thousands of dollars), shown
+in increasing order: 30, 36, 47, 50, 52, **52, 56**, 60, 63, 70, 70, **110**. We have
+`$\overline{x}=\frac{30+36+47+50+52+52+56+60+63+70+70+110}{12} = 58$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Meanm, Median, and Mode (1/4)
+- **Weighted** arithmetic mean: 
+`$$ \overline{x}=\frac{\sum_{i=1}^{N} w_{i} \cdot x_{i}} {\sum_{i=1}^{N} w_{i}} = \frac{w_{1} x_{1}+ w_{2} x_{2}+\cdots + w_{N} x_{N}}{w_{1}+ w_{2}+\cdots + w_{N}}$$`
+- Median
+	- **Middle value** if **odd** number of values, or **average** of the **middle two values** otherwise
+	- Let's find the median of the data **from Example 2.6**. That is `$\frac{52+56}{2} = \frac{108}{2} = 54$`
+	- Suppose that we had only the first 11 values in the list. Given an odd number of values, the median **(52)** is the middlemost value.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Meanm, Median, and Mode (2/4)
+- Median
+	- Estimated by interpolation (for grouped data):
+`$$ median = L_{1} + \left( \frac{N/2 - (\sum freq)_l}{freq_{median}} \right) \times width$$`
+
+	- where `$L_{1}$` is the **lower boundary** of the group containing the median, `$N$` is the number of values in the 
+	entire data set,`$(\sum freq)_{l}$` is the **sum of the frequencies** of the groups **before the median group**, `$freq_{median}$` is the 
+	frequency of the median group, and `$width$` is the **width of the median group**.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Example of Mdeian (1/2)
+- Suppose that the values for a given set of data are grouped into intervals. The intervals and corresponding
+frequencies are as follows. Compute an **approximate median value** for the data.
+<figure style="float: right">
+<img src="/images/datamining/median.png" alt="median example">
+</figure>
+- Answer
+	- `$N = 200+450+300+1500+700+44 = 3194$`
+	- `$N /2 = 1597$`, median group is <br />**<`$age$`:21-50 `$frequency$`: 1500>**, and lower boundary of median group `$L$` is 20
+	- `$(\sum freq)_{l}$ = 200+450+300 = 950`
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Example of Mdeian (2/2)
+- Answer
+
+	- `$freq_{median}$ = 1500`
+	- **`$width$ = 50-20 = 30`**
+	 `$$ \begin{align*}
+		median & = L_{1} + \left( \frac{N/2 - (\sum freq)_l}{freq_{median}} \right) \times width \\
+		 	   & = 20 + \left( \frac{3194/2 - (950)}{1500} \right) \times 30 \\
+			   & = 32.94
+		\end{align*}
+		$$`
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Meanm, Median, and Mode (3/4)
+- Mode
+	- The mode for a set of data is **the value that occurs most frequently** in the set. Therefore, it can be determined
+	 for **qualitative and quantitative attributes**.
+	- Data sets with one, two, or three modes are respectively called **unimodal**, **bimodal**, and **trimodal**.
+- Example 2.8 Mode.  From example 2.6, the values for salary (in thousands of dollars), shown
+	in increasing order: 30, 36, 47, 50, **52, 52**, 56, 60, 63, **70, 70**, 110, are **bimodal**. The two modes are 52,000 and 70,000.
+</script></section>
+<section data-markdown><script type="text/template">
+## Meanm, Median, and Mode (4/4)
+- Midrange
+	- The midrange can also be used to assess the central tendency of a numeric data set. It is the **average of the largest and smallest values** in the set.
+- Example 2.9 Midrange. <br /> The midrange of the data of Example 2.6 is `$$\frac{30,000 + 110,000}{2} = 70,000$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Symmetric vs. Skewed Data
+![](/images/datamining/symmetric.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Measuring the Dispersion of Data
+</script></section>
+<section data-markdown><script type="text/template">
+<figure style="float: right">
+<img src="/images/datamining/quartiles.png" alt="quartiles figure">
+</figure>
+
+## Range, Quartiles, and Interquartile Range
+- Let `$x_1,x_2, \cdots ,x_N$` be a set of observations for some numeric attribute, `$X$`. **The range** of the set is the **difference** between the largest (**max()**) and smallest (**min()**) values.
+- The **first quartile**, denoted by **`$Q_1$`**, is the **25th percentile**.
+- The **third quartile**, denoted by **`$Q_3$`**, is the **75th percentile**—it cuts off the lowest 75% (or highest 25%) of the data.
+- This distance is called the **interquartile range (IQR)** and is defined as: `$IQR = Q_3 - Q_1$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Interquartile Range
+- Example 2.10 Interquartile range. The quartiles are the three values that split the sorted data set into
+four equal parts. The data of Example 2.6 contain **12 observations**(increasing order: 30, 36, **47**, 50, 52, **52**, 56, 60, **63**, 70, 70, 110,), already sorted in
+increasing order. Thus, the quartiles for this data are the **third, sixth, and ninth** values,
+respectively, in the sorted list. Therefore, **`$Q_1 = \$47,000$`** and **`$Q_3 = \$63,000$`**. Thus,
+the interquartile range is `$IQR = 63 - 47 = \$16,000$`. (Note that the **sixth value is a
+median, `$\$52,000$`**, although this data set has two medians since the number of data values
+is even.)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Five-Number Summary and Outliers
+- The **five-number summary** of a distribution consists of the `$median (Q_2)$`, the `$quartiles \;Q_1$` and `$Q_3$`, and the **smallest** and **largest** individual observations,
+written in the order of **`$Minimum$`, `$Q_1$`, `$Median$`, `$Q_3$`, `$Maximum$`**.
+- A common rule of thumb for identifying suspected **outliers** is to single out values falling at least **`$1.5\times IQR$` above** the third quartile or **below the first
+quartile**.
+	- Below the `$ Outliers = Q_{1} - 1.5 \times IQR$` 
+	- Above the `$ Outliers = Q_{3} + 1.5 \times IQR$`
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Boxplots (1/2)
+- Boxplots are a popular way of visualizing a distribution. A boxplot incorporates the **five-number summary** as follows:
+	- Typically, the ends of the box are at the quartiles so that **the box length is the interquartile range**.
+	- The **median** is marked by **a line within the box**.
+	- Two lines (**called whiskers**) outside the box extend to the smallest (Minimum) and largest (Maximum) observations.
+</script></section>
+<section data-markdown><script type="text/template">
+## Boxplots (2/2)
+![](/images/datamining/boxplot.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Variance and Standard Deviation
+- Variance
+	- The variance of `$N$` observations, `$x_1 , x_2 , \cdots , x_N$`, for a numeric attribute `$X$` is
+	`$$ \sigma^2 = \frac{1}{N} \sum^{N}_{i=1} (x_1 - \overline{x})^2 = \left(\frac{1}{N} \sum^{N}_{i=1} x_1^2 \right) - \overline{x}^2 $$`
+	- where `$\overline{x}$` is the **mean** value of the observations, as defined in Eq. (2.1).
+- The **standard deviation, `$\sigma$`**, of the observations is the **square root of the variance**, `$\sigma^2$` .
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Plotting boxplots with Python
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+
+# import os # if your data is saved on the following path.
+# os.chdir("D:\Teaching\dataMining\dataset")
+
+data =  Orange.data.Table("age.csv")
+
+bxmean = np.mean(data)
+bxstd = np.std(data)
+
+bx = np.random.normal(bxmean, bxstd, 18) # normal(mu, sigma, size) 
+
+fig = plt.figure(figsize =(10, 7))
+
+plt.boxplot(bx)
+
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous slide
+![](/images/datamining/bx.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Plotting a Multi-column datasets
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+
+# import os  # if your data is saved on the following path.
+# os.chdir("D:\Teaching\dataMining\dataset")
+
+twoColumn =  Orange.data.Table("age2.csv")
+
+mn = np.mean(twoColumn,0) # mean of rows
+bxstd = np.std(twoColumn,0) # std of rows
+
+bx1 = np.random.normal(mn[0], bxstd[0], 18) # normal(mu, sigma, size) 
+bx2 = np.random.normal(mn[0], bxstd[0], 18)
+
+bxAll = [bx1, bx2] # merge in array
+
+fig = plt.figure(figsize =(10, 7))
+
+plt.boxplot(bxAll)
+
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous slide
+![](/images/datamining/bx2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Boxplots with Orange
+![](/images/datamining/bxOrange.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Measuring Data Similarity and Dissimilarity
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Matrix v.s Dissimilarity Matrix
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
