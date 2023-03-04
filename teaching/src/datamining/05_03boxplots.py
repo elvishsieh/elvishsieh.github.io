@@ -3,7 +3,7 @@ import numpy as np
 import Orange
 
 # import os
-# os.chdir("D:\Teaching\dataMining\dataset")
+# os.chdir("D:\\Teaching\\dataMining\\dataset")
 
 data =  Orange.data.Table("age.csv")
 

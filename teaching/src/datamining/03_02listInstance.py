@@ -1,5 +1,7 @@
 import Orange
+import os
 
+os.chdir("C:/Users/USER/Documents/dataMining/dataset")
 data = Orange.data.Table("iris")
 print("First three data instances:")
 for d in data[:3]:

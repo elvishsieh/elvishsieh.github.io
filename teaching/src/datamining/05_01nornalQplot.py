@@ -1,14 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
-
+import scipy.stats as stats
+ 
+# pip install statsmodels
+# import statsmodels.api as sm
+ 
 # Generate some random normally distributed data
-np.random.seed(123)
+np.random.seed(30)
 data = np.random.normal(loc=10, scale=2, size=30)
-
+ 
 # Create a normal quantile plot
-fig = sm.qqplot(data, line='s')
-
+stats.probplot(data, dist="norm", plot=plt)
+# fig = sm.qqplot(data, line='s')
+ 
 # Customize the plot
 plt.title('Normal Q-Q plot')
 plt.xlabel('Theoretical quantiles')

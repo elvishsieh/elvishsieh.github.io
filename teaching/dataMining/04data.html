@@ -129,7 +129,7 @@ in increasing order: 30, 36, 47, 50, 52, **52, 56**, 60, 63, 70, 70, **110**. We
 `$\overline{x}=\frac{30+36+47+50+52+52+56+60+63+70+70+110}{12} = 58$`
 </script></section>
 <section data-markdown><script type="text/template">
-## Meanm, Median, and Mode (1/4)
+## Mean, Median, and Mode (1/4)
 - **Weighted** arithmetic mean: 
 `$$ \overline{x}=\frac{\sum_{i=1}^{N} w_{i} \cdot x_{i}} {\sum_{i=1}^{N} w_{i}} = \frac{w_{1} x_{1}+ w_{2} x_{2}+\cdots + w_{N} x_{N}}{w_{1}+ w_{2}+\cdots + w_{N}}$$`
 - Median
@@ -139,7 +139,7 @@ in increasing order: 30, 36, 47, 50, 52, **52, 56**, 60, 63, 70, 70, **110**. We
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Meanm, Median, and Mode (2/4)
+## Mean, Median, and Mode (2/4)
 - Median
 	- Estimated by interpolation (for grouped data):
 `$$ median = L_{1} + \left( \frac{N/2 - (\sum freq)_l}{freq_{median}} \right) \times width$$`
@@ -177,7 +177,7 @@ frequencies are as follows. Compute an **approximate median value** for the data
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Meanm, Median, and Mode (3/4)
+## Mean, Median, and Mode (3/4)
 - Mode
 	- The mode for a set of data is **the value that occurs most frequently** in the set. Therefore, it can be determined
 	 for **qualitative and quantitative attributes**.
@@ -186,7 +186,7 @@ frequencies are as follows. Compute an **approximate median value** for the data
 	in increasing order: 30, 36, 47, 50, **52, 52**, 56, 60, 63, **70, 70**, 110, are **bimodal**. The two modes are 52,000 and 70,000.
 </script></section>
 <section data-markdown><script type="text/template">
-## Meanm, Median, and Mode (4/4)
+## Mean, Median, and Mode (4/4)
 - Midrange
 	- The midrange can also be used to assess the central tendency of a numeric data set. It is the **average of the largest and smallest values** in the set.
 - Example 2.9 Midrange. <br /> The midrange of the data of Example 2.6 is `$$\frac{30,000 + 110,000}{2} = 70,000$$`
@@ -224,6 +224,24 @@ is even.)
 </script></section>
 
 <section data-markdown><script type="text/template">
+## Quantiles
+- Quantiles (分位數) are points taken at regular intervals of a data distribution, **dividing it into essentially equalsize** consecutive sets.
+- The `$kth\; q-quantile$` for a given data distribution are less than `$x$` and at most `$(q - k)/ = q$` of the data values are more than `$x$`.
+	- where `$k$` is an integer such that `$0 < k < q$`.(There are`$q-1\; q-quantile$`)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Quantiles and Quartiles
+- The 2-quantile (2 等分) is the data point dividing the lower and upper halves of the data distribution. It corresponds to the **median**.
+<figure style="float: right">
+<img src="/images/datamining/quartiles.png" alt="quartiles figure">
+</figure>
+- The 4-quantiles (4 等分) are the three data points that split the data distribution into four equal parts; 
+	each part represents one-fourth of the data distribution. They are more commonly referred to as **quartiles**.
+- The 100-quantiles are more commonly referred to as **percentiles**; they divide the data distribution into **100 equal-sized** consecutive sets.
+
+</script></section>
+<section data-markdown><script type="text/template">
 ## Five-Number Summary and Outliers
 - The **five-number summary** of a distribution consists of the `$median (Q_2)$`, the `$quartiles \;Q_1$` and `$Q_3$`, and the **smallest** and **largest** individual observations,
 written in the order of **`$Minimum$`, `$Q_1$`, `$Median$`, `$Q_3$`, `$Maximum$`**.
@@ -254,70 +272,21 @@ quartile**.
 - The **standard deviation, `$\sigma$`**, of the observations is the **square root of the variance**, `$\sigma^2$` .
 </script></section>
 
-<section data-markdown><script type="text/template">
-## Plotting boxplots with Python
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
-import numpy as np
-import Orange
-
-# import os # if your data is saved on the following path.
-# os.chdir("D:\Teaching\dataMining\dataset")
-
-data =  Orange.data.Table("age.csv")
-
-bxmean = np.mean(data)
-bxstd = np.std(data)
-
-bx = np.random.normal(bxmean, bxstd, 18) # normal(mu, sigma, size) 
-
-fig = plt.figure(figsize =(10, 7))
-
-plt.boxplot(bx)
-
-plt.show()</code></pre>
-</script></section>
-<section data-markdown><script type="text/template">
-## The result of previous slide
-![](/images/datamining/bx.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## Plotting a Multi-column datasets
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
-import numpy as np
-import Orange
-
-# import os  # if your data is saved on the following path.
-# os.chdir("D:\Teaching\dataMining\dataset")
-
-twoColumn =  Orange.data.Table("age2.csv")
-
-mn = np.mean(twoColumn,0) # mean of rows
-bxstd = np.std(twoColumn,0) # std of rows
-
-bx1 = np.random.normal(mn[0], bxstd[0], 18) # normal(mu, sigma, size) 
-bx2 = np.random.normal(mn[0], bxstd[0], 18)
-
-bxAll = [bx1, bx2] # merge in array
-
-fig = plt.figure(figsize =(10, 7))
-
-plt.boxplot(bxAll)
-
-plt.show()</code></pre>
-</script></section>
-<section data-markdown><script type="text/template">
-## The result of previous slide
-![](/images/datamining/bx2.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## Boxplots with Orange
-![](/images/datamining/bxOrange.png)
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # Measuring Data Similarity and Dissimilarity
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Similarity and Dissimilarity
+- In data mining applications, such as **clustering, outlier analysis, and nearest-neighbor classification**, 
+	we need ways to assess how **alike** or **unalike** objects are in comparison to one another.
+- A cluster a collection of data objects such that **the objects within a cluster are similar to one another** 
+	and **dissimilar** to the objects in other clusters.
+- **Outlier analysis** also employs clustering-based techniques to identify potential outliers as objects that are **highly dissimilar** to others.
+- Knowledge of object similarities can also be used in **nearest-neighbor classification** schemes.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Data Matrix v.s Dissimilarity Matrix

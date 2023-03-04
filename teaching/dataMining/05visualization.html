@@ -57,17 +57,48 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 
 <section data-markdown><script type="text/template">
+## Example 2.13: Quantile plot(1/2)
+-  Figure 2.4 shows a quantile plot for the unit price data of Table 2.1.
+![](/images/datamining/ePlot.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Example 2.13: Quantile plot(2/2)
+- A quantile plot for the unit price data of Table 2.1.
+![](/images/datamining/ePlot2.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Quantile-Quantile Plot(1/2)
+- A **quantile-quantile plot**, or **q-q plot**, graphs the quantiles of **one univariate distribution** against the corresponding quantiles of **another**.
+- Suppose that we have **two sets of observations** for the attribute or variable **unit price**, taken from **two different branch** locations. Let `$x_1, \cdots ,x_N$` be the data from the first
+branch, and `$y_1, \cdots ,y_N$` be the data from the second, where each data set is sorted in increasing order.
+	- If `$M = N$`, then we	simply plot `$y_i$` against `$x_i$` , where `$y_i$` and `$x_i$` are both `$f_i = \frac{i - 0.5}{N(or\; M)}$` quantiles
+	of their respective data sets.
+</script></section>
+<section data-markdown><script type="text/template">
+## Quantile-Quantile Plot(2/2)
+- A q-q plot for unit price data from two AllElectronics branches.
+![](/images/datamining/qqPlot.png)
+</script></section>
+
+
+<section data-markdown><script type="text/template">
 ## Normal Q-Q Plot with Python
 <pre><code data-trim data-line-numbers>import numpy as np
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
+import scipy.stats as stats
+
+# pip install statsmodels
+# import statsmodels.api as sm
 
 # Generate some random normally distributed data
-np.random.seed(123)
+np.random.seed(30)
 data = np.random.normal(loc=10, scale=2, size=30)
 
 # Create a normal quantile plot
-fig = sm.qqplot(data, line='s')
+stats.probplot(data, dist="norm", plot=plt)
+# fig = sm.qqplot(data, line='s')
 
 # Customize the plot
 plt.title('Normal Q-Q plot')
@@ -80,14 +111,201 @@ plt.show()</code></pre>
 ## The result of previous codes
 ![](/images/datamining/nqplot.png)
 </script></section>
+
+<section data-markdown><script type="text/template">
+## Normal Q-Q Plot with Unit price
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+import Orange
+# import os # if your data is saved in the following path.
+# os.chdir("C:\\Users\\USER\\Documents\\dataMining\\dataset")
+	
+data =  Orange.data.Table("sold.csv") # twoColumn
+soldmean = np.mean(data, 0) #mean
+soldstd = np.std(data, 0) #standard deviation
+	
+normalQ = np.random.normal(soldmean[0], soldstd[0], 9) #normal(mu, sigma, size)
+	
+# Create a normal quantile plot
+stats.probplot(normalQ, dist="norm", plot=plt)
+	
+# Customize the plot
+plt.title('A normal quantile plot for the unit price data')
+plt.xlabel('Theoretical quantiles')
+plt.ylabel('Unit Price')
+plt.show()</code></pre>	
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous codes
+![](/images/datamining/sold.png)
+</script></section>
+
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Histograms
+# Boxplots
+</script></section>
+<section data-markdown><script type="text/template">
+## Plotting boxplots with Python
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+
+# import os # if your data is saved in the following path.
+# os.chdir("D:/Teaching/dataMining/dataset")
+
+data =  Orange.data.Table("age.csv")
+
+bxmean = np.mean(data)
+bxstd = np.std(data)
+
+bx = np.random.normal(bxmean, bxstd, 18) # normal(mu, sigma, size) 
+
+fig = plt.figure(figsize =(10, 7))
+
+plt.boxplot(bx)
+
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous slide
+![](/images/datamining/bx.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Plotting a Multi-column datasets
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+
+# import os  # if your data is saved on the following path.
+# os.chdir("D:\\Teaching\\dataMining\\dataset")
+
+twoColumn =  Orange.data.Table("age2.csv")
+
+mn = np.mean(twoColumn,0) # mean of each rows
+bxstd = np.std(twoColumn,0) # std of each rows
+
+bx1 = np.random.normal(mn[0], bxstd[0], 18) # normal(mu, sigma, size) 
+bx2 = np.random.normal(mn[1], bxstd[1], 18)
+
+bxAll = [bx1, bx2] # merge in array
+
+fig = plt.figure(figsize =(10, 7))
+
+plt.boxplot(bxAll)
+
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous slide
+![](/images/datamining/bx2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Boxplots with Orange
+![](/images/datamining/bxOrange.png)
+</script></section>
+</section>
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Histograms
+</script></section>
+<section data-markdown><script type="text/template">
+## An Example of Histogram
+![](/images/datamining/histogram.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Bar Plot in Orange
+![](/images/datamining/oBarPlot.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The result of previous slide
+<pre><code data-markdown data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+import pandas as pd
+
+# import os # if your data is saved in the following path.
+# os.chdir("D:\\Teaching\\dataMining\\dataset")
+	
+data =  Orange.data.Table("sold.csv") # twoColumn
+
+dd = pd.DataFrame(data)
+
+x = np.arange(len(dd))
+y = dd[1]
+xaxis = dd[0]
+
+plt.bar(x, y, color=['red','orange','yellow','green','blue','indigo','purple','gray','pink'])
+plt.xticks(x, xaxis)
+plt.xlabel('Unit Price')
+plt.ylabel('Count of items sold')
+plt.title('A bar chart for unit price with Python')
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous code
+![](/images/datamining/pBarPlot.png)
 </script></section>
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Scatter Plots
+</script></section>
+<section data-markdown><script type="text/template">
+## Scatter and Data Correlation
+- A scatter plot is one of the most effective graphical methods for determining if there
+appears to be a **relationship**, **pattern**, or **trend between two numeric attributes**.
+- The scatter plot is a useful method for providing a first look at **bivariate data** to see **clusters of points** and **outliers**, or to explore the possibility of **correlation relationships**.
+- Two attributes, X, and Y, are correlated if one attribute implies the other. Correlations
+can be **positive**, **negative**, or **null (uncorrelated)**. 
+</script></section>
+
+<section data-markdown><script type="text/template">
+## A scatter plot for the Table 2.1
+![](/images/datamining/scatter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Positive/Negative Scatter Plot
+![](/images/datamining/pnScatter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Scatter Plot with Python
+<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+import pandas as pd
+
+# import os  # if your data is saved on the following path.
+# os.chdir("C:\\Users\\USER\\Documents\\dataMining\\dataset")
+
+data =  Orange.data.Table("sold2.csv")
+dd = pd.DataFrame(data)
+x = np.arange(len(dd))
+y = dd[1]
+xaxis = dd[0]
+plt.scatter(x, y)
+# plt.xticks(x, xaxis)
+plt.xlabel('Unit Price')
+plt.ylabel('Count of items sold')
+plt.title('A bar chart for unit price with Python')
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous code
+![](/images/datamining/pScatter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Scatter Plot with Orange
+- workflow: 05_02scatter2.ows
+![](/images/datamining/oScatter.png)
+</script></section>
+</section><!--end block-->
 </div>
 </div>
 

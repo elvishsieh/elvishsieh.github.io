@@ -59,7 +59,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 開放原始程式碼 (**Open Source**)
 	- GPL 3.0 (as well as LGPL 2.1) License 版權宣告，所有**初學者**或者資料科學專業人士皆可使用
 - 視覺化的程序設計 (Visual Programming)
-	- **交談式資料視覺化** (Data visualization) 介面
+	- **交談式、資料視覺化** (Data visualization) 介面
 - 利用**附加 (Add-on)** 擴充 Orange 功能
 - 不需要撰寫程式碼 (**No programming**) 或高深的數學知識 (in-depth mathematical knowledge)
 - 支援手動學習 (Hand on learning)
@@ -146,10 +146,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Do it by yourself
 - Making a simpe workflow to **load iris.tab dataset** with Orange that you can refer to the sample workflow slide.
-- Downloaded and Load 02_01gettingStart.ows **from my Google Drive**
-	- Testing the information, align, text, arrow functions on Orange with 02_01gettingStart.ows file
-- Loading 02_02hilight.ows file into Orange
-	- Could you **view the data table of subset** which is selected from Scatter Plot
+- Downloading 02_01gettingStart.ows [from my Google Drive](https://drive.google.com/drive/folders/1QQuKtvYCAYJ6XzJHyNbOXpGdvDHFZAyN?usp=sharing) then load it with Orange.
+	- Using 02_01gettingStart.ows file to test the information, align, text, arrow functions on Orange
+	- Could you **view the data table of subset** which is selected from Scatter Plot, when you have loaded 02_02hilight.ows file into Orange?
 - Plotting a visualization with **line plot** and **bar plot** on Orange 
 </script></section>
 <section data-markdown><script type="text/template">
@@ -186,6 +185,35 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Running jupyter with notebook
 	- **jupyter notebook**
 </script></section>
+
+<section data-markdown><script type="text/template">
+## Jupyter ipykernel Error (1/2)
+- Getting ipykernel error when you create a new notebook after running **jupyter notebook**.
+- Solving method 1
+	- **python -m ipykernel install --user --name env_name --display-name "ipython3"**
+- Solving method 2
+	- **.\jupyter kernelspec list** // make sure the kernel.json file where is the folder saved it?
+	- Getting the folder is located in <br /> **"D:\Orange\share\jupyter\kernels\python3"**
+</script></section>
+<section data-markdown><script type="text/template">
+## Jupyter ipykernel Error (2/2)
+- Solving method 2
+	- Editing the setting variable of kernel.json file which is in "D:\Orange\share\jupyter\kernels\python3" folder
+<pre><code data-trim data-line-numbers>{
+"argv": [
+	"C:/test-install\\python.exe",
+	"-m",
+	"ipykernel_launcher",
+	"-f",
+	"{connection_file}"
+],
+"display_name": "Python 3 (ipykernel)",
+...
+}}</code></pre>
+	- Change "C:/test-install\\\python.exe" into <br /> "**D:/Orange\\\python.exe**"
+
+</script></section>
+
 <section data-markdown><script type="text/template">
 # Setting font size <br />of Orange or <br />Qt Application
 </script></section>
@@ -195,7 +223,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <pre><code>set QT_SCALE_FACTOR=1.3
 start d:\Orange\pythonw.exe -m Orange.canvas</code></pre>
 
-2. Remove the orange.com file **into Orange system folder**
+2. Remove the orange.cmd file **into Orange system folder**
 
 3. Make a symbols link on your operation system
 	- 在 orange.cmd 檔案按滑鼠右鍵 >> **傳送到 >> 桌面(建立連結)**
