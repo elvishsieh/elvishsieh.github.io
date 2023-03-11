@@ -42,6 +42,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Visualization
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Data Visualization
+- Gain insight into an information space by mapping data onto graphical primitives
+- Provide qualitative overview of large data sets
+- Search for patterns, trends, structure, irregularities, relationships among data
+- Help find interesting regions and suitable parameters for further quantitative analysis
+- Provide a visual proof of computer representations derived
+</script></section>
+<section data-markdown><script type="text/template">
+## Categorization of <br />visualization methods
+- **Pixel-oriented** visualization techniques
+- **Geometric projection** visualization techniques
+	- Direct visualization, scatter plot, scatter-plot matrix, Landscapes, parallel coordinates
+- **Icon-based** visualization techniques
+	- hernoff faces and stick figures.
+- **Hierarchical** visualization techniques
+	- Dimensional Stacking, Worlds-within-Worlds, Tree-Map, Cone Trees, InfoCube	
+- Visualizing complex data and relations
+</script></section>
+</section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
@@ -85,7 +109,9 @@ branch, and `$y_1, \cdots ,y_N$` be the data from the second, where each data se
 
 <section data-markdown><script type="text/template">
 ## Normal Q-Q Plot with Python
-<pre><code data-trim data-line-numbers>import numpy as np
+<pre><code data-trim data-line-numbers># 05_01nornalQplot.py
+import numpy as np
+# we import the pyplot module from matplotlib and name it plt.
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 
@@ -114,7 +140,8 @@ plt.show()</code></pre>
 
 <section data-markdown><script type="text/template">
 ## Normal Q-Q Plot with Unit price
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+<pre><code data-trim data-line-numbers># 05_02sold.py
+import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
@@ -150,24 +177,27 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Plotting boxplots with Python
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+<pre><code data-trim data-line-numbers># 05_03boxplots.py
+import matplotlib.pyplot as plt
 import numpy as np
 import Orange
 
-# import os # if your data is saved in the following path.
-# os.chdir("D:/Teaching/dataMining/dataset")
-
+# import os
+# os.chdir("D:\\Teaching\\dataMining\\dataset")
+# plt.style.use('./datamining.mplstyle')
 data =  Orange.data.Table("age.csv")
 
 bxmean = np.mean(data)
 bxstd = np.std(data)
 
 bx = np.random.normal(bxmean, bxstd, 18) # normal(mu, sigma, size) 
-
 fig = plt.figure(figsize =(10, 7))
-
 plt.boxplot(bx)
 
+# Customize the plot
+plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
+plt.title('Boxplot (箱型圖)')
+plt.xticks([1], ['Age Dataset'])
 plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
@@ -176,27 +206,28 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Plotting a Multi-column datasets
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+<pre><code data-trim data-line-numbers># 05_04boxplots2.py
+import matplotlib.pyplot as plt
 import numpy as np
 import Orange
-
-# import os  # if your data is saved on the following path.
-# os.chdir("D:\\Teaching\\dataMining\\dataset")
-
+# import os
+# os.chdir("D:\\Teaching\\dataMining\\dataset") # if your data is saved on the path.
+# plt.style.use('./datamining.mplstyle')
 twoColumn =  Orange.data.Table("age2.csv")
-
-mn = np.mean(twoColumn,0) # mean of each rows
-bxstd = np.std(twoColumn,0) # std of each rows
-
+mn = np.mean(twoColumn,0) # mean of rows
+bxstd = np.std(twoColumn,0) # std of rows
 bx1 = np.random.normal(mn[0], bxstd[0], 18) # normal(mu, sigma, size) 
 bx2 = np.random.normal(mn[1], bxstd[1], 18)
-
 bxAll = [bx1, bx2] # merge in array
 
 fig = plt.figure(figsize =(10, 7))
-
 plt.boxplot(bxAll)
-
+# Customize the plot
+plt.rcParams['font.sans-serif'] = ['GenYoGothic TW'] # 源樣黑體，Microsoft JhengHei(- x) 
+plt.title('Boxplot (盒鬚圖)')
+plt.xticks([1,2], ['Branch 1','Branch 2'])
+plt.xlabel('Age2 Dataset')
+plt.grid(True)
 plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
@@ -211,11 +242,11 @@ plt.show()</code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Histograms
+# Histograms <br />and <br /> Bar Chart
 </script></section>
 <section data-markdown><script type="text/template">
-## An Example of Histogram
-![](/images/datamining/histogram.png)
+## A histogram example from textbook
+![](/images/datamining/hTextbook.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Bar Plot in Orange
@@ -223,8 +254,9 @@ plt.show()</code></pre>
 </script></section>
 
 <section data-markdown><script type="text/template">
-## The result of previous slide
-<pre><code data-markdown data-line-numbers>import matplotlib.pyplot as plt
+## Bar chart with Python
+<pre><code data-markdown data-line-numbers># 05_05barChart.py
+import matplotlib.pyplot as plt
 import numpy as np
 import Orange
 import pandas as pd
@@ -233,7 +265,6 @@ import pandas as pd
 # os.chdir("D:\\Teaching\\dataMining\\dataset")
 	
 data =  Orange.data.Table("sold.csv") # twoColumn
-
 dd = pd.DataFrame(data)
 
 x = np.arange(len(dd))
@@ -250,6 +281,54 @@ plt.show()</code></pre>
 <section data-markdown><script type="text/template">
 ## The result of previous code
 ![](/images/datamining/pBarPlot.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Comparioson between Histogram with Bar Char
+| Items   | Histogram	| Bar Chart |
+| :---	  | :---			| :---		|
+| Meaning | frequency of **numerical** data. | different **categories** of data |
+| Indicates | non-discrete variables | discrete variables |
+| Presents | Quantitative data | Categorical data |
+| Spaces	| **no spaces** between bars | there are **spaces** between bars |
+| Elements	| grouped together | individual entities |
+| **Reordered bar** | No	| Yes |
+| **Width of bars** | Need not to be same | the same |
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Histogram in Orange
+![](/images/datamining/hOrange.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## A histogram with Python
+<pre><code data-trim data-line-numbers># 05_06histogram.py
+import matplotlib.pyplot as plt
+import numpy as np
+import Orange
+import pandas as pd
+
+# import os # if your data is saved in the following path.
+# os.chdir("D:\\Teaching\\dataMining\\dataset")
+data =  Orange.data.Table("sold.csv") # twoColumn
+dd = pd.DataFrame(data)
+xx = dd[0]
+yy = dd[1]
+
+bins = [40,59,60,79,80,99,100,119,120,139]
+plt.hist(x=xx,bins=bins,weights=yy, color='#0504aa',alpha=0.7,edgecolor='purple')
+
+# Customize the plot
+font = {'family' : 'Times New Roman', 'weight' : 'bold', 'size'   : 18}
+plt.rc('font', **font)
+plt.xlabel('Unit Price')
+plt.ylabel('Count of items sold')
+plt.title('A histogram diagram for unit price with Python')
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous code
+![](/images/datamining/pHistogram.png)
 </script></section>
 </section><!--end block-->
 
@@ -276,24 +355,26 @@ can be **positive**, **negative**, or **null (uncorrelated)**.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Scatter Plot with Python
-<pre><code data-trim data-line-numbers>import matplotlib.pyplot as plt
+<pre><code data-trim data-line-numbers># 05_07scatter.py
+import matplotlib.pyplot as plt
 import numpy as np
 import Orange
 import pandas as pd
 
 # import os  # if your data is saved on the following path.
 # os.chdir("C:\\Users\\USER\\Documents\\dataMining\\dataset")
+# plt.style.use('./datamining.mplstyle')
 
 data =  Orange.data.Table("sold2.csv")
 dd = pd.DataFrame(data)
 x = np.arange(len(dd))
 y = dd[1]
-xaxis = dd[0]
+
+# Customize the plot
 plt.scatter(x, y)
-# plt.xticks(x, xaxis)
 plt.xlabel('Unit Price')
 plt.ylabel('Count of items sold')
-plt.title('A bar chart for unit price with Python')
+plt.title('A scatter for unit price with Python')
 plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
@@ -306,6 +387,69 @@ plt.show()</code></pre>
 ![](/images/datamining/oScatter.png)
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+<section data-markdown><script type="text/template">
+## Introduction to Matplotlib
+- [Matplotlib: Visualization with Python](https://matplotlib.org/)
+<figure style="float: right">
+	<img src="/images/datamining/matplotlib.svg" width="60%" alt="matplotlib logo">
+	</figure>
+
+	- Matplotlib is a comprehensive library for creating static, **animated**, and **interactive** visualizations in Python.
+- matlpotlib's learning resources
+	- [Python Plotting With Matplotlib (Guide)](https://realpython.com/python-matplotlib-guide/)
+	- [Quick start guide](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
+	- [Examples](https://matplotlib.org/stable/gallery/index.html) of matplotlib
+	- [Tutorials](https://matplotlib.org/stable/tutorials/index.html) and [Users guide](https://matplotlib.org/stable/users/index.html)
+	- [API Reference](https://matplotlib.org/stable/api/index.html)
+- Learning matplotlib by examples from matlpotlib's website, I think, is more efficient and easy way.
+</script></section>
+<section data-markdown><script type="text/template">
+## Listing Fonts of system
+- Listing the fonts were installed on operation system.
+<pre><code data-trim data-line-numbers>from matplotlib import font_manager as fm
+list = fm.get_font_names()
+list</code></pre>
+![](/images/datamining/fontList.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Settting font style <br />for matplotlib
+<pre><code data-trim data-line-numbers># Method 1: using style file
+plt.style.use('your_matplotlib_style')
+
+# Method 2: setting plt.rcParams value 
+plt.rcParams['font.sans-serif'] = ['Times New Roman']
+# plt.rcParams value refer to API reference document of offical website.
+
+# Method 3: setting font variable and plt.rc parameter
+font = {'family' : 'Times New Roman',
+		'weight' : 'bold',
+		'size'   : 16}
+plt.rc('font', **font)
+</code></pre>
+- 注意：圖形的標題、x 軸標示、 y 軸標示、圖形內部如果有中文字，font family 必須要指定中文字型的名稱。
+</script></section>
+<section data-markdown><script type="text/template">
+## matplotlib style format
+- An example of style format is as following
+<pre><code data-trim data-line-numbers># This is comment for style file
+font.family : GenYoGothic TW # get name with fm.get_font_names() method
+font.weight : normal # normal, bold, heavy, light, ultralight, 200, 300, ...
+axes.titlesize : 18
+axes.labelsize : 14
+lines.linewidth : 2
+lines.markersize : 12
+xtick.labelsize : 16
+ytick.labelsize : 16
+axes.grid : True</code></pre>
+- The style's file name could be named by yourself what you want to be.
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 

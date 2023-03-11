@@ -14,6 +14,11 @@ stats.probplot(data, dist="norm", plot=plt)
 # fig = sm.qqplot(data, line='s')
  
 # Customize the plot
+font = {'family' : 'Times New Roman',
+        'weight' : 'bold',
+        'size'   : 16}
+
+plt.rc('font', **font)
 plt.title('Normal Q-Q plot')
 plt.xlabel('Theoretical quantiles')
 plt.ylabel('Sample quantiles')
