@@ -65,12 +65,117 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- Dimensional Stacking, Worlds-within-Worlds, Tree-Map, Cone Trees, InfoCube	
 - Visualizing complex data and relations
 </script></section>
+<section data-markdown><script type="text/template">
+# Pixel-oriented
+</script></section>
+<section data-markdown><script type="text/template">
+## Pixel-oriented visualization
+- Using pixel-based visualization, we can easily observe the following: **credit limit** increases as **income**
+increases; customers whose income is in the **middle range** are more likely to **purchase more** from AllElectronics.
+![](/images/datamining/pixelOrient.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## A space-filling curve
+- Filling a window by laying out **the data records in a linear way may not work well for a wide window**.
+- To solve this problem, we can lay out **the data records in a space-filling curve to fill the windows**.
+![](/images/datamining/spaceFilling.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Circle segment technique
+- The circle segment technique. (a) Representing a data record in circle segments. (b) Laying out pixels in circle segments.
+![](/images/datamining/circle.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Geometric projection
+</script></section>
+<section data-markdown><script type="text/template">
+## 2-D Scatter Plot
+![](/images/datamining/2dScatter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Iris dataset's scatter-plot matrix
+![](/images/datamining/scatterMatrix.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Code of scatter matrix
+<pre><code data-trim data-line-numbers># 05_01scatterMatrix.py
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv('D:/Teaching/datamining/dataset/iris.csv')
+
+pd.plotting.scatter_matrix(df, figsize=(10, 6), diagonal = 'kde')
+
+# Customize the plot
+plt.suptitle('A scatter Matrix with Pandas')
+plt.savefig('D:/github/elvishsieh.github.io/images/datamining/scatterMatrix.png', facecolor='w', edgecolor='w', format='png')
+
+plt.show()</code></pre>
+- The iris dataset using a scatter-plot matrix
+</script></section>
+<section data-markdown><script type="text/template">
+## 3-D data set using a scatter plot
+![](/images/datamining/scatter3d.jpg)
+source: [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Scatter_plot.jpg)
+</script></section>
+<section data-markdown><script type="text/template">
+## A 3-D scatter Plot with [matplotlib](https://matplotlib.org/stable/gallery/mplot3d/scatter3d.html)
+![](/images/datamining/scatter3dMpl.webp)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Icon-Based Visualization
+</script></section>
+<section data-markdown><script type="text/template">
+## Parallel Coordinates
+![](/images/datamining/pCoordinate.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## ChernoffFace
+- pip install ChernoffFace
+![](/images/datamining/chernoff.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The code of previous figure
+<pre><code data-trim data-line-numbers>from ChernoffFace import *
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm
+
+# Generate data
+np.random.seed(32)
+data = np.random.rand(16, 12)
+
+# Make Chernoff faces
+fig = chernoff_face(data=data, 
+					titles=[str(x) for x in list(range(len(data)))], 
+					color_mapper=matplotlib.cm.Pastel1)
+
+# Display
+fig.tight_layout()
+plt.show()
+</code></pre>
+Source code from [pypi ChernoffFace](https://pypi.org/project/ChernoffFace/)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Hierarchical Visualization
+![](/images/datamining/dipstick5.gif)
+Source from [graphics.cs.columbia.edu](https://graphics.cs.columbia.edu/projects/AutoVisual/images/1.dipstick.5.gif)
+</script>	
+</section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 ## Quantile Plot
-- Let `$x_i$`, for `$i_1$` to `$N$`, be the data sorted in increasing order so that `$x_1$` is the smallest observation and `$x_N$` 
+- Let `$x_i$`, for `$i = 1$` to `$N$`, be the data sorted in increasing order so that `$x_1$` is the smallest observation and `$x_N$` 
 	is the largest for some ordinal or numeric attribute `$X$`. 
 - Each observation, `$x_i$` , is paired with a percentage, `$f_i$` , which indicates
 	that approximately `$f_i \times 100\%$` of the data are below the value, `$x_i$`. Let 
@@ -109,7 +214,7 @@ branch, and `$y_1, \cdots ,y_N$` be the data from the second, where each data se
 
 <section data-markdown><script type="text/template">
 ## Normal Q-Q Plot with Python
-<pre><code data-trim data-line-numbers># 05_01nornalQplot.py
+<pre><code data-trim data-line-numbers># 05_02nornalQplot.py
 import numpy as np
 # we import the pyplot module from matplotlib and name it plt.
 import matplotlib.pyplot as plt
@@ -140,7 +245,7 @@ plt.show()</code></pre>
 
 <section data-markdown><script type="text/template">
 ## Normal Q-Q Plot with Unit price
-<pre><code data-trim data-line-numbers># 05_02sold.py
+<pre><code data-trim data-line-numbers># 05_03sold.py
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.pyplot as plt
@@ -177,7 +282,7 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Plotting boxplots with Python
-<pre><code data-trim data-line-numbers># 05_03boxplots.py
+<pre><code data-trim data-line-numbers># 05_04boxplots.py
 import matplotlib.pyplot as plt
 import numpy as np
 import Orange
@@ -206,7 +311,7 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Plotting a Multi-column datasets
-<pre><code data-trim data-line-numbers># 05_04boxplots2.py
+<pre><code data-trim data-line-numbers># 05_05boxplots2.py
 import matplotlib.pyplot as plt
 import numpy as np
 import Orange
@@ -255,7 +360,7 @@ plt.show()</code></pre>
 
 <section data-markdown><script type="text/template">
 ## Bar chart with Python
-<pre><code data-markdown data-line-numbers># 05_05barChart.py
+<pre><code data-markdown data-line-numbers># 05_06barChart.py
 import matplotlib.pyplot as plt
 import numpy as np
 import Orange
@@ -302,7 +407,7 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## A histogram with Python
-<pre><code data-trim data-line-numbers># 05_06histogram.py
+<pre><code data-trim data-line-numbers># 05_07histogram.py
 import matplotlib.pyplot as plt
 import numpy as np
 import Orange
@@ -355,7 +460,7 @@ can be **positive**, **negative**, or **null (uncorrelated)**.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Scatter Plot with Python
-<pre><code data-trim data-line-numbers># 05_07scatter.py
+<pre><code data-trim data-line-numbers># 05_08scatter.py
 import matplotlib.pyplot as plt
 import numpy as np
 import Orange
@@ -404,20 +509,111 @@ plt.show()</code></pre>
 	- [Python Plotting With Matplotlib (Guide)](https://realpython.com/python-matplotlib-guide/)
 	- [Quick start guide](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
 	- [Examples](https://matplotlib.org/stable/gallery/index.html) of matplotlib
+	- [Data Visualization with Python](https://hossainlab.github.io/dataviz/index.html)
 	- [Tutorials](https://matplotlib.org/stable/tutorials/index.html) and [Users guide](https://matplotlib.org/stable/users/index.html)
 	- [API Reference](https://matplotlib.org/stable/api/index.html)
 - Learning matplotlib by examples from matlpotlib's website, I think, is more efficient and easy way.
 </script></section>
 <section data-markdown><script type="text/template">
-## Listing Fonts of system
-- Listing the fonts were installed on operation system.
+## A dataset of three kinds of iris
+![](/images/datamining/iris.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Read dataset with Pandas
+<pre><code data-trim data-line-numbers># 05_09irisScatter.py program part 1
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+iris = pd.read_csv('D:/Teaching/datamining/dataset/iris.csv')
+# print(iris) # check point
+
+# find keyword in the variety row of iris dataframe that is Setosa in the variety row.
+setosa = iris.loc[iris['variety'] == 'Setosa']
+# print(setosa) # check point
+versicolor = iris.loc[iris['variety'] == 'Versicolor']
+virginica = iris.loc[iris['variety'] == 'Virginica']
+
+# Setosa: Sepal's, Petal's length and width
+# ------------------------------------------
+sx1 = setosa['sepal.length']
+# print(x1) # check point
+sy1 = setosa['sepal.width']
+sx2 = setosa['petal.length']
+sy2 = setosa['petal.width']</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Customizing figure
+<pre><code data-trim data-line-numbers># 05_09irisScatter.py program part 2
+plt.figure(figsize=(10,6)) # setting figure size for savfig() method
+# marker symbols: "$f$", "$\u266B$", r"$\mathcal{A}$"
+plt.scatter(sx1,sy1, marker='$\u266B$', s=150, linewidths=0.5, label="Setosa Sepal")
+plt.scatter(sx2,sy2, linewidths=0.5, label="Setosa Petal")
+
+# Customize the plot
+plt.title('Iris dataset scatter plot', fontsize=16, fontweight='bold')
+plt.xlabel('Sepal or Petal Length', fontsize=14)
+plt.ylabel('Sepal or Petal Width', fontsize=14)
+#plt.legend(title='Iris Datasets',loc='center right', fancybox=True, bbox_to_anchor=(1.35, 0.5)) # out of the box
+plt.legend(title='Iris Datasets',loc='lower right')
+plt.savfig('D:/github/elvishsieh.github.io/images/datamining/irisScatter.png', format='png')
+plt.show()
+</code></pre>	
+- [The Unicode Standard](https://www.unicode.org/versions/Unicode15.0.0/) can get from [the Unicode Consortium](https://home.unicode.org/)
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous code
+![](/images/datamining/irisScatter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Comparing the septal of iris
+<pre><code data-trim data-line-numbers># 05_10irisScatter2.py
+# copy 1-13 line code to here from 05_09irisScatter.py
+# Compare septal length and width among Setosa, Versicolor and Virginica
+# ------------------------------------------
+x1 = setosa['sepal.length']
+y1 = versicolor['sepal.length']
+x2 = setosa['sepal.length']
+y2 = virginica['sepal.length']
+x3 = versicolor['sepal.length']
+y3 = virginica['sepal.length']
+plt.figure(figsize=(10,6)) # setting figure size for savfig() method
+plt.scatter(x1,y1, marker='x', linewidths=0.5, label="Setosa-Versicolor")
+plt.scatter(x2,y2, marker='^', linewidths=0.5, label="Setosa-Virginica")
+plt.scatter(x3,y3, marker='+', linewidths=0.5, label="Versicolor-Virginica")
+# marker refer to https://matplotlib.org/stable/api/markers_api.html
+# Customize the plot
+plt.title('Three kinds of septal\'s length comparison', fontsize=16, fontweight='bold')
+plt.xlabel('Sepal Length', fontsize=14)
+plt.ylabel('The others Sepal Length', fontsize=14)
+plt.legend(title='Iris Datasets',loc='lower right')
+#plt.savfig('D:/github/elvishsieh.github.io/images/datamining/irisScatter2.png', format='png')
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of previous code
+![](/images/datamining/irisScatter2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of 05_11irisScatter.py
+![](/images/datamining/irisScatter3.png)
+</script></section>
+</section>
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Setting Fonts Style
+</script></section>
+<section data-markdown><script type="text/template">
+## Listing Fonts for pyplot
+- Listing the fonts name were installed on operation system.
 <pre><code data-trim data-line-numbers>from matplotlib import font_manager as fm
 list = fm.get_font_names()
 list</code></pre>
 ![](/images/datamining/fontList.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Settting font style <br />for matplotlib
+## Settting matplotlib's font style
 <pre><code data-trim data-line-numbers># Method 1: using style file
 plt.style.use('your_matplotlib_style')
 
@@ -436,15 +632,15 @@ plt.rc('font', **font)
 <section data-markdown><script type="text/template">
 ## matplotlib style format
 - An example of style format is as following
-<pre><code data-trim data-line-numbers># This is comment for style file
+<pre><code data-trim data-line-numbers># This filename was datamining.mystyle
 font.family : GenYoGothic TW # get name with fm.get_font_names() method
 font.weight : normal # normal, bold, heavy, light, ultralight, 200, 300, ...
 axes.titlesize : 18
 axes.labelsize : 14
 lines.linewidth : 2
-lines.markersize : 12
-xtick.labelsize : 16
-ytick.labelsize : 16
+lines.markersize : 10
+xtick.labelsize : 12
+ytick.labelsize : 12
 axes.grid : True</code></pre>
 - The style's file name could be named by yourself what you want to be.
 </script></section>

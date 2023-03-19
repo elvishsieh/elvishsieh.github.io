@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 import scipy.stats as stats
 import Orange
 # import os # if your data is saved in the following path.
