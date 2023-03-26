@@ -98,6 +98,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- We can speak of values as being an order of magnitude larger than the unit of measurement (10 K˚ is twice as high as 5 K˚).
 		- e.g., temperature in Kelvin, length, counts, monetary quantities
 </script></section>
+<section data-markdown><script type="text/template">
+## Summary of the Characteristics for Levels of Measurement
+![](/images/datamining/measurement.png)
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -289,7 +293,391 @@ quartile**.
 - Knowledge of object similarities can also be used in **nearest-neighbor classification** schemes.
 </script></section>
 <section data-markdown><script type="text/template">
-## Data Matrix v.s Dissimilarity Matrix
+## Alike and Unalike
+- Similarity and dissimilarity measures, which are referred to as **measures of proximity**.
+- A similarity measure for two objects, i and j, will typically return **the value 0 if the objects are unalike**.
+- The **higher** the similarity **value**, the **greater the similarity** between objects.
+- Typically, a **value of 1** indicates **complete similarity**, that is, the **objects are identical**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data matrix (1/2)
+- Suppose that we have **`$n$` objects** (e.g., persons, items, or courses) described by **`$m$` attributes** (also called **measurements** or **features**, such as age, height, weight, or gender).
+- The objects are `$x_1 = (x_{11}, x_{12}, \cdots , x_{1m}), x_2 = (x_{21}, x_{22}, \cdots , x_{2m}),$` and so on, where `$x_{ij}$` is the value for object `$x_i$` of the `$jth$` attribute.
+- The objects may be **tuples in a relational database**, and are also referred to as **data samples** or **feature vectors**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data matrix (2/2)
+- Data matrix is also called object-by-attribute structure. This structure stores the n data objects
+in the form of a relational table, or n-by-m matrix (`$n$` objects `$\times$` `$m$` attributes)
+`$$
+\begin{bmatrix}
+x_{11} &  \dots & x_{1f} & \dots  & x_{1m} \\
+\dots  & \dots & \dots & \dots & \dots \\
+x_{i1} &  \dots  & x_{if} & \dots  & x_{im} \\
+\dots & \dots & \dots & \dots & \dots \\
+x_{n1} &   \dots  & x_{nf} & \dots  & x_{nm}
+\end{bmatrix}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Dissimilarity matrix (1/2)
+- Dissimilarity matrix is also called object-by-object (`$n\times n$` object) structure. This structure stores a collection of proximities 
+that are available for all pairs of n objects.
+`$$
+\begin{bmatrix}
+0 &  ~ & ~ & ~  & ~ \\
+d(2,1)  & 0 & ~ & ~ & ~ \\
+d(3,1) &  d(3,2)  & 0 & ~  & ~ \\
+\vdots & \vdots & \vdots & ~ & ~ \\
+d(n,1) &   d(n,2)  & \dots & \dots  & 0
+\end{bmatrix}
+$$`
+where `$d(i, j)$` is the measured **dissimilarity** or “difference” between objects `$i$` and `$j$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## Dissimilarity matrix (2/2)
+- In general, `$d(i, j)$` is a **non-negative number** that is **close to 0** when objects `$i$` and `$j$` are **highly similar** 
+or “near” each other, and becomes larger the more they differ.
+- Note that `$d(i, j)$`; that is, the **difference between an object and itself** is 0
+- Furthermore, `$d(i, j) = d(j, i)$`; (For **readability**, we **do not show** the `$d(i, j)$` entries; the matrix is **symmetric**.)
+
+</script></section>
+<section data-markdown><script type="text/template">
+## Data v.s Dissimilarity Matrix
+- Measures of similarity can often **be expressed as a function** of measures of dissimilarity.
+For example, for nominal data, **`$ sim(i, j) = 1 - d(i, j)$`**
+- A **data matrix** is made up of two entities or “things,” namely rows (for objects) and columns (for attributes). 
+Therefore, the data matrix is often called a **two-mode matrix**.
+- The **dissimilarity matrix** contains one kind of entity (dissimilarities) and so is called a **one-mode matrix**. 
+Many **clustering** and **nearest-neighbor** algorithms operate on a dissimilarity matrix.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Proximity Measures for<br/> Nominal Attributes
+</script></section>
+<section data-markdown><script type="text/template">
+## Dissimilarity between nominal attributes
+- A nominal attribute can take on **two or more states**. For example, **map color** is a **nominal attribute** that may have,
+ say, **five states: red, yellow, green, pink, and blue**.
+ `$$
+  d(i, j) = \frac{p - m}{p}
+ $$`
+	- where **m is the number of matches** (i.e., the number of attributes for which i and j are in the same state)
+	- p is the **total number of attributes** describing the objects.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Dissimilarity between nominal attributes
+- Suppose that we have the sample data of Table 2.2, except that only the object-identifier and the attribute test-1 are available,
+where **test-1 is nominal**.
+
+<figure style="float: right">
+<img src="/images/datamining/table22.png" alt="example 2.17">
+</figure>
+</script></section>
+<section data-markdown><script type="text/template">
+## Continue of prior slides (1/2)
+- Let\'s compute the dissimilarity matrix, that is,
+`$
+\begin{bmatrix}
+0 &  ~ & ~ & ~ \\
+d(2,1)  & 0 & ~ & ~  \\
+d(3,1) &  d(3,2)  & 0 & ~  \\
+d(4,1) &   d(4,2)  &  d(4,3) & 0 
+\end{bmatrix}
+$`
+<figure style="float: right">
+<img src="/images/datamining/table22small.png" alt="example 2.17 test-1">
+</figure>
+-  **`$d(i, j) = \frac{p - m}{p}$`**
+	- we have one nominal attribute, test-1, we set **`$p = 1$`**
+	- **`$m$` is the number of matches.** 
+	- `$m_{(2,1)} = 0,\; d(2,1) = \frac{1-0}{1} = 1 $`
+</script></section>
+<section data-markdown><script type="text/template">
+## Continue of prior slides (2/2)
+-  `$d(i, j) = \frac{p - m}{p}$`
+<figure style="float: right">
+<img src="/images/datamining/table22small.png" alt="example 2.17 test-1">
+</figure>
+- `$m_{(3,1)} = 0,\; d(3,1) = \frac{1-0}{1} = 1 $`
+- `$m_{(3,2)} = 0,\; d(3,2) = \frac{1-0}{1} = 1 $`
+- `$m_{(4,1)} = 1,\; d(4,1) = \frac{1-1}{1} = 0 $`
+- `$m_{(4,2)} = 0,\; d(4,2) = \frac{1-0}{1} = 1 $`
+- `$m_{(4,3)} = 0,\; d(4,3) = \frac{1-0}{1} = 1 $`
+- Let\'s compute the dissimilarity matrix, that is,
+`$
+\begin{bmatrix}
+0 &  ~ & ~ & ~ \\
+1  & 0 & ~ & ~  \\
+1 &  1  & 0 & ~  \\
+0 &   1  &  1 & 0 
+\end{bmatrix}
+$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Two nominal attributes (1/2)
+| Object | test-1 | test-2 |
+|:---:		| :---: | :---: |
+| 1		| code A | 20 |
+| 2		| code B | 30 |
+| 3		| code C | 40 |
+| 4 	| code A | 20 |
+- we have two nominal attributes, test-1 and test-2, we set **`$p = 2$`**
+- `$m_{(2,1)} = 0,\; d(2,1) = \frac{2-0}{2} = 1 $`
+- `$m_{(4,1)} = 2,\; d(4,1) = \frac{2-0}{2} = 0 $`
+</script></section>
+<section data-markdown><script type="text/template">
+## Two nominal attributes (2/2)
+| Object | test-1 | test-2 |
+|:---:		| :---: | :---: |
+| 1		| code A | 20 |
+| 2		| code B | 30 |
+| 3		| code C | 40 |
+| 4 	| code A | 20 |
+- Let\'s compute the dissimilarity matrix, that is,
+`$$
+\begin{bmatrix}
+0 &  ~ & ~ & ~ \\
+1  & 0 & ~ & ~  \\
+1 &  1  & 0 & ~  \\
+0 &   1  &  1 & 0 
+\end{bmatrix}
+$$`
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Proximity Measures for<br/> Binary Attributes
+</script></section>
+<section data-markdown><script type="text/template">
+## Dissimilarity between two binary attributes
+- A **binary attribute** has only one of **two states: 0 and 1**, where **0 means** that the attribute is **absent**, and **1 means** that it is **present**.
+- **How can we compute** the dissimilarity between two binary attributes as below table?
+| name		| gender	| fever 	| cough	| att1 | att2 	| att3| att4 | 
+|:---:		| :---: 	| :---: 	|:---: 	| :---:  |:---: 	| :---: | :---:  |
+| Jack		| M 		| Y 		| N		| P		 | N		| N		| N		 |
+| Jim		| M 		| Y 		| Y 	| N		 | N		| N		| N		 |
+| Mary		| F 		| Y 		| N		| P		 | N		| P		| N		 |
+| `$\vdots$`| `$\vdots$`| `$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|
+</script></section>
+<section data-markdown><script type="text/template">
+## Contingency table (1/2)
+- We have the `$2\times 2$` contingency table, where **`$q$` is the number of attributes** that **equal 1 for both objects**
+`$i$` and `$j$` 
+![](/images/datamining/contingency.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Contingency table (2/2)
+- `$r$` is the number of attributes that **equal 1 for object `$i$` but equal 0 for object `$j$`.** 
+`$
+\begin{array}{c|cc}
+   ~ & 1 & 0 \\ \hline
+   1 & q & r \\
+   0 & s & t
+\end{array}
+$`
+`$ =
+\begin{array}{c|cc}
+   ~ & 1 & 0 \\ \hline
+   1 & m_{11} & m_{10} \\
+   0 & m_{01} & m_{00}
+\end{array}
+$`
+- `$s$` is the number of attributes that equal 0 for object `$i$` but equal 1 for object `$j$`
+- `$t$` is the number of attributes that equal 0 for both objects `$i$` and `$j$`.
+- The total number of attributes is `$p$`, where **`$p = q + r + s + t$`**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Symmetric binary dissimilarity
+- Recall that for **symmetric binary attributes, each state is equally valuable**.
+- Dissimilarity that is based on **symmetric binary attributes** is called **symmetric binary dissimilarity**.
+- If objects i and j are described by symmetric binary attributes, then the dissimilarity between i and j is
+`$$
+d(i, j) = \frac{r + s}{q + r + s + t}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Asymmetric binary dissimilarity
+- For **asymmetric binary attributes**, the two states are **not equally important**, such as the **positive (1) and negative (0)** 
+  outcomes of a **disease test**.
+- If objects `$i$` and `$j$` are described by symmetric binary attributes, then the dissimilarity between `$i$` and `$j$` is
+`$$
+d(i, j) = \frac{r + s}{q + r + s}
+$$`
+- The asymmetric binary similarity is
+`$$
+sim(i, j) = 1 - \frac{r + s}{q + r + s} = \frac{q}{q + r + s}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of dissimilarity between binary attributes (1/5)
+- Suppose that a patient record table as following
+| name		| gender	| fever 	| cough	| att1 | att2 	| att3| att4 | 
+|:---:		| :---: 	| :---: 	|:---: 	| :---:  |:---: 	| :---: | :---:  |
+| Jack		| M 		| Y 		| N		| P		 | N		| N		| N		 |
+| Jim		| M 		| Y 		| Y 	| N		 | N		| N		| N		 |
+| Mary		| F 		| Y 		| N		| P		 | N		| P		| N		 |
+| `$\vdots$`| `$\vdots$`| `$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|`$\vdots$`|
+- For asymmetric attribute values, let the values Y (yes) and P (positive) be set to 1, and the value N (no or negative) be set to 0.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of dissimilarity between binary attributes (2/5)
+| name		| gender	| fever 	| cough	| att1 | att2 	| att3| att4 | 
+|:---:		| :---: 	| :---: 	|:---: 	| :---:  |:---: 	| :---: | :---:  |
+| Jack		| M 		| Y 		| N		| P		 | N		| N		| N		 |
+| Jim		| M 		| Y 		| Y 	| N		 | N		| N		| N		 |
+| Mary		| F 		| Y 		| N		| P		 | N		| P		| N		 |
+
+| name		|  fever 	| cough	| att1 | att2 	| att3| att4 | 
+|:---:		| :---: 	|:---: 	| :---:  |:---: 	| :---: | :---:  |
+| Jack		| 1 		| 0		| 1		 | 0		| 0		| 0		 |
+| Jim		| 1 		| 1 	| 0		 | 0		| 0		| 0		 |
+| Mary		| 1 		| 0		| 1		 | 0		| 1		| 0		 |
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of dissimilarity between binary attributes (3/5)
+- Suppose that the distance between objects (patients) is computed based only on the asymmetric attributes.
+- the distance between each pair of the three patients—Jack, Mary, and Jim—is
+`$$
+\begin{array}{c|c:c:c}
+   ~ & Jack & Jim & Mary\\ \hline
+   Jack & 0 & ~ & ~ \\
+   Jim & d_{21} & 0 & ~\\
+   Mary & d_{31} & d_{32} & 0
+\end{array}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of dissimilarity between binary attributes (4/5)
+- `$d(Jack, Jim) = \frac{r + s}{q + r + s}  = \frac{m_{10} + m_{01}}{m_{11} + m_{10} + m_{01}}$`
+- **`$m_{10} \mapsto$` Jack = 1, Jim = 0;** `$m_{01} \mapsto$` Jack = 0, Jim = 1; `$m_{11} \mapsto$` Jack = 1, Jim = 1;
+| name		|  fever 	| cough	| att1 | att2 	| att3| att4 | 
+|:---:		| :---: 	|:---: 	| :---:  |:---: 	| :---: | :---:  |
+| Jack		| 1 		| 0		| 1		 | 0		| 0		| 0		 |
+| Jim		| 1 		| 1 	| 0		 | 0		| 0		| 0		 |
+| Mary		| 1 		| 0		| 1		 | 0		| 1		| 0		 |
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of dissimilarity between binary attributes (5/5)
+`$$
+\begin{align*}
+d(Jack, Jim) & = \frac{r + s}{q + r + s}  = \frac{m_{10} + m_{01}}{m_{11} + m_{10} + m_{01}}\\
+	& = \frac{1 + 1}{ 1 + 1 + 1}  = 0.67\\
+\end{align*}
+$$`
+`$$
+\begin{align*}
+d(Jack, Mary)  & = \frac{m_{10} + m_{01}}{m_{11} + m_{10} + m_{01}} = \frac{0 + 1}{ 2 + 0 + 1}  = 0.33\\
+\end{align*}
+$$`
+`$$
+\begin{align*}
+d(Jim, Mary)  & = \frac{m_{10} + m_{01}}{m_{11} + m_{10} + m_{01}} = \frac{1 + 2}{ 1 + 1 + 2}  = 0.75\\
+\end{align*}
+$$`
+</script></section>
+</section><!--end block-->
+
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Proximity Measures for<br/> Numeric Attributes
+</script></section>
+<section data-markdown><script type="text/template">
+## Distance measures
+- we describe **distance measures** that are commonly used for computing the **dissimilarity** of objects described by **numeric attributes**.
+- These measures include the **Euclidean**, **Manhattan**, and **Minkowski** distances.
+- In some cases, the **data are normalized before applying** distance calculations.
+	- This involves **transforming the data to fall within a smaller** or **common range**, such as [-1, 1]	or [0.0, 1.0].
+</script></section>
+<section data-markdown><script type="text/template">
+## The Euclidean distance
+- Let `$i = x_{i1}, x_{i2}, \cdots , x_{ip}$` and `$j = x_{j1}, x_{j2}, \cdots , x_{jp}$` be two objects described by `$p$` numeric attributes.
+- Euclidean distance between objects `$i$` and `$j$` is defined as
+`$$
+ d(i, j) = \sqrt{(x_{i1}-x_{j1})^2 + (x_{i2}-x_{j2})^2 + \cdots + (x_{ip}-x_{jp})^2}
+$$`
+1. **Non-negativity**: `$d(i, j) \geq 0 \blacktriangleright$` Distance is a non-negative number.
+2. **Identity of indiscernibles**: `$d(i, j) = 0 \blacktriangleright$` The distance of an object to itself is 0.
+</script></section>
+<section data-markdown><script type="text/template">
+## The Manhattan distance
+- The Manhattan distance is also called **city block distance**.
+- Let `$i = x_{i1}, x_{i2}, \cdots , x_{ip}$` and `$j = x_{j1}, x_{j2}, \cdots , x_{jp}$` be two objects described by `$p$` numeric attributes.
+- The Manhattan distance is defined as
+`$$
+ d(i, j) = |x_{i1}-x_{j1}| + |x_{i2}-x_{j2}| + \cdots + |x_{ip}-x_{jp}|
+$$`
+3. **Symmetry**: `$d(i, j) = d(j, i)\blacktriangleright$` Distance is a symmetric function.
+4. **Triangle inequality**: `$d(i, j) \leq d(i, k) + d(k, j) \blacktriangleright$` Going directly from object `$i$` to object `$j$`
+in space is no more than making a detour over any other object `$k$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## Mathematical properties of Euclidean and Manhattan
+1. **Non-negativity**: `$d(i, j) \geq 0 \blacktriangleright$` Distance is a non-negative number.
+2. **Identity of indiscernibles**: `$d(i, j) = 0 \blacktriangleright$` The distance of an object to itself is 0.
+3. **Symmetry**: `$d(i, j) = d(j, i)\blacktriangleright$` Distance is a symmetric function.
+4. **Triangle inequality**: `$d(i, j) \leq d(i, k) + d(k, j) \blacktriangleright$` Going directly from object `$i$` to object `$j$`
+in space is no more than making a detour over any other object `$k$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## The Minkowski distance
+- Minkowski distance is a generalization of the Euclidean and Manhattan distances.
+- The Minkowski distance is defined as
+`$$
+ d(i, j) = \sqrt[h]{|x_{i1}-x_{j1}|^h + |x_{i2}-x_{j2}|^h + \cdots + |x_{ip}-x_{jp}|^h}
+$$`
+ - where **`$h$` is a real number** such that **`$h \geq 1$`**.(Such a distance is also called `$L_p$` **norm** in some literature)
+ - the Manhattan distance when **`$h = 1$`** (i.e., `$L_1$` **norm**) and Euclidean distance when **`$h = 2$`**  (i.e., `$L_2$` **norm**).
+</script></section>
+<section data-markdown><script type="text/template">
+## The supremum distance
+- The supremum distance is also called Chebyshev distance.
+- It is a generalization of the Minkowski distance for `$h \longrightarrow\infty$`, which also referred to as `$L_{max}, L_{\infty}$` **norm**.
+- To compute it, we find the attribute `$f$` that gives the **maximum difference in values between the two objects**.
+- This difference is the supremum distance, defined more formally as:
+`$$
+d(i, j) = \lim_{h \to \infty} \left( \sum_{f = 1}^{p} |x_{if} - x_{jf}|^h \right) 
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example for distance measure
+- Let `$x_1 = (1, 2)$` and `$x_2 = (3, 5)$` represent two objects as shown in Figure.
+- The Euclidean distance between the two is `$ \sqrt {(3-1)^2 + (5 - 2)^2} = \sqrt {2^2 + 3^2} = 3.61$`
+<figure style="float: right">
+<img src="/images/datamining/distance.png" alt="distance example">
+</figure>
+- The Manhattan distance between the two is `$ |3-1| + |5-2| = 2 + 3 = 5$`
+- The second attribute gives the greatest difference between values for the objects, which is `$5 - 2 = 3$`. 
+This is the supremum distance between both objects.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Proximity Measures for<br/> Ordinal Attributes
+</script></section>
+<section data-markdown><script type="text/template">
+## Ordinal Attribute
+- **The values of an ordinal attribute** have a **meaningful order** or **ranking** about them, yet the magnitude between successive **values is unknown**.
+- For example, the range of the **interval-scaled** attribute temperature (in _Celsius_)can be organized into the following 
+	states: `$-30 \;to\; -10, -10 \;to\; 10, 10 \;to\; 30$`, representing the categories cold _temperature, moderate temperature_, and _warm_ temperature,
+respectively.
+</script></section>
+<section data-markdown><script type="text/template">
+## 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Proximity Measures for<br/> Mixed Types Attribute
+</script></section>
+<section data-markdown><script type="text/template">
+## 
 </script></section>
 </section><!--end block-->
 
