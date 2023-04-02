@@ -45,7 +45,140 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# Data Preprocessing: An Overview
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Preprocess the Data? (1/2)
+- Data have quality if they satisfy the requirements of the intended use. There are many factors comprising data quality, including **accuracy, completeness, consistency, timeliness, believability**, and **interpretability**.
+- Measures for data quality: A multidimensional view
+	- **Accuracy**: correct or wrong, accurate or not
+	- **Completeness**: not recorded, unavailable, …
+	- **Consistency**: some modified but some not, dangling, …
+	- **Timeliness**: timely update? 
+	- Believability: how trustable the data are correct?
+	- Interpretability: how easily the data can be understood?
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Preprocess the Data? (2/2)
+- Let we have two tables from database as the following
+|PID 	| Name 	| Gender	| TEL 		| Addr. 	|	Married | PG|
+| :--:	| :--:	| :--:		| :--:		 	| :--:		| :--:		| :--:	|
+| 12001	| **Mark**	| male		| **0921654789**| Taichung	| No		|	No 	|
+| 12002	| Janie	| female	| 0925651234 	| Taipei	| _No_		| _Yes_	|
+| 12003	| Danny	| **male**	| **0937654789**| Taipei	| Yes		| **Yes**|
+|		|		|			|				|			|			|		|
+|PID 	| Name 	| Section	| TEL 			|PSON 		| Salary 	| Bonus	|
+| 12001	| **Mark**| Acc.		| **0982123785**| E			| 3000		|	No 	|
+| 12002	| Janie	| Affair	| 0925651234 	| E			| **-2500**		|	Yes	|
+| 12003	| Danny	| Acc.		| 			 	| M			| 4200		|	Yes	|
+- **Deleted** instance(record, tuple) or **modified** and **edited** the value of instance for data cleaning, reduction, or consistency.  
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Preprocessing Major Tasks
+- **Data cleaning**
+	- Fill in missing values, smooth noisy data, identify or remove outliers, and resolve inconsistencies
+- **Data integration**
+	- Integration of multiple databases, data cubes, or files
+- **Data reduction**
+	- Dimensionality reduction
+	- Numerosity reduction
+	- Data compression
+- Data transformation and data discretization
+	- **Normalization** 
+	- Concept hierarchy generation
+</script></section>
+</section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Cleaning
+</script></section>
+<section data-markdown><script type="text/template">
+## Data in the Real World
+- Data in the Real World is **Dirty**: Lots of potentially incorrect data, e.g., instrument faulty, 
+human or computer error, transmission error.
+- **Incomplete**:  e.g., Occupation=“ ” (missing data)
+- **Noisy**: containing noise, errors, or outliers
+	- e.g., Salary=“−10” (an error)
+- **Inconsistent**: e.g., Age=“42”, Birthday=“03/07/2010”;
+ Was rating “1, 2, 3”, now rating “A, B, C”; discrepancy between duplicate records
+- Intentional (e.g., disguised missing data)
+	- Jan. 1 as everyone’s birthday?
+</script></section>
+<section data-markdown><script type="text/template">
+## Incomplete (Missing) Data
+- Data is not always available
+	- E.g., many tuples **have no recorded value** for several attributes, such as **customer income** in sales data
+- Missing data may be due to 
+	- Equipment malfunction
+	- **Inconsistent** with other recorded data and **thus deleted**
+	- Data not entered due to **misunderstanding**
+	- Certain data may **not be considered important** at the time of entry
+	- Not register history or changes of the data
+- Missing data may **need to be inferred**
+</script></section>
+<section data-markdown><script type="text/template">
+## How to Handle Missing Data?
+- **Ignore the tuple**: usually done when class label is missing (when doing classification)—not effective when the % of missing values per attribute varies considerably
+- Fill in the missing value **manually**: **tedious + infeasible**?
+- Fill in it automatically with
+	- A global constant : e.g., “unknown”, a new class?! 
+	- The **attribute mean**
+	- The attribute **mean for all samples** belonging to the same class: smarter
+	- The most probable value: inference-based such as **Bayesian formula** or **decision tree**
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning Tools
+
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Noisy Data
+</script></section>
+<section data-markdown><script type="text/template">
+## What is noise?
+- Noise is a random error or variance in a measured variable
+- Incorrect attribute values may be due to
+	- Faulty data collection instruments
+	- Data **entry problems**
+	- Data **transmission problems**
+	- Technology limitation
+	- Inconsistency in naming convention 
+- Other data problems which require data cleaning
+	- **Duplicate** records
+	- **Incomplete** data
+	- **Inconsistent** data
+</script></section>
+<section data-markdown><script type="text/template">
+## How to Handle Noisy Data?
+- Binning
+	- Binning methods smooth a sorted data value, that is, the values around it. 
+	The sorted values are **distributed into a number of “buckets,” or bins**.
+	- Binning methods are smoothing by **bin means**, **medians** and **boundaries** for data smoothing
+- Regression
+	- Smooth by fitting the data into regression functions
+- Clustering
+	- Detect and remove outliers
+- Combined **computer and human inspection**
+	- Detect suspicious values and check by human (e.g., deal with possible outliers)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Integration
+</script></section>
+<section data-markdown><script type="text/template">
+## Data integration problem and Detection
+- Data integration combines data from multiple sources into a coherent data store.
+	- Schema integration: e.g., _A.cust-id_ `$\equiv$` _B.cust-#_
+	- Integrate metadata from different sources
+- Entity identification problem
+	- Identify real world entities from multiple data sources, e.g., **Bill Clinton = William Clinton**
+- Detecting and resolving data value conflicts
+	- The entity, attribute values from different sources are different, because was different representations, **different scales**, e.g., **metric vs. British units**
 </script></section>
 </section><!--end block-->
 
