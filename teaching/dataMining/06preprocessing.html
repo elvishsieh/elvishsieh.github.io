@@ -127,10 +127,6 @@ human or computer error, transmission error.
 	- The attribute **mean for all samples** belonging to the same class: smarter
 	- The most probable value: inference-based such as **Bayesian formula** or **decision tree**
 </script></section>
-<section data-markdown><script type="text/template">
-## Data Cleaning Tools
-
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -164,6 +160,53 @@ human or computer error, transmission error.
 - Combined **computer and human inspection**
 	- Detect suspicious values and check by human (e.g., deal with possible outliers)
 </script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning as a Process (1/2)
+- Data discrepancy detection
+	- Use metadata (e.g., domain, range, dependency, distribution)
+	- Check field overloading(4 bits < 17) 
+	- Check uniqueness rule, consecutive rule and null rule
+- Use commercial tools
+	- Data scrubbing: use simple **domain knowledge** (e.g., **postal code, spell-check**) to detect errors and make corrections
+	- Data auditing: by analyzing data to discover rules and relationship to detect violators (e.g., correlation and clustering to find outliers)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning as a Process (2/2)
+- Data migration and integration
+	- Data migration tools: allow transformations to be specified
+	- ETL (**Extraction/Transformation/Loading**) tools: allow users to specify transformations through a graphical user interface
+- Integration of the two processes
+	- Iterative and interactive (e.g., [Potter's Wheels](http://control.cs.berkeley.edu/abc/))
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning Tools
+- [OpenRefine](https://openrefine.org/)  is a powerful free, open source tool for working with messy data: 
+	cleaning it; transforming it from one format into another; and extending it with web 
+	services and external data.
+- [Melissa Clean Suite](https://www.melissa.com/crm-suite): Our Clean Suite for Salesforce & Microsoft Dynamics CRM will easily keep all your global People Data.
+- [IBM Infosphere Quality Stage](https://www.ibm.com/products/infosphere-qualitystage) is designed to support your data quality and information governance initiatives.
+The solution helps you deliver quality data for your big data, business intelligence, data warehousing, application migration and master data management projects.
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning with Excel (1/4)
+- Delete blank line
+![](/images/datamining/blankLine.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning with Excel (2/4)
+- Delete space(trim)
+![](/images/datamining/delSpace.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning with Excel (3/4)
+- Standard letter(proper or upper)
+![](/images/datamining/upper.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cleaning with Excel (4/4)
+- Delete duplicate line
+![](/images/datamining/duplicate.png)
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -179,6 +222,15 @@ human or computer error, transmission error.
 	- Identify real world entities from multiple data sources, e.g., **Bill Clinton = William Clinton**
 - Detecting and resolving data value conflicts
 	- The entity, attribute values from different sources are different, because was different representations, **different scales**, e.g., **metric vs. British units**
+</script></section>
+<section data-markdown><script type="text/template">
+## Handling Redundancy in Data Integration
+- Redundant data occur **often when integration of multiple databases**
+	- Object identification:  The same attribute or object may have different names in different databases
+	- Derivable data: One attribute may be a “derived” attribute in another table, e.g., annual revenue
+- Redundant attributes may be able to be detected by **correlation analysis** and **covariance analysis**
+- Careful integration of the data **from multiple sources** may help reduce/avoid **redundancies and inconsistencies** and improve mining speed and quality
+
 </script></section>
 </section><!--end block-->
 
