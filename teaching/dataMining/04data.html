@@ -695,10 +695,10 @@ object.
 \begin{array}{c|c:c:c}
    object & test-1 & test-2 & test-3 \\ 
    identifier & (nominal) & (ordinal) & (numeric) \\ \hline
-   1 & code A & excellent & 45 \\
-   2 & code B & fair & 22 \\
-   3 & code C & good & 64 \\
-   4 & code A & excellent & 28 
+   1 & code A & excellent(3) & 45 \\
+   2 & code B & fair(1) & 22 \\
+   3 & code C & good(2) & 64 \\
+   4 & code A & excellent(3) & 28 
 \end{array}
 $$`
 1. If we replace each value for test-2 by its rank, the **four objects** are assigned the **ranks 3, 1, 2, and 3**, respectively.
@@ -708,14 +708,15 @@ $$`
 2. **Normalizes** the ranking by **mapping rank 1 to 0.0**, rank **2 to 0.5**, and rank **3 to 1.0**. 
 3. We can use, say, the **Euclidean distance (Eq. 2.16)**, which results in the following dissimilarity matrix:
 
-`$$
+`$
 \begin{bmatrix}
 0 &  ~ & ~ & ~ \\
 1  & 0 & ~ & ~  \\
 0.5 &  0.5  & 0 & ~  \\
 0 &   1  &  0.5 & 0 
 \end{bmatrix}
-$$`
+d_{21} = \frac{z_{dist(21)} - 1}{M_{f}-1} = \frac{\sqrt{(3-1)^2} - 1}{3-1} = 1
+$`
 - Therefore, **objects 1 and 2 are the most dissimilar**, as are objects 2 and 4 (i.e., **`$d(2,1) = 1.0$`** and `$d(4,2) = 1.0$`).
 </script></section>
 <section data-markdown><script type="text/template">
@@ -760,7 +761,7 @@ $$`
 	- If `$f$` is **ordinal**: compute the ranks `$r_{if}$` and **`$z_{if} = \frac{r_{if} - 1}{M_{f} - 1}$`**, and treat `$z_{if}$` as numeric.
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of mixed type dissimilarity (1/4)
+## Example of mixed type dissimilarity (1/5)
 `$$
 \begin{array}{c|c:c:c}
    object & test-1 & test-2 & test-3 \\ 
@@ -775,7 +776,7 @@ $$`
 attributes of mixed types.
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of mixed type dissimilarity (2/4)
+## Example of mixed type dissimilarity (2/5)
 - Following the case for numeric attributes, we let `$\max_h x_h = 64$` and `$\min_h x_h = 22$`
 - The formula is `$d_{ij}^{(f)} = \frac{|x_{if} - x_{jf}|}{max_h x_{hf} - min_h x_{hf}}$`.
 - `$d_{21} = \frac{|22 - 45|}{64 - 22} = 0.547$`
@@ -783,7 +784,7 @@ attributes of mixed types.
 - `$d_{41} = \frac{|28 - 45|}{64 - 22} = 0.404$`, `$d_{42} = \frac{|28 - 22|}{64 - 22} = 0.142, \cdots$`
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of mixed type dissimilarity (3/4)
+## Example of mixed type dissimilarity (3/5)
 - The resulting dissimilarity matrix for **_test-3_** is
 
 `$$
@@ -794,11 +795,9 @@ attributes of mixed types.
 0.4 &   0.14  &  0.86 & 0 
 \end{bmatrix}
 $$`
-- The indicator  `$\delta_{ij}^{(f)} = 1$` for each of the three attributes, `$f$`. We get, for example,
-`$d_{31} = \frac{1(1) + 1(0.5) + 1(0.45)}{3} = 0.65$`
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of mixed type dissimilarity (4/4)
+## Example of mixed type dissimilarity (4/5)
 - The resulting dissimilarity of **test-1, test-2 and test-3** respectively are following
 
 `$
@@ -828,7 +827,9 @@ $`
 $`
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of mixed type dissimilarity (4/4)
+## Example of mixed type dissimilarity (5/5)
+- The indicator  `$\delta_{ij}^{(f)} = 1$` for each of the three attributes, `$f$`. We get, for example,
+`$d_{31} = \frac{1(1) + 1(0.5) + 1(0.45)}{3} = 0.65$`
 - `$d_{32} = \frac{1(1) + 1(0.5) + 1(1.0)}{3} = 0.83$`, 
 - `$d_{41} = \frac{1(0) + 1(0) + 1(0.4)}{3} = 0.13$`
 - The resulting dissimilarity matrix is:
