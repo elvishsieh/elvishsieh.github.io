@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Assignment of data mining</title>
+<title>資料預處理2 (Data Preprocessing 2)</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -45,56 +45,54 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# 第一次作業
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## 安裝 Orange 與建立資料集(1/2)
-- 請使用影像錄製軟體，如： [OBS 軟體](https://obsproject.com/)，錄製你/妳**安裝
- Orange data mining 系統的過程**
-- 建立一個**以 Tab 為分隔資料**欄位的資料集，採用的 orange header 格式
-不限(single-line or three-line header)，資料集**最少要有 5 筆紀錄**，並請嘗試**使用
- Orange 與 iPython or jupyter notebook 環境讀取**你/妳製作的資料集
-- 使用 iPython or jupyter notebook 環境讀取資料集，必須顯示資料集的 **attribues and class_var**.
+# Data Reduction
 </script></section>
 <section data-markdown><script type="text/template">
-## 安裝 Orange 與建立資料集(2/2)
-- 在錄製安裝及讀取資料集的過程時，必須要再加入 Camara 的來源影像，將 Camara 影像置於錄製畫面的左下方，**錄製你/妳安裝時的頭像畫面**
-- 檔案大小**限制 30 MB**，如果檔案大於規定的 30 MB，可以使用軟體壓縮檔案；降低檔案大小方法有：把解析度調低，或者使用影像壓縮軟體，例如： [Format Factory](http://www.pcfreetime.com/) 壓縮影像檔等
-- 檔案名稱：**學號_姓名_hw1**, 副檔名： **.mp4** (MP4 的格式)
-- 繳交網址：上傳錄製影片到 [homework1](https://drive.google.com/drive/folders/1GCvrFDDV7diAxwouqevVOgdPak9t03QR) assignment folder
-- 繳交日期：**3/25/2023**
-</script></section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-# 第二次作業
+## Data Reduction Strategies (1/2)
+- Data reduction: Obtain a reduced representation of the data set that is much smaller in volume but yet produces the same (or almost the same) analytical results
+- Why data reduction? — A database/data warehouse **may store terabytes of data**.  Complex data analysis may take a **very long time** to run on the complete data set.
+- Data reduction strategies
+	- **Dimensionality reduction**, e.g., remove unimportant attributes
+		- Wavelet transforms
+		- Principal Components Analysis (PCA)
+		- Feature subset selection, feature creation
 </script></section>
 <section data-markdown><script type="text/template">
-## 資料測量 (1/2)
-- Suppose that the data for analysis includes the attribute age. The age values for the data tuples are
-(in increasing order) 13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25, 25, 30, 33, 33, 35, 35, 35, 35, 36,
-40, 45, 46, 52, 70.
-	1. What is the mean of the data? What is the median?
-	2. What is the mode of the data?(bimodal, trimodal, etc.)
-	3. What is the midrange of the data?
-	4. Can you find (roughly) the first quartile (Q1) and the third quartile (Q3) of the data?
-	5. Give the five-number summary of the data.
-	6. Show a boxplot of the data.
-	7. How is a quantile-quantile plot different from a quantile plot?
+## Data Reduction Strategies (2/2)
+- Data reduction strategies
+	- **Numerosity reduction** (some simply call it: Data Reduction)
+		- Regression and Log-Linear Models
+		- Histograms, clustering, sampling
+		- Data cube aggregation
+	- **Data compression**
+		- Lossless compression
+		- Lossy compression
 </script></section>
 <section data-markdown><script type="text/template">
-## 資料測量 (2/2)
-- Briefly outline how to compute the dissimilarity between objects described by the following:
-	1. Nominal attributes
-	2. Asymmetric binary attributes
-	3. Numeric attributes
-	4. Term-frequency vectors
-- 以紙本手寫作業，必須撰寫題目，再計算每一小題的答案
-- 請班代或者學藝股長幫忙收齊
-- 繳交日期：**4/22/2023**，逾時不收
+## Dimensionality  (1/2)
+- Cause of dimensionality
+	- When **dimensionality increases**, data becomes increasingly sparse
+	- **Density and distance between points**, which is **critical** to clustering, outlier analysis, becomes less meaningful
+	- The possible combinations of subspaces will grow exponentially
+- Dimensionality reduction
+	- **Avoid** the curse of dimensionality
+	- Help **eliminate irrelevant features** and **reduce noise**
+</script></section>
+<section data-markdown><script type="text/template">
+## Dimensionality  (2/2)
+- Dimensionality reduction
+	- **Reduce time and space** required in data mining
+	- Allow **easier visualization**
+- Dimensionality **reduction techniques**
+	- Wavelet transforms
+	- Principal Component Analysis
+	- Supervised and nonlinear techniques (e.g., feature selection)
+</script></section>
+<section data-markdown><script type="text/template">
+## Mapping Data to a New Space
+- Fourier transform
+- Wavelet transform 
+![](/images/datamining/waves.png)
 </script></section>
 </section><!--end block-->
 
@@ -108,6 +106,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/search/search.js"></script>
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
@@ -206,7 +205,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

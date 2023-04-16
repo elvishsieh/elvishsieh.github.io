@@ -230,7 +230,150 @@ The solution helps you deliver quality data for your big data, business intellig
 	- Derivable data: One attribute may be a “derived” attribute in another table, e.g., annual revenue
 - Redundant attributes may be able to be detected by **correlation analysis** and **covariance analysis**
 - Careful integration of the data **from multiple sources** may help reduce/avoid **redundancies and inconsistencies** and improve mining speed and quality
+</script></section>
+<section data-markdown><script type="text/template">
+# Correlation Analysis
+</script></section>
+<section data-markdown><script type="text/template">
+## Correlation Analysis
+- **Redundancy** is another important issue in data integration. Some redundancies can be **detected by correlation analysis**.
+- For **nominal data**, we use the **`$\chi^2$` (chi-square test, 卡方檢定)**
+	- Hypothesis: Null Hypothesis(虛無檢定), Alternative Hypothesis(對立檢定)
+	- 翻轉教學學生學習成效提升10%；米粉純米比率占不到 5%
+- For **numeric attributes**, we can use the _correlation coefficient_ and _covariance_, both of which access how one attribute's 
+	values vary from those of another.
+</script></section>
+<section data-markdown><script type="text/template">
+## `$\chi^2$` Correlation Test for Nominal Data (1/2)
+- Suppose **`$O_i$` is observed frequencies** and **`$E_i$` is expected frequencies**. **Chi-square Test** is
+`$
+	\chi^2 = \sum^{n}_{i=1} \frac{(O_i - E_i)^2}{E_i}
+$`
 
+- For nominal data, a correlation relationship between two attributes, _A_ and _B_. Suppose _A_ has _c_ distinct values, namely `$a_1, a_2, \cdots a_c$`.
+_B_ has _r_ distinct values, namely `$b_1, b_2, \cdots b_r$`. **The Pearson `$\chi^2$` statistic** is computed as
+`$$
+	\chi^2 = \sum^{c}_{i=1} \sum^{r}_{j=1} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+$$`
+
+</script></section>
+<section data-markdown><script type="text/template">
+## `$\chi^2$` Correlation Test for Nominal Data (2/2)
+- `$E_{ij}$` is the expected frequency of `$(A_i, B_j)$`, which can be computed as
+`$
+E_{ij} = \frac{count(A = a_i) \times count(B = b_j)}{n}
+$`
+- Where **_n_ is the number of data tuples**, which is computed over all of the **`$(r\times c)$`** cells.
+- The `$\chi^2$` statistic tests the hypothesis that **_A_ and _B_ are independent**, that is, there is **no
+correlation** between them. The test is based on a significance level, with **`$(r-1)\times (c-1)$` degrees of freedom**
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of `$\chi^2$` Correlation Test
+- Suppose that a group of **1500 people was surveyed**. The gender of each person was noted. Each person was polled as
+to whether his or her preferred type of reading material was fiction or nonfiction.
+![](/images/datamining/table31.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Continue above slide (1/2)
+- We have two attributes, **gender and preferred reading**. The observed frequency is summarized in the contingency table shown in Table 3.1,
+ where **the numbers in parentheses are the expected frequencies**.
+- The expected frequency for the cell (male, fiction) is
+`$
+E_{ij} = \frac{count(male) \times count(fiction)}{n} = \frac{300\times 450}{1500} = 90
+$`
+- The `$\chi^2$` Chi-square test is
+`$$
+\begin{align*}
+\chi^2 & = \frac{(250-90)^2}{90} + \frac{(50-210)^2}{210} + \frac{(200-360)^2}{360}\\
+ 		& + \frac{(1000-840)^2}{840} = 507.93
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Continue above slide (2/2)
+- For this `$2 \times 2$` table, the degrees of freedom are `$(2-1)\times (2-1) = 1$`. For 1 degree of freedom, i.e, `$df = 1$`.
+- We look up the `$\chi^2$` [chi-square distribution table](./Table_A5_ChiSquared.pdf), which the `$\chi^2$` value(507.93) is more than the value of chi-square distribution table,
+where the row is 1 (df = 1) in the table.
+- Since our computed value is above this, we can **reject the hypothesis** that **gender and preferred reading** are **independent** and conclude
+that the two attributes are (strongly) correlated for the given group of people.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Covariance and Correlation Coefficient
+</script></section>
+<section data-markdown><script type="text/template">
+## Covariance of Numeric Data (1/2)
+- **Consider two numeric attributes _A_ and _B_**, and a set of n observations `${(a_1, b_1), \cdots , (a_n, b_n)}$`. 
+The mean values of _A_ and _B_, respectively, are also known as the **expected values** on _A_ and _B_, that is,
+`$ E(A) = \overline{A} = \frac{\sum^n_{i=1} a_i}{n}$` and `$ E(B) = \overline{B} = \frac{\sum^n_{i=1} b_i}{n}$`
+- The **covariance between _A_ and _B_** is defined as 
+`$$
+\begin{align*}
+	Cov(A, B) & = E((A - \overline{A})\cdot (B - \overline{B}))\\
+			& = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{n} \\
+			& = E(A\cdot B) - \overline{A} \cdot \overline{B}
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Covariance of Numeric Data (2/2)
+- For two attributes _A_ and _B_ that tend to change together, if **A is larger than `$\overline{A}$`** (the
+expected value of _A_), **then _B_ is likely to be larger than `$\overline{B}$`** (the expected value of B).
+Therefore, the **covariance between _A_ and _B_ is positive**.
+- On the other hand, if one of the attributes tends to be above its expected value when the other attribute is below its
+expected value, then the **covariance of _A_ and _B_ is negative**.
+- If **_A_ and _B_ are independent** (i.e., they do not have correlation), then `$E(A\cdot B) = E(A)\cdot E(B)$`. 
+Therefore, the covariance is `$Cov(A,B) = E(A\cdot B) - \overline{A}\overline{B} = E(A)\cdot E(B) - \overline{A}\overline{B} = 0$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Covariance Coefficient
+- Consider Table 3.2, which presents a sim-plified example of stock prices observed at 
+five time points for _AllElectronics_ and _HighTech_, a high-tech company. If the stocks 
+are affected by the same industry trends, will their prices rise or fall together?
+![](/images/datamining/table32.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Continue above slide
+- `$E(AllElectronics) = \frac{6+5+4+3+2}{5} = \frac{20}{5} = \$4$`
+- `$E(AllElectronics) = \frac{20+10+14+5+5}{5} = \frac{54}{5} = \$10.8$`
+- `$$
+	\begin{align*}
+	Cov(AE, HT) & = \frac{6\times 20 + 5\times 10 + 4\times 14 + 3\times 5 + 2\times 5}{5}\\
+	& - 4\times 10.8\\
+		& = 50.2 - 43.2 = 7
+	\end{align*}
+$$`
+- Therefore, given the **positive covariance** we can say that **stock prices for both companies
+rise together**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Correlation Coefficient (1/2)
+- **For numeric attributes**, we can evaluate the correlation between two attributes, A and B,by computing the correlation coefficient 
+(also known as **Pearson’s product moment coefficient**, named after its inventer, Karl Pearson).
+- The **Pearson’s correlation coefficient** is <br />
+`$
+r_{A, B} = \frac{Cov(A, B)}{\sigma_{A} \sigma_{B}} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n - 1)\sigma_{A} \sigma_{B}}
+$`
+- Where _n_ is the number of tuples, `$a_i$` and `$b_i$` are the respective values of _A_ and _B_ in tuple _i_,
+`$\overline{A}$` and `$\overline{B}$` are the respective mean values of _A_ and _B_, `$\sigma_{A}$` and `$\sigma_{B}$` are the 
+respective standard
+deviations of _A_ and _B_
+</script></section>
+<section data-markdown><script type="text/template">
+## Correlation Coefficient (2/2)
+- The Pearson’s correlation coefficient is <br />
+`$
+r_{A, B} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n -1)\sigma_{A} \sigma_{B}}
+ = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{\sqrt{\sum^n_{i=1} (a_i - \overline{A})^2}\cdot \sqrt{\sum^n_{i=1} (b_i - \overline{B})^2}}
+$`
+- Note that `$-1 \le r_{A,B} \le +1$`. If `$r_{A,B}$` is greater than 0, then _A_ and _B_ are positively
+correlated, meaning that the values of _A_ increase as the values of _B_ increase. 
+- **The higher the value, the stronger the correlation**. Hence, it may indicate that **may be removed as a redundancy**.
+- If the resulting value is **equal to 0**, then **_A_ and _B_ are independent** and there is **no correlation** between them.
+- If the resulting value is **less than 0**, then _A_ and _B_ are **negatively correlated**,
+where the values of **one attribute increase** as the values of **the other attribute decrease**. 
 </script></section>
 </section><!--end block-->
 
