@@ -545,7 +545,7 @@ sy2 = setosa['petal.width']</code></pre>
 <section data-markdown><script type="text/template">
 ## Customizing figure
 <pre><code data-trim data-line-numbers># 05_09irisScatter.py program part 2
-plt.figure(figsize=(10,6)) # setting figure size for savfig() method
+plt.figure(figsize=(10,6)) # setting figure size for savefig() method
 # marker symbols: "$f$", "$\u266B$", r"$\mathcal{A}$"
 plt.scatter(sx1,sy1, marker='$\u266B$', s=150, linewidths=0.5, label="Setosa Sepal")
 plt.scatter(sx2,sy2, linewidths=0.5, label="Setosa Petal")
@@ -556,7 +556,7 @@ plt.xlabel('Sepal or Petal Length', fontsize=14)
 plt.ylabel('Sepal or Petal Width', fontsize=14)
 #plt.legend(title='Iris Datasets',loc='center right', fancybox=True, bbox_to_anchor=(1.35, 0.5)) # out of the box
 plt.legend(title='Iris Datasets',loc='lower right')
-plt.savfig('D:/github/elvishsieh.github.io/images/datamining/irisScatter.png', format='png')
+# plt.savefig('D:/github/elvishsieh.github.io/images/datamining/irisScatter.png', format='png')
 plt.show()
 </code></pre>	
 - [The Unicode Standard](https://www.unicode.org/versions/Unicode15.0.0/) can get from [the Unicode Consortium](https://home.unicode.org/)
@@ -577,7 +577,7 @@ x2 = setosa['sepal.length']
 y2 = virginica['sepal.length']
 x3 = versicolor['sepal.length']
 y3 = virginica['sepal.length']
-plt.figure(figsize=(10,6)) # setting figure size for savfig() method
+plt.figure(figsize=(10,6)) # setting figure size for savefig() method
 plt.scatter(x1,y1, marker='x', linewidths=0.5, label="Setosa-Versicolor")
 plt.scatter(x2,y2, marker='^', linewidths=0.5, label="Setosa-Virginica")
 plt.scatter(x3,y3, marker='+', linewidths=0.5, label="Versicolor-Virginica")
@@ -587,7 +587,7 @@ plt.title('Three kinds of septal\'s length comparison', fontsize=16, fontweight=
 plt.xlabel('Sepal Length', fontsize=14)
 plt.ylabel('The others Sepal Length', fontsize=14)
 plt.legend(title='Iris Datasets',loc='lower right')
-#plt.savfig('D:/github/elvishsieh.github.io/images/datamining/irisScatter2.png', format='png')
+#plt.savefig('D:/github/elvishsieh.github.io/images/datamining/irisScatter2.png', format='png')
 plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
