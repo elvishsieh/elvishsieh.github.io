@@ -235,7 +235,7 @@ The solution helps you deliver quality data for your big data, business intellig
 # Correlation Analysis
 </script></section>
 <section data-markdown><script type="text/template">
-## Correlation Analysis
+## Correlation Analysis for Nominal Data
 - **Redundancy** is another important issue in data integration. Some redundancies can be **detected by correlation analysis**.
 - For **nominal data**, we use the **`$\chi^2$` (chi-square test, 卡方檢定)**
 	- Hypothesis: Null Hypothesis(虛無檢定), Alternative Hypothesis(對立檢定)
@@ -304,15 +304,30 @@ that the two attributes are (strongly) correlated for the given group of people.
 # Covariance and Correlation Coefficient
 </script></section>
 <section data-markdown><script type="text/template">
+## Correlation between objects
+- Correlation **measures the linear relationship** between objects. We standardize 
+data objects, _A_ and _B_, and a set of n observations `${(a_1, b_1), \cdots , (a_n, b_n)}$`, then the `$k_{th}$`correlation between `$(a_k, b_k)$` **take their dot product**
+`$ Correlation(a_k, b_k)  = a_k' \cdot b_k' $`, <br /> where
+`$a_k' =\frac{ a_k - mean(A)}{std(B)}$`,
+`$b_k' =\frac{ b_k - mean(B)}{std(B)}$`
+- To compute correlation of _A_ and _B_ object 
+`$$
+\begin{align*}
+	Correlation(A, B) & = A' \cdot B'\\
+	& = \frac{\sum^n_{k=1} (a_k - \overline{a})\cdot \sum^n_{k=1}(b_k - \overline{b})}{\sigma_{A} \sigma_{B}}
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
 ## Covariance of Numeric Data (1/2)
 - **Consider two numeric attributes _A_ and _B_**, and a set of n observations `${(a_1, b_1), \cdots , (a_n, b_n)}$`. 
 The mean values of _A_ and _B_, respectively, are also known as the **expected values** on _A_ and _B_, that is,
-`$ E(A) = \overline{A} = \frac{\sum^n_{i=1} a_i}{n}$` and `$ E(B) = \overline{B} = \frac{\sum^n_{i=1} b_i}{n}$`
-- The **covariance between _A_ and _B_** is defined as 
+`$ E(A) = \overline{A} = \frac{1}{n} \sum^n_{k=1} a_k$` and `$ E(B) = \overline{B} = \frac{1}{n} \sum^n_{k=1} b_k$`
+- The **covariance between _A_ and _B_ is defined** as 
 `$$
 \begin{align*}
 	Cov(A, B) & = E((A - \overline{A})\cdot (B - \overline{B}))\\
-			& = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{n} \\
+			& = \frac{1}{(n-1)} \sum^n_{k=1} (a_k - \overline{A})(b_k - \overline{B})\\
 			& = E(A\cdot B) - \overline{A} \cdot \overline{B}
 \end{align*}
 $$`
@@ -325,7 +340,50 @@ Therefore, the **covariance between _A_ and _B_ is positive**.
 - On the other hand, if one of the attributes tends to be above its expected value when the other attribute is below its
 expected value, then the **covariance of _A_ and _B_ is negative**.
 - If **_A_ and _B_ are independent** (i.e., they do not have correlation), then `$E(A\cdot B) = E(A)\cdot E(B)$`. 
-Therefore, the covariance is `$Cov(A,B) = E(A\cdot B) - \overline{A}\overline{B} = E(A)\cdot E(B) - \overline{A}\overline{B} = 0$`.
+Therefore, the covariance is `$Cov(A,B) = E(A\cdot B) - \overline{A} \cdot \overline{B} = E(A)\cdot E(B) - \overline{A}\cdot \overline{B} = 0$`. **Note `$\mapsto \overline{A}\cdot \overline{B}\not = \overline{A}\overline{B}$`**
+</script></section>
+<section data-markdown><script type="text/template">
+## Why `$\overline{A}\cdot \overline{B}\not = \overline{A}\overline{B}$` ?
+- Suppose _A_ and _B_ objects have a set of observations `$(1, 3, 5)$` and `$(2, 4, 6)$` respectively.
+- To compute `$\overline{A}\cdot \overline{B}$` is 
+`$$
+\begin{align*}
+\overline{A}\cdot \overline{B} & = \frac{1 + 3 + 5}{3} \times \frac{2 + 4 + 6}{3} = 7\\
+\end{align*}
+$$`
+- To compute `$\overline{A}\overline{B}$` is 
+`$$
+\begin{align*}
+\overline{A\cdot}\overline{B} & = \frac{1\times 2 + 3\times 4 + 5\times 6}{3}= \frac{44}{3} \\
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Correlation Coefficient (1/2)
+- **For numeric attributes**, we can evaluate the correlation between two attributes, A and B, by computing the correlation coefficient 
+(also known as **Pearson’s product moment coefficient**).
+- The **Pearson’s correlation coefficient** is <br />
+`$
+\rho_{A, B} = \frac{Cov(A, B)}{\sigma_{A} \cdot \sigma_{B}} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n-1)\cdot \sigma_{A} \cdot \sigma_{B}}
+$` 
+- Where _n_ is the number of tuples, `$a_i$` and `$b_i$` are the respective values of _A_ and _B_ in tuple _i_,
+`$\overline{A}$` and `$\overline{B}$` are the respective mean values, 
+`$\sigma_{A} = \sqrt{\frac{1}{(n-1)} \sum^n_{i=1} (a_i - \overline{A})^2}$`([不偏樣本](https://zh.wikipedia.org/zh-tw/%E6%96%B9%E5%B7%AE))
+and `$\sigma_{B}$`are the respective standard deviations.
+</script></section>
+<section data-markdown><script type="text/template">
+## Correlation Coefficient (2/2)
+- The Pearson’s correlation coefficient is <br />
+`$
+\rho_{A, B} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n-1)\cdot \sigma_{A} \cdot \sigma_{B}}
+	= \frac{\sum^n_{i=1} (a_i\cdot b_i) - n\cdot\overline{A} \cdot\overline{B}}{(n-1)\cdot \sigma_{A} \cdot \sigma_{B}}
+$`
+- Note that `$-1 \le \rho_{A,B} \le +1$`. If `$\rho_{A,B}$` is greater than 0, then _A_ and _B_ are positively
+correlated, meaning that the values of _A_ increase as the values of _B_ increase. 
+- **The higher the value, the stronger the correlation**. Hence, it may indicate that **may be removed as a redundancy**.
+- If the resulting value is **equal to 0**, then **_A_ and _B_ are independent** and there is **no correlation** between them.
+- If the resulting value is **less than 0**, then _A_ and _B_ are **negatively correlated**,
+where the values of **one attribute increase** as the values of **the other attribute decrease**. 
 </script></section>
 <section data-markdown><script type="text/template">
 ## Example of Covariance Coefficient
@@ -337,7 +395,7 @@ are affected by the same industry trends, will their prices rise or fall togethe
 <section data-markdown><script type="text/template">
 ## Continue above slide
 - `$E(AllElectronics) = \frac{6+5+4+3+2}{5} = \frac{20}{5} = \$4$`
-- `$E(AllElectronics) = \frac{20+10+14+5+5}{5} = \frac{54}{5} = \$10.8$`
+- `$E(HighTech) = \frac{20+10+14+5+5}{5} = \frac{54}{5} = \$10.8$`
 - `$$
 	\begin{align*}
 	Cov(AE, HT) & = \frac{6\times 20 + 5\times 10 + 4\times 14 + 3\times 5 + 2\times 5}{5}\\
@@ -349,31 +407,8 @@ $$`
 rise together**.
 </script></section>
 <section data-markdown><script type="text/template">
-## Correlation Coefficient (1/2)
-- **For numeric attributes**, we can evaluate the correlation between two attributes, A and B,by computing the correlation coefficient 
-(also known as **Pearson’s product moment coefficient**, named after its inventer, Karl Pearson).
-- The **Pearson’s correlation coefficient** is <br />
-`$
-r_{A, B} = \frac{Cov(A, B)}{\sigma_{A} \sigma_{B}} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n - 1)\sigma_{A} \sigma_{B}}
-$`
-- Where _n_ is the number of tuples, `$a_i$` and `$b_i$` are the respective values of _A_ and _B_ in tuple _i_,
-`$\overline{A}$` and `$\overline{B}$` are the respective mean values of _A_ and _B_, `$\sigma_{A}$` and `$\sigma_{B}$` are the 
-respective standard
-deviations of _A_ and _B_
-</script></section>
-<section data-markdown><script type="text/template">
-## Correlation Coefficient (2/2)
-- The Pearson’s correlation coefficient is <br />
-`$
-r_{A, B} = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{(n -1)\sigma_{A} \sigma_{B}}
- = \frac{\sum^n_{i=1} (a_i - \overline{A})(b_i - \overline{B})}{\sqrt{\sum^n_{i=1} (a_i - \overline{A})^2}\cdot \sqrt{\sum^n_{i=1} (b_i - \overline{B})^2}}
-$`
-- Note that `$-1 \le r_{A,B} \le +1$`. If `$r_{A,B}$` is greater than 0, then _A_ and _B_ are positively
-correlated, meaning that the values of _A_ increase as the values of _B_ increase. 
-- **The higher the value, the stronger the correlation**. Hence, it may indicate that **may be removed as a redundancy**.
-- If the resulting value is **equal to 0**, then **_A_ and _B_ are independent** and there is **no correlation** between them.
-- If the resulting value is **less than 0**, then _A_ and _B_ are **negatively correlated**,
-where the values of **one attribute increase** as the values of **the other attribute decrease**. 
+## Visually Evaluating Correlation
+![](/images/datamining/visualCorrelation.png)
 </script></section>
 </section><!--end block-->
 

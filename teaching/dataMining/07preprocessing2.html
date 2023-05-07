@@ -95,30 +95,198 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ![](/images/datamining/waves.png)
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Fourier Transform
+</script></section>
+<section data-markdown><script type="text/template">
+## Fourier Series
+- A Fourier series is an expansion of a periodic function
+<figure style="float: right; width: 155pt">
+<img src="/images/datamining/fourierSeries.png" alt="Fourier Series">
+</figure>
+into a sum of trigonometric functions.
+
+	- A periodic function is a function that **repeats** its values **at regular intervals**.
+	- A Fourier series is **an infinite series form**.
+	`$$a_0 + \sum^{\infty}_{n = 1}  a_n sin(n\omega x) + b_n cos(n\omega x)$$` 
+![](/images/datamining/periodic.gif)
+</script></section>
+<section data-markdown><script type="text/template">
+## Fourier transform
+- The Fourier transform (FT) is a transform that converts a function into a form that describes the **frequencies present** in the original function.
+	- The Fourier transform of a function of `$t$` gives a function of `$\omega$` where `$\omega$` is the angular frequency.
+	`$$\tilde{f}(\omega) = \mathscr{F}(\omega) = \int^{\infty}_{-\infty} f(t)e^{-i2\pi\omega t}dt$$`
+	- The Fourier inversion transform
+	`$$ f(t) = \int^{\infty}_{-\infty} \tilde{f}(\omega)e^{i2\pi\omega t}d\omega$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Fourier Transform with Python
+<pre><code data-trim data-line-numbers>import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import EngFormatter
+x = np.linspace(0,5,100)
+y = np.sin(2*np.pi*x)
+## fourier transform
+f = np.fft.fft(y)
+## sample frequencies
+freq = np.fft.fftfreq(len(y), d=x[1]-x[0])
+# plot figure
+plt.figure(figsize=(15,5))
+ax1 = plt.subplot(1,2,1)
+ax1.plot(y, label="y = sin(2*pi*x)")
+plt.xlabel('Number of Sample')
+plt.ylabel('Magnitude Value')
+ax1.legend(loc="upper right")
+ax2 = plt.subplot(1,2,2)
+ax2.plot(freq, abs(f)**2, label="Fourier Transform", color='r')
+formatter0 = EngFormatter(unit='Hz')
+ax2.xaxis.set_major_formatter(formatter0)
+plt.xlabel('Frequencies [Hertz]')
+plt.ylabel('Amplitude')
+ax2.legend(loc="upper right")
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The result of above codes
+![](/images/datamining/ft.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Haar Wavelet
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Transform
+- The simplest and earliest example of a wavelet is the **Haar wavelet, developed in 1910**.
+`$$\psi (t) = \begin{cases}
+	1  & 0 \leq t < \frac{1}{2} \\
+	-1 & \frac{1}{2} \leq t < 1 \\
+	0  & otherwise.
+	\end{cases}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Diagram(1/2)
+![](/images/datamining/haarD.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Diagram(2/2)
+<pre><code data-trim data-line-numbers>import numpy as np
+import matplotlib.pyplot as plt
+def haar(t):
+	if 0 < t < 0.5:
+		return 1
+	elif 0.5 < t < 1:
+		return -1
+	else:
+		return 0
+t = np.linspace(0, 1, 1000) # Create a time vector from 0 to 1 with 1000 points
+x_values = np.array([haar(ti) for ti in t]) # Evaluate haar(t) each time point
+# Plot the haar(t) function
+plt.plot(t, x_values, linestyle='dotted', color='blue')
+plt.xlabel('X axis: Time Domain')
+plt.ylabel('Y axis: Amplitude')
+plt.title('Haar Wavelet Function')
+# Set the y-axis limits
+plt.ylim(-1.2, 1.2)
+plt.axhline(y=0, color='k', linewidth=0.5) # Draw the x-axis baseline on 0
+plt.plot([0, 0.5], [1, 1], linewidth=2, label='t = Positivie', color='blue',linestyle='solid')
+plt.plot([0.5, 1], [-1, -1], linewidth=2, label='t = Negativie', color='darkblue',linestyle='solid')
+plt.legend()
+plt.show()</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Transform(1/4)
+![](/images/dataMining/haar.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Transform(2/4)
+- X = [**2, 2, 0, 2, 3, 5, 4, 4**] can be transformed to `$\overline{X}$` = [2.75, -1.25, 0.5, 0, 0, -1, -1, 0] (兩兩相加除以2，兩兩相減除以2)
+1. `$\overline{X_1}$` = (X[0] **+** X[1])/2 = 2, `$\overline{X_2}$` = ([2] **+** X[3])/2 = 1, 以此類推<br /> 
+`$\overline{X_5}$` = (X[0] **-** X[1])/2 = 0, `$\overline{X_6}$` = ([2] **-** X[3])/2 = -1, 以此類推
+2. 對 [**2, 1, 4, 4**, 0, -1, -1, 0] 紅色數值再兩兩進行 +/2 以及 -/2 的動作，得到 [**`$\frac{3}{2}$`, 4**, `$\frac{1}{2}$`, 0, 0, -1, -1, 0]
+3. 相同上述步驟，最後得 [**`$\frac{11}{4}$`,`$-\frac{5}{4}$`, `$\frac{1}{2}$`, 0, 0, -1, -1, 0**]
+![](/images/dataMining/haarTable.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Transform(3/4)
+![](/images/dataMining/haarInverse.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Haar Wavelet Transform(4/4)
+- PyWavelets: a Python package for wavelet transform
+	- **pip install PyWavelets**
+- **Haar** Wavelet Transform and **inverse** transform with **PyWavelets** package.
+<pre><code data-trim data-line-numbers>import pywt
+x = [3, 7, 1, 1, -2, 5, 4, 6]
+cA, cD = pywt.dwt(x, 'haar') # Haar wavelet transform
+y = pywt.idwt(cA, cD, 'haar') # inverse Haar wavelet transform
+print(cA) # Approxmation coefficients
+print(cD) # Detailed coefficients
+print(y) # Reconstructed Signal
+</code></pre>
+</script></section>
+</section><!--end block-->
+
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # Wavelet Transforms
 </script></section>
 <section data-markdown><script type="text/template">
-
+## What Is Wavelet Transform?
+- Decomposes a signal into different frequency subbands
+	- Applicable to n-dimensional signals
+- Data are transformed to **preserve relative distance** between objects at **different levels of resolution**
+- Allow natural clusters to **become more distinguishable(可區別)**
+- Used for **image compression**
+![](/images/datamining/avatar.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## DWT
+## Wavelet Transform(1/2)
+- There are two types of Wavelet Transforms: Continuous Wavelet Transform and Discrete Wavelet Transform. 
+	- Continuous Wavelet Transform(CWT) 
+	`$${\mathscr{F}}(a, b) = \frac{1}{\sqrt{a}} \int^{\infty}_{-\infty} \Psi(\frac{t-b}{a})x(t)dt$$`
+	 where `$a$` is scaling; `$b$` is time shift factor.
+	- Discrete Wavelet Transform (DWT)
+	`$${\mathscr{F}}_{j, k} = \frac{1}{\sqrt{a}} \int^{\infty}_{-\infty} \psi_{j,k}(t)x(t)dt, \; \psi_{j,k}(t) = \frac{1}{\sqrt{2^j}} \psi(\frac{t-k2^j}{2^j})$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Wavelet Transform(2/2)
+- Why wavelets?
+	- Wavelets have some slight benefits over Fourier transforms in **reducing computations** 
+	when examining specific frequencies. 
+	- The common **Morlet wavelet** is mathematically **identical to a short-time Fourier 
+	transform** using a Gaussian window function
+![](/images/datamining/waveFig.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## Wavelet Transforms family
+- Wavelet transform has become a powerful tool for signal processing. It offers time-frequency analysis to decompose 
+the signal in terms of a family of wavelets.
+- The DWT is applied to a data vector `$X$`, transforms it to a numerically different vector, `$X'$`, of
+wavelet coefficients. It are of the same length.
+- “**How can this technique be useful for data reduction** if the wavelet transformed data are
+of the same length as the original data?” The usefulness lies in the fact that **the wavelet transformed data can be truncated**.
+- Reference: [Data Driven Science & Engineering Machine Learning, Dynamical Systems, and Contro](http://databookuw.com/databook.pdf)
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of DWT (1/2)
 <pre><code data-trim data-line-numbers>from matplotlib.image import imread
 import matplotlib.pyplot as plt
 import numpy as np
 import pywt
 # Load image
-#original = pywt.data.camera() # image from PyWavelets
-A = imread("D:/Teaching/dataMining/dataset/images/avatar.png")
-original = np.mean(A, -1)
-# check point
-# print(original)
+original = pywt.data.camera() # image from PyWavelets
+# A = imread("D:/Teaching/dataMining/dataset/images/avatar.png")
+# original = np.mean(A, -1)
+# print(original) # check point
 titles = ['Approximation', ' Horizontal detail', 'Vertical detail', 'Diagonal detail']
 coeffs2 = pywt.dwt2(original, 'bior1.3')
 LL, (LH, HL, HH) = coeffs2
 fig = plt.figure(figsize=(10, 10))
-fig
 for i, a in enumerate([LL, LH, HL, HH]):
 	ax = fig.add_subplot(1, 4, i + 1) 
 	ax.imshow(a, interpolation="nearest", cmap=plt.cm.gray)
@@ -130,7 +298,251 @@ fig.tight_layout()
 plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-	
+## An example of DWT (2/2)
+- pip install PyWavelets
+![](/images/datamining/dwt.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Discrete Wavelet Transform(1/4)
+<pre><code data-trim data-line-numbers># 07_03wavelet.py part1
+import numpy as np
+import pywt
+import matplotlib.image as img
+import matplotlib.pyplot as plt
+original = img.imread("D:/Teaching/dataMining/dataset/images/avatar.png") # should be a grayscale image
+img = np.mean(original, -1) # color image(R,G,B) scale into grayscale image
+
+coeffs2 = pywt.dwt2(img, 'db3', mode='periodization') # 1 level DWT
+cA, (cH, cV, cD) = coeffs2 # UL, UR, LL, LR
+imgR = pywt.idwt2(coeffs2, 'db3', mode='periodization') # 1 level iDWT
+imgR = np.uint8(imgR)
+
+plt.figure(figsize=(10, 10))
+plt.rc('xtick', labelsize=10) 
+plt.rc('ytick', labelsize=10)
+
+plt.subplot(2,2,1)
+plt.imshow(cA, cmap=plt.cm.gray)
+plt.title("CA: Approximation Coeff.", fontsize=10)
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Discrete Wavelet Transform(2/4)
+<pre><code data-trim data-line-numbers># 07_03wavelet.py part2
+plt.subplot(2,2,2)
+plt.imshow(cH, cmap=plt.cm.gray)
+plt.title("CH: Horizontal Detail Coeff.", fontsize=10)
+
+plt.subplot(2,2,3)
+plt.imshow(cV, cmap=plt.cm.gray)
+plt.title("CV: 'Vertical Detail Coeff.", fontsize=10)
+
+plt.subplot(2,2,4)
+plt.imshow(cD, cmap=plt.cm.gray)
+plt.title("CD: Diagonal Detail Coeff.", fontsize=10)
+
+plt.show()
+
+# plotting Reconstructed image
+plt.imshow(imgR, cmap=plt.cm.gray)
+plt.title("Reconstructed Image.", fontsize=10)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Discrete Wavelet Transform(3/4)
+![](/images/datamining/dwt2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Discrete Wavelet Transform(4/4)
+![](/images/datamining/dwt3.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Principal <br /> Component Analysis,PCA
+</script></section>
+<section data-markdown><script type="text/template">
+## Principal Component Analysis
+- 課本對於 Principal Component Analysis(PCA) 原理的描述篇幅不多，僅有幾個 PCA 的步驟，想要了解 PCA 原理的同學可以連結到下面的網址。
+- [用最直观的方式告诉你：什么是主成分分析PCA](https://www.youtube.com/watch?v=DSS7MmhXjr8&t=402s)，
+以中文、動畫的方式解說 PCA，非常適合給同學參考。
+- PCA 使用到線性代數的觀念，如果對於線性代數的線性轉換(座標轉換)，可以參考中華大學李柏堅老師的[特徵向量與特徵值](https://www.youtube.com/watch?v=OGZX9CYYEic&t=357s)教學影片，瞭解特徵值(eigenvalue)、特徵向量(eigenvector)的觀念。
+-  Datasets 經過 PCA 的轉換，可以投影到新的座標軸，如此就可以把 Datasets 的維度降階，達到 data reduction 的效果。
+</script></section>
+<section data-markdown><script type="text/template">
+## How to compute PCA?
+To compute a PCA, we can perform the following steps
+1. **Center** or standardize of data which compute the **mean and dividing by the standard deviation** for each value of each data.
+2. Compute the **covariance matrix** to identify correlations.
+3. Compute the **eigenvectors and eigenvalues of the covariance matrix** to identify the principal components.
+4. Create a **feature vector** to decide which **principal components to keep**.
+5. Recast(重鑄) the data along the principal components axes.
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(1/5)
+- Suppose we have two attributes `$X, Y$` which have been recorded `$[126, 128, 128, 130, 130, 132]$`  and  `$ [78, 80, 82, 82, 84, 86]$` observed values respectively. How to compute the PCA?
+- **Step 1.** Centering data
+	- `$\overline{x}_{(mean)} = \frac{126 + 128 + 128 + 130 + 130 + 132}{6} = 129$` 
+	- `$\overline{y}_{(mean)} = \frac{78 + 80 + 82 + 82 + 84 + 86}{6} = 82$`
+	- Center : `$x_i - \overline{x} = [-3_{(126-129)}, -1, -1, 1, 1, 3]$`, and `$y_i - \overline{y} = [-4_{(78-82)}, -2, 0, 0, 2, 4]$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(2/5)
+- Center: `$[-3_{(x_1 - \overline{x})}, -1, -1, 1, 1, 3]$`, `$[-4, -2, 0, 0, 2, 4]$`
+- **Step 2.** Compute the covariance matrix
+	- Variance `$\sigma^2 = \frac{1}{(n-1)} \sum^{n}_{i=1} (x_1 - \overline{x})^2$`(樣本變異數), <br /> **$\sigma^2_{x} = 4.4$`, $\sigma^2_{y} = 8.0$`**
+	- `$Cov(X,Y) = \frac{1}{(n-1)} \sum^n_{i=1} (x_i - \overline{x})(y_i - \overline{y}) $`(共變異數), 
+
+	`$$
+	\begin{align*}
+	Cov(X,Y) &= \frac{1}{(6-1)} [(-3\times -4)+ 2 + 0 + 0 + 2 + 12] \\
+	Cov(Y,X) &= \frac{28}{5} = \underline{5.6} 
+	\end{align*}
+	$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(3/5)
+- The covariance matrix is
+`$
+\begin{array}{c|cc}
+   ~ & X & Y \\ \hline
+   X & 4.4 & 5.6 \\
+   Y & 5.6 & 8.0
+\end{array}
+$`
+- **Step 3.** Compute the eigenvectors and eigenvalues of covariance matrix, i.e. `$det|A - \lambda| I = 0$`. 
+
+`$ det \left |
+\begin{bmatrix}
+4.4 &  5.6 \\
+5.6  & 8.0 
+\end{bmatrix} -
+\begin{bmatrix}
+\lambda &  0 \\
+0  & \lambda \\
+\end{bmatrix} \right| = 0 \implies\\
+	det \left |
+	\begin{bmatrix}
+	(4.4-\lambda) &  5.6 \\
+	5.6  & (8-\lambda) \end{bmatrix} \right| = 0
+$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(4/5)
+- **Step 3.** Compute eigenvalues
+	- `$(4.4-\lambda)\cdot (8-\lambda) - 5.6 \times 5.6 = 0 \\
+	\implies \lambda^2 - 12.4 \lambda - 3.84 = 0\\
+	\implies \lambda_1 = 0.32,\; \lambda_2 = 12.08(x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a})$`
+	- Compute eigenvector
+
+	`$
+	A\cdot \nu = \lambda_i\cdot \nu_i \implies
+	\begin{bmatrix}
+	4.4 &  5.6 \\
+	5.6  & 8
+	\end{bmatrix} \cdot
+	\begin{bmatrix}
+	x \\
+	y
+	\end{bmatrix} = 0.32\cdot
+	\begin{bmatrix}
+	x \\
+	y
+	\end{bmatrix} \\
+	\begin{cases}
+	4.4x + 5.6y = 0.32x\\
+	5.6x + 8.0y = 0.32y
+	\end{cases} \implies
+	\nu_1 =
+	\begin{bmatrix}
+	x \\
+	y
+	\end{bmatrix} =
+	\begin{bmatrix}
+	-0.81 \\
+	0.59
+	\end{bmatrix}
+	$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(5/5)
+- **Step 3.** Compute eigenvector
+	- `$
+		\begin{cases}
+		4.4x + 5.6y = 12.08x\\
+		5.6x + 8.0y = 12.08y
+		\end{cases} \implies
+		\nu_2 =
+		\begin{bmatrix}
+		0.59\\
+		0.81
+		\end{bmatrix}
+		$`
+	- `$
+		D = 
+		\begin{bmatrix}
+		-3 & -4\\
+		-1 & -2\\
+		-1 & 0\\
+		1 & 0\\
+		1 & 2\\
+		3 & 4
+		\end{bmatrix},
+		V =
+		\begin{bmatrix}
+		\nu_1\\
+		\nu_2
+		\end{bmatrix} =  
+		\begin{bmatrix}
+		-0.81 & \underline{0.59} \\
+		0.59 & \underline{0.81}
+		\end{bmatrix}
+		$`
+- Order eigenvector `$\because \lambda_2 > \lambda_1, \therefore
+	V =
+	\begin{bmatrix}
+	\underline{0.59} & -0.81 \\
+	\underline{0.81} & 0.59 
+	\end{bmatrix}	
+	$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of PCA(6/6)
+- **Step 4.** Create a feature vector `$D\cdot V$`
+	- `$
+		\begin{bmatrix}
+		-3 & -4\\
+		-1 & -2\\
+		-1 & 0\\
+		1 & 0\\
+		1 & 2\\
+		3 & 4
+		\end{bmatrix}\cdot
+		\begin{bmatrix}
+		0.59 & -0.81 \\
+		0.81 & 0.59 
+		\end{bmatrix} =
+		\begin{bmatrix}
+		-5 & 0.1\\
+		-2.2 & -0.4\\
+		-0.6 & 0.8\\
+		0.6 & -0.8\\
+		2.2 & 0.4\\
+		5 & -0.1
+		\end{bmatrix}
+		$`
+	- `$ D\cdot V = \begin{bmatrix}
+		pc1 & pc2
+		\end{bmatrix}
+		,\\
+		pc1 = [-5, -2.2, -0.6, 0.8, 2.2, 5],\\ pc2 = [0.1, -0.4, 0.8, -0.8, 0.4, -0.1]
+		$`
+</script></section>
+<section data-markdown><script type="text/template">
+## A PCA's example with Cancer Datasets
+- [Performing Principal Component Analysis (PCA) with Cancer Dataset](https://medium.com/@jwbtmf/performing-principal-component-analysis-pca-with-cancer-dataset-ddbe5396b5b4)
+- `$\sigma_{pc1} = $`, 
+
 </script></section>
 </section><!--end block-->
 

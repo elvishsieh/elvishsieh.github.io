@@ -498,6 +498,32 @@ plt.show()</code></pre>
 # Appendix
 </script></section>
 <section data-markdown><script type="text/template">
+## Access array in Python
+<pre><code data-trim data-line-numbers>word = 'Python'
+print('The "word" variable content is: ', word)
+print('word[0] - First element of array(which was called "list" in python and index is 0): ', word[0])
+print('word[-1] - The last element in word array: ',word[-1])
+print('word[-3] - It is the 3th element which countdown from the end of word array: ',word[-3])
+print('word[:3] - Show all of elements from start to 3th element: ', word[:3])
+print('word[-3:] - Show all of elements from -3th to the end: ', word[-3:])
+print("':' - The delimiter ':' is sliced elements in an array which mean 'to' ")
+print('Did you know what is the result of "word[:]"?',word[:])
+## -------------------------------------------------------------
+lim = '-'
+print(lim*80)
+# word = 'Python'
+word2 = 'IDLE'
+space = ' '
+print("word = 'Python'\nword = 'IDLE'\nspace = ' ' ") # the first three lines of output
+print('word + word2 is: ',word + word2)
+print('We need a space between "word" and "word2", so "word + space + word2" is: ',word + space + word2)
+wspace = word + ' ' + word2
+print('We can also have the same result which is coding "word + \' \' + word2" in IDLE:', wspace)
+wpy = word[:2] + 'py'
+print('word[:2] + \'Py\' result is: ', wpy)
+print('Do you understand the simple codes how to access an array and print the result in Python?')</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
 ## Introduction to Matplotlib
 - [Matplotlib: Visualization with Python](https://matplotlib.org/)
 <figure style="float: right">
@@ -606,7 +632,7 @@ plt.show()</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Listing Fonts for pyplot
-- Listing the fonts name were installed on operation system.
+- Listing the font name were installed on operation system.
 <pre><code data-trim data-line-numbers>from matplotlib import font_manager as fm
 list = fm.get_font_names()
 list</code></pre>
@@ -628,21 +654,6 @@ font = {'family' : 'Times New Roman',
 plt.rc('font', **font)
 </code></pre>
 - 注意：圖形的標題、x 軸標示、 y 軸標示、圖形內部如果有中文字，font family 必須要指定中文字型的名稱。
-</script></section>
-<section data-markdown><script type="text/template">
-## matplotlib style format
-- An example of style format is as following
-<pre><code data-trim data-line-numbers># This filename was datamining.mystyle
-font.family : GenYoGothic TW # get name with fm.get_font_names() method
-font.weight : normal # normal, bold, heavy, light, ultralight, 200, 300, ...
-axes.titlesize : 18
-axes.labelsize : 14
-lines.linewidth : 2
-lines.markersize : 10
-xtick.labelsize : 12
-ytick.labelsize : 12
-axes.grid : True</code></pre>
-- The style's file name could be named by yourself what you want to be.
 </script></section>
 </section><!--end block-->
 
