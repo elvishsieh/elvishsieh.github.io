@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>資料探勘 (Data Mining)</title>
+<title>期中、期末報告</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -23,13 +23,12 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
-
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
@@ -37,39 +36,60 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## 參考文獻 (Reference)
-- [Data Mining: Concepts and Techniques, 3rd ed.](https://hanj.cs.illinois.edu/bk3/)
-- [Jiawei Han Personal's Website](http://hanj.cs.illinois.edu/)
-- [Introduction to Data Mining (Second Edition) ](https://www-users.cse.umn.edu/~kumar001/dmbook/index.php)
-- [An R Companion for Introduction to Data Mining](https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/)
-- [Orange Data Mining website](https://orangedatamining.com/)
-- [Orange Data Mining Library](https://orange3.readthedocs.io/projects/orange-data-mining-library/en/latest/index.html)
-- [Tutorial video for Orange Data Mining](https://www.youtube.com/@OrangeDataMining/playlists)
-- [Orange Datamining for AI & Data Science](https://www.youtube.com/watch?v=OY5KYOhnMls&list=PLYW0LRZ3ePo5jW_mhbvHV5ciNkhe61dTT)
-- [資料科學與R語言](https://github.com/CGUIM-BigDataAnalysis/BigDataCGUIM)
-- [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
-- [資料前處理與Weka簡介](https://www.youtube.com/watch?v=ijDClbaC7hQ&list=PLVBks657TlV7SM8SaDNQxSm9Eog4s9fnL)
-- [聯合大學資訊管理系陳士杰教授網站](https://sjchen.mystrikingly.com/teaching)
-- [莫烦Python](https://yulizi123.github.io/)
+# 期中報告
 </script>
 </section>
+
 <section data-markdown><script type="text/template">
-## 參考文獻 (Reference)
-- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
-- [Think Stats 2e](https://greenteapress.com/wp/think-stats-2e/)
-- [Statistics in Plain English](https://www.book2look.com/embed/9781317526988)
-- [IPSUR: Introduction to Probability and Statistics Using R](https://ipsur.org/)
-- [Normalized Nerd]https://www.youtube.com/@NormalizedNerd/featured
-</script>
-</section>
+## 期中書面報告與注意事項(1/2)
+- 分組： **至多 2 位**同學組成一組，獨自 1 人者，評分較高。
+- 題目可以從網路或者使用 ChatGPT or Bard 工具尋找期末報告的題目，請同學注意以下這些事項：
+1. 使用什麼資料集？是否可以取得(**合法**)？
+2. 希望從資料集中**探勘什麼資料**？就是這個題目的目的是什麼？
+3. 使用**那一種資料探勘方法**？也就是資料探勘的演算法是什麼？例如：分群的 k-mean、分類的 k-NN、決策樹，或者要做異常、關聯分析。
+4. **使用資料探勘的工具**，例如：使用 orange, weka, python 或 R 程式語言等。
+5. （選項）如果可以預期探勘的結果，要使用那一種**視覺化的圖示來呈現結果**，例如：scatter plot, histogram, bar chart, box plot,…,etc.
+</script></section>
+<section data-markdown><script type="text/template">
+## 期中書面報告與注意事項(2/2)
+- 確定主題以後，撰寫 1-2 頁的書面資料，書面報告格式不拘，範例請考 [Data Mining 計畫報告書](https://docs.google.com/document/d/1f26229_KfNwaJ77Xnxss178kabstFM9f/edit?usp=sharing&ouid=111001745275170216675&rtpof=true&sd=true)。
+- 填寫[分組順序表](https://docs.google.com/spreadsheets/d/1bKVz36lsCmzW0qTpc5maf858UUnERh1w/edit?usp=sharing&ouid=111001745275170216675&rtpof=true&sd=true)，期中、期末報告順序請同學協調，如果剩餘的順序無法協調，請班代表做籤表，抽籤決定。
+- 請務必於期中報告前一天晚上(5/6日)填寫完成[分組順序表](https://docs.google.com/spreadsheets/d/1bKVz36lsCmzW0qTpc5maf858UUnERh1w/edit?usp=sharing&ouid=111001745275170216675&rtpof=true&sd=true)，包括：報告順序、組員姓名、題目。
+- 檔案名稱：**XX_姓名1_姓名2**, 副檔名： **.docx, .odt or .pdf**， XX 表示組別順序，例如：第一組 **01_柯吉霸_布尚般.docx**。
+- 期中報告可以使用簡報檔或直接使用書面報告書直接報告，每組報告時間**約 5- 10 分鐘**。
+- 書面報告書**不需要繳交紙本**，請於期中報告結束後上傳到 [midReport](https://drive.google.com/drive/folders/1pXmw2qeq3rpmKWpqXyVWnjS4OrKBfKUH?usp=sharing) 資料夾。
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 期末報告
+</script></section>
+<section data-markdown><script type="text/template">
+## 期末報告與注意事項(1/2)
+- 依照[分組順序表](https://docs.google.com/spreadsheets/d/1bKVz36lsCmzW0qTpc5maf858UUnERh1w/edit?usp=sharing&ouid=111001745275170216675&rtpof=true&sd=true)上台口頭報告，**要製作簡報**做報告，每組報告時間**約 10 - 20 分鐘**。
+- 書面資料要**繳交 2 份資料**，一份是**簡報檔**，另一份是**書面報告**；簡報檔在**期末口頭報告前一天晚上(6/17日、6/25日)上傳**到 [finalReport](https://drive.google.com/drive/folders/1_bsZAIRTUzgNXv_AqIHIVb39QvumMroD?usp=sharing) 資料夾。
+- 期末書面報告**撰寫 5 頁以上**的書面資料，內容涵蓋**簡介或前言或摘要(選項)、研究動機、研究方法、研究步驟、結果與結論、參考文獻**。換言之，題目選定與資料集特質解析、資料探勘演算法、資料探勘工具、視覺化的結果與結論。
+- **書面報告格式不拘**，封面頁註明**題目、組別、學號及姓名**，排版以美觀為原則，範例請考 [Data Mining 計畫報告書](https://docs.google.com/document/d/1f26229_KfNwaJ77Xnxss178kabstFM9f/edit?usp=sharing&ouid=111001745275170216675&rtpof=true&sd=true)。
+</script></section>
+<section data-markdown><script type="text/template">
+## 期末報告與注意事項(2/2)
+- 期中報告的**題目可以修改**，題目實作後卻無法得出最終預期的結果，簡報及書面報告的「結果與結論」可以**撰寫失敗的原因與檢討**。
+- 檔案名稱：**XX_姓名1_姓名2**, 副檔名： **.pptx, .odp, .docx , odt, or .pdf**， XX 表示組別順序，例如：第一組 **01_柯吉霸_布尚般.docx**。
+- 簡報與書面報告書**不需要繳交紙本**，期末報告書請於期末報告結束後(6/26日)上傳到 [finalReport](https://drive.google.com/drive/folders/1_bsZAIRTUzgNXv_AqIHIVb39QvumMroD?usp=sharing) 資料夾。
+- 最後上傳期末報告書的日期：**7/2日**
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 

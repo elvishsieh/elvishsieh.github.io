@@ -68,6 +68,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 		- Lossless compression
 		- Lossy compression
 </script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Dimensionality reduction(減少維度)
+</script></section>
 <section data-markdown><script type="text/template">
 ## Dimensionality  (1/2)
 - Cause of dimensionality
@@ -94,9 +100,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Wavelet transform 
 ![](/images/datamining/waves.png)
 </script></section>
-</section><!--end block-->
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Fourier Transform
 </script></section>
@@ -152,9 +156,7 @@ ax2.legend(loc="upper right")
 ## The result of above codes
 ![](/images/datamining/ft.png)
 </script></section>
-</section><!--end block-->
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Haar Wavelet
 </script></section>
@@ -229,9 +231,7 @@ print(cD) # Detailed coefficients
 print(y) # Reconstructed Signal
 </code></pre>
 </script></section>
-</section><!--end block-->
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Wavelet Transforms
 </script></section>
@@ -355,9 +355,7 @@ plt.title("Reconstructed Image.", fontsize=10)</code></pre>
 ## Discrete Wavelet Transform(4/4)
 ![](/images/datamining/dwt3.png)
 </script></section>
-</section><!--end block-->
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Principal <br /> Component Analysis,PCA
 </script></section>
@@ -539,10 +537,211 @@ $`
 		$`
 </script></section>
 <section data-markdown><script type="text/template">
-## A PCA's example with Cancer Datasets
+## An example of PCA(6/6)
+- **Step 4.** Decide which principal components to keep.
+	- `$Cov(pc1,pc1) = 12.08, \; Cov(pc2,pc2) = 0.32$`.
+	- The pc1 store almost information and the pc2 include almost on information.
+	We would like to delete the pc2 to reduce the dimensionality of data.
+![](/images/dataMining/pca.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## A PCA's example with Breast Cancer Datasets
 - [Performing Principal Component Analysis (PCA) with Cancer Dataset](https://medium.com/@jwbtmf/performing-principal-component-analysis-pca-with-cancer-dataset-ddbe5396b5b4)
-- `$\sigma_{pc1} = $`, 
+- From above URL, PCA can be used to
+	- Visualize multidimensional data.
+	- Compress information.
+	- Simplify complex business decisions.
+	- Clarify convoluted(令人費解的) scientific processes.
+- The example of PCA read breast cancer datasets from Scikit-learn. It **reduce 30 features to 2 features** and visualize with scatter and heatmap plot.
+</script></section>
+<section data-markdown><script type="text/template">
+## Features Subset Selection
+- Another way to **reduce dimensionality of data**
+- **Redundant** features 
+	- Duplicate much or all of the information contained in one or more other attributes
+	- E.g., purchase price of a product and the amount of sales tax paid
+- **Irrelevant** features
+	- Contain no information that is useful for the data mining task at hand
+	- E.g., **students' ID** is often irrelevant to the task of **predicting students' GPA**
+</script></section>
+<section data-markdown><script type="text/template">
+## Feature Creation
+- **Create new attributes (features)** that can **capture the important information in a data set** more effectively than the original ones
+- Three general methodologies
+	- Attribute extraction
+			- **Domain-specific**
+	- **Mapping data to new space** (see: data reduction)
+		- E.g., Fourier transformation, wavelet transformation, manifold approaches (not covered)
+	- Attribute construction 
+		- **Combining features** (see: discriminative frequent patterns in Chapter 7 of textbook)
+		- **Data discretization**
+</script></section>
+</section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Numerosity Reduction
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Reduction
+- **Reduce data volume by choosing alternative, smaller forms** of data representation Parametric methods (e.g., **regression**)
+- Assume the data fits some model, estimate model parameters, store only the parameters, and discard the data (except possible outliers)
+	- Ex.: Log-linear models—obtain value at a point in m-D space as the product on appropriate marginal subspaces 
+	- Non-parametric methods 
+- Do not assume models
+	- Major families: **histograms, clustering, sampling**, ...
+</script></section>
+<section data-markdown><script type="text/template">
+## Parametric Data Reduction
+- **Linear regression**
+	- Data modeled to fit a straight line
+	- Often uses the least-square method to fit the line
+- **Multiple regression**
+	- Allows a response variable Y to be modeled as a linear function of multidimensional feature vector
+- **Log-linear model**
+	- Approximates discrete multidimensional probability distributions
+- The [reference of my slides](./reference.html) have many open books for statistic that is very helpful for you.   
+</script></section>
+<section data-markdown><script type="text/template">
+## Regression Analysis
+- A collective name for techniques for the modeling and analysis of numerical data consisting of values of a **dependent variable (measurement)** and of **one or more independent variables (predictors)**
+- The parameters are **estimated so as to give a "best fit"(最合適) of the data**
+	- **Most commonly the best fit** is evaluated by using the **least squares method**, but other criteria(準則) have also been used
+- Used for **prediction(預測)** (including forecasting(預報) of time-series data), inference(推理), hypothesis testing(假設檢定), and modeling of causal relationships(因果關係)
+</script></section>
+<section data-markdown><script type="text/template">
+## Linear and Log-Linear Models
+- Linear regression: **`$Y = a X + b$`**
+	- Two regression coefficients, `$a$` and `$b$`, specify the line and are to be estimated by using the data at hand
+	- Using the least squares criterion to the known values of `$Y_1, Y_2, \cdots, X_1, X_2, \cdots$`
+- Multiple regression: **`$Y = b_0 + b_1\times X_1 + b_2\times X_2$`**
+	- Many nonlinear functions can be transformed into the above
+- Log-linear models:
+	- Approximate discrete multidimensional probability distributions
+	- **Dimensionality reduction and data smoothing**
+</script></section>
+<section data-markdown><script type="text/template">
+## Histogram Analysis
+- Divide data into buckets and store average (sum) for each bucket
+<figure style="float: right; width: 50%">
+<img src="/images/dataMining/hist.png" alt="histograms analysis">
+</figure>
+- Partitioning rules:
+	- Equal-width: equal bucket range
+	- Equal-frequency (or equal-depth)
+</script></section>
+<section data-markdown><script type="text/template">
+## Clustering
+- Partition data set into clusters **based on similarity**, and **store cluster representation** (e.g., centroid and diameter) only
+- Can be very effective if data is clustered but not if data is “smeared(塗抹)”
+- Can have hierarchical(階層) clustering and be stored in multi-dimensional index(索引) tree structures
+- There are many choices of clustering definitions and clustering algorithms
+- Cluster analysis will be studied in depth in Chapter 10 of textbook.
+</script></section>
+<section data-markdown><script type="text/template">
+## Sampling
+- Sampling: **obtaining a small samples** to represent the whole data set N
+- Allow a mining algorithm to run in complexity that is potentially sub-linear to the size of the data
+- Key principle: Choose a representative subset of the data
+	- Simple random sampling may have very poor performance in the presence of skew(歪斜)
+	- Develop adaptive sampling methods, e.g., stratified sampling: 
+- Sampling **may not reduce database I/Os** (page at a time)
+</script></section>
+<section data-markdown><script type="text/template">
+## Types of Sampling
+- Simple **random** sampling
+	- There is an equal probability of selecting any particular item
+- Sampling **without replacement**
+	- Once an object is selected, it is removed from the population
+- Sampling **with replacement**
+	- A selected object is not removed from the population
+- Stratified(分層) sampling: 
+	- Partition the data set, and draw samples from each partition (proportionally, i.e., approximately the same percentage of the data) 
+	- Used in conjunction with skewed data
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Cube Aggregation
+- The **lowest level of a data cube** (base cuboid)
+	- The aggregated(聚合) data for an individual entity of interest
+	- E.g., **a customer in a phone calling data warehouse**
+- **Multiple levels** of aggregation in data cubes
+	- Further reduce the size of data to deal with
+- Reference appropriate levels
+	- Use the **smallest representation** which is enough to solve the task
+- Queries regarding aggregated information should be answered using data cube, when possible
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Data Compression
+- **String** compression
+	- There are extensive theories and well-tuned algorithms
+	- Typically lossless, but only limited manipulation is possible without expansion
+- **Audio/video** compression
+	- Typically lossy compression, with progressive refinement
+	- Sometimes small fragments of signal can be reconstructed without reconstructing the whole
+- **Time sequence is not audio**
+	- Typically **short** and vary **slowly** with time
+- **Dimensionality** and **numerosity reduction** may also be considered as forms of data compression
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Transformation
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Data Transformation
+- A function that **maps the entire set of values** of a given attribute **to a new set of replacement values** s.t. each old value can be identified with one of the new values
+- Methods
+	- **Smoothing: Remove noise** from data
+	- **Attribute/feature construction**
+		- New attributes constructed from the given ones
+	- **Aggregation**: Summarization, data cube construction
+	- **Normalization**: Scaled to fall within a smaller, specified range:
+	min-max normalization, z-score normalization, normalization by decimal scaling
+- **Discretization**(離散化): Concept hierarchy climbing
+</script></section>
+<section data-markdown><script type="text/template">
+## Normalization
+- [`$Min-Max$` normalization](./04data.html#/8/7) : `$x_i$` are values of feature.
+`$$
+ x^{'}_{i} = \frac{x_i - x_{min}}{x_{max} - x_{min}} \in [0, 1]
+$$`
+- **Z-score normalization**: `$x$` is score, `$\mu$` is mean, `$\sigma$` is standard deviation.
+`$$
+ Z = \frac{x - \mu}{x_{\sigma}}
+$$`
+- Normalization by decimal scaling: `$j$` is the smallest integer such that `$Max(|D|) < 1\; ,$`
+`$
+	D_i = \frac{x_i}{10^j}
+$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Discretization
+- Three types of attributes
+	- Nominal—values from an unordered set, e.g., color
+	- Ordinal—values from an ordered set, e.g. ranking 
+	- Numeric—real numbers, e.g., integer or real numbers
+- Discretization: **Divide the range of a continuous attribute into intervals(間隔)**.
+Interval labels can then be used to replace actual data values 
+	- Reduce data size by discretization
+	- **Supervised(監督) vs. unsupervised**
+	- **Split (top-down) vs. merge (bottom-up)**
+	- Discretization can be performed recursively on an attribute
+	- Prepare for further analysis, e.g., **classification**(分類)
+</script></section>
+<section data-markdown><script type="text/template">
+## Data Discretization Methods
+- Typical methods: All the methods can be applied recursively
+	- **Binning(分級)**
+		- Top-down split, unsupervised
+	- **Histogram(直方圖) analysis**
+		- Top-down split, unsupervised
+	- **Clustering(分群) analysis** (unsupervised, top-down split or bottom-up merge)
+	- **Decision-tree analysis** (supervised, top-down split)
+	- **Correlation(相關) analysis** (unsupervised, bottom-up merge) e.g., `$\chi^2$`(卡方檢定) 
 </script></section>
 </section><!--end block-->
 

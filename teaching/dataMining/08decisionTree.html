@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>資料探勘 (Data Mining)</title>
+<title>分類 - Decision Tree</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -23,7 +23,6 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
-
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -37,8 +36,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
@@ -46,119 +45,86 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## 資料探勘 (Data Mining)
-
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
+# Classification
 </script>
 </section>
-
 <section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率：  20%
-- 課堂練習： 20%
-- 期中報告： 20%
-- 期末報告： 40%
-</script>
-</section>
+## [Supervised vs. Unsupervised](./01intro.html#/4/2) Learning
+- **Supervised(監督) learning** (classification)
+	- Supervision: The **training data** (observations, measurements, etc.) are **accompanied by labels indicating the class of the observations**
+	- New data is classified based on the training set
+- **Unsupervised learning** (clustering)
+	- The class **labels** of training data is **unknown**
+	- Given a set of measurements, observations, etc. with the aim of establishing the existence of classes or clusters in the data
+</script></section>
+<section data-markdown><script type="text/template">
+## Prediction Problems
+- **Classification**
+	- predicts categorical(明確的) class labels (discrete(離散的) or nominal(有名目的)
+	- classifies data (constructs(建構) a model) based on the training set and the values (class labels) in a classifying attribute and uses it in classifying new data
+- **Numeric(數字) Prediction**  
+	- models continuous-valued functions, i.e., **predicts unknown or missing values** 
+- **Typical applications**
+	- Credit/loan(貸款) approval(贊成)
+	- Fraud(欺詐) detection: if a transaction is fraudulent
+	- Web page categorization: which category(分類) it is
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification Process (1/2)
+- **Model construction**: describing a set of predetermined classes
+	- Each tuple/sample is assumed to belong to a predefined class, as determined by the class label attribute.
+	- The set of tuples used for model construction is training set
+	- The **model** is represented as **classification rules**, **decision trees**, or **mathematical formulae**
+- If the test set is used to **select models**, it is **called validation (test) set.** 
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification Process (2/2)
+- Model usage: for **classifying future or unknown objects**
+	- **Estimate accuracy** of the model
+		- The known label of test sample is compared with the classified result from the model
+		- Accuracy rate is the percentage of test set samples that are correctly classified by the model
+		- **Test set is independent** of training set (**otherwise overfitting**) 
+- If the accuracy is **acceptable**, use the model to **classify new data**
+</script></section>
+<section data-markdown><script type="text/template">
+## Process 1 - Model Construction
+![](/images/dataMining/modeling.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Process 2 - Prediction 
+![](/images/dataMining/classifier.png)
+</script></section>
 </section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-資料探勘簡介](./01intro.html)
-- [Week02-Orange Data Mining 簡介](./02orange.html)
-- [Week03-Orange 資料載入](./03loading.html)
-- [Week04-資料](./04data.html)
-- [Week05-資料資料視覺化](./05visualization.html)
-- [Week06-資料預處理(1)](./06preprocessing.html)
-- [Week07-資料預處理(2)](./07preprocessing2.html)
-- [Week08-分類-決策樹](./08decisionTree.html)
-- [Week09-期中報告(預報)](./project.html)
-</script>
-</section>
+## Decision Tree(1/2)
+- Training data set: **Buys_computer**
+- The data set follows an example of **Quinlan’s ID3** (Playing Tennis)
+![](/images/dataMining/decisionTable.png)
+</script></section>
 <section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-分類-最近鄰居演算法](./10knn.html)
-- [Week11-分群-k Mean](./11kmean.html)
-- [Week12-分群-階層式](./12hierarchical.html)
-- [Week13-分群-DBSCAN](./13dbscan.html)
-- [Week14-關聯法則-基本概念](./14concept.html)
-- [Week15-關聯法則-Apriori演算法](./15apriori.html)
-- [Week16-關聯法則-FP-growth方法](./16FP-growth.html)
-- [Week17-期末報告(6/18日)](./project.html#/1)
-- [Week18-期末報告(6/25日)](./project.html#/1) <br /> **課程會視教學進度做適度微調**
-</script>
-</section>
-</section>
-
-<section>
+## Decision Tree(2/2)
+![](/images/dataMining/decisionTree.png)
+</script></section>
 <section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
+## Decision Tree Algorithm(1/2)
+- Basic algorithm (a greedy(貪婪) algorithm)
+	- Tree is constructed in a **top-down** recursive(遞迴) divide-and-conquer(征服) manner
+	- **At start**, all the training examples are **at the root**
+	- Attributes are **categorical(明確的)** (if continuous-valued, they are discretized in advance)
+	- Examples are **partitioned(分割) recursively** based on selected attributes
+	- Test attributes are selected on the basis of a **heuristic(啟發) or statistical measure** (e.g., information gain) 
+</script></section>
 <section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- 資料探勘 [Data Mining Concepts and Techniques 3/E](https://hanj.cs.illinois.edu/bk3/)
-	- 作者：Jiawei Han, Micheline Kamber and Jian Pei <br />編譯： 郝沛毅．李御璽‧黃嘉彥 
-	- 高立圖書股份有限公司
-- 參考書：
-	- [Introduction to Data Mining(Second Edition)](https://www-users.cse.umn.edu/~kumar001/dmbook/index.php), Pang-Ning Tan, Michael Steinbach, Anuj Karpatne, Vipin Kumar
-	- [An R Companion for Introduction to Data Mining](https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/) by Michael Hahsler
-	- Python資料科學與機器學習：從入門到實作必備攻略, 作者: Frank Kane, 出版社: 博碩文化
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教材、作業與期末報告
-
-- 課程投影片及教材
-	- 資料探勘課程投影片 (Slides for data mining) 的網址：[https://elvishsieh.github.io/teaching/datamining/](https://elvishsieh.github.io/teaching/datamining/)
-	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/1bcvzRuO23o7ggzhACL9HqO4hDIiFVGSC?usp=sharing)
-
-- 作業、期末報告繳交網址
-	- [作業上傳網址](https://drive.google.com/drive/folders/1GCvrFDDV7diAxwouqevVOgdPak9t03QR?usp=sharing)，格式：XXX_中文姓名_hw1.ows
-	- [期末報告上傳網址](https://drive.google.com/drive/folders/1nps_KbM94DgFbzxJ9T5R3Z2OKgOVJG3z?usp=sharing)，格式：XXX_中文姓名1_中文姓名2_finalReport.pdf
-	- **Example**: 41222354_柯吉霸_布尙學_finalReport.docx
-</script>
-</section>
-
-<section data-markdown><script type="text/template">
-## 參考文獻 (Reference)
-- [Data Mining: Concepts and Techniques, 3rd ed.](https://hanj.cs.illinois.edu/bk3/)
-- [Jiawei Han Personal's Website](http://hanj.cs.illinois.edu/)
-- [Introduction to Data Mining (Second Edition) ](https://www-users.cse.umn.edu/~kumar001/dmbook/index.php)
-- [An R Companion for Introduction to Data Mining](https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/)
-- [Orange Data Mining website](https://orangedatamining.com/)
-- [Orange Data Mining Library](https://orange3.readthedocs.io/projects/orange-data-mining-library/en/latest/index.html)
-- [Tutorial video for Orange Data Mining](https://www.youtube.com/@OrangeDataMining/playlists)
-- [Orange Datamining for AI & Data Science](https://www.youtube.com/watch?v=OY5KYOhnMls&list=PLYW0LRZ3ePo5jW_mhbvHV5ciNkhe61dTT)
-- [資料科學與R語言](https://github.com/CGUIM-BigDataAnalysis/BigDataCGUIM)
-- [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
-- [資料前處理與Weka簡介](https://www.youtube.com/watch?v=ijDClbaC7hQ&list=PLVBks657TlV7SM8SaDNQxSm9Eog4s9fnL)
-- [聯合大學資訊管理系陳士杰教授網站](https://sjchen.mystrikingly.com/teaching)
-- [莫烦Python](https://yulizi123.github.io/)
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 參考文獻 (Reference)
-- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
-- [Think Stats 2e](https://greenteapress.com/wp/think-stats-2e/)
-- [Statistics in Plain English](https://www.book2look.com/embed/9781317526988)
-- [IPSUR: Introduction to Probability and Statistics Using R](https://ipsur.org/)
-</script>
-</section>
+## Decision Tree Algorithm(1/2)
+- Conditions for **stopping partitioning**
+	- All samples for a **given node belong to the same class**
+	- There are no remaining attributes for further partitioning – majority voting(表決) is employed for **classifying the leaf(樹葉)**
+	- There are no samples left
+</script></section>
 </section><!--end block-->
+
 </div>
 </div>
 
@@ -179,10 +145,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
