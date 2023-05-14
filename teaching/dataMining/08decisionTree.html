@@ -88,11 +88,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Process 1 - Model Construction
-![](/images/dataMining/modeling.png)
+![](/images/datamining/modeling.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Process 2 - Prediction 
-![](/images/dataMining/classifier.png)
+![](/images/datamining/classifier.png)
 </script></section>
 </section><!--end block-->
 
@@ -101,11 +101,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Decision Tree(1/2)
 - Training data set: **Buys_computer**
 - The data set follows an example of **Quinlan’s ID3** (Playing Tennis)
-![](/images/dataMining/decisionTable.png)
+![](/images/datamining/decisionTable.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Decision Tree(2/2)
-![](/images/dataMining/decisionTree.png)
+![](/images/datamining/decisionTree.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Decision Tree Algorithm(1/2)
@@ -123,6 +123,20 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- There are no remaining attributes for further partitioning – majority voting(表決) is employed for **classifying the leaf(樹葉)**
 	- There are no samples left
 </script></section>
+<section data-markdown><script type="text/template">
+## Confusion Matrix(混淆矩陣)
+- `$$
+\begin{array}{c|cc}
+~ & 預測 & (predicted) \\ \hline
+~ & ~ & ~ \\
+實際 & TP & FP(偽陽性) \\
+~ & ~ & ~ \\
+(Actual) & FN(偽陰性) & TN
+\end{array}
+$$`	
+<p class="fragment">where TP: True Positive, FP: False Positive, FN: False Negative, TN: True Negative</p>
+</script></section>
+
 </section><!--end block-->
 
 </div>
@@ -135,6 +149,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/search/search.js"></script>
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
@@ -233,7 +248,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }
