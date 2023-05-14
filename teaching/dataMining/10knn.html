@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>KNN 最近鄰居演算法</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Classification
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## [Supervised vs. Unsupervised](./01intro.html#/4/2) Learning
+- **Supervised(監督) learning** (classification)
+	- Supervision: The **training data** (observations, measurements, etc.) are **accompanied by labels indicating the class of the observations**
+	- New data is classified based on the training set
+- **Unsupervised learning** (clustering)
+	- The class **labels** of training data is **unknown**
+	- Given a set of measurements, observations, etc. with the aim of establishing the existence of classes or clusters in the data
+</script></section>
+<section data-markdown><script type="text/template">
+## Prediction Problems
+- **Classification**
+	- predicts categorical(明確的) class labels (discrete(離散的) or nominal(有名目的)
+	- classifies data (constructs(建構) a model) based on the training set and the values (class labels) in a classifying attribute and uses it in classifying new data
+- **Numeric(數字) Prediction**  
+	- models continuous-valued functions, i.e., **predicts unknown or missing values** 
+- **Typical applications**
+	- Credit/loan(貸款) approval(贊成)
+	- Fraud(欺詐) detection: if a transaction is fraudulent
+	- Web page categorization: which category(分類) it is
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification Process (1/2)
+- **Model construction**: describing a set of predetermined classes
+	- Each tuple/sample is assumed to belong to a predefined class, as determined by the class label attribute.
+	- The set of tuples used for model construction is training set
+	- The **model** is represented as **classification rules**, **decision trees**, or **mathematical formulae**
+- If the test set is used to **select models**, it is **called validation (test) set.** 
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification Process (2/2)
+- Model usage: for **classifying future or unknown objects**
+	- **Estimate accuracy** of the model
+		- The known label of test sample is compared with the classified result from the model
+		- Accuracy rate is the percentage of test set samples that are correctly classified by the model
+		- **Test set is independent** of training set (**otherwise overfitting**) 
+- If the accuracy is **acceptable**, use the model to **classify new data**
+</script></section>
+<section data-markdown><script type="text/template">
+## Process 1 - Model Construction
+![](/images/datamining/modeling.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Process 2 - Prediction 
+![](/images/datamining/classifier.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Decision Tree(1/2)
+- Training data set: **Buys_computer**
+- The data set follows an example of **Quinlan’s ID3** (Playing Tennis)
+![](/images/datamining/decisionTable.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Decision Tree(2/2)
+![](/images/datamining/decisionTree.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Decision Tree Algorithm(1/2)
+- Basic algorithm (a greedy(貪婪) algorithm)
+	- Tree is constructed in a **top-down** recursive(遞迴) divide-and-conquer(征服) manner
+	- **At start**, all the training examples are **at the root**
+	- Attributes are **categorical(明確的)** (if continuous-valued, they are discretized in advance)
+	- Examples are **partitioned(分割) recursively** based on selected attributes
+	- Test attributes are selected on the basis of a **heuristic(啟發) or statistical measure** (e.g., information gain) 
+</script></section>
+<section data-markdown><script type="text/template">
+## Decision Tree Algorithm(1/2)
+- Conditions for **stopping partitioning**
+	- All samples for a **given node belong to the same class**
+	- There are no remaining attributes for further partitioning – majority voting(表決) is employed for **classifying the leaf(樹葉)**
+	- There are no samples left
+</script></section>
+<section data-markdown><script type="text/template">
+## Confusion Matrix(混淆矩陣)
+- `$$
+\begin{array}{c|cc}
+~ & 預測 & (predicted) \\ \hline
+~ & ~ & ~ \\
+實際 & TP & FP(偽陽性) \\
+~ & ~ & ~ \\
+(Actual) & FN(偽陰性) & TN
+\end{array}
+$$`	
+<p class="fragment">where TP: True Positive, FP: False Positive, FN: False Negative, TN: True Negative</p>
+</script></section>
+
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
