@@ -49,6 +49,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 <section data-markdown><script type="text/template">
+## What is Classification?
+- 一位貸款的銀行行員，她需要對於她貸款客戶資料作分析，透過貸款客戶資料作分析與學習，進而了解那些貸款客戶的安全的，那些是有風險的？
+- *AllElectronics* 這家公司的銷售經理他需要做資料分析，對於已知某一位顧客個人資料的情況下，猜測顧客是否會購買電腦？
+- 在上面的例子中，對資料作分析的工作，是就是一種分類的動作，而一個模型或分類器被建構成一種**預測類別的工具**，標註了那些客戶是有風險的，那些顧客可能購買電腦？
+- 日常生活中，我們也經常做分類，有些**需要經驗(學習)才能做分類**，例如西瓜是否會甜？瓜的大小、顏色、敲擊的聲音等(**分類 (Classification)、監督式**)；有些則**不需要經驗**，以一種量測標準來分類，例如重量、長度等(**分群(Clustering)、非監督式**)
+</script></section>
+<section data-markdown><script type="text/template">
 ## [Supervised vs. Unsupervised](./01intro.html#/4/2) Learning
 - **Supervised(監督) learning** (classification)
 	- Supervision: The **training data** (observations, measurements, etc.) are **accompanied by labels indicating the class of the observations**
@@ -60,7 +67,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Prediction Problems
 - **Classification**
-	- predicts categorical(明確的) class labels (discrete(離散的) or nominal(有名目的)
+	- predicts categorical(明確的) class labels discrete(離散的) or nominal(有名目的)
 	- classifies data (constructs(建構) a model) based on the training set and the values (class labels) in a classifying attribute and uses it in classifying new data
 - **Numeric(數字) Prediction**  
 	- models continuous-valued functions, i.e., **predicts unknown or missing values** 
@@ -73,9 +80,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## Classification Process (1/2)
 - **Model construction**: describing a set of predetermined classes
 	- Each tuple/sample is assumed to belong to a predefined class, as determined by the class label attribute.
-	- The set of tuples used for model construction is training set
+	- The set of tuples used for model construction is training set(訓練資料集)
 	- The **model** is represented as **classification rules**, **decision trees**, or **mathematical formulae**
-- If the test set is used to **select models**, it is **called validation (test) set.** 
+- If the test set is used to **select models**, it is **called validation (test) set(驗證資料集)**. 
 </script></section>
 <section data-markdown><script type="text/template">
 ## Classification Process (2/2)
@@ -83,32 +90,51 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **Estimate accuracy** of the model
 		- The known label of test sample is compared with the classified result from the model
 		- Accuracy rate is the percentage of test set samples that are correctly classified by the model
-		- **Test set is independent** of training set (**otherwise overfitting**) 
-- If the accuracy is **acceptable**, use the model to **classify new data**
+		- **Test set is independent**(獨立的) of training set (**otherwise overfitting**(過度適合)) 
+- If the **accuracy is acceptable**(準確性是可以接受的), use the model to **classify new data**
 </script></section>
 <section data-markdown><script type="text/template">
 ## Process 1 - Model Construction
+- 教授或年資 > 6 年的人，任期的欄位"是(Yes)"
 ![](/images/datamining/modeling.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Process 2 - Prediction 
+## Process 2 - Prediction
+- 拿已經分類好的資料集，預測 Jeff 老師的資料
 ![](/images/datamining/classifier.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification Algorithm(分類技術)
+- Decision Tree(決策樹) ✅🟠
+- Random Forest(隨機森林) ✅🟠
+- Logistic Regression(羅吉斯回歸)✅🟠
+- Support Vector Machines, SVM(支持向量機)✅🟠
+- K-Nearest Neighbors, KNN(K 個最近鄰居法)✅🟠
+- Neural Network(類神經網路)✅🟠
+- Naive Bayes(貝氏分類法)✅🟠
+- CN2 rule Induction(CN2 規則歸納法)🟠
+- <span style="padding-left: 100pt"> $\vdots$</span>
+- ✅ [Python code 的演算法](https://github.com/f2005636/Classification)；🟠Orange 有支援的演算法
+- PyCaret is a Python package for ML which have compressed in my Orange.7z file. [PyCaret's Cheat sheet](https://pycaret.gitbook.io/docs/learn-pycaret/cheat-sheet)
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Decision Tree(1/2)
+# Decision Tree
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Decision Tree(1/2)
 - Training data set: **Buys_computer**
-- The data set follows an example of **Quinlan’s ID3** (Playing Tennis)
+- The data set follows an example of **Quinlan's ID3**
 ![](/images/datamining/decisionTable.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Decision Tree(2/2)
+## An example of Decision Tree(2/2)
 ![](/images/datamining/decisionTree.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Decision Tree Algorithm(1/2)
+## Decision tree learning(1/2)
 - Basic algorithm (a greedy(貪婪) algorithm)
 	- Tree is constructed in a **top-down** recursive(遞迴) divide-and-conquer(征服) manner
 	- **At start**, all the training examples are **at the root**
@@ -117,26 +143,459 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- Test attributes are selected on the basis of a **heuristic(啟發) or statistical measure** (e.g., information gain) 
 </script></section>
 <section data-markdown><script type="text/template">
-## Decision Tree Algorithm(1/2)
+## Decision tree learningr(2/2)
 - Conditions for **stopping partitioning**
 	- All samples for a **given node belong to the same class**
 	- There are no remaining attributes for further partitioning – majority voting(表決) is employed for **classifying the leaf(樹葉)**
 	- There are no samples left
 </script></section>
 <section data-markdown><script type="text/template">
+## Types of decision tree
+- **Classification tree analysis** is when the predicted outcome(預測結果) is **the class (discrete)** to which the data belongs.
+- **Regression tree analysis** is when the predicted outcome can be considered a real number (e.g. the price of a house, or a patient's length of stay in a hospital).
+- Notable decision tree algorithms(著名的決策樹算法)
+	- ID3 (Iterative Dichotomiser 3, 迭代二分法)
+	- C4.5 (successor(接班人) of ID3)、C5.0
+	- CART (Classification And Regression Tree); 
+	- [Chi-square(`$\chi^2$`, 卡方檢定)](./06preprocessing.html#/3/4) automatic interaction detection (CHAID). Performs multi-level splits when computing classification trees.
+</script></section>
+<section data-markdown><script type="text/template">
+## Decision Tree Algorithm(1/2)
+- **Algorithm: Generate decision tree.** Generate a decision tree from the training tuples of data partition, D.
+- **Input:**
+	- Data partition, D, which is a set of training tuples and their associated class labels;
+	- attribute list, the set of candidate attributes;
+	- Attribute selection method, a procedure to determine the splitting criterion that “best”
+	- partitions the data tuples into individual classes. This criterion consists of a
+	- splitting attribute and, possibly, either a split-point or splitting subset.
+</script></section>
+<section data-markdown><script type="text/template">
+## Decision Tree Algorithm(2/2)
+- **Output:** A decision tree.
+- **Method:**
+<pre><code data-trim data-line-numbers>
+ create a node N;
+ if tuples in D are all of the same class, C, then
+ 	return N as a leaf node labeled with the class C;
+ if attribute list is empty then
+ 	return N as a leaf node labeled with the majority class in D; // majority voting
+ apply Attribute selection method(D, attribute list) to find the “best” splitting criterion;
+ label node N with splitting criterion;
+ if splitting attribute is discrete-valued and
+	  multiway splits allowed then // not restricted to binary trees
+ 	 attribute list  attribute list 􀀀 splitting attribute; // remove splitting attribute
+ for each outcome j of splitting criterion
+ 	// partition the tuples and grow subtrees for each partition
+ 	let Dj be the set of data tuples in D satisfying outcome j; // a partition
+ 	if Dj is empty then
+ 		attach a leaf labeled with the majority class in D to node N;
+ 	else attach the node returned by Generate decision tree(Dj , attribute list) to node N;
+ end for
+ return N;
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Attribute Selection Measures
+</script></section>
+<section data-markdown><script type="text/template">
+## Best partition for Attribute Selection
+- What is **the best separates** a given data partition, D? **How to partition** a given datasets into individual classes?
+- An attribute selection measure is a heuristic(啟發) for selecting the splitting criterion(標準) that “best” separates a given data partition, D, of class-labeled training tuples into individual classes.
+- **Attribute selection measures** are also known as splitting rules because they **determine how the tuples at a given node are to be split**.
+- Three popular attribute selection measures—**information gain, gain ratio, and Gini index**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Information Gain(資訊獲益, 1/3)
+- Let **`$D$`, the data partition**(分割), be a training set of class-labeled tuples. Suppose the class label attribute has `$m$` distinct values defining **`$m$`
+distinct classes(不同類), `$C_i$`** (for `$i = 1, \cdots , m$`). Let **`$C_{i, D}$` be the set of tuples(紀錄) of class `$C_i$`** in `$D$`. Let **`$|C_{i, D}|$`** and **`$|C_{i,D}|$`** 
+denote the **number of tuples** in `$D$` and `$C_{i,D}$`, respectively.
+- **Expected information(`$Info(D)$`)** is also known as the entropy(熵) of `$D$`
+	`$$
+	\fcolorbox{red}{gray} {$\cal Info(D) = - p_i \cdot\sum^m_1 \log_2 (p_i)$}
+	$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Information Gain(資訊獲益, 2/3)
+- where `$p_i$` is the nonzero probability that an arbitrary tuple in `$D$` belongs to class `$C_i$` and is estimated by `$|C_{i, D}|/|D|$`
+- **ID3 uses information gain** as its attribute selection measure.
+- 在**資訊理論(information theroy)中**，熵(entropy)是接收的每條消息中**包含的資訊的平均量**，又被稱為**資訊熵**。
+- **熵(entropy)的值越大**，表示資料的變動性越大，**不確定性高**；熵(entropy)的值越小，表示資料的變動性越小，**不確定性低**。
+- 熵(entropy)可以理解為**不確定性的量度**，不是確定性的量度，越隨機(亂)的資訊量 Entropy 值越大。
+</script></section>
+<section data-markdown><script type="text/template">
+## Information Gain(資訊獲益, 3/3)
+- Information needed (after using `$A$` to split `$D$` into `$v$` partitions) to classify `$D$`
+`$$
+	\cal info_A (D) = \sum_{j=1}^v \frac{|D_j|}{|D|} \times info(D)
+$$`
+- Information gained by branching(分支) on attribute `$A$`:
+`$$
+	\cal Gain(A) = info(D) - info_A(D)
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Information Gain(1/5)
+- Table 8.1 presents a training set,D, of class-labeled tuples randomly selected from the AllElectronics customer *DB*.
+![](/images/datamining/decisionTable.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Information Gain(2/5)
+- The class label attribute, buys computer, has two distinct values (namely, *{yes, no}*); ie, `$m = 2$`.
+- We first use the entropy formula to compute the expected information needed to classify a tuple in D
+`$$
+	\cal Info(D) = - \frac{9}{14} \log_2 (\frac{9}{14}) - \frac{5}{14} \log_2 (\frac{5}{14}) = 0.940
+$$`
+- For the **age category “youth,”** there are **two yes** tuples and **three no** tuples.
+`$$
+	\cal I_{youth}(2, 3) = - \frac{2}{5} \log_2 (\frac{2}{5}) - \frac{3}{5} \log_2 (\frac{3}{5}) = 0.971
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Information Gain(3/5)
+- For the **age category “middle_age,”** there are **four yes** tuples and **zero no** tuples. <br/>
+`$ \;\therefore
+	\cal I_{middle\_age}(4, 0) = - \frac{4}{4} \log_2 (\frac{4}{4}) - \frac{0}{4} \log_2 (\frac{0}{4}) = 0
+$`
+- For the **age category “senior,”** there are **three yes** tuples and **two no** tuples.
+`$ \;\therefore
+	\cal I_{youth}(3, 2) = - \frac{3}{5} \log_2 (\frac{3}{5}) - \frac{2}{5} \log_2 (\frac{2}{5}) = 0.971
+$`
+- The expected information needed to classify a tuple in D if the tuples are **partitioned according to age** is
+`$$
+	\begin{align*}
+	\cal Info_{age}(D) &= \frac{5}{14}\cdot I(2,3) + \frac{9}{14}\cdot I(4,0) + \frac{5}{14} I(3,2) \\
+					&= 0.357\times 0.971 + 0 + 0.357\times 0.971 = 0.694
+	\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Information Gain(4/5)
+- Hence, the gain in information from such a partitioning would be
+`$$
+	\begin{align*}
+	\cal Gain(A) &= info(D) - info_{age}(D)\\
+				&= 0.940 - 0.694 = 0.246
+	\end{align*}
+$$`
+- Similarly, we can compute `$Gain_{(income)} = 0.029$` bits, `$Gain_{student} = 0.151$` bits,
+and `$Gain_{credit\_rating} = 0.048$` bits. 
+- Because **age has the highest information gain** among the attributes, it is selected as the splitting attribute.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Information Gain(5/5)
+![](/images/datamining/decisionSplit.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Gain Ratio <br /> and <br /> Gini Index
+</script></section>
+<section data-markdown><script type="text/template">
+## Gain Ratio(1/3)
+- How can we **compute the information gain** of an attribute that is **continuous valued**, unlike in the example?
+- Must determine **the best split point** for A
+	- Sort the value A in increasing order
+	- Typically, the midpoint between each pair of adjacent values is considered as a possible split point
+		- **`$(a_i+a_{i+1})/2$`** is the midpoint between the values of `$a_i$` and `$a_{i+1}$`
+	- **The point with the minimum expected information requirement for A** is selected as the split-point for A
+- Split:
+`$D_1$` is the set of tuples in `$D$` satisfying `$A \leq$` split-point, and `$D_2$` is satisfying `$A >$` split-point
+</script></section>
+<section data-markdown><script type="text/template">
+## Gain Ratio(2/3)
+- Information gain measure is biased towards attributes with **a large number(數量大)** of values, i.e., **product ID(1-14)** as above example.
+- C4.5 (a successor of ID3) **uses gain ratio to overcome the problem** (normalization to information gain)
+- **Split information** value defined analogously with `$\cal Info(D)$` as
+`$$
+	\fcolorbox{red}{gray} {$\cal SplitInfo_A(D) = - \displaystyle\sum^v_1 \frac{|D_j|}{|D|} \times \log_2 (\frac{|D_j|}{|D|})$} 
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Gain Ratio(3/3)
+- The gain ratio is defined as 
+`$$ GainRatio(A) = \frac{Gain(A)}{SplitInfo(A)}$$`
+- The attribute with the **maximum gain ratio is selected** as the splitting attribute.
+- Note, however, that as the split information approaches **0, the ratio becomes unstable**.
+- A **constraint(限制) is added** to avoid this, whereby the information gain of the test selected must be large—**at least as great as the average gain** over all tests examined.
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Gain Ratio(1/2)
+- Computation of gain ratio for **the attribute income**. A test on income splits the data of
+[Table 8.1](./08decisionTree.html#/2/5) into three partitions, namely **low, medium, and high**, containing **four, six, and
+four tuples**, respectively.
+- To compute the gain ratio of income, we first use [the Equation](./08decisionTree.html#/3/2) to obtain
+`$$
+\begin{align*}
+SplitInfo_A(D) = &- \frac{4}{14} \times \log_2 (\frac{4}{14}) - \frac{6}{14} \times\log_2 (\frac{6}{14}) \\
+			     & - \frac{4}{14} \times\log_2 (\frac{4}{14})\\
+			   =& \;1.557
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Gain Ratio(2/2)
+- From [the above example](./08decisionTree.html#/2/8), we have 
+`$$Gain(income) = 0.029$$`
+- Therefore, 
+`$$
+	\begin{align*}
+		GainRatio(income) &= 0.029/1.557 \\
+					&= 0.019
+	\end{align*}
+$$`
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Gini index(1/3)
+- The Gini index is used in **CART(Classification and Regression Tree)**.
+- The Gini index **measures the impurity(不純)** of `$D$`, a data partition or set of training tuples,
+`$$
+\cal Gini(D) = 1- \displaystyle\sum^m_{i = 1} p^2_i
+$$`
+- where `$p_i$` is the probability that a tuple in `$D$` belongs to class `$C_i$` and is estimated by `$|C_{i,D}|/|D|$`. 
+The sum is computed over `$m$` classes.
+</script></section>
+<section data-markdown><script type="text/template">
+## Gini index(2/3)
+- If a data set `$D$`  is split on *A* into two subsets `$D_1$` and `$D_2$`, the **gini index `$gini(D)$` is defined** as
+`$$
+\cal Gini_A(D) = \frac{|D_1|}{|D|} Gini(D_1) + \frac{|D_2|}{|D|} Gini(D_2)
+$$`
+- For each attribute, each of the **possible binary splits is considered.**
+- For a **discrete-valued attribute**, the subset that gives the **minimum Gini index** for that attribute is selected as its splitting subset.
+</script></section>
+<section data-markdown><script type="text/template">
+## Gini index(3/3)
+- For **continuous-valued** attributes, each possible split-point must be considered. The strategy is **similar to** that described earlier 
+for information gain, where the **midpoint between each pair of (sorted) adjacent values** is taken as a possible split-point.
+- **Reduction in impurity** that would be incurred by a binary split on a discrete or continuous-valued attribute *A* is
+`$$
+\Delta \cal Gini(A) = Gini(D) - Gini_A(D)
+$$`
+- The attribute provides the smallest `$gini_{split}(D)$` (or **the largest reduction in impurity**) is chosen to split the node.
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Gini index(1/3)
+- Let `$D$` be the training data shown earlier in [Table 8.1](./08decisionTree.html#/2/5) , where there are **nine tuples** belonging to the *class_buys
+ _computer = yes* and the remaining **five tuples** belong to the *class_buys_computer = no*. A (root) node `$N$` is created for the tuples in `$D$`.
+- We first use [the Equation](./08decisionTree.html#/4) for the Gini index to compute the impurity of `$D$`:
+`$$
+Gini(D) = 1- (\frac{9}{14})^2 - (\frac{9}{14})^2 
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Gini index(2/3)
+- To find the splitting criterion for the tuples in D, we need to compute the Gini index for each attribute.
+`$$
+\begin{align*}
+Gini& _{income\in \{low, medium\}} (D) \\
+			 &= \frac{10}{14} Gini(D_1) + \frac{4}{14} Gini(D_2) \\
+			 &= \frac{10}{14} \left(1- (\frac{7}{10})^2 - (\frac{3}{10})^2\right) + \frac{4}{14} \left(1- (\frac{2}{4})^2 - (\frac{2}{4})^2\right)\\
+			 &= 0.443 \\
+			 &= Gini_{income\in \{high\}} (D)
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of Gini index(3/3)
+- Similarly, the Gini index values are 0.458(for the subsets`$\{low, high\}$` and `$\{medium\}$`) and 0.450 (for the subsets `$\{medium, high\}$` and `$\{low\}$`).
+- Therefore, the **best binary split** for attribute **`$income$` is on `$\{low, medium\}$`** (or `$\{high\}$`) because it minimizes.
+- the attributes `$age, student$` and `$credit\_rating$` are both binary, with **Gini index values of 0.375, 0.367 and 0.429, respectively**.
+- The attribute **`$age$` and splitting subset `$\{youth, senior\}$`** therefore give the **minimum Gini index overall**, with a reduction in impurity of `$0.459- 0.357 = 0.102$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## Comparing Attribute Selection Measures
+- The three measures, in general, return good results but
+	- Information gain: 
+		- biased towards **multivalued attributes**
+	- Gain ratio: 
+		- tends to **prefer unbalanced splits** in which **one partition is much smaller than the others**
+	- Gini index: 
+		- biased to **multivalued attributes**
+		- has difficulty when **number of classes is large**
+		- tends to favor tests that result in **equal-sized partitions** and **purity in both partitions**
+</script></section>
+<section data-markdown><script type="text/template">
+## Other Attribute Selection Measures
+- CHAID: a popular decision tree algorithm, measure based on `$\chi^2$` test for independence
+- C-SEP: performs better than info. gain and gini index in certain cases
+- G-statistic: has a close approximation to `$\chi^2$` distribution 
+- MDL (Minimal Description Length) principle (i.e., the simplest solution is preferred): 
+- Multivariate splits (partition based on multiple variable combinations, e.g. CART)
+- Which attribute selection measure is the best? Most **give good results**, **none is significantly superior** than others
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Overfitting <br />and<br /> Tree Pruning
+</script></section>
+<section data-markdown><script type="text/template">
+## Overfitting
+- 聯合大學陳士杰老師在[決策樹學習](http://debussy.im.nuu.edu.tw/sjchen/MachineLearning/final/CLS_DT.pdf)投影片 p.41 中寫到：
+- 下列的例子是一個部屬的成功經驗
+	1) 奉承 A 上司 ⇛ 上司高興
+	2) 送禮給 A 上司 ⇛ 上司更高興
+	3) **按摩 A 上司肩膀 ⇛ 上司過度高興**
+- 但是因為人事異動，B 上司到任，當利用原本的經驗時：
+	1) 奉承 B 上司 ⇛ 上司高興
+	2) 送禮給 B 上司 ⇛ 上司更高興
+	3) **按摩 B 上司肩膀 ⇛ 上司認為是性騷擾很生**
+- 從上面的例子看起來**不是所有的上司被按摩肩膀都會高興**，只有 A 上司才會高興，**若將 A 上司的例子列為定律並學習起來，就會變成過度學習**。
+</script></section>
+<section data-markdown><script type="text/template">
+## Overfitting and Tree Pruning
+- Overfitting:  An induced tree may overfit the training data	
+	- **Too many branches**, some may reflect anomalies due to **noise or outliers**
+	- **Poor accuracy** for unseen samples
+- Two approaches to avoid overfitting 
+	- **Prepruning**: Halt tree construction early ̵ do not split a node if this would result in the goodness measure falling below a threshold
+		- **Difficult** to choose an **appropriate threshold**
+	- **Postpruning**: Remove branches from a “fully grown” tree—get a sequence of progressively pruned trees
+		- Use a set of **data different from the training data** to decide which is the “best pruned tree”
+</script></section>
+</section><!--end block-->
+
+<section><!--start block -->
+<section data-markdown><script type="text/template">
+# Model Evaluation<br /> and Selection
+</script></section>
+<section data-markdown><script type="text/template">
+## Model Evaluation(模型評估)
+- Evaluation metrics(指標): How can we measure accuracy(準確性)?  Other metrics to consider?
+- Use **validation test set(驗證測試資料) of class-labeled tuples instead of training set** when assessing accuracy
+- Methods for estimating(估算) a classifier's accuracy: 
+	- **Holdout(截留)** method, random subsampling
+	- **Cross-validation**(交叉驗證)
+	- **Bootstrap**(自舉 or 拔靴法)
+- Comparing classifiers(分類器的比較):
+	- Confidence intervals(信賴區間)
+	- Cost-benefit(成本效益) analysis and **AUC(Area Under of ROC)** or **PR**(Precision-Recall) Curves
+</script></section>
+<section data-markdown><script type="text/template">
 ## Confusion Matrix(混淆矩陣)
 - `$$
-\begin{array}{c|cc}
-~ & 預測 & (predicted) \\ \hline
-~ & ~ & ~ \\
-實際 & TP & FP(偽陽性) \\
-~ & ~ & ~ \\
-(Actual) & FN(偽陰性) & TN
+\begin{array}{cc|cc}
+~ & ~ & 預測 & ~ \\
+Total & = P + N & Positive(PP) & Negative(NN) \\ \hline
+~ & ~ & ~ & ~ \\ 
+ ~ & Positive(P) & TP &  FN\\
+實際 & ~ & & ~ \\
+~ & Negative(N) & FP & TN
 \end{array}
 $$`	
-<p class="fragment">where TP: True Positive, FP: False Positive, FN: False Negative, TN: True Negative</p>
+<p class="fragment">where TP: True Positive, <b>FP: False Positive, FN: False Negative</b>, TN: True Negative</p>
 </script></section>
+<section data-markdown><script type="text/template">
+## Example of Confusion Matrix(1/2)
+- 使用 PCR or 快篩試劑**檢測是否感染** Covid-19 病毒
+	- 感染/還沒感染的人做檢測，**結果一定只有兩種**：不是**陰性(Negative)**，就是**陽性(Positive)**
+	- 結果 1: **陽性(Positive)**
+		- 感染的人確實確診： True Positive(TP)
+		- 沒有感染的人**確診**： False Positive(FP,偽陽性)
+	- 結果 2: **陰性(Negative)**
+		- 感染的人**沒有確診**： False Negative(FN, 偽陰性)
+		- 沒有感染的人確實沒有確診： True Negative(TN)
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Confusion Matrix(2/2)
+- `$$
+\begin{array}{c|cc|c}
+~ & 預測 & (predicted) & ~ \\ \hline
+實際 & 陽性 & 陰性 & Total\\
+感染 & 259 & 41 & 300\\
+沒有感染 & 22 & 278  & 300 \\ \hline
+Total & 281 & 319 & 600
+\end{array}
+$$`	
+- 偽陽性(FP)人數：22 人；偽陰性(FN)人數:41人
+- 在 300 位陽性確診的人，有 41 位被誤判成陰性，這**偽陰性**檢測結果是**必須要重視的問題**。
+- 如果這是一組**癌症的檢測**結果，對於**偽陽性**也是一件挺嚇人的事情。
+</script></section>
+</section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Classifier Evaluation Metrics
+</script></section>
+<section data-markdown><script type="text/template">
+## Evaluation Metrics
+| *Measure*  								| *Formula* |
+|:---										| :---:		|
+| accuracy, recognition rate(準確率)		| `$ \frac{TP + TN}{P + N}$` |
+| error rate, misclassification rate		| `$ \frac{FP + FN}{P + N}$`	|
+| sensitivity, true positive rate, recall	| `$ \frac{TP}{P}$`		|
+| specificity, true negative rate			| `$ \frac{TN}{N}$`		|
+| precision(精準率)							| `$ \frac{TP}{TP + FP}$`	|
+| F, `$F_1$`, F-score, harmonic mean of precision and recall	| `$\frac{2\times precision \times recall}{precision + recall}$` |
+| `$F_\beta$`, where `$\beta$` is a non-negative real number | `$\frac{(1 + \beta^2)\times precision \times recall}{\beta^\times precision + recall}$` |
+</script></section>
+<section data-markdown><script type="text/template">
+## Accuracy and Error Rate
+- `$$
+\begin{array}{c|cc|c|c}
+~ & 預測 & (predict) & Total & recognition (\%)\\ \hline
+實際 & 陽性 & 陰性 & ~ & ~\\
+感染 & \underline{259} & 41 & 300 & 86.33(recall \%)\\
+沒感染 & 22 & \underline{278}  & 300 & 92.67(specificity \%)\\ \hline
+Total & 281 & 319 & 600 & 89.5 (accuracy \%)
+\end{array}
+$$`	
+- 感染的錯誤率: `$ \frac{41}{300}\times 100\% = 13.67\%$`
+- 沒有感染的錯誤率: `$ \frac{22}{300}\times 100\% = 7.33\%$`
+- 檢測錯誤率(error rate): `$\frac{FP + FN}{P+ N} = \frac{22 + 41}{300 + 300} \times 100\% = 10.5\%$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Precision, Recall and F-measures
+- Precision: `$ \frac{TP}{TP + FP}$`, exactness – what `$\%$` of tuples that the classifier labeled as positive are actually positive
+	- `$Precision = \frac{259}{281} = 92.17\%$`
+- Recall: `$ \frac{TP}{P}$`, completeness – what `$\%$` of positive tuples did the classifier label as positive?
+	- `$Recall = \frac{259}{300} = 86.33\%$`
+- `$F_1$` or F-score:  `$\frac{2\times precision \times recall}{precision + recall}$`, harmonic mean of precision and recall,
+	- `$F_1 = \frac{2\times 0.9217\times 0.8633}{0.9217 + 0.8633} = 89.15\%$`
+</script></section>
+<section data-markdown><script type="text/template">
+## ROC Curves(1/3)
+- Receiver operating characteristic(ROC) curves are a useful **visual tool** for **comparing two classification models**. 
+- ROC curves come from signal detection theory that was developed during **World War II** for the **analysis of radar images**.
+- An ROC curve for a given model shows the trade-off(取捨) between the **`$true \;positive\; rate (TPR)$`** and the **`$false\; positive\; rate(FPR)$`**.
+	- *TPR* is the **proportion of positive (or “yes”) tuples** that are **correctly labeled** by the model;
+	- *FPR* is the **proportion of negative (or “no”)** tuples that are **mislabeled as positive**.
+</script></section>
+<section data-markdown><script type="text/template">
+## ROC Curves(2/3)
+- Given that *TP, FP, P*, and *N* are the number of true positive, false positive, positive, and negative tuples, respectively.
+- we know that `$TPR = \frac{TP}{P}$`, which is sensitivity. Furthermore, `$FPR = \frac{FP}{N} = 1 - specificity$`.
+- For a two-class problem, an ROC curve allows us to visualize the trade-off between the rate at which the model
+can accurately recognize positive cases versus the rate at which it mistakenly identifies negative cases as positive for different portions of the test set.
+- Any increase in _TPR_ occurs at the cost of an increase in _FPR_. **The area under the
+ROC curve(AUC) is a measure of the accuracy of the model**.
+</script></section>
+<section data-markdown><script type="text/template">
+## ROC Curves(3/3)
+- The ROC curves of two classification models, `$M_1$` and `$M_2$`. The diagonal shows where, for every
+true positive, we are equally likely to encounter a false positive. 
+- The closer an ROC curve is to the diagonal line, the less accurate the model is. Thus, **`$M_1$` is more accurate here**.
+![](/images/datamining/roc.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Issues Affecting Model Selection
+- **Accuracy**(準確性)
+	- classifier accuracy: predicting class label
+- **Speed**
+	- time to construct the model (training time)
+	- time to use the model (classification/prediction time)
+- **Robustness**(強韌性): handling noise and missing values
+- **Scalability**(擴展性): efficiency in disk-resident databases 
+- **Interpretability**(解釋性)
+	- understanding and insight provided by the model
+- Other measures, e.g., goodness of rules, such as decision tree size or compactness of classification rules
+</script></section>
 </section><!--end block-->
 
 </div>
