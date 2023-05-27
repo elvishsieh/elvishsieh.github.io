@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>K-Means Clustering</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Cluster Analysis
+</script></section>
+<section data-markdown><script type="text/template">
+## What Is Cluster Analysis(1/2)?
+- Cluster analysis or simply clustering is **the process of partitioning(分割)** a set of data objects (or observations) **into subsets**.
+- **Each subset is a cluster**, such that objects in a cluster are **similar to one another**, yet **dissimilar(不相似) to** objects in **other clusters**.
+- The partitioning is not performed by humans, but by the clustering(分群) algorithm.
+- Clustering is useful in that it can lead to the **discovery of previously(之前) unknown groups** within the data.
+- Cluster analysis has been widely used in many applications such as **business intelligence,
+image pattern recognition, Web search, biology, and security**.
+</script></section>
+<section data-markdown><script type="text/template">
+## What Is Cluster Analysis(2/2)?
+- Cluster: A collection of data objects
+	- **[similar](./04data.html#/4)** to one another within the same group
+	- **dissimilar** (or unrelated) to the objects in other groups
+- Cluster analysis (or clustering, data segmentation, `$\cdots$`)
+	- **Finding similarities** between data according to **the characteristics** found in the data and grouping similar data objects into clusters
+- [Unsupervised learning](./08decisionTree.html#/0/1): **no predefined classes** (i.e., learning by observations vs. **by examples: supervised**)
+- Typical applications
+	- As **a stand-alone tool** to get insight into data distrib. 
+	- As **a preprocessing step** for other algorithms
+</script></section>
+<section data-markdown><script type="text/template">
+## Clustering Applications(1/2)
+- **Biology(生物學)**: taxonomy(分類) of living things: kingdom(界), phylum(門), class(類), order, family, genus(屬) and species(物種)
+- **Information retrieval(資訊檢索)**: document clustering
+- **Land(土地) use**: Identification of areas of similar land use in an earth observation database
+- **Marketing(行銷)**: Help marketers discover distinct(不同的) groups in their customer bases, and then use this knowledge to develop targeted marketing programs
+</script></section>
+<section data-markdown><script type="text/template">
+## Clustering Applications(2/2)
+- **City-planning(都市計畫)**: Identifying groups of houses according to their house type, value, and geographical location
+- **Earth-quake(地震) studies**: Observed earth quake epicenters(震央) should be clustered along continent faults(陸地斷層)
+- **Climate(氣候)**: understanding earth climate, find patterns of atmospheric(大氣) and ocean(海洋)
+- **Economic(經濟) Science**: market resarch
+</script></section>
+<section data-markdown><script type="text/template">
+## Clustering as a <br />Preprocessing Tool 
+- Summarization(總結): 
+	- **Preprocessing for regression, PCA, classification, and association analysis**
+- Compression(壓縮):
+	- Image processing: vector quantization
+- **Finding K-nearest Neighbors**
+	- Localizing search to one or a small number of clusters
+- **Outlier detection**
+	- Outliers are often viewed as those “far away” from any cluster
+</script></section>
+<section data-markdown><script type="text/template">
+## What Is Good Clustering?
+- A good clustering method will produce high quality clusters
+	- **high intra-class similarity**: cohesive凝聚 within clusters
+	- **low inter-class similarity**: distinctive between clusters
+![](/images/datamining/intraInter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Clustering Measure
+- [Dissimilarity/Similarity](./04data.html#/4) metric
+	- Similarity is expressed in terms of a **distance function**, typically metric: `$d(i, j)$`
+	- The definitions of distance functions are usually rather different for **interval-scaled, boolean, categorical, ordinal ratio, and vector variables**
+	- Weights should be associated with different variables based on applications and data semantics
+</script></section>
+<section data-markdown><script type="text/template">
+## Measure the Quality of Clustering
+- The quality of a clustering method depends on
+	- the **similarity measure** used by the method 
+	- its implementation, and
+	- Its **ability** to discover some or all of the **hidden patterns**
+- Quality of clustering:
+	- There is usually a separate “quality” function that measures the “goodness” of a cluster.
+	- It is **hard to define** “similar enough” or “good enough” 
+ 		- The answer is **typically highly subjective**(主觀的)
+</script></section>
+<section data-markdown><script type="text/template">
+## Considerations for Clustering
+- Partitioning criteria(分割的準則)
+	- Single level vs. hierarchical partitioning (often, **multi-level hierarchical partitioning is desirable**)
+- Separation of clusters
+	- Exclusive(獨佔的) (e.g., one customer belongs to only one region) vs. non-exclusive (e.g., one document may belong to more than one class)
+- **Similarity measure**
+	- Distance-based(e.g., Euclidian, road network, vector)  vs. connectivity-based(e.g., density or contiguity)
+- Clustering space
+	- Full space (often when **low dimensional**) vs. subspaces (often in **high-dimensional clustering**)
+</script></section>
+<section data-markdown><script type="text/template">
+## Requirements and Challenges
+- **Scalability**
+	- Clustering all the data instead of only on samples
+- **Ability** to deal with different types of attributes
+	- Numerical, binary, categorical, ordinal, and mixture
+- **Constraint-based**(約束) clustering
+	- User may give inputs on constraints
+	- Use domain knowledge to determine input parameters
+- Interpretability(可解釋性) and usability
+- Others 
+	- Discovery of clusters with arbitrary shape
+	- Ability to deal with noisy data
+	- Incremental clustering and insensitivity to input order
+	- High dimensionality
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Clustering Approaches
+</script></section>
+<section data-markdown><script type="text/template">
+## Major Clustering Approaches(1/3)
+- **Partitioning** approach: 
+	- Construct various partitions and then evaluate them by some criterion, e.g., minimizing the sum of square errors
+	- Typical methods: k-means, k-medoids, CLARANS
+- **Hierarchical** approach: 
+	- Create a hierarchical decomposition of the set of data (or objects) using some criterion
+	- Typical methods: Diana, Agnes, BIRCH, CAMELEON
+- **Density-based** approach: 
+	- Based on connectivity and density functions
+</script></section>
+<section data-markdown><script type="text/template">
+## Major Clustering Approaches(2/3)
+- Density-based approach: 
+	- Typical methods: **DBSACN**, OPTICS, DenClue
+- **Grid-based** approach: 
+	- based on a multiple-level granularity structure
+	- Typical methods: STING, WaveCluster, CLIQUE
+- **Model-based**: 
+	- A model is hypothesized for each of the clusters and tries to find the best fit of that model to each other
+	- Typical methods: EM, SOM, COBWEB
+- **Frequent pattern-based**:
+	- Based on the analysis of frequent patterns
+</script></section>
+<section data-markdown><script type="text/template">
+## Major Clustering Approaches(3/3)
+- Frequent pattern-based:
+	- Typical methods: p-Cluster
+- **User-guided** or **constraint-based**: 
+	- Clustering by considering user-specified or application-specific constraints
+	- Typical methods: COD (obstacles), constrained clustering
+- **Link-based** clustering:
+	- Objects are often linked together in various ways
+	- Massive links can be used to cluster objects: SimRank, LinkClus
+</script></section>
+<section data-markdown><script type="text/template">
+## Comparing Clustering Approaches
+![](/images/datamining/compareClustering.png)
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Partitioning Methods
+</script></section>
+<section data-markdown><script type="text/template">
+## Partitioning Algorithm
+- The **simplest and most fundamental** version of cluster analysis is **partitioning**, 
+which organizes the objects of a set into **several exclusive groups or clusters**.
+- Formally, given a data set, `$D$`, of `$n$` objects, and `$k$`, the number of clusters to form, a
+partitioning algorithm organizes the objects into `$k$` partitions `$k \leq n$`, where each partition
+represents a cluster.
+- Partitioning a database `$D$` of `$n$` objects into a set of `$k$` clusters, such that the **sum of squared distances is minimized** (where **`$c_i$` is the centroid(形心) or medoid(中心點) of cluster** `$C_i$`)
+</script></section>
+<section data-markdown><script type="text/template">
+# k-Means Clustering
+</script></section>
+<section data-markdown><script type="text/template">
+## k-Means: A Centroid-Based
+- Suppose a data set, D, contains n objects in Euclidean space.
+- Partitioning methods distribute the objects in `$D$` into `$k$` clusters, `$C_1, \cdots, C_k$`, that is, `$C_i \subset D$` and `$ C_i \cap C_j = \emptyset$`
+for `$(1 \leq i, j \leq k)$`
+- The difference between an object `$p \in C_i$` and `$c_i$`, the representative of the cluster, is measured by `$dist(p, c_i)$`, where **`$dist(x,y)$` is the Euclidean distance**
+`$$
+	E = \sum^k_{i=1} \sum_{p \in C_i} dist(p, C_i)^2
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## K-Means Clustering
+- _“How does the k-means algorithm work?”_ The k-means algorithm defines the **centroid
+of a cluster as the mean value of the points** within the cluster.
+- Let `$k = 3$` in the following figure for (b) update cluster centers and
+reassign objects accordingly (**the mean of each cluster is marked by a +**).
+![](/images/datamining/kmeans.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## K-Means Algorithm
+- **Algorithm:** `$k$`-means.
+- **Input:**
+	- `$k$`: the number of clusters
+	- `$D$`: a data set containing n objects.
+- **Output:** A set of `$k$` clusters.
+- **Method:**
+	<pre><code data-trim data-line-numbers>  arbitrarily choose k objects from D as the initial cluster centers;
+	repeat
+		(re)assign each object to the cluster to which the object is the most similar, 
+		based on the mean value of the objects in the cluster;
+		update the cluster means, that is, calculate the mean value of objects for each cluster;
+	until no change;</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The k-modes method
+- The k-means method can be applied **only when the mean of a set of objects is defined**.
+This may not be the case in some applications such as when **data with nominal attributes**
+are involved.
+- The **k-modes method** is a variant of k-means, which extends the k-means
+paradigm(模範) to cluster nominal data by replacing the means of clusters with modes. It is a representative object-Based technique.
+- It uses new dissimilarity measures to **deal with nominal objects and a frequency-based method**
+to update modes of clusters.
+- The k-means and the k-modes methods can be integrated
+to **cluster data with mixed numeric and nominal values**. 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# k-Medoids Clustering
+</script></section>
+<section data-markdown><script type="text/template">
+## A drawback of k-means(1/2)
+- The k-means algorithm is **sensitive(敏感的) to outliers** because such objects are **far away from the
+majority of the data**, and thus, when assigned to a cluster, they can dramatically distort(歪曲)
+the mean value of the cluster.
+- Consider six points in 1-D space having the values **1,2,3,8,9,10, and 25**, respectively(分別地).
+- Intuitively, by visual inspection we may imagine the points partitioned into the clusters
+ {1,2,3} and {8,9,10}, where **point 25** is excluded(排除在外) because it **appears to be an outlier**. 
+- How would k-means partition the values? 
+</script></section>
+<section data-markdown><script type="text/template">
+## A drawback of k-means(2/2)
+- If we apply k-means using **k = 2 and the partitioning
+{{1,2,3},{8,9,10,25}}** has the within-cluster variation(變動).
+	- the mean of cluster {1,2,3} is 2 and the mean of {8,9,10,25} is 13.
+	- From the equation `$
+	E = \sum^k_{i=1} \sum_{p \in C_i} dist(p, C_i)^2
+	$`,
+		`$$
+		\begin{align*}
+		& (1-2)^2 + (2-2)^2 + (3-2)^2 + (8-13)^2 + \\
+		& (9-13)^2 + (10-13)^2 + (25-13)^2 = 196.
+		\end{align*}
+		$$`
+- Compare this to the partitioning **{{1,2,3,8},{9,10,25}}**,
+	- **3.5** is the mean of cluster {1,2,3,8} and **14.67** is the mean of cluster {9,10,25}.
+</script></section>
+<section data-markdown><script type="text/template">
+## A drawback of k-means(2/3)
+- Compare this to the partitioning **{{1,2,3,8},{9,10,25}}**,
+	- `$$
+	\begin{align*}
+	& (1-3.5)^2 + (2-3.5)^2 + (3-3.5)^2 + (8-3.5)^2 + \\
+	& (9-14.67)^2 + (10-14.67)^2 + (25-14.67)^2 \\
+	& = 189.67.
+	\end{align*}
+	$$`
+- The latter(後面) partitioning has the lowest within-cluster variation; therefore, the k-means
+method **assigns the value 8 to a cluster different from** that containing 9 and 10 due to
+the **outlier point 25**.
+</script></section>
+<section data-markdown><script type="text/template">
+## k-medoids method(1/2)
+- “How can we modify the k-means algorithm to diminish such sensitivity to outliers?”
+- We can **pick actual(實際的) objects to represent(代表) the clusters**, using one representative object per cluster.
+- Each remaining(剩餘的) object is assigned to the cluster of which the **representative object is the most similar**.
+- The partitioning method is then performed based on the principle of
+minimizing the sum of the dissimilarities between each object p and its corresponding
+representative object. 
+</script></section>
+<section data-markdown><script type="text/template">
+## k-medoids method(2/2)
+- That is, an absolute-error criterion is used, defined as
+`$$
+	E = \sum^k_{i=1} \sum_{p \in C_i} dist(p, o_i)^2
+$$`
+	- where `$E$` is the sum of the absolute error for all objects `$p$` in the data set, and oi is the
+	representative object of `$C_i$`.
+- This is the basis for the k-medoids method, which groups `$n$` objects into `$k$` clusters
+ by minimizing the absolute error.
+</script></section>
+<section data-markdown><script type="text/template">
+##  PAM algorithm(1/3)
+-  The Partitioning Around Medoids (PAM) algorithm is a popular realization of k-medoids clustering.
+- Like the k-means algorithm, the **initial** representative objects (called **seeds) are
+chosen arbitrarily**.
+- Specifically, let **`$o_1, \cdots ,o_k$`** be the current set of **representative objects** (i.e., medoids).
+- To determine whether a nonrepresentative object, denoted by `$o_{random}$`, is a good 
+replacement for a current medoid `$o_j (1 \leq j \leq k)$`.
+- We calculate the distance from every object p to the closest object in the set 
+`$\{o_1,\cdots ,o_{j-1}, o_{random} ,o_{j+1},\cdot$` `$\cdot\cdot,o_{k}\}$`, and use the distance to update the cost function. 
+</script></section>
+<section data-markdown><script type="text/template">
+##  PAM algorithm(2/3)
+- For example, in the following figure (a), `$p$` is closest to `$o_i$` and therefore is reassigned to `$o_i$`.
+- In figure (b), however, `$p$` is closest to `$o_{random}$` and so is reassigned to `$o_{random}$`.
+- Object `$o$` remains assigned to the cluster represented by `$o_i$` as long as `$o$` is still closer to `$o_i$`
+than to `$o_{random}$`. 
+![](/images/datamining/pam.png)  
+</script></section>
+<section data-markdown><script type="text/template">
+##  PAM algorithm(3/3)
+- **Algorithm**: k-medoids. PAM, a k-medoids algorithm for partitioning based on medoid
+or central objects.
+- **Input:**
+	- `$k$`: the number of clusters
+	- `$D$`: a data set containing n objects.
+- **Output:** A set of `$k$` clusters.
+- **Method:**
+<pre><code data-trim data-line-numbers> arbitrarily choose k objects in D as the initial representative objects or seeds;
+	repeat
+		assign each remaining object to the cluster with the nearest representative object;
+		randomly select a nonrepresentative object, o_random;
+		compute the total cost, S, of swapping representative object, o_j, with o_random;
+		if S < 0 then swap o_j with o_random to form the new set of k representative objects;
+	until no change;</code></pre>
+</script></section>
+</section><!--end block-->
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

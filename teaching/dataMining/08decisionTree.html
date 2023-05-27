@@ -177,19 +177,19 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
  create a node N;
  if tuples in D are all of the same class, C, then
  	return N as a leaf node labeled with the class C;
- if attribute list is empty then
+ if attribute_list is empty then
  	return N as a leaf node labeled with the majority class in D; // majority voting
- apply Attribute selection method(D, attribute list) to find the “best” splitting criterion;
- label node N with splitting criterion;
- if splitting attribute is discrete-valued and
+ apply Attribute_selection_method(D, attribute_list) to find the “best” splitting_criterion;
+ label node N with splitting_criterion;
+ if splitting_attribute is discrete-valued and
 	  multiway splits allowed then // not restricted to binary trees
- 	 attribute list  attribute list 􀀀 splitting attribute; // remove splitting attribute
- for each outcome j of splitting criterion
+ 	 attribute_list 🠐 attribute_list – splitting_attribute; // remove splitting attribute
+ for each outcome j of splitting_criterion
  	// partition the tuples and grow subtrees for each partition
  	let Dj be the set of data tuples in D satisfying outcome j; // a partition
  	if Dj is empty then
  		attach a leaf labeled with the majority class in D to node N;
- 	else attach the node returned by Generate decision tree(Dj , attribute list) to node N;
+ 	else attach the node returned by Generate decision tree(Dj , attribute_list) to node N;
  end for
  return N;
 </code></pre>
@@ -445,7 +445,7 @@ $$`
 - 但是因為人事異動，B 上司到任，當利用原本的經驗時：
 	1) 奉承 B 上司 ⇛ 上司高興
 	2) 送禮給 B 上司 ⇛ 上司更高興
-	3) **按摩 B 上司肩膀 ⇛ 上司認為是性騷擾很生**
+	3) **按摩 B 上司肩膀 ⇛ 上司認為是性騷擾很生氣**
 - 從上面的例子看起來**不是所有的上司被按摩肩膀都會高興**，只有 A 上司才會高興，**若將 A 上司的例子列為定律並學習起來，就會變成過度學習**。
 </script></section>
 <section data-markdown><script type="text/template">

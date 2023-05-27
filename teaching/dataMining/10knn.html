@@ -45,7 +45,106 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## kNN - k-Nearest-Neighbor Classifiers
+# Lazy Learners
+</script></section>
+<section data-markdown><script type="text/template">
+## Learning from Your Neighbors
+- **Eager learners**(渴望的學習者), when given a set of training tuples, will
+construct a generalization (i.e., classification) model **before receiving new (e.g., test)
+tuples** to classify.We can think of the **learned model as being ready** and eager to classify **previously unseen tuples**.
+	- decision tree, Bayesian, rule-based classification, classification by backpropagation, _SVM_, `$\cdots$`, etc.
+- **Lazy learner**(懶惰的學習者) simply stores it (or does **only a little minor processing**) and **waits until it is given a test tuple**. 
+Only when it **sees the test tuple does it perform generalization to classify the tuple** based on its similarity to the stored training tuples.
+</script></section>
+<section data-markdown><script type="text/template">
+# k-Nearest-Neighbor
+</script></section>
+<section data-markdown><script type="text/template">
+## k-Nearest-Neighbor Classifiers
+- The _k_-nearest-neighbor method(_KNN_) was first described in the early 1950s.
+- The method is labor intensive(勞力密集的) when **given large training sets**, and did not gain popularity(流行) until the 1960s when increased computing power(計算能力) became available.
+- It has since been **widely used** in the area of **pattern recognition**.
+- Nearest-neighbor classifiers are based on learning by analogy(類似的), that is, by **comparing a given test tuple with training tuples** that are similar to it.
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Classifiers(1/3)
+- The **training tuples are described by n attributes**. All the training tuples are stored in an n-dimensional pattern space.
+- When given **an unknown tuple, a k-nearest-neighbor classifier searches the pattern space for the k training tuples** that are closest to the unknown tuple.
+- These **k training tuples** are the **k “nearest neighbors” of the unknown tuple**.
+- “Closeness” is defined in terms of **a distance metric**, such as **Euclidean distance**. <br />
+`$
+dist(X_1, X_2) = \sqrt{\displaystyle\sum^n_{i = 1} (x_{1i} - x_{2i})^2}.
+$`
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Classifiers(2/3)
+- If it walks like a duck and quacks(嘎嘎) like a duck, then it’s probably a duck.
+![](/images/datamining/knn.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Classifiers(3/3)
+- The figure illustrates the 1-, 2-, and 3-nearest neighbors of a test instance located at the center of each circle.
+- Using the **majority voting scheme**(多數表決機制), the instance is assigned to the **positive class**.
+![](/images/datamining/knn2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Classifiers(3/3)
+- The preceding discussion **underscores(下底線) the importance** of choosing the **right value for `$k$`**.
+<figure style="float: right">
+<img src="/images/datamining/knn3.png" width="80%" alt="knn3">
+</figure>
+- If `$k$` is too small, then the nearest neighbor classifier may be susceptible(易受影響的) to [overfitting(過度學習)](./08decisionTree.html#/5/1) due to noise.
+- if `$k$` is too large, the nearest neighbor classifier may **misclassify(錯誤分類) the test instance** because its list of nearest neighbors includes training
+examples that are **located far away(遠處) from its neighborhood**.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# *KNN* Algorithm
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Algorithm(1/2)
+- Algorithm: The k-nearest neighbor classifier.
+	1.  Let `$k$` be the number of nearest neighbors and `$D$` be the set of training examples.
+	2.	**for each** test instance `$ z = (x^{'}, y^{'}) $` do
+	3.   &emsp;Compute `$d(x^{'}, x)$`, distance between `$z$` and every<br />&emsp;  example, `$(x, y) \in D$`.
+	4.   &emsp;Select `$D_z \subseteq D$` the set of `$k$` closest training y<br />&emsp; examples to `$z$`.
+	5.   &emsp; `$y^{'} = argmax_{v} \sum_{(x_{i}, y_{i}) \in D} I(v=y_i)$`
+	6. **end for**
+</script></section>
+<section data-markdown><script type="text/template">
+## *KNN* Algorithm(2/2)
+- The algorithm computes the distance (or similarity) between each test instance `$ z = (x^{'}, y^{'}) $`
+- All the training examples `$(x, y) \in D$` to determine its nearest neighbor list, `$D_z$`
+- Such computation can be **costly**(昂貴) if the number of **training examples is large**.However, efficient **indexing techniques**
+are available to reduce the computation needed to find the nearest neighbors of a test instance.
+- The test instance is classified based on the majority class(多數類別) of its nearest neighbors. Majority Voting: 
+`$y^{'} = \text{argmax}_{v} \sum_{(x_{i}, y_{i}) \in D} \times I(v=y_i)$`
+</script></section>
+<section data-markdown><script type="text/template">
+## How to determine k, the number of neighbors(1/2)?
+ - “How can I determine a good value for `$k$`, the number of neighbors?” This can be determined experimentally(經驗).
+ - Starting with `$k = 1$`, we use **a test set to estimate the error rate** of the classifier.
+ - This process can be **repeated each time** by incrementing `$k$` to allow for **one more neighbor**. The `$k$` value that gives 
+ the minimum error rate may be selected.
+ - **In general**, the **larger the number of training tuples**, the **larger the value of `$k$`** will be.
+</script></section>
+<section data-markdown><script type="text/template">
+## How to determine k, the number of neighbors(2/2)?
+- In the majority voting approach, every neighbor has the same impact(影響) on the classification.
+- One way to **reduce the impact of `$k$` is to weight** the influence(影響) of each nearest neighbor `$x_i$` according to its distance:
+`$1/d(x^{'}, x_i)^2$`
+- Using the **distance-weighted voting** scheme, the class label can be
+determined as follows:
+`$$y^{'} = \text{argmax}_{v} \sum_{(x_{i}, y_{i}) \in D} w_i \times I(v=y_i)$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Time Complexity of _KNN_
+- Nearest-neighbor classifiers can be **extremely slow**(非常慢) when classifying test tuples.
+- If _D_ is a training database of `$|D|$` tuples and **`$k = 1$`, then `$O(|D|)$`** comparisons are required to classify a given test tuple. 
+- By **presorting(先排序) and arranging** the stored tuples into search trees, the number of comparisons can be **reduced to `$O(log |D|)$`**.
+- **Parallel implementation** can reduce the running time to **a constant**, that is, **`$O(1)$`**, which is independent of `$|D|$`.
 </script></section>
 </section><!--end block-->
 
