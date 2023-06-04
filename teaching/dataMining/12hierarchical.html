@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Hierarchical Clustering</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Hierarchical Clustering
+</script></section>
+<section data-markdown><script type="text/template">
+## Hierarchical Clustering(1/2)
+- Hierarchical clustering techniques are a **second important category** of clustering methods.
+- As with K-means, these approaches are relatively old compared to many clustering algorithms,
+but they **still enjoy widespread use**.
+- There are two basic approaches for generating a hierarchical clustering:
+	- **Agglomerative**(凝聚的): Start with the points as individual(個別的) clusters and, at each
+	step, merge the closest pair of clusters.
+	- **Divisive**(分裂的): Start with one, all-inclusive cluster and, at each step, split a cluster
+	until only singleton clusters of individual points remain.
+</script></section>
+<section data-markdown><script type="text/template">
+## Hierarchical Clustering(2/2)
+- A hierarchical clustering is often displayed graphically _using a tree-like
+diagram_ **called a dendrogram**(樹狀圖), which displays both the cluster-subcluster
+relationships (關係) and the order in which the clusters were merged(合併) (agglomerative
+view) or split(分割) (divisive view).
+- Agglomerative versus divisive hierarchical clustering, which organize
+objects into a hierarchy using a **bottom-up(由下而上) or top-down strategy**(策略), respectively.
+- Hierarchical clustering methods can encounter **difficulties regarding the selection of merge or split points**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Agglomerative Hierarchical Clustering Method
+- An **agglomerative** hierarchical clustering method uses a **bottom-up strategy**.
+- It typically starts by **letting each object form its own cluster and iteratively merges clusters**
+into larger and larger clusters, until all the objects are in a single cluster or certain termination
+conditions are satisfied.
+- **The single cluster becomes the hierarchy's root**. For the
+merging step, it **finds the two clusters that are closest to each other** (according to some
+similarity measure), and combines the two to form one cluster.
+</script></section>
+<section data-markdown><script type="text/template">
+## Divisive Hierarchical Clustering Method
+- A divisive hierarchical clustering method employs a **top-down strategy**.
+- It starts by **placing all objects in one cluster**, which is the hierarchy’s root. It then **divides the root
+cluster into several smaller subclusters**, and recursively partitions those clusters into smaller ones.
+- The partitioning process continues until each cluster at the lowest level
+is coherent enough—either containing **only one object**, or the objects within a cluster
+are **sufficiently(足夠地) similar to each other**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Agglomerative versus divisive hierarchical clustering(1/2)
+- AGNES (AGglomerative NESting) and DIANA (DIvisive ANAlysis).
+![](/images/datamining/hierarchical.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Agglomerative versus divisive hierarchical clustering(1/2)
+![](/images/datamining/hierarchical2.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Distance Measures in Algorithmic
+</script></section>
+<section data-markdown><script type="text/template">
+## Distance Measures in Algorithmic Methods(1/4)
+- **Four widely used measures for distance between clusters** are as follows, where `$| p - p'|$`
+is the distance between two objects or points, `$p$` and `$p'$`; `$m_i$` is the mean for cluster, `$C_i$`;
+and `$n_i$` is the number of objects in `$C_i$`. **They are also known as linkage(連結) measures**.
+`$$
+\begin{align*}
+\mathcal{Minimum} & \mathcal{\;distance}: \\
+		& dist_{min} (C_i, C_j) = \displaystyle min_{p\in C_i, p^{'}\in C_j} \{| p - p'|\} \\
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Distance Measures in Algorithmic Methods(2/4)
+`$$
+\begin{align*}
+\mathcal{Maximum} & \mathcal{\;distance}: \\
+		& dist_{max} (C_i, C_j) = \displaystyle max_{p\in C_i, p^{'}\in C_j} \{| p - p'|\}\\
+\mathcal{Mean} & \mathcal{\;distance}: \\
+		& dist_{max} (C_i, C_j) =| m_i - m_j| \\
+\mathcal{Average} & \mathcal{\;distance}: \\
+		& dist_{avg} (C_i, C_j) = \frac{1}{n_i n_j} \displaystyle \sum_{p\in C_i, p^{'}\in C_j} | p - p'|\\
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Distance Measures in Algorithmic Methods(3/4)
+- When an algorithm uses the **`$\mathcal{minimum\; distance}$`, `$dist_{min} (C_i, C_j)$`**, to measure the distance
+between clusters, it is sometimes **called a nearest-neighbor clustering algorithm**.
+- Moreover, if the clustering process is **terminated when the distance between nearest clusters
+exceeds(超過) a user-defined threshold**(門檻值), it is **called a single-linkage algorithm**.
+- An **agglomerative** hierarchical clustering algorithm that **uses the minimum distance measure** is also called a **minimal spanning(生成) tree** algorithm.
+</script></section>
+<section data-markdown><script type="text/template">
+## Distance Measures in Algorithmic Methods(4/4)
+- When an algorithm uses the **`$\mathcal{maximum\; distance}$`**, to measure the distance between clusters,
+it is sometimes called a **farthest-neighbor** clustering algorithm.
+- Clustering process is **terminated when the maximum distance** between nearest clusters **exceeds a user defined threshold**,
+it is called a **complete linkage algorithm**.
+- We can **think of each cluster as a complete subgraph**, that is, **with edges connecting all the nodes in the clusters**. The distance
+between two clusters is determined by the most distant nodes in the two clusters.
+</script></section>
+<section data-markdown><script type="text/template">
+## Single and Complete Linkages
+![](/images/datamining/linkage.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Multiphase Hierarchical Clustering
+</script></section>
+<section data-markdown><script type="text/template">
+## Extensions to Hierarchical Clustering
+- Major weakness(弱點) of agglomerative clustering methods
+	- Can **never undo what was done previously**
+	- Do not scale well: **time complexity of at least `$O(n^2)$`**, where `$n$` is the number of total objects
+- Integration of hierarchical & distance-based clustering
+	- **BIRCH (1996)**: uses **CF-tree** and incrementally adjusts the quality of sub-clusters
+	- **CHAMELEON (1999)**: hierarchical clustering using **dynamic modeling**
+</script></section>
+<section data-markdown><script type="text/template">
+## BIRCH: Multiphase Hierarchical Clustering
+- Balanced Iterative Reducing and Clustering using Hierarchies (BIRCH) is designed **for clustering a large
+amount of numeric data** by integrating hierarchical clustering and other clustering methods such as iterative partitioning.
+- It overcomes(克服) the two difficulties in agglomerative clustering methods: **(1) scalability and (2) the inability to undo(回復)** what was done in the **previous step**.
+</script></section>	
+<section data-markdown><script type="text/template">
+## CF-tree(1/3)
+- CF-tree is the abbreviation(縮寫) for **Clustering feature tree**.
+- Consider a cluster of n dimensional data objects or points. The clustering feature (`$CF$`) of the cluster is a **3-D vector summarizing information about clusters of objects**.
+- It is defined as `$ CF = \langle n, LS, SS\rangle$`, where `$LS$` is the **linear sum of the `$n$` points(`$\sum^n_{i=1} x_i$`)**, 
+and `$SS$` is the **square sum of the data points (`$\sum^n_{i=1} x_i^2$`)**.
+</script></section>
+<section data-markdown><script type="text/template">
+## CF-tree(2/3)
+- A clustering feature is essentially(本質上) a summary of the statistics(概括統計量) for the given cluster.
+- For example, the cluster's **centroid, `$x_0$`, radius, `$R$`, and diameter, `$D$`**, are
+`$
+ x_0 = \frac{\sum^n_{i=1} x_i}{n} = \frac{LS}{n}
+ $`,
+
+ `$$
+	R = \sqrt{\frac{\sum^n_{i=1} (x_i - x_0)^2}{n}} = \sqrt{\frac{nSS - 2LS^2 + nLS}{n^2}}
+ $$`
+ `$$
+	D = \sqrt{\frac{\sum^n_{i=1}\sum^n_{j=1} (x_i - x_j)^2}{n(n-1)}} = \sqrt{\frac{2nSS - 2LS^2}{n(n-1)}}
+ $$`
+</script></section>
+<section data-markdown><script type="text/template">
+## CF-tree(2/3)
+- Clustering features are **additive(加法性質)**, That is, for two disjoint clusters, `$C_1$` and `$C_2$`,
+with the clustering features `$CF_1 = \langle n_1,LS_1,SS_1\rangle$` and `$CF-2 = \langle n_2,LS_2,SS_2\rangle$`, respectively.
+- The clustering feature for the cluster that formed by merging `$C_1$` and `$C_2$` is simply
+`$$
+CF_1 + CF_2 = \langle n_1+n_2,LS_1+LS_2,SS_1+SS_2\rangle
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of clustering feature(1/2)
+- Suppose there are **three points, (2,5), (3,2), and (4,3)**, in a cluster, `$C_1$`. The **clustering feature of `$C_1$`** is
+`$$
+\begin{align*}
+CF_1 &= \langle 3, (2+3+4,5+2+3), \\
+		& \;\;\;\;\;(2^2+3^2+4^2,5^2+2^2+3^2)\rangle\\
+	 &= \langle 3, (9,10), (29. 38)\rangle
+\end{align*}
+$$`
+- Suppose that `$C_1$` is disjoint(沒有連結) to a second cluster, **`$C_2$`, where `$\langle 3, (35,36), (417. 440)\rangle$`**
+</script></section>
+<section data-markdown><script type="text/template">
+## An example of clustering feature(2/2)
+- The clustering feature of a new cluster, `$C_3$`, that is formed by merging `$C_1$` and `$C_2$`, is
+derived by adding `$CF_1$` and `$CF_2$`. That is,
+`$$
+\begin{align*}
+CF_3 &= \langle 3+3, (9+35,10+36), \\
+		& \;\;\;\;\;(29+417,38+440)\rangle\\
+	 &= \langle 6, (44,46), (446. 478)\rangle
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## CF-tree Structure
+- A CF-tree is a **height-balanced tree** that has two parameters: **_branching factor, B_, and _threshold, T_**.
+- The branching factor specifies the **maximum number of children per nonleaf node**. The threshold parameter specifies
+the **maximum diameter** of subclusters stored at the **leaf nodes of the tree**.
+![](/images/datamining/cfTree.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## BIRCH algorithm
+- BIRCH applies a multiphase clustering technique: **A single scan** of the data set **yields a basic, good clustering**, and **one or more additional scans** can optionally be used to further **improve the quality**.
+- **Phase 1**: BIRCH **scans the database to build an initial in-memory `$CF$`-tree**, which
+can be viewed as a multilevel compression of the data that tries to preserve(保存) the data's inherent(內在) clustering structure.
+- **Phase 2**: BIRCH applies a (selected) clustering algorithm to cluster the leaf nodes of the `$CF$`-tree, 
+which **removes sparse(稀疏) clusters as outliers** and **groups dense(稠密) clusters** into larger ones.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# CHAMELEON Clustering
+</script></section>
+<section data-markdown><script type="text/template">
+## Chameleon: Multiphase Hierarchical Clustering(1/2)
+- Chameleon is a hierarchical clustering algorithm that **uses dynamic modeling to determine the similarity** between pairs of clusters.
+- In Chameleon, cluster similarity is assessed(評估) based on (1) how well connected objects are within a cluster and (2) the proximity(接近) of clusters.
+	- That is, two clusters are merged if their interconnectivity is high and they are close together.
+- Chameleon does not depend on a static, **user-supplied(使用者提供的) model** and can automatically adapt to the **internal characteristics** of the clusters being merged.
+</script></section>
+<section data-markdown><script type="text/template">
+## Chameleon: Multiphase Hierarchical Clustering(2/2)
+- Chameleon uses a **k-nearest-neighbor
+graph approach** to construct a **sparse graph**, where each vertex of the graph represents a data object.
+- Chameleon then uses an **agglomerative** hierarchical clustering algorithm that iteratively **merges subclusters** based on their similarity.
+![](/images/datamining/chameleon.png)
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

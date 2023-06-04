@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>DBSCAN Clustering</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Density-Based Methods
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-Based Clustering(1/4)
+- Partitioning and hierarchical methods are designed to find spherical-shaped(球形) clusters. They have **difficulty finding** clusters of **arbitrary shape** such as the “S” shape and oval
+clusters in below figure.
+- Given such data, they would likely inaccurately **identify convex regions(凸的區域)**, where **noise or outliers are included** in the clusters.
+![](/images/datamining/shape.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-Based Clustering(2/4)
+- Clustering **based on density** (local cluster criterion), such as **density-connected points**.
+- Major features:
+	- Discover clusters of **arbitrary shape**
+	- **Handle noise**
+	- **One scan**
+	- Need density parameters as termination condition
+- Several interesting studies:
+	- **_DBSCAN_**: Ester, et al. (KDD’96)
+	- OPTICS: Ankerst, et al (SIGMOD’99).
+	- DENCLUE: Hinneburg & D. Keim  (KDD’98)
+	- CLIQUE: Agrawal, et al. (SIGMOD’98) (more grid-based)
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-Based Clustering(3/4)
+- _“How can we **find dense regions in density-based clustering**?”_ The density of **an object `$o$`** can be measured by the number of objects close to `$o$`.
+- _DBSCAN_(Density-Based Spatial(空間的) Clustering of Applications with Noise) **finds core objects**, that is, objects that have **dense neighborhoods**.
+- “How does _DBSCAN_ quantify the neighborhood of an object?” A **user-specified parameter `$\epsilon > 0$` is used to specify the radius of a neighborhood** we consider for every object.
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-Based Clustering(4/4)
+- Two parameters:
+	- **`$\epsilon > 0 $`**: A **user-specified parameter** is used to specify the radius of a neighborhood we consider for every object.
+	- **`$MinPts$`**: `$MinPts$`, which **specifies the density threshold** of dense regions which is **minimum number of points** in an **`$\epsilon$`-neighbourhood** of that point.
+<figure style="float: right">
+<img src="/images/datamining/eps.png" width="80%" alt="eps">
+</figure>
+- The **`$\epsilon$`-neighborhood** of an object `$p$` is **the space within a radius `$\epsilon$` centered at `$p$`**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Classification of Points for Center-Based Density
+- Core points(objects): These points are in the interior of a density-based cluster. **`$A$`
+point is a core point** if there are **at least(至少) `$MinPts$`** within a distance of `$\epsilon$`
+![](/images/datamining/corePoint.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Directly Density-reachable
+- **Given a set, D, of objects**, we can identify all core objects with respect to the **given parameters, `$\epsilon$` and `$MinPts$`**.
+- For **a core object `$q$`** and an object `$p_1$`, we say that **`$p_1$` is directly density-reachable** from `$q$` (with respect to `$\epsilon$` and `$MinPts$`) if **`$p_1$` is within the `$\epsilon$`-neighborhood of `$q$`**.
+![](/images/datamining/dbscan.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-reachable(密度可達)
+- Clearly, an object `$p_1$` is directly density-reachable from another object `$q$` **if and only if**(若且唯若) `$q$` is a core object and
+`$p_1$` is in the ϵ-neighborhood of `$q$`.
+-  Using the **directly density-reachable relation**, a core object can “bring” all objects from **its ϵ-neighborhood into a dense region**.
+- However, **`$q$` is not density reachable from `$p$`** because `$p$` is not a core object.
+- In _DBSCAN_, **`$p$` is density-reachable** from `$q$` (with respect to ϵ and `$MinPts$` in `$D$`) if there is a **chain of objects `$p_1,\cdots ,p_n$`**, such that `$p_1 = q$`, `$p_n = p$`,
+and `$p_i + 1$`. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Density-Connected(密度可連通)
+- To connect core objects as well as their neighbors in a dense region, _DBSCAN_ uses the notion of density-connectedness.
+- Two objects **`$p_1, p_2\in D$` are density-connected** with respect to `$\epsilon$ and `$MinPts$`  if there is an object `$q \in D$`  such that both 
+`$p_1$`  and  `$p_2$`  are density-reachable from  `$q$`  with respect to  `$\epsilon$  and `$MinPts$`.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# _DBSCAN_
+</script></section>
+<section data-markdown><script type="text/template">
+## _DBSCAN_ Algorithm(1/2)
+- Algorithm: _DBSCAN_ - a density-based clustering algorithm
+- **Input**:
+	- D: a data set containing n objects,
+	- `$\epsilon$`: the **radius** parameter
+	- MinPts: the **neighborhood density threshold**.
+- Output: A set of density-based clusters.
+</script></section>
+<section data-markdown><script type="text/template">
+## _DBSCAN_ Algorithm(2/2)
+- Method:
+<pre><code data-trim data-line-numbers>mark all objects as unvisited;
+do
+	randomly select an unvisited object p;
+	mark p as visited;
+	if the ϵ-neighborhood of p has at least MinPts objects
+		create a new cluster C, and add p to C;
+		let N be the set of objects in the ϵ-neighborhood of p;
+		for each point p0 in N
+			if p0 is unvisited
+ 				mark p0 as visited;
+ 				if the ϵ-neighborhood of p0 has at least MinPts points,
+				add those points to N;
+ 			if p0 is not yet a member of any cluster, add p0 to C;
+ 		end for
+ 		output C;
+ 	else mark p as noise;
+until no object is unvisited;</code></pre>
+- [A visualizing _DBSCAN_ Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/) by Naftali.
+</script></section>
+<section data-markdown><script type="text/template">
+## Examples for DBSCAN(1/2)
+- `$MinPts = 4$`
+- Figure (a) `$\epsilon = 0.5$`, and figure (b) `$\epsilon = 0.4$`
+![](/images/datamining/dbscan2.png) 
+</script></section>
+<section data-markdown><script type="text/template">
+## Examples for DBSCAN(2/2)
+- `$MinPts = 4$`
+- Figure (a) `$\epsilon = 5.0$`, figure (b) `$\epsilon = 3.5$` and figure (c) `$\epsilon = 3.0$`
+![](/images/datamining/dbscan3.png) 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# OPTICS
+</script></section>
+<section data-markdown><script type="text/template">
+## OPTICS: Ordering Points to Identify the Clustering Structure
+- Although DBSCAN can cluster objects given **input parameters** such as `$\epsilon$` (the maximum radius of a neighborhood) and `$MinPts$`.
+- It encumbers(拖累) users with the responsibility(責任) of selecting parameter values that will lead to the **discovery of acceptable clusters**.
+- Such parameter settings are usually empirically(憑經驗) set and **difficult to determine**(決定), especially for real-world, high dimensional data sets.
+</script></section>
+<section data-markdown><script type="text/template">
+## OPTICS
+- To overcome the difficulty in using one set of global parameters in clustering analysis, a cluster analysis method called OPTICS was proposed(提出).
+- OPTICS does **not explicitly(明確地) produce a data set clustering**. Instead, it **outputs a cluster ordering**.
+- This is **a linear list of all objects** under analysis and represents the density-based clustering structure of the data.
+- Objects in a denser cluster are **listed closer** to each other in the **cluster ordering**.
+- Thus, OPTICS does **not require** the user to provide a **specific density threshold**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Core-distance and Rachability-distance(1/2)
+- The **core-distance of an object `$p$` is the smallest value `$\epsilon^{'}$`** such that the
+`$\epsilon^{'}$`-neighborhood of `$p$` has at least `$MinPts$` objects.
+![](/images/datamining/coreDistance.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Core-distance and Rachability-distance(2/2)
+- That is, **`$\epsilon^{'}$` is the minimum distance threshold** that makes **`$p$` a core object**. If **`$p$` is not a core object** with respect to `$\epsilon$`
+and MinPts, the core-distance of **`$p$` is undefined**.
+- The **reachability-distance to object `$p$` from `$q$`** is the minimum radius value that makes
+`$p$` density-reachable from `$q$`.
+- According to the definition of density-reachability, `$q$` has to be a core object and `$p$` must be in the neighborhood of `$q$`.
+- Therefore, the **reachability-distance from `$q$` to `$p$` is `$max\{core-distance(q), dist(p, q)\}$`**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Cluster-order of the objects
+![](/images/datamining/optics.png)
+</script></section>
+</section><!--end block-->
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

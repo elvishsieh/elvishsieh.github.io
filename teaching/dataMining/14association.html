@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Association Rule</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Basic Concepts
+</script></section>
+<section data-markdown><script type="text/template">
+## Mining Frequent Patterns
+- **Frequent patterns** are patterns (e.g., itemsets(項目集), subsequences, or substructures) that **appear frequently in a data set**.
+- Frequent patterns and association(關聯) rules are the knowledge that you want to mine in such a scenario(腳本).
+- For example, a set of items, such as [diaper and beer](01intro.html#/0/1/3), that appear frequently together in a transaction data set is a **frequent itemset**(頻繁項目集).
+- **Frequent pattern mining** searches for **recurring(再次發生的) relationships** in a given data set.
+</script></section>
+<section data-markdown><script type="text/template">
+## Market Basket Analysis
+![](/images/datamining/basket.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Frequent Pattern Analysis
+- First proposed by Agrawal, Imielinski, and Swami [AIS93] in the context of frequent itemsets and association rule mining
+- Motivation: Finding inherent regularities(內在規律) in data
+	- What products were **often purchased together**?— Beer and diapers?!
+	- What are the **subsequent purchases after buying a PC**?
+	- What kinds of DNA are **sensitive to this new drug**?
+	- **Can we automatically** classify web documents?
+- Applications
+	- Basket data analysis, cross-marketing(交叉銷售), sale campaign(活動) analysis, Web log (click stream) analysis, and DNA sequence analysis.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Is Freq. Pattern Mining Important?
+- Freqent pattern: An intrinsic(固有的) and important property(資產) of datasets 
+- Foundation for many essential(基本的) data mining tasks
+	- **Association, correlation**, and causality(因果關係) analysis
+	- **Sequential**(順序的), structural (e.g., sub-graph) patterns
+	- Pattern analysis in spatiotemporal(時空的), multimedia, time-series, and stream(流水) data 
+	- Classification: discriminative(有差別的), **frequent pattern** analysis
+	- Cluster analysis: **frequent pattern-based clustering**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Frequent Itemsets, Closed Itemsets, and Association Rules
+</script></section>
+<section data-markdown><script type="text/template">
+## Frequent Itemsets
+- Let `$\mathcal{I} =  \{I_1, I_2, \cdots , I_m\}$` be an itemset. Let `$D$`, the task-relevant data, be a set of database
+transactions where each transaction `$T$` is a nonempty itemset such that `$T \subseteq \mathcal{I}$`
+- Each transaction(交易) is associated with an identifier, **called a TID**.
+- Let `$A$` be a set of items. A transaction `$T$` is said to contain `$A$` if `$A \subseteq T$`. An **association rule** is an implication of the form `$A \rArr B$`.
+where `$A, B \subseteq \mathcal{I}, A,B \not = \emptyset$` <br />and  `$A\cap B = \varnothing$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Support and Confidence(1/3)
+- The rule `$A \rArr B$` holds in the transaction set `$D$` with **_support_ `$s$` (支持度), where `$s$` is the percentage of transactions** in `$D$` that
+contain `$A \cup B$` (i.e., the _union_(聯集) of sets `$A$` and `$B$` say, or, **both `$A$` and `$B$`)**.
+- This is taken to be the **probability, `$P(A \cup B)$`**. The **rule `$A \rArr B$` has _confidence_ `$c$`** in the transaction set `$D$`, 
+where `$c$` is the percentage of transactions in `$D$` containing `$A$` that also contain `$B$`.
+`$$
+\begin{align*}
+support(A \rArr B) &= P(A \cup B)\\
+confidence(A \rArr B) &= P(B|A)
+\end{align*}
+$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Support and Confidence(2/3)
+- Notice that the **notation `$P(A \cup B)$`** indicates the probability that a transaction contains the **union of sets
+`$A$` and `$B$`** (i.e., it contains every item in `$A$` and `$B$`). This **should not be confused** with P(A or B), which
+indicates the probability that a transaction **contains either `$A$` or `$B$`**
+- Conditional probability `$P(B|A) = \frac{P(AB)}{P(A)}$`，在條件 `$A$`  的情況下，發生 `$B$` 的機率？
+	- 兩枚硬幣，在一面出現正面的情況下，出現反面的機率是多少？
+	- 家庭有 2 位小孩，一位是男孩，另一位是女孩的機率是多少？
+</script></section>
+<section data-markdown><script type="text/template">
+## Support and Confidence(2/3)
+- Rules that satisfy **both a minimum support threshold** (_min_sup_) and a **minimum confidence threshold** (_min_conf_) are **called strong**. 
+- By convention, we write support and confidence values so as to **occur between `$0\%$` and `$100\%$`**, rather than 0 to 1.0.
+- `$support(A \rArr B)$` is sometimes referred to as **relative support**, the occurrence frequency is called the **absolute support**.
+-  If the relative support of an itemset `$I$` satisfies a **prespecified minimum support threshold**,
+then **`$I$` is a frequent itemset**.
+</script></section>
+<section data-markdown><script type="text/template">
+## itemsets
+- `$k$`-itemsets
+	- _1_-itemset: `$\{I_1\}, \{I_2\}, \cdots, \{I_n\}$`
+	- _2_-itemsets:  `$\{I_1, I_3\}, \{I_2, I_4\}, \cdots, \{I_i, I_j\}$`
+	- `$k$`-itemsets: `$\{I_1, \cdots, I_k\}$`,  `$k$`-itemsets is denoted by `$L_k$`. 
+- The **occurrence frequency of an itemset** is also known as the **frequency, support count, or count of the itemset**.
+- From Confidence formula, we have
+`$$
+\begin{align*}
+confidence(A \rArr B) &= P(B|A) = \frac{support(A \cup B)}{support(A)}\\
+ 				&= \frac{support\_count(A \cup B)}{support\_count(A)}\\
+\end{align*}
+$$`
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Association Rule
+</script></section>
+<section data-markdown><script type="text/template">
+## Association Rule Mining Steps
+- In general, association rule mining can be viewed as a two-step process:
+1. **Find all frequent itemsets**: By definition, each of these itemsets will occur at least as
+frequently as a predetermined minimum support count, _min_sup_.
+2. **Generate strong association rules from the frequent itemsets**: By definition, these
+rules **must satisfy _minimum support_ and _minimum confidence_**.
+- Additionally, the discovery of **correlation relationships** between associated items have discussed in [the Slides](06preprocessing.html#/4).
+- Because the **second step is much less costly than the first**, the **overall performance** of mining
+association rules is determined by **the first step**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Challenge of Association Rule Mining(1/2)
+- A major challenge in mining frequent itemsets from a large data set is the fact that
+mining often generates a huge number of itemsets satisfying the minimum support
+(_min_sup_) threshold, especially when _min_sup_ is set low.
+- For example, a frequent itemset of length 100, such as `$\{a_1, a_2,\cdots, a_{100}\}$`, contains
+`$\begin{pmatrix}
+   100\\ 1
+\end{pmatrix} = 100$`<br />
+frequent _1_-itemsets: `$\{a_1\}, \{a_2\},\cdots, \{a_{100}\}$`;<br />
+`$\begin{pmatrix}
+   100\\ 2
+\end{pmatrix}$`
+frequent _2_-itemsets: `$\{a_1, a_2\}, \cdots, \{a_{99},a_{100}\}$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Challenge of Association Rule Mining(2/2)
+- The total number of frequent itemsets that it contains is thus
+`$$
+\begin{align*}
+\begin{pmatrix}
+   100\\ 1
+\end{pmatrix} +
+\begin{pmatrix}
+   100\\ 2
+\end{pmatrix} + \cdots
+\begin{pmatrix}
+   100\\ 100
+\end{pmatrix} &= 2^{100} - 1 \\
+			 &\approx 1.27 \times 10^{30}
+\end{align*}
+$$`
+- This is too huge a number of itemsets for any computer to compute or store.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Closed and Maximal Frequent Itemsets
+</script></section>
+<section data-markdown><script type="text/template">
+## Closed and Maximal Frequent Itemset(1/2)
+- An **itemset `$X$` is closed in a data set `$D$`** if there **exists no proper _super-itemset `$Y$`_** such
+that `$Y$` has the same support count as `$X$` in `$D$`.
+	- `$Y$` is a proper super-itemset of `$X$` if `$X$` is a proper sub-itemset of `$Y$`, that is, if `$X \subset Y$`.
+	- In other words, every item of `$X$` is contained in `$Y$` but there is at least one item of `$Y$` that is not in `$X$`.
+- An **itemset `$X$` is a maximal frequent itemset** (or max-itemset) in a data set `$D$` if **`$X$` is frequent, and there exists no super-itemset `$Y$`**
+such that `$X \subset Y$` and `$Y$` is frequent in `$D$`.
+</script></section>
+<section data-markdown><script type="text/template">
+## Closed and Maximal Frequent Itemset(2/2)
+- Let `$\mathcal {C}$` be the set of closed frequent itemsets for a data set `$D$` satisfying a _minimum sup-port_ threshold, min sup.
+- Let `$\mathcal {M}$` be the set of maximal frequent itemsets for `$D$` satisfying _min_sup_.
+- Suppose that we have the support count of each itemset in `$\mathcal {C}$` and `$\mathcal {M}$`. 
+Notice that `$\mathcal {C}$` and its count information can be used to derive the whole set of frequent itemsets.
+- We say that `$\mathcal {C}$` contains complete information regarding its corresponding frequent
+itemsets. On the other hand, `$\mathcal {M}$` registers only the support of the maximal itemsets.
+</script></section>
+<section data-markdown><script type="text/template">
+## An Exampoe of closed and maximal frequent itemsets
+- Suppose that a transaction database has only two transactions:
+`$\{\langle a_1, a_2,\cdots, a_{100}\rangle, \langle a_1, a_2,\cdots, a_{50}\rangle\}$`.
+Let _minimum support count_ threshold be `$min sup = 1$`.
+- We find two closed frequent itemsets and their support counts,
+`$\mathcal {C}  \{\{a_1, a_2,\cdots, a_{100}\}:1, \{ a_1, a_2,\cdots, a_{50}\}:2\}$`.
+There is only one maximal frequent itemset:`$\mathcal {M}  \{\{a_1, a_2,\cdots, a_{100}\}:1\}$`.
+- Notice that we cannot include `$\{a_1, a_2,\cdots, a_{50}\}$` as a maximal frequent itemset because it has a frequent superset,
+`$\{a_1, a_2,\cdots, a_{100}\}$`.
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
