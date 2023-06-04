@@ -194,7 +194,7 @@ and `$SS$` is the **square sum of the data points (`$\sum^n_{i=1} x_i^2$`)**.
 <section data-markdown><script type="text/template">
 ## CF-tree(2/3)
 - Clustering features are **additive(加法性質)**, That is, for two disjoint clusters, `$C_1$` and `$C_2$`,
-with the clustering features `$CF_1 = \langle n_1,LS_1,SS_1\rangle$` and `$CF-2 = \langle n_2,LS_2,SS_2\rangle$`, respectively.
+with the clustering features `$CF_1 = \langle n_1,LS_1,SS_1\rangle$` and `$CF_2 = \langle n_2,LS_2,SS_2\rangle$`, respectively.
 - The clustering feature for the cluster that formed by merging `$C_1$` and `$C_2$` is simply
 `$$
 CF_1 + CF_2 = \langle n_1+n_2,LS_1+LS_2,SS_1+SS_2\rangle
@@ -207,10 +207,10 @@ $$`
 \begin{align*}
 CF_1 &= \langle 3, (2+3+4,5+2+3), \\
 		& \;\;\;\;\;(2^2+3^2+4^2,5^2+2^2+3^2)\rangle\\
-	 &= \langle 3, (9,10), (29. 38)\rangle
+	 &= \langle 3, (9,10), (29, 38)\rangle
 \end{align*}
 $$`
-- Suppose that `$C_1$` is disjoint(沒有連結) to a second cluster, **`$C_2$`, where `$\langle 3, (35,36), (417. 440)\rangle$`**
+- Suppose that `$C_1$` is disjoint(沒有連結) to a second cluster, **`$C_2$`, where `$\langle 3, (35,36), (417, 440)\rangle$`**
 </script></section>
 <section data-markdown><script type="text/template">
 ## An example of clustering feature(2/2)
@@ -220,7 +220,7 @@ derived by adding `$CF_1$` and `$CF_2$`. That is,
 \begin{align*}
 CF_3 &= \langle 3+3, (9+35,10+36), \\
 		& \;\;\;\;\;(29+417,38+440)\rangle\\
-	 &= \langle 6, (44,46), (446. 478)\rangle
+	 &= \langle 6, (44,46), (446, 478)\rangle
 \end{align*}
 $$`
 </script></section>
