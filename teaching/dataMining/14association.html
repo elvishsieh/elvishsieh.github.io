@@ -206,8 +206,8 @@ such that `$X \subset Y$` and `$Y$` is frequent in `$D$`.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Closed and Maximal Frequent Itemset(2/2)
-- Let `$\mathcal {C}$` be the set of closed frequent itemsets for a data set `$D$` satisfying a _minimum sup-port_ threshold, min sup.
-- Let `$\mathcal {M}$` be the set of maximal frequent itemsets for `$D$` satisfying _min_sup_.
+- Let `$\mathcal {C}$` be the set of **closed frequent itemsets** for a data set `$D$` **satisfying a _minimum support_ threshold, min sup**.
+- Let `$\mathcal {M}$` be the set of **maximal frequent itemsets** for `$D$` satisfying _min_sup_.
 - Suppose that we have the support count of each itemset in `$\mathcal {C}$` and `$\mathcal {M}$`. 
 Notice that `$\mathcal {C}$` and its count information can be used to derive the whole set of frequent itemsets.
 - We say that `$\mathcal {C}$` contains complete information regarding its corresponding frequent
@@ -220,9 +220,9 @@ itemsets. On the other hand, `$\mathcal {M}$` registers only the support of the 
 Let _minimum support count_ threshold be `$min sup = 1$`.
 - We find two closed frequent itemsets and their support counts,
 `$\mathcal {C}  \{\{a_1, a_2,\cdots, a_{100}\}:1, \{ a_1, a_2,\cdots, a_{50}\}:2\}$`.
-There is only one maximal frequent itemset:`$\mathcal {M}  \{\{a_1, a_2,\cdots, a_{100}\}:1\}$`.
-- Notice that we cannot include `$\{a_1, a_2,\cdots, a_{50}\}$` as a maximal frequent itemset because it has a frequent superset,
-`$\{a_1, a_2,\cdots, a_{100}\}$`.
+There is **only one maximal frequent itemset**:`$\mathcal {M}  \{\{a_1, a_2,\cdots, a_{100}\}:1\}$`.
+- Notice that we cannot include `$\{a_1, a_2,\cdots, a_{50}\}$` as a maximal frequent itemset **because it has a frequent superset,
+`$\{a_1, a_2,\cdots, a_{100}\}$`**.
 </script></section>
 </section><!--end block-->
 
