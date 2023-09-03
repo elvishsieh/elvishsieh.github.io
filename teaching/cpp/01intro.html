@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to modern C++ </title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Introudction
+</script></section>
+<section data-markdown><script type="text/template">
+## History of C++
+- **In 1979, Bjarne Stroustrup**, a Danish computer scientist, began work on **"C with Classes"**, the predecessor to C++.
+- C++ (**pronounced "C plus plus"** and sometimes abbreviated as CPP) is a high-level, general-purpose programming language.
+- The C++ programming language was **initially standardized in 1998 as ISO/IEC 14882:1998**, which was then amended by the C++03, C++11, C++14, and C++17 standards. The current C++20 standard supersedes these with new features and an enlarged standard library.
+- **After C++98**, C++ evolved relatively slowly **until, in 2011**, the **C++11 standard** was released,
+</script></section>
+<section data-markdown><script type="text/template">
+##  Why should we use modern C++?
+- C++11
+	- **auto, decltype, constexpr**, move semantic, **Lambda** function, **smart pointer**, multithreading, ..., etc.
+- C++14
+	- reader-writer lock, general Lambda functions, ..., etc.
+- C++17
+	- fold expression, constexpr if, **parallel algorithm** of the STL, filesystem library, std::any,optional,variant, ..., etc. 
+- C++20
+	- **concepts**,	3-way comparisons, map, **Range-based for loop**, **import, module**, calendar and time zone library,
+		likely and unlikely attributes, ..., etc.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# C/C++ Development Environment
+</script></section>
+<section data-markdown><script type="text/template">
+## What is your Operation System to build C/C++ application?
+- **Unix-Like** Operation System
+	- All of the Linux, BSD, unix-like OS, are a good platform for developed C/C++ application. 
+- Apple **Mac iOS** system
+	- Xcode IDE + GCC or LLVM/Clang
+- **Microsoft Windows** operation system
+	- Visual Studio IDE + MSVC or LLVM/Clang
+	- Qt IDE + GCC or LLVM/Clang
+	- **CodeBlocks** IDE + GCC or **LLVM/Clang** ❤️
+	- **Visual Studio Code** + GCC or LLVM/Clang ❤️
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing C/C++ development environment for Windows
+- **Setting environment Variable**
+	- HOME environment
+	- BIN path for pkgconf package(**the last step**)
+- **Installing Msys2**
+	- [msys2 nightly build version](https://github.com/msys2/msys2-installer/releases/tag/nightly-x86_64)
+- Installing **MinGW64/CLANG64 compiler** packages
+	- pacman -S mingw-w64-clang-x86_64-toolchain
+- **Installing the CodeBlocks IDE**(Integrated Development Environment)
+	- [CodeBlocks nightly build version](https://forums.codeblocks.org/index.php/board,20.0.html)
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

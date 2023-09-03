@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to modern C++</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Introduction to modern C++
+
+<br />
+
+## 謝文仲
+
+<p style="text-align:center">
+    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
+    </small>
+</p>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 評分標準(Grading)
+- 出席率：  20%
+- 課堂練習： 20%
+- 期中報告： 20%
+- 期末報告： 40%
+</script>
+</section>
+</section><!--end block-->
+
+<section>
+<section data-markdown><script type="text/template">
+## 課程大綱(Syllabus)
+- [Week01-Introduction](./01intro.html)
+- [Week02-R 基本操作與向量](./02basic.html)
+- [Week03-使用 R 畫統計圖表](./03graphic.html)
+- [Week04-Object and Array](./04object.html)
+- [Week05-Python Programming 基礎(2)](./04pyProgramming2.html)
+- [Week06-在IPython Notebook 執行Python Spark程式](./06preprocessing.html)
+- [Week07-Python Spark RDD介紹](./07preprocessing2.html)
+- [Week08-分類-決策樹](./08decisionTree.html)
+- [Week09-期中報告(預報)](./project.html)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 課程大綱(Syllabus)
+- [Week10-資料預處理](./10knn.html)
+- [Week11-分群-k Mean](./11kmean.html)
+- [Week12-分群-階層式](./12hierarchical.html)
+- [Week13-分群-DBSCAN](./13dbscan.html)
+- [Week14-關聯法則-基本概念](./14association.html)
+- [Week15-關聯法則-Apriori演算法](./15apriori.html)
+- [Week16-關聯法則-FP-growth方法](./16FP-growth.html)
+- [Week17-期末報告](./project.html#/1)
+- [Week18-期末報告](./project.html#/1)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 教科書 & 參考書
+- 教科書：
+	- [R Cookbook, 2nd Edition](https://rc2e.com/), 2019
+	- Author: James (JD) Long and Paul Teetor 
+	- Publisher: O'Reilly Media, Inc.
+- 參考書：
+	- [An Introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf), W. N. Venables, D. M. Smith	and the R Core Team
+	- [An Introduction to R](https://intro2r.com/), Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 參考文獻 (Reference)
+- 
+</script>
+</section>
+</section><!--end block-->
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

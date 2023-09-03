@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>R 程式語言簡介</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# What is it?
+</script></section>
+<section data-markdown><script type="text/template">
+## What is R Language?
+- R is a [GNU project](https://www.gnu.org/) which is **similar to the S language** and environment which **was developed at Bell Laboratories** (formerly AT&T, now Lucent Technologies) by **John Chambers and colleagues in 1990**.
+- R is a programming language **for statistical computing and graphics** that you can use to **clean, analyze, and graph your data**.
+- R is an advanced language used in **Data Science and Machine Learning** as it can perform complex statistical computations.
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Programming Language?
+- A programmin language is **a tool** that **help human to communicate with any computer devices**.
+- A programming language is a system of notation for writing computer programs. Most programming languages are **text-based** formal languages, but they **may also be graphical**.
+- There are **two approaches** to programming language implementation: **compilation** and **interpretation**. It is generally possible to implement a language using either technique.
+- List of [programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages) in Wikipedia
+</script></section>
+<section data-markdown><script type="text/template">
+## What is statistics?
+- Statistics is the discipline that concerns the collection, organization, analysis, interpretation, and presentation of data.
+- Two main statistical methods are used in data analysis
+	-  **Descriptive(描述) statistics**, which summarize data from a sample using indexes such as the mean or standard deviation. For example, student's GPA
+	-  **Inferential(推理) statistics**, which draw conclusions from data that are subject to random variation (e.g., observational errors, sampling variation). For example, [Chi-Squared Test](../dataMining/06preprocessing.html#/3/7)(卡方檢定).
+</script></section>
+<section data-markdown><script type="text/template">
+## What can statistics do for us?
+- There are three major things that we can do with statistics:
+	- **Describe**: The world is complex and we often need to describe it in a simplified way that we can understand.
+	- **Decide**: We often need to make decisions based on data, usually in the face of uncertainty.
+	- **Predict**: We often wish to make predictions about new situations based on our knowledge of previous situations.
+- **Today**, statistical methods are **applied in all fields** that involve **decision making**, for **making accurate inferences** from a collated body of data and for making decisions in the face of uncertainty based on statistical methodology.
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary(摘要)
+- What is Programming Language?
+	- 程式語言是一種**人類與電腦設備的溝通工具**，透過程式語言的設計與描述，讓計算機設備**協助人類處理複雜、具有規則性的事務**；或**控制與其連結的電子設備處理可程式化動作**。
+- What is statistics?
+	- 統計學是數學的一個分支，主要是**針對收集的資料作清理(clean)、分析、圖形化**的統計計算；學習統計學可以讓我們對**資料做描述、決策與預測**。
+- What is R Language?
+	- R 是為了統計計算而設計的一種程式語言，學習 R 程式語言就可以<b>對資料集(datasets)做預處理(preprocessing)、分析(analysis)、視覺化(visualization)及預測(prediction)</b>。
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Getting Started
+</script></section>
+<section data-markdown><script type="text/template">
+## R Installation(1/2)
+- R compiles and runs on a wide variety of **UNIX platforms, Windows and MacOS**.
+- To download R, please choose your preferred [CRAN](https://cran.csie.ntu.edu.tw/)(Comprehensive R Archive Network) mirror.
+- Two kind of methods can install R development environment which can download from **precompiled binary distributions** or **source codes** for installation.
+	- For example, download the [base of R for Windows](https://cran.csie.ntu.edu.tw/) to install R on Windows OS.
+	- **All of the packages** of precompiled binary distributions **can be added into the system after** installing R environment. 
+</script></section>
+<section data-markdown><script type="text/template">
+## R Installation(2/2)
+![](/images/r/baseR.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing IDE for R
+- An **integrated development environment (IDE)** is a software application that provides comprehensive facilities for software development.
+	- Visual Studio, Qt Creator, CodeBlocks, **RStudio**, Eclipse, NeBeans, PyCharm, JetBrains, ..., etc.
+- Many IDEs were designed for R on internet which one of the IDE is recommanded by me as following
+	- [RStudio IDE](https://github.com/rstudio/rstudio) for your platform on your desktop operation system.
+	- [Visual Studio Code](https://code.visualstudio.com/) with [R Extension](https://code.visualstudio.com/docs/languages/r) ❤️
+	- [Rplugin](https://github.com/JetBrains/Rplugin)
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

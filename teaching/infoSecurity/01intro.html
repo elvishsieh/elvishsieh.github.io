@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# Information Security
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+##  密碼(Cipher)
+- 克寧奶粉<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 克寧(klim)奶粉 <!-- .element: class="fragment" data-fragment-index="2" -->
+  * milk 牛奶 <!-- .element: class="fragment" data-fragment-index="3" -->
+- 公車在每一站停車時，老太太總是都會站起來一下？<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 車停站一下 <!-- .element: class="fragment" data-fragment-index="5" -->
+  * 下一站停車 <!-- .element: class="fragment" data-fragment-index="6" -->
+- uoyevoli<!-- .element: class="fragment" data-fragment-index="7" -->
+  * iloveyou ≫ I love you.(羅密歐與茱麗葉)<!-- .element: class="fragment" data-fragment-index="8" -->
+  * What is it mean, if the cipher was the "ioeolvyu"？ <!-- .element: class="fragment" data-fragment-index="9" -->
+  * 我跟祕密通訊的人講好，收到密文(ciphertext)，將它先對半切，再把兩組字串逐一的組合起來<!-- .element: class="fragment" data-fragment-index="10" -->
+  * ioeo, lvyu ≫ il,ov, ey, ou ≫ iloveyou(明文, plaintext)<!-- .element: class="fragment" data-fragment-index="11" -->
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+##  秘密通訊
+- The ciphertext is __*ioeolvyu*__ <!-- .element: class="fragment" data-fragment-index="1" -->
+  * Alice and Bob: Alice wants to send a message to Bob.<!-- .element: class="fragment" data-fragment-index="2" -->
+  * Q1: How does Alice send the password to Bob？<!-- .element: class="fragment" data-fragment-index="3" -->
+  * Q2: Is it safety when Alice send the ciphertext to Bob ？ <!-- .element: class="fragment" data-fragment-index="4" -->
+- 我們需要一個秘密通訊的通道(channel)<!-- .element: class="fragment" data-fragment-index="5" -->
+<img src="/images/iSecurity/AliceBob.png" alt="AliceBob" width="70%">
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+##  資訊隱藏
+- Data hiding or Information hiding
+  * Alice 傳送明文(plaintext) 給 Bob<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 將傳送的訊息藏在明文(The message hide in the plaintext.)<!-- .element: class="fragment" data-fragment-index="1" -->
+- 資訊隱藏的應用<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 數位影像的認證<!-- .element: class="fragment" data-fragment-index="3" -->
+    <img src="/images/iSecurity/lena_color.gif" alt="lean" width="30%" style="float: right">
+  * 多媒體的認證(影音及 3D model)<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 指紋辨識<!-- .element: class="fragment" data-fragment-index="5" -->
+  * 浮水印(Watermarking)<!-- .element: class="fragment" data-fragment-index="6" -->
+
+</script>
+</section>
+</section>
+<section>
+<section data-markdown><script type="text/template">
+##  密碼學(Cryptography)
+- 密碼學是由**密碼學**和**密碼分析學**組成的<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 現代密碼學是數位資料的保護、控制和識別<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 密碼分析學是嘗試組成所有可能的密碼，被開發用來破解、破壞密碼學完成的工作<!-- .element: class="fragment" data-fragment-index="3" -->
+- 密碼學課程內容涵蓋：<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 加密(encryption)與解密(decryption)<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 對稱(symmetric)與不對稱(asymmetric)加密<!-- .element: class="fragment" data-fragment-index="5" -->
+  * 認證性(Authenticity)、完整性(Integrity)、不可否認性(Non-repudiation)<!-- .element: class="fragment" data-fragment-index="6" -->
+  * 密碼分析(decryption analysis)<!-- .element: class="fragment" data-fragment-index="7" -->
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+##  密碼學的女中豪傑 -- 王小雲
+- 中國山東大學教授，目前是清華大學教授<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 在 2004 年 8 月 17 日，美國加州聖芭芭拉召開的國際密碼大會上破解了MD5、HAVAL－128、MD4和RIPEMD等四個著名密碼演算法<!-- .element: class="fragment" data-fragment-index="2" -->
+    <img src="/images/iSecurity/wang.jpg" alt="wang" width="40%" style="margin-left:20px;float: right">
+  * 在破解到第 3 個演算法時，全場起立、鼓掌<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 破例發表15(3)分鐘的演說，大會主席向她說：妳可以在美國任何一間大學取得教職<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 中國大陸政府痛心疾首<!-- .element: class="fragment" data-fragment-index="5" -->
+- MD5由國際著名密碼學家圖靈獎獲得者兼公鑰加密算法RSA的創始人Rivest設計<!-- .element: class="fragment" data-fragment-index="5" -->
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+##  資訊安全與密碼學的關係(1/2)
+- 第一銀行盜領案
+  * 透過釣魚郵件，進行社交工程，入侵倫敦分行的電腦
+  * 植入病毒或後門程式，由內部網路竊取管理者密碼
+    <img src="/images/iSecurity/firstBank.png" alt="first bank" width="75%">
+    <p  style="font-size:14pt; float: right">Source Image from: <a href="http://www.ithome.com.tw/news/107294">iThome</a></p>
+- 竊取密碼，控制電腦，變成殭屍電腦<!-- .element: class="fragment" data-fragment-index="1" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+##  資訊安全與密碼學的關係(2/2)
+- 分散式阻斷服務攻擊法(DDoS, Distribute Denial of Service)
+  * 2017年，證卷公司在春節過後接到駭客勒索費用，否則進行網路攻擊<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 所採取的是 DDoS 攻擊法<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 終止網路的服務<!-- .element: class="fragment" data-fragment-index="1" -->
+  <img src="/images/iSecurity/pelican.jpg" alt="lean" width="20%" style="margin-left:20px;float: right">
+- 各校的 DNS Server(Domain Name Server)是最常被攻擊的目標<!-- .element: class="fragment" data-fragment-index="2" -->
+- [Open Source Security Software for Windows OS](https://sourceforge.net/directory/security-utilities/security/os:windows/)<!-- .element: class="fragment" data-fragment-index="3" -->
+    * [盧瓦(LOIC, Low Orbit Ion Canon)](https://sourceforge.net/projects/loic/?source=directory)<!-- .element: class="fragment" data-fragment-index="3" -->
+    * PS:不可以做壞事 <!-- .element: class="fragment" data-fragment-index="4" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 絕對安全/理論安全
+  - 單次金鑰使用密碼法(One-time Pad Cipher)<!-- .element: class="fragment" data-fragment-index="1" -->
+    * 用一次就丟掉<!-- .element: class="fragment" data-fragment-index="1" -->
+    * 缺點：<!-- .element: class="fragment" data-fragment-index="2" -->
+       - 光要製造無窮的隨機數字金鑰便相當地耗時<!-- .element: class="fragment" data-fragment-index="2" -->
+       - 更有複製以及發送端協調的問題，故難以落實<!-- .element: class="fragment" data-fragment-index="3" -->
+  - 現代的加密演算法 DES, RSA, AES, ECC，都是不可逆的數學函數演算法，需要長時間的計算才可以破解，所以一致認為密碼系統是計算上的安全 <!-- .element: class="fragment" data-fragment-index="4" -->
+  - 量子電腦(Quantum Computer)若被發明、製造出來，現在的密碼系統全部不能用<!-- .element: class="fragment" data-fragment-index="5" -->
+</script>
+</section>
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

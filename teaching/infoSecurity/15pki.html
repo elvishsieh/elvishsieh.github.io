@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Information Security</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# PKI <br>公開金鑰 <br>基礎建設
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 印鑑證明申請程序
+<img src="/images/iSecurity/process.jpg" style="height: 560px" alt="印鑑證明申請程序">
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## PKI 公開金鑰基礎建設
+- PKI: Public Key Infrastracture，翻譯為公開金鑰基礎建設
+- 是一組由硬體、軟體、參與者、管理政策與流程組成的基礎架構，目的是創造、管理、分配、使用、儲存以及撤銷數位憑證
+![PKI figure](/images/iSecurity/Public-Key-Infrastructure.svg)<!-- .element height=55%" width="55%" -->
+<p style="text-align: center; font-size: 12pt">Image source from [Wiki](https://en.wikipedia.org/wiki/Public_key_infrastructure)</p>
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## PKI 常見的一些名詞
+- CA: 憑證管理中心(Certificate authority)是一個核發公開金鑰系統憑證的管理單位，例如內政部自然人憑證管理中心
+- RA: 註冊中心(registration authority, RA)是一個網路機構，驗證使用者的數位憑證要求，並指示憑證頒發機構 (CA) 向其發行憑證。
+RA 是公開金鑰基礎設施 (PKI) 的一部分，是能讓公司和使用者安全可靠地交換資訊和資金的網路系統
+- TTP: Trusted Third Party (TTP)是可以對 Alice and Bob 兩位做認證的第三方 
+- VA: a validation authority (VA) is an entity that provides a service used to verify the 
+validity of a digital certificate per the mechanisms described in the X.509 standard and RFC 5280
+
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## simple CA with OpenSSL
+- [Download Win32OpenSSL]()
+
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## [政府機關公開金鑰基礎建設](http://grca.nat.gov.tw/index.html)
+![GPKI](/images/iSecurity/gpki.png)
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPKI 簡介
+- 政府機關公開金鑰基礎建設(Government Public Key Infrastructure, GPKI)係依據電子化政府推動方案(九十至九十三年度)，
+為健全電子化政府基礎環境建設，建立行政機關電子認證及安全制度而設立
+- 它是依照ITU-T X.509標準建置的階層式(Hierarchy) 公開金鑰基礎建設，
+包含公開金鑰基礎建設的信賴起源(Trust Anchor)政府憑證總管理中心(Government Root Certification Authority, GRCA)，及各政府機關所設立的下屬憑證機構(Subordinate CA)所組成
+- [參考文件](http://grca.nat.gov.tw/02-01.html)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GRCA政府憑證總管理中心
+- 政府憑證總管理中心(Government Root Certification Authority, GRCA)，
+為政府機關公開金鑰基礎建設階層架構的最頂層憑證機構，也是本基礎建 設的信賴起源，
+必須具備最高的公信度
+- 交互認證憑證機構
+  - 係指與總管理中心進行交互認證之憑證機構，包括本基礎建設第一層之下屬憑證機構和本基礎建設外之憑證機構
+  - 欲向總管理中心申請交互認證之憑證機構首先必須符合所引用的憑證政策保證等級之安全性規定，
+  同時具備公開金鑰基礎建設，數位簽章及憑證簽發技術之建置及管理能力
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GRCA政府憑證總管理中心
+- 信賴憑證者(Relying Parties)：係指相信憑證主體名稱與公開金鑰之連結關係的個體，
+必須依據憑證機構的憑證及憑證狀態資訊，檢驗所使用憑證的有效性
+- GRCA 之下屬憑證機構
+  - GCA: 政府憑證管理中心(Government Certification Authority，簡稱GCA)
+  - MOICA: 自然人憑證管理中心(MOICA)
+  - MOEACA: 工商憑證管理中心(MOEACA)
+  - XCA: 組織及團體憑證管理中心(XCA)
+  - HCA: 醫事憑證管理中心(HCA)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GRCA 之下屬憑證機構
+![GPKI](/images/iSecurity/gpki.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GRCA 之下屬憑證機構
+- GCA: 政府憑證管理中心(Government Certification Authority，簡稱GCA)
+屬於政府機關公開金鑰基礎建設階層式架構的第一層下屬憑證機構，
+遵照憑證政策保證等級第3級的規定，簽發之憑證種類包含政府機關(構)、
+單位及其所屬的伺服器應用軟體等憑證(包括簽章用及加解密用的憑證)
+- MOICA: 內政部憑證管理中心是電子化政府資訊安全基礎建設計劃之一，
+是一個我國電子簽章法所謂的「憑證機構」，
+負責簽發我國滿 18歲以上國民之公鑰憑證，
+並提供其他自然人之電子化政府應用服務網路通訊的安全基礎
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GRCA 之下屬憑證機構
+- MOEACA: 工商憑證管理中心的啟用，將簽發公司商業身分電子憑證，
+公司商業可郵寄申請書或攜帶申請書親臨所屬登記機關辦理。
+這張身分電子憑證IC卡將作為在網路上與政府溝通的身分認證，
+並透過網路可辨識使用者身分、防止身分遭冒用，
+身分傳輸資料私密性及避免事後否認事實
+- HCA: 為加強醫療資訊安全防護措施，並促進醫療資訊電子化應用，
+於91年利用公開金鑰基礎建設(Public Key Infrastructure,PKI)技術，
+規劃醫療憑證管理中心(Healthcare Certification Authority, HCA)，
+作為推行醫療電子化作業的安全及可信賴的網路環境，
+並自92年6月起正式營運HCA及簽發醫事人員/醫事機構憑證IC卡
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電子化政府電子認證服務分工
+
+|交互認證憑證管理中心|簽發之憑證|註冊窗口|主管機關|
+|---|---|---|--------|
+|政府憑證管理中心(GCA)|政府機關(構)及單位|國家發展委員會|國家發展委員會|
+|工商憑證管理中心(MOEACA)|公司、分公司及商業|經濟部商業司、各縣市政府公司及商業登記機關|經濟部|
+|自然人憑證管理中心(MOICA)|一般民眾|內政部資訊中心及各縣市戶政事務所|內政部|
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電子化政府電子認證服務分工
+
+|交互認證憑證管理中心|簽發之憑證|註冊窗口|主管機關|
+|---|---|---|--------|
+|組織及團體憑證管理中心(XCA)|學校、財團法人、社團法人、行政法人、自由職業事務所、其他組織或團體|各類憑證用戶之主管機關|國家發展委員會|
+|醫事憑證管理中心(HCA)|醫事人員、醫事機構及其所屬應用於醫事專門用途的伺服器應用軟體|全國衛生局所|衛生福利部|
+|政府測試憑證管理中心(GTestCA)|GCA、MOEACA、MOICA、XCA之測試憑證|無|國家發展委員會|
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 參考資料
+[1] [GPKI政府機關公開金鑰基礎建設](http://grca.nat.gov.tw/index.html)
+
+[2] [GCA 憑證相關資料下載](http://gca.nat.gov.tw/web2/form02.html)
+
+[3] [OpenSSL](https://www.openssl.org/)
+
+[4] [The OpenXPKI Project](http://www.openxpki.org/)
+
+[5] [OpenCA Labs](https://www.openca.org/)
+
+[6] [EJBCA PKI CA](https://www.ejbca.org/)
+
+[7] [Mozilla Root Store Policy](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/policy/)
+</script>
+</section>
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Information Security</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# 現代密碼技術
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 完整密碼系統需具備四種功能
+* 隱密性(Confidentiality)：經授權才可取得資訊，避免資訊洩露<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 獲得密文也不易知道內容，Cipher System 都具有隱密性<!-- .element: class="fragment" data-fragment-index="1" -->
+* 認證性(Authenticity)：確保使用者登入時有適當的驗證程序<!-- .element: class="fragment" data-fragment-index="2" -->
+  - 登入 Windows 時，使用者帳號對應的密碼，就是所謂認證性<!-- .element: class="fragment" data-fragment-index="2" -->
+* 完整性(Integrity)：確保資訊的完整及不被竄改<!-- .element: class="fragment" data-fragment-index="3" -->
+  - 製造檔案時，產生一組唯一字串，讓對方確認檔案的完整性<!-- .element: class="fragment" data-fragment-index="3" -->
+* 不可否認性(Non-Repudiation)：<!-- .element: class="fragment" data-fragment-index="4" -->
+  - 確保使用者無法否認於系統上完成的作業<!-- .element: class="fragment" data-fragment-index="4" -->
+  - 數位簽章：使用者不可否認其行為<!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 對稱性密碼(1/2)<br />(Symmetric Cipher)
+* 對稱性(symmetric)加、解密是指用相同的金鑰(key)對訊息做加、解密的步驟<!-- .element: class="fragment" data-fragment-index="1" -->
+* 在加、解密過程中，必須使用相同的金鑰(key)以及相同的加密演算法對明文、密文分別做加、解密<!-- .element: class="fragment" data-fragment-index="2" -->
+* 加密：明文經過加密演算法及 key 得到密文(ciphertext)<!-- .element: class="fragment" data-fragment-index="3" -->
+* 解密：密文經過與加密所使用相同的演算法以及 key 反轉換，得到明文(plaintext)<!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 對稱性密碼(2/2)
+* 古典密碼系統(classic cipher)
+  - Substitution Cipher: Mono-alphabetic: Caesar cipher, Poly-alphabetic: Vigènere Cipher, Codeword,
+    Nomenclator
+  - Transposition Cipher: Railfence, Homophonic Cipher
+* 現代密碼系統(modern cryptography)
+  - Feistel： 1970 年代由 Horst Feistel 所提出
+  - DES/3-DES： Data Encryption Standard, Horst Feistel 為美國 _IBM_ 電腦公司研發的密碼系統
+  - AES： Advanced Encryption Standard, also known by its original name Rijndael
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 非對稱性密碼(1/2)<br />(Asymmetric Cipher)
+* 非對稱密碼(asymmetric cipher)是指加密金鑰與解密金鑰不同<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 訊息傳送者使用收信者的公鑰(public key)對訊息做加密，收信者收到訊息以後，
+  再使用私鑰(private key)將秘密訊息解密<!-- .element: class="fragment" data-fragment-index="1" -->
+*  對稱性加密必須使用相同的 key 來解密，等同於秘密訊息的雙方，或者任何一方，
+  都必須擁有 key，那麼，攻擊者只要取得某一方的 key，就可以知道秘密訊息<!-- .element: class="fragment" data-fragment-index="2" -->
+* 只要持有  key 的任何一方出賣對方，則秘密訊息就被取得，如果是國家之間的秘密，
+  則國家安全將無法得到保障<!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 非對稱性密碼(2/2)<br />(Asymmetric Cipher)
+* 公開金鑰(public key)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 有兩把鑰匙，一把稱為公鑰(public key)，另外一把稱為私鑰(private key)<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 如果要傳訊息給我，拿我的公鑰(public key)來加密，則傳送訊息者，
+  只知道如何將明文加密，不知道如何解密<!-- .element: class="fragment" data-fragment-index="3" -->
+  - 全世界僅有一把私鑰(private key)，由我自己保管<!-- .element: class="fragment" data-fragment-index="4" -->
+  - 用我公鑰加密的這一則訊息，僅有我擁有私鑰，所以，只有我可以解密<!-- .element: class="fragment" data-fragment-index="5" -->
+* 採用非對稱性密碼系統可以保障其秘密訊息的安全性<!-- .element: class="fragment" data-fragment-index="5" -->
+</script>
+</section>
+</section>
+<section>
+<section data-markdown><script type="text/template">
+## 雜湊(Hashing)
+*  雜湊(hashing) 主要是提供：
+  - 一種確認訊息完整性(Integrity)的方法，避免訊息在傳遞過程中遭受竄改
+  - 同時具有認證性(Authenticity)，可以確保使用者登入時，具有適當的驗證程序
+* 常見的雜湊(hashing)演算法：
+    - MD5：Message Digest 5 的縮寫
+    - SHA-1：Secure Hash Algorithm Version 1 的縮寫
+    - SHA-2：Secure Hash Algorithm  Version 2的縮寫
+    - SHA-3：Secure Hash Algorithm  Version 3的縮寫
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 可逆與不可逆函數(1/2)
+* 可逆函數(參考 inverseFunction 文件的 7.2 節)
+  - 若一函數 `$f(x)$` 有反函數，此函數便稱為可逆的
+  - 若給定一函數 `$ f(x) : x ↦ 5 x + 2 $`，則<br>
+    反函數為： `$f^{-1}\;(x):x\mapsto {\frac {x-2}{5}}$`
+  - 函數 `$y = f(x)$`，其定義域 `$x$` 與值域 `$y$` 是一對一函數
+  - 例如： `$f(x) = x^3,\quad  y = -1 \quad if\; x = -1$`
+* 不可逆函數
+  - 不可逆函數：若一函數 `$f(x)$` 沒有反函數存在，此函數便稱為不可逆函數
+  - 例如：`$y = f(x) = x^2, \quad y = 1 \quad if\; x = 1\; or\; -1$`
+  - 在 `$x$` 軸與 `$y$` 軸上，分別不可以對應對應兩個 `$y$` 值與 `$x$` 值
+  - 三角函數 `$\sin(x) , \cos(x), \tan(x)$`
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 可逆與不可逆函數(2/2)
+* <p>$y = 2\;\times\; \sin(x)$ 的圖形(from <a href="https://www.desmos.com/calculator">Desmos 網站</a>)</p>
+<img src="/images/iSecurity/sin.png" style="height:450px;" alt=".desmos-graph.png">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 雜湊(Hashing)函數
+*  雜湊函數是一種不可逆的單向函數(One-way function)
+    - 互斥或閘 `$\mathbb {XOR}$` 及模數(modulo)： `$5 \; mod\; 3$` 都是不可逆函數
+    - 單向函數：若有一函數 `$y=f(x)$`，從 `$x$` 運算到 `$y$` 是容易的，但是，`$y$` 反運算 `$x$` 是困難的
+* 雜湊就是利用單向函數(One-way function)不可逆運算的特性，在製造加密訊息後，在對訊息以雜湊函數運算，
+    得到一串對於訊息的完整性字串
+* 雜湊的特性：從輸入端可以容易計算輸出的結果，但是，不容易從輸出端反運算計算出輸入的值
+* 字串公開在網路上，作為比對檔案或訊息是否被竄改
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 碰撞(collision)
+* 當不同的兩筆輸入值經過雜湊函數運算後，產生相同的輸出值稱之為碰撞
+* 例如：以 `$\mod 17$` 作為雜湊函數，則 `$2 \mod 17$` 與 `$19 \mod 17$` 所得的餘數相同
+* 理想的單向函數(One-way function)不會產生碰撞現象
+* 選擇一個很大的質數，碰撞(collision)的機會很小，可以視為一種理想的單向函數
+* 王小雲找出 MD5, SHA-1 雜湊函數快速產生碰撞的方法，所以，不安全了
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 報稅軟體：<font style="font-size: 18pt">update on 106-04-14</font>
+* 驗證指紋時所需的檔案：(以[手動安裝版](http://download.tax.nat.gov.tw/irx/IRX1800i.EXE) 為例)
+   1. [SHA-1 指紋碼驗證工具](http://download.microsoft.com/download/c/f/4/cf454ae0-a4bb-4123-8333-a1b6737712f7/windows-kb841290-x86-enu.exe)
+   2. [手動安裝版](http://download.tax.nat.gov.tw/irx/IRX1800i.EXE) 軟體 ：IRX1800i.EXE
+   3. [SHA-1 驗證檔下載](http://download.tax.nat.gov.tw/irx/sha1i18.xml)
+* 操作步驟：
+  -  指紋碼驗證工具(windows-kb841290-x86-enu.exe)是自解壓縮檔，解壓縮後是 fciv.exe 程式(File Checksum Integrity Verifier)
+  - 下載 IRX1800i.EXE 及 SHA-1 驗證檔，並且將檔案移動到與 ficv.exe 相同的目錄
+  - 切換到 ficv.exe 目錄，在 cmd 中輸入： <br />fciv -v -sha1 -xml sha1n18.xml
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 報稅軟體：<font style="font-size: 18pt">update on 106-04-14</font>
+* 對竄改檔案的認證：(以自動安裝版作為竄改後的檔案)
+   1. 刪除原來IRX1800i.EXE 及下載[自動安裝版](http://download.tax.nat.gov.tw/irx/IRX1800.EXE)：IRX1800.EXE
+   2. 把自動安裝版(IRX1800.EXE)的檔案名稱改成手動安裝版的檔名 IRX1800i.EXE
+   4. 在 cmd 中輸入：fciv -v -sha1 -xml sha1n18.xml
+* 利用 [rhash](https://github.com/rhash/RHash) 訊息認證軟體來確認報稅軟體
+   - sha1n17.xml 是 base64 編碼方式，必須轉成 hexadecimal 編碼，[Base64 -> hexadecimal string decoder 是轉碼的網站](http://tomeko.net/online_tools/base64.php?lang=en)
+   - 將 sha1n17.xml 內的 L8Zeq2SsKLS0ex7jzmrEwJYRcyk= 字串，利用轉檔軟體轉成 hexadecimal 編碼
+   - 確認報稅軟體的訊息摘要：rhash.exe -c irx1700.sha1
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Base64 轉 Hexadecimal
+  ![Base64 轉 Hexadecimal 編碼](/images/iSecurity/convertCode.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 雜湊的軟體(1/2)
+* 對 Python 軟體做認證
+  - [Python 3.6.1](https://www.python.org/downloads/release/python-361/) 的檔案及指紋
+  - copy 指紋及建立指紋檔，指紋檔請參考 python.md5 的檔案格式
+  - 確認 Python 軟體的指紋：rhash.exe -c python.md5
+* 產生 md5, sha-1, sha2, sha3 的訊息摘要：
+    - rhash.exe -M IRX1700.EXE >> irx1700.md5
+    - rhash.exe -H IRX1700.EXE >> irx1700.sha1
+    - rhash.exe --sha3-512 IRX1700.EXE
+    - rhash --help   //指令的說明
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 雜湊的軟體(2/2)
+* [QuickHash](http://quickhash-gui.org/) 軟體
+  - 視窗化 hash 軟體，文字、檔案及目錄的檔案整批做 hashing
+  - 可以輸出不同的檔案格式： .csv, .html
+  ![QuickHash 比對的畫面](/images/iSecurity/qHash.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Python Code for hashing
+* Base64 to hexadecimal code: [base2hex.py](../src/hash/base2hex.py)
+* Hexadecimal to base64 code: [hex2base64.py](../src/hash/hex2base64.py)
+* Hashing text string: [hashString.py](../src/hash/hashString.py)
+* All in one: [hashing.py](../src/hash/hashing.py)
+* All of source codes was in src/hash folder. You can modify it for any purpose.
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 訊息認證碼(MAC)
+* 雜湊(hashing)對檔案做訊息摘要，確認檔案的完整性(Integrity)<!-- .element: class="fragment" data-fragment-index="1" -->
+* 密文傳送過程是否有可能被攔截、竄改？<!-- .element: class="fragment" data-fragment-index="2" -->
+* 訊息認證碼(Message Authentication Code, MAC)是對訊息做訊息摘要時，加入私鑰(key)的資訊，然後再傳送給對方<!-- .element: class="fragment" data-fragment-index="3" -->
+  <img src="/images/iSecurity/mac.svg" style="height:320px" alt="訊息認證碼"><!-- .element: class="fragment" data-fragment-index="3" -->
+  <p style="text-align: center; font-size: 18pt"><a href="https://en.wikipedia.org/wiki/Message_authentication_code#An_Example_of_Message_Authentication_Code_Algorithm">Image source from wiki</a>
+   <!-- .element: class="fragment" data-fragment-index="3" -->
+  </p>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 雜湊訊息認證碼(HMAC)
+* HMAC 是 Hash-based Message Authentication Code 的縮寫
+* [Free Online Tools For Developers](http://www.freeformatter.com/hmac-generator.html) 網站可以產生 HMAC
+  - Key: elvis, Message: I want to go to USA, Algorithm: SHA-1
+  - Result: cda2ad7c41d6374fe43ba71fcb8b85acf53a5055
+  - Python Code: We wrote a code for this issue, which file name was hmacString.py in hash directory.
+  - More examples for Python encryption codes in [Chilkat website](https://www.example-code.com/python/encryption.asp)
+* Question: 我們能夠反轉換 HMAC 的訊息嗎? <!-- .element: class="fragment" data-fragment-index="2" -->
+    - Answer is : __No.__ <!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

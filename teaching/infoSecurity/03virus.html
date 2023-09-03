@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Information Security</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# Computer Virus
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+##  電腦病毒起源(Virus History)
+- 1949年約翰·馮·紐曼(John Von Neumann)完成第一份計算機病毒理論的論文，當時是以"Theory and Organization of Complicated Automata"為題的一場在伊利諾伊大學的演講，稍後改以"Theory of self-reproducing automata"為題出版，論文中描述一個計算機程式如何複製其自身<!-- .element: class="fragment" data-fragment-index="1" -->
+- 直到十年後，在 AT&T 貝爾(Bell)實驗室中，三個只有二十多歲年輕的程式師道格拉斯·麥基爾羅伊(H,Douglas McIlroy)、 維克多·維索特斯克(Victor Vysottsky)以及羅伯特.莫里斯(Robert T. Morris)，常在工作後留在實驗室裡玩起他們自己創造的電子遊戲，
+這種電子遊戲叫做“核心大戰(core war)”<!-- .element: class="fragment" data-fragment-index="2" -->
+- Robert T.Morris Jr. Worm 病毒：由負責Arpanet網路安全的 Robert T. Morris 寫的病毒程式，把Internet搞的天翻地覆的<!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的特點(1/4)
+- 繁殖性：電腦病毒可以像生物病毒一樣進行繁殖，當正常程式運行的時候，它也進行運行自身複製，是否具有繁殖、感染的特徵是判斷某段程式為電腦病毒的首要條件<!-- .element: class="fragment" data-fragment-index="1" -->
+- 破壞性：電腦中毒後，可能會導致正常的程式無法運行，把電腦內的檔刪除或受到不同程度的損壞。通常表現為：增、刪、改、移<!-- .element: class="fragment" data-fragment-index="2" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的特點(2/4)
+- 傳染性：
+  * 傳染性是病毒的基本特徵，在生物界，病毒通過傳染從一個生物體擴散到另一個生物體<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 與生物病毒不同的是，電腦病毒是一段人為編制的電腦程式代碼，這段程式碼會自動搜尋及傳染其他電腦，達到自我繁殖的目的<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 電腦病毒具有傳染性，一旦病毒被複製或產生變種，其速度之快令人難以預防<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 電腦病毒可通過各種可能的管道，如軟碟、硬碟、移動硬碟、電腦網路去傳染未被感染的電腦<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 只要一台電腦染毒，如不及時處理，那麼病毒會在這台電腦上迅速擴散<!-- .element: class="fragment" data-fragment-index="5" -->
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的特點(3/4)
+- 潛伏性：
+  * 一個編制精巧的電腦病毒程式，進入系統之後一般不會馬上發作，一旦時機成熟，得到運行機會，就又要四處繁殖、擴散，繼續危害<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 潛伏性的第二種表現是指，電腦病毒的內部往往有一種觸發機制，不滿足觸發條件時，電腦病毒除了傳染外不做什麼破壞<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 觸發條件一旦得到滿足，有的在螢幕上顯示信息、圖形或特殊標識，有的則執行破壞系統的操作，如格式化磁片、刪除磁片檔、對資料檔案做加密、封鎖鍵盤以及使系統鎖死等<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 比如黑色星期五病毒，不到預定時間一點都覺察不出來，等到條件具備的時候一下子就爆炸開來，對系統進行破壞<!-- .element: class="fragment" data-fragment-index="4" -->
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的特點(4/4)
+- 隱蔽性：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 隱蔽性強的電腦病毒，有的根本就查不出來
+  * 有的時隱時現、變化無常，這類病毒很難處理
+- 可觸發性：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 病毒因某個事件或數值的出現，誘使病毒實施感染或進行攻擊的特性稱為可觸發性
+  * 為了隱蔽自己，病毒必須潛伏，一直潛伏的話，病毒既不能感染也不能進行破壞，便失去了殺傷力
+  * 病毒既要隱蔽又要維持殺傷力，它必須具有可觸發性
+  * 病毒會檢查觸發機制，如果滿足，啟動感染、破壞、攻擊；如果不滿足，使病毒繼續潛伏
+  * 病毒的觸發條件可能是時間、日期、檔案類型或特定資料等
+
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 作者動機與心態(1/2)
+- 思想誤解：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 自認為自己撰寫病毒碼屬正當行為
+  * 以擁有引發恐懼驚慌的魔鬼能力為傲，而散布研究成果也為學術研究的一種表現
+  * 為了喚起大家對某一特定安全問題的重視
+  * 喜歡與防護公司鬥智
+- 創新與興趣：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 只為了尋求不斷創新，精研各種不同的感染、發作的效果
+  * 能創造出有特性的行為特徵，供人稱頌羨慕
+  * 自己的創作不願被他人複製及使用
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 作者動機與心態(2/2)
+- 自我滿足：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 病毒作者自我個性較為封閉，也擁有強烈的自我思考模式
+  * 期望透過匿名方式進行擴散病毒工作，卸去散布病毒的道德責任感
+  * 除想看看病毒能造成如何的影響力外，亦祈禱病毒能永久存活，不被發現
+- 製造商機：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 防毒公司自行釋放已有解讀方法的病毒，以提升本身在市場的先進性與實用性
+  * 同業競爭，例如：某一防毒公司較早出現某種病毒的防毒方法時，被競爭防毒公司質疑為該公司所釋放的病毒碼
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## CIH 病毒
+- 1998年7月26日，陳盈豪為了破解防毒軟體號稱的「完美防禦」，製造出以他英文縮寫為名的 CIH(Chen Ing Hau) 病毒<!-- .element: class="fragment" data-fragment-index="1" -->
+<img src="/images/iSecurity/cih.jpg" alt="cih.jpg" style="float: right; width: 250px; margin-left: 1.6em">
+- 當時 CIH 病毒蔓延全世界，癱瘓了600萬台電腦，造成全球約10億美元損失<!-- .element: class="fragment" data-fragment-index="2" -->
+- 病毒影響了南韓、土耳其、中國、俄羅斯等無數國家，CIH病毒被封為「車諾比爾病毒」<!-- .element: class="fragment" data-fragment-index="3" -->
+- 沒沒無聞的陳盈豪一夕爆紅，成了台灣駭客第一人<!-- .element: class="fragment" data-fragment-index="4" -->
+- 由於台灣當時並無相關刑事法令，服役中的陳盈豪獲不起訴處分，民事部份也無受害者提出告訴<!-- .element: class="fragment" data-fragment-index="5" -->
+</script>
+</section>
+
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的演進(1/2)
+- 傳統型電腦病毒<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 電腦病毒可隨著時間的變革，歸納出不同的少數幾個類型，也因為在病毒行為中，其實都是使用複製、感染、傳播及發作等幾個主要的關鍵型態
+- 早期的電腦病毒主要可以區分成 3 種<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 檔案型病毒（File Infector Virus）
+  * 開機型病毒(Boot-Sector Viruses)
+  * 巨集型病毒（Macro Viruses）
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的演進(2/2)
+- 綜合型病毒：
+  * 結合惡意程式的網路瘟疫
+  * 網路瘟疫(Cyberplagues)主要是指利用網路為傳播媒體的綜合型病毒，包含病毒、木馬、網蟲及攻擊程式等惡意程式的多樣特質
+  * 目前網路上發現的綜合型病毒大多伴隨電子郵件及網站網頁存在，透過網路更新防毒防駭軟體也變得習以為常，可被接受
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的種類(1/3)
+- 巨集病毒 (Macro Virus)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 巨集病毒是目前最熱門的話題, 它主要是利用軟體本身所提供的巨集能力來設計病毒, 所以凡是具有寫巨集能力的軟體都有巨集病毒存在的可能, 如Word, Excel, AmiPro都相繼傳出巨集病毒危害的事件, 在台灣最著名的例子正是Taiwan NO.1 Word巨集病毒
+- 開機型病毒 (Boot Strap Sector Virus)：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 開機型病毒是藏匿在磁碟片或硬碟的第一個磁區。因為DOS的架構設計, 使得病毒可以於每次開機時, 在作業系統還沒被載入之前就被載入到記憶體中, 這個特性使得病毒可以針對DOS的各類中斷 (Interrupt) 得到完全的控制, 並且擁有更大的能力去進行傳染與破壞
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的種類(2/3)
+- 檔案型病毒 (File Infector Virus)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 檔案型病毒通常寄生在可執行檔(如 *.COM, *.EXE等)中，當這些檔案被執行時, 病毒的程式就跟著被執行
+  * 非常駐型病毒(Non-memory Resident Virus) ：<!-- .element: class="fragment" data-fragment-index="2" -->
+    - 常駐型病毒將自己寄生在 *.COM, *.EXE，或是 *.SYS的檔案中
+  * 常駐型病毒(Memory Resident Virus)：<!-- .element: class="fragment" data-fragment-index="3" -->
+    - 常駐型病毒躲在記憶體中，其行為就好像是寄生在各類的低階功能一般(如 Interrupts)，由於這個原因, 常駐型病毒往往對磁碟造成更大的傷害
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的種類(3/3)
+- 複合型病毒 (Multi-Partite Virus)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 複合型病毒兼具開機型病毒以及檔案型病毒的特性
+  * 例如：台灣流行的大榔頭(Hammer)，歐洲流行的 Flip 病毒
+- 隱型飛機式病毒 (Stealth Virus)：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 隱型飛機式病毒又稱作中斷截取者(Interrupt Interceptors)
+  * 它藉由控制 DOS 的中斷向量來讓 DOS 以及防毒軟體認為所有的檔案都是乾淨的
+- 千面人病毒 (Polymorphic/Mutation Virus)：<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 千面人病毒可怕的地方在於每次繁殖會以不同的病毒碼傳染
+  * 例如： Whale 病毒幾乎無法找到相同的病毒碼，以及 Flip 病毒則只有 2 byte 的共同病毒碼
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的生命週期(1/2)
+- 孕育創造期(週期一)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 當病毒作者們花費精力研究出可以廣為散佈的病毒程式碼時，會附帶設計一些發作行為，並將隱含電腦病毒的檔案放置於容易擴散公開的地方，供人存取使用
+- 散布寄居期(週期二)：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 電腦病毒可藉由磁片的攜帶、檔案的複製或網路的傳輸而藉由潛伏、繁殖與傳染等方式，散布其感染觸角，尋求病毒本身的生存方式，也唯有具備不斷複製的功能，才有具備病毒的基本資格
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的生命週期(2/2)
+- 啟動發作期(週期三)：<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 病毒的觸發啟動通常是靠著日期、時間上的設定或特定數字、文字片段，而在符合條件狀況下開始啟動發作
+- 消滅根除期(週期四)：<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 如果有夠多夠強的防毒軟體能夠偵測及控制這些病毒，那麼這些病毒就有機會被連根撲滅
+  * 問題是，從來沒有人敢宣稱某一隻病毒完全絕跡
+  * 「多一份準備，便少一份損失」是永遠不變的道理
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的感染徵候(1/2)
+- 大部份的電腦病毒都會長駐記憶體中直到電腦關機，電腦關機時，病毒雖從記憶體中移除，磁碟中電腦檔案病毒依然存在，待下次在開機時，便再度出現並感染更多的程式檔案<!-- .element: class="fragment" data-fragment-index="1" -->
+- 電腦病毒的感染，如同人類遭受細菌病毒感染一樣，會不斷地複製繁衍，也會出現一些徵狀可供觀察，如果所屬電腦發現「電腦檔案的異常狀況」、「不尋常的訊息出現」及「電腦執行的速度變慢」等徵狀時，便很可能中毒<!-- .element: class="fragment" data-fragment-index="2" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的感染徵候(2/2)
+<img src="/images/iSecurity/virus2.png" alt="virus" width="75%">
+ </script>
+</section>
+</section>
+
+<section data-markdown><script type="text/template">
+## 進浴室洗澡時，<br>要先脫衣服還是褲子？
+
+### Ans: 先關門比較好<!-- .element: class="fragment" data-fragment-index="1" -->
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 防毒軟體(1/2)
+- [Avira AntiVir Personal](http://www.avira.com/zh-tw/avira-free-antivirus)
+  * 說明：更新時會伴隨著廣告
+- [Avast! Free AntiVirus](http://www.avast.com/free-antivirus-download)
+  * 說明：未註冊僅能使用30天（註冊免費）
+- [AVG Anti-Virus Free Edition](http://www.avgtaiwan.com/)
+- [Microsoft Security Essentials](http://www.microsoft.com/zh-tw/security_essentials/default.aspx)
+  * 說明：需經過WGA（Windows Genuine Advantage）驗證
+- [FortiClient Client Lite](http://www.forticlient.com/lite.html)
+  * 說明：支援Windows 2000、2003、2008
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 防毒軟體(2/2)
+- [BitDefender Free Edition](http://www.bitdefender.com/world/solutions/free.html)
+  * 說明：不支援即時監控，只能手動開啟掃毒， BitDefender有提供支援Linux與FreeBSD的防毒軟體
+- [Dr.Web CureIt!](http://freedrweb.com/cureit/)
+  * 說明：不支援即時監控，只能手動開啟掃毒，可以和其他防毒軟體搭配為第二套防毒軟體使用
+- [McAfee AVERT Stinger](http://www.mcafee.com/us/downloads/free-tools/stinger.aspx)
+  * 說明：不支援即時監控，只能手動開啟掃毒，可以和其他防毒軟體搭配為第二套防毒軟體使用，並且支援 Commnad 模式，供網管人員遠端操作
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 防火牆軟體
+- [OMODO Internet Security](http://personalfirewall.comodo.com/free-download.html)
+  * 說明：含防毒模組（安裝時可取消）
+- [PC Tools Firewall Plus](http://www.pctools.com/firewall/)
+- [Outpost Security Suite FREE](http://free.agnitum.com)
+  * 說明：需註冊才有365天的免費期限與病毒資料庫更新功能，含防毒模組
+- [Online Armor Free](http://www.online-armor.com/products-online-armor-free.php)
+- [Privacyware](http://www.privacyware.com/personal_firewall.html)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(1/6)
+- 病毒碼掃描法
+  * 將新發現的病毒加以分析後，根據其特徵，編成病毒碼，加入資料庫中
+  * 每當執行掃毒程式時，便能立刻掃描程式檔案，並作病毒碼比對，即能偵測到是否有病毒
+  * 病毒碼掃描法又快又有效率
+  * 例如：趨勢科技的PC-cillin及Server Protect
+  * 缺點是無法偵測到未知的新病毒及以變種病毒
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(2/6)
+- 加總比對法 (Check-sum)
+  * 根據每個程式的檔案名稱、大小、時間、日期及內容，加總為一個檢查碼，再將檢查碼附於程式的後面，或是將所有檢查碼放在同一個資料庫中，再利用此Check-sum系統，追蹤並記錄每個程式的檢查碼是否遭更改，以判斷是否中毒
+  * 例如：紀錄檔案大小，然後比對檔案大小，若大小值不同，則可能被植入病毒碼
+  * 這種技術可偵測到各式的病毒，但最大的缺點就是誤判斷高，且無法確認是哪種病毒感染的
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(3/6)
+- 人工智慧陷阱(Rule-based)
+  * 人工智慧陷阱是一種監測電腦行為的常駐式掃描技術
+  * 它將所有病毒所產生的行為歸納起來，一旦發現記憶體的程式有任何不當的行為，系統就會有所警覺，並告知使用者
+  * 這種技術的優點是執行速度快、手續簡便，且可以偵測到各式病毒
+  * 其缺點就是程式設計難，且不容易考慮週全，不過在這千變萬化的病毒世界中，人工智慧陷阱掃描技術是一個至少具有保全功能的新觀點
+  * 目前趨勢科技的 PC-cillin，就對病毒的可疑行為設下了將近 12 道的陷阱，以達到預防重於治療的目標
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(4/6)
+- 軟體模擬掃描法<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 軟體模擬技術專門用來對付千面人病毒(Polymorphic /Mutation Virus)
+  * 軟體模擬技術則是成功地模擬 CPU 執行，在其設計的DOS虛擬機器(Virtual Machine)下假執行病毒的變體引擎解碼程式，安全並確實地將多型體病毒解開，使其顯露原本的面目，再加以掃描
+- 先知掃描法(VICE, Virus Instruction Code Emulation)<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 先知掃描技術(VICE)是將工程師用來判斷電腦程式內部是否有病毒碼存在的方法，分析歸納成專家系統知識庫，再利用軟體工程的模擬技術(Software Emulation)假執行新的病毒，則可分析出新病毒碼對付以後的病毒
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(5/6)
+- 即時的I/O掃描(Realtime I/O Scan)<!-- .element: class="fragment" data-fragment-index="1" -->
+  * Realtime I/O Scan 的目的在於即時地對資料的輸入/輸出動作做病毒碼比對的動作，希望能夠在病毒尚未被執行之前，就能夠防堵下來
+  * 理論上，這樣的即時掃描程式雖然會影響到整體的資料傳輸速率，但確保傳輸檔案的安全
+- 文件巨集病毒陷阱(MacroTrapTM)<!-- .element: class="fragment" data-fragment-index="2" -->
+  * MacroTrapTM 是結合病毒碼比對與人工智慧陷阱的技術，依病毒行為模式(Rule base) 來偵測已知及未知的巨集病毒
+  * 配合 OLE2 技術，可將巨集與文件分開，使得掃描速度變得飛快，而且更可有效地將巨集病毒徹底清除
+ </script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 電腦病毒的防治(6/6)
+- 建置數位免疫系統(Digital Immune System)<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 已被識別出來得未知型態病原體，大多根基於現成知名病毒的變化處理
+  * 在大多數的狀況下是可以是先預防阻止的，甚至可以在幾分鐘內地得到偵測方法，並得知相關的移除方式訊息
+- 貫徹預防病毒常識<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 建立正確的使用習慣
+  * 備份啟動磁區、硬碟分割表及重要資料
+  * 安裝防毒軟體、防駭軟體、偵測程式或將檔案加上疫苗
+ </script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒實務分析(1/3)
+- Rootkit
+  * Rootkit 從字面上可以拆成 Root 與 Kit 來看
+  * 是一種為了竊取到最高權限，集合很多工具程式的工具包
+  * 可以讓攻擊者隱藏本身的蹤跡，並透過偽造資訊讓使用者無法辨別，進一步入侵其電腦系統
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒實務分析(2/3)
+- Rootkit 的隱藏原理
+  * 在應用程式階層，都是利用 hook 方式修改原來程式的功能<!-- .element: class="fragment" data-fragment-index="1" -->
+    - 所謂 hook 是指在程式設計控制事件流程的先後順序
+    - 例如，在原來執行的流程中，安排插入另一個執行程序，使得新的執行程序先執行後再返回原流程，達到不自覺且自動地執行了不明程序
+  * 常見的 hook 方式有兩種：<!-- .element: class="fragment" data-fragment-index="2" -->
+    1. 關於應用程式介面的 API(Application Program Interface) hook
+    2. 系統裝置傳遞表的 SSDT(System Device Dispatch Table) hook
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒實務分析(3/3)
+- Rootkit的偵測技巧<!-- .element: class="fragment" data-fragment-index="1" -->
+  1. Netstat
+  2. Pslist
+  3. Psservice
+  4. RootkitRevealer
+- Rootkit 記錄的訊息內容<!-- .element: class="fragment" data-fragment-index="2" -->
+  1. IP及網路卡資訊
+  2. 連線資訊
+  3. 惡意程式
+  4. 數位行為
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的法律問題(1/2)
+- 刑法第13條第2項中規定<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 行為人對於構成要件之事實，預見其發生而其發生並不違背其本意者，以故意論
+- 刑法第15條規定<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 對於一定結果之發生，法律上有防止之義務，能防止而不防止者，與因積極行為發生結果者同
+  * 因自己行為致有發生一定結果之危險者，負防止其發生之義務
+- 民法第184、185條規定<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 因故意或過失，不法侵害他人之權利者，負損害賠償責任
+  * 數人共同不法侵害他人之權利者，連帶負損害賠償責任
+  * 不能知其中孰為加害人者，亦同
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的法律問題(1/2)
+- 就我國現行刑法觀察，需出自故意（包含間接故意）才有處罰，但民法求償則不然（不論故意或過失均可），因此，病毒程式的設計者（或散布者）本身有責任防止自身的研發成果之蔓延、擴散，如果造成他人電腦主機的破壞毀損，依然需要負擔損害賠償責任<!-- .element: class="fragment" data-fragment-index="1" -->
+- 病毒一經外洩、散布與擴散，實在無法完全阻止，即使事後研析出免疫程式或提出解毒方法，在電腦世界中，永遠會存在沒有做好防護準備的電腦主機，在遇到觸發事件發生時，會發生傷害損失<!-- .element: class="fragment" data-fragment-index="2" -->
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 電腦病毒的查緝問題
+- 電腦病毒的破壞性攻擊行動均起源於原設計者的設計，一但遇上觸發事件便啟動電腦病毒的攻擊機制，攻擊方式的傳播完全藉由電腦檔案的傳遞與執行，而非藉由某特定帳號或電腦主機
+- 這樣的特性使得現有的安全機制根本無法確實得悉電腦病毒的發源與傳遞經過
+- 電腦病毒的查緝工作相當不易，主要有下列幾種因素
+  1. 潛伏期間不易確定
+  2. 感染途徑不易證實
+  3. 因果關係不易證明
+  4. 追查線索不易取得
+  5. 創新病毒不易發現
+ </script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 惡意信件案例分析(1/4)
+- 長檔名方式偽裝成文件檔
+  * 檔名過長會被檔案總管截掉，加上「隱藏已知檔案類型副檔名」的設定為開啟狀態下，將病毒檔案顯示為看似正常
+  * 例如：「二代健保補充保險費扣繳辦法說明.doc<中間為許多空白字元>.exe」檔案
+  <img src="/images/iSecurity/virusCase.jpg" alt="virusCase.jpg" style="width: 800px;">
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 惡意信件案例分析(2/4)
+  <img src="/images/iSecurity/virusCase2.jpg" alt="virusCase2.jpg" style="width: 800px;">
+  - 防範方法為將「隱藏已知檔案類型的副檔名」的選項取消，並讓副檔名顯示出來以利判斷
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 惡意信件案例分析(3/4)
+- 變更圖示的方式偽裝成資料夾
+<img src="/images/iSecurity/virusCase3.jpg" alt="virusCase2.jpg" style="width: 800px;">
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 惡意信件案例分析(4/4)
+- 變更圖示的方式偽裝成資料夾
+<img src="/images/iSecurity/virusCase4.jpg" alt="virusCase2.jpg" style="width: 800px;">
+ </script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 結論
+- 如同人會生病一樣，電腦也有不正常的時候，而依賴於其他程式碼中運作的電腦病毒便因應而生，當被依附程式被複製或執行後，病毒程式也就被複製擴散<!-- .element: class="fragment" data-fragment-index="1" -->
+- 病毒網路化的出現無疑替電腦病毒開創了一個新紀元，以網路為媒介的攻擊園地，其傳播速度、範圍及可怕性更是難以想像，很可能在短短的幾天內將遠端主機電腦硬碟格式化，儲存資料頓時消匿無蹤，遭受損失亦難補救，
+而建立正確的防毒觀念已成為現今資訊社會電腦使用者所必備的常識之一<!-- .element: class="fragment" data-fragment-index="2" -->
+ </script>
+</section>
+<section data-markdown><script type="text/template">
+## 資安新聞
+* [網際網路之父指出網路三大隱憂](http://www.nccst.nat.gov.tw/NewsRSSDetail?lang=zh&RSSType=news&seq=15896)
+  - 個人對個人資料失去掌控權
+  - 假新聞問題
+  - 氾濫的精準型政治廣告
+* [漏洞公告](http://www.nccst.nat.gov.tw/Vulnerability?lang=zh)
+  - [微軟伺服器訊息區塊(SMB)協定存在數個安全漏洞，允許攻擊者遠端執行任意程式碼，請儘速進行更新](http://www.nccst.nat.gov.tw/VulnerabilityDetail?lang=zh&seq=1057)
+  - [微軟所有Office Word版本之物件連結與嵌入(OLE)存在零時差漏洞，允許攻擊者遠端執行任意程式碼](http://www.nccst.nat.gov.tw/VulnerabilityDetail?lang=zh&seq=1056)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## WannaCry(想哭) 勒索病毒
+- 病毒攻擊行為 <font style="font-size:12pt">2017.05.12 病發</font>
+    - 利用了 Windows 的 SMB 漏洞對 Port 445 進行攻擊，並且於遠端執行，不需要按任何鍵盤或連結就會被傳染
+    -  SMB 是 Server Message Block 縮寫，是 Windows 系統的一種通訊協定(Protocol) ，
+        目的是共享__電腦檔案、印表機、串列埠和通訊__等資源，預設的連接埠(port)是： 445
+    - 請參考 [[2]](#/14/3)，文中IPC$的dollar sign($)是分享(share)的意思
+- 攻擊的對象(系統及版本)
+    - 所有 Windows 作業系統以及可以執行 SMB 協定的作業系統
+    - 摘錄 [[3]](#/14/3)  一段話：Linux systems are immune. This is true regardless of if the systems are running Samba, Wine, or any other Windows-emulation layer.
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## WannaCry(想哭) 勒索病毒
+- 防護措施
+    - 隨時更新 Windows 作業系統的修補程式碼，或者使用安全的作業系統，例如：_FreeBSD_, Mac _IOS_
+    - 定期備份自己重要的資料，例如：資料定期備份到雲端硬碟
+    - 解毒方式：請參考 [[1]](#/14/3) 的內容
+- 參考資料
+    - [1]  癮科技網站[WannaCry勒索病毒懶人包Windows用戶必看](https://www.cool3c.com/article/124220)
+    - [2] Tonyhack 網站 [445埠入侵原因詳細解析](https://hack.idv.tw/wordpress/?p=2908)
+    - [3] [Information Security Stack Exchange](https://security.stackexchange.com/questions/159397/does-wannacry-infect-linux)
+</script>
+</section>
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

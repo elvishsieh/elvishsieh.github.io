@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Information Security</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# 秘密通訊概論
+</script>
+</section>
+<section>
+<section data-markdown><script type="text/template">
+##  古典密碼法<br>(classic cipher)
+- 移轉密碼法(Transposition Cipher)<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 斯巴達密碼棒(Scytale Cipher)<!-- .element: class="fragment" data-fragment-index="3" -->
+  * 籬笆密碼法(Railfence Cipher)<!-- .element: class="fragment" data-fragment-index="3" -->
+- 替代密碼法 (Substitution Cipher)<!-- .element: class="fragment" data-fragment-index="2" -->
+  * 單一字元替代密碼法(Mono-alphabetic)<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 字碼替代密碼法(Codeword)<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 命名密碼法(Nomenclator Cipher)<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 多元式字元替代密碼法(Poly-alphabetic)<!-- .element: class="fragment" data-fragment-index="4" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 替代密碼法 <br>(Substitution Cipher)
+  - 單一字元替代密碼法(Mono-alphabetic)<!-- .element: class="fragment" data-fragment-index="1" -->
+    * 凱撒密碼法(Caesar)<!-- .element: class="fragment" data-fragment-index="2" -->
+    * 等價替代密碼法(Homophonic)<!-- .element: class="fragment" data-fragment-index="3" -->
+  - 多字元替代密碼法(Poly-alphabetic)<!-- .element: class="fragment" data-fragment-index="4" -->
+    * 維吉尼爾密碼法(Vigènere Cipher)<!-- .element: class="fragment" data-fragment-index="5" -->
+  - 字碼替代密碼法(Codeword)<!-- .element: class="fragment" data-fragment-index="6" -->
+  - 命名密碼法(Nomenclator Cipher)<!-- .element: class="fragment" data-fragment-index="7" -->
+</script>
+</section>
+</section>
+
+<section>
+   <section data-markdown><script type="text/template">
+   ##  移轉密碼法(1/2) <br>(Transposition Cipher)
+   - 斯巴達(Scytale)密碼棒：將明文中的字元調動位置來進行加密
+  <img src="/images/iSecurity/scytale.jpg" alt="scytale.jpg" width="65%">
+
+  </script>
+  </section>
+<section data-markdown><script type="text/template">
+##  移轉密碼法(2/2)
+ - 籬笆密碼法(Railfence Cipher)：
+    * 將明文(plaintext)的字元依序上、下間隔調動位置來進行加密
+    <img src="/images/iSecurity/railFence.png" alt="railFence" width="95%">
+    * 將密文(ciphertext)字串切半，再上、下分隔，最後組合起來
+
+  </script>
+  </section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 單一字元替代密碼法(1/2)
+  * 凱撒密碼法(Caesar)<!-- .element: class="fragment" data-fragment-index="1" -->
+    - a ≫ e, b ≫ f, etc...
+    <img src="/images/iSecurity/saesar.png" alt="saesar.png">
+    - Plaintext: I love you.<!-- .element: class="fragment" data-fragment-index="2" -->
+    - Ciphertext: L ORYH BRX.<!-- .element: class="fragment" data-fragment-index="3" -->
+  * Python 原始程式碼及 AlphaPeeler 密碼學教學軟體<!-- .element: class="fragment" data-fragment-index="4" -->
+  </script>
+  </section>
+
+<section data-markdown><script type="text/template">
+## 單一字元替代密碼法(2/2)
+  * 凱撒密碼法(Caesar)的缺點在於可以使用字母出現頻率表來推測明文<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 等價替代密碼法(Homophonic)：<!-- .element: class="fragment" data-fragment-index="2" -->
+    - 一個字元用多個符號來隨機表示<!-- .element: class="fragment" data-fragment-index="2" -->
+    - 而一個字元究竟要用多少個符號來代表，完全取決於它在一個語言當中出現的頻率<!-- .element: class="fragment" data-fragment-index="2" -->
+    <img src="/images/iSecurity/freq.png" alt="freq.png" >
+
+  </script>
+  </section>
+</section>
+
+<section>
+  <section data-markdown><script type="text/template">
+  ## 等價替代密碼法(1/2)
+  * 等價替代密碼法(Homophonic)字元頻率表
+  <img src="/images/iSecurity/homophonic.png" alt="homophonic.png">
+  </script>
+  </section>
+<section data-markdown><script type="text/template">
+## 等價替代密碼法(2/2)
+- 若有一則明文訊息：<br>
+‘CRYPTOGRAPHY IS VERY INTERESTING’<!-- .element: class="fragment" data-fragment-index="1" -->
+- 我們要對此明文加密，對照等價替代密碼表來加密：<!-- .element: class="fragment" data-fragment-index="2" -->
+    * 對‘I’加密：第一次用32，第二次用99，第三次用78<!-- .element: class="fragment" data-fragment-index="2" -->
+    * 對‘R’加密：第一次用24，第二次用86，第三次用31，以此類推<!-- .element: class="fragment" data-fragment-index="2" -->
+- 則以 Homophonic Substitution 密碼法加密出來的訊息會變成：<!-- .element: class="fragment" data-fragment-index="3" -->
+‘13 24 67 35 64 44 41 86 06 10 43 __**57**__<!-- .element: class="fragment" data-fragment-index="3" -->
+32 89     17 20 31 __**67**__<!-- .element: class="fragment" data-fragment-index="3" -->
+99 11 54 47 75 56 23 01 78 79 74’<!-- .element: class="fragment" data-fragment-index="3" -->
+
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+##  多字元替代密碼法<br>(Poly-alphabetic)
+  * 維吉尼爾密碼法(Vigènere Cipher)<!-- .element: class="fragment" data-fragment-index="1" -->
+    - 在十六世紀末，由一位法國的外交官─勃雷茲‧維吉尼亞(Blaise de Vigenère)，提出了 Poly-alphabetic Cipher ─ Vigenère Cipher<!-- .element: class="fragment" data-fragment-index="2" -->
+    - 在 Vigenère 密表中，每一列都是 Caesar 密表的一種<!-- .element: class="fragment" data-fragment-index="3" -->
+    - 互通訊息的雙方透過是先約定的金鑰(Key)，決定明文用哪些列來加密<!-- .element: class="fragment" data-fragment-index="4" -->
+  * 優點：不會顯現英文單字頻率，若非真正的訊息接收者，就無法藉由「頻率分析法」推導出明文<!-- .element: class="fragment" data-fragment-index="5" -->
+  </script>
+  </section>
+<section data-markdown><script type="text/template">
+##  維吉尼爾密碼表(1/2)
+  <img src="/images/iSecurity/vigenere.png" alt="vigenere" width="85%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+##  維吉尼爾密碼表(2/2)
+  <img src="/images/iSecurity/vigenere2.png" alt="vigenere2" width="95%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+##  維吉尼爾密碼法<br>(Vigènere Cipher)
+  * 明文(Plaintext)：<br>JINGLE BELLS JINGLE BELLS JINGLE ALL THE WAY
+  * 金鑰(Key)： SECURE<!-- .element: class="fragment" data-fragment-index="1" -->
+  * 密文(Ciphertext)：<br>BMPACITINFJNARIFVFWPNMAMFKNYRPDXJYNEQ<!-- .element: class="fragment" data-fragment-index="2" -->
+  <img src="/images/iSecurity/vigenere3.png" alt="railFence" width="95%">
+
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 密碼破解法
+   - 密碼分析學(Cryptanalysis)<!-- .element: class="fragment" data-fragment-index="1" -->
+<img src="/images/iSecurity/lorikeet.jpg" alt="lorikeet.jpg" style="margin-left:20px; float:right">
+
+      - 頻率分析法(Frequency Analysis)<!-- .element: class="fragment" data-fragment-index="2" -->
+          - 破解單一字元替代密碼法(Mono-alphabetic Substitution Cipher)<!-- .element: class="fragment" data-fragment-index="2" -->
+      - 卡西斯基測試(Kasiski Test)<!-- .element: class="fragment" data-fragment-index="3" -->
+          - 破解維吉尼爾密碼法(Vigènere Cipher)<!-- .element: class="fragment" data-fragment-index="3" -->
+   - 暴力破解法(Brute Force)<!-- .element: class="fragment" data-fragment-index="4" -->
+
+    </script>
+    </section>
+   <section data-markdown><script type="text/template">
+   ## 卡西斯基測試(Kasiski Test)
+   - Vigenère Cipher加密法，到十九世紀才有人找出方法破譯它，這個破譯技巧被稱為Kasiski Test (卡西斯基測試)
+   - Vigenère Cipher是由於金鑰詞的不斷重複，使得密文可推敲出金鑰的長度而破譯，得到明文<!-- .element: class="fragment" data-fragment-index="1" -->
+   - 如何讓 Vigenère Cipher難以破解<!-- .element: class="fragment" data-fragment-index="3" -->
+     * 當金鑰的長度與明文一樣長，甚至比明文更長，將會增加其破譯的困難度，甚至無法被敵人破譯<!-- .element: class="fragment" data-fragment-index="3" -->
+     * 長度長的金鑰當然也能是約定好的某本書，但是在發送接收訊息時也就必須要有金鑰本在手邊，由於是有規則性地推移字母，即使無密本也可逐字推算<!-- .element: class="fragment" data-fragment-index="4" -->
+    </script>
+    </section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 字碼替代密碼法(Codeword)
+- 利用一個字母或符號來代表某一個字(word)<!-- .element: class="fragment" data-fragment-index="1" -->
+- 將明文以字母或符號完成編碼，形成字母與密文對照的一本密碼本(codebook)<!-- .element: class="fragment" data-fragment-index="2" -->
+- 收到密文的人，對照這本密碼本(codebook)就可以解讀密文<!-- .element: class="fragment" data-fragment-index="3" -->
+ <img src="/images/iSecurity/codebook.jpg" alt="codebook" width="50%">
+
+</script>
+</section>
+   <section data-markdown><script type="text/template">
+   ## 命名密碼法 <br>(Nomenclator Cipher)
+   - 十六世紀時，蘇格蘭女王Mary Stuart被囚禁，於是進行了秘密通訊的潛逃計畫，以此密碼法對通訊的書信加密
+    <img src="/images/iSecurity/maryStuart.svg" alt="mar stuart" width="60%">
+
+  </script>
+  </section>
+</section>
+<section>
+   <section data-markdown><script type="text/template">
+   ## 福爾摩斯和跳舞小人(1/5)
+   - X先生在他的家鄉是個當地的名門望族，頗受居民的注目；一天，X先生參加位於倫敦的一個慶典紀念會，於住宿處認識了Elsie小姐(愛爾茜，簡稱為E小姐)，陷入了熱戀，不久之後便登記結婚了<!-- .element: class="fragment" data-fragment-index="1" -->
+   - 但是，婚前E小姐向X先生提出了一個要求：「為了不再回憶起以前的痛苦，請無論如何別過問我的過去，而你會娶到一個不曾做過任何使自己感到羞愧事的女人。」<!-- .element: class="fragment" data-fragment-index="2" -->
+   - 當時X先生也只想到，每個人或多或少都可能有些不堪回首的過去，於是，便答應了；而婚後兩人的確也過著幸福美滿的生活<!-- .element: class="fragment" data-fragment-index="3" -->
+   <img src="/images/iSecurity/dancingMen.png" alt="dancingMen" width="80%">
+
+ </script>
+ </section>
+ <section data-markdown><script type="text/template">
+ ## 福爾摩斯和跳舞小人(2/5)
+ - 直到有一天，E小姐接到一封來自美國的信，她看過信後，臉色變得慘白，並立刻將信燒毀，不再提起有關的事<!-- .element: class="fragment" data-fragment-index="1" -->
+ - 後來，X先生在花園日晷儀上看到一張紙條(第一封信)，他拿給愛爾茜看，她立刻昏倒了；以後她就像在做夢一樣，精神恍惚，眼睛裏一直充滿了恐懼<!-- .element: class="fragment" data-fragment-index="2" -->
+ - X先生是聽聞Holmes似乎對任何希奇古怪的東西感到有趣，寄了這張紙條讓 Holmes研究<!-- .element: class="fragment" data-fragment-index="3" -->
+  <img src="/images/iSecurity/dancingMen.png" alt="dancingMen" width="80%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 福爾摩斯和跳舞小人(3/5)
+- 日後，X先生又再庭院中發現了一張紙條(第二封信)，上面畫著相同的圖形，待X先生將其拿給愛爾茜看過後，像是受到了極大的驚嚇似的，她竟然昏倒了；之後的日子也都魂不守舍，眼中充滿著恐懼
+<img src="/images/iSecurity/dancingMen2.png" alt="dancingMen2" width="75%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 福爾摩斯和跳舞小人(4/5)
+- 奇怪的是，X先生並未再發現入侵者，卻在一大早又在門板上發現了幾行新的且較短的圖形(Elsie 的回信)，這些小人圖像跟那寄給 Holmes 的紙條上所畫的相同
+<img src="/images/iSecurity/dancingMen3.png" alt="dancingMen3" width="80%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 福爾摩斯和跳舞小人(5/5)
+- 過了一陣子平凡的生活後，X先生突然再窗台上看到了一排像是在跳舞的小人畫像，內容跟那寄給Holmes的紙條上所畫的相同<!-- .element: class="fragment" data-fragment-index="1" -->
+- 同時間，福爾摩斯對於跳舞小人的訊息破解已算大功告成了<!-- .element: class="fragment" data-fragment-index="2" -->
+- 但是，X先生未得到 Holmes 向他回報已經解密的這個消息，便又將這張紙條寄給 Holmes，信件內容大致是說這些日子以來都過得平安無事，只是在寫這封信的前一天，又發現了這一張紙條 ~<!-- .element: class="fragment" data-fragment-index="3" -->
+<img src="/images/iSecurity/dancingMen4.png" alt="dancingMen4" width="80%">
+
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(1/5)
+- 第一封信：<br>
+AMHEREABESLANE
+- (我已到達，阿貝·斯蘭尼)
+<img src="/images/iSecurity/dancingMenDC.png" alt="dancingMenDC">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(2/5)
+- 第二封信：<br>
+ATELRIGES(住在愛爾里奇) <br>
+COMEELSIE(來，愛爾茜)
+<img src="/images/iSecurity/dancingMenDC2.png" alt="dancingMenDC2">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(3/5)
+- Elsie 小姐的回信 <br>
+ NEVER
+<img src="/images/iSecurity/dancingMenDC3.png" alt="dancingMenDC3">
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(4/5)
+- 第三封信：<br>
+ELSIE，PREPARE TO MEET THE GOD
+ <br>(Elsie ，準備去見你的神吧！)
+ <img src="/images/iSecurity/dancingMenDC4.png" alt="dancingMenDC4" width="80%">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(5/5)
+- 福爾摩斯無奈，還是遲了一步，E小姐受了嚴重的槍傷，X先生則不幸身亡<!-- .element: class="fragment" data-fragment-index="1" -->
+- 福爾摩斯寄出的一封信給對方，他所寄出的紙條內容如下<!-- .element: class="fragment" data-fragment-index="2" -->
+<img src="/images/iSecurity/dancingMenDC5.png" alt="dancingMenDC5">
+- 完整的故事請參考 dancingman.docx<!-- .element: class="fragment" data-fragment-index="3" -->
+- 想知道 Holmes 是如何能將這兇手繩之以法的嗎？<!-- .element: class="fragment" data-fragment-index="4" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 跳舞小人密文解析(5/5)
+- 福爾摩斯解析的圖像與字母對照表
+<img src="/images/iSecurity/dancingMenDC6.png" alt="dancingMenDC6">
+</script>
+- 同學可以依照對照表來解析 Holmes 寄出的信件<!-- .element: class="fragment" data-fragment-index="1" -->
+</section>
+</section>
+
+<section data-markdown><script type="text/template">
+## 中國式的訊息隱藏法
+- 他的眉毛長得有如八刀眉一樣漂亮<!-- .element: class="fragment" data-fragment-index="1" -->
+- 他的眼睛有如日月眼一樣明亮<!-- .element: class="fragment" data-fragment-index="2" -->
+- 他的鼻子有如玄田鼻一樣的飽滿<!-- .element: class="fragment" data-fragment-index="3" -->
+- 他嘴巴的牙齒有如牛一嘴那樣堅硬<!-- .element: class="fragment" data-fragment-index="4" -->
+- 八刀眉、日月眼、玄田鼻、牛一嘴<!-- .element: class="fragment" data-fragment-index="5" -->
+- 八刀：分、日月：明、玄田：畜、牛一：生<!-- .element: class="fragment" data-fragment-index="6" -->
+- 分明畜生<!-- .element: class="fragment" data-fragment-index="7" -->
+</script>
+</section>
+<section data-markdown><script type="text/template">
+# 如果蔣公現在還活著，那世界會變成怎樣？
+- 世界會多出一人<!-- .element: class="fragment" data-fragment-index="7" -->
+</script>
+</section>
+<section>
+<section>
+    [interactive cryptographic](http://www.shodor.org/interactivate/discussions/CryptographyCipher/)
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

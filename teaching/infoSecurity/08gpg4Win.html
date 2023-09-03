@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Information Security</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section data-markdown><script type="text/template">
+# Using GPG4Win 金鑰建置與管理
+</script>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝及(1/9)
+- 選擇安裝介面的語言
+![gpg](/images/iSecurity/gpg.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(2/9)
+- 按下一步
+![gpg2](/images/iSecurity/gpg2.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝及(3/9)
+- 按下一步
+![gpg3](/images/iSecurity/gpg3.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(4/9)
+- 按下一步
+![gpg4](/images/iSecurity/gpg4.svg)
+  <ul style="font-size: 12pt">
+    <li>Kleopatra: A certificate manager for OpenPGP and X.509 (S/MIME) and common crypto dialogs</li>
+    <li>GPA: The Gnu Privacy Assistant</li>
+    <li>GpgOL: A program extension for Microsoft Outlook</li>
+    <li>GpgEX: A plugin for Microsoft Explorer(file encryption)</li>
+    <li>Gpg4win Compendium: The documentation (for beginner and advanced users), available in English and German.
+    </li>
+  </ul>
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(5/9)
+- 按下一步
+![gpg5](/images/iSecurity/gpg5.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(6/9)
+- 按下一步
+![gpg6](/images/iSecurity/gpg6.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(7/9)
+- 按下一步
+![gpg7](/images/iSecurity/gpg7.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(8/9)
+- 按下一步
+![gpg8](/images/iSecurity/gpg8.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 安裝(9/9)
+- 按下一步
+![gpg9](/images/iSecurity/gpg9.svg)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 建立自己的金鑰
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(1/8)
+- 開啟 GPG4Win 金鑰管理程式 Kleopatra
+    -  Kleopatra (埃及豔后)
+![createKey.svg](/images/iSecurity/createKey.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(2/8)
+- 按左上角的 File >> New Certificate
+![createKey.svg](/images/iSecurity/createKey2.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(3/8)
+- 按 Create a personal OpenPGP key pair(建立個人的公開金鑰)，然後再按下一步
+    - Pretty Good Privacy: 很好的隱私
+![createKey.svg](/images/iSecurity/createKey3.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(4/8)
+- 輸入個人資料以及 Email 信箱，然後按下一步
+![createKey.svg](/images/iSecurity/createKey4.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(5/8)
+- 確認輸入資料是否正確？若正確，則按 Create Key
+![createKey.svg](/images/iSecurity/createKey5.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(6/8)
+- 輸入 passphrase(通關密語)，然後按 OK
+![createKey.svg](/images/iSecurity/createKey6.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(7/8)
+- 再次輸入 passphrase(通關密語)，然後按 OK
+![createKey.svg](/images/iSecurity/createKey7.svg)
+</script>
+</section><section data-markdown><script type="text/template">
+## GPG4Win 產生金鑰(8/8)
+- 已經建立 Open PGP 金鑰，按 Finish 完成
+![createKey.svg](/images/iSecurity/createKey8.svg)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# Keys 的管理
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win Keys 的管理
+- 對於自己 private and public key 以及別人 public key 的管理
+  - 將別人的 public key 加入 GPG4Win Keys 的管理，
+    我們就可以使用它來加密訊息，再把密文傳給擁有 private key 的人
+  - 我們再把自己的 public key 輸出給對方，對方就可以使用這個 public key 來秘密通訊
+  - 可以把自己的 private key 輸出到另外一台電腦，或者上傳到憑證中心
+- key 的交換都使用採用 ASCII 的型式做交換，儲存的附檔名通常設成 .asc
+  - An ASC file is an armored ASCII file used by Pretty Good Privacy (PGP)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win Keys 的管理
+- 以 Gnu PG 的 public key 為例，看看加入前、後的差異？
+  - Gnu PG 的 public key 在[這裡](https://gnupg.org/signature_key.html)
+  - 複製 public key 所有的內容，儲存成檔案，通常副檔名設為 .asc
+  <img src="/images/iSecurity/logoGnupg.png" alt="logoGnupg.png"
+  style="float: right; width: 200px">
+  - 將檔案 import 的 Kleopatra keys manager 內
+- 把 [Gnu PG 的 public key](https://gnupg.org/signature_key.html) 儲存成 gnupg-2.1.21.tar.bz2.asc
+- 開啟 klelpatra，把 gnupg-2.1.21.tar.bz2.asc 檔案 import 進來
+  - File >> import Certificates
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win Keys 的備份與移植
+- 備份個人的 public/private key
+  - File >> Export Certificates/ Export Secure keys
+  - Export Secure keys 是存成加密的格式，需要勾選「ASCII armor」存成明文格式來能匯入 private key
+- 移植 GPG4Win Keys
+  - 建立的 public keys/private keys 移植到別台電腦，
+    就是將 keys 儲存的檔案複製到另一台電腦的相同目錄
+    <img src="/images/iSecurity/keyFolder.svg" style="height: 180px; float: right; margin-left: 20px"
+     alt="keyFolder.svg">
+  - Windows 作業系統儲存 keys 的預設目錄是 C:\Users\使用者名稱\AppData\Roaming\gnupg，
+    將目錄下的檔案複製到另外一台電腦的相同目錄
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win Keys 的管理
+- Command Line 做認證：
+  - gpg --verify gnupg-2.1.21.tar.bz2.sig gnupg-2.1.21.tar.bz2
+  - 有兩個未信任的 public key
+- 對於未信任的 keys 做信任(trust) 的動作
+  - gpg --edit-key 0xkey-id trust
+<img src="/images/iSecurity/signVerify2.svg" style="height: 320px" alt="signVerify2.svg">
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 對訊息加密
+    - 輸入一則訊息，然後複製訊息
+![gpgMail](/images/iSecurity/gpgMail.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 右下角的工作列中開啟 GPG4Win
+    - 點選 Clipboard(剪貼簿) >> Encrypt(加密)
+![gpgMail2](/images/iSecurity/gpgMail2.svg)
+![gpgMail3](/images/iSecurity/gpgMail3.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 編輯收件人，點選 Add Recipient
+![gpgMail4](/images/iSecurity/gpgMail4.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 在 Kleopatra key manager 點選收件人
+![gpgMail5](/images/iSecurity/gpgMail5.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 已經加入收件人，然後按 Next
+![gpgMail6](/images/iSecurity/gpgMail6.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 完成訊息加密，此時在剪貼簿內存有加密的訊息
+<img src="/images/iSecurity/gpgMail7.svg" alt="gpgMail7" style="height: 500px">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 將剪貼簿加密的秘密訊息貼到 Email 上寄出
+<img src="/images/iSecurity/gpgMail8.svg" alt="gpgMail8" style="height: 500px">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 收件人收到加密的訊息
+<img src="/images/iSecurity/gpgMail9.svg" alt="gpgMail9" style="height: 500px">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 使用 GPA(The Gnu Privacy Assistant)，在 keys list 中點選自己的 key
+![gpgMail10](/images/iSecurity/gpgMail10.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 開啟 GPA 剪貼簿，把收到的訊息複製到剪貼簿內，然後按下 Decrypt(解密)
+<img src="/images/iSecurity/gpgMail11.svg" alt="gpgMail11" style="height: 450px">
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 輸入通關密語(passphrase)，按下 OK
+![gpgMail12](/images/iSecurity/gpgMail12.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## GPG4Win 加解密
+- 得到寄信人原來寄出的訊息
+![gpgMail13](/images/iSecurity/gpgMail13.svg)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 摘要
+- 必須要先將明文複製，再開啟工作列的 Kleopatra keys 管理程式小圖示，對剪貼簿內的明文加密
+- 在加密過程中，點選 Kleopatra keys manager 的收件人，等同於取出收件人的 public key
+  - 因此，在 Kleopatra key manager 內已經存在收件人的公鑰，比較方便
+- 完成訊息加密以後，把剪貼簿內的秘密訊息 Email 給對方
+- 收件人收到加密的秘密訊息，用自己的 private key 解密
+  - 解密有許多種方法，在 GPG4Win 可以使用 Kleopatra 管理程式或者 GPA
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 建立及管理金鑰的練習
+- 請自行使用 GPG4Win 軟體建立自己的金鑰
+- 請同學自己找一位想要利用公開金鑰系統和他/她秘密通訊的同學，然後互相交換公開金鑰
+    - 匯出自己的公開金鑰： File >> Export Certificates
+    - 匯入其他同學的公開金鑰： File >> Import  Certificates
+- 連結到 Python 網站，下載 [Python public key](https://www.python.org/static/files/pubkeys.txt)，
+    將 Python public key import 到 Kleopatra keys manager 內
+    - 等一下將使用 Python 的 Public Key ，確認 Python 以 private key 簽章過的檔案
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 訊息加密、解密的練習
+- 請同學互相以對方的公開金鑰，把你/妳要傳送的訊息加密並且傳送給對方
+    - 複製訊息，然後在工作列的 Kleopatra 小圖示上方按滑鼠右鍵
+    - 開啟 Clipborad >> Encrpyt >> Add Recipient
+    - 加入對方的 Email，然後對剪貼簿內的訊息加密
+    - 將加密後的密文貼到 Email ，並且將密文傳送給對方
+- 收到對方的密文，請使用自己的私鑰把密文解開
+    - 將密文複製，並且儲存成檔案
+    - 開啟 kelopatra ，File >> Decrypt/Vertify Files >> 選擇檔案
+    - 輸入通關密語
+    - 在密文的相同目錄下，會產生明文的檔案
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## 認證數位簽章的訊息(1/2)
+- 數位簽章可以作為訊息認證，以 [Python 檔案](https://www.python.org/downloads/)
+  作為說明以的範例，如何驗證 Python 自己簽章的檔案？
+- 對訊息做認證，就是把訊息解密(Decrypt)
+- 必備的檔案：檔案、簽章及公鑰
+  - 簽章是使用自己的 private key 對這個檔案做加密後所得到的資料
+  - Python public key 可以
+    [點選這裡](https://www.python.org/static/files/pubkeys.txt)下載
+- 下載 public key 以後，將 Python public key import 到 Kleopatra keys manager 內
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 認證數位簽章的訊息(2/2)
+- 將下載的檔案、數位簽章檔都放在相同的目錄，開啟 Kleopatra keys manager，
+  然後利用 public key 對簽章及檔案做認證，也就是把訊息解密(Decrypt)
+  - File >> Decrypt/Vertify Files
+![pyVerify](/images/iSecurity/pyVerify.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 數位簽章做訊息認證的練習
+- 以 Gnu PG 數位簽章的檔案做為訊息認證練習
+  - [下載 GPG public key](https://gnupg.org/signature_key.html)<!-- .element: class="fragment" data-fragment-index="1" -->
+  - [Gnu PG 的檔案](https://gnupg.org/download/index.html)<!-- .element: class="fragment" data-fragment-index="1" -->
+  - [數位簽章 gnupg-2.1.21.tar.bz2.sig](https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.21.tar.bz2.sig)<!-- .element: class="fragment" data-fragment-index="1" -->
+  - File >> Decrypt/Verify Files 確認檔案<!-- .element: class="fragment" data-fragment-index="2" -->
+<img src="/images/iSecurity/signVerify.svg" style="height: 280px" alt="signVerify.svg">
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# 製作數位簽章
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(1/5)
+- 開啟 Kleopatra keys manager，把訊息簽章Sign/Encrypt)
+  - File >> Sign/EncryptFiles
+  ![Signature.png](/images/iSecurity/Signature.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(1/5)
+- 開啟 Kleopatra keys manager，把訊息簽章Sign/Encrypt)
+  - File >> Sign/EncryptFiles
+  ![Signature.png](/images/iSecurity/Signature.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(2/5)
+  - 選取要簽章的檔案
+  ![Signature.png](/images/iSecurity/Signature2.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(3/5)
+  - 選則 Sign 選項
+  ![Signature.png](/images/iSecurity/Signature3.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(4/5)
+  - 按下 Sign 按鈕
+  ![Signature.png](/images/iSecurity/Signature4.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 對訊息做數位簽章(5/5)
+  - 完成數位簽章(在相同的目錄下會產生 .sig 的檔案)
+  ![Signature.png](/images/iSecurity/Signature5.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## 製作簽章檔的練習
+- 請先編輯一則訊息，然後存成檔案，再用自己的私鑰做數位簽章<!-- .element: class="fragment" data-fragment-index="1" -->
+- 請同學將訊息及簽章檔 Email 傳送給對方<!-- .element: class="fragment" data-fragment-index="2" -->
+- 收到對方的訊息檔及簽章檔，請使用對方的公鑰來確證是否是對方傳送的訊息及簽章檔案<!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+# Mailvelope En/Decryption
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## What is Mailvelope?
+- [Mailvelope](https://www.mailvelope.com/en) 是瀏覽器擴充套件
+- 整合 OpenPGP Encryption for Webmail
+- Gmail, Yahoo Mail, Outlook Mail, ..., etc
+- 容易對傳送的訊息做加解密
+- 提供 Key Handling, Message Encryption/Decryption, File Encryption 功能
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing Mailvelope(1/4)
+- [Mailvelope](https://www.mailvelope.com/en) 首頁點選你/妳使用的瀏覽器
+    - 以 Firefox 為例 
+![mailvelope.png](/images/iSecurity/mailvelope.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing Mailvelope(2/4)
+- 按下「允許」的選項
+![mailvelope2.png](/images/iSecurity/mailvelope2.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing Mailvelope(3/4)
+- 按下「安裝」的選項
+![mailvelope3.png](/images/iSecurity/mailvelope3.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Installing Mailvelope(4/4)
+- 完成安裝
+![mailvelope4.png](/images/iSecurity/mailvelope4.png)
+![mailvelope5.png](/images/iSecurity/mailvelope5.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Import/Export Key(1/4)
+- 點選劉覽器的 Mailvelope icon，按下 Add
+![mailvelope6.png](/images/iSecurity/mailvelope6.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Import/Export Key(2/4)
+- 點選 Key Management >> import keys
+![mailvelope7.png](/images/iSecurity/mailvelope7.png)
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## Import/Export Key(3/4)
+- 點選 select a key text file to import
+![mailvelope8.png](/images/iSecurity/mailvelope8.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Import/Export Key(4/4)
+- 選擇你要 import 到 Mailvelope 的 key
+![mailvelope9.png](/images/iSecurity/mailvelope9.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Import/Export Key(4/4)
+- 點選 Display Key，檢視 import 的 key
+![mailvelope10.png](/images/iSecurity/mailvelope10.png)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown><script type="text/template">
+## Mailvelope 的操作(1/5)
+- 登入你/妳的 Webmail，然後按下 mailvelope 小圖示(icon)
+![mailvelope10.png](/images/iSecurity/mailvelope11.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Mailvelope 的操作(2/5)
+- 在收件者欄位內輸入收件人的 Email 
+![mailvelope10.png](/images/iSecurity/mailvelope12.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Mailvelope 的操作(3/5)
+- 當輸入關鍵字時，可以選擇已經匯入公鑰的收件者 Email 
+![mailvelope10.png](/images/iSecurity/mailvelope13.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Mailvelope 的操作(4/5)
+- 寫信，完成後按下 Encrypt 按鈕 
+![mailvelope10.png](/images/iSecurity/mailvelope14.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Mailvelope 的操作(5/5)
+- 最後按下 Send 按鈕，送出秘密訊息
+![mailvelope10.png](/images/iSecurity/mailvelope15.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 收信人的操作(1/4)
+- 請確認你/妳的私鑰是否已經匯入 mailvelope 內部
+![mailvelope10.png](/images/iSecurity/mailvelope16.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 收信人的操作(2/4)
+- 直接拿鑰匙點選畫面的鎖
+![mailvelope10.png](/images/iSecurity/mailvelope17.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 收信人的操作(3/4)
+- 輸入建立公鑰/私鑰對時所設定的通關密語
+![mailvelope10.png](/images/iSecurity/mailvelope18.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 收信人的操作(4/4)
+- 開啟秘密訊息
+![mailvelope10.png](/images/iSecurity/mailvelope19.png)
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## Mailvelope 實際操作練習
+- 安裝 Mailvelope 套件，並且將你/妳之前使用 GPG4Win 建立的公鑰及私鑰匯入
+- 請尋找一位與你/妳要做秘密通訊的同學，將他/她的公鑰匯入 mailvelope
+- 請同學使用 Mailvelope 對訊息加密，加密後互相傳送秘密訊息給對方
+- 使用 Mailvelope 把對方傳送的訊息解開
+</script>
+</section>
+</section>
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

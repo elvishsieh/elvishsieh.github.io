@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>巨量資料、雲端平台及服務生態系統簡介</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Big Data
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Big Data?
+- Big data has been in use **since the 1990s**, with some giving credit to **John Mashey for popularizing the term**.
+- Big data primarily refers to **datasets that are too large or complex** to be dealt with by traditional data-processing application software.
+- Big data usually includes **datasets with sizes beyond the ability** of commonly used software tools to **capture, curate, manage, and process data** within a tolerable(可忍受) elapsed time
+- Big data analysis challenges include **capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Definition of Big Data
+- Big data "size" is a **constantly moving target**; as of 2012 ranging from a few dozen **terabytes(`$10^{12}$` bytes)** to many **zettabytes(`$10^{18}$` bytes)** of data.
+- Big data was originally associated with **three key concepts: volume, variety, and velocity**. "Variety", "veracity", and **various other "Vs" are added** by some organizations to describe it, a revision challenged by some industry authorities.
+- The Vs of big data were often referred to as the **"three Vs", "four Vs", and "five Vs"**.
+- A 2018 definition states "Big data is where **parallel computing tools** are needed to handle data and notes", which defined change in **the computer science used**.
+</script></section>
+<section data-markdown><script type="text/template">
+## How to process the Big Data
+- **Relational database management** systems and desktop **statistical software** packages used to visualize data often have **difficulty** processing and analyzing big data.
+- The processing and analysis of big data may require **massively parallel software** running on **tens, hundreds, or even thousands of servers**.
+- What qualifies as big data varies depending on the capabilities of those analyzing it and their tools.
+- For some organizations, facing **hundreds of gigabytes of data** for the first time may trigger a need to reconsider data management options. For others, it may take **tens or hundreds of terabytes** before data size becomes a significant consideration.
+</script></section>
+<section data-markdown><script type="text/template">
+## Architecture of Big Data
+- In 2004, Google published a paper on a process called **MapReduce that provides a parallel processing model**, and process huge amounts of data.
+- With MapReduce, **queries are split and distributed across parallel nodes and processed in parallel (map step). The results are then gathered and delivered (reduce step)**.
+- An implementation of the MapReduce framework was adopted by an **Apache open-source project named Hadoop**.
+-  **Apache Spark** was developed in 2012 in response to **limitations in the MapReduce paradigm**, as it **adds in-memory processing and the ability to set up many operations** (not just map followed by reducing).
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Cloud Computing<br />(雲端運算)
+</script></section>
+<section data-markdown><script type="text/template">
+## Cloud Computing
+- Cloud computing is the **on-demand availability** of 
+<figure style="float: right; padding-left:0.3em">
+<img src="/images/bigData/cloudComputing.png" alt="cloud computing">
+</figure>
+computer system resources, especially <b>data storage (cloud storage) and computing power</b>, without direct active management by the user.
+- Large clouds often have functions **distributed over multiple locations**, each of which is a [data center](https://www.youtube.com/watch?v=frzVtaNrHU0&t=2s)
+- Cloud computing relies on sharing of resources to achieve coherence and typically uses a **pay-as-you-go model**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Definition of Cloud Computing
+- **On-demand self-service**: A consumer can unilaterally provision computing capabilities, such as server time and network storage,..., etc.
+- **Broad network access**: Capabilities are available over the network and accessed through standard mechanisms.
+- **Resource pooling(匯集)**: The provider's computing resources are pooled to serve multiple consumers using a multi-tenant model.
+- **Rapid elasticity(彈性)**: Capabilities can be elastically provisioned and released to scale rapidly outward and inward commensurate with demand.
+- **Measured service**: Resource usage can be monitored, controlled, and reported.
+</script></section>
+<section data-markdown><script type="text/template">
+## Deployment models
+- **Private Cloud** is cloud infrastructure operated solely for a single organization, whether managed internally or by a third party, and hosted either internally or externally.
+- **Public Cloud** services are considered "public" when they are delivered over the public Internet, and they may be offered as a paid subscription, or free of charge.
+- **Hybrid Cloud** is a composition of a public cloud and a private environment, such as a private cloud or on-premises resources, that remain distinct entities but are bound together, offering the benefits of multiple deployment models.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Cloud Service Model
+</script></section>
+<section data-markdown><script type="text/template">
+## Cloud Computing Service Model
+- Though service-oriented <figure style="float: right; padding-left:0.3em">
+	<img src="/images/bigData/serviceModel.png" alt="Sevice Model">
+	</figure>
+	architecture advocates <b>Everything as a service</b> (with the acronyms EaaS or XaaS, or simply aaS).
+- The three standard models per [NIST](https://www.nist.gov/) are Infrastructure(基礎設施) as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS).
+</script></section>
+<section data-markdown><script type="text/template">
+## Infrastructure as a service(IaaS)
+- Infrastructure as a service (IaaS) refers to online services that provide high-level APIs used to abstract various low-level details of underlying network infrastructure like physical computing resources, location, data partitioning, scaling, security, backup, etc.
+- Pools of hypervisors within the cloud operational system can support large numbers of virtual machines and the ability to scale services up and down according to customers' varying requirements.
+- IaaS clouds often offer additional resources such as a virtual-machine disk-image library, raw block storage, file or object storage, firewalls, load balancers, IP addresses, virtual local area networks and software bundles.
+</script></section>
+<section data-markdown><script type="text/template">
+## Platform as a service (PaaS)
+- PaaS vendors offer a development environment to application developers. The provider typically develops toolkit and standards for development and channels for distribution and payment.
+- In the PaaS models, cloud providers deliver a computing platform, typically including an operating system, programming-language execution environment, database, and the web server.
+- Some integration and data management providers also use specialized applications of PaaS as delivery models for data. Examples include iPaaS (Integration Platform as a Service) and dPaaS (Data Platform as a Service).
+</script></section>
+<section data-markdown><script type="text/template">
+## Software as a service (SaaS)
+- In the software as a service (SaaS) model, users gain access to application software and databases. Cloud providers manage the infrastructure and platforms that run the applications.
+- SaaS is sometimes referred to as "on-demand software" and is usually priced on a pay-per-use basis or using a subscription fee.
+- In the SaaS model, cloud providers install and operate application software in the cloud and cloud users access the software from cloud clients.
+-  Cloud users do not manage the cloud infrastructure and platform where the application runs.
+</script></section>
+<section data-markdown><script type="text/template">
+## Value of cloud computing(1/2)
+- Cost reductions: Devices, location, and IT skills are required for implementation of projects.
+- Device independence: Device and location independence enable users to access systems using a web browser regardless of their location or what device they use.
+- Maintenance: Maintenance of cloud environment is easier than own data center.
+- Multitenancy(多租戶): Multitenancy enables sharing of resources and costs across a large pool of users.
+- Performance: Performance is monitored by IT experts from the service provider, and consistent and loosely coupled architectures are constructed using web services as the system interface.
+</script></section>
+<section data-markdown><script type="text/template">
+## Value of cloud computing(2/2)
+- Productivity: Productivity may be increased when multiple users can work on the same data simultaneously, rather than waiting for it to be saved and emailed.
+- Availability: Availability improves with the use of multiple redundant sites, which makes well-designed cloud computing suitable for business continuity and disaster recovery.
+- Scalability and Elasticity: Scalability and elasticity via dynamic ("on-demand") provisioning of resources on a fine-grained, self-service basis in near real-time, without users having to engineer for peak loads.
+- Security: Security can improve due to centralization of data, increased security-focused resources, etc...
+</script></section>
+<section data-markdown><script type="text/template">
+## Challenges and Limitations
+- One of the main challenges of cloud computing is data security and privacy.
+	- Cloud users entrust their sensitive data to third-party providers, who may not have adequate measures to protect it from unauthorized access, breaches, or leaks.
+- Another challenge of cloud computing is reduced visibility and control.
+	- Cloud users may not have full insight into how their cloud resources are managed, configured, or optimized by their providers.
+- In addition, cloud migration is a significant issue. Cloud migration is the process of moving data, or applications from one cloud environment to another the cloud.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Cloud Security
+</script></section>
+<section data-markdown><script type="text/template">
+## Cloud Security Issues
+- **Shared responsibility for security**: Generally, the cloud provider is responsible for securing cloud infrastructure and the customer is responsible for protecting its data within the cloud.
+- **Data encryption**: Data should be encrypted while at rest, in transit, and in use.
+- **User identity and access management**: Customer and IT teams need full understanding of and visibility into network, device, application, and data access.
+- **Collaborative management**: Proper communication and clear, understandable processes between IT.
+- **Security and compliance monitoring**
+</script></section>
+<section data-markdown><script type="text/template">
+## Security and Privacy(1/2)
+- Cloud computing poses privacy concerns because the service provider can access the data that is in the cloud at any time. It could accidentally or deliberately alter or delete information.
+- Many cloud providers can share information with third parties if necessary for purposes of law and order without a warrant.
+- That is permitted in their privacy policies, which users must agree to before they start using cloud services.
+- Users can encrypt data that is processed or stored within the cloud to prevent unauthorized access.
+- Identity management systems can also provide practical solutions to privacy concerns in cloud computing.
+</script></section>
+<section data-markdown><script type="text/template">
+## Security and Privacy(2/2)
+- According to the Cloud Security Alliance, the top three threats in the cloud are **Insecure Interfaces** and **APIs, Data Loss & Leakage**, and **Hardware Failure**—which accounted for 29%, 25% and 10% of all cloud security outages respectively.
+- There is the problem of legal ownership of the data (If a user stores some data in the cloud, can the cloud provider profit from it?). Many Terms of Service agreements are silent on the question of ownership.
+- Physical control of the computer equipment (private cloud) is more secure than having the equipment off-site and under someone else's control (public cloud).
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Programming models and systems
+</script></section>
+<section data-markdown><script type="text/template">
+## Programming models(1/5) 
+- They are, **MapReduce, workflow, Bulk Synchronous Parallel (BSP), message passing, and SQL-like**, the most popular programming models for Big Data analysis and their major associated software frameworks.
+- MapReduce
+	- MapReduce is a programming model inspired by functional programming. It is based on the parallel execution of map and reduce functions for designing large-scale
+	data-intensive applications.
+	- Specifically, the distributed execution of a MapReduce application is delegated to a set of mapper and reducer processes.
+</script></section>
+<section data-markdown><script type="text/template">
+## Programming models(1/5)
+- Workflow
+	- A workflow is a well defined, and possibly repeatable, pattern designed to achieve a certain transformation of data, usually programmed as a graph.
+	- 
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+<section data-markdown><script type="text/template">
+## Datasets
+- [Open Datasets: Kaggle](https://www.kaggle.com/datasets) offers an ocean of public data and computer codes for data science projects.
+- [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
+- [Open Data Inception](https://opendatainception.io/) - 2600+ Open Data Portals Around the World
+- [World Bank Open Data](https://data.worldbank.org/) is the platform where you get free access to global development data.
+- [BigQuery public datasets](https://cloud.google.com/bigquery/public-data/) - Many public datasets are stored on BigQuery. Google makes the dataset accessible for free through the Google Cloud Public Dataset Program.
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets) is an open-source dataset that contains topic-centric public data.
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
