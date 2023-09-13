@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>專案管理實務</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 何謂專案管理
+</script></section>
+<section data-markdown><script type="text/template">
+## 什麼是專案管理？
+<ul>
+<li class="fragment"><b>專案(Project)</b> + <b>管理(Management)</b></li>
+	<li class="fragment">專案</li>
+		<ul>
+			<li class="fragment">專案具有<b>暫時性、獨特性</b>以及時間性，目標是創造一種獨特的產品、服務，或達成特定的結果</li>
+			<li class="fragment">專案管理就是針對一個既定的目標，進行時程、預算及執行的控管，最後實現所設定的指標或是目標</li>
+			<li class="fragment">專案管理是暫時性的<b>任務、團隊</b>、獨特的<b>需求、流程、產出</b></li>
+			<li class="fragment">Covid-19 疫情指揮中心、台北市大直房屋倒塌、選舉辦公室</li>
+		</ul>
+	<li class="fragment">管理：計畫、組織、用人、領導、控管</li>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案的定義(1/3)
+- 紐曼(Newman, 1972)認為，「專案」是指一組完整而**特定目標**之活動，具有明確的**起迄時點與成本限制**，內容牽涉到各項技術，具有相當的**複雜性，而又不重覆**
+- 克萊蘭德(Cleland, 1983)認為，「專案」是在**特定的時間預算**下，**為了達成特定的目標所從事的活動**，這些活動通常是**跨越原來組織中的階層關係**，且與原來組織中例行性的活動有所不同
+- 「專案」是指在一次性的工作中，必須**同時完成「時間」、「成本」、「範疇」與「績效」**等多重任務要求的工作
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案的定義(2/3)
+- 「專案」是指為了創造某一項產品、服務、或成果所做的**暫時性努力** 
+- 「專案」是**為了解決問題(problem solving)所排定的進度表**
+- 「專案」是指一個特殊而有一定限度的任務，或由一群具有相互關係的工作所共同組合而成的任務，而該任務是以獲取特殊成果或圓滿達成某種成效為目標
+- 「專案」是一個**暫時性組織，為了完成特定的目標，在一定的時間內，在有限資源下，特別進行的一次性活動**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案的定義(3/3)
+![](/images/pm/pm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案的基本特性(1/2)
+- 專案是獨一無二的
+- 專案具有特定的目標(Goal) 
+- 專案具有一定的時程(Schedule)
+- 有限的成本預算(Cost) 
+- 複雜性(Complexity) 
+- 非常設(Impermanence) 
+- 無經驗(Unfamiliarity)
+- 面對不確定性(Uncertainty) 
+- 具有顧客(customer)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案的基本特性(2/2)
+- 專案具有兩個特性：
+	- 暫時性
+	- 獨特性
+- 專案具有三個概念：
+	- 明確的特定目標
+	- 明確的完工期限
+	- 有限的資源 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 何謂管理(Management)
+</script>></section>
+<section data-markdown><script type="text/template">
+## 什麼是管理？
+- 管理是指在一定的組織或企業內根據一定的決策、規章進行協調活動，以達到某個明確的目標
+- 20 世紀末，工商管理主要由五大部分組成：產銷人發財
+	- 生**產**管理、行**銷**管理、**人**力資源管理、研**發**管理、**財**務管理
+- 21 世紀的觀察家們發現依據功能來將管理團隊進一步分化變得越來越困難，越來越多的流程同時需要幾個功能項。因此，人們更傾向於**根據不同的過程、任務、目標來思考管理**
+- 管理的分支理論也被應用於**非盈利組織和政府**：如公共管理、**公共行政學**、教育管理等
+</script></section>
+<section data-markdown><script type="text/template">
+## 管理的性質
+- 盈利組織
+	- 管理的主要職能是為股東服務，典型的活動在於盈利(為股東)，創造價格合理、富有價值的產品(為消費者)，為雇員提供工作機會
+	- 在大多數管理或管治過程是股東選舉董事會
+- 非盈利組織或政府
+	- 管理要維護捐贈者(納稅者)的意願，
+	- 大多數管理或管治過程是採任命管理高層
+</script></section>
+<section data-markdown><script type="text/template">
+## 管理基本功能
+- **計劃**：決定未來需要發生些什麼事情 (今天、下周、下個月、下一年等等) 為行動設立計劃
+- **組織**：管理與員工之間的關係，優化資源，完成計劃
+- **人事**：職業分析，為職位聘用合適的工人
+- **領導/指揮**：決定在某一情況下需要完成什麼樣的事情，並組織人員將其完成
+- **控制/監視**：對應計劃檢查進程
+- 激勵：激勵也是管理的一個基本功能，因為沒有激勵，員工工作將會沒有效率。如果組織中沒有激勵，那麼員工可能不會在其它功能上做出貢獻 (通常是由高層設立的目標)
+</script></section>
+<section data-markdown><script type="text/template">
+## 管理技巧
+- 政策性的：奠定實力基礎，建立交往關係
+- 概念性的：分析各種複雜局面
+- 人際性的：溝通、激勵、引導、委任
+- 診斷性的：可以從問題中找出合理解決方案
+- 技術性的：精通自己管轄範圍里的技術技能
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案管理相關組織與標準
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理學會(PMI)
+- Project Management Institute, 簡稱 PMI；在台灣有[**中華**專案管理學](http://www.npma.org.tw/)、[**台灣**專案管理學會](https://www.tw-pma.org.tw/en/)
+- 主要在推動專案管理的知識體系，並且針對不同的產業特性，發展出不同的專案管理方法。
+- PMI 召集專家學者提出一套標準化的專案管理作業內容與流程，稱為「專案管理知識體系指南」，簡稱 [PMBOK`$^{®}$` Guide](./index.html#/2/1)
+- PMBOK`$^{®}$` Guide 被國際間公認為是專案管理領域最具權威的經典，第 5 版包含(目前是第 7 版, 2021)
+	- 十大知識領域
+	- 47 個專案管理流程(分屬於五大流程)
+</script></section>
+<section  data-markdown><script type="text/template">
+## 專案管理的十大知識領域 
+![](/images/pm/10kn.png)
+</script>></section>
+<section  data-markdown><script type="text/template">
+## 專案管理的五大流程
+- IPECC
+	- I 為「啟始」(Initial Process)
+	- P 為「規劃」(Planning Process)
+	- E 為「執行」(Executing Process)
+	- C 為「監視與控制」(Monitor and Control Process)
+	- C 為「結案」(Closing Process) 
+- PDCA ⮔ 
+	- ⮳Plan(計畫)➢Do(執行)➢Check(檢查)➢Act(行動) ⮰
+</script>></section>
+<section data-markdown><script type="text/template">
+## 專案管理相關的國家標準(1/2)
+- CNS 21500 國家標準 - 專案管理指引
+	- 專案管理指引(Guidance on project management) 參考 2012 年正式發布 ISO 21500 國際標準「Guidance on Project Management」，於 105 年 9 月 14 日制定公布
+	- 準檢驗局表示，專案管理就是「應用管理方法、工具、技術及職能達成專案目標及利害關係者的需求及期望」
+	- 主要目的為提供「專案管理之共同溝通語言、可應用於多數專案的關鍵概念並描述執行專案的環境、辨識合適的專案管理過程」，以形成良好專案管理實務的觀念與過程
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理相關的國家標準(2/2)
+- CNS 21500 國家標準
+	- 舉凡營建工程、研發創新、行銷企劃、資訊系統、媒體製作及各種服務或改善活動，若屬非例行性工作，具有「暫時性、獨特性及逐步完善」之特性，可視為專案
+- 專案、專案集及專案組合管理
+	- CNS 21504 專案組合管理指：提供專案與專案集的專案組合管理原則之指引
+	- CNS 21505 治理指引：描述在執行專案、專案集及專案組合時的前後環節，並對專案、專案集及專案組合提供指引
+	- CNS 21503 專案集管理指引：提供專案集管理的概念、先決條件及實務之指引，對專案集之績效是重要且有影響
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案管理的意義與詞彙
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理的意義 
+- 根據 PMBOK`$^{®}$` Guide (2000) 定義專案管理是應用知識、技能、工作與技術來規劃活動，以達成專案的需求
+- 專案管理是專案經理 (Project Manager) 經由專案起始、規劃、執行、監控及結案等五大程序的運作，才得以完成
+- 基本上，專案管理 (Project Management) 是匯集一組由人執行的工具與技巧，以描述、組織與監控專案活動的工作。期間，專案經理要負責管理專案流程，
+並將所用的工具或技巧應用在專案活動進行
+- 專案管理是一連串的流程，包括從專案規劃到化為實際的專案行動、以及衡量專案進展與專案績效。
+</script></section>
+<section data-markdown><script type="text/template">
+## 為什麼需要專案管理？
+- 原因在於傳統上功能部門運作，無法面對現今動態且複雜環境的需求
+- 當遭遇的問題牽涉甚廣時，功能部門之單一知識或技術專家已經無法滿足所需
+- 在傳統組織外，另設組織來整合各功能部門之資源，以便執行特定任務或解決特殊的問題
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案與作業的異同點比較
+|		| 專案  | 作業(routine work) |
+|:--:	| :--- 	| :---	|
+| 相異性 |暫時性、一次性工作 | 持續性、重複性工作|
+| 相異性	| 執行獨特性任務 | 執行例行性任務	|
+|	 |	 | 	 |
+| 共同性 	| 都是由人主導完成 | 	|
+| 共同性 	| 都受制於有限資源 | 	|
+| 共同性 	| 通常都必須經過規劃、執行、控制的過程 | 	|
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理與功能別管理的差異(1/2)
+| 項目	| 專案管理  | 功能別管理 |
+|:--:	| :--- 	| :---	|
+| 直線-幕僚 組織二元化 |層級組織模式仍然存在，但功能部門轉為支援單位，形成一**網狀**全力與義務關係 | 功能部門負責完成組織之主要目標，**直線式**領導、幕僚提供意見 |
+| 梯形原則	| 直線主管部屬關係仍然存在，但**注重平行及斜行之工作流向**，合法性工作均可推動 | 主管部門之權力存在於組織中，其**業務著重上下運作**	|
+| 主管部屬關係	| 以同事或管理者與技術專家關係推動專案 | 嚴守主管部屬關係，業務於**金字塔形結構**中進行	|
+| 組織目標	| 管理專案是相關單位共同目標，其目的為**多元化** | 機構決定組織目標，其目的為**一元化**	|
+
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理與功能別管理的差異(2/2)
+| 項目	| 專案管理  | 功能別管理 |
+|:--:	| :--- 	| :---	|
+| 統一指揮 |**專案經理**領導並整合各部門達成組織目標 | **功能經理**領導部屬完成部門目標 |
+| 權力與義務關係 |因支援人員之薪資、升遷及績效評估為功能經理職權，**專案經理之義務超過權力** | 主管部屬及幕僚之權力義務關係存在於功能組織中 |
+| 期限 |專案於**一定期限內結束** | **無特定結束期限**，長期提供能力、技術及設備支援 |
+
+</script></section>
+<section data-markdown><script type="text/template">
+## 相關的重要詞彙(1/3)
+- 專案計畫(Project Program) 
+	- 專案計畫(Project Program)是指進行中的工作，它經過了協調統一管理，以便獲取單獨管理時無法取得的效益與控制之一組相互聯繫的專案
+	- 計畫(Program)通常是**由一群相關的專案所構成**，以達特定目的 
+	- 計畫(Program)與專案(Project)之間的關係在於，若**管理多個相關的專案就稱為計畫(Program)** 
+</script></section>
+<section data-markdown><script type="text/template">
+## 相關的重要詞彙(2/3)
+- 專案組合管理(Project Portfolio Management)
+	- 它**涉及到綜合行動中所有計畫(Program)與專案(Project)的管理**，從每一項專案與潛在專案的價值跟綜合行動策略目標之權重大小，慎選專案或計畫出來，以追求綜合行動價值最大化
+	- 專案組合管理是為了便於**有效管理**以實現策略性企業經營目標，而**將專案或計劃與其他工作組合**
+	- 專案組合管理中的專案或計畫之間不一定有直接關係或相互依存性
+	- 專案經常可劃分為多個較容易管理的工作細目或子專案處理 
+</script></section>
+<section data-markdown><script type="text/template">
+## 相關的重要詞彙(3/3)
+- 專案生命週期(Life Cycle) 
+	- 專案有其**暫時性**，因此**具有明確的開始時間與結束時間**，這便是**專案生命週期**
+	- 大多數的專案**從起始到結束**都會經過類似的數個階段
+	- 從**早期**的緩慢成長而漸成規模，而後達到**高峰**，然後漸漸**衰退**，最後**終結**
+- 專案管理流程
+	- 流程(process)是一組由投入(Inputs)、工具與技術(Tools and Techniques)以及產出(Output)(**簡稱 ITTO**)，構成的管理行動，其目的是要得到預先指定的結果
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案與五大流程生命週期 
+![](/images/pm/lifecycle.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案管理的基本概論
+</script></section>
+<section data-markdown><script type="text/template">
+## 
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理的目標 
+- 專案是指在一次性的工作中，必須同時完成績效(Performance)、成本(Cost)、時間(Time)、範疇(Scope)等多重任務要求的工作。
+專案管理的終極目標是要確保專案能符合所定**績效、成本、時間、範疇**(簡稱 PCTS)，的終極目標
+- 專案目標訂定要點
+	- S-明確(Specific)
+	- M-可衡量(Measurable)
+	- A-可達成(Achievable)
+	- R-實際(Realistic)
+	- T-有期限(Time-bound)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理的基本元素 
+![](/images/pm/element.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 好的專案管理
+- 好的專案管理涉及到**人、系統與工具** 
+![](/images/pm/gpm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 工具無法協助處理的問題
+-  人的問題
+	- 人與人之間的激勵、談判、溝通方式等
+	- 組織運作中可以給予的控管權力與責任
+- 流程的問題
+	- 工作的製程
+	- 工作如何有效的分解
+- 策略的問題
+	- 如何清楚的定義專案範疇
+	- 正確的選定專案策略
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理循環 
+![](/images/pm/pmCycle.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理的知識結構 
+- 硬技術(Hard Skill)：包括成本分析、品質確保、時程規劃、風險控管、流程設計、報表作業等方面的管理技術與工程技術
+- 軟技術(Soft Skill)：包括處理形形色色人的問題、互動、溝通、衝突化解、利害關係人應對、領導藝術等
+</script></section>
+<section data-markdown><script type="text/template">
+## 成功的專案 
+- 要能在規劃的時間內(**如期**)，符合規劃的品質(**如質**)，在規劃的預算內(**如成本**)，完成專案目標，而且專案的**利害關係人能接受專案的成果**
+- 成功的專案是指符合或超出利害關係人預期的專案
+- 要成功地完成專案，通常受限於四項因素：**範圍、成本、時程、顧客滿意**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理的成功、失敗因素
+- 專案管理的成功因素
+	- 優秀的專案經理人
+	- 足夠規劃時間
+	- 良好的溝通
+	- 行動的決心(由上而下的承諾)
+	- 妥善的財務規劃(專案追蹤與管制)
+- 專案管理的失敗因素
+	- 沒有事先將待解決的問題定義清楚
+	- 專案經費管理不良，耗費過多成本	
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案管理軟體
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理軟體 - [**Project**_Libre_](https://www.projectlibre.com/)
+![](/images/pm/plibreWeb.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## **Project**_Libre_
+![](/images/pm/plibre.png)
+</script></section>
+
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 結語	
+</script></section>
+<section data-markdown><script type="text/template">
+## 做事的方法
+<ul>
+<li>學會專案管理的 12 堂課，作者鍾文武老師在自序中寫道：</li>
+<ul>
+	<li class="fragment">事先完整<b>詳實的規劃</b></li>
+	<li class="fragment">有紀律的<b>確實執行計畫</b></li>
+	<li class="fragment">隨時監控，<b>適度修正改善</b></li>
+	<li class="fragment"><b>逐一達成專案預設的目標</b></li>
+</ul>
+<li class="fragment">經過百年來的實務證實，這是一套有效率的方法</li>
+</ul>
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
