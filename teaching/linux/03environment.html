@@ -95,15 +95,14 @@ _斜體字型_ 是 CLI 的 **command** ; **␣ 符號表示空白**
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
 - _whoami_
--  *TZ='America/Los_Angeles' date*
+-  *TZ='America/Los_Angeles' ␣ date*
 	- [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 	- CST表示中國標準時間(China Standard Time), PDT表示太平洋夏令時間(Pacific Daylight Time)
 - **_cal_** //-A2 //after 2 month, -B2 // before 2 month
 - _uname ␣ -a_
 - _clear_
 - _cal ␣ 6 ␣ 2022_
-- _du ␣ -m ␣ ~
-	-  **~** home directory
+- _du_ ␣ -m ␣ ~ // **~** home directory
 - _du ␣ -h ␣ ~_
 </script>
 </section>
@@ -123,13 +122,13 @@ _斜體字型_ 是 CLI 的 **command** ; **␣ 符號表示空白**
 	- **_cd_ [OPTIONS] directory** // cd(change directory) command  is a shell builtin which is used to change the current working directory.
 		- _cd ␣ ~_ // home directory
 		- _cd ../_ // go to up layer directory
-	- **_pwd [OPTION]..._** // print name of current/working directory
+	- **_pwd [OPTION]..._** //print name of current directory
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## Try It by Yourself
 - *ls*
-- *ls ␣ -al ␣ /*
+- _ls ␣ -al ␣ /_
 - _cd ␣ /usr/bin_
 - _pwd_
 - _cd ␣ ~_
@@ -380,6 +379,16 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 	- **Get(取得)** GWSL
 	- **Lanuch(開啟)** GWSL
 </script></section>
+<section data-markdown><script type="text/template">
+## Testing for X Window
+- Installing xeyes of X Window client software
+	- _sudo ␣ apt ␣ install ␣ xeyes_
+	- **_sudo ␣ apt ␣ install ␣ x11-apps_**
+- Input the following command
+	- **_xeyes_** // or _xeyes  ␣  &_
+	- **_xclock_** // or _xclock  ␣  &_
+	- **xcalc_** // or _xcalc  ␣  &_
+</script></section>
 </section><!--end block-->
 
 <section><!--star block-->
@@ -405,7 +414,7 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 - [Lubuntu desktop](https://lubuntu.me/): Lubuntu is an official Ubuntu flavor which uses the Lightweight **Qt Desktop Environment (LXQt)**
 </script></section>
 <section data-markdown><script type="text/template">
-## X Window Environments
+## X Window Environments (1/3)
 - [Enlightenment](https://www.enlightenment.org/) Window Manager
 <figure style="float: right">
 <img src="/images/linux/xeyes.png" width="150" alt="xeyes">
@@ -426,17 +435,20 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 	- [GNOME](https://www.gnome.org/),[Unity](https://ubuntuunity.org/), 
 	[Cinnamon](https://spins.fedoraproject.org/cinnamon/), [MATE](https://mate-desktop.org/)
 	- _sudo ␣ apt ␣ install ␣ ubuntu-unity-desktop_
-	- _sudo ␣ apt ␣ install ␣ cinnamon-desktop-environment_
-	- _sudo ␣ apt ␣ install ␣ ubuntu-mate-desktop_
 </script>
 </section>
-
 <section data-markdown><script type="text/template">
-## X Window Environments
+## X Window Environments (2/3)
+- GNOME Desktop Series
+	- _sudo ␣ apt ␣ install ␣ cinnamon-desktop-environment_
+	- _sudo ␣ apt ␣ install ␣ ubuntu-mate-desktop_
 - KDE Desktop Series
 	- KDE Plasma 5 , [Trinity Desktop Environment (TDE)](https://www.trinitydesktop.org/)
 	- _apt ␣ install ␣ kde-full_ or _apt ␣ install ␣ kubuntu-desktop_
-	- **_ls  ␣ /usr/bin/kde*  ␣ |  ␣ grep  ␣ session_** which command to find KDE execution program 
+	- **_ls_  ␣ /usr/bin/kde  ␣ |  ␣ grep  ␣ session_** //which command to find KDE execution program 
+</script></section>
+<section data-markdown><script type="text/template">
+## X Window Environments(3/3)
 - [LXDE (Lightweight X11 Desktop Environment)](https://www.lxde.org/), LXQt
 	- _sudo ␣ apt ␣ install ␣ lxde_
 	- _lxsession_ or _sudo ␣ lxsession_
@@ -501,10 +513,10 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 - **Run VcXsrv X server** such as last slides which is a example for setup X server
 - **Reboot Ubunu** on WSL2
 	- _wsl ␣ --shutdown_ (ConEmu command line)
+- You should make sure that **GNOME have been installed** on WSL2 as below command
+	- **_sudo ␣ apt ␣ install ␣ ubuntu-desktop gnome_** //update and upgrade system first
 - Run GNOME with as following command
 	- **_sudo ␣ gnome-session_**
-	- You should make sure that **GNOME have been installed** on WSL2 as below command
-	- **_sudo ␣ apt ␣ install ␣ ubuntu-desktop gnome_**
 </script>
 </section>
 </section><!--end block-->
