@@ -212,6 +212,30 @@ made **every two years**, would receive **Long-Term Support** for large-scale de
 - Video for teaching how to use ["wsl --install" command](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) or [Microsoft store](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) to install Windows Subsystem for Linux.
 </script>
 </section>
+<section data-markdown><script type="text/template">
+## List of WSL command (1/2)
+- Using _wsl_ command in command line interface(CLI) of Windows System
+- List of wsl command of used frequently
+	- wsl --help //wsl command help
+	- wsl --list [option] // -l for short, list distribution
+		- --all // 列出所有已經安裝在 WSL 的 Linux 版本
+		- --online, -o // 列出可以安裝的版本
+		- --verbose, -v // 列出已經安裝在 WSL 版本的詳細資訊
+	- wsl --install [Distro] // [Distro] 就是 -l -o 可安裝的版本名稱
+	- wsl --set-default, -s [Distro // 設定預設的 Linux 版本
+</script></section>
+<section data-markdown><script type="text/template">
+## List of WSL command (2/2)
+- List of wsl command of used frequently
+	- wsl --version, -v // 目前 Windows 系統安裝的 wsl 版本
+	- wsl --update // 更新 wsl 安裝的 linux 版本
+	- wsl --status // 顯示目前 wsl 的狀態
+	-- wsl --shutdown // 關閉 linux
+- Check ubuntu version command
+	- lsb_release -v
+- Check linux version command
+	- uname -a
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->

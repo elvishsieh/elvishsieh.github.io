@@ -376,7 +376,7 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 <img src="/images/linux/gwslLogo.png" style="float: right" alt="GWSL logo">
 - Install GWSL on Windows
 	- Search GWSL on Microsoft Store
-	- **Get(取得)** GWSL
+	- **Get(取得)** GWSL(NT$239)
 	- **Lanuch(開啟)** GWSL
 </script></section>
 <section data-markdown><script type="text/template">
@@ -474,8 +474,8 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 - **Upgrade Ubuntu System**
 	- _sudo ␣ apt ␣ update ␣ -y_
 	- _sudo ␣ apt ␣ upgrade ␣ -y_
-- Installing Axel, a Command-Line Download Accelerator for Linux
-	- **_sudo ␣ apt ␣ install ␣ axel_**
+- Installing nala or axel, a parallel download accelerator
+	- **_sudo ␣ apt ␣ install ␣ nala_** // or axel
 </script>
 </section>
 
@@ -488,7 +488,7 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 <ul>
 	<li><span style="color:red">Install GNOME with command</span> as following
 		<ul>
-			<li>sudo apt install ubuntu-desktop gnome</li>
+			<li>sudo ␣ nala ␣ install ␣ ubuntu-desktop ␣ gnome</li>
 		</ul>
 	</li> 
 	<li><span style="color:red">Open up your ~/.bashrc</span> and  paste this in at the end and save
@@ -514,7 +514,7 @@ bash ubuntu-wsl2-systemd-script.sh</code></pre>
 - **Reboot Ubunu** on WSL2
 	- _wsl ␣ --shutdown_ (ConEmu command line)
 - You should make sure that **GNOME have been installed** on WSL2 as below command
-	- **_sudo ␣ apt ␣ install ␣ ubuntu-desktop gnome_** //update and upgrade system first
+	- **_sudo ␣ nala ␣ install ␣ ubuntu-desktop ␣ gnome_** //update and upgrade system first
 - Run GNOME with as following command
 	- **_sudo ␣ gnome-session_**
 </script>
