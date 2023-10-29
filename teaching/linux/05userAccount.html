@@ -120,6 +120,41 @@ sam:x:1002:1002:sam hsieh,room1001,workTEL23456789,homeTEL1234,otherTEL0928-9768
 - **_sudo ␣ less ␣ /etc/group_**
 - **_who_** 
 </script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu
+- sudo adduser userName 錯誤訊息： 不在 sudoers 檔案中。
+![](/images/linux/addProblem.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu 22.04.3(1/4)
+- su root //switch root administrator
+![](/images/linux/addProblem04.3.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu 22.04.3(2/4)
+- Edit sudoers with visudo command
+![](/images/linux/visudo.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu 22.04.3(3/4)
+- sudo adduser userName
+![](/images/linux/adduser.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu 22.04.3(4/4)
+- Press Y to complete it.
+![](/images/linux/adduserY.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Add User on Ubuntu 22.04
+- sudo adduser userName and input password
+![](/images/linux/addProblemV20.png)
+</script></section>
+<section  data-markdown><script type="text/template">
+## Switch root on Ubuntu 22.04
+- su root on Ubuntu 22.04 and 20.04
+![](/images/linux/suRoot.png)
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -251,7 +286,7 @@ by configuring their **default shell**, editor, key bindings, and **language set
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# System Adminstrator
+# System Administrator
 </script>
 </section>
 <section data-markdown><script type="text/template">
