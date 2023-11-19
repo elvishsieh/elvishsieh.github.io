@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>標題與排版(Heading and Typesetting)</title>
+<title>時程管理</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -13,6 +13,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -45,65 +47,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# 文字排版(typesettng)
+# 時程管理
 </script></section>
 <section data-markdown><script type="text/template">
-## 標題文字(1/2)
-- **```# 標題一```** 的結果是 
-# 標題一
-- **```### 標題三```** 的結果是 
-### 標題三
-- **```###### 標題六```** 的結果是 
-###### 標題六
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 標題文字(2/2) 
-| ✅ Do this 		| ❌ Don't do this 	|
-| :--- 		         | :---					|
-| ```# Here's a Heading``` | ```#Here's a Heading``` |
-| ```Try to put a blank line before...```<br /> | Try to put a blank line before...  |
-|									     | \# Heading <br />
-```# Heading```				<br />				 ..and after a heading.<br />		
-							<br />			 									
-```...and after a heading.``` 												|
+## 專案管理五大流程群組與專案時程管理知識領域配適表
+![](/images/pm/scheduleT.png)
+- 專案時程管理 ITTO 請參考 Textbook p.6-2 ~ 6-3
 </script></section>
 <section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template">
-## 文字效果
-- **```**粗體文字與的語法**```** 的結果：  **粗體文字的語法** X<sdown>2</sdown>
-- **```*這是斜體文字的語法*```** 的結果： *這是斜體文字的語法*
-- **```_這是另一種斜體文字的語法_```** 的結果： _這是另一種斜體文字的語法_
-- **```~~這是刪除線的語法~~```** 的結果： ~~這是刪除線的語法~~
-- **```> 這是區塊標示文字```** 的結果：
-> 這是區塊標示文字的結果，讓我們可以標示的些文字是特殊的一段文字片段
-</script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-# 項目符號
-</script></section>
-<section data-markdown><script type="text/template">
-	- 項目符號 1
-- 項目符號 2
-    * 下一層項目符號 1
-    * 下一層項目符號 2
-- 項目符號 3
-
-1. 數字項目符號 1
-2. 數字項目符號 2
-    * 下一層項目符號 1
-    * 下一層項目符號 2 
-3. 數字項目符號 3
-
-* 項目符號 1
-    - 下一層項目符號 1
-    - 下一層項目符號 2 
-* 項目符號 2 
-</script></section>
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
@@ -120,6 +71,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -217,7 +169,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

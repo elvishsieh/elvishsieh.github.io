@@ -175,11 +175,11 @@ This is **not a problem** since the **permissions** of symbolic links are **neve
 <section data-markdown><script type="text/template">
 ## Example of <br />Symbolic Permission
 - **_mkdir ␣ perm ␣ ; cd ␣ perm_**
-- _ls ␣ -la ␣ / ␣ > ␣ symbloic.txt_
+- _ls ␣ -la ␣ / ␣ > ␣ symbolic.txt_
 - **_ls ␣ -la ␣ symbolic.txt_**
 - **_sudo ␣ chmod ␣ g+w,o-r ␣ symbolic.txt_**
 - **_ls ␣ -la ␣ symbolic.txt_**
-- **_cd ../ ; sudo usermod -g developer  ␣ perm_**
+- **_cd ␣ ../ ␣ ; ␣ sudo ␣ usermod ␣ -g ␣ developer  ␣ perm_**
 - **_sudo ␣ chmod ␣ g+w,o-rx ␣ perm_**
 - **_ls ␣ -la_**
 </script></section>
@@ -233,7 +233,7 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 - **_sudo ␣ chmod ␣ 660 ␣ numeric.txt_**
 - **_ls ␣ -la ␣ numeric.txt_**
 - **_sudo ␣ chmod ␣ 750 ␣ numeric.txt_** (合適嗎?)
-- **_cd ../ ; sudo usermod -g developer  ␣ num_** (755)
+- **_cd ␣ ../ ␣ ; ␣ sudo ␣ usermod ␣ -g ␣ developer ␣ num_** (755)
 - **_sudo ␣ chmod ␣ 770 ␣ num_**
 - **_ls ␣ -la_**
 </script></section>
@@ -281,22 +281,33 @@ rm ~/.poshthemes/themes.zip</code></pre>
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Usage special packaged files to install oh-my-posh
-- Download from the "file" folder of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
-- Download [Nerd Fonts](https://www.nerdfonts.com/) and installed it on Linux system
+## Installing oh-my-posh step(1/2)
+- Download InconsolataLGC.zip and oh-my-posh.tgz from the "file" folder of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
+- Install unzip and extract InconsolataLGC.zip and oh-my-posh.tgz files
+	- **_cd  ␣ 下載 ␣ && ␣ sudo ␣ apt ␣ install ␣ unzip_**
+	- **_unzip ␣ InconsolataLGC-20231119T064455Z-001.zip_**
+	- **_unzip ␣ InconsolataLGC.zip_**
+	- **_unzip ␣ oh-my-posh-20231119T078355Z-001.zip_**
+	- **_tar ␣ zxvf ␣ oh-my-posh.tgz_**
+- Move into home directory
+	- **_mv ␣ bin ␣ ~ ␣ && ␣ mv ␣  \\.po\<Tab\> ␣ ~_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing oh-my-posh step(2/2)
 - Setting up Oh-My-Posh
 	- change the file mode of Oh-My-Posh to execute in linux
-		- **_chmod ␣ +x ␣ posh-linux-amd64_**
+		- **_chmod ␣ +x ␣ ~/bin/posh-linux-amd64_**
 	- Add the following code in .bashrc
-<pre><code>eval "$(~/bin/posh-linux-amd64 init bash --config ~/.poshthemes/atomic.omp.json)"</code></pre>
+		- **_echo 'eval "$(~/bin/oh-my-posh init bash --config ~/.poshthemes/atomic.omp.json)"' >> ~/.bashrc_**
 - Setting terminal console font using Nerd fonts
-	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型
+	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型 >> 瀏覽下載的 Inconsolata LGC Nerd Font Complete.ttf 字型
 </script>
 </section>
 <section data-markdown><script type="text/template">
-# Install oh-my-posh with shell(1/2)
-<pre><code data-trim data-line-numbers>#!/usr/bin/bash
+## Install OhMyPosh with shell(1/2)
+- Download dwOhmyposh.sh from  from the "file/src/bash" folder of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
 
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 mkdir ~/bin
 wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O ~/bin/oh-my-posh
 chmod +x ~/bin/oh-my-posh
@@ -311,9 +322,10 @@ echo "You should run 'chmod +x $0' to make this shell script to be executed on L
 </code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-# Install oh-my-posh with shell(2/2)
-<pre><code data-trim data-line-numbers>#!/usr/bin/bash
+## Install OhMyPosh with shell(2/2)
+- Download installOhmyposh.sh from  from the "file/src/bash" folder of [teaching material](https://drive.google.com/drive/folders/1CiXl6PG8e65lOm0Le9ofmG5MnHUCkbVc) 
 
+<pre><code data-trim data-line-numbers>#!/usr/bin/bash
 OMP=oh-my-posh.tgz
 FN=InconsolataLGC.zip
 
