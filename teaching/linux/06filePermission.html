@@ -177,11 +177,12 @@ This is **not a problem** since the **permissions** of symbolic links are **neve
 - **_mkdir ␣ perm ␣ ; cd ␣ perm_**
 - _ls ␣ -la ␣ / ␣ > ␣ symbolic.txt_
 - **_ls ␣ -la ␣ symbolic.txt_**
-- **_sudo ␣ chmod ␣ g+w,o-r ␣ symbolic.txt_**
+- **_sudo ␣ chmod ␣ g-w,o-r ␣ symbolic.txt_**
 - **_ls ␣ -la ␣ symbolic.txt_**
-- **_cd ␣ ../ ␣ ; ␣ sudo ␣ usermod ␣ -g ␣ developer  ␣ perm_**
-- **_sudo ␣ chmod ␣ g+w,o-rx ␣ perm_**
-- **_ls ␣ -la_**
+- **_sudo ␣ addgroup ␣ students_** //without students group
+- **_cd ␣ ../␣; ␣ sudo ␣usermod ␣-g ␣students ␣ \<Username\>_**
+- **_ls ␣ -la_** 
+- **_sudo ␣ chmod ␣ g-w,o-rx ␣ perm && ls ␣ -la_**
 </script></section>
 <section data-markdown><script type="text/template">
 ## Sticky bits
@@ -226,14 +227,14 @@ with a numeric mode requires an additional leading zero, or leading = like 00755
 </code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of <br />Symbolic Permission
+## Example of <br />Numeric Permission
 - **_mkdir ␣ num ␣; cd ␣ num_**
 - _ls ␣ -la ␣ / ␣ > ␣ numeric.txt_
 - **_ls ␣ -la ␣ numeric.txt_** (644)
 - **_sudo ␣ chmod ␣ 660 ␣ numeric.txt_**
 - **_ls ␣ -la ␣ numeric.txt_**
 - **_sudo ␣ chmod ␣ 750 ␣ numeric.txt_** (合適嗎?)
-- **_cd ␣ ../ ␣ ; ␣ sudo ␣ usermod ␣ -g ␣ developer ␣ num_** (755)
+- **_cd ␣ ../␣; ␣ sudo ␣usermod ␣-g ␣students ␣ \<Username\>_** (775)
 - **_sudo ␣ chmod ␣ 770 ␣ num_**
 - **_ls ␣ -la_**
 </script></section>
@@ -300,7 +301,7 @@ rm ~/.poshthemes/themes.zip</code></pre>
 	- Add the following code in .bashrc
 		- **_echo 'eval "$(~/bin/oh-my-posh init bash --config ~/.poshthemes/atomic.omp.json)"' >> ~/.bashrc_**
 - Setting terminal console font using Nerd fonts
-	- 終端機 >> 偏好設定 >> 未命名 >> 自訂字型 >> 瀏覽下載的 Inconsolata LGC Nerd Font Complete.ttf 字型
+	- 終端機中按滑鼠右鍵 >> 偏好設定 >> 未命名(請自己更名) >> 自訂字型 >> 瀏覽下載的 InconsolataLGC Nerd Font 字型
 </script>
 </section>
 <section data-markdown><script type="text/template">
