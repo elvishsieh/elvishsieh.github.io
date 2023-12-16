@@ -50,12 +50,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## Vim mode
-- Normal mode
-- Visual mode
-- Insert mode
-- Command Line
+## Introduction to Vi or Vim
+- Installing vim
+	- **_sudo␣ apt␣ install␣ vim_**
+- Lanuching and quit Vim
+	- **_vim_** or **_vim␣ fileName_** and **:q!** or **:q** to exit vim
+- Vim mode
+	- Normal mode: It was **default mode** and press **\<ESC\>** key to back to Normal mode. 
+	- Visual mode: press **v** key
+	- Insert mode: press **i** key
+	- Command Line: press **":"** key in Normal mode or press **"\<ESC\> + :"** in the other mode.
 </script></section>
+<section data-markdown><script type="text/template">
+## Running Vim at the first time
+- Make sure Vim could be runned in your system?
+	- **_whereis␣ vim_**
+	- **_sudo␣ apt␣ install␣ vim_**, if Vim cann't be runned in your system.
+- Editing a drill.txt file which have the content as the following
+	- **_vim␣ drill.txt_**
+	<pre><code></code></pre>
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -63,7 +81,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # vimtutor
 </script></section>
 <section data-markdown><script type="text/template">
-## Vimtutor Lesson
+## Vimtutor Lesson(1/4)
+- **_vimtutor_**
 - Moving the Cursor
 <pre><code> ** To move the cursor, press the h,j,k,l keys as indicated. **
 	  ^
@@ -72,8 +91,37 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	  j                The j key looks like a down arrow.
 	  v</code></pre>
 - Exiting vim
-
+	1. Press **\<ESC\>** key (to make sure you are in Normal mode).
+  	
+	2. Type  **:q! \<ENTER\>**
 </script></section>
+<section data-markdown><script type="text/template">
+## Vimtutor Lession(2/4)
+- Change **insert mode** to edit the file or program
+
+	1. **Press  i  to insert text** and type in the necessary additions.
+
+	2. Insert and delete text as you learned in the previous lessons.
+
+	3. As each error is fixed press **\<ESC\>** to return to Normal mode.
+
+	4. Save the file with changes and exit Vim with  **:wq \<ENTER\>** or **:q!  \<ENTER\>**  to trash all changes.
+</script></section>
+<section data-markdown><script type="text/template">
+## Vimtutor Lession(3/4)
+- Deletion command
+	- To delete from the cursor up to the next word type:        dw
+	- To delete from the cursor up to the end of the word type:  de
+	- To delete from the cursor to the end of a line type:       d$
+	- To delete a whole line type:                               dd
+- Drill deletion command
+	1. 
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 </div>

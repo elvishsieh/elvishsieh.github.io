@@ -402,6 +402,35 @@ echo "You should run 'chmod +x $0' to make this shell script to be executed on L
 ## /mnt folder permissions(3/3)
 ![](/images/linux/mntPerm3.png)
 </script></section>
+<section data-markdown><script type="text/template">
+# Trouble Shooting
+</script></section>
+<section data-markdown><script type="text/template">
+## 手動添加分享資料夾
+- 假設在 Windows 系統分享的資料夾名稱是 Win_Dir， Linux 分享的資料夾名稱是 /mnt/share，依照下面步驟、指令，手動加入分享的資料夾
+	1. **_sudo ␣ mkdir ␣ /mnt/share_**
+	2. **_sudo ␣ mount ␣ -t ␣ vboxsf ␣ Win_Dir ␣ /mnt/share_**
+- 如何設定在開機時將分享資料夾自動載入 Linux 系統
+	1. **_sudo ␣ nano ␣ /etc/fstab_** ，加入下面的設定值
+	2. **Win_Dir /mnt/shared vboxsf rw,gid=,uid=,auto**
+- 卸除掛載的分享資料夾
+	- **_sudo ␣ umount ␣ -f ␣ /mnt/share_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Change /mnt permissions
+1. Make sure vboxsf group in /etc/group
+	- **_sudo  ␣ less  ␣ /etc/group  ␣ | ␣ grep ␣ vboxsf_**
+2. Using chgrp command to change /mnt folder into vboxsf group
+	- **_sudo ␣ chgrp ␣ vboxsf ␣ /mnt_**
+3. Check it whether have been changed group ownship or not?
+	- **_ls ␣ -la ␣ /mnt_**
+4. Make sure it have been shared "公用資料夾" in Virtualbox.
+5. Cope files or figures into /mnt folder, then check whether those files or figures on Windows or not?
+</script></section>
+<section data-markdown><script type="text/template">
+## Screenshot of /mnt permissions
+![](/images/linux/chgrpMnt.png)
+</script></section>
 </section><!--end block-->
 
 </div>

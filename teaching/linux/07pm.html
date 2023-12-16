@@ -479,7 +479,132 @@ upgrade     Update package list and upgrade the system.</code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Trouble<br/> shooting
+# Upgrade Ubuntu
+</script></section>
+<section data-markdown><script type="text/template">
+## Ubuntu lifecycle<br /> and release cadence
+- [Ubuntu releases codename](https://ubuntu.com/about/release-cycle)
+	- **22.04 LTS (Jammy Jellyfish,似果醬的水母)** Apr 2022. Apr 2027. Apr 2032(five year support)
+	- Ubuntu 24.04 LTS, codenamed **Noble Numbat(高貴的袋食蟻獸)**, **is scheduled for release on April 25, 2024.**
+- [Ubuntu development codeNames](https://wiki.ubuntu.com/DevelopmentCodeNames)
+	- The development codename of a release takes **the form "Adjective Animal"**
+	- For example:  Kinetic	Kudu, 動力的扭角羚羊；Lunar Lobster, 似月亮的龍蝦
+</script></section>
+<section data-markdown><script type="text/template">
+## What is the version of Ubuntu?
+- How to check your Ubuntu version?
+	- **_lsb_release ␣ -a_**
+![](/images/linux/ubuntuVersion.png)
+- **How long** to support the development version?
+	- **6 month**, for example the **Kinetic Kudu release on Oct 2022 and the end on Apr 2023.**
+</script></section>
+<section data-markdown><script type="text/template">
+## Why should you upgrade Ubuntu?
+- **Ubuntu users are prompted to upgrade at different times** depending on their current release.
+![](/images/linux/promptUpgrade.png)
+	- Ubuntu 21.10 are prompted to upgrade to 22.04 LTS
+- Your system was **installed an [End of Life (EOL) release](https://help.ubuntu.com/community/EOLUpgrades) of Ubuntu system.**
+- **kernel driver was not support a new plugin device** for installed version of Ubuntu. 
+</script></section>
+<section data-markdown><script type="text/template">
+## An end of life version of Ubuntu
+- **The Kinetic version have been an End of Lifecycle version** of Ubuntu as following figure 
+![](/images/linux/kinetic.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Notice for Upgrade System before
+- This is often **desirable on production environments** which you want to **keep as stable as possible**.
+- At the same time, **configuration applicable for older versions might not always work with newer versions**. 
+- Getting ready to upgrade
+	- Backup old system configuration file, e.g. /etc, ~/dotfiles, /home, server configuration files, kernel, ..., etc.
+	- Before proceeding **ensure that your software is up to date** by running:
+    - **_sudo apt update && sudo apt upgrade_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Upgrading Ubuntu(1/3)
+- Update /etc/apt/sources.list
+	- To begin the upgrade, make sure you have a sources.list like the following, with CODENAME being your release
+
+<pre><code>## EOL upgrade sources.list
+# Required
+deb http://old-releases.ubuntu.com/ubuntu/ CODENAME main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ CODENAME-updates main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ CODENAME-security main restricted universe multiverse
+# Optional
+#deb http://old-releases.ubuntu.com/ubuntu/ CODENAME-backports main restricted universe multiverse</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Upgrading Ubuntu(2/3)
+- Dependencies
+	- Installing Update-manager by running
+	-  **_sudo aptitude install update-manager-core update-manager_**
+	- Desktop meta
+		- You can (re)install these -desktop packages before or after your upgrade.
+- Kernel
+<pre><code>sudo aptitude install linux-image-generic linux-headers-generic
+# or
+sudo aptitude install linux-image-server linux-headers-server
+# or
+sudo aptitude install linux-image-virtual linux-headers-virtual</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Upgrading Ubuntu(3/3)
+- Run the upgrade
+	- After you've done the above, run the updates and upgrade:
+	<pre><code>sudo apt-get update
+sudo apt-get dist-upgrade
+sudo do-release-upgrade</code></pre>
+- Unsupported upgrades
+	- it shows an error similar to this:
+<pre><code>An upgrade from 'eoan' to 'focal' is not supported with this tool.</code></pre>
+	- If that happens, you need to download a version-specific upgrader from [https://changelogs.ubuntu.com/meta-release](https://changelogs.ubuntu.com/meta-release)
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary for Upgrade Ubuntu
+- Backup configuration and data
+	- **_sudo tar zcvf backup.tar.gz ~ /etc /home_**
+- Editing /etc/apt/source.list by vim
+	- **_sudo vim /etc/apt/source.list_**
+	- Type: **_:%s/kinetic/jummy/gc_**
+- Update all of packages
+	- **_sudo apt update && apt upgrade_**
+- Upgrading Ubuntu
+	- **_sudo apt install update-manager-core update-manager_**
+	- **_sudo do-release-upgrade -c_** // check upgrade version
+	- **_sudo do-release-upgrade_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Screenshot of Upgrade (1/4)
+![](/images/linux/upgrade.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Screenshot of Upgrade (2/4)
+![](/images/linux/upgrade2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Screenshot of Upgrade (3/4)
+![](/images/linux/upgrade3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Screenshot of Upgrade (4/4)
+![](/images/linux/upgrade4.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appendix
+</script></section>
+<section data-markdown><script type="text/template">
+## What is the version of WSL?
+- Check WSL version command that should be running in Windows System
+	- **_wsl ␣ -v_** 
+- What did the Linux version have been installed on WSL?
+	- **_wsl ␣ -l ␣ -v_**
+![](/images/linux/wslVersion.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Trouble shooting
 </script>
 </section>
 <section data-markdown><script type="text/template">

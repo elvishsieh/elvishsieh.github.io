@@ -52,12 +52,487 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 專案管理五大流程群組與專案時程管理知識領域配適表
 ![](/images/pm/scheduleT.png)
-- 專案時程管理 ITTO 請參考 Textbook p.6-2 ~ 6-3
+- **專案時程管理 ITTO 請參考 Textbook p.6-2 ~ 6-3**
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## 專案時程管理(1/4)
+- 先掌握專案範疇，再作時間管理
+	- 在專案管理中，**「範疇」與「時間」的關係密不可分**
+	- 將「範疇」與「時間」並列，可看出兩者的關係(如下圖所示)，**做好範疇管理是時間管理的基礎**
+![](/images/pm/scopeSchedule.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案時程管理(2/4)
+- **先掌握專案範疇，再作時間管理**
+	- 先蒐集需求，定義範疇，建立工作分解結構(WBS)，**將「範疇管理」做好後，接下來就才能進行「時間管理」**
+	- **定義活動，排序活動，估算活動的資源與時程，最後發展時程**
+	- 活動
+		- **活動是專案中，進行作業的管理單位**
+		- 在專案執行過程，必須適當的分配活動或任務
+		- **透過範疇管理的「工作分解結構」(WBS)，可再將「工作項目」進一步分解成「活動」，方便專案成員執行，共同完成專案**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案時程管理(3/4)
+- 對的時間管理方法
+	- 關於事情的輕重緩急，一般可用**時間的四個象限**來做為執行
+	<figure style="float: right">
+		<img src="/images/pm/quadrant.png" alt="Schedule Quadrant">
+		</figure>	
+	的原則
+	- 時間的四個象限就是把工作依照**重要性**與**緊急性**兩個特性，展開成四種狀況
+		1. 重要且緊急：這是要最優先處理的
+		2. 重要但不緊急：這是次優先處理的
+		3. 不重要但緊急：這是第三順位處理
+		4. 不重要也不緊急：這是最後才處理
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案時程管理(4/4)
+- 對的時間管理方法
+	- 時間管理技巧
+		- 盡可能**在事情還沒有變緊急之前，就要妥善處理重要但不緊急的事**，即是事先設法有效減少重要且緊急的事 
+- **專案時間管理的主要工作程序**
+	1. 定義與排序活動
+	2. 列出各項活動所需的資源，以及確認資源需求的時間
+	3. 估算每項活動所需的時間
+	4. 發展時程
+	5. 加入重要里程碑
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理金三角第一要素-「時間」 
+- 一般管理和專案管理有一個很大的不同，就是專案管理很注意排定進度，因此有學者認為**「專案是為了解決問題所排定的進度表」**
+- 但不幸的是，有些人誤以為「專案管理充其量不過是排進度罷了」
+- 這是很大的誤解，**進度只是其中一項工具，用來管理專案工作，不應該被視為主體**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 排定專案進度
+</script></section>
+<section data-markdown><script type="text/template">
+## 排定專案進度：網路圖 (1/2)
+- 甘特圖(Gantt Chart)，即**長條圖**
+<figure style="float: right">
+<img src="/images/pm/GanttChart.png" alt="Gantt Chart">
+</figure>
+
+	- 在 1985 年以前排定專案進度的工具只有長條圖(Bar Chart)，自從亨利.甘特(Henry Gantt)，用長條圖說明一項全國性系統的進度以後，從此人們把長條圖稱為甘特圖
+	- 長條圖**沒有把作業間的關聯性表達出來，這是長條圖很大的缺點，如此就很難看出某項作業延誤**
+</script></section>
+<section data-markdown><script type="text/template">
+## 排定專案進度：網路圖 (2/2)
+- **要徑法**(Critical Path Method, CPM)
+	- 為了克服長條圖的缺點，在 1950 年晚期至 1960 年初期期間，發展 CPM/PERT 技術
+	- 由杜邦(Du Pont) 所開發的時程排定方法，利用箭號來描述專案中各項作業的先後或平行關係
+- **計畫評核術**(Program Evaluation Review Technique, PERT)
+	- 由美國海軍及布艾漢顧問集團公同發轉出來的技術
+- **圖解評核術**(Graphical Evaluation Review Technique, GERT)
+	- 類似於計畫評核術，但又優於計畫評核術
+</script></section>
+<section data-markdown><script type="text/template">
+# 網路圖的基本概念
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用網路圖進行專案規劃與控制的步驟
+1. 詳細描述整個專案計畫，尤其是各項作業之間的先後關係
+2. 繪製專案網路圖
+3. 估算整個專案之總完工時間，並找出專案的關鍵路徑(Critical Path, CP)
+4. 監督專案的工作進度，從關鍵路徑中找出可改善之處 
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案網路圖中各種符號意義表 
+![](/images/pm/symbol.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案中各項作業之先後順序關係
+- **先行作業**(Predecessors)：於給定作業開始之前，必須完成的作業
+- **後續作業**(Successors)：在給定作業完成之後，才可以開始的作業
+- **並行作業**(Parallel activity)：與給定作業可同時進行的作業，兩者之間並無任何先後關係的要求
+- **虛作業**(Dummy activity)：僅用來表示作業間的先後關係，本身無實質工作內容，故不需要時間 
+</script></section>
+<section data-markdown><script type="text/template">
+## 網路圖製作基本原則 
+- 製作網路圖時，有兩個基本原則
+	- **儘可能先做合理的安排後**，才來考量資源有限的問題
+	- **保持單一計時單位，絕對不要把小時和分鐘混合使用**
+- 製作網路圖注意事項
+	- **網路圖的問題不見得只有一個答案**
+	- 不同的人所繪製出來的網路圖，多多少少都有些不一樣之處	
+	- 繪製網路圖時，**除了部分必須遵守的規則外，其餘都是非常彈性的**
+- 專案的網路圖繪製方式
+	- 節點圖示活動法(Activity-On-Node, AON)
+	- 箭頭線示活動法(Activity-On-Arrow, AOA)	
+</script></section>
+<section data-markdown><script type="text/template">
+## 網路圖常用的專有名詞
+![](/images/pm/networkTerm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## AON 節點圖示活動法
+![](/images/pm/aon.png)
+- 在活動(Activity)被繪製入網路圖之前，要先釐清
+	- 那些活動是它的先行活動？
+	- 那些活動是它的接續活動？
+	- 那些活動可以同步進行或同步被完成？	
+</script></section>
+<section data-markdown><script type="text/template">
+## AOA 箭號圖示活動法
+- AOA 箭號圖示活動法是以箭號代表活動，並以節點代表事件，事件本身並不會消耗時間及資源
+- 一個事件是一個或多個活動開始或結束的時間點
+- AOA 箭號圖示活動法是事件導向的網路，強調活動的連接
+![](/images/pm/aoa.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 繪製 AOA 網路圖必須遵守的規則(1/3)
+- **節點編碼**
+	- 編號順序為由左到右，由上到下，由小到大
+	- 起點編號為最小，終點編號為最大
+- **作業順序**
+	- 每個作業的**起點編號都小於終點編號**
+	- 要滿足此規則，可用**圖形排序法，對圖形進行節點排序**
+- **路線不可循環(Cycle)**
+<figure style="float: right">
+<img src="/images/pm/rule6.png" alt="cycle rule">
+</figure>
+
+	- **起點與終點相同**，不斷重複的一系列作業，稱為循環
+	- 當專案網路圖有係線路循環時，表示**專案沒有完成的時候**
+</script></section>
+<section data-markdown><script type="text/template">
+## 繪製 AOA 網路圖必須遵守的規則(2/3)
+- 在一個節點開始之前，**位於它之前的所有節點必須先完成其相關作業**
+	- 下圖 6-5 所示， a, b, c 作業都完成才能開始 d 作業
+	- 下圖 6-7 所示， c 作業要等 b 作業完成才能開始， d 作業要等 a, b作業都完成才能開始
+![](/images/pm/rule.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 繪製 AOA 網路圖必須遵守的規則(3/3)
+- **任何二個節點之間不可有二個以上的聯結直接連接**
+	- 這是為避免在以流量網路模式表示時產生符號的混淆
+	- 下圖 6-8 a, b 作業同時由節點 1 到 節點 2
+	- 為避免混淆，使用虛作業 c，加入新節點 3 如圖 6-9 
+![](/images/pm/rule2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 具有虛擬活動的 AOA 網路圖
+![](/images/pm/dummy.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## AON 與 AOA 之比較
+- **傳統專案網路大都以AOA來表示**，但 AON 網路圖比傳統 AOA 網路圖多了下列優點
+	- AON 網路圖比AOA網路圖容易建構
+	- AON 網路圖係以圖形化表示，比較直覺易懂
+	- 當專案排程需調整或改變時， AON 網路圖較 AOA 網路圖容易修正
+	- AOA 方式繪圖不須用到虛作業，網路圖的繪製較為容易
+- AON 因為優點多，專案網路圖逐漸為使用者接受
+- 採用 **AOA 繪製的網路圖節點數以 AON 少**，適用於流量網路分析所進行的專案
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 傳統專案時程控制技術
+</script></section>
+<section data-markdown><script type="text/template">
+## 甘特圖(Gantt Chart)
+- 基本上呈現條狀，故又稱為條狀圖，**橫軸表示時間，縱軸表示活動項目或工作項目，線條表示在整個期間裡，計劃和實際活動完成的情況** 
+- 管理者可藉由甘特圖，看出專案進度的全貌；當專案開始執行後，也可進一步看出還有哪些工作項目未完成，並可評估工作提前或延後，是一種簡單的專案時間管理工具
+- 基本上，依據工作分解結構(WBS)的活動，進行排序後，接下來就能用甘特圖的方式來呈現專案進度
+- 一般而言，**甘特圖較適用於包含三十個以下作業活動的專案，三十個以上之專案則採用計畫評核術(PERT)或要徑法(CPM)方式較佳**
+</script></section>
+<section data-markdown><script type="text/template">
+## 甘特圖的限制
+- 甘特圖沒有表明活動間的相互關係 
+<figure style="float: right">
+<img src="/images/pm/GanttChart.png" alt="Gantt Chart">
+</figure>
+- **甘特圖無法表示較早或較晚開始的結果** 
+- **甘特圖無法表示在執行活動中的不確定性**，因此，也沒有敏感度分析
+- 繪製甘特圖時，計畫與時程是同時被繪製，因此，**要調整是件麻煩的事**
+</script></section>
+<section data-markdown><script type="text/template">
+## 甘特圖範例
+![](/images/pm/GanttChart2.png)
+</script></section>	
+<section data-markdown><script type="text/template">
+## 具有里程碑的甘特圖範例
+![](/images/pm/GanttChart3.png)
+</script></section>	
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 要徑法
+</script></section>
+<section data-markdown><script type="text/template">
+## 要徑法(CPM)
+- 1957 年由美國杜邦公司所發展 
+- 網路圖中**總浮時(Total Float Time)或總寬裕(Total Slack)為零的作業即為要徑**(Critical Path)，此乃決定專案是否能於預定期間內準時完成之關鍵路徑 
+- 要徑法有下列幾點重要概念
+	- **要徑是計畫最長的路徑**
+	- 關鍵路徑上任何活動的延遲，都會造成整個專案的延遲
+	- 需要有效管理要徑上的所有活動	
+</script></section>
+<section data-markdown><script type="text/template">
+## 要徑法的範例
+![](/images/pm/cpm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 要徑法網路圖繪製方式
+- 節點圖(Precedence Diagramming Method, PDM)：作業項目以節點表示，結束與開始(Finish-to-Start, FS)、開始與開始(SS)、開始與結束(SF)、結束與結束(FF)關係型式，**無虛作業**
+- 箭線圖(Arrow Diagramming Method, ADM)：作業項目以箭線表示，只有 FS 關係型式，**有虛作業**
+- 節點圖與箭線圖之差異比較
+<figure style="float: right">
+<img src="/images/pm/nodeArrow.png" alt="compare Node with Arrow">
+</figure>
+</script></section>
+<section data-markdown><script type="text/template">
+## 要徑法(CPM)案例一
+- 某一專案作業時間及前置作業關係如下表，繪製箭線圖網路圖
+![](/images/pm/cpmEx1.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 要徑法(CPM)案例二
+- 某一專案作業時間及前置作業關係如下表，繪製箭線圖網路圖
+![](/images/pm/cpmEx2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 壓縮時程
+- **壓縮時程的前提是有效管理要徑上的活動**，並審慎思考哪些活動有機會被壓縮時程，最後針對壓縮的活動進行處理
+- 當規劃好的專案時間，常會遇到**無法在原訂期限內完成的時間，這時就需要設法加速完成作業，這就是所謂壓縮時程**
+- 壓縮時程常用的方法
+	- 縮程法(crashing)：**在要徑上增加相關資源**，幫助活動進行，來縮短活動時間
+	- 快速跟進法(fast tracking)：**活動重疊進行，前一個活動未完全結束，就開始下一個活動**，來縮短時間 	
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 計畫評核術
+</script></section>
+<section data-markdown><script type="text/template">
+## 計畫評核術(PERT)
+- 計畫評核術(Program Evaluation Review Technique，簡稱PERT)源於美國海軍特殊專案室以及布艾漢顧問集團(Booze, Allen, and Hamilton Consulting Group)共同發展而成
+- 1958 年應用於美軍北極星火箭系統計畫
+- 主要是**針對不確定性較高之工作項目，以網圖分析來規劃整個專案**，目的在於估算專案全部期程，有效控制資源
+- PERT 以網路圖顯示整個專案之各項作業、重要事件及時間的相互關係，利用網路圖分析技術來規畫整個專案，特別是**指出各項作業時間與各重要事件預估發生的時間，
+即最早開始時間(ES)、最早完成時間(EF)、最晚開始時間(LS)、最晚完成時間(LF)，並找出整個專案的瓶頸點，即關鍵路徑**
+</script></section>
+<section data-markdown><script type="text/template">
+## 三時估計法
+- 專案時程**無法得知各項真正的工期時**，必須採用三時估計法推估合理工期
+- 是對各項作業所需要的時間分別按照**悲觀時間、最可能時間與樂觀時間等三種不同情況予以估計**，並在貝氏分配的假設下，採用傳統機率論來估算工期的期望值與變異數 
+	- 悲觀時間(Pessimistic time): 完成一個作業所需的最多可能時間，亦即作業遭遇到逆境所需時間
+	- 最可能時間(Most likely time): 作業可以完成的最可能時間
+	- 樂觀時間(Optimistic time): 作業可以順利完成所需的最少時間
+- **預期時間 `$ t_e = \frac{t_o + 4 \times t_m + t_p}{6}$`，變異數 `$ V = \left[ \frac{t_p - t_o}{6}\right]^2$`**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案三時估計法範例 
+![](/images/pm/3times.png)
+</script></section>	
+<section data-markdown><script type="text/template">
+## 延遲時間與工期之關係(1/2)
+- 延遲時間與工期之關係可分為**總浮時、自由浮時**、安全浮時、干擾浮時  
+	- 總浮時(Total Float, TF)
+		- 在給定之作業的所有前置作業都**儘可能儘早完成**，而所有後續作業都**儘可能延後開始**的情況下，該作業的寬裕時間
+	- 自由浮時(Free Float, FF) 
+		- 在給定之作業的所有前置作業都**儘可能儘早完成**，而所有後續作業都**儘可能儘早開始**的情況下，該作業的寬裕時間
+		- 自由浮時是某作業可以延遲的天數，而且此延遲並不會造成整個工程延誤
+</script></section>	
+<section data-markdown><script type="text/template">
+## 延遲時間與工期之關係(2/2)
+- 延遲時間與工期之關係可分為總浮時、自由浮時、**安全浮時、干擾浮時**  
+	- 安全浮時(Safety Float, SF)
+		- 在給定之作業的所有前置作業都**儘可能延後完成**，而所有後續作業都**儘可能延後開始**的情況下，該作業的寬裕時間
+	- 干擾浮時(Interference Float time, IF)
+		- 在給定之作業的所有前置作業都**儘可能延後完成**，而所有後續作業都**儘可能延後開始**的情況下，該作業的寬裕時間
+- 該評核術的主軸為樂觀時間 `$t_o$`、最有可能時間 `$t_m$` 及悲觀時間 `$t_p$`，最核心公式為**專案預期時間 `$ t_e = \frac{t_o + 4 \times t_m + t_p}{6}$`**
+</script></section>
+<section data-markdown><script type="text/template">
+## PERT 實例(1/2)
+![](/images/pm/pert.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## PERT 實例(2/2)
+![](/images/pm/pert2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案計畫之關鍵路徑及特性
+- 在網路圖中作業不限於單一的順序，這些不同順序的作業稱為網路的路徑
+- 每條路徑所需的時間總長度為所有作業工期的總和，其中**最長之路徑稱為該專案網路圖的關鍵路徑**
+- **關鍵路徑**上各作業所需時間**的總和即為整個專案的總工期**
+- 專案計畫之關鍵路徑三項特性
+	- 專案網路圖一定有關鍵路徑，而且**可能不只一條**
+	- **關鍵路徑上所有作業與事件之寬鬆時間 (TF、FF、SF 與 IF) 均為 0**
+	- 作業浮時的耗用，亦可能產生新的關鍵路徑，同時原作業寬鬆時間為零者，將可能會產生負浮時 
+</script></section>	
+<section data-markdown><script type="text/template">
+## PERT與CPM的比較
+![](/images/pm/compare.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 進度計算
+</script></section>	
+<section data-markdown><script type="text/template">
+## 計算進度
+- 若是這條路徑上任何一項活動發生的延遲，相對地就會造成專案無法如期完成，這條路徑稱為要徑
+- **進行網路流程計算的第一步，是要先決定要徑在那裏**，同時找出在理想狀況下的非要徑中，有那裏可以擠出餘裕的時間
+- 網路流程規則
+	- 規則一：**開始一項作業之前，排在前面的其他所有作業必須先全部完成才行**
+	- 規則二：箭號指示需具備邏輯次序性
+- 基本的進度計算法
+	- 前推移計算法：計算每項活動**最快開始時間與最快完成時間**
+	- 後推移計算法：計算每項活動**最快延遲時間與最遲完成時間**
+</script></section>	
+<section data-markdown><script type="text/template">
+## 利用網路流程管理專案的原則
+- **儘可能保持進度**：追趕進度遠比保持進度困難許多
+- **永遠要保留一些浮動時間**，才能緩衝突如其來的問題或意外，或是對工時估計的錯誤
+- **無論如何，一定要確保要徑中的所有作業進度不致落後**，若有作業可以比進度提早完成，就盡可能提早完成，緊接著再繼續下個作業
+- **避免過度凡事要求完美的陷阱**
+- 新手與老手從事同一件作業的話，應有不同的時間估計值
+</script></section>	
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 實獲值管理系統
+</script></section>	
+<section data-markdown><script type="text/template">
+## 實獲值管理系統(EVMS)
+- 實獲值
+	- **實獲值是專案已經執行工作的實際費用**
+	- 在專案管理中，可以透過實獲值的觀念，利用**費用的數字，來簡單表達成本與時間**，並且透過實獲值的觀念，可以讓我們更清楚掌握並改善進度
+- 實獲值分析法
+	- **專案成本控制指在確保專案在預算內，工作能夠如期完成，而且能保有應有的品質**
+	- **能夠達到這種目的的系統，稱為實獲值分析法**，又稱為變異數分析法(Variance Analysis) 
+</script></section>	
+<section data-markdown><script type="text/template">
+## 實獲值管理
+- 實獲值管理的專案，是在工作分解結構(WBS)的架構下，以最底層的 WBS 元素做為基本的績效衡量單位，即成本帳戶，而**整個專案的實獲值，就是所有成本帳戶(Cost accounts)的總和**
+- 實獲值管理中的兩項重要績效指標
+	- 成本績效指標(Cost Performance Index, CPI)
+	- 時程績效指標(Schedule Performance Index, SPI)
+- **實獲值管理績效指標衡量要項請參考 Textbook p.6-26**
+</script></section>	
+<section data-markdown><script type="text/template">
+## 實獲值管理基本要項圖 
+![](/images/pm/evms.png)
+</script></section>	
+<section data-markdown><script type="text/template">
+## 實獲值管理的運用程序
+1. 建立工作分解結構 
+2. 辨識WBS 各活動內容
+3. 分配每個活動所須花費的成本(資源)
+4. 安排每個活動所需的時間
+5. 列表、圖示及分析資料以確定計劃的可行性
+6. **依活動進度的報告更新時程**
+7. **記錄活動所花費的實際成本**
+8. **計算及繪圖**
+9. 分析資料及報告
+</script></section>	
+<section data-markdown><script type="text/template">
+## 進度賦予的方法(1/2)
+- 0/100 法則
+	- 當作業尚未開始時實際進度視為 0，當作業完成時，進度視為 100% 
+- X/Y 比例法
+	- 一般可以區分為 25/75, 40/60, 50/50 等幾種
+	- 開始執行以後進度為 X，超過一半後，進度視為 Y
+- 完成百分比法(% Complete)
+	- 主觀估計法：由於專案的實際進度無法取決於客觀的分配法則，其進度的衡量**依賴專業人員過去的經驗值進行評估**
+	- 客觀估計法：**以計畫的完成量作為計畫進度的衡量基準**，實際完成的數量是實值完成量
+</script></section>	
+<section data-markdown><script type="text/template">
+## 進度賦予的方法(2/2)
+- 里程碑權重法(Milestone Weights)
+	- 將計畫或分項計畫再細分成數個里程碑，**每一個里程碑依據經驗賦予權重值，未完成，一律視為沒有任何進度；完成時，實際進度為該權重值**
+- 完成百分比里程碑權重法 
+	- 分派規則與里程碑權重值大致相同，**不同之處是將權重值轉換成百分比**
+- 尚需工期法
+	- **衡量該作業還需要多少時間才能完成?** 再將這個尚需工期與全部工期做比較，作為實際進度的衡量結果
+	- 衡量的方法需**依賴執行人員的經驗作為估計的參考**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 關鍵鏈管理
+</script></section>	
+<section data-markdown><script type="text/template">
+## 關鍵鏈管理(Critical Chain)
+- Goldrantt(1997) 運用制約論(TOC) 發展出一套稱為關鍵鏈(Critical Chain) 的技術
+- **關鍵鏈技術是以找出專案核心問題，並提供有效的解決之道，快速提升專案管理之績效表現**
+- 衡量一個系統之表現或產出，**在專案管理上為時程與成本，而系統內往往存在重要的關鍵因素影響其表現，即所謂制約因素**
+- **專案管理的制約因素在要徑，因為要徑是專案內有邏輯先後相依關係之最長作業程序**，藉由辨識系統可以協助管理者尋找著力點以改善系統或專案效能
+</script></section>
+<section data-markdown><script type="text/template">
+## 關鍵鏈的步驟程序圖
+![](/images/pm/criticalChain.png)
+</script></section>	
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案時程管理實務
+</script></section>	
+<section data-markdown><script type="text/template">
+## 及時專案
+- 及時專案的基本精神
+	- 減少造成遲緩的原因
+	- 導入加速專案進行的流程，並且確認成功可以不斷地重複
+- 造成專案推動遲緩的原因
+	- 專案規模太大
+	- 專案期間過長
+	- 專案的優先順序不斷地改變 
+	- **資源不足**
+	- **因品質不良而不斷重做**
+	- **不完善的專案規劃，尤其是不充分的專案定義**
+	- **完美主義**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案時間管理的實務議題
+- 在每週結束時，確認未來您想要完成的幾個目標(建議2~5個)
+- **在每天結束時，將次日要做的事列一個清單**
+- 在每天早晨，唸一次所要做的工作清單中之第一項工作，並檢視它
+- **控制干擾事項**
+	- 不要讓電話、電子郵件或是未預約而來的訪客打斷您所想完成的清單項目
+- 學習說**不**
+- **有效運用等候時間**
+- 試著一次就處理完成大部份的文件
+</script></section>
+<section data-markdown><script type="text/template">
+## 趕工縮程(Crashing)
+- 為合理決定那些作業要趕工縮程，專案經理必須獲得下列資訊
+	- 每項作業的**正常時間與趕工時間的估計值**
+	- 每項作業的**常成本與趕工成本的估計值**
+	- **列出要徑上的作業**
+- 趕工縮程主要包括四個步驟
+	1. **找出專案的要徑(CPM)**
+	2. **判別要徑上活動的關係**
+		- 強制依存關係、刻意依存關係、外部依存關係、資源依存關係
+	3. **利用資源撫平的技術找出過度使用或閒置的資源**
+	4. **檢查專案的時程**
+</script></section>	
+<section data-markdown><script type="text/template">
+## 資源分派與資源撫平
+- 資源負荷(Resource Loading)
+	- 是**描述專案在某特定期間內，所需要的各種資源數量之情形** 
+- 資源撫平(Resource Leveling)
+	- 又稱為資源平整(Resource Smoothing)，是**將專案中各活動所必須的資源，予以平衡成更加平順的(smoothed)程序**
+	- 資源撫平的目的在於使專案全程的資源需求都能維持在平穩的基礎上，其**排程係以資源的可用度及可管理程度來決定** 
+- 資源限定(Resource-limited Scheduling)
+	- 是指**當可利用的資源是固定時，發展出最短時程的方法**
+	- 資源限定是一種反覆進行的方法，**在最小寬裕時間下，將作業資源不斷重分配**，直至所有資源皆應用
+	- 為了不超出資源限定範圍，資源固定會拉長專案完成時間 
+</script></section>
+<section data-markdown><script type="text/template">
+## 資源撫平與資源限定 
+![](/images/pm/resource.png)
+</script></section>
 </section><!--end block-->
 
 </div>
