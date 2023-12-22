@@ -158,45 +158,33 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown><script type="text/template">
 ## Domain Name Server Tree
-<img src="/images/html5/domainTree.jpg" style="width:700px; height:550px" alt="樹狀結構的網域名稱">
-</script>
+[![](/images/html5/domainTree.jpg)](https://www.iana.org/)
+</script></section>
 
-<section>
-<h2>IP &amp; 主機名稱(Hostname)</h2>
-<ul>
-    <li>電腦只懂得 0 與 1</li>
-    <li><b>IP Address 是給電腦看的</b>(e.g. 163.17.131.8)</li>
-    <li><b>Hostname 是給人看的</b>(e.g. web2.nutc.edu.tw)</li>
-    <li>DNS(Domain Name Server)</li>
-        <ul>
-            <li><b>將 Hostname 轉成 IP</b></li>
-            <li>Internet Corporation for Assigned Names and Numbers (ICANN): 管理所有的 Domain Name, e.g. .cn, .tw, .uk</li>
-            <li>台灣網路資訊中心(TWNIC): .tw Domain Name</li>
-            <li>Domain Name(e.g. nutc.edu.tw, gov.tw, idv.tw, com.tw)</li>
-        </ul>
-    <li>特殊的 IP Address：</li>
-    <ul>
-        <li><b>localhost: 127.0.0.1</b></li>
-        <li>詳細說明請參考<a href="http://linux.vbird.org/linux_server/0110network_basic.php">「鳥哥的 Linux 私房菜」</a></li>
-    </ul>
-</ul>
-</section>
-    
-</section>
-<section>
-<h3>測試 IP &amp; Hostname</h3>
-<ul>
-    <li>開啟 cmd.exe 程式：開始>執行>輸入 cmd</li>
-    <li>輸入：<b>nslookup www.nutc.edu.tw</b> //問 DNS www.nutc.edu.tw 這個 Host(主機)的 ip 是什麼</li>
-    <li>輸入：<b>ping www.yahoo.com.tw</b> // 測試 www.yahoo.com.tw 網站是否存活在網路上</li>
-    <li>輸入：<b>ping localhost</b></li>
-    <li>輸入：<b>nslookup localhost</b></li>
-    <li>輸入：<b>ipconfig  /all</b> //取得電腦ip 位址、實體網卡位址(<b>MAC</b>, <b>M</b>edia <b>A</b>ccess <b>C</b>ontrol)</li>
-    <li>輸入：<b>ipconfig  /all | find /I "ip"</b> //將 ipconfig /all 指令取得的訊息傳給find 指令，/I：不分字母大小寫尋找字串(string)
-    <li>輸入：<b>ipconfig  /all | find /I "實體"</b> //找 MAC，Laptop 可能找出多個值
-</ul>
-</section>
-
+<section data-markdown><script type="text/template">
+## IP & 主機名稱(Hostname)
+- 電腦只懂得 0 與 1
+- **IP Address 是給電腦看的**(e.g. 163.17.131.151)
+- **Hostname 是給人看的** e.g. [www.nutc.edu.tw](https://www.nutc.edu.tw)
+- DNS(Domain Name Server)
+    - **Hostname ⇔ IP**
+    - [Internet Corporation for Assigned Names and Numbers (ICANN)](https://www.icann.org/): 管理所有的 Domain Name, e.g. .cn, .tw, .uk
+    - [台灣網路資訊中心(TWNIC)](https://www.twnic.tw/about.php): .tw Domain Name
+    - Domain Name(e.g. nutc.edu.tw, gov.tw, idv.tw, com.tw)
+- 特殊的(private) IP Address：
+    - localhost: 127.0.0.1, router's admin panel: 192.168.0.1
+</script></section>
+<section data-markdown><script type="text/template">
+## 測試 IP & Hostname
+- Windows 命令提示列(cmd) 輸入
+    - **nslookup [www.nutc.edu.tw](https://www.nutc.edu.tw)** //問 DNS 這個 Host name 的 ip 是什麼
+    - **ping www.google.com.tw** //測試網站是否活著
+    - <b>ipconfig  /all</b> //ip, 實體網卡位址(<b>MAC</b>, <b>M</b>edia <b>A</b>ccess <b>C</b>ontrol)
+    - <b>ipconfig  /all | find /I "實體"</b> or "Physical Address" //找 MAC, 筆電多筆資料(無線網卡)
+- Unix Like 系統輸入
+    - **ifconfig | grep 'inet\\|ether'** // 找 ip or MAC
+    - 可能需要 sudo apt install net-tools
+</script></section>
 <section>
 <h3>通訊協定與連接阜</h3>
 <ul>
@@ -217,6 +205,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <li>Unix /etc/services</li>
 </ul>
 </section>
+<section data-markdown><script type="text/template">
+## 何謂 URL?
+- 統一資源標識符: <b>U</b>niform <b>R</b>esource <b>I</b>dentifier (<b>URI</b>)
+    - resource_type://hostname:port/filepathname?query_string#anchor
+- **URL is Uniform Resource Locator** 縮寫，是 URI 的一個子集
+    - [http://www.ntu.edu.tw/](http://www.ntu.edu.tw/)
+    - [http://www.ntu.edu.tw/index.html](http://www.ntu.edu.tw/index.html)
+    - [http://www.ntu.edu.tw:80/index.html](http://www.ntu.edu.tw:80/index.html)
+    - [ftp://ftp.ntu.edu.tw:21/](ftp://ftp.ntu.edu.tw:21/)
+    - 檔案總管貼上 file://localhost/c:/WINDOWS/notepad.exe 
+    - 網址列輸入 file:///etc/fstab
+</script></section>
 
 <section>
 <h3>練習：IP、MAC、Hostname</h3>
@@ -226,7 +226,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <li>請查詢 ftp.ntu.edu.tw 的 ip 位址</li>
     <li>請檢查自己電腦中網路卡的實體位址(MAC)</li>
     <li>請將你電腦 IPv4 的位址直接顯示螢幕上？</li>
-    <li>請在瀏覽器的網址列中，輸入你在練習題一所查到 ftp.ntu.edu.tw 這台伺服器的 ip 位址</li>
+    <li>請在瀏覽器的網址列中，輸入你在前面練習所查到 ftp.ntu.edu.tw 這台伺服器的 ip 位址</li>
     <li>在上一個練習題中，輸入 ip 位址之前加入 ftp:// 與 http:// 協定，觀察其顯示的結果有何不同？</li>
 </ol>
 </section>
@@ -240,22 +240,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <li>使用 ftp 協定連結台灣大學 FTP Server：<br /><a href="ftp://ftp.ntu.edu.tw:21/">ftp://ftp.ntu.edu.tw:21/</a></li>
 </ul>
 </section>
-<section>
-<h2>何謂 URL?</h2>
-<ul>
-    <li><b>URL</b> is <b>U</b>niform <b>R</b>esource <b>L</b>ocator 第一個英文字母的縮寫</li>
-    <li>A subset(子集合) of <b>U</b>niform <b>R</b>esource <b>I</b>dentifier (<b>URI</b>) </li>
-    <li>URI syntax(語法)： resource_type://hostname:port/filepathname?query_string#anchor</li>
-    <li>Example:</li>
-        <ul>
-            <li><a href="http://www.ntu.edu.tw/">http://www.ntu.edu.tw/</a></li>
-            <li><a href="http://www.ntu.edu.tw/index.html">http://www.ntu.edu.tw/index.html</a></li>
-            <li><a href="http://www.ntu.edu.tw:80/index.html">http://www.ntu.edu.tw:80/index.html</a></li>
-            <li><a href="ftp://ftp.ntu.edu.tw:21/">ftp://ftp.ntu.edu.tw:21/</a></li>
-        </ul>
-</ul>
-</section>
+</section><!--end block-->
 
+<section><!--start block-->
 <section>
 <h2>何謂 HTML?</h2>
 <ul>
