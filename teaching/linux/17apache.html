@@ -52,7 +52,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Install Apache
 - To install Apache, install **the latest meta-package apache2** by running:
-<pre><code>sudo apt update
+<pre><code>sudo apt update -y; sudo apt upgrade -y
 sudo apt install apache2</code></pre>
 - After letting the command run, all required packages are installed and we can **test it out by typing in our IP address** for the web server.
 	- Open web browser and typing http://localhost to test the web server whether is working or not?
@@ -61,6 +61,12 @@ sudo apt install apache2</code></pre>
 <section data-markdown><script type="text/template">
 ## Apache2 is Working Page
 ![](/images/linux/apache2.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Virtual Host Setup
 </script></section>
 <section data-markdown><script type="text/template">
 ## localhost on a Vritual Host(1/2)
@@ -71,13 +77,13 @@ sudo apt install apache2</code></pre>
 &lt;html lang="en">
 &lt;head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Testing apache2 virtaulHost configuration</title>
 &lt;/head>
 &lt;body>
-	<h1>example.com home page</h1>
-	<p>It is www.example.com virtual hosts</p>
+	<h1>Home page</h1>
+	<p>It is localhost virtual hosts</p>
+	<p>The DocumentRoot located /var/www/example.com/html directory</p>
 &lt;/body>
 &lt;/html></code></pre>
 </script></section>
@@ -95,6 +101,179 @@ DocumentRoot /var/www/example.com/html
 7. Reload apache2 configuration
 	- **_sudo ␣ systemctl ␣ reload ␣ apache2_**
 </script></section>
+<section data-markdown><script type="text/template">
+## Configure file and Document Root
+- Apache2 **default configure and DocumentRoot** directory
+	- /etc/apache2/sites-available/
+	- /var/www/html
+	- home page: /var/www/html/**index.html**
+- Definition my apache2 setup files
+	- Website ServerName: localhost, www.elvis.idv.tw
+	- **apache configuration file**: exampl.conf, elvis.conf
+	- Default **DocumentRoot**: /var/www/example.com/html, /var/www/elvis.idv.tw/html
+- Enable apache2 setup command
+	- **_sudo a2ensite_** conf-file-name.conf
+	- **_sudo systemctl reload apache2_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Apache2 VirtaulHost Setup
+- Download apacheSetup.zip from [My Google Driver](https://drive.google.com/drive/u/2/folders/1oR05hhOqZH0NGhakUCnRW8jTJ7vBz5X3)
+	- **_unzip apacheSetup.zip_** file and you will get these files that was example.sh, elvis.sh, recovery.sh, ... etc. file.
+	- **_chmod +x \*.sh_**
+- Launching these shell script to setup the apache2 web server with different virtual host.
+	- **_sudo ./example.sh_** to setup localhost with /var/www/example.com/html/ root directory
+	- **_sudo ./elvis.sh_** to setup www.elvis.idv.tw server with /var/www/elvis.idv.tw/ root directory
+- Recovery apache2 to setup before
+	- **_sudo ./recovery.sh_**
+</script></section>
+<section data-markdown><script type="text/template">
+## ApacheSetup Shell on WSL how to
+- You run the shell script as below which was the same with Ubuntu on VirtualBox
+	- **sudo ./example.sh, chgIndex.sh, chgPort.sh** and **recovery.sh**
+- Running the **elvis.sh shell** step
+	1. **sudo ./wsl.sh**
+	2. exit WSL;
+	3. Shutdown WSL and login again: **wsl --shutdown**; ubuntu
+	4. **sudo ./wsl-elvis.sh**
+</script></section>
+<section data-markdown><script type="text/template">
+## What has it done the scripts?
+- Copy and modify configuration file
+	- #ServerName www.example.com ->> ServerName localhost
+	- Modified DocumentRoot /var/www/html ->> /var/www/example.com/html
+- Make DocumentRoot directory and index.html
+	- sudo mkdir -p /var/www/example.com/html
+- Add hostname(www.elvis.idv.tw) in /etc/hosts
+- Enable configuration and reload apache2
+- Testing it whether work or not?
+	- lynx localhost or use browser to navigate localhost
+</script></section>
+<section data-markdown><script type="text/template">
+## exampl.sh source code
+<pre><code>#! /usr/bin/bash
+cat /etc/apache2/sites-available/000-default.conf | sed 's/#ServerName www.example.com/ServerName localhost/' > tmp.conf
+cat tmp.conf | sed 's/\/var\/www\/html/\/var\/www\/example.com\/html/' > example.conf
+sudo mv example.conf /etc/apache2/sites-available/example.conf
+rm -f tmp.conf
+sudo mkdir -p /var/www/example.com/html
+sudo a2ensite example.conf
+sudo systemctl reload apache2
+if [[ ! -f "/usr/bin/lynx" ]]; then
+	sudo apt install lynx -y
+	lynx localhost
+else	
+	lynx localhost
+fi</code></pre>
+<p style="font-size:10pt">Without how to create the index.html code</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## elvis.sh source code
+<pre><code>#! /usr/bin/bash
+cat /etc/apache2/sites-available/000-default.conf | sed 's/#ServerName www.example.com/ServerName www.elvis.idv.tw/' > tmp.conf
+cat tmp.conf | sed 's/\/var\/www\/html/\/var\/www\/elvis.idv.tw\/html/' > elvis.conf
+sudo mv elvis.conf /etc/apache2/sites-available/
+sudo rm -f tmp.conf
+sudo mkdir -p /var/www/elvis.idv.tw/html
+sudo cp /etc/{hosts,hosts.bk}
+sudo echo "127.0.1.2  www.elvis.idv.tw" >> /etc/hosts
+sudo a2ensite elvis.conf
+sudo systemctl reload apache2
+if [[ ! -f "/usr/bin/lynx" ]]; then
+	sudo apt install lynx -y
+else
+	lynx www.elvis.idv.tw
+fi
+</code></pre>
+<p style="font-size:10pt">Without how to create the index.html code</p>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Home Page/Port No
+</script></section>
+<section data-markdown><script type="text/template">
+## Setup hp and port No with shell
+1. Typing the command as following
+	- **sudo ./example.sh**
+2. Typing the command for assinged homepage filename as following
+	- **sudo ./chgIndex.sh**
+	- The welcome.html homepage should show on your screen with lynx text browser.
+3. Typing the command for changed port number 8888 as following
+	- **sudo ./chgPort.sh**
+	- The index.html homepage for port number 8888 will show on your screen.
+</script></section>
+<section data-markdown><script type="text/template">
+## chgIndex.sh Source Code
+<pre><code>if [[ -f /etc/apache2/sites-available/example.conf ]]; then
+	cat /etc/apache2/sites-available/example.conf | sed '/DocumentRoot/a DirectoryIndex welcome.html index.html index.php index.htm' > example.conf
+else
+	echo "sudo bash example.sh"
+	exit 1
+fi
+sudo mv example.conf /etc/apache2/sites-available/example.conf
+if [[ ! -d /var/www/example.com/html ]]; then
+	sudo mkdir -p /var/www/example.com/html
+fi
+sudo systemctl reload apache2
+if [[ ! -f "/usr/bin/lynx" ]]; then
+	sudo apt install lynx -y
+elif [[ ! -f "/etc/apache2/ports.conf.bk" ]]; then
+	lynx localhost
+else	
+	lynx localhost:8888
+fi
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## chgPort.sh Source Code
+<pre><code>sudo cp /etc/apache2/{ports.conf,ports.conf.bk}
+	cat /etc/apache2/ports.conf | sed '/Listen 80/a Listen 8888' > ports.conf
+	sudo mv ports.conf /etc/apache2/ports.conf
+
+if [[ ! -f "/etc/apache2/sites-available/example.conf" ]]; then
+	echo "sudo bash example.sh";	exit 1
+else
+	cat "/etc/apache2/sites-available/example.conf" | sed 's/80/8888/' > example.conf
+	sudo mv example.conf /etc/apache2/sites-available/
+fi
+sudo systemctl reload apache2
+if [[ ! -f "/usr/bin/lynx" ]]; then
+	sudo apt install lynx -y
+	lynx localhost:8888/ports.html
+else	
+	lynx localhost:8888/ports.html
+fi
+</code></pre>
+<p style="font-size:10pt">partial source code of chgPort.sh</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Change Homepage file name
+- Add **DirectoryIndex** in example.conf file as following
+<pre><code data-trim>&lt;VirtaulHost *:80>
+ServerName localhost
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/example.com/html
+DirectoryIndex  welcome.html index.html index.php index.htm 
+&lt;/VirtualHost></code></pre>
+- copy and modify welcome.html file
+<pre><code>sudo cp /var/www/example.com/html/{index.html,welcome.html}</code></pre>
+- reload configuration and test it
+	- sudo systemctl reload apache2; lynx localhost
+</script></section>
+<section data-markdown><script type="text/template">
+## Change Port Number
+- Add the following text into /etc/apache2/ports.conf file
+	- **_sudo ␣ nano ␣ /etc/apache2/ports.conf_**
+<pre><code>Listen 8888</code></pre>
+- Modify port number in example.conf file as following
+<pre><code data-trim>&lt;VirtaulHost *:8888>
+## the same configuration as before
+&lt;/VirtualHost></code></pre>
+- reload configuration and test it
+	- sudo systemctl reload apache2
+	- lynx localhost:8888
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -102,11 +281,53 @@ DocumentRoot /var/www/example.com/html
 # Set up SSL on Apache
 </script></section>
 <section data-markdown><script type="text/template">
+## Setup SSL apache2 with shell
+- Create public and private key with OpenSSL
+	- public key: /etc/ssl/certs/example-com.pem
+	- private key: /etc/ssl/private/example-com.key
+- Setup apache2 configuration
+	- /etc/apache2/sites-available/example-ssl.conf
+- Create index.html homepage
+	- /var/www/example.com/ directory
+- Enable configureation file and ssl mode
+	- **sudo a2ensite example-ssl.conf**
+	- **sudo a2enmod ssl**
+- Reload Apache2 again
+	- sudo systemctl reload apache2
+</script></section>
+<section data-markdown><script type="text/template">
+## ssl.sh Source Code
+<pre><code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/example-com.key -out /etc/ssl/certs/example-com.pem -subj "/C=TW/ST=Taiwan/L=Taichung/O=NUTC/OU=mis/CN=www.example.com/emailAddress=admin@localhost"
+if [[ -f "/etc/apache2/sites-available/default-ssl.conf" ]]; then
+	cat /etc/apache2/sites-available/default-ssl.conf | sed 's/#ServerName www.example.com/ServerName localhost/' > tmp-ssl.conf
+	cat tmp-ssl.conf | sed 's/\/var\/www\/html/\/var\/www\/example.com\/html/' > example-ssl.conf
+	cat example-ssl.conf | sed 's/\/etc\/ssl\/certs\/ssl-cert-snakeoil.pem/\/etc\/ssl\/certs\/example-com.pem/' > tmp-ssl.conf
+	cat tmp-ssl.conf | sed 's/\/etc\/ssl\/private\/ssl-cert-snakeoil.key/\/etc\/ssl\/private\/example-com.key/' > example-ssl.conf
+	cat example-ssl.conf | sed '/ServerAdmin/a ServerName  localhost' > tmp-ssl.conf
+	sudo mv tmp-ssl.conf /etc/apache2/sites-available/example-ssl.conf
+	rm -rf example-ssl.conf
+sudo a2ensite example-ssl.conf
+sudo a2enmod ssl
+sudo systemctl reload apache2
+if [[ ! -f "/usr/bin/lynx" ]]; then
+	sudo apt install lynx -y
+	lynx https://localhost
+else	
+	lynx https://localhost
+fi
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Notice SSL settup with lynx
+- **_sudo ./ssl.sh_**
+![](/images/linux/lynx4ssl.png)
+</script></section>
+<section data-markdown><script type="text/template">
 ## Create public/private Key
 1. Install OpenSSL
 	- **_sudo ␣ apt ␣ install ␣ openssl ␣ -y_**
 2. Create public/private key with openssl
-	- **_sudo ␣ openssl ␣ req ␣ -x509 ␣ -nodes ␣ -days ␣ 365 ␣ -newkey ␣ rsa:2048 ␣ -keyout ␣ /etc/ssl/private/example-com.key ␣ -out ␣ /etc/ssl/certs/example-com.crt_**
+	- **_sudo ␣ openssl ␣ req ␣ -x509 ␣ -nodes ␣ -days ␣ 365 ␣ -newkey ␣ rsa:2048 ␣ -keyout ␣ /etc/ssl/private/example-com.key ␣ -out ␣ /etc/ssl/certs/example-com.pem_**
 <pre><code>Country Name (2 letter code) [AU]:TW
 State or Province Name (full name) [Some-State]:Taiwan
 Locality Name (eg, city) []:Taichung
@@ -127,7 +348,7 @@ Email Address []:admin@localhost</code></pre>
 		ServerAdmin webmaster@localhost
 		DocumentRoot /var/www/example.com/html
 		SSLEngine on
-		SSLCertificateFile  /etc/ssl/certs/example-com.crt
+		SSLCertificateFile  /etc/ssl/certs/example-com.pem
 		SSLCertificateKeyFile  /etc/ssl/private/example-com.key
 	&lt;/VirtualHost>
 &lt;/IfModule></code></pre>
@@ -167,8 +388,7 @@ Email Address []:admin@localhost</code></pre>
 - Setting up multiple hostnames on Ubuntu
 	- sudo nano /etc/hosts
 
-<pre><code data-trim data-line-numbers># This file was automatically generated by WSL. To stop automatic generation of this file, add the following entry to /etc/wsl.conf:
-# [network]
+<pre><code data-trim data-line-numbers># [network]
 # generateHosts = false
 127.0.0.1	www.example.com		 exampleAlias
 127.0.1.1	LAPTOP-PT5NIKQ8.		LAPTOP-PT5NIKQ8
@@ -185,10 +405,10 @@ ff02::2 ip6-allrouters</code></pre>
 - Testing hostname with ping command
 	- ping www.example.com // or ping exampleAlias
 	- ping www.cgi-domain.com // or ping cgi-domain
-- Refer to [localhost on a Vritual Host (2/2)](./17apache.html#/0/4) and modify example.conf file as following
+- Refer to [localhost on a Vritual Host (2/2)](./17apache.html#/1/2) and modify example.conf file as following
 <pre><code>	ServerName  www.example.com</code></pre>
-- Reload Apache2 for modified example.con configure file
-	- **_sudo systemctl reload apache2example.conf_**
+- Reload Apache2 for modified example.conf configure file
+	- **_sudo systemctl reload apache2_**
 - Testing [http://www.example.com](http://www.example.com) hostname whether is working or not
 </script></section>
 <section data-markdown><script type="text/template">
@@ -247,8 +467,8 @@ DirectoryIndex  welcome.html index.html index.php index.htm
 </script></section>
 <section data-markdown><script type="text/template">
 ## Configure the HTTPD port No
-1. Add the following text into /etc/apache2/port.conf file
-	- **_sudo ␣ nano ␣ /etc/apache2/port.conf_**
+1. Add the following text into /etc/apache2/ports.conf file
+	- **_sudo ␣ nano ␣ /etc/apache2/ports.conf_**
 <pre><code>Listen 8080</code></pre>
 2. sudo ␣ nano ␣ /etc/apache2/sites-available/cgi-domain.conf
 <pre><code>&lt;VirtualHost *.8080>

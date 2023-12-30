@@ -212,30 +212,6 @@ made **every two years**, would receive **Long-Term Support** for large-scale de
 - Video for teaching how to use ["wsl --install" command](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) or [Microsoft store](https://drive.google.com/drive/u/1/folders/1E--j5vyu-v3h1qviabReraK5mzSRmzT-) to install Windows Subsystem for Linux.
 </script>
 </section>
-<section data-markdown><script type="text/template">
-## List of WSL command (1/2)
-- Using _wsl_ command in command line interface(CLI) of Windows System
-- List of wsl command of used frequently
-	- wsl --help //wsl command help
-	- wsl --list [option] // -l for short, list distribution
-		- --all // 列出所有已經安裝在 WSL 的 Linux 版本
-		- --online, -o // 列出可以安裝的版本
-		- --verbose, -v // 列出已經安裝在 WSL 版本的詳細資訊
-	- wsl --install [Distro] // [Distro] 就是 -l -o 可安裝的版本名稱
-	- wsl --set-default, -s [Distro // 設定預設的 Linux 版本
-</script></section>
-<section data-markdown><script type="text/template">
-## List of WSL command (2/2)
-- List of wsl command of used frequently
-	- wsl --version, -v // 目前 Windows 系統安裝的 wsl 版本
-	- wsl --update // 更新 wsl 安裝的 linux 版本
-	- wsl --status // 顯示目前 wsl 的狀態
-	-- wsl --shutdown // 關閉 linux
-- Check ubuntu version command
-	- lsb_release -v
-- Check linux version command
-	- uname -a
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -312,14 +288,6 @@ made **every two years**, would receive **Long-Term Support** for large-scale de
 	- Overview of **GNOME** desktop environment
 </script>
 </section>
-<section data-markdown><script type="text/template">
-## Sharing with Windows(1/2)
-![](/images/linux/mkSharedir.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## Sharing with Windows(2/2)
-![](/images/linux/vbSetting.png)
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -373,6 +341,32 @@ made **every two years**, would receive **Long-Term Support** for large-scale de
 </script>
 
 </section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Troubleshooting
+</script></section>
+<section data-markdown><script type="text/template">
+## 加入中文語言
+- Setting >> Region & Language >> Manage Install Language >> Install / Remove Languages
+![](/images/linux/language.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 加入酷音輸入法
+- 設定值 >> 鍵盤 >> **+** >> 中文(臺灣) >> 酷音輸入法
+![](/images/linux/ime.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Ubuntu 設定值選項不見了
+- 軟體或系統更新以後，如果 ubuntu 的設定值選項不見了，可以移除 gnome-control-center 以後，再從重新安裝
+<figure style="float: right">
+<img src="/images/linux/setting.png" alt="setting">
+</figure>
+- 移除 gnome-control-center 指令
+	- **_sudo apt remove gnome-control-center_**
+- 重新安裝 gnome-control-center 指令
+	- **_sudo apt install gonme-control-center_**
+</script></section>
 </section><!--end block-->
 <!--
 <section>
