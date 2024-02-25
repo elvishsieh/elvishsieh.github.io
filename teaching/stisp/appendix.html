@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>專案管理實務</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 附錄 A <br /> Settup IDE
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting Develompent Env. for VBA
+- 開啟"開發人員"的索引標籤
+	- Open Excel >> 選項 >> 自訂功能區 >> 由此選擇命令(所有索引標籤) >> 開發人員 >> 新增
+	- 在 Excel 中的索引標籤中是否有 "開發人員"的索引標籤?
+- Installing RubberDuck for VBE
+	- Download RubberDuck from [rubberduck offical website](https://rubberduckvba.com/)
+	- Installing RubberDuck
+- 設定 VBA 模組信任層級
+	- 檔案 >> 選項 >> 信任中心 >> 信任中心設定 >> 巨集設定 >> 勾選「啟用 VBA 巨集/信任存取專案 VBA 物件模型」(See next slide)
+</script></section>
+<section data-markdown><script type="text/template">
+## 設定 VBA 模組信任層級(1/2)
+- Open Excel >> 選項 >> 信任中心 >> 信任中心設定
+![](/images/stisp/trust.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 設定 VBA 模組信任層級(2/2)
+![](/images/stisp/trust2.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+# Setting <br/>VS Code for VBA
+</script></section>
+<section data-markdown><script type="text/template">
+## Install VS Code Extension for VBA
+- Why should we use VS Code editor to develop VBA?
+	- VBE was not a friendly Integration Develompent Enviromment(IDE). VS Code editor was a good one.
+- Which VS Code extension should install for VBA?
+1. VBA Full Code Snippets
+2. XVBA - Live Server VBA
+3. XVBA - Ribbon Menu
+4. Codeium: Free AI-powered code acceleration toolkit
+- How to install these VS Code extensions as above? This tutorial video is for you. ([a02VScodeExtension](https://drive.google.com/drive/u/2/folders/1COWsdSGKXg4gnQngY9du0jHCxVo8lnMR))
+</script></section>
+<section data-markdown><script type="text/template">
+# Setting up <br/>XVBA Extension
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting XVBA for VS Code
+- 建立一個資料夾，for example, d:\excel-project/xvba
+- **VS Code >> File >> Open Folder >> d:\excel-project/xvba**
+- 新增 Excel 檔案，**儲存檔名為 index.xlsb**
+- 點選 VS Code 左側下方的 **XVBA - MACRO LIST 中的 Boostrap 按鈕**，建立 XVBA Extension 套件的設定檔
+- Export/Import VBA 程式碼
+	- Export 按鈕：將 VBA 程式碼從 VS Code 中輸出到 d:\excel-project/xvba/index.xlsb
+	- Import 按鈕：將 VBA 程式碼從 d:\excel-project/xvba/index.xlsb 輸入到 VS Code
+	-  **以 VS Code 為主 export/import VBA code**
+</script></section>
+
+<section data-markdown><script type="text/template">
+# xlwings for VS Code
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing xlwings for VS Code
+- Install [Python](https://www.python.org/)
+- Install xlwings and watchgod
+	- **_pip install xlwings watchgod_**
+- Testing xlwings for VS Code
+	- 開啟 VS Code, 建立一個資料夾[(excel-project/xlwings)](https://drive.google.com/drive/u/2/folders/1Y4bT1ieU0eEGITgPusIIAFVvDeONjY71)
+	- 建立一個 Excel 檔案，檔名儲存為 .xlsm(demo.xlsm)
+	- 在 .xlsm 檔案中插入一個 Module(Module1)
+	- 在 .xlsm 開啟狀態下開啟 VS Code Cmd line(Ctrl + ~)
+	- 執行 **xlwings vba export**
+	- 在 VS Code Command line 命令列執行 xlwings vba edit，檢查是否可以 Live 編輯 VBA 程式碼?
+</script></section>
+<section data-markdown><script type="text/template">
+## Export/Import VBA Module
+- Export VBA code to VS Code
+	- Create a folder for VBA project
+	- **open a filename with .xlsm extension**
+	- **xlwings vba export**
+	- open VBA code with VS code
+- Import VBA code from VS Code
+	- Create a folder for VBA project
+	- Copy the Moudle2.bas into the folder of VBA project
+	- **Open a filename with .xlsm extension**
+	- **xlwings vba import**
+	- open VBA code with VS code
+</script></section>
+<section data-markdown><script type="text/template">
+## Import VBA Module Format
+<pre><code>' Filename: Module1.bas
+Attribute VB_Name = "Module1"
+' VBA code
+...
+</code></pre>
+- **Filename 與 Attribute VB_Name 指定的名稱必須相同**
+- 在 xlwing vba edit live server 狀態下**不可以在 VS Code 中直接加入 Module1.bas**
+- 在 xlwing vba edit live server 狀態下，可以在 Excel 中加入 Module，但無法 live 同步到 VS Code，必須停止 live server 以後，
+再使用 xlwings vba export 指令將 VBA 程式碼輸出
+</script></section>
+<section data-markdown><script type="text/template">
+## Try by yourself
+- 安裝 Python and xlwings
+- 下載練習資料[(excel-project/xlwings)](https://drive.google.com/drive/u/2/folders/1Y4bT1ieU0eEGITgPusIIAFVvDeONjY71)
+- 開啟 demo.xlsm 檔案，在檔案中插入一個 Module（Module1）
+- 開啟 VS Code，將 excel-project 資料夾拖曳進 VS Code 左邊的 EXPLORER 中
+- 開啟 VS Code Cmd line，執行 **xlwings vba export**
+- 在 VS Code Command line 命令列執行 xlwings vba edit，檢查是否可以 Live 編輯 VBA 程式碼?
+- Ctrl + C 跳出 live server，執行 **xlwings vba import**，檢查是否將 Module2 載入到 demo.xlsm 檔案中
+</script></section>
+<section data-markdown><script type="text/template">
+## xlwings for Python
+- xlwings vba edit
+	- Setting xlwings
+	- Launch Powershell or cmd as a Administrator
+	- **_xlwings license update -k noncommerical_**
+	- **_xlwings addin install_** // or remove
+- Create a xlwings project
+	- create a folder for excel vba project
+	- xlwings quickstart myproject
+	- launch VS Code and press Ctrl + ~ to open the command line, then run the following command
+- More information: **_xlwings -h_**
+</script></section>
+<section data-markdown><script type="text/template">
+## Visual Basic Editor 亂碼問題
+- The Visual Basic Editor does not support Unicode encoding, neither for input, nor for display.
+- The VBA editor still uses the old "code page" character encodings based on the locale setting in Windows.
+- 修改 Excel 工作表名稱，不要使用中文命名，避免亂碼問題
+- 修改 VBA 工作屬性的名稱，不要使用中文命名，避免亂碼問題
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Python Installation
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(1/7)
+- Where have you installed [Python](https://www.python.org/downloads/) in the System?
+	- Windows: **_where python_**, Unix-like: **_which python_**
+![](/images/stisp/wherePy.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(2/7)
+- Download and install [Python](https://www.python.org/downloads/) in the System
+	- Select "customize installation" and Add python.exe to PATH
+![](/images/stisp/pyInstall.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(3/7)
+- Make sure what you want to install Python in the System?
+![](/images/stisp/pyInstall2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(4/7)
+- For example, it is installed in C:\Python
+![](/images/stisp/pyInstall3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(5/7)
+- Check Python version with **_python -V_** command
+![](/images/stisp/pyVersion.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(6/7)
+- Update Python
+![](/images/stisp/updatePy.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 附錄 D <br />Links for this book
+</script></section>
+<section data-markdown><script type="text/template">
+## 書本範例連結
+- Chapter 01
+	- [fChart程式設計教學工具簡介](https://fchart.github.io/fchart.html)
+	- [fChart 程式設計教學工具](https://fchart.github.io/)
+	- [Web Scraper](https://www.webscraper.io/)
+	- [chrome 線上應用程式商店](https://chromewebstore.google.com/)
+- Chapter 02
+	- [標題文字 h1 標籤](https://fchart.github.io/vba/ex2_01.html)
+- Chapter 03
+	- [項目符號的 ul 和 li 標籤](https://fchart.github.io/vba/ex3_01.html)
+	- [使用 Element 選擇器類型](https://fchart.github.io/vba/ex3_02.html)
+	- [HTML 表格標籤l](https://fchart.github.io/vba/ex3_03.html)
+	- [Yahoo!股市](https://tw.stock.yahoo.com/)
+	- [Yahoo!股市 - 台積電](https://tw.stock.yahoo.com/quote/2330.TW)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 書本範例連結
+- Chapter 04
+	- [HTML 圖片標籤](https://fchart.github.io/vba/ex4_01.html)
+	- [HTML 超連結標籤](https://fchart.github.io/vba/ex4_02.html)
+	- [Yahoo!奇摩院線電影l](https://tw.news.yahoo.com/movieintheaters)
+- Chapter 05
+	- [HTML 容器標籤](https://fchart.github.io/vba/ex5_01.html)
+	- [HTML5 版面配置](https://fchart.github.io/vba/ex5_02.html)
+	- [MoneyDj 理財網](https://www.moneydj.com/)
+	- [MoneyDj 新聞總表](https://www.moneydj.com/funddj/ya/YP051000.djhtm)
+	- [Lattops category](https://www.webscraper.io/test-sites/e-commerce/allinone/lattops)
+- Chapter 06
+	- [webscraper test sites](https://www.webscraper.io/test-sites/)
+	- [webscraper test sites](https://www.webscraper.io/test-sites/e-commerce/allinone/)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 書本範例連結
+- Chapter 06
+	- [ESPN NBA 球員統計資料](https://www.espn.com/nba/stats)
+	- [Word list 01](https://www.majortests.com/word-lists/word-list-01.html)
+- Chapter 07
+	- [webscraper test sites static](https://www.webscraper.io/test-sites/e-commerce/static)
+	- [webscraper test sites computers](https://www.webscraper.io/test-sites/e-commerce/static/computers/)
+	- [webscraper test sites ajax computers](https://www.webscraper.io/test-sites/e-commerce/ajax/computers/)
+	- [webscraper test sites ajax laptops](https://www.webscraper.io/test-sites/e-commerce/ajax/computers/laptops)
+	- [webscraper test sites more button](https://www.webscraper.io/test-sites/e-commerce/more/computers/laptops)
+	- [104人力銀行](www.104.com.tw)
+- Chapter 08
+	- [全國電子門市據點](https://web.elifemall.com.tw/zh/store.php)
+</script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
