@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>附錄 B - VBA 語法</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 附錄 B <br /> VBA 語法簡介
+</script></section>
+<section data-markdown><script type="text/template">
+## [Data Type (資料型態)](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/data-type-summary) 1/3
+
+| Data type | StorageSize | Range |
+| :--- | :--- | :--- |
+|Boolean 	|2 bytes 		|True or False|
+|Byte 	|1 byte 	|0 to 255|
+|Currency (scaled integer) 	|8 bytes 	|-922,337,203,685,477.5808 to 922,337,203,685,477.5807|
+|Date 	|8 bytes 	|-657,434 (January 1, 100), to 2,958,465 (December 31, 9999)|
+|Integer 	|2 bytes 	|-32,768 to 32,767|
+|Long (Long integer) 	|4 bytes 	|-2,147,483,648 to 2,147,483,647|
+</script></section>
+<section data-markdown><script type="text/template">
+## [Data Type (資料型態)](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/data-type-summary) 2/3
+
+| Data type | StorageSize | Range |
+| :--- | :--- | :--- |
+|Double (double-precision floating-point) 	|8 bytes 	|-1.79769313486231E308 to -4.94065645841247E-324 for negative values|
+|LongLong (LongLong integer) 	|8 bytes 	|-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807|
+LongPtr 	|4 bytes on 32-bit systems| -2,147,483,648 to 2,147,483,647 on 32-bit systems|
+|String (variable) 	|10 bytes + string length 	|0 to approximately 2 billion|
+|String (fixed) 	|Length of string 	|1 to approximately 65,400|
+</script></section>
+<section data-markdown><script type="text/template">
+## [Data Type (資料型態)](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/data-type-summary) 3/3
+
+| Data type | StorageSize | Range |
+| :--- | :--- | :--- |
+|**Dictionary** 	|Unknown 	|Unknown|
+|**Object** 	|4 bytes 	|Any Object reference|
+|Collection 	|Unknown 	|Unknown|
+|**Variant** (with numbers) 	|16 bytes 	|Any numeric value up to the range of a Double|
+|Variant (with characters) 	|22 bytes + string length (24 bytes on 64-bit systems) 	|Same range as for variable-length String|
+|**User-defined** (using Type) 	|Number required by elements 	|The range of each element is the same as the range of its data type.|
+</script></section>
+<section data-markdown><script type="text/template">
+## Why should we set the data type?
+- **電腦的程式碼必須載入到記憶體中才能被執行**，但是，當電源關閉，記憶體中的資料全部消失不見，因此，必須要後備儲存體存放資料
+- 中央處理器讀取記憶體中的資料，並且執行程式碼，透過**資料型態的宣告，讓電腦知道處理的資料是哪種型態，要配置多少記憶體**？
+- 例如：整數資料型態 (Integer)，配置 2 bytes 的記憶體，而不是 4 bytes 的記憶體，
+對於工程數值的精確度要求，可以使用更長的資料型態來做計算，以達到精確度要求
+- **電腦沒有減法器，整數相減，減數先取補數，兩數相加後再加 1**；例如 10 - 3 = 7, 1010 + 1100 = 0110 + 1 = 0111 = 7
+</script></section>
+<section data-markdown><script type="text/template">
+## 自訂資料型態
+- User-defined data types can contain one or more elements of a data type, an array, or **a previously defined user-defined type**.
+<pre><code>Type EmployeeRecord    ' Create user-defined type. 
+    ID As Integer    ' Define elements of data type. 
+    Name As String * 20 
+    Address As String * 30 
+    Phone As Long 
+    HireDate As Date 
+End Type 
+Sub CreateRecord() 
+    Dim MyRecord As EmployeeRecord    ' Declare variable. 
+    ' Assignment to EmployeeRecord variable must occur in a procedure. 
+    MyRecord.ID = 12003    ' Assign a value to an element. 
+End Sub</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## VBA Keywords
+- [Keywords of VBA](https://learn.microsoft.com/en-us/office/vba/language/reference/keywords-visual-basic-for-applications)
+| | | | ||
+|:---|:---|:---|:---|:---|
+| As | Binary | ByRef | ByVal |Date |
+| Else |Empty |Error |False | For|	
+| Friend | Get | Input | Is | Len|	
+| Let |Lock | Me | Mid	| New |
+| Next |Nothing | Null	| On | Option |
+| Optional | ParamArray | Print | Private | Property |
+| PtrSafe | Public | Resume | Seek | Set |
+| Static | Step | String | Then | Time | 
+| To	 | True |WithEvents | | |
+| | | | ||
+- [Keywords by task](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/keywords-by-task)
+and [VB Keywords](https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/keywords/)
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Boolean data type
+- A data type with only two possible values, True (-1) or False (0). 
+- Boolean variables are stored as 16-bit (2-byte) numbers
+</script></section>
+<section data-markdown><script type="text/template">
+## EOF function
+-  EOF function to detect the end of a file. This example assumes that myFile.txt is a text file with a few lines of text.
+<pre><code>Public Sub oneChar()
+Dim MyChar
+Open "myFile.txt" For Input As #1    ' Open ./myFile.txt file for input.
+Do While Not EOF(1)    ' Check for end of file.
+	' MyChar = Input(1, #1)  ' Get one character.
+	Line Input #1, MyChar    ' Read line of data.
+	Debug.Print MyChar    ' Print to the Immediate window.
+Loop
+Close #1    ' Close file.
+End Sub
+' myFile.txt contents
+' Hi, runner hsieh
+' I am a programmer.
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

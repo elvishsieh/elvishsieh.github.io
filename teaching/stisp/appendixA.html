@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>專案管理實務</title>
+<title>附錄 A - VBE 設定</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -69,7 +69,40 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## 設定 VBA 模組信任層級(2/2)
 ![](/images/stisp/trust2.png)
 </script></section>
+</section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# VBE Big5 編碼問題
+</script></section>
+<section data-markdown><script type="text/template">
+## Visual Basic Editor 亂碼問題
+- **The Visual Basic Editor does not support Unicode encoding**, neither for input, nor for display.
+- The VBA editor still uses the old "code page" character encodings based on the locale setting in Windows.
+- 修改 **Excel 工作表名稱，不要使用中文命名**，避免亂碼問題
+- 修改 **VBA 工作屬性的名稱，不要使用中文命名**，避免亂碼問題
+- 採用 **VS Code 內建的 UTF-8 ⇌ Big5 編碼**
+- [VBE 無法正確顯示中文字](#/2/3)，變更系統地區設定，**不要勾選「使用 Unicode UTF-8 提供全球語言支援」**
+</script></section>
+<section data-markdown><script type="text/template">
+## VBE 中文名稱
+![](/images/stisp/vbeChinese.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 修改 VBE 中文名稱
+![](/images/stisp/vbeEnglish.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## VBE 無法正確顯示中文字
+![](/images/stisp/big5VBE.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 變更系統地區設定
+![](/images/stisp/utf8Setting.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Setting <br/>VS Code for VBA
 </script></section>
@@ -98,9 +131,92 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- Import 按鈕：將 VBA 程式碼從 d:\excel-project/xvba/index.xlsb 輸入到 VS Code
 	-  **以 VS Code 為主 export/import VBA code**
 </script></section>
+</section><!--end block-->
 
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # xlwings for VS Code
+</script></section>
+<section data-markdown><script type="text/template">
+# Python Installation
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(1/7)
+- Where have you installed [Python](https://www.python.org/downloads/) in the System?
+	- Windows: **_where python_**, Unix-like: **_which python_**
+![](/images/stisp/wherePy.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(2/7)
+- Download and install [Python](https://www.python.org/downloads/) in the System
+	- Select "customize installation" and Add python.exe to PATH
+![](/images/stisp/pyInstall.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(3/7)
+- Make sure what you want to install Python in the System?
+![](/images/stisp/pyInstall2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(4/7)
+- For example, it is installed in C:\Python
+![](/images/stisp/pyInstall3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(5/7)
+- Check Python version with **_python -V_** command
+![](/images/stisp/pyVersion.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Instll Python how to(6/7)
+- Update Python
+![](/images/stisp/updatePy.png)
+</script></section>
+<section data-markdown><script type="text/template">
+# Portable Python 
+</script></section>
+<section data-markdown><script type="text/template">
+## Install portable Python
+- 電腦教室使用還原卡，需要安裝 portable Python 到 D:\
+- Download Portable [python-3.12.2-embed-amd64.zip](https://www.python.org/ftp/python/3.12.2/python-3.12.2-embed-amd64.zip)
+- Extract Portable Python in D:\
+- Setting Python Path in Windows
+	- 系統 >> 進階系統設定 >> 環境變數 >> 使用者變數 >> Path，加入 D:\Python 以及 D:\Python\Scripts 路徑
+- Install pip which is a Python package manager
+	- Downlooad get-pip from [this site](https://bootstrap.pypa.io/get-pip.py)
+	- Install pip with **_py get-pip.py_** command
+- 修改 D:\Python\python312._pth, uncomment #import site
+	- Test pip with **_pip list_** command
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting environment variable
+- Setting environment variable for Python
+	- d:\python and d:\python\Scripts path into Windows PATH variable, alternatively, you can write a batch file to run it when you want to be. The batch code was as following
+<pre><code>@echo off
+SET PYTHONPATH=D:\python
+SET PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
+echo "The PATH environment variable have been setted for Python."
+</code></pre>
+</script></section>	
+<section data-markdown><script type="text/template">
+## Move and Upgrade pacakges
+- Moving Portable Python to the other system
+	- **_py -m pip install --upgrade --force-reinstall pip_**
+- Upgrade all of package
+	- Download [awk for Windows](https://gnuwin32.sourceforge.net/downlinks/gawk-bin-zip.php) and set environment variable
+	- Run the batch file: pyUpgrade.bat
+<pre><code>echo off
+python -m pip install --upgrade pip
+pip list --outdated | awk '{ print $1 }' > temp.txt
+more +2 temp.txt > requirements.txt
+pip install -r .\requirements.txt --upgrade
+del requirements.txt temp.txt</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Installing and Setting xlwings
 </script></section>
 <section data-markdown><script type="text/template">
 ## Installing xlwings for VS Code
@@ -164,108 +280,57 @@ Attribute VB_Name = "Module1"
 	- launch VS Code and press Ctrl + ~ to open the command line, then run the following command
 - More information: **_xlwings -h_**
 </script></section>
-<section data-markdown><script type="text/template">
-## Visual Basic Editor 亂碼問題
-- The Visual Basic Editor does not support Unicode encoding, neither for input, nor for display.
-- The VBA editor still uses the old "code page" character encodings based on the locale setting in Windows.
-- 修改 Excel 工作表名稱，不要使用中文命名，避免亂碼問題
-- 修改 VBA 工作屬性的名稱，不要使用中文命名，避免亂碼問題
-</script></section>
 </section><!--end block-->
 
-<section><!--start block-->
+<section><!-- start block-->
 <section data-markdown><script type="text/template">
-# Python Installation
+# Debugging
 </script></section>
 <section data-markdown><script type="text/template">
-## Instll Python how to(1/7)
-- Where have you installed [Python](https://www.python.org/downloads/) in the System?
-	- Windows: **_where python_**, Unix-like: **_which python_**
-![](/images/stisp/wherePy.png)
+## Debug with VBE (1/3)
+- Enable Debug Toolbars
+	- **檢視 >> 工具列 >> 偵錯**
+- Downlad the [debugDemo.xlsm](https://drive.google.com/file/d/1N2hb-7R36ziz6-kF02mye5xQsQKwe206/view?usp=drive_link) file from my GoogleDriver
+- Source code of debugDemo.xlsm
+<pre><code>Option Explicit
+Public Sub addCells()
+	Dim x As Integer
+	Dim y As Integer
+	x = Cells(1, 1).Value
+	y = Cell(3, 2).Value  'error here
+	x = x + 100
+	y = y + 20
+	Cells(1, 1) = x
+	Cells(3, 2) = y
+End Sub</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Instll Python how to(2/7)
-- Download and install [Python](https://www.python.org/downloads/) in the System
-	- Select "customize installation" and Add python.exe to PATH
-![](/images/stisp/pyInstall.png)
+## Debug with VBE (2/3)
+- Source code of debugDemo.xlsm
+<pre><code>Public Sub goodCode()
+	MsgBox "This code is working."
+End Sub
+Public Sub badCode()
+	Application.Delete
+End Sub
+Public Sub clearValue()
+Cells.Clear
+End Sub</code></pre>
+- Debugging
+	- 游標置放在 Sub addCells() 這一行，按工具列的"執行"按鈕(F5)，執行這個 Sub 程式碼
 </script></section>
 <section data-markdown><script type="text/template">
-## Instll Python how to(3/7)
-- Make sure what you want to install Python in the System?
-![](/images/stisp/pyInstall2.png)
+## Debug with VBE (3/3)
+- Debugging
+	- 游標置放在 option explicit or Sub 之間的空白行，按工具列的"執行"按鈕(F5)，選擇要執行的 Sub 程式碼
+- Debugging VBA step by step
+	- **按工具列的"逐步"按鈕(F8)，逐步執行 Sub 程式碼**
+- Setting stop point
+	- 按工具列的"切換中斷點"按鈕(F9) or 滑鼠點選程式碼的左側的，設定停止點
+- **開啟 "區域變數視窗"，可以檢視 Sub 程式碼中區域變數的數值**
+	- Run getChar Module in debugDemo.xlsm
 </script></section>
-<section data-markdown><script type="text/template">
-## Instll Python how to(4/7)
-- For example, it is installed in C:\Python
-![](/images/stisp/pyInstall3.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## Instll Python how to(5/7)
-- Check Python version with **_python -V_** command
-![](/images/stisp/pyVersion.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## Instll Python how to(6/7)
-- Update Python
-![](/images/stisp/updatePy.png)
-</script></section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-# 附錄 D <br />Links for this book
-</script></section>
-<section data-markdown><script type="text/template">
-## 書本範例連結
-- Chapter 01
-	- [fChart程式設計教學工具簡介](https://fchart.github.io/fchart.html)
-	- [fChart 程式設計教學工具](https://fchart.github.io/)
-	- [Web Scraper](https://www.webscraper.io/)
-	- [chrome 線上應用程式商店](https://chromewebstore.google.com/)
-- Chapter 02
-	- [標題文字 h1 標籤](https://fchart.github.io/vba/ex2_01.html)
-- Chapter 03
-	- [項目符號的 ul 和 li 標籤](https://fchart.github.io/vba/ex3_01.html)
-	- [使用 Element 選擇器類型](https://fchart.github.io/vba/ex3_02.html)
-	- [HTML 表格標籤l](https://fchart.github.io/vba/ex3_03.html)
-	- [Yahoo!股市](https://tw.stock.yahoo.com/)
-	- [Yahoo!股市 - 台積電](https://tw.stock.yahoo.com/quote/2330.TW)
-</script></section>
-
-<section data-markdown><script type="text/template">
-## 書本範例連結
-- Chapter 04
-	- [HTML 圖片標籤](https://fchart.github.io/vba/ex4_01.html)
-	- [HTML 超連結標籤](https://fchart.github.io/vba/ex4_02.html)
-	- [Yahoo!奇摩院線電影l](https://tw.news.yahoo.com/movieintheaters)
-- Chapter 05
-	- [HTML 容器標籤](https://fchart.github.io/vba/ex5_01.html)
-	- [HTML5 版面配置](https://fchart.github.io/vba/ex5_02.html)
-	- [MoneyDj 理財網](https://www.moneydj.com/)
-	- [MoneyDj 新聞總表](https://www.moneydj.com/funddj/ya/YP051000.djhtm)
-	- [Lattops category](https://www.webscraper.io/test-sites/e-commerce/allinone/lattops)
-- Chapter 06
-	- [webscraper test sites](https://www.webscraper.io/test-sites/)
-	- [webscraper test sites](https://www.webscraper.io/test-sites/e-commerce/allinone/)
-</script></section>
-
-<section data-markdown><script type="text/template">
-## 書本範例連結
-- Chapter 06
-	- [ESPN NBA 球員統計資料](https://www.espn.com/nba/stats)
-	- [Word list 01](https://www.majortests.com/word-lists/word-list-01.html)
-- Chapter 07
-	- [webscraper test sites static](https://www.webscraper.io/test-sites/e-commerce/static)
-	- [webscraper test sites computers](https://www.webscraper.io/test-sites/e-commerce/static/computers/)
-	- [webscraper test sites ajax computers](https://www.webscraper.io/test-sites/e-commerce/ajax/computers/)
-	- [webscraper test sites ajax laptops](https://www.webscraper.io/test-sites/e-commerce/ajax/computers/laptops)
-	- [webscraper test sites more button](https://www.webscraper.io/test-sites/e-commerce/more/computers/laptops)
-	- [104人力銀行](www.104.com.tw)
-- Chapter 08
-	- [全國電子門市據點](https://web.elifemall.com.tw/zh/store.php)
-</script></section>
-</section><!--end block-->
-	
+</section><!--end block-->	
 </div>
 </div>
 

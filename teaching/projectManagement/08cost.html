@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>成本管理</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 成本管理
+</script></section>
+<section data-markdown><script type="text/template">
+## 成本管理的內容
+- 專案管理金三角三要素:第一要素「時程」、**第二要素「成本」**、第三要素「品質」
+- 大部份專案的基本目的不是為了賺錢，就是為了省錢，這也是為什麼專案必須財務標準來衡量成效的原因
+- 所有專案的四大限制：**績效、成本、時間、範疇**
+- 為瞭解專案實際進行的狀況，企業必須知道這四大限制各有何價值。其中最容易瞭解的是「成本」，它包括人力、材料與資本設備 
+- 專案成本管理的主要內容有**成本規劃管理、成本估算、預算編列、成本控制**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案管理五大流程群組與專案成本管理知識領域配適表
+![](/images/pm/cost.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 成本規劃管理的 ITTO
+![](/images/pm/costPlan.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 估算成本的 ITTO
+![](/images/pm/costEstimate.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 發展預算的 ITTO
+![](/images/pm/costDevelop.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 控制成本的 ITTO
+![](/images/pm/costControl.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 成本估算與成本基準
+</script></section>
+<section data-markdown><script type="text/template">
+## 估算專案成本
+- **專案預算是影響整個專案能否順利執行完成的關鍵因素之一**，專案要花多少成本？成本估算的目的就是要回答這個問題
+- 成本估算與編列預算都由成本管理計畫所監控，依據 PMBOK 指南成本管理計畫以下內容
+	- 精確程度 (小數點以下一位，還是兩位等等)
+	- 資源衡量單位，例如人工小時、薪資、日薪等等
+	- 使工作分解結構(WBS)要件的成本估計能直接連結到會計帳，因此，**工作分解結構(WBS)是決定正確成本估計的關鍵**
+	- 實獲值
+	- 報告格式
+	- 流程描述 
+</script></section>
+<section data-markdown><script type="text/template">
+## 成本基線 
+- 成本基線(Cost Baseline) 是編列成本預算流程的主要產出
+- 只有與專案有關的成本，才會變成專案預算的一部份
+- 成本基線是指專案的期望成本
+- 成本基線是預算的累加曲線，又稱為S曲線(S-Curve)
+- 專案的成本基準 (Cost Baseline) 常以 S 曲線(時間 v.s 成本) 的形式表現，連同實際現金流量 (Cash Flow) 與資金挹注計畫 (Funding Plan) 之比對，可預估出專案未來的財務情況
+- 下張 Slide 圖的 S-Curve 是**取 Spending 的 S 之意**，在起始及結束活動較少，花費較少，所以曲線較平滑；**中間因為進入執行階段，會有大量的資源投入，支出多，所以曲線會陡峭**
+</script></section>
+<section data-markdown><script type="text/template">
+## S曲線(S-Curve) 
+![](/images/pm/sCurve.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 常見的成本估算方法(1/2)
+- 類比估算法(Analogous Estimating)
+	- 參考過去類似的專案預算進行估算
+- **參數模型法**(Parametric Modeling)
+	- **依據過去類似的專案預算，找出預算與影響預算變數之間的關係，再用模型進行估算**
+- 由下而上估算法(Bottom-up Estimating)
+	- 先估算各項活動的預算，再加總所有活動的預算總金額
+</script></section>
+<section data-markdown><script type="text/template">
+## 常見的成本估算方法(2/2)
+- **三點估算法**(three-point estimating)
+	- 列出最可能的預算(m)、可容許的最大預算(a)、最小預算(b)，然後再取三者的平均值
+	- 簡單平均法公式為CE=(a+m+b)/3
+	- **加權平均法公式為CE=(a+4m+b)/6**
+- 電腦工具(Computerized Tools)
+	- 使用相關電腦軟體協助成本估算
+- 供應商投標分析(Vendor bid analysis)
+	- 可透過要求供應商報價或投標，從供應商報價或投標蒐集資訊，以協助建立成本估算
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案預算編列與財務分析
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案預算編列
+- 專案在編列預算時，必須注意事項
+	- **專案預算必須能夠被清楚的檢查**，因此要包括預算項目、預算金額、預算需求的時間、負責執行該預算的單位等
+	- 重要預算項目不可漏列
+	- 必須掌握可能有大筆變動的預算項目與金額
+	- **要編列預備金**
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案計畫的財務分析
+- 專案經理必備的財務知識
+- 財務規劃之原則: 保守與穩健
+- 融資規劃的準則
+- 財務報酬率分析方法及其陷阱
+- 敏感性分析
+- 現金流量試算表編制
+</script></section>
+<section data-markdown><script type="text/template">
+## 專案經理必備的財務知識
+- 財務分析常見的分析手法
+	- 淨現值(Net Present Value, NPV):**此專案可能為公司賺多少錢或省多少錢？**
+	- 內部投資報酬率(Internal Rate of Return, IRR)：**推斷投資的平均報酬率**
+	- 還本期間(Payback Period)
+	- 單筆資金極限(Cash Hole)：**任一時間所能投資的最大金額**
+- 在進行專案時，專案經理會參與的財務分析工作主要有 
+	- 計算現金流入
+	- 計算現金流出
+	- 繪製現金流量表 	
+</script></section>
+<section data-markdown><script type="text/template">
+## 財務規劃之原則
+- 研究階段的財務規劃原則
+	- 專案計畫進行階段而言，財務規劃應採取偏誤分析，易言之，**應低估可能發生的效益，高估可能發生的成本**
+	- 專案計畫規劃階段，雖已經取得激化初期資料，財務分析可做的更精確，但仍宜採保守態度
+	- 過於樂觀的財務規劃，將讓投資參與者(尤其民間業者)迷失而忽略追求經營效率，而產生道德危機或陷入白象效應
+- 經營期間的財務規劃原則
+	- 長期財務規劃旨在就計畫之收益、成本及隱含的風險加以全面考量，**不能正確評估計畫的可能收益，將會影響永續成長**
+	- 短期財務規劃的**目的是要能提供資金流動性，即要能滿足現金的週轉金**，例如支付工資、付款給供應商、繳納稅款等
+</script></section>
+<section data-markdown><script type="text/template">
+# 財務報酬率 <br />分析方法及其陷阱
+</script></section>
+<section data-markdown><script type="text/template">
+## 評估投資計畫獲益性的準則(1/2)
+- 淨現值法(NPV)
+	- 評估未來一段時間內預計可能產生的現金流出和流入的詳細計畫，並評估該方案所帶來的風險，
+	據以評估各期間的資金成本，然後以資金成本將該投資計畫在各期所產生的現金流量折現，最後**加總各期的現金流量折現值，即得到淨現值**
+- 投資內部報酬率法(IRR)
+	- 指**使現金流量之淨現值為零之折現率**，只要**內部報酬率大於可接受的合理報酬率則表示本計畫值得進行**
+</script></section>
+<section data-markdown><script type="text/template">
+## 評估投資計畫獲益性的準則(2/2)
+- 回收期法
+	- 分析投資總成本於何時能回收，**回收期越短表示計畫可行性越高**
+- 資本報酬率
+	- 為資本投資現值與每年支付到期本息及租稅後之剩餘現金流量現值相等之折現率
+	- 投資內部報酬率之計算基礎為總投資額，而資本報酬率之計算基礎為資本投入額，**通常資本報酬率較基本利率高 10% 為具吸引力之計畫**
+</script></section>
+<section data-markdown><script type="text/template">
+## 淨現值法財務報酬率分析注意事項
+- 當**內部報酬率與淨現值法所得的結果不一致時，應採用淨現值法來評估**，但應注意
+- 現金流量的概念
+	- 淨現值法是使用現金流量計算，而**現金流量是指實際已經入帳的收入和支出間的現金差額**
+	- 若會計帳是採應計法，計算現金流量時需調整應收帳款科目，**只計算經常帳支出部分，不含資本支出**
+- 不考慮沉沒成本
+	- 沉沒成本是本計畫之前就已經發生德成本，無法計入本計畫並無法獲得回收之成本
+	- **計算投資計畫成本，只能包含因進行此計畫而生的成本**
+</script></section>
+<section data-markdown><script type="text/template">
+## 敏感性分析
+- 上述評估計畫獲利性指標的淨現值法或內部報酬率，是在各種最可能之假設基礎上所計算而得，**倘若未來實際發生之狀況，與任何之一假設不符，就可能影嚮原預估之財務報酬率**
+- 為**估算各項成本及收入因素變動對財務結果的反應程度，即所謂敏感度分析**
+- 通常選擇測試敏感度分析的變數包括
+	- **關鍵成本及收入項目**
+	- 未履行合約規定之財務義務
+	- 工程落後之影響
+	- 成本及收入總額 
+</script></section>
+<section data-markdown><script type="text/template">
+## 編製現金流量試算表的步驟(1/2)
+- 估計每一項投入成本及收入之分年當年價格 
+- 預估計畫期間內，物價上漲率、稅率、營運初期資金及融資方案等之各項假設 
+- 利用預估之價格變動率(或成長率)，將分年分項的成本及收入調整成當年名目值。 
+- 編制名目值表示之現金流量試算表，此時須決定各項收入與成本的發生時點，並利用資產負債表的應收帳款及應付帳款來調整當年度的收入與成本實際值。 
+- 編制計畫期間各年之損益表以估算以當期之所得稅且須根據專案計畫所在國之稅法估算折舊費用、銷貨成本、利息費用及所得稅，將預估之所得稅列入現金流量之減項 
+</script></section>
+<section data-markdown><script type="text/template">
+## 編製現金流量試算表的步驟(2/2)
+- 估計年資金需求，將各年變動值列入現金流量表之減項
+- 依資金需求擬訂融資方案，並將撥款、本金攤還及利息列入現金流量表內。至此即完成以當年幣值所編列之現金流量表
+- 計算整個計畫的淨現金流量
+- 將淨現金流量以資金成本折現，求得各年之淨現流量
+- 計算計畫的淨現值(NPV)、內部報酬及償債比率
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 專案計畫的經濟分析
+</script></section>
+<section data-markdown><script type="text/template">
+## 經濟分析的目的與方法
+- 投資計畫進行經濟分析之目的是為從計畫在國際經濟發展的角度審視該項計畫是否符合資源有效利用的原則，並從整體經濟的各種目標和限制來看該計畫的報酬，
+以及計畫是否對參與者提供足夠的誘因
+- **經濟分析係採用有系統的定量方法**來評估投資決策分析方法
+- 如果**效益大於或等於成本，則值得執行此計畫，反之，則應放棄計畫**
+- 效益可定義為達成經濟某些基本目標的效果
+- 成本可定義定義為對達成這些基本目標所付出的成本或機會成本
+</script></section>
+<section data-markdown><script type="text/template">
+## 經濟分析與財務分析之差異 
+- **務分析不具唯一性**
+- 財務及經濟分析都運用該計畫所產生的現金流量的折現法來估算，但**財務分析是估算該計畫參與者產生之財務所得收入，而經濟分析是估算該計畫之社會淨收入**
+- 財務分析中的所有資料係以會計帳面價值為基準
+- 財務分析的所有相關成本與效益均可量化，但**經濟分析除涉及直接成本效益是可量化，還包含外部效益，而外部效益是無法量化**
+- **在經濟分析中，稅收和補貼被視為移轉性支付，而非真正使用資源所發生之成本，須從財務價格中刪除**；另外利息支出是整個社會對資本使用的總收益的一部分，亦須將利息支出加回毛利潤
+</script></section>
+<section data-markdown><script type="text/template">
+## 估算經濟價值的步驟(1/3)
+- 步驟1
+	- 重新定義計劃的成本與效益，將屬於(或不屬於)經濟成本與效益之因素從財務帳中與以納入(或排除)
+- 步驟2
+	- **將投入與產出用經濟價值加以調整**
+- 需要調整之財務項目約包括
+	- 沉沒成本
+		- 計畫進行以前的成本，**不應計入該計畫經濟成本中**
+	- 準備金
+		- 為完成該計畫**可能增加之資源投入的貨幣價值，應列入經濟成本**
+</script></section>
+<section data-markdown><script type="text/template">
+## 估算經濟價值的步驟(2/3)
+- 需要調整之財務項目約包括
+	- 移轉性支付
+		- 通常指稅款(包括進出口稅)、補貼、貸款和折舊等，就經濟分析角度而言，轉移性支付是指實際資源的使用權
+		從某部門移轉到另一部門，**對國民所得而言，沒有任何改變，應從經濟成本或效益中剔除**
+	- 折舊
+		- 折舊僅是一項轉移性支付，**非經濟成本**
+	- 消費者剩餘
+		- 是指**消費者願意為一項產品或服務支付的費用與實際支付之間的差額**，此類效果對國家之發展目標造成影響，**應包含在經濟分析中**
+</script></section>
+<section data-markdown><script type="text/template">
+## 估算經濟價值的步驟(2/3)
+- 需要調整之財務項目約包括
+	- 外部效果
+		- 計劃本身範圍外所發生的成本或效益的效果，此類效果對國家之發展目標造成影響，應包含在經濟分析中
+	- 損耗性貼水
+		- 計畫之投入需使用**消耗性資源如原油、天然氣或其他礦藏等，應列入經濟成本**
+	- 營運成本
+		- 是指流動資產，包括現金、應收帳款、存貨等，於經濟分析時，**只有存貨與國家資源有關，列入經濟成本**；
+		其他項目被視為財務轉移，不列入經濟成本
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 成本分析
+</script></section>
+<section data-markdown><script type="text/template">
+## 成本的組成 (1/2) 
+![](/images/pm/costStructure.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 成本的組成 (2/2) 
+![](/images/pm/costProduct.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 作業基礎成本制 (ABC)
+- 作業基礎成本制 (Activity-Based Costing) 係指以**耗用資源成本的各項作業中心為成本歸屬的標的**，
+將成本匯集到各作業中心中的各項作業，再以**作業動因為分攤基礎，進而將作業成本分攤或歸屬至產品或勞務中**，
+最後計算出成本標的製造費用
+- 作業基礎成本制的發展可分為二個階段，第一階段為產品成本計算單構面模型，第二階段為雙構面模型
+- 單構面模型主要是為了達成策略性目標，即成本計算而設計的，其目的是為了合理分攤製造費費用以正確計算產品成本
+</script></section>
+<section data-markdown><script type="text/template">
+## 作業基礎成本制單構面模型 
+![](/images/pm/costModel.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 作業基礎成本制雙構面模型 
+![](/images/pm/costDouble.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 採購成本
+- 訂購成本
+	- 主要包括通訊成本、填發請購單成本、**檢驗費用及所使用機具、手續費、佣金、保險與關稅**等
+- 價格成本
+	- 在採購時所需支付給賣方的價格，即物料成本；價格成本與購買的數量有直接關係，一般而言，**採購數量愈多，價格折扣就愈大**
+- 持有成本
+	- 主要包括**資金成本、儲存成本、風險成本**
+- 缺貨成本
+	- 是指因缺乏物料而造成生產線停頓所引發的各種損失及缺乏產品供應，無法滿足顧客需求所引發的各種損失
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
