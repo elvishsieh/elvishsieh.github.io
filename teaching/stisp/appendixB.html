@@ -50,6 +50,54 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # 附錄 B <br /> VBA 語法簡介
 </script></section>
 <section data-markdown><script type="text/template">
+## Entering VBA code
+- you can use a colon(:) to separate multiple instructions on a single line.
+- **To use VBA's line continuation sequence**: a space followed by an underscore ( _ ).
+- Because **VBA variable names aren't case-sensitive**, **the VBE, by default, adjusts the
+names of all variables with the same letters** so that their case matches the case of
+letters that you most recently typed.
+- The apostrophe(撇號) is the preferred comment indicator, you can also use the **Rem keyword** to mark a line as a comment.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of VBA code for Entering
+<pre><code data-trim data-line-numbers>Sub add()
+	
+    Dim a, b, c As Integer : a = 1   ' or a% = 1
+    dim public as Integer 'error here
+    Debug.Print a
+    ' open Immediate Window to view the "a" value
+    ' WorkSheets.Add().Name = "elvis" to add a worksheet with elvis name
+    ' WorkSheets("elvis").Delete to delete elvis worksheet
+    b = 2    'or b% = 2
+    Debug.Print b
+    c = a + b    
+    Debug.Print c
+    MsgBox "a = " & a & "," & Chr(13) & _
+           "b = " & b & vbNewLine & _
+           "a + b = " & c  
+
+End Sub</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Declaring Variables
+- Variable names must **start with a letter** and can be up to 255 characters in length.
+- Variable name **can’t contain characters such as space, periods, exclamation points, mathematical operators, type-declaration characters** (@, &, $, #)
+- To explicitly declare variables in VBA, use the **Dim** statement, followed by the variable name and type.
+- If a variable is used without being declared, or if no type is specified, **it will be assigned the type Variant.**
+- Use the **Option Explicit** statement on first line of a module to **force all variables to be declared before usage**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of Variable Declaration
+- Good variable name
+	- a , MyVariable, ch02, myVar, Visual_Basic_Editor, VBA, **vbaIntro**, ..., etc	
+- Bad variable name
+	- **My Variable**—Contains a space
+	- **My!Variable**—Contains an exclamation point
+	- **Elvis@gmail**—Contains a type-declaration character (@)
+	- **02chapter**—Does not start with a letter
+	- **a+b**—Contains a mathematical operators
+</script></section>
+<section data-markdown><script type="text/template">
 ## [Data Type (資料型態)](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/data-type-summary) 1/3
 
 | Data type | StorageSize | Range |
@@ -90,22 +138,49 @@ LongPtr 	|4 bytes on 32-bit systems| -2,147,483,648 to 2,147,483,647 on 32-bit s
 - 中央處理器讀取記憶體中的資料，並且執行程式碼，透過**資料型態的宣告，讓電腦知道處理的資料是哪種型態，要配置多少記憶體**？
 - 例如：整數資料型態 (Integer)，配置 2 bytes 的記憶體，而不是 4 bytes 的記憶體，
 對於工程數值的精確度要求，可以使用更長的資料型態來做計算，以達到精確度要求
-- **電腦沒有減法器，整數相減，減數先取補數，兩數相加後再加 1**；例如 10 - 3 = 7, 1010 + 1100 = 0110 + 1 = 0111 = 7
+- **電腦沒有減法器，整數相減，減數先取補數，兩數相加後再加 1**；例如 10 - 3 = 7, 1010 + 1100,  0110 + 1 = 0111 = 7
+</script></section>
+<section data-markdown><script type="text/template">
+## 電腦處理整數減法
+- **減數先取補數，兩數相加後再加 1**
+- 例如 10 - 3 = 7, 1010 + 1100 = 0110, 0110 + 1 = 0111 = 7
+	- 減數 3, 二進位是 0011, 取補數得 1100
+	- 10 的二進位數字是 1010，與 1100 相加得 0110
+	- 0110 再加 1 得 0111, 0111 是 7
+	- 所以，10 -3 = 7
+</script></section>
+<section data-markdown><script type="text/template">
+## Type-declaration characters
+|Character |Data Type of Variable | Example|
+|:--- | :--- | :--- |
+|% |Integer | Quantity% |
+|& |Long |China& |
+|@ | Currency |Profits@ |
+| ! |Single |temperature! |
+|# |Double |Differential# |
+| $|String (variable length)| myMessage$|
+| | | |
+- For example the **implicit declaration of the variable**
+	- Quantity% = 10
+	- China& = 100
+	- myMessage$ = "Hello World"
 </script></section>
 <section data-markdown><script type="text/template">
 ## 自訂資料型態
 - User-defined data types can contain one or more elements of a data type, an array, or **a previously defined user-defined type**.
-<pre><code>Type EmployeeRecord    ' Create user-defined type. 
-    ID As Integer    ' Define elements of data type. 
-    Name As String * 20 
-    Address As String * 30 
-    Phone As Long 
-    HireDate As Date 
-End Type 
-Sub CreateRecord() 
-    Dim MyRecord As EmployeeRecord    ' Declare variable. 
-    ' Assignment to EmployeeRecord variable must occur in a procedure. 
-    MyRecord.ID = 12003    ' Assign a value to an element. 
+<pre><code>Type employeeInfo 	' Create user-defined type.
+    ID As Integer               ' Define elements of data type.
+    Name As String * 20
+    Address As String * 30
+    Phone As Long
+    HireDate As Date
+End Type
+Sub createInfo()
+    Dim myInfo As employeeInfo	' Declare variable.
+    myInfo.ID = 1234	' Assign a value to an element.
+    myInfo.Name = "Elvis Hsieh"
+    myInfo.Phone = 928911199
+    MsgBox myInfo.ID & myInfo.Name & myInfo.Phone, vbOKOnly, "Personal Information"
 End Sub</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
@@ -125,8 +200,124 @@ End Sub</code></pre>
 | | | | ||
 - [Keywords by task](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/keywords-by-task)
 and [VB Keywords](https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/keywords/)
+- vbaIntro.xlsm : b02_declareVar, b03_declareDrill module
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Cells, Range and Worksheet
+</script></section>
+<section data-markdown><script type="text/template">
+## Cells Operation
+- Cells start with cells(1, 1)
+<pre><code>Cells(4, 2).Value = 10
+'Cells(0, 0).Value = 20 ' error here, starting with cells(1,1)
+Cells(1, 3).Value = 30</code></pre>
+- Cells (4, 2) is the same with Cells(4, B) in Excel
+- Using **Evalute function** to set the cells value
+<pre><code>Application.Evaluate("a3") = "HelloWorld!"
+[a4] = "elvis hsieh" ' the same as above code
+[a5] = "Sum(B1:C4)"</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Range Operation
+- [Range is a object](https://learn.microsoft.com/en-us/office/vba/api/excel.range(object)) which have many method and properties.
+<pre><code data-trim data-line-numbers>Set wb = ThisWorkbook
+Set ws = wb.Worksheets(2) 'the second "elvis" sheet
+Set rg = ws.range("D1:E4")
+Debug.Print rg.Address
+' run the below code step by step
+For i = 1 To 8
+	rg.Cells(i) = i
+Next i
+Dim rValue As Integer ' change rValue into rvalue for testing case-sensitive
+rValue = 8
+For j = 1 To 4
+	For k = 1 To 2
+		rg.Cells(j, k) = rValue
+		rValue = rValue - 1
+	Next k
+Next j</code></pre>
 </script></section>
 <section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Array
+</script></section>
+<section data-markdown><script type="text/template">
+## Arrays(1/4)
+- One-dimensional
+<pre><code>Dim arrayDirect1D(2) As String
+arrayDirect(0) = "A"
+arrayDirect(1) = "B"
+arrayDirect(2) = "C"</code></pre>
+- Multi-dimensional
+<pre><code>Dim arrayDirectMulti(1, 1, 2) As String
+arrayDirectMulti(0, 0, 0) = "A"
+arrayDirectMulti(0, 0, 1) = "B"
+arrayDirectMulti(0, 0, 2) = "C"
+arrayDirectMulti(0, 1, 0) = "D"</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Arrays(2/4)
+- Using Array() function
+<pre><code>Dim array1D As Variant 'has to be type variant
+array1D = Array(1, 2, "A")
+'-> array1D(0) = 1, array1D(1) = 2, array1D(2) = "A"</code></pre>
+- From range
+<pre><code>Dim arrayRange As Variant 'has to be type variant
+arrayRange = Range("A1:C10").Value
+'-> arrayRange(1,1) = value in A1
+'-> arrayRange(1,2) = value in B1
+'-> arrayRange(5,3) = value in C5</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Arrays(3/4)
+- From range(**Range("A1:C10").Value**)
+	- Putting ranges in an array **always creates a 2D array** (even if only 1 row or column)
+	- **Starting at 1 and not 0, first dimension is the row** and the second the column
+|  | A | B | C |
+| :---: | :---: | :---: | :---: |
+| 2 | (1,1) | (1,2) | (1,3) |
+| 3 | (2,1) | (2,2) | (2,3) |
+| 4 | (3,1) | (3,2) | (3,3) |
+| 5 | (5,1) | (5,2) | (5,3) |
+| ... | ... | ... | ... |
+| 10 | (10,1) | (10,2) | (10,3) |
+| | | | |
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## MsgBox function
+- 語法： MsgBox (prompt, [ buttons, ] [ title, ] [ helpfile, context ])
+<pre><code>Dim Msg, Style, Title, Help, Ctxt, Response, MyString
+Msg = "Do you want to continue ?"    ' Define message.
+Style = vbYesNo Or vbCritical Or vbDefaultButton2    ' Define buttons.
+Title = "MsgBox Demonstration"    ' Define title.
+Help = "DEMO.HLP"    ' Define Help file.
+Ctxt = 1000    ' Define topic context. 
+		' Display message.
+Response = MsgBox(Msg, Style, Title, Help, Ctxt)
+If Response = vbYes Then    ' User chose Yes.
+	MyString = "Yes"    ' Perform some action.
+Else    ' User chose No.
+	MyString = "No"    ' Perform some action.
+End If</code></pre>
+- Reference to [MsgBox function](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/msgbox-function)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
