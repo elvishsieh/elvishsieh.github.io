@@ -167,8 +167,10 @@ LongPtr 	|4 bytes on 32-bit systems| -2,147,483,648 to 2,147,483,647 on 32-bit s
 </script></section>
 <section data-markdown><script type="text/template">
 ## 自訂資料型態
-- User-defined data types can contain one or more elements of a data type, an array, or **a previously defined user-defined type**.
-<pre><code>Type employeeInfo 	' Create user-defined type.
+- User-defined data types can contain one or more elements
+ of a data type, an array, or **a previously defined user-defined type**.
+
+<pre><code data-trim data-line-numbers>Type employeeInfo 	' Create user-defined type.
     ID As Integer               ' Define elements of data type.
     Name As String * 20
     Address As String * 30
@@ -209,20 +211,65 @@ and [VB Keywords](https://learn.microsoft.com/en-us/dotnet/visual-basic/language
 # Cells, Range and Worksheet
 </script></section>
 <section data-markdown><script type="text/template">
+## Cells and Ranges(1/2)
+- 請開啟 VBE, **按 Ctrl + G 開啟"即時運算"視窗**，依序輸入下列的語法，按下 Enter
+	1. Range("A1:A4").Select ↩
+	1. [A1:A4].Value = 55
+	2. Range("B1:D4").Value = 30
+	3. Selection.ClearContents
+	4. Cells.ClearContents
+	5. ActiveCell.Select
+	6. ?Selection.Address
+	7. Print ActiveWorkbook.Name
+</script></section>
+<section data-markdown><script type="text/template">
+## Cells and Ranges(2/2)
+- 上一張投影片輸入語法以後得到的結果依序為
+	1. Excel 儲存格 $A$1:$A$4 呈現被選擇的區域，顏色為灰白色(Range("A1:A4").Select)
+	2. Excel 儲存格 $A$1:$A$4 資料為 55([A1:A4].Value)
+	3. Excel 儲存格 $B$1:$D$4 資料為 30(Range("B1:D4").Value)
+	4. Excel 儲存格 $A$1:$A$4 資料清除(Selection.ClearContents)
+	5. Excel 儲存格所有資料被清除(Cells.ClearContents)
+	6. 詢問目前選擇儲存格的位置(?Selection.Address)，顯示 $\text{\textdollar A}\text{\textdollar 1}$
+	7. 尋問目前活頁簿的名稱(Print ActiveWorkbook.Name)，例如 vbaIntro.xlsm
+</script></section>
+<section data-markdown><script type="text/template">
+## Try it by yourself
+- **Alt + 向右鍵：開啟 Auto complete**
+- **Tab 鍵：完成 Auto complete 的選擇**
+	1. 輸入 de 然後按 Alt + 向右鍵(開啟 auto complete)，再按 Tab 鍵，完成 debug 指令
+	2. 在 debug 後面輸入 . 然後選擇 print，再按 Tab 鍵，完成 debug.print 指令
+	3. 按空白鍵以後，再輸入 ac 然後按 Alt + 向右鍵選擇 ActiveSheet
+	4. 再輸入 .name 然後按 Enter
+</script></section>
+<section data-markdown><script type="text/template">
 ## Cells Operation
 - Cells start with cells(1, 1)
 <pre><code>Cells(4, 2).Value = 10
 'Cells(0, 0).Value = 20 ' error here, starting with cells(1,1)
 Cells(1, 3).Value = 30</code></pre>
 - Cells (4, 2) is the same with Cells(4, B) in Excel
-- Using **Evalute function** to set the cells value
+- Using **Evaluate function** to set the cells value
 <pre><code>Application.Evaluate("a3") = "HelloWorld!"
 [a4] = "elvis hsieh" ' the same as above code
 [a5] = "Sum(B1:C4)"</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
+## Range format instructions
+- 設定 Range 儲存格內的字型、字型大小及顏色等 
+<pre><code>Sheets.Add.name = "test"
+Range("a4:d9").value = "中華文字之美"
+Range("a4:d9").Font.Name = "標楷體"
+Range("a4:d9").Font.Size = 20
+Range("a4:d9").Font.Color = RGB(255,0,0)
+Range("a4:d9").Columns.AutoFit
+Range("a4:d9").ClearFormats
+Sheets("test").Delete
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
 ## Range Operation
-- [Range is a object](https://learn.microsoft.com/en-us/office/vba/api/excel.range(object)) which have many method and properties.
+- [Range is a object](https://learn.microsoft.com/zh-tw/office/vba/api/excel.range(object)) which have many method and properties.
 <pre><code data-trim data-line-numbers>Set wb = ThisWorkbook
 Set ws = wb.Worksheets(2) 'the second "elvis" sheet
 Set rg = ws.range("D1:E4")
@@ -240,12 +287,22 @@ For j = 1 To 4
 	Next k
 Next j</code></pre>
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## What is an object?
+- An object represents an element of an application, such as **a worksheet, a cell, a chart, a form, or a report**.
+- You can apply one of the object's **methods or change the value of one of its properties**.
+- 使用 dot(.) 來呼叫物件的方法(method)或屬性(property)
+- For example
+	- Range 是一個物件, Range("A1:A4").Select 語法是使用 Range 物件的 Select 方法，選取指定的 A1:A4 區域
+	- Selection.ClearContents method 把目前 Selection 區域的資料清除
+</script></section>
+<section data-markdown><script type="text/template">
+## Method, Property and Event
+- **A method is an action that an object can perform(可執行的動作)**. For example, ClearContents method 清除資料
+- **A property is an attribute of an object** that defines one of the object's characteristics, such as **size, color, or screen location**, or an aspect of its behavior, such as whether it is enabled or visible.
+	- for example, Range("a1:a4").Font.Size = 20, Range("A1:A4").Interior.Color = RGB(255,0,0) 
+- An event is an action recognized by an object, **such as clicking the mouse or pressing a key**, and for which you can write code to respond.
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
