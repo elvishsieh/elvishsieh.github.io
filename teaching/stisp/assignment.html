@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Assignment for ISP</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 第一次作業
+</script>
+</section>
+
+<section data-markdown><script type="text/template">
+## VBE 即時運算視窗操作
+- 使用影像錄製軟體，例如 [OBS 軟體](https://obsproject.com/)，錄製你/妳**在 Excel 的 VBE 即時運算視窗中輸入下列語法的操作過程**
+<pre><code data-trim data-line-numbers>Sheets.Add.name = "test"
+Range("A1").Value = "編號"
+Cells(1,2) = "產品名稱"
+[c1] = "單價"
+[d1] = "數量" : [e1] = "總計"
+cells.Font.Name = "標楷體" '設定 test 工作表使用標楷體
+cells.Font.Size = 14
+cells.RowHeight = 50
+Cells.VerticalAlignment = xlCenter  : _
+cells.HorizontalAlignment = xlCenter
+cells.Clear
+Sheets("test").delete
+</code></pre>
+- 在操作過程中，**必須使用 Alt + 向右鍵以及 Tab 鍵來輸入指令**，例如： 輸入 Ra 後按 Alt + 向右鍵，再按 Tab 鍵完成指令
+</script></section>
+<section data-markdown><script type="text/template">
+## Call b05_setStyle Module
+- **撰寫一個主程式**呼叫 b05_setStyle 模組內的 **cellFormat** Subroutine
+	- 主程式需要一個引數才能呼叫 cellFormat Subroutine，**引數(argument) 是一個 sheet name，傳入 cellFormat Sub 作為參數(parameter) inSheetName 的引數**
+- 建立一個物件，物件可以是一個按鈕控制項、圖型、或者表單等物件
+- 將**建立的物件指定到主程式這個巨集**，按下物件以後，會呼叫 cellFormat Subroutine 設定目前開啟工作表的格式
+- 主程式可以儲存在模組或工作表內，模組、主程式巨集及工作表名稱請自行命名
+</script></section>
+<section data-markdown><script type="text/template">
+## 影片錄製及作業繳交注意事項
+- 錄製影片時**需注意 Excel 工作表及 VBE 視窗是否同時顯示在螢幕上**
+- 在錄製時必須要再加入 Camara 的來源影像，將 Camara 影像置於錄製畫面的左下方，**錄製你/妳操作電腦時的頭像畫面**
+- 檔案大小**限制 30 MB**，如果檔案大於規定的 30 MB，可以使用軟體壓縮檔案；降低檔案大小方法有：把解析度調低，或者使用影像壓縮軟體，例如： [Format Factory](http://www.pcfreetime.com/) 壓縮影像檔等
+- 檔案名稱：**學號_姓名_hw1**, 副檔名： **.mp4** (MP4 的格式)
+- 繳交網址：上傳錄製影片到 [assignment folder](https://drive.google.com/drive/folders/1V7aRUXRXm0XveSXWXI36FmmRdiwmHF38?usp=sharing)
+- 繳交日期：**3/30/2024 晚上 20:00 前上傳**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 第二次作業
+</script>
+</section>
+<section data-markdown><script type="text/template">
+## 讀取 CSV 檔案及設定儲存格
+- **撰寫一個主程式**呼叫 Lib01_charSet 模組內的 **importCSV** Subroutine
+	- 主程式需要一個引數才能呼叫 importCSV Subroutine，**引數是一個 sheet name，傳入 importCSV 的 inputName 參數**
+	- Lib01_charSet 模組提供 big5 及 utf8  兩種不同編碼格式讀取 CSV 檔案，輸入 1 讀取 big5 檔案，輸入 2 讀取 utf-8 檔案
+	- CSV 檔案必須儲存在 csvfiles 資料夾下，檔名分別是 product.csv, utf8product.csv，檔案可以從 [homework2](https://drive.google.com/drive/folders/1iU_OQ9wmx5xV7eWRW0RUOMaoTDida2wr?usp=sharing) 資料夾取得
+</script></section>
+<section data-markdown><script type="text/template">
+## 儲存格操作與使用者自訂型態(1/2)
+- 使用 **Range 的 autofill method** 將讀取的 CSV 檔案的 **C2 to Range("C2").End(xlDown)資料作為列的長度，將 =product(C2:D2) 公式填入 E2 to end of E column 儲存格中**
+- 請使用 VB 使用者自訂型態(user-defined)的語法，定義一組名為 productLists 資料型態
+	- **productLists 自訂型態的內容包含 ID, Name, Price, Amount 等 4 項變數型態**
+	- **將 myProduct 宣告成 productLists 資料型態**
+	- 使用 myProduct.ID, myProduct.Name, myProduct.Price, myProduct.Amount
+</script></section>
+<section data-markdown><script type="text/template">
+## 儲存格操作與使用者自訂型態(2/2)
+- 使用 **Range find method 尋找產品名稱為 "高麗菜"** 的資料欄位的資料及位址
+- 使用 **Range offset property 讀取高麗菜對應的 Name, Price, Amount 資料**，寫入 myProduct 相對應的 myProduct.Name, myProduct.Price, myProduct.Amount
+- 利用 myProduct.Price, myProduct.Amount 來**計算 Total 值，並使用 MsgBox 顯示結果**
+- 撰寫完成的程式碼不須上傳，但是，必須錄製你撰寫程式的過程以及解釋程式碼的說明影片
+- 檔案名稱：**學號_姓名_hw2**, 副檔名： **.mp4** (MP4 的格式)
+- 繳交網址：上傳錄製影片到 [assignment folder](https://drive.google.com/drive/folders/1qzXPUNr0H9fsBYcp6tPJuga7REpYsXf2)
+- 繳交日期：**4/6/2024**
+</script></section>
+<section data-markdown><script type="text/template">
+## Assignment 2 Result
+![](/images/stisp/hw2Result.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 第三次作業
+</script>
+</section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

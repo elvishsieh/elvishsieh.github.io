@@ -79,6 +79,24 @@ letters that you most recently typed.
 End Sub</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
+## MsgBox function
+- 語法： MsgBox (prompt, [ buttons, ] [ title, ] [ helpfile, context ])
+<pre><code>Dim Msg, Style, Title, Help, Ctxt, Response, MyString
+Msg = "Do you want to continue ?"    ' Define message.
+Style = vbYesNo Or vbCritical Or vbDefaultButton2    ' Define buttons.
+Title = "MsgBox Demonstration"    ' Define title.
+Help = "DEMO.HLP"    ' Define Help file.
+Ctxt = 1000    ' Define topic context. 
+		' Display message.
+Response = MsgBox(Msg, Style, Title, Help, Ctxt)
+If Response = vbYes Then    ' User chose Yes.
+	MyString = "Yes"    ' Perform some action.
+Else    ' User chose No.
+	MyString = "No"    ' Perform some action.
+End If</code></pre>
+- Reference to [MsgBox function](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/msgbox-function)
+</script></section>
+<section data-markdown><script type="text/template">
 ## Declaring Variables
 - Variable names must **start with a letter** and can be up to 255 characters in length.
 - Variable name **can’t contain characters such as space, periods, exclamation points, mathematical operators, type-declaration characters** (@, &, $, #)
@@ -204,6 +222,29 @@ End Sub</code></pre>
 and [VB Keywords](https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/keywords/)
 - vbaIntro.xlsm : b02_declareVar, b03_declareDrill module
 </script></section>
+<section data-markdown><script type="text/template">
+## Boolean data type
+- A data type with only two possible values, True (-1) or False (0). 
+- Boolean variables are stored as 16-bit (2-byte) numbers
+</script></section>
+<section data-markdown><script type="text/template">
+## EOF function
+-  EOF function to detect the end of a file. This example assumes that myFile.txt is a text file with a few lines of text.
+<pre><code>Public Sub oneChar()
+Dim MyChar
+Open "myFile.txt" For Input As #1    ' Open ./myFile.txt file for input.
+Do While Not EOF(1)    ' Check for end of file.
+	' MyChar = Input(1, #1)  ' Get one character.
+	Line Input #1, MyChar    ' Read line of data.
+	Debug.Print MyChar    ' Print to the Immediate window.
+Loop
+Close #1    ' Close file.
+End Sub
+' myFile.txt contents
+' Hi, runner hsieh
+' I am a programmer.
+</code></pre>
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -263,12 +304,61 @@ Range("a4:d9").Font.Name = "標楷體"
 Range("a4:d9").Font.Size = 20
 Range("a4:d9").Font.Color = RGB(255,0,0)
 Range("a4:d9").Columns.AutoFit
+Range("a4:d9").Interior.Color = RGB(204,255,255)
 Range("a4:d9").ClearFormats
 Sheets("test").Delete
 </code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Range Operation
+## Range Operation(1/3)
+- Line 10 Range("C1:C10 B5:E5") 是 C1:C10, B5:E5 交叉範圍
+<pre><code data-trim data-line-numbers>Public Sub rang()
+Cells.Clear
+Worksheets("elvis").Range("A1").Value = 6
+	Worksheets("elvis").Range("B1").Value = 25
+	ActiveSheet.Range("A6:C10").Value = 2
+	Range("A2", "B3").Select
+	Range("A2", "B3") = 56
+	Range("C1:C10 B5:E5").Select
+	Range("C1:C10 B5:E5") = 3
+	Range("C1:C10").Interior.Color = RGB(200, 255, 255)
+	Range("B5:E5").Interior.Color = RGB(255, 200, 255)
+	Range("F1,F3,F5,F7,F9").Select
+	Range("F1,F3,F5,F7,F9") = 67
+	ActiveCell.Range("C2") = 5      ' ActiveCell become A1
+	Range("D1:K10").Cells(4).Interior.Color = RGB(210, 220, 2)
+	Range("D1:K10").Cells(4) = 2000
+	Range("D1:K10").Select
+	Range("A1").Select
+End Sub</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Range Operation(2/3)
+<pre><code data-trim data-line-numbers>Public Sub rangDirection() '請一步一步執行 subDirection 子程式
+Call rang
+Range("A1:A2").Select
+Range("A1:A2").Offset(3, 2).Select ' move down 3, right 2
+Range("F5:H5").Select
+Range("F5:H5").Offset(-1, -4).Select
+Range("B2:D3").Select
+Range("B2:D3").Offset(5).Select
+Range("D1:E4") = 20
+Range("E3").End(xlDown).Select 'E3 is not empty, E4 is the end of cell.
+Range("C3").End(xlDown).Select 'C3 is empty, C5 is the end of cell.
+rowNumber = Range("C3").End(xlDown).Row 'row number
+Debug.Print rowNumber
+Range(Range("C3"), Range("C5").End(xlDown)).Select 'Select C3
+cRowCount = Range(Range("C3"), Range("C5").End(xlDown)).Count
+Debug.Print cRowCount 'count cells from C3 to C.End
+Range(ActiveCell, ActiveCell.End(xlDown)).Select
+Range("A1").End(xlToRight).Select
+rightCount = Range("A1").End(xlToRight).Column 'count cells from A1 to end of column
+Range("A1").End(xlToRight).Next.Select
+Debug.Print rightCount
+End Sub</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Range Operation(3/3)
 - [Range is a object](https://learn.microsoft.com/zh-tw/office/vba/api/excel.range(object)) which have many method and properties.
 <pre><code data-trim data-line-numbers>Set wb = ThisWorkbook
 Set ws = wb.Worksheets(2) 'the second "elvis" sheet
@@ -288,6 +378,34 @@ For j = 1 To 4
 Next j</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
+## Worksheet Operation(1/2)
+- Copy Worksheet to New Workbook
+<pre><code>Sheets("Sheet_name").Copy
+ActiveWorkbook.Sheets("Sheet_name").Copy
+ActiveSheet.Copy</code></pre>
+- Copy Sheet Within the Same Workbook
+<pre><code>'copy into Sheet_name2 before
+Sheets("Sheet_name1").Copy Before:=Sheets("Sheet_name2")
+'copy into fist sheet before
+Sheets("Sheet_name1").Copy Before:=Sheets(1)
+'copy to last sheet after
+Sheets("Sheet_name1").Copy After:=Sheets(Sheets.Count)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Worksheet Operation(2/2)
+- Copy Worksheet to Another Workbook
+<pre><code data-trim data-line-numbers>'將 Sheet1 工作表複製到 Example.xlsm 工作簿的第一個工作表之前
+Sheets("Sheet1").Copy Before:=Workbooks("Example.xlsm").Sheets(1)
+'將 Sheet1 工作表複製到 Example.xlsm 工作簿的最後一個工作表之後
+Sheets("Sheet1").Copy After:=Workbooks("Example.xlsm").Sheets(Workbooks("Example.xlsm").Sheets.Count)</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Object, Method, Property and Event
+</script></section>
+<section data-markdown><script type="text/template">
 ## What is an object?
 - An object represents an element of an application, such as **a worksheet, a cell, a chart, a form, or a report**.
 - You can apply one of the object's **methods or change the value of one of its properties**.
@@ -302,6 +420,68 @@ Next j</code></pre>
 - **A property is an attribute of an object** that defines one of the object's characteristics, such as **size, color, or screen location**, or an aspect of its behavior, such as whether it is enabled or visible.
 	- for example, Range("a1:a4").Font.Size = 20, Range("A1:A4").Interior.Color = RGB(255,0,0) 
 - An event is an action recognized by an object, **such as clicking the mouse or pressing a key**, and for which you can write code to respond.
+</script></section>
+</section><!--end block-->
+
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Sub and function
+</script></section>
+<section data-markdown><script type="text/template">
+## Call function or Sub
+- Call function in the same sheet or module
+	- Call mySub_Name
+	- myFunction_Name
+- Call function from another sheet or module
+	- Call sheetName.MySub_Name
+	- moduleName.MyFunction_Name
+- Call function from another workbook
+	- add-in name: VBAsProject
+	- Call YourProject.YourModule.YourSub
+</script></section>
+<section data-markdown><script type="text/template">
+## Example for Call sub or function
+<pre><code data-trim data-line-numbers>Dim retString As String 'Global variable
+Public Sub main()
+	Dim funcRetString As String
+	Call subProg("Hi, Simon.") 'call sub without return
+	Call subProg("Hi, elvis hsieh. How are you?") 'call sub with return
+	Debug.Print retString 'set return value is a global variable
+	'Function call
+	funcProg ("Hi, Sam Lee, Are you living in Taiwan?") 'function call without return
+	funcRetString = funcProg("Hi, Jenny Wang, Are you going to shopping now?") 'function call with return
+	Debug.Print funcRetString
+End Sub
+Public Sub subProg(ByRef aName As String) 'ByRef is like a reference which can be changed with sub or function
+	retString = "Hi, runner chen. I am fine, and you?"
+End Sub
+Public Function funcProg(ByVal anName As String) 'ByVal will copy anName to this function parameter	
+	Dim retMessage As String
+	Debug.Print anName	
+	retMessage = "Yes, I am."
+	funcProg = retMessage
+End Function</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Sub vs Function
+- A VBA Function is a procedure that performs calculations and returns a value. You can use these
+functions in your Visual Basic for Applications (VBA) code or in worksheet formulas.
+- You can think of a Sub procedure as a command that either the user or another procedure can execute.
+- Function procedures, on the other hand, usually return a single value (or an array), just like Excel worksheet
+functions and VBA built-in functions.
+</script></section>
+<section data-markdown><script type="text/template">
+## User Defined Functions 
+- User Defined Functions(UDFs) can be created by the user.
+<pre><code>'ByVal will copy anName to this function parameter
+Public Function funcProg(ByVal anName As String)
+	Dim retMessage As String
+	Debug.Print anName
+	retMessage = "Yes, I am."
+	funcProg = retMessage
+End Function</code></pre>
+- Input =function_name(arg1,arg2, ...) in a Cell of Worksheet.
 </script></section>
 </section><!--end block-->
 
@@ -351,60 +531,29 @@ arrayRange = Range("A1:C10").Value
 | 10 | (10,1) | (10,2) | (10,3) |
 | | | | |
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template">
-## MsgBox function
-- 語法： MsgBox (prompt, [ buttons, ] [ title, ] [ helpfile, context ])
-<pre><code>Dim Msg, Style, Title, Help, Ctxt, Response, MyString
-Msg = "Do you want to continue ?"    ' Define message.
-Style = vbYesNo Or vbCritical Or vbDefaultButton2    ' Define buttons.
-Title = "MsgBox Demonstration"    ' Define title.
-Help = "DEMO.HLP"    ' Define Help file.
-Ctxt = 1000    ' Define topic context. 
-		' Display message.
-Response = MsgBox(Msg, Style, Title, Help, Ctxt)
-If Response = vbYes Then    ' User chose Yes.
-	MyString = "Yes"    ' Perform some action.
-Else    ' User chose No.
-	MyString = "No"    ' Perform some action.
-End If</code></pre>
-- Reference to [MsgBox function](https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/msgbox-function)
+## Error handling(1/2)
+| Item	| Description|
+|:--- |:---|
+| On Error Goto 0 |	When error occurs, the code stops and displays the error.|
+|On Error Goto -1 |	Clears the current error setting and reverts to the default.|
+|On Error Resume Next |	Ignores the error and continues on.|
+| On Error Goto [Label]	| Goes to a specific label when an error occurs. This allows us to handle the error.|
+|Err Object	 | When an error occurs the error information is stored here.|
 </script></section>
-</section><!--end block-->
+<section data-markdown><script type="text/template">
+## Error handling(2/2)
+| Item	| Description|
+|:--- |:---|
+|Err.Number	| The number of the error.(Only useful if you need to check a specific error occurred.)|
+|Err.Description |	Contains the error text.|
+|Err.Source	| You can populate this when you use Err.Raise.|
+|Err.Raise	| A function that allows you to generate your own error.|
+|Error Function	| Returns the error text from an error number.|
+| | Obsolete. |
+| Error Statement	| Simulates an error. Use Err.Raise instead.|
+</script></section>
 
-<section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-## Boolean data type
-- A data type with only two possible values, True (-1) or False (0). 
-- Boolean variables are stored as 16-bit (2-byte) numbers
-</script></section>
-<section data-markdown><script type="text/template">
-## EOF function
--  EOF function to detect the end of a file. This example assumes that myFile.txt is a text file with a few lines of text.
-<pre><code>Public Sub oneChar()
-Dim MyChar
-Open "myFile.txt" For Input As #1    ' Open ./myFile.txt file for input.
-Do While Not EOF(1)    ' Check for end of file.
-	' MyChar = Input(1, #1)  ' Get one character.
-	Line Input #1, MyChar    ' Read line of data.
-	Debug.Print MyChar    ' Print to the Immediate window.
-Loop
-Close #1    ' Close file.
-End Sub
-' myFile.txt contents
-' Hi, runner hsieh
-' I am a programmer.
-</code></pre>
-</script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 	
 </div>
