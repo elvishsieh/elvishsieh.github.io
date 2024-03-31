@@ -606,6 +606,18 @@ End Sub</code></pre>
 ![](/images/stisp/xControlEvent.png)
 - Click event to Call hwOne() sub in assignment1 Module
 </script></section>
+<section data-markdown><script type="text/template">
+## Worksheets, Sheets and Charts
+- Worksheets, Sheets and Charts objects name are not the same
+<pre><code>Public Sub chartSh()
+    Dim wb As Workbook
+    Set wb = ThisWorkbook
+    Debug.Print wb.Worksheets(1).Name
+    Debug.Print wb.Sheets(1).Name
+    Debug.Print wb.Charts(1).Name
+	' The result is "Sheet1" "Chart1" "Chart1", if Chart1 in the first sheet
+End Sub</code></pre>
+</script></section>
 </section><!--end block-->
 
 
@@ -667,6 +679,74 @@ Public Function funcProg(ByVal anName As String)
 	funcProg = retMessage
 End Function</code></pre>
 - Input =function_name(arg1,arg2, ...) in a Cell of Worksheet.
+</script></section>
+<section data-markdown><script type="text/template">
+## Call C++ dll library
+<pre><code data-trim data-line-numbers>Declare PtrSafe Function CppSum Lib "D:\Teaching\MISproject\src\cppLib\vbaInterface.dll" ( _
+ByRef Nums As Long, ByVal N As Long) As Long
+
+Public Sub callCppFunction()
+	Dim Arr() As Long
+	ReDim Arr(0 To 4)
+	Arr(0) = 1
+	Arr(1) = 2
+	Arr(2) = 3
+	Arr(3) = 4
+	Arr(4) = 5
+	Dim ArrSize As Long
+	ArrSize = UBound(Arr) - LBound(Arr) + 1
+
+	Dim Result As Long
+	Result = CppSum(Arr(LBound(Arr)), ArrSize)
+
+	'Debug.Print Result
+	MsgBox "The result is: " & Result, vbOKOnly, "Call CPP Funtion"
+End Sub</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## C++ source code(1/2)
+<pre><code data-trim data-line-numbers>// C++ interface for VBA
+// filename: vbaInterface.cpp
+// clang++ vbaInterface.cpp -shared -o vbaInterface.dll
+
+#include "vbaInterface.hpp"
+
+DLLExport int __stdcall CppRectangleArea(RECTANGLE* rect) {
+	return rect->s1 * rect->s2;
+}
+DLLExport int __stdcall CppSum(int nums[], int n) {
+	int theSum = 0;
+	for (int i = 0; i < n; ++i) {
+		theSum += nums[i];
+	}
+	return theSum;
+}</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## C++ source code(2/2)
+<pre><code data-trim data-line-numbers>// C++ interface for VBA
+// filename: vbaInterface.hpp
+#ifndef VBA_INTERFACE_H
+#define VBA_INTERFACE_H
+#define DLLExport __declspec(dllexport)
+
+struct RECTANGLE {
+	int s1;
+	int s2;
+};
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+DLLExport  __stdcall  int CppRectangleArea(RECTANGLE* rect);
+DLLExport  __stdcall int CppSum(int nums[], int n);
+	
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+
+#endif // VBA_CPP_H</code></pre>
 </script></section>
 </section><!--end block-->
 
