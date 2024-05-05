@@ -50,15 +50,45 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # 附錄 A <br /> Settup IDE
 </script></section>
 <section data-markdown><script type="text/template">
+# Brief Excel
+</script></section>
+<section data-markdown><script type="text/template">
+## [Excel File Format](https://support.microsoft.com/zh-tw/office/excel-%E4%B8%AD%E6%94%AF%E6%8F%B4%E7%9A%84%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F-0943ff2c-6014-4e8d-aaea-b83d51d46247)
+| |Excel 97-2003 | Excel 2007 or later |
+| :--- | :--- | :--- |
+| .xls | workbook file format| |
+| .xlt | template file format| |
+| .xla | add-Ins file format| |
+| .xlsx | | workbook file format|
+| .xltx | | template file format|
+| .xlsm | | **workbook with macros**|
+| .xlam | | **add-Ins file format**|
+| .xlsb | | **binary file format**|
+</script></section>
+<section data-markdown><script type="text/template">
+## Compare Excel 97-2003 with 2007
+- Excel 97-2003 file format
+	- The .xls is a wookbook and **a binary file type, which have many macros in it**.
+	- It support **65536 rows and 256 columns** in a wookbook.
+	- It was **difficult** to convert to others file type
+- Excel 2007 file format
+	- The .xlsx is a wookbook **without macros** in it. Macro can been saved with .xlsm, .xlsb, and .xlam file format. 
+	- It support **1 million rows and 16384 columns** in a wookbook.
+	- It was **easy** to convert to others file type.
+</script></section>
+<section data-markdown><script type="text/template">
+## 開啟「開發人員」索引標籤
+- 檔案 >> 其他 >> 選項 >> 自訂功能區 >> 勾選「開發人員」
+![](/images/stisp/developer.png)
+</script></section>
+<section data-markdown><script type="text/template">
 ## Setting Develompent Env. for VBA
-- 開啟"開發人員"的索引標籤
-	- Open Excel >> 選項 >> 自訂功能區 >> 由此選擇命令(所有索引標籤) >> 開發人員 >> 新增
-	- 在 Excel 中的索引標籤中是否有 "開發人員"的索引標籤?
 - Installing RubberDuck for VBE
 	- Download RubberDuck from [rubberduck offical website](https://rubberduckvba.com/)
 	- Installing RubberDuck
 - 設定 VBA 模組信任層級
-	- 檔案 >> 選項 >> 信任中心 >> 信任中心設定 >> 巨集設定 >> 勾選「啟用 VBA 巨集/信任存取專案 VBA 物件模型」(See next slide)
+	- 檔案 >> 選項 >> 信任中心 >> 信任中心設定 >> 巨集設定 >> 勾選「啟用 VBA 巨集/信任存取專案 VBA 物件模型」
+	- **See next slide**
 </script></section>
 <section data-markdown><script type="text/template">
 ## 設定 VBA 模組信任層級(1/2)
@@ -74,6 +104,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # VBE Big5 編碼問題
+</script></section>
+<section data-markdown><script type="text/template">
+## VBE 字型設定問題(1/2)
+- 工具 >> 選項 >> 撰寫風格 >> 字型
+![](/images/stisp/setFont.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## VBE 字型設定問題(2/2)
+- 工具 >> 選項 >> 撰寫風格 >> 字型 >> 點選**西歐字型**
+![](/images/stisp/setFont2.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Visual Basic Editor 亂碼問題

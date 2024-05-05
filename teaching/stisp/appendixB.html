@@ -44,7 +44,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # 附錄 B <br /> VBA 語法簡介
@@ -858,7 +857,7 @@ DLLExport  __stdcall int CppSum(int nums[], int n);
 	- TextBox 輸入文字方塊，**請修改成自己想要的名稱**
 	- 可以**使用對齊、調整大小來調整文字方塊與 Label 的位置與大小**
 - **ComboBox**
-	- SourceRow 為下拉式選單的列數
+	- RowSource 為下拉式選單的列數
 	- offset(reference, row, column,[hight], [width])
 	- 公式 >> 定義名稱 >> pName >> 為下拉式選單擷取儲存格資料的範圍
 	- =OFFSET(product!$B$1:$B$9999,1,,COUNTA(product!$B$1:$B$9999)-1,1)
@@ -937,9 +936,63 @@ DLLExport  __stdcall int CppSum(int nums[], int n);
 | | Obsolete. |
 | Error Statement	| Simulates an error. Use Err.Raise instead.|
 </script></section>
-
 </section><!--end block-->
-	
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# VBA <br/>connect to SQLite
+</script></section>
+<section data-markdown><script type="text/template">
+## Connect to SQLite Howto
+- Using [SQLite ODBC Driver](http://www.ch-werner.de/sqliteodbc/) by Christian Werner
+	- Download and Install it
+	- **Add required library reference** to the VBA project
+	- **The b09_connSQLite module is a example code** for connecting to SQLite
+- Using [SQLiteC-for-VBA](https://github.com/pchemguy/SQLiteC-for-VBA) by PChemGuy
+	- **Download the SQLiteC4VBAelvis.7z file** from my Google Driver
+	- Update SQLite to latest version and modify code for the new version
+</script></section>
+<section data-markdown><script type="text/template">
+# Using ODBC Driver
+</script></section>
+<section data-markdown><script type="text/template">
+## Download SQLite ODBC Driver
+- Download and install [SQLite ODBC Driver](http://www.ch-werner.de/sqliteodbc/)
+- **Check SQLite ODBC Driver** have been installed
+	- 搜尋 >> 輸入 "odbc" >> 點選「OBDC 資料來源(64 位元) >> 「驅動程式」頁籤
+![](/images/stisp/sqliteODBC.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Add library reference for SQLite
+- Enable VBA library
+	- 工具 >> 設定引用項目 >> 勾選項列的 VBA library 選項 
+		- **Active DS Type Library**
+		- **Microsoft Active X Data Objects 6.1 Library**
+![](/images/stisp/enableLibrary.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Using SQLiteC-4-VBA
+</script></section>
+<section data-markdown><script type="text/template">
+## 新增索引標籤(Ribbon)
+- 檔案 >> 其他 >> 選項 >> 自訂功能區 >> 按「新增索引標籤」
+![](/images/stisp/ribbon.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 新增 SQLiteC-4-VBA 索引標籤
+- 在索引標籤名稱上方按下滑鼠右鍵 >> 重新命名
+![](/images/stisp/renameRibbon.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 新增索引標籤內的群組
+-  新增群組 >> 按下滑鼠右鍵「重新命名」 >> 由此選擇指令，點選「巨集」 >> 新增
+![](/images/stisp/groupRibbon.png)
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 

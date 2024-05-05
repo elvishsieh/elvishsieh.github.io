@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Introduction to modern C++</title>
+<title>參考文獻</title>
 
 <meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
@@ -31,7 +31,7 @@
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
@@ -46,68 +46,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
-<section><!--start block-->
-<section data-markdown><script type="text/template">
-## Introduction to modern C++
-
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
-</script>
-</section>
-</section><!--end block-->
-
-<section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-Introduction](./01intro.html)
-- [Week02-From Zero](./02zero.html)
-- [Week03-Variable and Types](./03variable.html)
-- [Week04-Strings, Vectors, and Arrays](./04string.html)
-- [Week05-Expressions](./05expressions.html)
-- [Week06-Statements](./06statements.html)
-- [Week07-Functions](./07functions.html)
-- [Week08-Classes](./08classes.html)
-- [Week09-C++ IO Library](./09ioLibrary.html)
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-Classes And Memory Allocation](./10class.html)
-- [Week11-Overloading](./11overloading.html)
-- [Week12-Containers](./12containers.html)
-- [Week13-Inheritance](./13inheritance.html)
-- [Week14-Polymorphism](./14polymorphism.html)
-- [Week15-Friends](./15friends.html)
-- [Week16-Introduction the Starnard C++ Library](./16cppLibrary.html)
-- [Week17-Templates and Generic Programming](./17templates.html)
-- [Week18-Coroutines](./18coroutines.html)
-- [附錄 A-環境變數](./appendixA.html)
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- C++ Primer, 2013, Fifth Edition
-	- Author: Stanley B. Lippman, Josée Lajoie and Barbara E. Moo
-	- Publisher: Addision-Wesley, Inc.
-	- ISBN: 978-0-321-71411-4
-- 參考書：
-	- [C++ Annotations Version 12.4.0](https://fbb-git.gitlab.io/cppannotations/), Frank B. Brokken
-	- Programming: Principles and Practice Using C++
-		- Author: Bjarne Stroustrup, Second Edition
-		- Publisher: Addison-Wesley, 2013
-		- ISBN: 978-0-321-99278-9
-</script>
-</section>
 <section data-markdown><script type="text/template">
 ## 參考文獻 (Reference)
 - [Standard C++](https://isocpp.org/)
@@ -119,7 +57,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14, 1st Edition , by Scott Meyers
 </script>
 </section>
-</section><!--end block-->
+
 </div>
 </div>
 
@@ -140,10 +78,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {

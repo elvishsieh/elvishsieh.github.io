@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>Introduction to modern C++</title>
+<title>Environmental Variables</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -25,7 +25,6 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
-
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -39,87 +38,57 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Introduction to modern C++
-
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
-</script>
-</section>
+# PowerShell
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing PowerShell
+- Download the lastest version of release of [PowerShell](https://github.com/PowerShell/PowerShell/releases) and PowerShell.7z from my Google Drive.
+- Extract the archive to C:\Users\Documents\PowerShell folder(文件)
+- Add PowerShell to PATH
+	- PowerShell.exe can be found in C:\Program Files\PowerShell\7
+	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 C:\Program Files\PowerShell\7 路徑**
+</script></section>
+<section data-markdown><script type="text/template">
+# Oh My Posh
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing Oh My Posh(1/2)
+- Download [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh/releases) and install any directory
+- Rename oh-my-posh.exe to posh-windows-amd64.exe and move it to $HOME\bin
+- Download my OhMyPosh.7z and MesloLGS.7z form my Google Drive which is Oh My Posh themes file
+- Extract the archive to $HOME\\.poththemes folder and install MesloLGS fonts
+- Setup Oh My Posh themes path
+	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 >> 變數名稱 POSH_THEMES_PATH; 變數值 $HOME\\.poththemes 路徑**
+- Installing [Oh My Posh on Linux](../linux/06filePermission.html#/4) how to
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing Oh My Posh(2/2)
+![](/images/cpp/ohMyPosh.png)
+</script></section>
+<section data-markdown><script type="text/template">
+# Alacritty
+</script></section>
+<section data-markdown><script type="text/template">
+# Alacritty on Windows
+- Alacritty is a cross-platform, OpenGL terminal emulator, which is worked on Windows, Linux and the others Platform.
+- Setting up Alacritty on Windows
+	- Download [Alacritty](https://github.com/alacritty/alacritty/releases) 
+	- Download my allarictty setup file form my Google Drive
+	- Extract the archive to the below folder
+	<pre><code>C:\Users\user_name\AppData\Roaming\alacritty folder</code></pre>
+	- Setup up alacritty bin path where you install it
+- Run Alacritty-v0.13.0-portable in current version
+</script></section>
 </section><!--end block-->
 
-<section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-Introduction](./01intro.html)
-- [Week02-From Zero](./02zero.html)
-- [Week03-Variable and Types](./03variable.html)
-- [Week04-Strings, Vectors, and Arrays](./04string.html)
-- [Week05-Expressions](./05expressions.html)
-- [Week06-Statements](./06statements.html)
-- [Week07-Functions](./07functions.html)
-- [Week08-Classes](./08classes.html)
-- [Week09-C++ IO Library](./09ioLibrary.html)
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-Classes And Memory Allocation](./10class.html)
-- [Week11-Overloading](./11overloading.html)
-- [Week12-Containers](./12containers.html)
-- [Week13-Inheritance](./13inheritance.html)
-- [Week14-Polymorphism](./14polymorphism.html)
-- [Week15-Friends](./15friends.html)
-- [Week16-Introduction the Starnard C++ Library](./16cppLibrary.html)
-- [Week17-Templates and Generic Programming](./17templates.html)
-- [Week18-Coroutines](./18coroutines.html)
-- [附錄 A-環境變數](./appendixA.html)
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- C++ Primer, 2013, Fifth Edition
-	- Author: Stanley B. Lippman, Josée Lajoie and Barbara E. Moo
-	- Publisher: Addision-Wesley, Inc.
-	- ISBN: 978-0-321-71411-4
-- 參考書：
-	- [C++ Annotations Version 12.4.0](https://fbb-git.gitlab.io/cppannotations/), Frank B. Brokken
-	- Programming: Principles and Practice Using C++
-		- Author: Bjarne Stroustrup, Second Edition
-		- Publisher: Addison-Wesley, 2013
-		- ISBN: 978-0-321-99278-9
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 參考文獻 (Reference)
-- [Standard C++](https://isocpp.org/)
-- [C++ reference](https://en.cppreference.com/)
-- [Boost C++ Libraries](https://www.boost.org/)
-- [Tour of C++, A (C++ In-Depth Series)](https://www.stroustrup.com/tour2.html),  2nd Edition, by Bjarne Stroustrup
-- The C++ Standard Library-A Tutorial and Reference, Second Edition, by Nicolai M. Josuttis, Publisher: Addision-Wesley, Inc.
-- The C++ Programming Language, 4th Edition, by Bjarne Stroustrup
-- Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14, 1st Edition , by Scott Meyers
-</script>
-</section>
-</section><!--end block-->
 </div>
 </div>
 
@@ -131,6 +100,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -140,10 +110,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
@@ -228,7 +198,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

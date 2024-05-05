@@ -13,6 +13,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/cppLogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -42,10 +44,59 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Introudction
+# Programming Language
+</script></section>
+<section data-markdown><script type="text/template">
+## Hist. of Programming Language(1)
+- Machine language(first-generation PL-1GLs)
+	- The first programmable computers were invented at the end of the 1940s.
+	- This code was **very difficult to debug and was not portable** between different computer systems.
+- Assembly languages(second-generation PL-2GLs)
+	- It make **programs easier to understand for humans**, although they did not increase portability.
+-  High-level programming languages (third-generation PL—3GLs)
+	- **In 1957, Fortran (FORmula TRANslation) was invented**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Hist. of Programming Language(2)
+-  High-level programming languages (third-generation PL—3GLs)
+	- Often considered the first compiled high-level programming language, **Fortran has remained in use into the twenty-first century**.
+	- **Lisp**, implemented in 1958, was **the first functional programming language**.
+	- **Simula**, the **first** language to support **object-oriented** programming.
+	- **C,** implemented in 1972,  allows **access to lower-level machine operations** more than other contemporary languages.
+</script></section>
+<section data-markdown><script type="text/template">
+## Hist. of Programming Language(3)
+-  High-level programming languages (fifth-generation PL—5GLs)
+	- During the 1980s, **C++, a superset of C that can compile C programs but also supports classes and inheritance**.
+	- **Ada** and other new languages introduced **support for concurrency**.
+	- In the 1990s, new programming languages were introduced to support Web pages and networking that **was dynamically typed scripting languages—Python, JavaScript, PHP, and Ruby**—designed to quickly produce small programs
+</script></section>
+<section data-markdown><script type="text/template">
+## Hist. of Programming Language(4)
+-  High-level programming languages (fifth-generation PL—5GLs)
+	- During the 2000s, one innovation was service-oriented programming, designed to exploit distributed systems whose components are connected by a network - C# and F#.
+	- After 2010, several new languages—Rust, Go, Swift, Zig and Carbon.
+	- Most of the new programming languages uses **static typing** while a few numbers of new languages use **dynamic typing** like Ring and Julia.
+</script></section>
+<section data-markdown><script type="text/template">
+## Static and Dynamic Typing
+- In static typing, **all expressions have their types determined before a program executes**, typically **at compile-time**.
+- In static typing, all expressions have their types determined before a program executes, typically at compile-time.
+- Dynamic typing, also called latent typing, **determines the type-safety of operations at run time**; in other words, types are associated with run-time values rather than textual expressions.
+- **Lisp, Smalltalk, Perl, Python, JavaScript, Ruby, Ring and Julia** are all examples of dynamically-typed languages.
+</script></section>
+<section data-markdown><script type="text/template">
+## Compiler and Interpreter
+- Programs written in a high-level language are either **directly executed by some kind of interpreter** or **converted into machine code by a compiler (and assembler and linker)** for the CPU to execute.
+- The name "compiler" is primarily used for programs that translate source code from a high-level programming language to a low-level programming language to create an executable program.
+- An interpreter is a computer program that **directly executes instructions** written in a programming or **scripting language**, without requiring them previously to have been compiled into a machine language program.
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# C++
 </script></section>
 <section data-markdown><script type="text/template">
 ## History of C++
@@ -67,15 +118,50 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 		likely and unlikely attributes, ..., etc.
 </script></section>
 </section><!--end block-->
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# C/C++ Development Environment
+## C/C++ Compiler(1/2)
+- [GNU GCC](https://gcc.gnu.org/)
+	- The GNU Compiler Collection includes front ends for **C, C++, Objective-C, Fortran, Ada, Go, and D**, as well as libraries for these languages.
+	- [C++ Standards Support in GCC](https://gcc.gnu.org/projects/cxx-status.html)
+- [LLVM/Clang](https://llvm.org/)
+	- The **LLVM Project** is a collection of modular and reusable compiler and toolchain technologies.
+	- **Clang** is an "LLVM native" C/C++/Objective-C compiler, which aims to deliver **amazingly fast compiles**, extremely **useful error and warning messages**.
+	- [C++ Standards Support in Clang](https://clang.llvm.org/cxx_status.html)
+</script></section>
+<section data-markdown><script type="text/template">
+## C/C++ Compiler(2/2)
+- [Microsoft Visual C/C++(MSVC)](https://learn.microsoft.com/en-us/cpp/?view=msvc-170)
+	- **Microsoft Visual C++ (MSVC) refers to the C++, C, and assembly language development tools** and libraries available as part of Visual Studio on Windows.
+	- It was originally a standalone product but later became **a part of Visual Studio** and made available in **both trialware and freeware forms**. 
+	- It features tools for developing and debugging C++ code, especially code written for the Windows API, DirectX and .NET.
+	- [C++ Standards Support in MSVC](https://learn.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance?view=msvc-170)
+</script></section>
+<section data-markdown><script type="text/template">
+## IDE for C/C++(1/2)
+- IDE meaning **I**ntegrated **D**evelopment **E**nvironment, 整體開發環境
+- [Microsoft Visual Studio](https://visualstudio.microsoft.com/)
+	- Visual Studio you can build any app, game, or extension using any language of your choice.
+- [RAD Studio](https://www.embarcadero.com/)
+	- [C++Builder 11 Community Edition](https://www.embarcadero.com/products/cbuilder/starter) is a full-featured free C++ IDE for creating native cross-platform Apps.
+- [CLion](https://www.jetbrains.com/clion/)
+	- A Cross-Platform IDE for C and C++ by **JetBrains**
+	- [PyCharm](https://www.jetbrains.com/pycharm/) is a free download Python IDE for data science and web development
+</script></section>
+<section data-markdown><script type="text/template">
+## IDE for C/C++(2/2)
+- [Qt](https://www.qt.io/)
+	- Qt is cross-platform application development framework for creating graphical user interfaces as well as cross-platform applications.
+	- [Qt Creator](https://www.qt.io/products/creator), and [Qt in Conan](https://conan.io/center/recipes/qt)
+- [Code::Blocks](https://www.codeblocks.org/) is an open source and cross-platform C/C++ development environment.
+- [Dev-C++](https://www.bloodshed.net/) is a **old** full-featured C and C++ Integrated Development Environment (IDE) for Windows platforms.
+- C/C++ Online Compiler
+	- [Compiler Explorer](https://godbolt.org/)
 </script></section>
 <section data-markdown><script type="text/template">
 ## What is your Operation System to build C/C++ application?
 - **Unix-Like** Operation System
-	- All of the Linux, BSD, unix-like OS, are a good platform for developed C/C++ application. 
+	- All of the Linux, BSD, unix-like OS, are **a good platform for developed C/C++ application**.
 - Apple **Mac iOS** system
 	- Xcode IDE + GCC or LLVM/Clang
 - **Microsoft Windows** operation system
@@ -85,17 +171,127 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **Visual Studio Code** + GCC or LLVM/Clang ❤️
 </script></section>
 <section data-markdown><script type="text/template">
+## How to choose your C/C++ IDE on Windows?
+- Microsoft Visual C/C++(MSVC) in **Visual Studio IDE**
+- GCC or LLVM/Clang compiler with those IDEs as following
+	- **CodeBlocks IDE**, **Visual Studio Code**, Qt, Visual Studio
+-  C/C++ Development Environment for Cross-platform
+	- Visual Studio IDE
+	- Cygwin + GCC or LLVM/Clang with IDEs
+	- **MSYS2/MinGW64** + GCC or **LLVM/Clang** with IDEs
+</script></section>
+<section data-markdown><script type="text/template">
+## Cygwin and MSYS2/MinGW64
+- [Cygwin](https://cygwin.com/) tries to bring a **POSIX-compatible environment** to Windows so that most software that runs on unices will build and run on Cygwin without any significant modifications.
+- [MSYS2](https://www.msys2.org) tries to provide an environment for **building native Windows software**.
+	- The **Windows API** is specific to the Windows operating system and is **not portable to other platforms**.
+- Cygwin and MSYS2 both  provides **a large collection of packages** containing such software, and **libraries** for their development.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# C/C++ Development Environment
+</script></section>
+<section data-markdown><script type="text/template">
 ## Installing C/C++ development environment for Windows
+- **Installing MSYS2**
+	- [MSYS2 nightly build version](https://github.com/msys2/msys2-installer/releases/tag/nightly-x86_64)
 - **Setting environment Variable**
 	- HOME environment
 	- BIN path for pkgconf package(**the last step**)
-- **Installing Msys2**
-	- [msys2 nightly build version](https://github.com/msys2/msys2-installer/releases/tag/nightly-x86_64)
 - Installing **MinGW64/CLANG64 compiler** packages
 	- pacman -S mingw-w64-clang-x86_64-toolchain
 - **Installing the CodeBlocks IDE**(Integrated Development Environment)
 	- [CodeBlocks nightly build version](https://forums.codeblocks.org/index.php/board,20.0.html)
 </script></section>
+<section data-markdown><script type="text/template">
+# Install MSYS2/MinGW64
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing MSYS2/MinGW64(1/2)
+- Installing MSYS2
+	1. Download [MSYS2 nightly build version](https://github.com/msys2/msys2-installer/releases/tag/nightly-x86_64)
+	2. Extract the archive of msys2-base-x86_64-latest.tar.xz into a directory(for example D:) 
+- Setting Home environment Variable
+	1. **Create a Home directory**, for example D:/elvis/home
+	2. Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> 新增 >> **變數名稱輸入 HOME；變數值輸入 D:\elvis\home**
+	3. 測試 HOME 環境變數，在 Command Line 輸入 echo %HOME%，結果應該是 d:\elvis\home
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing MSYS2/MinGW64(2/2)
+- Installing **MinGW64/CLANG64 compiler** packages
+	1. **Download .bashrc file** from my Google Driver and save it in D:\elvis\home\
+	2. **run clang64.exe** in D:\msys64 folder
+	3. run pacman.exe -S mingw-w64-clang-x86_64-toolchain
+	4. **or** run pacman -S mingw-w64-x86_64-toolchain for **GCC compiler**
+- Setting MinGW64/CLANG64 BIN path
+	- Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 D:\msys64\clang64\bin 路徑**
+	- or 新增 D:\msys64\mingw64\bin 路徑, if you use GCC compiler
+</script></section>
+<section data-markdown><script type="text/template">
+# Install CodeBlocks
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing CodeBlocks IDE(1/3)
+1. Download **[CodeBlocks nightly build version](https://forums.codeblocks.org/index.php?board=20.0)** which are 
+wxmsw32u_gcc_cb_wx324_2D_gcc1310-mingw64.7z, Mingw64dlls13.1.0.7z, CB_20240427_rev13513_win64.7z at now
+2. **make a directory** for CodeBlocks, for example **C:\CodeBlocks**
+3. **Extract the three archives** as above into C:\CodeBlocks and **run codeblocks.exe**
+4. Setting CodeBlocks Compiler Environment: **Settings >> Compiler >> Toolchain Executables**
+	- Select Compiler: **LLVM Clang Compiler**
+	- Compiler's installation directory: **D:\msys64\clang64**
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing CodeBlocks IDE(2/3)
+![](/images/cpp/cbNbuild.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing CodeBlocks IDE(3/3)
+![](/images/cpp/codeblockEnv.png)
+</script></section>
+<section data-markdown><script type="text/template">
+# Testing CodeBlocks
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(1/7)
+- File >> New >> Project >> Console Application >> Go
+![](/images/cpp/cbTesting.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(2/7)
+- Press "Next" button
+![](/images/cpp/cbTesting2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(3/7)
+- Press "Next" button
+![](/images/cpp/cbTesting3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(4/7)
+- Input "Project Name" and "Folder Name"
+![](/images/cpp/cbTesting4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(5/7)
+- Press "Finish" button
+![](/images/cpp/cbTesting5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(6/7)
+- Press "Build and Run" button
+![](/images/cpp/cbTesting6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing CodeBlocks IDE(7/7)
+- The result will be displayed "Hello World!"
+![](/images/cpp/cbTesting7.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 </div>
