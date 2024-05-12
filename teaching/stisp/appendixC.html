@@ -78,6 +78,17 @@ clang -shared sqlite3.c -o sqlite3.dll
 	- Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> Path 變數 >> 新增 D:\SQLite3\bin 路徑
 </script></section>
 <section data-markdown><script type="text/template">
+## Installing SQLite on Mac OS
+- Installing Homebrew
+	- Visiting https://brew.sh/
+	- Copy and paste the following command into the terminal
+	<pre><code data-trim data-line-numbers>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+- Installing SQLite and VS Code with Homebrew
+<pre><code data-trim>brew install sqlite3</code></pre>
+	- Searching VS Code in Homebrew website
+	<pre><code data-trim>brew install --cask visual-studio-code</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
 ## SQLite Shell Command(1/3)
 - **sqlite3** Path_with_fileName
 - Summary of command list
