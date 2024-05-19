@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Setting Development Environment</title>
+<title>Windows Installation Software</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -46,85 +46,63 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# PowerShell
+# Installation Software
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing PowerShell
-- Download the lastest version of release of [PowerShell](https://github.com/PowerShell/PowerShell/releases) and PowerShell.7z from my Google Drive.
-- Extract the archive to C:\Users\Documents\PowerShell folder(文件)
-- Add PowerShell to PATH
-	- PowerShell.exe can be found in C:\Program Files\PowerShell\7
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 C:\Program Files\PowerShell\7 路徑**
-</script></section>
-<section data-markdown><script type="text/template">
-# Oh My Posh
-</script></section>
-<section data-markdown><script type="text/template">
-## Installing Oh My Posh(1/2)
-- Download [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh/releases) and install any directory
-- Rename oh-my-posh.exe to posh-windows-amd64.exe and move it to $HOME\bin
-- Download my OhMyPosh.7z and MesloLGS.7z form my Google Drive which is Oh My Posh themes file
-- Extract the archive to $HOME\\.poththemes folder and install MesloLGS fonts
-- Setup Oh My Posh themes path
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 >> 變數名稱 POSH_THEMES_PATH; 變數值 $HOME\\.poththemes 路徑**
-- Installing [Oh My Posh on Linux](../linux/06filePermission.html#/4) how to
-</script></section>
-<section data-markdown><script type="text/template">
-## Installing Oh My Posh(2/2)
-![](/images/cpp/ohMyPosh.png)
-</script></section>
-<section data-markdown><script type="text/template">
-# Alacritty
-</script></section>
-<section data-markdown><script type="text/template">
-# Alacritty on Windows
-- Alacritty is a cross-platform, OpenGL terminal emulator, which is worked on Windows, Linux and the others Platform.
-- Setting up Alacritty on Windows
-	- Download [Alacritty](https://github.com/alacritty/alacritty/releases) 
-	- Download my allarictty setup file form my Google Drive
-	- Extract the archive to the below folder
-	<pre><code>C:\Users\user_name\AppData\Roaming\alacritty folder</code></pre>
-	- Setup up alacritty bin path where you install it
-- Run Alacritty-v0.13.0-portable in current version
+## List of installation software
+- [List of installation software](https://en.wikipedia.org/wiki/List_of_installation_software) for Windows from Wikipedia
+- vdproj, WiX Toolset, Install Shield, [wixsharp](https://github.com/oleg-shilo/wixsharp) all create MSI files. 
+	- The [WiX toolset](https://wixtoolset.org/) lets developers create installers for Windows installers.
+- Inno Setup, [NSIS](https://nsis.sourceforge.io/Download), [Squirrel](https://github.com/Squirrel/Squirrel.Windows) have their own systems.
+	- [Inno Setup](https://jrsoftware.org/isinfo.php) is a free installer for Windows programs that rivals and even surpasses many commercial installers in feature set and stability. 
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Package Manager
+# Inno Setup
 </script></section>
 <section data-markdown><script type="text/template">
-## Lists of Package Manager
-- Package manager for various platforms
-| Platform | Package manager |
-| :--- | :--- |
-| Windows | [Chocolatey](https://chocolatey.org/), [NuGet](https://www.nuget.org/)|
-| Linux | rpm, deb, [yum](https://man7.org/linux/man-pages/man8/yum.8.html), [APT](https://man7.org/linux/man-pages/man8/apt.8.html), [Pacman](https://man7.org/linux/man-pages/man8/pacman.8.html) |
-| macOS | [Homebrew](https://brew.sh/) |
-| | |
-- Package Managers for Programming languages
-| Language | Package manager |
-| :--- | :--- |
-| C/C++ | [conan](https://github.com/conan-io/conan), [vcpkg](https://vcpkg.io/en/) |
-| Python | [pip](https://pip.pypa.io/en/stable/) |
-| Java | maven, gradle |
-| Javascript | npm, Yarn, or pnpm |
-| | |
+## Installing Inno Setup(1/2)
+- Download the installer from the [Inno Setup website](https://jrsoftware.org/isinfo.php)
+- Download Inno Script Studio from the [offical website](https://www.kymoto.org/products/inno-script-studio) 
+![](/images/cpp/innoDwn.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Pacman Package Manager
-- pacman 是 Arch Linux 的 package manager，主要分成 (S)ync, (Q)uery, (R)emove, (D)atabase 參數，Sync 是 remote server 的同步， Reomve 是 local package 的移除， Query 是 local repository 的查詢。
-- pacman command list
-<pre><code data-trim data-line-numbers>pacman -Syuu //更新所有套件
-pacman -Ss  keyword //查詢遠端儲存庫的可用的套件
-pacman -Sc //remove old packages from cache directory (-cc for all)
-pacman -Qs keyword //查詢安裝在本地儲存庫的套件
-pacman -R packageName // 移除 packageName 套件
-pacman -Rsc packageName //移除 packageName 套件及相依性的套件, s=recursive, c=cascade
-pacman -Sy msys2-keyring //更新 msys2 系統的 keying
-pacman -S -h //取得 -S 指令的說明</code></pre>
+## Installing Inno Setup(2/2)
+- Download Chinese (Traditional) [translation file](https://jrsoftware.org/files/istrans/), right-click a version number and choose Save Target As
+	- Copy ChineseTraditional.isl file into the below folder 
+	<pre><code data-trim>C:\Program Files (x86)\Inno Setup 6\Languages folder</code></pre>
+
+- Download language packs from my Google driver and copy it in to your "Inno Script Studio\Languages\" folder.
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# WiX Toolset
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing WiX Toolset
+- Download .NET SDK from the [offical website](https://dotnet.microsoft.com/download)
+- Installing WiX Toolset with the following command
+<pre><code data-trim data-line-numbers># run the below command if you downloaded the .net 9.0 preview version
+dotnet nuget add source "https://api.nuget.org/v3/index.json" --name "nuget.org"
+dotnet tool install --global wix
+wix --version</code></pre>
+- Update and buildthe WiX .NET tool
+<pre><code>dotnet tool update --global wix
+wix build -o product.msi product.wxs
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Install WiX Toolset v3
+- Download WiX Toolset v3 from the [WiX Toolset on GitHub](https://github.com/wixtoolset/wix3)
+- Install the WiX Toolset v3
+- Setting environment Variable for WiX Toolset
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 
