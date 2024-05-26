@@ -124,6 +124,27 @@ pacman -Rsc packageName //移除 packageName 套件及相依性的套件, s=recu
 pacman -Sy msys2-keyring //更新 msys2 系統的 keying
 pacman -S -h //取得 -S 指令的說明</code></pre>
 </script></section>
+<section data-markdown><script type="text/template">
+## Vulkan Examples
+- Installing OpenGL/Vulkan development and glm 
+<pre><code data-trim data-line-numbers>pacman -S mingw-w64-clang-x86_64-cmake mingw-w64-clang-x86_64-ninja
+pacman -S mingw-w64-clang-x86_64-vulkan-devel mingw-w64-clang-x86_64-glm </code></pre>
+- Clone Vulkan examples from [git repository](https://github.com/SaschaWillems/Vulkan.git)
+<pre><code data-trim>git clone --recursive https://github.com/SaschaWillems/Vulkan.git</code></pre>
+- Build Vulkan examples
+<pre><code data-trim data-line-numbers>cd Vulkan; make build; cd build
+cmake ../ -G Ninja
+ninja
+cd bin; ./bloom.exe
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## High Dynamic Range(hdr)
+![](/images/cpp/hdr.png)
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 </div>
 </div>
