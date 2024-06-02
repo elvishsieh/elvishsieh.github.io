@@ -56,6 +56,68 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Inno Setup, [NSIS](https://nsis.sourceforge.io/Download), [Squirrel](https://github.com/Squirrel/Squirrel.Windows) have their own systems.
 	- [Inno Setup](https://jrsoftware.org/isinfo.php) is a free installer for Windows programs that rivals and even surpasses many commercial installers in feature set and stability. 
 </script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(1/9)
+- 從我的雲端硬碟 innoSetup 中下載 SQLite3 Installer.exe 程式
+![](/images/cpp/installer.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(2/9)
+- 選擇安裝時所使用的程式語言
+![](/images/cpp/installer2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(3/9)
+- 同意使用執照的宣告
+![](/images/cpp/installer3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(4/9)
+- 在開始安裝前，特別的文字說明
+![](/images/cpp/installer4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(5/9)
+- 指定安裝的目錄位置
+![](/images/cpp/installer5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(6/9)
+- 設定 Windows 應用程式選單的名稱
+![](/images/cpp/installer6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(7/9)
+- 確認安裝的訊息是否正確?
+![](/images/cpp/installer7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(8/9)
+- 安裝完成後，特別的文字說明
+![](/images/cpp/installer8.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installer - 以安裝 SQLite3 為例(9/9)
+![](/images/cpp/installer9.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## What is SQLite3 installer to do?
+- Checking the installation directory of SQLite3
+<pre><code data-trim>D:\SQLite3\*</code></pre>
+- What else is the information missed in the installer?
+	- How to make the installer of SQLite3?
+	- Where are the sources of SQLite3 for installation?
+	- License, information befor installing, informatin after installing, etc.
+	- Where is input/output of the software for making installer of SQLite3?
+</script></section>
+<section data-markdown><script type="text/template">
+## What is requested for making the installer of SQLite3?
+- **InnoSetup** is a free installer for Windows programs.
+- Source directory for installing SQLite3 which is **input directory** of InnoSetup
+<pre><code>D:\innoSQLite3</code></pre>
+- Outpput directory for installing SQLite3 which is **output directory** of InnoSetup
+<pre><code>D:\innoSetup</code></pre>
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -64,17 +126,208 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Installing Inno Setup(1/2)
-- Download the installer from the [Inno Setup website](https://jrsoftware.org/isinfo.php)
+- **Download the installer** from the [Inno Setup website](https://jrsoftware.org/isinfo.php)
 - Download Inno Script Studio from the [offical website](https://www.kymoto.org/products/inno-script-studio) 
 ![](/images/cpp/innoDwn.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Installing Inno Setup(2/2)
-- Download Chinese (Traditional) [translation file](https://jrsoftware.org/files/istrans/), right-click a version number and choose Save Target As
-	- Copy ChineseTraditional.isl file into the below folder 
+- **Download Chinese (Traditional)** [translation file](https://jrsoftware.org/files/istrans/), right-click a version number and choose Save Target As
+	- **Copy ChineseTraditional.isl file into the below folder** 
 	<pre><code data-trim>C:\Program Files (x86)\Inno Setup 6\Languages folder</code></pre>
 
-- Download language packs from my Google driver and copy it in to your "Inno Script Studio\Languages\" folder.
+- Download language packs from my Google driver and copy it into your "Inno Script Studio\Languages\" folder.
+</script></section>
+<section data-markdown><script type="text/template">
+# Inno Setup Wizard
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(1/16)
+- 從我的雲端硬碟下載 **innoSQLite3, innoSetup** 目錄
+![](/images/cpp/InnoWizard.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(2/16)
+![](/images/cpp/InnoWizard2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(3/16)
+- 輸入安裝程式的名稱及相關資料
+![](/images/cpp/InnoWizard3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(4/16)
+- 輸入安裝的位置與資料夾名稱(預設為 Program Files)
+![](/images/cpp/InnoWizard4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(5/16)
+- 加入**要執行安裝**的執行檔或者非可執行的檔案
+![](/images/cpp/InnoWizard5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(6/16)
+- 指定安裝來源檔案，範例是 D:\innoSQLite3 目錄中所有檔案
+![](/images/cpp/InnoWizard6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(7/16)
+- 輸入 Windows 應用程式選單的名稱及建立移除安裝的項目
+![](/images/cpp/InnoWizard7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(8/16)
+- 使用執照、安裝前、安裝後顯示的檔案(**UTF-8 BOM**)
+![](/images/cpp/InnoWizard8.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(9/16)
+- 詢問使用者是否要加入 Windows 應用程式選單
+![](/images/cpp/InnoWizard9.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(10/16)
+- 選擇安裝程式可以使用的語言
+![](/images/cpp/InnoWizard10.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(11/16)
+- 輸入安裝程式編譯完成後**輸出的位置及檔案名稱**
+![](/images/cpp/InnoWizard11.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(12/16)
+- 同意使用前置處理器編譯程式碼
+![](/images/cpp/InnoWizard12.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(13/16)
+![](/images/cpp/InnoWizard13.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(14/16)
+- 詢問是否開始編譯程式碼?
+![](/images/cpp/InnoWizard14.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(15/16)
+- 詢問是否儲存原始程式碼?
+![](/images/cpp/InnoWizard15.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Inno Setup Wizard(16/16)
+- 將原始程式碼以 UTF-8 格式儲存
+![](/images/cpp/InnoWizard16.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Customized <br />Inno Setup
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting up Font and PATH
+- The source code of InnoSetup is located in D:\innoSetup
+	- SQLite3V1.iss, SQLite3V2.iss, SQLite3V3.iss
+- SQLite3V2.iss for setting font and PATH
+<pre><code data-trim data-line-numbers>[LangOptions]
+DialogFontName=芫荽
+DialogFontSize=12
+[Setup]
+ChangesEnvironment=yes
+[CustomMessages]
+AppAddPath=加入 PATH 環境變數 (required)
+[Tasks]
+; cm:AppAddPath is the AppAddPath variable of CustumMessages 
+Name: modifypath; Description:{app}\bin {cm:AppAddPath};
+[Registry]
+Root: HKCU; Subkey: "Environment"; ValueType: expandsz;\
+ValueName: "Path"; ValueData: "{olddata};{app}\bin" ;
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Compiling SQLite3V2.iss code
+- First, download [芫荽 font](https://github.com/ButTaiwan/iansui) and install in Windows
+- Make sure the location of directory as following
+	- D:\innoSetup
+	- D:\innoSQLite3
+- Compile SQLite3V2.iss
+	- Launch InnoSetup and select "Open an existing script file" in the Welcome menu
+	- The output file name is "SQLite3 Installer V2.0.exe" in D:\innoSetup
+	- Check the D:\SQLite3\bin directory whether it have been added in PATH? 
+</script></section>
+<section data-markdown><script type="text/template">
+## Open an existing script file
+![](/images/cpp/innoExist.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Compiling SQLite3V3.iss code
+- Uninstall SQLite3 to delete D:\SQLite3\bin directory in PATH environment variable
+<pre><code data-trim>[Registry]
+; Root: HKCU; Subkey: "Environment"; ValueType: expandsz; \
+ValueName: "Path"; ValueData: "{olddata};{app}\bin" ;
+[Code]
+const
+	ModPathName = 'modifypath';
+	ModPathType = 'user';
+function ModPathDir(): TArrayOfString;
+begin
+	setArrayLength(Result, 1)
+	Result[0] := ExpandConstant('{app}' + '\bin');
+end;
+#include "modpath.iss"</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Alacritty
+</script></section>
+<section data-markdown><script type="text/template">
+## Alacritty Installer
+- Download innoAlacritty and innoSetup from my Google Driver
+- Make sure the location of directory as following
+<pre><code>D:\innoSetup
+D:\innoAlacritty
+</code></pre>
+- **Changed the Home environment Variable** in alacritty.iss
+- Make sure Oh My Posh have been installed before
+- Compile alacritty.iss source code
+- Executed the alacrittyInstaller.exe
+</script></section>
+<section data-markdown><script type="text/template">
+## What did the Installer to do?(1/2)
+<pre><code data-trim data-line-numbers>[Files]
+; Source: "D:\innoAlacritty\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\innoAlacritty\Alacritty-v0.13.2-portable.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\innoAlacritty\PowerShell\*"; DestDir: "{userdocs}\PowerShell"; Flags: ignoreversion recursesubdirs createallsubdirs
+; {userappdata} is %AppData% folder which user\AppData\Roaming folder
+Source: "D:\innoAlacritty\alacritty.toml"; DestDir: "{userappdata}\alacritty"; Flags:  ignoreversion
+; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+</code></pre>
+- Alacritty-v0.13.2-portable.exe install to D:\alacritty directory
+- PowerShell\\* install to [我的文件]\PowerShell directory
+- alacritty.toml install to [%AppData%]\alacritty directory
+</script></section>
+<section data-markdown><script type="text/template">
+## What did the Installer to do?(2/2)
+<pre><code data-trim data-line-numbers>[Icons]
+Name: "{group}\{#MyAppName}"; Filename: "D:\innoAlacritty\{#MyAppExeName}"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppShortcutName}.exe"; Tasks: desktopicon
+[Run]
+Filename: "D:\innoAlacritty\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppExeName, '&', '&&')}}"; Flags: shellexec postinstall nowait skipifsilent
+[Code]
+const
+	ModPathName = 'modifypath';
+	ModPathType = 'user';
+function ModPathDir(): TArrayOfString;
+begin
+	setArrayLength(Result, 1)
+	Result[0] := ExpandConstant('{#MyHome}' + '\bin');
+end;
+#include "../modpath.iss"</code></pre>
+- Add a shortcut to the desktop in the line number 4 and run PowerShell installer in the line number 6
 </script></section>
 </section><!--end block-->
 

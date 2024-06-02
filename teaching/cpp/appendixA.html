@@ -132,7 +132,7 @@ pacman -S mingw-w64-clang-x86_64-vulkan-devel mingw-w64-clang-x86_64-glm </code>
 - Clone Vulkan examples from [git repository](https://github.com/SaschaWillems/Vulkan.git)
 <pre><code data-trim>git clone --recursive https://github.com/SaschaWillems/Vulkan.git</code></pre>
 - Build Vulkan examples
-<pre><code data-trim data-line-numbers>cd Vulkan; make build; cd build
+<pre><code data-trim data-line-numbers>cd Vulkan; mkdir build; cd build
 cmake ../ -G Ninja
 ninja
 cd bin; ./bloom.exe
@@ -142,9 +142,6 @@ cd bin; ./bloom.exe
 ## High Dynamic Range(hdr)
 ![](/images/cpp/hdr.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 </div>
 </div>
