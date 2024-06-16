@@ -191,6 +191,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+## 什麼是環境變數?
+- 狹義的說，環境變數是一個讓**使用者在任何目錄(資料夾)的命令提示符號下，執行非目前目錄中可執行程式**的環境設定值
+	- 作業系統會依照 **PATH 環境變數設定的目錄路徑，一一尋找使用者輸入的可執行程式檔案名稱，並且執行**
+	- 如果沒有找到，系統會顯示錯誤訊息
+- 廣義的說，環境變數是讓使用者在任何目錄下，可以找到執行程式或者找到程式所需要檔案的一種環境設定值
+	- HOME 環境變數是指使用者的家目錄，**Windows 作業系統預設的 HOME 環境變數為 C:\Users\\%username%**
+	- C/C++ 程式語言的環境變數有 LIBRARY_PATH, C_PATH, C_INCLUDE_PATH, CPLUS_PATH
+</script></section>
+<section data-markdown><script type="text/template">
+## HOME 環境變數(1/2)
+- 現代的作業系統，例如 Windows, Linux, FreeBSD, OS X 等作業系統，都是**多人多工的作業系統**，擁有帳號的使用者，**每個人都有自己的 HOME 環境變數**
+- Windows 作業系統新增使用者時，會自動把 HOME 環境變數設為為 C:\Users\\%username%
+- 我們可以改變 HOME 環境變數
+	- Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> 新增 >> **變數名稱輸入 HOME；變數值輸入 D:\what_your_want_dir**
+</script></section>
+<section data-markdown><script type="text/template">
+## HOME 環境變數(2/2)
+- Linux, OSX 作業系統的 HOME 環境變數
+<pre><code>/home/$USERNAME, ie, ~/$USERNAME</code></pre>
+	- BASH shell 會讀取 $HOME 環境變數內的 .bashrc, inputrc, .profile 等檔案
+	- **PATH 環境變數設定值通常是在 ~/.bashrc** 或 ~/.profile 中
+- Unix-like 作業系統的 HOME 環境變數與 Linux, OSX 作業系統的 HOME 環境變數相同
+	- FreeBSD, Arch, Fedora, Solaris, Manjaro, Ubuntu, ..., etc.
+</script></section>
+<section data-markdown><script type="text/template">
 # C/C++ Development Environment
 </script></section>
 <section data-markdown><script type="text/template">

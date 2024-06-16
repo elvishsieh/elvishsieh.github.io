@@ -53,7 +53,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - [List of installation software](https://en.wikipedia.org/wiki/List_of_installation_software) for Windows from Wikipedia
 - vdproj, WiX Toolset, Install Shield, [wixsharp](https://github.com/oleg-shilo/wixsharp) all create MSI files. 
 	- The [WiX toolset](https://wixtoolset.org/) lets developers create installers for Windows installers.
-- Inno Setup, [NSIS](https://nsis.sourceforge.io/Download), [Squirrel](https://github.com/Squirrel/Squirrel.Windows) have their own systems.
+- Inno Setup, [NSIS](https://nsis.sourceforge.io/Download), [Squirrel](https://github.com/Squirrel/Squirrel.Windows), [Qt installer](https://download.qt.io/official_releases/qt-installer-framework/) have their own systems.
 	- [Inno Setup](https://jrsoftware.org/isinfo.php) is a free installer for Windows programs that rivals and even surpasses many commercial installers in feature set and stability. 
 </script></section>
 <section data-markdown><script type="text/template">
@@ -223,18 +223,112 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# SQLie3 安裝的原始檔
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite3 的資料夾
+- 我們想要把 SQLite3 安裝到哪裡? D:\SQLite3
+- 我們**要安裝的 SQLite3 資料放在哪裡?** 放在 D:\innoSQLite3
+	- 包括 bin, include, lib, db, src 資料夾及這些資料夾內的檔案
+- 我們使用 **innoSetup 程式所需要的資料放在哪裡?** 放在 D:\innoSetup
+	- 原始程式碼 sqlite3V1.iss, sqlite3V2.iss, sqlite3V3.iss、使用執照、安裝前、後顯示的檔案、 SQLite3 小圖示等檔案
+- 我們使用 innoSetup 程式編譯完成後的安裝檔放在哪裡?**D:\innoSetup**
+	- 安裝檔的檔案名稱是 "SQLite3 Installer {V1.0, V2.0, V3.0}.exe"
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite3 資料夾對應的原始程式碼
+<pre><code data-trim data-line-numbers>[Setup]
+DefaultDirName=D:\SQLite3
+LicenseFile=D:\innoSetup\sqliteLicenseBOM.txt  
+InfoBeforeFile=D:\innoSetup\beforeInstall.txt 
+InfoAfterFile=D:\innoSetup\envPathComplete.txt
+; Uncomment the following line to run in non administrative install mode (install for current user only.)
+PrivilegesRequired=lowest
+;PrivilegesRequired=admin
+;PrivilegesRequiredOverridesAllowed=dialog
+OutputDir=D:\innoSetup
+OutputBaseFilename=SQLite3 Installer V3.0
+SetupIconFile=D:\innoSetup\sqlite3.ico
+[Files]
+; 安裝的來源資料夾、目的資料夾及檔案 {app} = D:\SQLite3
+Source: "D:\InnoSQLite3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs</code></pre>
+- Line 2, 15: 預設安裝的資料夾; 來源資料夾、目的資料夾及檔案
+- Line 3-5, 10-12: 使用執照、安裝前、安裝後顯示及輸出的檔案
+</script></section>
+<section data-markdown><script type="text/template">
+## 執行 SQLite3 的環境變數
+- 要讓 SQLite3.exe 執行檔可以在 Windows 系統任何一個目錄下執行，必須把 **D:\innoSetup\bin** 加入**PATH** 環境變數
+
+<pre><code data-trim data-line-numbers>[Registry]
+;Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\bin" ;
+[Code]
+const
+	ModPathName = 'modifypath';
+	ModPathType = 'user';
+function ModPathDir(): TArrayOfString;
+begin
+	setArrayLength(Result, 1)
+	Result[0] := ExpandConstant('{app}' + '\bin');
+end;
+#include "modpath.iss"</code></pre>
+- Line 13: 引用 **modpath.iss** 程式，將 **D:\innoSetup\bin** 加入 **PATH** 環境變數
+</script></section>
+<section data-markdown><script type="text/template">
+## InnoSetup 安裝過程的設定
+<pre><code data-trim data-line-numbers>[Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "chinesetraditional"; MessagesFile: "compiler:Languages\ChineseTraditional.isl"
+[LangOptions]
+DialogFontName=芫荽
+DialogFontSize=12
+
+[CustomMessages]
+AppAddPath=加入 PATH 環境變數 (required)
+
+[Tasks]
+; cm:AppAddPath is the AppAddPath variable of CustumMessages 
+Name: modifypath; Description:{app}\bin {cm:AppAddPath};</code></pre>
+- Line 1-6: 安裝的語言設定及安裝字型的設定
+- Line 11-13: 安裝過程新增一個 Task(工作項目)，安裝過程顯示加入 PATH 環境變數的確認畫面
+</script></section>
+<section data-markdown><script type="text/template">
+## InnoSetup 原始檔的前置處理
+<pre><code data-trim data-line-numbers>#define MyAppName "Alacritty Portable"
+#define MyAppVersion "0.13.2"
+#define MyAppPublisher "Developer: Joe Wilm"
+#define MyAppURL "https://alacritty.org/"
+#define MyAppExeName "PowerShell-7.4.2-win-x64.msi"
+#define MyAppShortcutName "Alacritty-v0.13.2-portable"
+#define MyHome "D:\elvis\home"
+
+[Setup]
+AppName={#MyAppName}
+AppVersion={#MyAppVersion}
+;AppVerName={#MyAppName} {#MyAppVersion}
+AppPublisher={#MyAppPublisher}
+AppPublisherURL={#MyAppURL}
+AppSupportURL={#MyAppURL}
+AppUpdatesURL={#MyAppURL}
+</code></pre>
+- Line 1: 定義 MyAppName變數名稱，使用 {#MyAppNme} 取代設定 Alacritty Portable 字串
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Customized <br />Inno Setup
 </script></section>
+
 <section data-markdown><script type="text/template">
 ## Setting up Font and PATH
 - The source code of InnoSetup is located in D:\innoSetup
 	- SQLite3V1.iss, SQLite3V2.iss, SQLite3V3.iss
 - SQLite3V2.iss for setting font and PATH
-<pre><code data-trim data-line-numbers>[LangOptions]
+<pre><code data-trim data-line-numbers>[Setup]
+ChangesEnvironment=yes
+[LangOptions]
 DialogFontName=芫荽
 DialogFontSize=12
-[Setup]
-ChangesEnvironment=yes
 [CustomMessages]
 AppAddPath=加入 PATH 環境變數 (required)
 [Tasks]
@@ -282,6 +376,86 @@ end;
 <section><!--start block-->
 <section data-markdown><script type="text/template">
 # Alacritty
+</script></section>
+<section data-markdown><script type="text/template">
+## Alacritty 終端機模擬程式
+- Alacritty 程式可以外掛在 cmd or PowerShell 這些命令提示列上方，安裝以後就可以調整命令提示列顯示螢幕的樣式，例如：顯示的文字顏色、字型、字型大小、游標的顏色、大小、圖樣等等
+- Alacritty 安裝與設定的程序
+	- 下載 [Alacritty Portable](https://github.com/alacritty/alacritty/releases/download/v0.13.2/alacritty-v0.13.2-portable.exe) 可攜式免安裝檔
+	- Alacritty 的設定檔 alacritty.toml 儲存在 C:\Users\%username%\AppData\Roaming\alacritty 目錄中(**即 [%AppData%]\alacritty**)
+- **安裝新版的 PowerShell 程式**取代 cmd 命令提示列程式
+</script></section>
+<section data-markdown><script type="text/template">
+## 製作Alacritty 自動安裝程式注意事項
+- 我們想要**把 alacritty 程式安裝到 D:\alacritty 目錄中**，且**把 alacritty.toml 設定檔放在 [%AppData%]\alacritty 目錄中**
+- 安裝 alacritty 程式後，我們還要執行 PowerShell.msi 安裝程式，並且將 PowerShell 設定檔儲存到 [我的文件]\PowerShell 的目錄中
+- Alacritty 自動安裝程式的資料夾結構
+	- **資料來源檔儲存在 D:\innoAlacritty 目錄中**，包括 alacritty-portable.exe, alacritty.toml, PowerShell.msi 以及 Powershell 目錄內的設定檔
+	- **安裝所需檔案及輸出的安裝檔儲存在 d:\innoSetup\alacritty 目錄中**，包括 alacritty.iss, alacrittyInstaller.exe, alacritty.ico 等檔案
+</script></section>
+<section data-markdown><script type="text/template">
+## Alacritty 安裝程式原始程式碼
+<pre><code data-trim data-line-numbers>#define MyAppName "Alacritty Portable"
+#define MyAppVersion "0.13.2"
+#define MyAppPublisher "Developer: Joe Wilm"
+#define MyAppURL "https://alacritty.org/"
+[Setup]
+AppId={{218EEA24-C8DF-4EBB-B05C-DD811AF98983}}
+AppName={#MyAppName}
+AppVersion={#MyAppVersion}
+AppPublisher={#MyAppPublisher}
+AppPublisherURL={#MyAppURL}
+AppSupportURL={#MyAppURL}
+AppUpdatesURL={#MyAppURL}
+DefaultDirName=D:\Alacritty
+DefaultGroupName=Alacritty 0.13.2
+LicenseFile=D:\innoSetup\alacritty\alacrittyLicense.txt
+InfoBeforeFile=D:\innoSetup\alacritty\beforeAlacritty.txt
+InfoAfterFile=D:\innoSetup\alacritty\afterAlacritty.txt
+PrivilegesRequired=lowest
+OutputDir=D:\innoSetup\alacritty
+OutputBaseFilename=alacrittyInstaller
+SetupIconFile=D:\innoSetup\alacritty\alacritty.ico
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Alacritty 安裝程式原始程式碼(Cont.)
+<pre><code data-trim data-line-numbers>#define MyAppExeName "PowerShell-7.4.2-win-x64.msi"
+#define MyAppShortcutName "Alacritty-v0.13.2-portable"
+#define MyHome "D:\elvis\home"
+[Files]
+Source: "D:\InnoSetup\fonts\Iansui-Regular.ttf"; DestDir: "{autofonts}"; FontInstall: "芫荽"; Flags: onlyifdoesntexist uninsneveruninstall
+; Source: "D:\innoAlacritty\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\innoAlacritty\Alacritty-v0.13.2-portable.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\innoAlacritty\PowerShell\*"; DestDir: "{userdocs}\PowerShell"; Flags: ignoreversion recursesubdirs createallsubdirs
+; {userappdata} is %AppData% folder which user\AppData\Roaming folder
+Source: "D:\innoAlacritty\alacritty.toml"; DestDir: "{userappdata}\alacritty"; Flags:  ignoreversion
+[Icons]
+Name: "{group}\{#MyAppName}"; Filename: "D:\innoAlacritty\{#MyAppExeName}"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppShortcutName}.exe"; Tasks: desktopicon
+[Run]
+Filename: "D:\innoAlacritty\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppExeName, '&', '&&')}}"; Flags: shellexec postinstall nowait skipifsilent
+</code></pre>
+- Line 16: {#MyAppExeName} = PowerShell-7.4.2-win-x64.msi
+</script></section>
+<section data-markdown><script type="text/template">
+## Alacritty 安裝程式原始程式碼(Cont.)
+<pre><code data-trim data-line-numbers>[Code]
+
+const
+	ModPathName = 'modifypath';
+	ModPathType = 'user';
+
+function ModPathDir(): TArrayOfString;
+begin
+	setArrayLength(Result, 1)
+	Result[0] := ExpandConstant('{#MyHome}' + '\bin');
+end;
+
+#include "../modpath.iss"</code></pre>
+- Line 13: 引用 **modpath.iss** 程式
+- Line 12: 將 **{#MyHome}\bin** 加入 **PATH** 環境變數(即 D:\elvis\home\bin)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Alacritty Installer
