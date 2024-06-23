@@ -271,7 +271,7 @@ begin
 	Result[0] := ExpandConstant('{app}' + '\bin');
 end;
 #include "modpath.iss"</code></pre>
-- Line 13: 引用 **modpath.iss** 程式，將 **D:\innoSetup\bin** 加入 **PATH** 環境變數
+- Line 12: 引用 **modpath.iss** 程式，將 **D:\innoSetup\bin** 加入 **PATH** 環境變數
 </script></section>
 <section data-markdown><script type="text/template">
 ## InnoSetup 安裝過程的設定
@@ -454,8 +454,8 @@ begin
 end;
 
 #include "../modpath.iss"</code></pre>
+- Line 10: 將 **{#MyHome}\bin** 加入 **PATH** 環境變數(即 D:\elvis\home\bin)
 - Line 13: 引用 **modpath.iss** 程式
-- Line 12: 將 **{#MyHome}\bin** 加入 **PATH** 環境變數(即 D:\elvis\home\bin)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Alacritty Installer
