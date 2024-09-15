@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>網際網路基本觀念</title>
+<title>The Internet</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -42,125 +42,216 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-<section>
-<h2>網際網路基本觀念</h2>
-<ul>
-    <li>網際網路的歷史</li>
-    <li>網頁、網站、網站伺服器</li>
-    <li>網域、網址與網路架構</li>
-    <li>網際網路的應用</li>
-</ul>
-</section>
-<section>
-<section>
-<h2>網際網路的歷史(1/4)</h2>
-<ul>
-    <li>在1960年初期，一些科學家及軍事界的人員，發現電腦可共享研發資訊，將帶來的可觀的價值</li>
-    <li>在1962年：</li>
-    <ul>
-        <li>麻省理工學院J.C.R. Licklider首先提出全球網路的概念</li>
-        <li>由國防尖端研究專案機構(DARPA)接手進行研發</li>
-        <li><b>加州大學洛杉磯分校的Leonard Kleinrock 教授</b>發展出封包交換技術理論，為網際網路連結奠基</li>
-        <li><b>麻省理工學院的 Lawrence Roberts 利用撥接式電話線</b>，將麻州的電腦與加州的電腦相連</li>
-        <li>同時也發現電話線的電路交換技術不敷運用，<b>Kleinrock 的封包交換理論受到肯定</b></li>
-    </ul>
-</ul>
-</section>
 
-<section>
-<h2>網際網路的歷史(2/4)</h2>
-<ul>
-    <li>於1969年麻省理工學院的 Roberts 轉到<b>國防尖端研究專案機構(DARPA)</b>，開始發展他所籌畫的Advanced Research Projects Agency (ARPA)</li>
-    <li>1970年美國各大學紛紛加入 ARPANet</li>
-    <li>197~ 年由 BBN 的 <b>Bob Kahn 所提出 TCP/IP的架構</b>，後來由史丹福的Kahn與Vint Cerf及其他人在70年代期間開發</li>
-    <li>在1978年時由貝爾實驗室發明 Unix to Unix備份通訊協定(UUCP)</li>
-    <li>1979年時新聞討論群(Usenet) 根據UUCP開始啟用</li>
-</ul>
-</section>
-
-<section>
-<h2>網際網路的歷史(3/4)</h2>
-<ul>
-    <li>1980年時美國國防部所採納 TCP/IP，取代先前的網路控制通訊協定(NCP)</li>
-    <li>1983年廣為全球使用，例如 Archive, telnet, mail, ftp</li>
-    <li>1989年粒子物理學歐洲實驗室(CERN)的 <b>Tim Berners Lee</b> 研發出 <b>World Wide Web(W3)通訊協定</b></li>
-    <li>1991年明尼蘇達大學開發出 Gopher(小田鼠)</li>
-    <img src="/images/html5/lee.jpg"; style="width: 400px; height: 300px; margin-left: 100px" alt="Tim Berners Lee">
-</ul>
-</section>
-
-<section>
-<h2>網際網路的歷史(4/4)</h2>
-<ul>
-    <li>1993年超電算應用國家中心(NCSA)的 <b>Marc Andreessen 與他的小組成員開發了圖形瀏覽器Mosaic</b></li>
-    <li>1993年之後，Andreessen 更轉往網景公司(Netscape)，開發<b>領航員(Navigator)</b></li>
-    <li>1998年微軟(Microsoft)將開發出<b>Windows 98 的作業系統(O.S)與 Internet Explorer(IE)瀏覽器緊密整合</b></li>
-    <li>之後，<b>Netscape 公司開放原始程式碼(open source)</b>，yield Mozilla Firefox browser</li>
-</ul>
-</section>
-</section>
-<section>
-<h2>瀏覽器(Browser)</h2>
-<ul>
-<li>瀏覽器(Browser)：一種觀看網頁的軟體，例如：IE, Firefox, Chrome, Safari 等軟體；使用者可以透過瀏覽器(Browser)來觀看網站伺服器內的網頁</li>
-<li>常見瀏覽器(Browser)的軟體：</li>
-<ul>
-    <li><b>Lynx</b>(<a href="http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png">http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png</a>)</li>
-    <li>IE(Internet Explorer)、<b>Edge(Windows 10)</b></li>
-    <li><a href="https://www.mozilla.org/zh-TW/firefox/new/">Firefox(Mozilla)</a></li>
-    <li><a href="https://www.google.com.tw/intl/zh-TW/chrome/browser/desktop/index.html">Chrome(Google)</a></li>
-    <li><a href="http://www.opera.com/zh-tw">Opera</a></li>
-    <li><a href="http://www.apple.com/tw/safari/">Safari(Apple)</a></li>
-</ul>
-</ul>
-</section>
-<section>
-<section>
-<h2>Web 的基本觀念</h2>
-<ul>
-    <li>網頁(Web Page)</li>
-    <li>網站(Web Site)</li>
-    <li>首頁(Home Page)</li>
-    <li>網站伺服器(Web Server)</li>
-    <li>何謂 URL, Hostname, DNS, IP</li>
-    <li>何謂 HTML, XML, XHTML</li>
-</ul>
-</section>
-
-<section>
-<h2>網頁、網站與網站伺服器</h2>
-<ul>
-    <li>網頁(Web Page)：<b>由HTML 語法、CSS(cascading Style Sheet)、Javascript 語言撰寫而成的頁面</b></li>
-    <li>網站(Web Site)：由許多網頁及一些多媒體的檔案所構成的網頁架構</li>
-    <li>首頁(Home Page)：網站的第一個頁面，<b>檔名通常是 index.html, index.htm, index.asp, index.php, index.aspx</b></li>
-    <li>網站伺服器(Web Server)：主要是<b>提供網頁製作者存放他們製作的網頁或網站的一種軟體</b>，例如： <a href="http://www.iis.net/overview">IIS</a>, <a href="http://www.apachelounge.com/download/">Apache HTTP Server ("httpd")</a>, <a href="http://nginx.org/">nginx</a>, <a href="https://www.lighttpd.net/">lighttpd </a>等</li>
-</ul>
-</section>
-
-<section>
-<h2>用戶端/主機端架構</h2>
-<h3>Client/Server Architecture</h3>
-<ul>
-    <li>2-Tier <b>Client / Server</b> 架構</li>
-        <ul>
-            <li>e.g. 郵政信箱 / 郵局</li>
-            <li><b>Outlook, Thunderbird</b> / Mail Server(sendmail, postfix,qmail)</li>
-            <li><b>Browser</b> / Web server(Apache, IIS, lighttpd)</li>
-            <li><b>Wsftp, FileZilla</b> / FTP server(FileZilla Server,ftpd)</li>
-        </ul>
-    <li>3-Tier 架構：
-        <ul>
-            <li>Client PC / Application Server / <b>Database</b> Server</li>
-        </ul>
-    </li>
-</ul>
-</section>
-
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## Domain Name Server Tree
-[![](/images/html5/domainTree.jpg)](https://www.iana.org/)
+## The concept of Internet
+- The history of Internet
+- Webpage, Website, Web Server
+- 網域(Domain)、網址(URL)與網路架構
+- 網際網路的應用(Application of Internet)
 </script></section>
 
+<section data-markdown><script type="text/template">
+# History of Internet
+</script></section>
+<section data-markdown><script type="text/template">
+## The history of Internet(1/4)
+- 在1960年初期，一些科學家及軍事界的人員，發現電腦可共享研發資訊，將帶來的可觀的價值
+- 在1962年：
+    - 麻省理工學院J.C.R. Licklider首先提出全球網路的概念
+    - 由國防尖端研究專案機構(DARPA)接手進行研發
+    - 加州大學洛杉磯分校的Leonard Kleinrock 教授發展出封包交換技術理論，為網際網路連結奠基
+    - 麻省理工學院的 Lawrence Roberts 利用撥接式電話線，將麻州的電腦與加州的電腦相連
+    - 同時也發現電話線的電路交換技術不敷運用，Kleinrock 的封包交換理論受到肯定
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The history of Internet(2/4)
+- 在1960年初期，一些科學家及軍事界
+    - 於1969年麻省理工學院的 Roberts 轉到<b>國防尖端研究專案機構(DARPA)</b>，開始發展他所籌畫的Advanced Research Projects Agency (ARPA)
+    - 1970年美國各大學紛紛加入 ARPANet
+    - 197~ 年由 BBN 的 <b>Bob Kahn 所提出 TCP/IP的架構</b>，後來由史丹福的Kahn與Vint Cerf及其他人在70年代期間開發
+    - 在1978年時由貝爾實驗室發明 Unix to Unix備份通訊協定(UUCP)
+    - 1979年時新聞討論群(Usenet) 根據UUCP開始啟用
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The history of Internet(3/4)
+- 1980年時美國國防部所採納 TCP/IP，取代先前的網路控制通訊協定(NCP)
+    - 1983年廣為全球使用，例如 Archive, telnet, mail, ftp
+    - 1989年粒子物理學歐洲實驗室(CERN)的 <b>Tim Berners Lee</b> 研發出 <b>World Wide Web(W3)通訊協定</b>
+    - 1991年明尼蘇達大學開發出 Gopher(小田鼠)
+
+    <img src="/images/html5/lee.jpg" style="width: 400px; height: 250px; margin-left: 100px" alt="Tim Berners Lee" />
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The history of Internet(4/4)
+- 1993年超電算應用國家中心(NCSA)的 <b>Marc Andreessen 與他的小組成員開發了圖形瀏覽器Mosaic</b>
+- 1993年之後，Andreessen 更轉往網景公司(Netscape)，開發<b>領航員(Navigator)</b>
+- 1998年微軟(Microsoft)將開發出<b>Windows 98 的作業系統(O.S)與 Internet Explorer(IE)瀏覽器緊密整合</b>
+- 之後，<b>Netscape 公司開放原始程式碼(open source)</b>，yield Mozilla Firefox browser
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# **W**orld **W**ide **W**eb
+</script></section>
+<section data-markdown><script type="text/template">
+## 瀏覽器(Browser)
+- 瀏覽器(Browser)：一種觀看網頁的軟體，例如：Edge, Firefox, Chrome, Safari 等軟體；使用者可以透過瀏覽器(Browser)來觀看網站伺服器內的網頁
+- 常見瀏覽器(Browser)的軟體：
+    - <b>Lynx</b>(<a href="http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png">http://en.wikipedia.org/wiki/File:Lynx-wikipedia.png</a>)
+    - Edge(Windows 10), **IE(Internet Explorer)**
+    - <a href="https://www.mozilla.org/zh-TW/firefox/new/">Firefox(Mozilla)</a>
+    - <a href="https://www.google.com.tw/intl/zh-TW/chrome/browser/desktop/index.html">Chrome(Google)</a>
+    - <a href="http://www.opera.com/zh-tw">Opera</a>
+    - <a href="http://www.apple.com/tw/safari/">Safari(Apple)</a>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## The World Wide Web
+- 網頁(Web Page)
+- 網站(Web Site)
+- 首頁(Home Page)
+- 網站伺服器(Web Server)
+- 何謂 IP, Hostname, DNS, URL
+- 何謂 HTML(5), XML, XHTML
+</script></section>
+
+<section data-markdown><script type="text/template">
+# Web Page, Web Site and Web Server
+</script></section>
+<section data-markdown><script type="text/template">
+## 網頁、網站與網站伺服器
+- 網頁(Web Page)
+    - <b>由HTML 語法、CSS(Cascading Style Sheet, 階層式樣式表)、Javascript 語言撰寫而成的頁面</b>
+- 網站(Web Site)
+    由許多網頁及一些多媒體的檔案所構成
+- 首頁(Home Page)
+    網站的入口頁面，<b>檔名通常是 index.html, index.htm, index.asp, index.php, index.aspx</b>
+- 網站伺服器(Web Server)
+    - 主要是<b>提供網頁製作者存放他們製作的網頁或網站的一種軟體</b>，例如： <a href="http://www.iis.net/overview">IIS</a>, <a href="http://www.apachelounge.com/download/">Apache HTTP Server ("httpd")</a>, <a href="http://nginx.org/">nginx</a>, <a href="https://www.lighttpd.net/">lighttpd </a>等
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 用戶端/主機端架構
+### Client/Server Architecture ###
+- 2-Tier <b>Client / Server</b> 架構
+    - <b>Browser</b> / Web server(Apache, IIS, lighttpd)
+    - 郵政信箱 / 郵局
+        - <b>Outlook, [Thunderbird](https://www.thunderbird.net/zh-TW/)</b> / Mail Server(sendmail, postfix,qmail)
+    - <b>[FileZilla Client](https://filezilla-project.org/)</b> / FTP server(FileZilla Server,ftpd)   
+- 3-Tier 架構：
+    - Client / Application Server / <b>Database</b> Server
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# IP and Subnet Mask
+</script></section>
+<section data-markdown><script type="text/template">
+## IP(Internet Protocol) address
+![](/images/html5/ipAddress.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Subnet Mask
+![](/images/html5/netmask.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Network Address
+![](/images/html5/andGate.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## IP address Classes
+![](/images/html5/ipClass.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Private IP
+- IPv4 only have 4294967296 IP addresses. It was not enough used for all of devices in the World.
+- Private IP address **are not publicly registered on internet**. It are only used on LANs(home, business etc.) 
+- Dynamic Host Configuration Protocol **(DHCP) is a service used in routers to assign private IP addresses**.
+- Private IP class
+| Class | IP address range | Subnet mask |
+|:---: |:--- |:--- |
+| A | 10.0.0.0 - 10.255.255.255 | 255.0.0.0 |
+| B | 172.16.0.0 - 172.31.255.255 | 255.255.0.0 |
+| C | 192.168.0.0 - 192.168.255.255 | 255.255.255.0 |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Public and Private IP
+![](/images/html5/router.png)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## CIDR
+- **CIDR** is the short for Classless Inter-Domain Routing, an IP addressing scheme that **replaces the older system based on classes A, B, and C**.
+- CIDR is **based on variable-length subnet masking (VLSM)**, in which network prefixes have variable length (as opposed to the fixed-length prefixing of the previous classful network design).
+- Some examples of CIDR notation are the addresses **192.0.2.0/24 for IPv4 and 2001:db8::/32 for IPv6**.
+- The subnet mask is **255.255.255.0** which is CIDR notation of 192.0.2.0/24.
+</script></section>
+<section data-markdown><script type="text/template">
+## Subnet Mask Table
+
+|CIDR |	Decimal |	Number addresses  	| Number hosts |
+|:--- |:--- |:---: |:---: |
+| /0 |	0.0.0.0     |   4294967296 	|   4294967294|
+| /1 |	128.0.0.0   | 	2147483648  | 	2147483646|
+| /2 |	192.0.0.0   | 	1073741824  | 	1073741822|
+| /3 |	224.0.0.0   | 	536870912   |	536870910|
+| /4 |	240.0.0.0   | 	268435456   |	268435454|
+| /5 |	248.0.0.0   | 	134217728   |	134217726|
+| /6 |	252.0.0.0   | 	67108864 	|   67108862|
+| /7 |	254.0.0.0   | 	33554432 	|   33554430|
+|**/8** |	**255.0.0.0**   | 	**16777216** 	|   **16777214**|
+| ... |...          |...            | ...       |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Subnet Mask Table(cont.)
+
+|CIDR |	Decimal |	Number addresses  	| Number hosts |
+|:--- |:--- |:---: |:---: |
+|**/16** |	**255.255.0.0**   |	**65536** |	**65534** |
+|/17 |	255.255.128.0 |	32768 |	32766 |
+| /18 |	255.255.192.0 	| 16384 |	16382 |
+| /19 |	255.255.224.0 	| 8192 | 	8190 |
+| /20 |	255.255.240.0 	| 4096 |	4094 |
+| /21 |	255.255.248.0 	| 2048 |	2046 |
+| /22 |	255.255.252.0 	| 1024 |	1022 |
+| /23 |	255.255.254.0 	| 512 |	510 |
+| **/24** |	**255.255.255.0** 	| **256** |	**254** |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Subnet Mask Table(cont. 2)
+
+|CIDR |	Decimal |	Number addresses 	| Number hosts |
+|:--- |:--- |:---: |:---: |
+| /25 |	255.255.255.128  |	128 |	126 |
+| /26 |	255.255.255.192  |	64 |	62 |
+| /27 |	255.255.255.224  |	32 |	30 |
+| /28 |	255.255.255.240  |	16 | 14 |
+| /29 |	255.255.255.248  |	8  | 6 |
+| /30 |	255.255.255.252  |	4  | 2 |
+| /31 |	255.255.255.254  |	2  | 0 |
+| /32 |	255.255.255.255  |	1 | - |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## IPv4 and IPv6
+![](/images/html5/ipv4.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# IP, Hostname & DNS
+</script></section>
 <section data-markdown><script type="text/template">
 ## IP & 主機名稱(Hostname)
 - 電腦只懂得 0 與 1
@@ -171,8 +262,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     - [Internet Corporation for Assigned Names and Numbers (ICANN)](https://www.icann.org/): 管理所有的 Domain Name, e.g. .cn, .tw, .uk
     - [台灣網路資訊中心(TWNIC)](https://www.twnic.tw/about.php): .tw Domain Name
     - Domain Name(e.g. nutc.edu.tw, gov.tw, idv.tw, com.tw)
-- 特殊的(private) IP Address：
+- 特殊的 IP[(Reserved IP addresses)](https://en.wikipedia.org/wiki/Reserved_IP_addresses)
     - localhost: 127.0.0.1, router's admin panel: 192.168.0.1
+</script></section>
+<section data-markdown><script type="text/template">
+## Domain Name Server Tree
+<img src="/images/html5/domainTree.jpg" style="height: 560px; margin-left: 100px" alt="domain tree" />
 </script></section>
 <section data-markdown><script type="text/template">
 ## 測試 IP & Hostname
@@ -180,31 +275,28 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     - **nslookup [www.nutc.edu.tw](https://www.nutc.edu.tw)** //問 DNS 這個 Host name 的 ip 是什麼
     - **ping www.google.com.tw** //測試網站是否活著
     - <b>ipconfig  /all</b> //ip, 實體網卡位址(<b>MAC</b>, <b>M</b>edia <b>A</b>ccess <b>C</b>ontrol)
-    - <b>ipconfig  /all | find /I "實體"</b> or "Physical Address" //找 MAC, 筆電多筆資料(無線網卡)
+    - CMD: <b>ipconfig  /all | find /I "實體"</b> or "Physical Address"
+    - Powershell: ipconfig /all | Select-String "實體"
 - Unix Like 系統輸入
     - **ifconfig | grep 'inet\\|ether'** // 找 ip or MAC
     - 可能需要 sudo apt install net-tools
 </script></section>
-<section>
-<h3>通訊協定與連接阜</h3>
-<ul>
-    <li>IPv4: 4 bytes, 32bits</li>
-    <li>IPv6: 6 Bytes, 48bits</li>
-    <li>Application Layer:</li>
-        <ul>
-            <li><b>HTTP(Hypertext Transfer Protocal), 80 port</b></li>
-            <li>HTTPS(Security), 443 port</li>
-            <li><b>FTP(File Transfer Protocal), 21 port</b></li>
-            <li>SMTP(Simple Mail Transfer Protocal), <b>25 port</b></li>
-        </ul>
-    <li>Presentation Layer:</li>
-        <ul>
-            <li>SSL(Secure Sockets Layer)</li>
-            <li>TLS(Transport Layer Security)</li>
-        </ul>
-    <li>Unix /etc/services</li>
-</ul>
-</section>
+
+<section data-markdown><script type="text/template">
+## 通訊協定與連接阜</h3>
+- IPv4: 8 bits x 4, 32 bits
+- IPv6: 16 bits x 8, 128 bits
+- Application Layer:
+    - <b>HTTP(Hypertext Transfer Protocal), 80 port</b>
+    - HTTPS(Security), 443 port
+    - <b>FTP(File Transfer Protocal), 21 port</b>
+    - SMTP(Simple Mail Transfer Protocal), <b>25 port</b>
+- Presentation Layer:
+    - SSL(Secure Sockets Layer)
+    - TLS(Transport Layer Security)
+- Unix /etc/services
+</script></section>
+
 <section data-markdown><script type="text/template">
 ## 何謂 URL?
 - 統一資源標識符: <b>U</b>niform <b>R</b>esource <b>I</b>dentifier (<b>URI</b>)
@@ -213,41 +305,131 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     - [http://www.ntu.edu.tw/](http://www.ntu.edu.tw/)
     - [http://www.ntu.edu.tw/index.html](http://www.ntu.edu.tw/index.html)
     - [http://www.ntu.edu.tw:80/index.html](http://www.ntu.edu.tw:80/index.html)
-    - [ftp://ftp.ntu.edu.tw:21/](ftp://ftp.ntu.edu.tw:21/)
-    - 檔案總管貼上 file://localhost/c:/WINDOWS/notepad.exe 
-    - 網址列輸入 file:///etc/fstab
+    - [https://ftp.ntu.edu.tw:443/](https://ftp.ntu.edu.tw:443/)
+    - 在 Windows 作業系統中開啟檔案總管，在搜尋列複製、貼上 file://localhost/c:/WINDOWS/notepad.exe 
+    - Unix-like system : 網址列輸入 file:///etc/fstab 
 </script></section>
 
-<section>
-<h3>練習：IP、MAC、Hostname</h3>
-<ol>
-    <li>請檢查 www.ntu.edu.tw 與 ftp.ntu.edu.tw 這二台伺服器(Server)是否有存在網路上？ </li>
-    <li>請查詢 www.ntu.edu.tw 的 ip 位址</li>
-    <li>請查詢 ftp.ntu.edu.tw 的 ip 位址</li>
-    <li>請檢查自己電腦中網路卡的實體位址(MAC)</li>
-    <li>請將你電腦 IPv4 的位址直接顯示螢幕上？</li>
-    <li>請在瀏覽器的網址列中，輸入你在前面練習所查到 ftp.ntu.edu.tw 這台伺服器的 ip 位址</li>
-    <li>在上一個練習題中，輸入 ip 位址之前加入 ftp:// 與 http:// 協定，觀察其顯示的結果有何不同？</li>
-</ol>
-</section>
-<section>
-<h2>練習：網址、首頁、連接阜</h2>
-<p>請使用瀏覽器連結下列網址，看看其顯示結果有何異同？</p>             
-<ul>
-    <li>台灣大學的網址：<a href="http://www.ntu.edu.tw/">http://www.ntu.edu.tw/</a></li>
-    <li>台灣大學首頁的網址：<a href="http://www.ntu.edu.tw/index.html">http://www.ntu.edu.tw/index.html</a></li>
-    <li>使用 80 port 來連結台灣大學首頁的網址：<br /><a href="http://www.ntu.edu.tw:80/index.html">http://www.ntu.edu.tw:80/index.html</a></li>
-    <li>使用 ftp 協定連結台灣大學 FTP Server：<br /><a href="ftp://ftp.ntu.edu.tw:21/">ftp://ftp.ntu.edu.tw:21/</a></li>
-</ul>
-</section>
+<section data-markdown><script type="text/template">
+## 練習：IP、MAC、Hostname
+- 請檢查 www.ntu.edu.tw 與 ftp.ntu.edu.tw 這二台伺服器(Server)是否有存在網路上？
+- 請查詢 www.ntu.edu.tw 的 ip 位址
+- 請查詢 ftp.ntu.edu.tw 的 ip 位址
+- 請檢查自己電腦中網路卡的實體位址(MAC)
+- 請將你電腦 IPv4 的位址直接顯示螢幕上？
+- 請在瀏覽器的網址列中，輸入你在前面練習所查到 ftp.ntu.edu.tw 這台伺服器的 ip 位址
+- 在上一個練習題中，輸入 ip 位址之前加入 ftp:// 與 http:// 協定，觀察其顯示的結果有何不同？
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 練習：網址、首頁、連接阜
+- 請使用瀏覽器連結下列網址，看看其顯示結果有何異同？           
+    - 台灣大學的網址：[http://www.ntu.edu.tw/](http://www.ntu.edu.tw/)
+    - 台灣大學首頁的網址：[http://www.ntu.edu.tw/index.html](http://www.ntu.edu.tw/index.html)
+    - 使用 80 port 來連結台灣大學首頁的網址：<br />[http://www.ntu.edu.tw:80/index.html](http://www.ntu.edu.tw:80/index.html)
+    - 使用 [FileZilla Client](https://filezilla-project.org/) 協定連結台灣大學 FTP Server：<br /> ftp://ftp.ntu.edu.tw:21/
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
-<section>
-<h2>何謂 HTML?</h2>
-<ul>
-    <li><b>HTML</b> 是 <b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
-</ul>
+<section data-markdown><script type="text/template">
+# Hypertext <br />Transfer Protocol
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP
+- Hypertext Transfer Protocol (HTTP) is **an application-layer protocol for transmitting hypermedia documents**, such as HTML.
+- It was designed for **communication between web browsers and web servers**.
+- HTTP is **a stateless protocol**, meaning that the server **does not keep any data (state) between two requests**.
+- Internet Engineering Task Force (IETF), [RFC 9110](https://tools.ietf.org/html/rfc9110) defines the HTTP standard.
+- Navigating the [MDN's HTTP website](https://developer.mozilla.org/en-US/docs/Web/HTTP) for more HTTP tutorials and information.
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP Request Methods
+|Method  | Name	Description	Section|
+| :----- | :----- |
+|**GET**	  |  Transfer a current representation of the target resource.|	
+|HEAD	|   Same as GET, but do not transfer the response content.	|
+|**POST**	|   Perform resource-specific processing on the request content.	|
+|**PUT**	 |   Replace all current representations of the target resource with the request content.	|
+|**DELETE**	  |Remove all current representations of the target resource.	|
+|CONNECT  |	Establish a tunnel to the server identified by the target resource.	|
+|OPTIONS  |	Describe the communication options for the target resource.	|
+|TRACE	  |Perform a message loop-back test along the path to the target resource.	|
+|||
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Command Line HTTP Client
+- [Wget](https://gnuwin32.sourceforge.net/packages/wget.htm)  is a free network utility to retrieve files from the World Wide Web using HTTP and FTP, the two most widely used Internet protocols. 
+- [Curl](https://curl.haxx.se) is a command-line tool for transferring data specified with URL syntax.
+- [HTTPie CLI](https://github.com/httpie/cli) is a modern, user-friendly command-line HTTP client for the API era.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## HTTP request with HTTPie
+- [httpbin.org](https://httpbin.org/) is a simple HTTP Request/Response Service.
+    - Click [HTTP Methods](https://httpbin.org/#/HTTP_Methods/get_get) ≫ Get ≫ Try it out ≫ Execute
+- [Create a Python virtual environment](../python/01intro.html) and install HTTPie.
+    - Installing HTTPie: <b>pip install httpie</b>
+    <pre><code># HTTPie aliases
+alias GET='http'
+alias POST='http POST'
+alias HEAD='http HEAD'
+# HTTPie command
+http httpbin.org/get
+http PUT httpbin.org/put hello=world
+http httpbin.org/status/418
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP Response Header
+<pre><code data-trim data-line-numbers># Get www.example.com header command as followning
+# http HEAD www.example.com
+#--------------Result--------------------------------------
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Age: 58679
+Cache-Control: max-age=604800
+Content-Length: 1256
+Content-Type: text/html; charset=UTF-8
+Date: Wed, 11 Sep 2024 06:50:20 GMT
+Etag: "3147526947"
+Expires: Wed, 18 Sep 2024 06:50:20 GMT
+Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+Server: ECAcc (lac/55D6)
+X-Cache: HIT
+#---------------------------------------------------------
+# Get www.example.com index.html file command as following
+http www.example.com > index.html  
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## CIDR with python
+- Installing netaddr package
+    -  **pip install netaddr**
+- Get IP addresses and the number of bits of netmask
+<pre><code># Get IP addresses command
+# typing python into python interpreter
+from netaddr import IPNetwork
+for ip in IPNetwork('192.168.1.0/28'):
+      print(ip, end=',\t')
+#----------------------------------------------
+# Get the number of bits of the netmask
+from netaddr import IPAddress
+IPAddress('255.255.255.128').netmask_bits()
+# Result is 25
+</code></pre>
+
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# HTML, XML <br /> and HTML5
+</script></section>
+<section data-markdown><script type="text/template">
+## 何謂 HTML?
+- <b>HTML</b> 是 <b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage 的縮寫
 <pre><code class="line-numbers">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 &lt;html>
@@ -256,160 +438,160 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 charset=utf-8" />
 &lt;title>這是標題文字&lt;/title>
 &lt;/head>
-
-&lt;body>
-&lt;p>網頁的內容都在這裡呈現&lt;/p>
-&lt;p>這是段落&lt;/p>
-&lt;/body>
+    &lt;body>
+    &lt;p>網頁的內容都在這裡呈現&lt;/p>
+    &lt;p>這是段落&lt;/p>
+    &lt;/body>
 &lt;/html></code></pre>
-</section>
+</script></section>
 
-<section>
-<h2>HTML 的缺點</h2>
-<ul>
-    <li>HTML 標籤不能夠表示單一的意義，容易產生混淆</li>
-    <li>廠商自行定義一些標籤，<b>造成不一致性</b></li>
-        <ul>
-            <li>IE  的 &lt;IFFRAME&gt; 標籤</li>
-            <li>Netscape 的 &lt;LAYER&gt;標籤</li>
-        </ul>
-    <li><b>不夠嚴謹的結束標籤</b></li>
-        <ul>
-            <li>HTML &lt;br&gt;</li>
-            <li>XHTML &lt;br&gt; &lt;br /&gt;</li>
-        </ul>
-</ul>
-</section>
+<section data-markdown><script type="text/template">
+## HTML 的缺點
+- HTML 標籤不能夠表示單一的意義，容易產生混淆
+- 廠商自行定義一些標籤，<b>造成不一致性</b>
+    - IE  的 &lt;IFFRAME&gt; 標籤
+    - Netscape 的 &lt;LAYER&gt;標籤
+- <b>不夠嚴謹的結束標籤</b>
+    - HTML &lt;br&gt;
+    - XHTML &lt;br&gt; &lt;br /&gt;
+</script></section>
 
-<section>
-<h2>何謂 XML?</h2>
-    <ul>
-        <li><b>XML</b> 是 e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
-        <li>可以轉換成各式各樣的資料型態：</li>
-            <ul>
-                <li>Microsoft Office 2007 Version: .docx, .xlsx, pptx</li>
-                <li>可轉成文字檔 e.g. text, html, rtf, odf</li>
-                <li>可轉成圖形檔 e.g. svg</li>
-                <ul>
-                <li><a href="http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg">http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg</a></li>
-                <li><a href="https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg">https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg</a></li>
-                <li><a href="view-source:https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg">原始程式碼</a></li>
-                </ul>
-            </ul>
-    </ul>
-</section>
+<section data-markdown><script type="text/template">
+## 何謂 XML?
+- [XML](https://www.w3.org/XML/) 是 e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage 的縮寫
+- 可以轉換成各式各樣的資料型態：
+    - Microsoft Office 2007 Version: .docx, .xlsx, pptx
+        - 可轉成文字檔 e.g. text, html, rtf, odf
+        - 可轉成圖形檔 e.g. svg
+    - <a href="http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg">http://zh.wikipedia.org/zh-hant/File:URI_Venn_Diagram.svg</a>
+- 瀏覽器網址列輸入下列 URL<br /> <small>view-source:https://upload.wikimedia.org/wikipedia/commons/f/ff/URI_Venn_Diagram.svg </small>
+</script></section>
 
-<section>
-<h2>何謂 XHTML?</h2>
-<ul>
-    <li><b>XHTML</b> 是 e<b>X</b>tensible <b>HTML</b> 的縮寫</li>
-    <li>為了實現 XML 的過度產品</li>
-    <li>修補了 HTML 的部份缺失 e.g.&lt;br&gt; &lt;br /&gt;</li>
-    <li>無法實現 XML 的所有特性 e.g. svg 檔案格式</li>
-    <li>自從 2010 年 W3C 核定了 HTML5 標準以後，支持XML語法的陣營退出 XHTML 標準的制定</li>
-</ul>
-</section>
+<section data-markdown><script type="text/template">
+## 何謂 XHTML?
+- <b>XHTML</b> 是 e<b>X</b>tensible <b>HTML</b> 的縮寫
+- 為了實現 XML 的過度產品
+- 修補了 HTML 的部份缺失 e.g.&lt;br&gt; &lt;br /&gt;
+- 無法實現 XML 的所有特性 e.g. svg 檔案格式
+- 自從 2010 年 W3C 核定了 HTML5 標準以後，支持XML語法的陣營退出 XHTML 標準的制定
+</script></section>
 
-<section>
-<h2>HTML5</h2>
+<section data-markdown><script type="text/template">
+## HTML5
 <pre><code class="line-numbers">&lt;!DOCTYPE html>
 &lt;html lang="zh-TW">
 &lt;head>
-&lt;meta charset=utf-8" />
-&lt;title>這是標題文字&lt;/title>
-&lt;link rel="stylesheet" type="text/css" href="css/style.css" /&gt;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>這是標題文字</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 &lt;/head>
 
 &lt;body>
-&lt;p>網頁的內容&lt;/p>
-&lt;p>這是段落&lt;/p>
+    <p>網頁的內容</p>
+    <p>這是段落</p>
 &lt;/body>
 &lt;/html></code></pre>
-</section>
+</script></section>
 
-<section>
-<h2>SGML 與 DTD</h2>
-<ul>
-    <li><b>SGML</b> 是 <b>S</b>tandard <b>G</b>eneralized <b>M</b>arkup <b>L</b>anguage 的縮寫</li>
-    <li>它是 World Wide Web Consortium (W3C) 所制定的標準；HTML 是它的一個子集合</li>
-    <li><b>DTD</b> 是 <b>D</b>ocument <b>T</b>ype <b>D</b>efinition 的縮寫</li>
-</ul>
+<section data-markdown><script type="text/template">
+## HTML Templates
+- [Boostrap](https://getbootstrap.com/)
+    - [Start Bootstrap - Freelancer](https://github.com/StartBootstrap/startbootstrap-freelancer)
+    - [Start Bootstrap](https://startbootstrap.com/) is an open source library of free Bootstrap themes and templates.
+    - [Bootstrap 5 for Django](https://github.com/zostera/django-bootstrap5)
+- [Foundation](https://foundation.zurb.com/) Framework
+- [HTML5UP](https://html5up.net/)
+- [W3.CSS Templates](https://www.w3schools.com/w3css/w3css_templates.asp)
+- [170 HTML5 Website Templates - free editable templates](https://templateswebsite.dawidolko.pl/)
+</script></section>
+
+<section data-markdown><script type="text/template">
+## SGML 與 DTD
+- [SGML](https://www.w3.org/MarkUp/SGML/) 是 <b>S</b>tandard <b>G</b>eneralized <b>M</b>arkup <b>L</b>anguage 的縮寫
+- 它是 World Wide Web Consortium (W3C) 所制定的標準；HTML 是它的一個子集合
+- <b>DTD</b> 是 <b>D</b>ocument <b>T</b>ype <b>D</b>efinition 的縮寫
 <img src="/images/html5/dtd.png" alt="dtd figure">
-</section>
+</script></section>
+</section><!--end block-->
 
-</section>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 網際網路應用(1/2)
+- Web 1.0通常指**1989年至2004年之間的時期**，這一階段的**特點是大多數網站為靜態頁面**，使用者主要以內容消費者的身分造訪網站，而不是內容生產者。
+- Web2.0：是一個架構在知識上的環境，**人與人之間互動而產生出的內容**，經由服務導向架構中的程式，在這個環境被發佈，管理和使用
+- [Web 3.0](https://www.youtube.com/watch?v=Aj2ZyJ2eoY4)
+    - 一個抽象的名詞(爭論不休)；Web3是由Polkadot創始人兼以太坊聯合創始人Gavin Wood於2014年創造的術語，指的是「基於[區塊鏈](https://www.youtube.com/watch?v=ctN8KUmbKcU)的去中心化線上生態系統」
+    - 加入 **3D 虛擬實境及邁向人工智慧進化**的道路
+</script></section>
 
-<section>
-<section>
-<h2>網際網路應用(1/2)</h2>
-<ul>
-    <li>部落格(Blog)又稱為 Web Blog；Bloger-部落客</li>
-    <li><b>與 HTML(網頁) 最大差別在於「提供雙向的交流的管道」</b></li>
-    <li>建置部落格的軟體(Blog's Software)</li>
-        <ul>
-            <li><a href="https://zh-tw.wordpress.com/" target="_blank">WordPress</a>(需要 Apache+php+MySQL)</li>
-            <li><a href="http://www.lifetype.org.tw/" target="_blank">LifeType</a></li>
-            <li><a href="http://www.s9y.org/" target="_blank">Serendipity(s9y)</a></li>
-        </ul>
-</ul>
-</section>
+<section data-markdown><script type="text/template">
+## 網際網路應用(2/2)
+- Web 2.0 與 Web 1.0 靜態網頁(HTML) **最大差別在於「提供雙向的交流的管道」**
+- 建置部落格的軟體(Blog's Software)
+    - <a href="https://zh-tw.wordpress.com/" target="_blank">WordPress</a>(需要 Apache+php+MySQL)
+    - <a href="http://www.lifetype.org.tw/" target="_blank">LifeType</a>
+    - <a href="http://www.s9y.org/" target="_blank">Serendipity(s9y)</a>    
+- 微網誌(Micro-blogging)：Plurk, Facebook, Twitter(X) 都是 Micro-blogging 的一種
+    - <b>與 Blog 最大的差別在於「時間軸」</b>
+- CMS, Blog, Micro-blogging, wikipedia, e-business, Youtube, instagram, 都是 Web 2.0的應用
+</script></section>
 
-<section>
-<h2>網際網路應用(2/2)</h2>
-<ul>
-    <li>微網誌(Micro-blogging)：Plurk, Facebook, Twitter 都是Micro-blogging的一種</li>
-    <li><b>與 Blog 最大的差別在於「時間軸」</b></li>
-    <li>CMS, Blog, Micro-blogging, Wiki 都是 Web 2.0的應用</li>
-    <li>Web2.0：是一個架構在知識上的環境，人與人之間互動而產生出的內容，經由服務導向架構中的程式，在這個環境被發佈，管理和使用</li>
-    <li>Web 3.0：一個抽象的名詞(爭論不休)；加入 3D 虛擬實際及邁向人工智慧進化的道路</li>
-</ul>
-</section>
-<section>
-<h2>What is CMS?</h2>
-<ul>
-<li>The abbrev. of Content Management System，中文翻譯成：內容管理系統</li>
-<li>是「網站伺服器 + 資料庫 + HTML + 程式語言」的組合，特別是 PHP 程式語言，最常被使用的程式語言</li>
-<li>List of CMS(Open Source Code)</li>
-    <ul>
-        <li><a href="https://www.drupal.org/" target="_blank">Drupal</a></li>
-        <li><a href="https://www.joomla.org/download.html" target="_blank">Joomla</a></li>
-        <li><a href="https://www.phpnuke.org/" target="_blank">phpnuke</a></li>
-        <li><a href="http://www.xoops.org/" target="_blank">Xoops</a></li>
-    </ul>
-<li><a href="https://drupalcamp.stanford.edu/">DrupalCamp @ Stanford</a></li>
-</ul>
-</section>
-</section>
-<section>
-<h2>上傳到檔案伺服器</h2>
-<ul>
-    <li><a href="http://web3.nutc.edu.tw/homepage.htm">台中科技大學網站伺服器</a></li>
-    <li><a href="http://web3.nutc.edu.tw/">帳號是：s+學號</a>，密碼是：<a href="http://cc.nutc.edu.tw/files/11-1008-937-1.php">單一簽入系統的密碼</a></li>
-    <li>登入系統以後，請將網頁上傳到 www 目錄底下，如果沒有 www 目錄，請自己建立</li>
-    <li>首頁的檔名必須是： index.html 或者 index.htm</li>
-    <li>Command line ftp 指令：</li>
-    <ul>
-        <li>ftp web3.nutc.edu.tw</li>
-        <li>mkdir www</li>
-    </ul>
-</ul>
-</section>
-<section>
-<h2>第一次作業</h2>
-<ul>
-    <li>編輯一個網頁，內容必須包括:</li>
-        <ul>
-            <li>頁籤的標題&lt;title&gt;：XXX的第一次作業</li>
-            <li>背景顏色：使用 CSS 範例的顏色</li>
-            <li>連結&lt;a&gt;: 你的 email 位址</li>
-            <li>網頁的標題&lt;h1&gt;: XXX(4120154)的第一次作業</li>
-        </ul>
-    <li>使用 HTML5 的標準, utf-8字元編碼</li>
-    <li>檔案名稱： hw1.html(副檔名是小寫的HTML)</li>
-    <li>繳交方式：上傳到 web2.nutc.edu.tw 網站</li>
-    <li>繳交日期： 10/17 日晚上 8 點以前上傳完成</li>
-</ul>
-</section>
+<section data-markdown><script type="text/template">
+## What is CMS?
+- The abbrev. of Content Management System，中文翻譯成：內容管理系統
+- 是「網站伺服器 + 資料庫 + HTML + 程式語言」的組合，特別是 PHP 程式語言，最常被使用的程式語言
+- List of CMS(Open Source Code)
+    - <a href="https://www.drupal.org/" target="_blank">Drupal</a>
+    - [Joomla](https://www.joomla.org/)
+    - <a href="https://www.phpnuke.org/" target="_blank">phpnuke</a>
+    - <a href="http://www.xoops.org/" target="_blank">Xoops</a>
+
+- <a href="https://drupalcamp.stanford.edu/">Backdrop CMS @ Stanford</a>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# REST and RESTful
+</script></section>
+<section data-markdown><script type="text/template">
+## REST
+- **Roy Fielding created the REST architectural style**, testing its constraints on the Web's protocol standards and using it to develop the Web.
+- **REST (Representational State Transfer)** is a software architectural style that **was created to guide the design and development of the architecture for the WWW**.
+- **REST defines a set of constraints for how the architecture** of a distributed, Internet-scale hypermedia system, such as the Web, should behave.
+-  **An application that adheres to the REST architectural constraints** may be informally described **as RESTful**.
+- More REST information to visit [MDN Web Docs Glossary](https://developer.mozilla.org/zh-TW/docs/Glossary/REST).
+</script></section>
+<section data-markdown><script type="text/template">
+## The formal REST constraints
+- **Client/Server**: Client are separated from servers by a well-defined interface
+- **Stateless**: A specific client does not consume server storage when it is "at rest"
+- **Cache**: Responses indicate their own cacheability
+- **Uniform interface**
+- **Layered system**: A client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way
+- **Code on demand (optional)**: Servers are able to temporarily extend or customize the functionality of a client by transferring logic to the client that can be executed within a standard virtual machine.
+</script></section>
+<section data-markdown><script type="text/template">
+## CRUD
+- In computer programming, **create, read, update, and delete (CRUD)** are the four basic operations of persistent storage.
+- CRUD is also sometimes used to **describe user interface conventions that facilitate viewing, searching, and changing information** using computer-based forms and reports.
+- The acronym CRUD also appears in the discussion of RESTful APIs. 
+</script></section>
+<section data-markdown><script type="text/template">
+## CRUD map to HTTP methods
+- CRUD is also relevant at the **user interface level of most applications**.
+- For example, in address book software, 
+the basic storage unit is an individual contact entry. As a bare minimum, the software must **allow the user to create, read, update, and delete entries**.
+| CRUD |	HTTP                | SQL |
+|:-----|:---------------------|:----|
+| Create |	**POST**, PUT if we have `id` or `uuid` | INSERT |
+| Read   | 	**GET**  | SELECT |
+| Update |	**PUT** to replace, **PATCH** to modify | UPDATE |
+| Delete |	DELETE | DELETE |
+||||
+</script></section>
+</section><!--end block-->
 
 </div>
 </div>
