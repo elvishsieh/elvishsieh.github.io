@@ -13,6 +13,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -590,6 +592,67 @@ the basic storage unit is an individual contact entry. As a bare minimum, the so
 | Update |	**PUT** to replace, **PATCH** to modify | UPDATE |
 | Delete |	DELETE | DELETE |
 ||||
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# First HTML5 code
+</script></section>
+<section data-markdown><script type="text/template">
+## Creating HTML5 with VS Code
+- Installing Visual Studio Code in your computer
+- Editing a HTML5 file
+    - Open VS code and press **Ctrl + N** to create a new file
+    - Press **Ctrl + S** to save the file  with **.html** extension.
+    - Typing html:5 ≫ press **Tab** ≫ press **Enter** to create a structure of html5.
+    - Typing any text to add content **in body tag**.
+- Setting a web server in Windows
+    - Download the CivetWeb embedded C/C++ web server from [CivetWeb](https://github.com/civetweb/civetweb/releases) github repository.
+    - Typing **python -m http.server** to start the web server, if you haved installed Python in your computer.
+</script></section>
+<section data-markdown><script type="text/template">
+## relative and absolute path
+- Relative path: **./** and **../**
+    - **./** means current directory
+    - **../** means parent directory
+- Absolute path
+    - **/** means root directory
+- The structure of website
+    - **index.html** in / root directory.
+    - second.html in pets directory which is in / root directory.
+    - third.html in cats directory which is subdirectory of  pets/ directory.
+</script></section>
+<section data-markdown><script type="text/template">
+## The source code of second.html
+<pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Second Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Second Page&lt;/h1&gt;
+    &lt;a href="../index.html"&gt;連結到上一層的首頁&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</script></section>
+ 
+<section data-markdown><script type="text/template">
+## The source code of third.html
+<pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Third Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Third Page&lt;/h1&gt;
+    &lt;a href="/index.html"&gt;連結到跟目錄(/)的首頁&lt;/a&gt;
+    &lt;a href="../../index.html"&gt;一樣是連結到跟目錄(/)的首頁&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 </script></section>
 </section><!--end block-->
 

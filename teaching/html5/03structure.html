@@ -2,644 +2,477 @@
 <html lang="zh-Hant-TW">
 
 <head>
-		<meta charset="utf-8">
+<meta charset="utf-8">
 
-		<title>HTML5 基本架構</title>
+<title>HTML5 基本架構</title>
 
-		<meta name="description" content="Tutorial of web design for primer">
-		<meta name="author" content="Elvis Hsieh">
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
-        <link rel="stylesheet" href="/revealjs/dist/reset.css">
-        <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-        <link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
-        <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
-        <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
-        <link rel="stylesheet" href="/css/custom4revealjs.css">
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
-        <link rel="stylesheet" href="/css/style4font.css">
-        <!-- Printing and PDF exports -->
-        <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="reveal-js/lib/js/html5shiv.js"></script>
-        <![endif]-->
-	</head>
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
 
 <body>
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
 
-    <div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-			<section>
-				<section>
-                    <h2>HTML 語法的宣告(1/2)</h2>
-                    <ul>
-                        <li>每一個 <b>HTML 語言第一行的程式碼</b>都應該要宣告使用哪一種語法標準解析這份 HTML 文件</li>
-                        <li>宣告使用 <b>HTML4 嚴謹的語法標準</b>的寫法</li>
-					<pre><code>&lt;!DOCTYPE HTML PUBLIC
-"-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd"></code></pre>
-                   <li>宣告使用 <b>XHTML1.0 嚴謹的語法標準</b>的寫法</li>
-                   <pre><code>&lt;!DOCTYPE html PUBLIC
-"-//W3C//DTD XHTML 1.0 Strict //EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
-                   <li>宣告使用 <b>HTML5 語法的標準</b>的寫法</li>
-                   <pre><code>&lt;!DOCTYPE html></code></pre>
-                    </ul>
-				</section>
-                <section>
-                    <h2>HTML 語法的宣告(2/2)</h2>
-                    <ul>
-                    <li>同學可能說，我的 HTML 程式碼第一行沒有宣告也可以正常看見網頁，Why?</li>
-                    <li>HTML5 標準並沒有規範「當撰寫不合規定的語法(well-formed markup)時，瀏覽器應該要如何處理？」</li>
-                    <li>因為 Browser 必須解析 HTML3.2, HTML4, XHTML, HTML5 所有的語法，這一群很會寫 Browser 程式的 Programmer，已經把這些問題都給解決了，換句話說， <b>Browser 可以僅解析語法中的樣貌，不理會 DOCTYPE 這個宣告</b></li>
-                    <li>同學可以使用 <a href="http://validator.w3.org/" target="_blank">W3C Validator</a> 來檢查你所寫的 HTML 語法是否符合標準？這時候 DOCTYPE 這個宣告就有用處了</li>
-                    <li><a href="https://html.spec.whatwg.org/multipage/" target="_blank">WHATWG: HTML Living Standard</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>HTML5 的語法架構</h2>
-                    <pre><code class="line-numbers">&lt;!DOCTYPE html>
-&lt;html lang="zh-Hant-TW">
-<!--
-    這是 html 的註解，不會顯示在網頁上，主要是讓程式設計者對程式碼做註解
--->
-    &lt;head>
-    <!-- 在裡是宣告網頁的標題、程式的編碼語言、外部的連結檔案等 -->
-    &lt;/head>
-    &lt;body>
-
-    <!-- 在這裡內的內容會顯示在網頁中 -->
-
-    &lt;/body>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 宣告 HTML 使用的語法
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML5 語法的宣告
+- 宣告使用 <b>HTML5 語法的標準</b>的寫法
+<pre><code>&lt;!DOCTYPE html></code></pre>
+- 同學可能說，我的 HTML 程式碼第一行沒有宣告也可以正常看見網頁，Why?
+- HTML5 標準並沒有規範「當撰寫不合規定的語法(well-formed markup)時，瀏覽器應該要如何處理？」
+- 同學可以使用 <a href="http://validator.w3.org/" target="_blank">W3C Validator</a> 來檢查你所寫的 HTML 語法是否符合標準？這時候 DOCTYPE 這個宣告就有用處了
+- <a href="https://html.spec.whatwg.org/multipage/" target="_blank">WHATWG: HTML Living Standard</a>
+</script></section>
+<section data-markdown><script type="text/template">
+## XHTML5 語法的宣告
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
+&lt;head>
+&lt;meta charset="utf-8"/>
+&lt;title>這是標題&lt;/title>
+&lt;link href="styles.css" rel="stylesheet"/>
+&lt;script src="scripts.js">&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;p>這是段落的標籤&lt;/p>
+&lt;/body>
 &lt;/html></code></pre>
-               <ul>
-                   <li>Line 2, 14：所有的標籤都是必須在&lt;html&gt; 標籤的內部</li>
-                   <li>Line 6, 8：&lt;head&gt; 標籤內部宣告程式的編碼語言、外部的連結檔案等</li>
-                   <li>Line9, 13：<b>&lt;body&gt; 標籤是網頁的主體</b>，網頁<b>內容的呈現都在這個標籤內部</b></li>
-               </ul>
-                </section>
-                <section>
-                    <h2>HTML5 程式碼的範例</h2>
+- 與 HTML5 差別在於增加了 xml name space： xmlns="http://www.w3.org/1999/xhtml"
+- <b>XHTML5 標籤都必須是小寫英文字母</b>
+- 每一個標籤都必須<b>要有完整的結束標籤或結束的符號</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML5 的語法架構
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+<!--這是 html 的註解，不會顯示在網頁上，對程式碼做註解-->
+&lt;head>
+<!-- 在裡是宣告網頁的標題、程式的編碼語言、外部的連結檔案等 -->
+&lt;/head>
+&lt;body>
+
+<!-- 在這裡內的內容會顯示在網頁中 -->
+
+&lt;/body>
+&lt;/html></code></pre>
+- Line 2, 12：所有的標籤都是必須在&lt;html&gt; 標籤的內部
+- Line 4, 6：&lt;head&gt; 標籤內部宣告語言、編碼、外部的連結等
+- Line7, 11：<b>&lt;body&gt; 標籤是網頁的主體</b>，網頁都在這個標籤內呈現
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML5 程式碼的範例
 <pre><code class="line-numbers">&lt;!DOCTYPE html>
 &lt;html lang="zh-TW">
 &lt;head>
-    &lt;meta charset="utf-8">
-    &lt;title>這是標題&lt;/title>
-    &lt;link href="styles.css" rel="stylesheet">
-    &lt;script src="scripts.js">&lt;/script>
+&lt;meta charset="utf-8">
+&lt;title>這是標題&lt;/title>
+&lt;link href="styles.css" rel="stylesheet">
+&lt;script src="scripts.js">&lt;/script>
 &lt;/head>
 &lt;body>
-    &lt;p>這是段落的標籤&lt;/p>
+&lt;p>這是段落的標籤&lt;/p>
 &lt;/body>
 &lt;/html></code></pre>
-               <ul>
-                   <li><b>HTML5 標籤的英文字母大寫、小寫沒有區別</b></li>
-                   <li>HTML5 的語法比 <a href="01intro.html#/3/9" target="_blank">HTML4 簡單</a></li>
-                   <li>HTML5 語法比 XHTML5 更具有彈性</li>
-               </ul>
-                </section>
-                <section>
-                    <h2>XHTML5 的語法架構</h2>
-                    <pre><code class="line-numbers">&lt;!DOCTYPE html>
-&lt;html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
-&lt;head>
-    &lt;meta charset="utf-8"/>
-    &lt;title>這是標題&lt;/title>
-    &lt;link href="styles.css" rel="stylesheet"/>
-    &lt;script src="scripts.js">&lt;/script>
-&lt;/head>
-&lt;body>
-    &lt;p>這是段落的標籤&lt;/p>
-&lt;/body>
-&lt;/html></code></pre>
-               <ul>
-                   <li>與 HTML5 差別在於增加了 xml name space： xmlns="http://www.w3.org/1999/xhtml"</li>
-                   <li><b>XHTML5 標籤都必須是小寫英文字母</b></li>
-                   <li>每一個標籤都必須<b>要有完整的結束標籤或結束的符號</b></li>
-               </ul>
-                </section>
-            </section>
-            <section>
-                <h2 style="text-transform: none">zh-Hant-TW 與 zh-TW</h2>
-                <ul>
-                    <li>lang="zh-TW" 或 lang="zh-Hant-TW" <b>都可以</b>，後者的設定是依照 <a href="http://www.ietf.org/rfc/rfc4646.txt" target="_blank"> Internet Engineering Task Force (IETF<sup>&reg;</sup>)</a>標準</li>
-                    <li>在標準文件的 page 4 中有提到：</li>
-                    <pre><code>langtag  = (language
-                   ["-" script]
-                    ["-" region]
-                    *("-" variant)
-                    *("-" extension)
-                    ["-" privateuse])</code></pre>
-                    <li>language-script-region-variant-extension-privateuse 就是語言 - 字體 - 地區 - 方言 - 特殊附加資訊</li>
-                    <li>例如：zh-Hans-HK 香港地區使用的簡體中文</li>
-                    <li>Han<b>s</b>  的 s 是 <b>s</b>implified， Han<b>t</b> 的 t 是<b>t</b>raditional</li>
-                </ul>
-            </section>
-            <section>
-            <section>
-                <h2>Unicode 與 Big5 編碼(1/2)</h2>
-                <ul>
-                    <li>範例1：<a href="example/firstpage_big5_utf8.html">「Big5 編輯器，卻宣告 utf-8 編碼」</a></li>
-                    <li>範例2：<a href="example/firstpage_utf_big5.html">「utf-8 編輯器，卻宣告 Big5 編碼」</a></li>
-                </ul>
-                <img src="/images/html5/big5.png" alt="big5 encoding">
-            </section>
-            <section>
-               <h2>Unicode 與 Big5 編碼(2/2)</h2>
-                <ul>
-                    <li>Unicode UTF-8 編碼分 with BOM(Byte Order Mark) 與 without BOM，但是根據 <a href="http://www.unicode.org/versions/Unicode5.0.0/ch02.pdf" target="_blank">Unicode standard p.36</a>, <b>Use of a BOM is neither required nor recommended for UTF-8</b></li>
-                    <li><b>Brackets 是一個完整的 Unicode 編輯器</b>，不支援 Big5 編碼，也建議同學使用完整的 Unicode 的編碼方式來撰寫 html 程式碼，不要再使用 Big5 編輯器來編輯程式碼</li>
-                    <li>如果同學已經很清楚這些編碼的原理，就可以安裝 <a href="https://github.com/Hiromi-Ayase/brackets-shizimily-multiencoding" target="_blank">Shizimily Multi-Encoding</a> 擴充套件，讓 Brackets 可以開啟你之前所編輯的 Big5 的檔案</li>
-                </ul>
-            </section>
-            </section>
-            <section>
-            <section>
-                <h2 style="text-transform: none">title 與 link 標籤(1/2)</h2>
-                <ul>
-                    <li>title 標籤是瀏覽器上方頁籤的標題文字</li>
-                </ul>
-                <img src="/images/html5/title.png" alt="title Tag" style="max-width: 75%">
-            </section>
-            <section>
-                <h2 style="text-transform: none">title 與 link 標籤(2/2)</h2>
-                <ul>
-                    <li>link 標籤主要功能是連結外部的檔案，可以是網址、內部的檔案等</li>
-                    <li>範例： <br /><a href="./drill/drill03_01.html">drill03_01.html</a> 檔加入 link 標籤，連結到 <a href="./drill/drill03_01.css">drill03_01.css</a> 檔</li>
+- <b>HTML5 標籤的英文字母大、小寫沒有區別</b>
+- HTML5 的語法比 <a href="01intro.html#/3/9" target="_blank">HTML4 簡單</a>
+- HTML5 語法比 XHTML5 更具有彈性
+</script></section>
+<section data-markdown><script type="text/template">
+# Lang and Charset
+</script></section>
+<section data-markdown><script type="text/template">
+## zh-Hant-TW 與 zh-TW
+- lang="zh-TW" 或 lang="zh-Hant-TW" <b>都可以</b>，後者的設定是依照 <a href="http://www.ietf.org/rfc/rfc4646.txt" target="_blank"> Internet Engineering Task Force (IETF<sup>&reg;</sup>)</a>標準
+- 在標準文件的 page 4 中有提到：
+<pre><code data-trim data-line-numbers>langtag  = (language
+["-" script]
+["-" region]
+("-" variant)
+("-" extension)
+["-" privateuse])</code></pre>
+- language-script-region-variant-extension-privateuse 就是語言 - 字體 - 地區 - 方言 - 特殊附加資訊
+- 例如：zh-Hans-HK 香港地區使用的簡體中文
+- Han<b>s</b>  的 s 是 <b>s</b>implified， Han<b>t</b> 的 t 是<b>t</b>raditional
+</script></section>
+<section data-markdown><script type="text/template">
+## Unicode 與 Big5 編碼(1/2)
+- 範例1：<a href="example/firstpage_big5_utf8.html">「Big5 編輯器，卻宣告 utf-8 編碼」</a></li>
+- 範例2：<a href="example/firstpage_utf_big5.html">「utf-8 編輯器，卻宣告 Big5 編碼」</a></li>
+<img src="/images/html5/big5.png" alt="big5 encoding">
+</script></section>
+<section data-markdown><script type="text/template">
+## Unicode 與 Big5 編碼(2/2)
+![](/images/html5/chartset.png)
+</script></section>
+</section><!--end block-->
 
-                    <pre><code>&lt;!DOCTYPE html>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Head 內的標籤元件
+</script></section>
+<section data-markdown><script type="text/template">
+## title 標籤
+- title 標籤是瀏覽器上方頁籤的標題文字
+<img src="/images/html5/title.png" alt="title Tag" style="max-width: 75%">
+</script></section>
+<section data-markdown><script type="text/template">
+## link 標籤
+- link 標籤是連結的功能，可以是網址、內部的檔案等
+- [範例](./drill/drill03_01.html)
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
 &lt;html lang="zh-TW">
 &lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>這是標題文字&lt;/title>
-    &lt;link rel="stylesheet" href="drill03_01.css" />
+&lt;meta charset="UTF-8">
+&lt;title>這是標題文字&lt;/title>
+&lt;link rel="stylesheet" href="drill03_01.css" />
 &lt;/head></code></pre>
-                    <li>title 與 link 標籤都撰寫在 head 標籤內部</li>
-                    <li>請同學等一下練習時，加入下面這一行看看結果是如何？</li>
-                    <pre><code>&lt;link rel="shortcut icon" type="image/x-icon"
-          href="https://addons.cdn.mozilla.net/static/img/favicon.ico"></code></pre>
-                </ul>
-            </section>
-            </section>
-            <section>
-            <section>
-                <h2>加入背景顏色</h2>
-                <ul>
-                    <li>我們將背景顏色的設定值放在 drill03_01.css 檔案內,
-                    就是底下 link 標籤這一行程式碼</li>
-                    <pre><code>&lt;link rel="stylesheet" href="drill03_01.css" /&gt;</code></pre>
-                    <li>背景顏色由 <a href="http://css3generator.com/">CSS3 Generator</a> 網站所產生</li>
-                    <li>產生方式： <a href="http://css3generator.com/  " target="_blank">http://css3generator.com/</a> >> Gradient >> <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor/</a></li>
-                    <li>在 drill03_01.css 內部輸入 <b>body{ }</b>，然後將 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor/</a>　所複製的 background 的設定值置入 body{ } 大括號內部，然後存檔</li>
-                </ul>
-            </section>
-            <section>
-                <h2>標題文字 h1-h6(1/2)</h2>
-                <ul>
-                    <li><h1>這是 h1 的標題</h1>，是最大的標題文字</li>
-                    <li><h2>這是 h2 的標題文字</h2>，是次大的標題文字</li>
-                    <li><h6>這是 h6 的標題文字，是次大的標題文字</h6></li>
-                </ul>
-            </section>
-            <section>
-                <h2>標題文字 h1-h6(2/2)</h2>
-                <ul>
-                    <li>字體大小亦可以使用標籤元件的屬性 font-size 來設定字體的大小</li>
-                    <li>font-size 字體大小的屬性值有：xx-small, x-small, small, medium, large, x-large, xx-large</li>
-                    <li>一般瀏覽器預設的字體 16 px 的字體，實際的字體大小還是要依照各種瀏覽器而定</li>
-                    <li>1em = 12pt = 16px = 100%. </li>
-                    <li>em: 鉛字體的 M 字， pt 是 point 印表機的解析度， px 是 pixel 像素</li>
-                </ul>
-            </section>
-            <section>
-                <h2>練習：第一個網頁程式</h2>
-                <ul>
-                    <li>請使用 Brackets 建立一個網頁，語言設為 zh-TW， 編碼： utf-8</li>
-                    <li>title 標籤文字自行設定</li>
-                    <li>背景顏色使用 link 連結到外部的 .css 檔，檔名自己命名</li>
-                    <li>背景顏色可以使用 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor</a>來產生</li>
-                    <li>練習 h1 - h6 標題文字標籤</li>
-                </ul>
-            </section>
-            </section>
-            <section>
-            <section>
-                <h2>W3C 目前標準制定的狀態</h2>
-                <ul>
-                   <li>HTML 語言的標準：</li>
-                   <ul>
-                        <li><a href="https://www.w3.org/standards/techs/html#w3c_all" target="_blank">目前 HTML標準的狀態</a></li>
-                        <li>目前 W3C 所公布的<a href="https://www.w3.org/TR/html5/" target="_blank"> HTML5 標準</a></li>
-                        <li><a href="https://html.spec.whatwg.org/multipage/" target="_blank">WHATWG: HTML Living Standard</a></li>
-                    </ul>
-                        <li>階層式樣式表(Cascading Style Sheet, CSS) 的標準：</li>
-                        <ul>
-                        <li><a href="https://www.w3.org/standards/techs/css#w3c_all" target="_blank">目前 CSS3 標準的狀態</a></li>
-                        <li>目前 W3C 所公布的 <a href="https://www.w3.org/TR/css-2015/" target="_blank">CSS 標準</a></li>
-                    </ul>
-                </ul>
-            </section>
-            <section>
-                <h2>檢驗的工具</h2>
-                <ul>
-                    <li><a href="http://validator.w3.org/" target="_blank">W3C Validator</a> 底下有一段話：<br />
-                    This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.</li>
-                    <li>W3C 網站提供 <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a> 來檢查 CSS </li>
-                    <li><a href="http://caniuse.com/" target="_blank">Can I Use 這個網站</a>可以檢驗你使用的標籤或 CSS 的語法，支援被那些版本的瀏覽器所支援</li>
-                    <ul>
-                        <li>請到 <a href="http://caniuse.com/" target="_blank"><b>Can I use</b></a> 網站輸入 header 或者 footer 看看會有何結果？</li>
-                     </ul>
-                    <li><a href="http://css3test.com/" target="_blank">為你所使用的瀏覽器打分數？</a>(支援 CSS3 標準的程度)</li>
-                </ul>
-            </section>
-                <section>
-                        <h2>使用 Modernizr 來偵測</h2>
-                        <ul>
-                            <li class="fragment">上一張投影片所提到的這些檢驗網站，有誰會去使用它？<b>或者說，會經常去使用它？</b></li>
-                            <li class="fragment">我們通常會使用它來<b>檢驗某個特定的標準</b>，或<b>特定的瀏覽器是否支援</b>這種語法？</li>
-                            <li class="fragment"> 一旦我們寫好符合新標準的語法，可是<b>瀏覽者卻使用不支援新標準的瀏覽器時</b>，該怎麼辦呢？</li>
-                            <li class="fragment"><a href="https://modernizr.com/">Modernizr</a>: Respond to your user’s browser features.</li>
-                            <li class="fragment"><a href="https://modernizr.com/">Modernizr</a> 可以內嵌在你的網頁當中，偵測瀏覽者所使用的瀏覽器是否支援，然後告知瀏覽者？</li>
-                        </ul>
-                </section>
-                <section>
-                    <h2>如何使用 Modernizr 函式庫</h2>
-                    <ul>
-                        <li><a href="https://modernizr.com/">Modernizr</a> 提供「部分(Add your detects)」及「全部(Development build)」兩種方式來下載這個 Javascript Library</li>
-                        <ul>
-                            <li>點選 Add your detects >> 選擇你想要偵測的 element >> 點選 BUILD</li>
-                        </ul>
-                        <li>點選 Development build >> 點選 BUILD >> Build | Download</li>
-                        <li>將下載的 .js 檔案加入到 &lt;head&gt; 標籤內部</li>
-                        <li>在 html 檔案中撰寫 Javascript 語法來偵測</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>使用 Modernizr 的範例</h2>
-                    <pre><code class="line-numbers">&lt;!DOCTYPE html>
-&lt;html lang="zh-TW">
-&lt;head>
-    &lt;meta charset="utf-8">
-    &lt;title>HTML5/CSS3 偵測&lt;/title>
-    &lt;script src="./modernizr-latest.js">&lt;/script>
-&lt;/head>
-&lt;body>
-    &lt;p>這是使用 modernizr-latest.js Library 偵測 HTML5/CSS3 ... &lt;br>
-    &lt;span id="elvis" style="color:red">&lt;/span>&lt;/p>
-    &lt;script>
-    // 找這個網頁中命名為 elvis 的標籤元件來顯示其結果
-    var elvis = document.getElementById("elvis");
+- title 與 link 標籤都撰寫在 head 標籤內部
+- 請同學等一下練習時，加入下面這一行看看結果是如何？
+<pre><code>&lt;link rel="shortcut icon" type="image/x-icon"
+href="https://wangyifang.com/img/twitter.svg"></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Favicon
+- A favicon (favorite icon) is a tiny icon included along with a website, which is displayed in places like the browser's address bar, page tabs and bookmarks menu.
+- [Favicon on Wikipedia](https://en.wikipedia.org/wiki/Favicon)
+- The link **rel="icon"** element documentation, used to add a favicon to a page.
+- Tools
+    - [Free favicon generator](https://favicon.io/)
+    - [Favicon.ico and & app icon generator](https://www.favicon-generator.org/)
+</script></section>
+</section><!--end block-->
 
-    if (Modernizr.draganddrop) {
-        elvis.innerHTML = "恭喜！ 你的瀏覽器支援拖放(drag-and-drop)功能";
-    }
-    else {
-        elvis.innerHTML = "抱歉！你的瀏覽器不支援拖放(drag-and-drop)功能";
-    }
-    &lt;/script>
-&lt;/body>
-&lt;/html></code></pre>
-               <ul>
-                   <li><a href="./example/modernizr.html">modernizr 範例程式碼</a></li>
-               </ul>
-                </section>
-            <section>
-               <h2>使用 Polyfills 來修補</h2>
-                <ul>
-                   <li class="fragment">Modernizr <b>僅能偵測並告知瀏覽者</b>更換不同的瀏覽器來觀看網頁</li>
-                   <li class="fragment">問題是：<b>有辦法讓舊的瀏覽器也支援</b>新的 HTML/CSS3 的語法嗎？</li>
-                   <li class="fragment">答案是：<b>有的</b>，例如：<a href="https://github.com/afarkas/html5shiv" target="_blank"> html5shim.googlecode.com</a> 的 html5shiv，可以讓 IE 部分支援 HTML5 的標籤</li>
-                   <li class="fragment">在 <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Cross Browser Polyfills</a> 可修補不同瀏覽器間所寫的 Javascript API 的應用</li>
-                   <li class="fragment"><a href="http://html5please.com/" target="_blank">HTML5 Please</a> 可以找到相關的 Javascript Library 來修補 HTML5, CSS3, etc...</li>
-                </ul>
-            </section>
-            </section>
-            <section>
-            <section>
-                <h2>HTML5 新增的標籤元件(1/2)</h2>
-                   <table class="example">
-                       <thead>
-                           <tr>
-                               <th>類別</th>
-                               <th>標籤元件</th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           <tr>
-                               <td>版面結構</td>
-                               <td>&lt;article>,&lt;aside>,&lt;figcaption>, &lt;figure>,&lt;footer>,&lt;header>, &lt;nav>,&lt;section>,&lt;details>,&lt;summary></td>
-                           </tr>
-                           <tr class="even">
-                               <td>文字</td>
-                               <td>&lt;dfn>, &lt;abbr>,&lt;mark>,&lt;time>,&lt;wbr></td>
-                           </tr>
-                           <tr>
-                               <td>輸入表單</td>
-                               <td>&lt;input>(不是新增的元件，是新增功能),&lt;datalist>,&lt;keygen>,&lt;meter>, &lt;progress>,&lt;command>,&lt;menu>,&lt;output></td>
-                           </tr>
-                       </tbody>
-                   </table>
-                </section>
-                   <section>
-                       <h2>HTML5 新增的標籤元件(2/2)</h2>
-                       <table class="example">
-                        <thead>
-                           <tr>
-                               <th>類別</th>
-                               <th>標籤元件</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                               <td>多媒體</td>
-                               <td>&lt;audio>, &lt;video>, &lt;source>,&lt;embed></td>
-                           </tr>
-                           <tr class="even">
-                               <td>畫布</td>
-                               <td>&lt;canvas></td>
-                           </tr>
-                           <tr>
-                               <td>非英文語系的支援</td>
-                               <td>&lt;bdo>, &lt;rp>, &lt;rt>, &lt;ruby></td>
-                           </tr>
-                       </tbody>
-                       </table>
-                       <ul>
-                           <li>有些元件雖然是舊有的標籤元件，例如：input 標籤，HTML5 都賦予他們新的生命與意義</li>
-                       </ul>
-                   </section>
-            </section>
-            <section>
-            <section>
-                <h2>頁面標籤的結構</h2>
-                <img src="/images/html5/pageStructure.jpg" alt=" pageStructure.jpg">
-                <p>Source from: Searching in Google's Picture</p>
-            </section>
-            <section>
-                <h2>頁面標籤的範例</h2>
-                <pre><code class="line-numbers">&lt;!DOCTYPE html>
-&lt;html lang="en">
-&lt;head>
-    &lt;meta charset="utf-8">
-    &lt;meta name="description" content="This is an HTML5 example">
-    &lt;meta name="keywords" content="HTML5, CSS3, JavaScript">
-    &lt;!-- Patch to make semantic elements work in IE8 and below. -->
-    &lt;!--[if lt IE 9]>
-        &lt;script src="http://html5shim.googlecode.com/svn/trunk/html5.js">&lt;/script>
-      &lt;![endif]-->
-      
-    &lt;title>This text is the title of the document&lt;/title>
-    &lt;link rel="stylesheet" href="mystyle.css">
-&lt;/head>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Body 內的標籤元件
+</script></section>
+<section data-markdown><script type="text/template">
+## 加入背景顏色
+- 我們將背景顏色的設定值放在 drill03_01.css 檔案內,就是底下 link 標籤這一行程式碼
+<pre><code>&lt;link rel="stylesheet" href="drill03_01.css" /&gt;</code></pre>
+- 背景顏色由 <a href="http://css3generator.com/">CSS3 Generator</a> 網站所產生，產生方式
+    - <a href="http://css3generator.com/  " target="_blank">http://css3generator.com/</a> >> Gradient
+- 在 drill03_01.css 內部輸入 <b>body{ }</b>，然後將 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor/</a>　所複製的 background 的設定值置入 body{ } 大括號內部，然後存檔
+</script></section>
+<section data-markdown><script type="text/template">
+## 標題文字 h1-h6(1/2)
+- &lt;h1&gt;Heading level 1&lt;/h1&gt; ... &lt;h6&gt;Heading level 6&lt;/h6&gt;
+- <h1>Heading level 1</h1>
+- <h2>Heading level 2</h2>
+- <h3>Heading level 3</h3>
+- <h4>Heading level 4</h4>
+- <h5>Heading level 5</h5>
+- <h6>Heading level 6</h6>
 
-&lt;body>
+</script></section>
+<section data-markdown><script type="text/template">
+## 標題文字 h1-h6(2/2)
+- **字體大小**亦可以使用標籤元件的屬性 **font-size 來設定字體的大小**
+- **font-size 字體大小的屬性值**有：xx-small, x-small, small, medium, large, x-large, xx-large
+- 字型的單位
+    - em: 鉛字體的 M 字， pt 是 point 印表機的解析度， px 是 pixel 像素
+    - 1em = 12pt = 16px = 100%. 
+    - 一般瀏覽器預設的字體 16 px 的字體，實際的字體大小還是要依照各種瀏覽器而定
+</script></section>
+<section  data-markdown><script type="text/template">
+## 練習：第一個網頁程式
+- 請使用 Visual Studio Code 建立一個網頁，語言設為 zh-TW， 編碼： utf-8
+- title 的文字自行設定
+-  favicon 的 icon 自行產生並加入網頁程式碼內
+- 背景顏色使用 link 連結到外部的 .css 檔，檔名自己命名
+- 背景顏色可以使用 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor</a>來產生
+- 練習 h1 - h6 標題文字標籤
+</script></section>
+</section><!--end block-->
 
-&lt;article>
-  &lt;header>
-    &lt;h1>How the World Could End&lt;/h1>
-    &lt;p class="Teaser">Scenarios that spell the end of life as we know&lt;/p>
-    &lt;p class="Byline">by Ray N. Carnation&lt;/p>
-  &lt;/header>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## HTML5 新增的標籤元件
+|類別 | 標籤元件 |
+|:---|:---|
+|版面結構 | &lt;article>,&lt;aside>,&lt;figcaption>, &lt;figure>,&lt;footer>,&lt;header>, &lt;nav>,&lt;section>,&lt;details>,&lt;summary> |
+|文字 | &lt;dfn>, &lt;abbr>,&lt;mark>,&lt;time>,&lt;wbr> |
+|輸入表單 | &lt;input>(不是新增的元件，是新增功能),&lt;datalist>,&lt;keygen>,&lt;meter>, &lt;progress>,&lt;command>,&lt;menu>,&lt;output> |
+|多媒體 | &lt;audio>, &lt;video>, &lt;source>,&lt;embed> |
+|畫布 | &lt;canvas> |
+|非英文語系的支援 | &lt;bdo>, &lt;rp>, &lt;rt>, &lt;ruby> |
+|||
+- 有些元件雖然是舊有的標籤元件，例如：input 標籤，HTML5 都賦予他們新的生命與意義
+</script></section>
+</section><!--end block-->
 
-&lt;div class="Content">
-    &lt;p>&lt;span class="LeadIn">Right now&lt;/span>, you're probably feeling pretty good. After all, life in
-    the developed world is comfortable&lt;span class="style1">—&lt;/span>probably more comfortable than it's
-    been for the average human being throughout all of recorded history.&lt;/p>
-
-&lt;figure class="FloatFigure">
-   &lt;img src="human_skull.jpg" alt="Human skull">
-   &lt;figcaption>Will you be the last person standing if one of these apocalyptic
-   scenarios plays out?&lt;/figcaption>
-&lt;/figure>
-
-
-&lt;p>But don't get too smug. There's still plenty of horrific ways it
-could all fall apart. In this article, you'll learn about a few of our
-favorites.&lt;/p>
-
-&lt;h2>Mayan Doomsday&lt;/h2>
-    &lt;p>Skeptics suggest that the Mayan calendar simply rolls to a new
-    5,126-year era after 2012, and doesn't actually predict a life-ending
-    apocalypse. But given that the long-dead Mayans were wrong about
-    virtually everything else, why should we trust them on this?
-    &lt;/p>
-
-&lt;h2>Robot Takeover&lt;/h2>
-    &lt;p>Not quite as frightening as a Vampire Takeover or Living-Dead
-    Takeover, a robot rebellion is still a disquieting thought. We are
-    already outnumbered by our technological gadgets, and even Bill Gates
-    fears the day his Japanese robot slave turns him over by the ankles
-    and asks (in a suitably robotic voice) "Who's your daddy now?"
-    &lt;/p>
-
-&lt;aside class="PullQuote">
-    &lt;img src="quotes_start.png" alt="Quote">
-    We don't know how the universe started, so we can't be sure it won't
-    just end, maybe today.
-    &lt;img src="quotes_end.png" alt="End quote">
-&lt;/aside>
-
-&lt;h2>Unexplained Singularity&lt;/h2>
-    &lt;p>We don't know how the universe started, so we can't be sure it won't
-    just end, maybe today, and maybe with nothing more exciting than a
-    puff of anti-matter and a slight fizzing noise.&lt;/p>
-
-&lt;h2>Runaway Climate Change&lt;/h2>
-    &lt;p>Dismissed by some, Al Gore's prophecy of doom may still come true. If
-    it does, we may have to contend with vicious storms, widespread food
-    shortages, and surly air conditioning repairmen.&lt;/p>
-
-&lt;h2>Global Epidemic&lt;/h2>
-    &lt;p>Some time in the future, a lethal virus could strike. Predictions
-    differ about the source of the disease, but candidates include
-    monkeys in the African jungle, bioterrorists, birds and pigs with the
-    flu, warriors from the future, an alien race, hospitals that use too
-    many antibiotics, vampires, the CIA, and unwashed brussel sprouts.
-    Whatever the source, it's clearly bad news.
-    &lt;/p>
-
-&lt;/div>
-&lt;/article>
-
-&lt;footer>
-    &lt;p class="Disclaimer">These apocalyptic predictions do not reflect the views of the
-    author.&lt;/p>
-    &lt;p>
-    &lt;a href="AboutUs.html">About Us&lt;/a>
-    &lt;a href="Disclaimer.html">Disclaimer&lt;/a>
-    &lt;a href="ContactUs.html">Contact Us&lt;/a>
-    &lt;/p>
-    &lt;p>Copyright © 2014&lt;/p>
-&lt;/footer>
-&lt;/body>
-&lt;/html></code></pre>
-           <ul>
-               <li>請看<a href="./example/outline.html">實際的例子</a></li>
-               <li>這是一本書提供的範例(來源：HTML5 The Missing Manual)</li>
-           </ul>
-            </section>
-            <section>
-                <h2>Unorder List 標籤</h2>
-                <ul>
-                    <li>沒有編號的項目符號(Unorder List)</li>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 頁面標籤的結構
+![](/images/html5/pageStructure.jpg)
+<p>Source from: Searching in Google's Picture</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## 頁面標籤的範例
 <ul>
-    <li>This is List one</li>
-    <li>This is List Two</li>
+<li>請看<a href="./example/outline.html">實際的例子</a></li>
+<li>這是一本書提供的範例(來源：HTML5 The Missing Manual)</li>
 </ul>
-<pre><code class="line-numbers"><ul>
-    <li>This is List one</li>
-    <li>This is List Two</li>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Unorder List 標籤
+<li>沒有編號的項目符號(Unorder List)</li>
+<li>This is List one</li>
+<li>This is List Two</li>
+</ul>
+<pre><code class="line-numbers"><li>This is List one</li>
+<li>This is List Two</li>
 </ul></code></pre>
-                </ul>
-            </section>
-            <section>
-                <h2>Order List 標籤</h2>
-                <ul>
-                    <li>編號的項目符號(Order List)</li>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## Order List 標籤
+<li>編號的項目符號(Order List)</li>
 <ol>
-    <li>Unorder List</li>
-    <li>This is List one</li>
-    <li>This is List Two</li>
+<li>Unorder List</li>
+<li>This is List one</li>
+<li>This is List Two</li>
 </ol>
 <pre><code class="line-numbers"><ol>
-    <li>Unorder List</li>
-    <li>This is List one</li>
-    <li>This is List Two</li>
+<li>Unorder List</li>
+<li>This is List one</li>
+<li>This is List Two</li>
 </ol></code></pre>
-                </ul>
-            </section>
-            </section>
-    </div>
+</ul>
+</script></section>
+</section><!--end block-->
 
-		</div>
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Appidex
+</script></section>
+<section data-markdown><script type="text/template">
+## W3C 目前標準制定的狀態
+- HTML 語言的標準：
+- <a href="https://www.w3.org/standards/techs/html#w3c_all" target="_blank">目前 HTML標準的狀態</a>
+- 目前 W3C 所公布的<a href="https://www.w3.org/TR/html5/" target="_blank"> HTML5 標準</a>
+- <a href="https://html.spec.whatwg.org/multipage/" target="_blank">WHATWG: HTML Living Standard</a>
+- 階層式樣式表(Cascading Style Sheet, CSS) 的標準：
+- <a href="https://www.w3.org/standards/techs/css#w3c_all" target="_blank">目前 CSS3 標準的狀態</a>
+- 目前 W3C 所公布的 <a href="https://www.w3.org/TR/css-2015/" target="_blank">CSS 標準</a>
+</script></section>
+<section data-markdown><script type="text/template">
+## 檢驗的工具
+- <a href="http://validator.w3.org/" target="_blank">W3C Validator</a> 底下有一段話：<br />
+This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.
+- W3C 網站提供 <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a> 來檢查 CSS 
+- <a href="http://caniuse.com/" target="_blank">Can I Use 這個網站</a>可以檢驗你使用的標籤或 CSS 的語法，支援被那些版本的瀏覽器所支援
+- 請到 <a href="http://caniuse.com/" target="_blank"><b>Can I use</b></a> 網站輸入 header 或者 footer 看看會有何結果？
+- <a href="http://css3test.com/" target="_blank">為你所使用的瀏覽器打分數？</a>(支援 CSS3 標準的程度)
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用 Modernizr 來偵測
+<ul>
+<li class="fragment">上一張投影片所提到的這些檢驗網站，有誰會去使用它？<b>或者說，會經常去使用它？</b></li>
+<li class="fragment">我們通常會使用它來<b>檢驗某個特定的標準</b>，或<b>特定的瀏覽器是否支援</b>這種語法？</li>
+<li class="fragment"> 一旦我們寫好符合新標準的語法，可是<b>瀏覽者卻使用不支援新標準的瀏覽器時</b>，該怎麼辦呢？</li>
+<li class="fragment"><a href="https://modernizr.com/">Modernizr</a>: Respond to your user’s browser features.</li>
+<li class="fragment"><a href="https://modernizr.com/">Modernizr</a> 可以內嵌在你的網頁當中，偵測瀏覽者所使用的瀏覽器是否支援，然後告知瀏覽者？</li>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## 如何使用 Modernizr 函式庫
+<li><a href="https://modernizr.com/">Modernizr</a> 提供「部分(Add your detects)」及「全部(Development build)」兩種方式來下載這個 Javascript Library</li>
+<ul>
+<li>點選 Add your detects >> 選擇你想要偵測的 element >> 點選 BUILD</li>
+</ul>
+<li>點選 Development build >> 點選 BUILD >> Build | Download</li>
+<li>將下載的 .js 檔案加入到 &lt;head&gt; 標籤內部</li>
+<li>在 html 檔案中撰寫 Javascript 語法來偵測</li>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用 [Modernizr](https://modernizr.com/) 的範例
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-TW">
+&lt;head>
+&lt;meta charset="utf-8">
+&lt;title>HTML5/CSS3 偵測&lt;/title>
+&lt;script src="./modernizr-latest.js">&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;p>這是使用 modernizr-latest.js Library 偵測 HTML5/CSS3 ... &lt;br>
+&lt;span id="elvis" style="color:red">&lt;/span>&lt;/p>
+&lt;script>
+// 找這個網頁中命名為 elvis 的標籤元件來顯示其結果
+var elvis = document.getElementById("elvis");
 
-        <script src="/revealjs/lib/js/head.min.js"></script>
-        <script src="/revealjs/dist/reveal.js"></script>
-        <script src="/revealjs/plugin/zoom/zoom.js"></script>
-        <script src="/revealjs/plugin/notes/notes.js"></script>
-        <script src="/revealjs/plugin/search/search.js"></script>
-        <script src="/revealjs/plugin/markdown/markdown.js"></script>
-        <script src="/revealjs/plugin/highlight/highlight.js"></script>
-        <script src="/revealjs/plugin/menu/menu.js"></script>
-        <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
-        <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
-        <script src="/revealjs/plugin/animate/svg.min.js"></script>
-        <script src="/revealjs/plugin/animate/plugin.js"></script>
-        
-        <script>
-        Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        slideNumber: true,
-        mouseWheel: true,
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
-        
-        menu: {
-            side: 'left',
-            width: 'normal',
-            numbers: false,
-            titleSelector: 'h1, h2, h3, h4, h5, h6',
-            useTextContentForMissingTitles: false,
-            hideMissingTitles: false,
-            markers: true,
-            custom: true,
-            themes: true,
-            themesPath: '/revealjs/dist/theme/',
-            transitions: true,
-            openButton: true,
-            openSlideNumber: false,
-            keyboard: true,
-            sticky: false,
-            autoOpen: true,
-            delayInit: false,
-            openOnInit: false,
-            loadIcons: true,
-            
-            custom: [
-                    { title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-                    { title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
-            ]
-        },
-        
-        customcontrols: {
-            controls: [
-            {
-                id: 'toggle-overview',
-                title: 'Toggle overview (O)',
-                icon: '<i class="fa fa-th"></i>',
-                action: 'Reveal.toggleOverview();'
-            },
-            { icon: '<i class="fa fa-pen-square"></i>',
-                title: 'Toggle chalkboard (B)',
-                action: 'RevealChalkboard.toggleChalkboard();'
-            },
-            { icon: '<i class="fa fa-pen"></i>',
-                title: 'Toggle notes canvas (C)',
-                action: 'RevealChalkboard.toggleNotesCanvas();'
-            }
-            ]
-        },
-        
-        toolbar: {
-            // Specifies where the toolbar will be shown: 'top' or 'bottom'
-            position: 'bottom',
-        
-            // Add button to toggle fullscreen mode for the presentation
-            fullscreen: true,
-        
-            // Add button to toggle the overview mode on and off
-            overview: true,
-        
-            // Add button to pause (hide) the presentation display
-            pause: true,
-        
-            // Add button to show the speaker notes
-            notes: false,
-        
-            // Add button to show the help overlay
-            help: false,
-        
-            // If true, the reveal.js-menu will be moved into the toolbar.
-            // Set to false to leave the menu on its own.
-            captureMenu: true,
-        
-            // If true, the playback control will be moved into the toolbar.
-            // This is only relevant if the presentation is configured to autoSlide.
-            // Set to false to leave the menu on its own.
-            capturePlaybackControl: true,
-        
-            // By default the menu will load it's own font-awesome library
-            // icons. If your presentation needs to load a different
-            // font-awesome library the 'loadIcons' option can be set to false
-            // and the menu will not attempt to load the font-awesome library.
-            loadIcons: true
-        },
-        
-        // Optional reveal.js plugins
-        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
-        
-        dependencies: [
-        //{ src: '/revealjs/plugin/toolbar/toolbar.js' }
-        ]
-        });
-        
-        </script>
+if (Modernizr.draganddrop) {
+elvis.innerHTML = "恭喜！ 你的瀏覽器支援拖放(drag-and-drop)功能";}
+else {
+elvis.innerHTML = "抱歉！你的瀏覽器不支援拖放(drag-and-drop)功能";}
+&lt;/script>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用 Polyfills 來修補
+<ul>
+<li class="fragment">Modernizr <b>僅能偵測並告知瀏覽者</b>更換不同的瀏覽器來觀看網頁</li>
+<li class="fragment">問題是：<b>有辦法讓舊的瀏覽器也支援</b>新的 HTML/CSS3 的語法嗎？</li>
+<li class="fragment">答案是：<b>有的</b>，例如：<a href="https://github.com/afarkas/html5shiv" target="_blank"> html5shim.googlecode.com</a> 的 html5shiv，可以讓 IE 部分支援 HTML5 的標籤</li>
+<li class="fragment">在 <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Cross Browser Polyfills</a> 可修補不同瀏覽器間所寫的 Javascript API 的應用</li>
+<li class="fragment"><a href="http://html5please.com/" target="_blank">HTML5 Please</a> 可以找到相關的 Javascript Library 來修補 HTML5, CSS3, etc...</li>
+</ul>
+</script></section>
+</section><!--end block-->
 
-	</body>
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+side: 'left',
+width: 'normal',
+numbers: false,
+titleSelector: 'h1, h2, h3, h4, h5, h6',
+useTextContentForMissingTitles: false,
+hideMissingTitles: false,
+markers: true,
+custom: true,
+themes: true,
+themesPath: '/revealjs/dist/theme/',
+transitions: true,
+openButton: true,
+openSlideNumber: false,
+keyboard: true,
+sticky: false,
+autoOpen: true,
+delayInit: false,
+openOnInit: false,
+loadIcons: true,
+
+custom: [
+{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+]
+},
+
+customcontrols: {
+controls: [
+{
+id: 'toggle-overview',
+title: 'Toggle overview (O)',
+icon: '<i class="fa fa-th"></i>',
+action: 'Reveal.toggleOverview();'
+},
+{ icon: '<i class="fa fa-pen-square"></i>',
+title: 'Toggle chalkboard (B)',
+action: 'RevealChalkboard.toggleChalkboard();'
+},
+{ icon: '<i class="fa fa-pen"></i>',
+title: 'Toggle notes canvas (C)',
+action: 'RevealChalkboard.toggleNotesCanvas();'
+}
+]
+},
+
+toolbar: {
+// Specifies where the toolbar will be shown: 'top' or 'bottom'
+position: 'bottom',
+
+// Add button to toggle fullscreen mode for the presentation
+fullscreen: true,
+
+// Add button to toggle the overview mode on and off
+overview: true,
+
+// Add button to pause (hide) the presentation display
+pause: true,
+
+// Add button to show the speaker notes
+notes: false,
+
+// Add button to show the help overlay
+help: false,
+
+// If true, the reveal.js-menu will be moved into the toolbar.
+// Set to false to leave the menu on its own.
+captureMenu: true,
+
+// If true, the playback control will be moved into the toolbar.
+// This is only relevant if the presentation is configured to autoSlide.
+// Set to false to leave the menu on its own.
+capturePlaybackControl: true,
+
+// By default the menu will load it's own font-awesome library
+// icons. If your presentation needs to load a different
+// font-awesome library the 'loadIcons' option can be set to false
+// and the menu will not attempt to load the font-awesome library.
+loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
 </html>
