@@ -142,6 +142,38 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# HTML5 element
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML Element Syntax
+- In the HTML syntax, most elements are written with a **start tag and an end tag**, with the content in between.
+<pre><code data-trim data-line-numbers><p style="color:red; font-size: 2em">臺灣是一個美麗的島嶼，英文名叫 Formosa，
+詞源自自拉丁文及葡萄牙文的「Formosa」，意為「美麗」</p></code></pre>
+![](/images/html5/htmlElement.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML Tags Vs Elements
+- Case Insensitivity in HTML Tags and Attributes
+- Empty HTML Elements
+- Nesting HTML Elements
+- Writing Comments in HTML
+<pre><code data-trim data-line-numbers><p style="color:red; font-size: 2em">
+<!-- This is a comment -->
+臺灣是一個<strong>美麗</strong>的島嶼</p>
+<img src="/images/html5/taiwan.png" alt="taiwan logo">
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML Elements Types
+- Elements can be placed in **two distinct groups: block level and inline level elements**. 
+The former make up the document's structure, while the latter dress up the contents of a block.
+- The most commonly used **block-level elements are <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, <code>&lt;form&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, and so on**.
+- The commonly used inline-level elements are **<code>&lt;img&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>**, etc.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Head 內的標籤元件
 </script></section>
 <section data-markdown><script type="text/template">
@@ -178,7 +210,7 @@ href="https://wangyifang.com/img/twitter.svg"></code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Body 內的標籤元件
+# Body 標籤元件
 </script></section>
 <section data-markdown><script type="text/template">
 ## 加入背景顏色
@@ -187,6 +219,10 @@ href="https://wangyifang.com/img/twitter.svg"></code></pre>
 - 背景顏色由 <a href="http://css3generator.com/">CSS3 Generator</a> 網站所產生，產生方式
     - <a href="http://css3generator.com/  " target="_blank">http://css3generator.com/</a> >> Gradient
 - 在 drill03_01.css 內部輸入 <b>body{ }</b>，然後將 <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">http://www.colorzilla.com/gradient-editor/</a>　所複製的 background 的設定值置入 body{ } 大括號內部，然後存檔
+</script></section>
+
+<section data-markdown><script type="text/template">
+# Headings(標題)標籤元件
 </script></section>
 <section data-markdown><script type="text/template">
 ## 標題文字 h1-h6(1/2)
@@ -218,43 +254,143 @@ href="https://wangyifang.com/img/twitter.svg"></code></pre>
 - 練習 h1 - h6 標題文字標籤
 </script></section>
 <section data-markdown><script type="text/template">
-## Unorder List 標籤
-- 沒有編號的項目符號(Unorder List)
-- This is List one
-- This is List Two
-<pre><code data-trim><li>This is List one</li>
-<li>This is List Two</li>
+# Paragraphs <br/>(段落)標籤元件
+</script></section>
+<section data-markdown><script type="text/template">
+## 段落相關的標籤
+| Tag | Description | Attribute |
+|:---|:---|:---|
+| p | paragraph | global attributes |
+| br | line break | global attributes |
+| hr | horizontal line | global attributes |
+||||
+<div style="display: flex;">
+<div style="flex: 50%;font-size:20px;"><!-- column 1 -->
+<h2>臺灣歌謠</h2>
+<h3>望春風</h3>
+獨夜無伴守燈下 &nbsp;&nbsp;冷風對面吹<br />
+十七八歲未出嫁 &nbsp;&nbsp;想著少年家<br />
+果然標緻面肉白 &nbsp;&nbsp;誰家人子弟 <br />
+想要問伊驚歹勢 &nbsp;&nbsp;心內彈琵琶<br/>
+<hr />
+想要郎君作翁婿 &nbsp;&nbsp;意愛在心裡<br />
+等待何時君來採 &nbsp;&nbsp;青春花當開 <br />
+聽見外面有人來 &nbsp;&nbsp;開門嘎看嘜<br />
+月老笑阮憨大呆 &nbsp;&nbsp;被風騙不知<br /> 
+</div>
+<div style="flex: 50%;font-size:20px"><!-- column 2 -->
+<pre><code data-trim data-line-numbers><h2>臺灣歌謠</h2>
+<h3>望春風</h3>
+獨夜無伴守燈下 冷風對面吹<br />
+十七八歲未出嫁 想著少年家<br />
+果然標緻面肉白 誰家人子弟 <br />
+想要問伊驚歹勢 心內彈琵琶<br/>
+<hr />
+想要郎君作翁婿 意愛在心裡<br />
+等待何時君來採 青春花當開 <br />
+聽見外面有人來 開門嘎看嘜<br />
+月老笑阮憨大呆 被風騙不知<br />  </code></pre></div></div>
+
+</script></section>
+<section data-markdown><script type="text/template">
+## 行距與段落間距(1/2)
+<pre><code data-trim data-line-numbers><body>
+<h1>古代時期的臺灣</h1>
+<hr />
+<h2>前言</h2>
+<p>臺灣從17世紀開始有國家政權的出現，歷史上曾經歷多次遞嬗，最近一次為1945年起納入中華民國版圖。中華民國政府於1949年12月因中國內戰失利而將政府遷至臺灣政經中心台北，使臺灣自1950年起成為中華民國的主要國土並延續迄今，因而「臺灣」一詞成為現今中華民國在國際上的主要代稱。</p>
+<h2>13世紀以前</h2>
+<p>臺灣在舊石器時代晚期（50,000年前─10,000年前）已開始有人類居住。較能夠確定的，是新石器時代（始於紀元前5,000年）以來的史前文化，是南島語系民族的遺留。主要的文化有舊石器時代的台東長濱文化、苗栗網形文化、台南左鎮人以及新石器時代的大坌坑文化、圓山文化、營埔文化、卑南文化。</p>
+<p>而馬來波里尼西亞土著民族在也於13世紀以前就存在於臺灣島上，這些原住民分佈於臺灣全島，屬於南島語系。臺灣原住民的缺齒、紋身、口琴、卉服、織貝、腰機紡織、貫頭衣、親族外婚、父子連名、年齡分級、老人政治、鳥佔、獵首、靈魂崇拜、室內葬等特徵，都屬印度尼西亞古文化特質。</p>
+<p>《三國志》記載三國時代吳國曾指派軍隊登陸夷洲，《隋書》則有隋煬帝派兵攻打流求國的記載。但尚未證實這些中國古籍中的記載的地名就是今日的臺灣。</p>
+<h3>宋元明時期</h3>
+<p>南宋時期，已經開始有漢人在澎湖群島，開墾。宋孝宗乾道七年(1171年)，正式駐兵澎湖群島，隸屬閩南晉江縣。1225年趙汝適所著諸蕃志提到「泉有海島，曰澎湖群島，隸晉江縣。」，正式確認澎湖群島屬南宋版圖。</p>
+<p>1281年（元世祖至元十八年）元軍東征日本因颱風失敗，迂迴臺灣，道經澎湖設澎湖巡檢司，企圖進取臺灣，作為征日本之準備。該地方區劃隸屬於福建泉州府，主官為澎湖寨巡檢。澎湖巡檢司不但是澎湖群島的首次行政區劃，也是臺灣的首次官署設置。</p>
+<p>明朝仍依循前例於澎湖設置該官署，直至1384年因為實施封海政策，予以廢除。明世宗嘉靖四十二年1563年考量沿海治安等因素，復設澎湖巡檢司。此官署直至1622年，荷蘭東印度公司佔領澎湖為止，但在1624年，明朝福建巡撫南居益又派兵進攻澎湖，並取得了澎湖之戰的勝利，從而將荷蘭勢力驅逐出澎湖，收復了澎湖列島。</p>
+<p>至16世紀中期，臺灣中部的原住民產生了大肚王國。由15至18個村社的巴布拉族與貓霧捒族、巴則海族和一部份洪雅族所成立的「跨族群準王國」，共主稱為「大肚番王」，領域範圍主要於大肚溪上中下游的流域。該王國在1644年荷蘭人武力入侵後降服，荷蘭東印度公司與番王締約並承認其地方領主，於明鄭王朝時期遭受鎮壓近乎滅絕，至清雍正時期因抗清失敗最終滅亡。</p>
+<p>到了16世紀中期，包含倭寇在內的海盜在中國東南沿海一帶活動，並將臺灣作為躲藏地點。海盜在中國沿海劫掠，遇到官兵追擊，就逃至澎湖，然後再到臺灣，成為除了少數漢族拓荒屯墾移民之外的另一部份住民。同一時期，葡萄牙人是最早抵達東亞與殖民臺灣的歐洲探險者，但是與臺灣的實質關係僅止於用鴉片和稻米來交換一些原住民的物品，並沒有進一步殖民的企圖。</p>
+<p>1624年，顏思齊在魍港（另一說在笨港）設立十寨作為據點，其繼承人鄭芝龍後來成為中國東南沿海勢力最大的海盜，並在1628年接受明朝招撫。同年閩南大旱，鄭芝龍曾提議招募饑民移殖臺灣，亦有學者認為此提議從未執行。這段期間鄭芝龍曾強力控制中國東南沿海的商船，以及中國大陸對臺灣的貿易。</p>
+<h3>明鄭時期</h3>
+<p>鄭氏治理時期從1662年南明延平郡王鄭成功打敗荷蘭東印度公司起，經鄭氏三代統治臺灣至1683年降清為止，統治時間前後共23年。</p>
+<p>以反清復明為口號的鄭成功經過九個月的苦戰，攻下「熱蘭遮城」，懷念閩南故鄉的鄭成功將它改稱安平城，賡續的戰役迫使東印度公司臺灣長官揆一於1662年2月1日（黃曆12月13日）簽字投降，撤離臺灣，自此臺灣歸為明鄭治理，建立了臺灣歷史上第一個漢人政權。</p>
+<p>鄭氏改赤崁建都為東都明京，即今臺南市所在之地，設一府二縣，另設一司為澎湖安撫司。鄭成功於同年6月23日病逝。其子鄭經在廈門起兵，打敗了叔父鄭襲，終於回臺繼位，1664年改東都為東寧。</p>
+<p>英國東印度公司曾與鄭氏政權簽訂通商條約，當時英國人直稱其為「臺灣王國」或「福爾摩沙王國」。 在陳永華的輔政下，建立完整的中央政府體制，撫土民，通商販，興學校，進人才，定製度，境內大治。</p>
+<p>鄭經死後，經過權臣馮錫範的政變，鄭經長子克𡒉被殺，幼子克塽繼位，於1683年鄭軍水師在澎湖海戰為清軍所敗，鄭克塽被迫投降。清廷官員雖曾建議放棄臺灣，但康熙帝仍將臺灣劃入大清帝國版圖，歸福建省管轄，稱為「臺灣府」。</p>     
+</body></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 行距與段落間距(2/2)
+- 加入樣式表(**C**ascading **S**tyle **S**heets)的[古代時期的台灣](./example/taiwan.html)
+<pre><code data-trim data-line-numbers><style>
+body{
+    /* top | right | bottom | left */
+    padding: 5px 10% 0 10%;
+    /* font-family: "Times New Roman", "微軟正黑體", "標楷體";*/
+    font-family: "Times New Roman", "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:1.2em;
+    line-height:1.8em; /*行距*/}
+p{font-size:1.2em; /* 1.44em = 1.2em body * 1.2em p */}
+h1, h2, h3{
+    font-family: "Times New Roman", "Noto Sans TC", sans-serif;
+    font-weight: 900;
+    font-style: normal;}
+h1{line-height: 3em;}
+h2{line-height: 2em;}
+h3{line-height: 1.8em;}
+</style></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+# List Tags(列表)標籤元件
+</script></section>
+<section data-markdown><script type="text/template">
+## Unorder(沒有編號) List 標籤
+- 清潔用品
+    - 妙管家漂白水
+- 浴室用品
+    - 美白洗面乳
+    - 香噴噴香皂
+<pre><code data-trim data-line-numbers><ul>
+<li>清潔用品</li>
+    <ul>
+            <li>妙管家漂白水</li>
+    </ul>
+<li>浴室用品</li>
+    <ul>
+            <li>美白洗面乳</li>
+            <li>香噴噴香皂</li>
+    </ul>
 </ul></code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Order List 標籤
-- 編號的項目符號(Order List)
-1. Unorder List
-2. This is List one
-3. This is List Two
-<pre><code class="line-numbers"><ol>
-<li>Unorder List</li>
-<li>This is List one</li>
-<li>This is List Two</li>
+## Order(編號) List 標籤
+1. 填寫申請書及報名表
+2. 黏貼影印身分證件及簽章處親筆簽名或加蓋印章
+3. 非親自報名者需要檢附委託書正本
+<pre><code data-trim><ol>
+    <li>填寫申請書及報名表</li>
+    <li>黏貼影印身分證件及簽章處親筆簽名或加蓋印章</li>
+    <li>非親自報名者需要檢附委託書正本</li>
 </ol></code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## discription 標籤
 <dl>
-<dt>Beast of Bodmin</dt>
-<dd>A large feline inhabiting Bodmin Moor.</dd>
-    <dt>Morgawr</dt>
-<dd>A sea serpent.</dd>
-    <dt>Owlman</dt>
-<dd>A giant owl-like creature.</dd>
+<dt>馬爾濟斯的特徵</dt>
+    <dd>白色長毛的小型犬種，性情溫和，外表可愛，撒嬌好客</dd>
+<dt>博美犬的特徵</dt>
+    <dd>體型嬌小，移動快速而輕盈，尾巴向上翹到背上</dd>
+<dt>吉娃娃的特徵</dt>
+    <dd>耳朵很大，於頭上形成一個相當大的鈍角</dd>
 </dl>
-<pre><code data-trim><dl>
-<dt>Beast of Bodmin</dt>
-<dd>A large feline inhabiting Bodmin Moor.</dd>
-<dt>Morgawr</dt>
-<dd>A sea serpent.</dd>
-<dt>Owlman</dt>
-<dd>A giant owl-like creature.</dd>
+<pre><code data-trim data-line-numbers><dl>
+<dt>馬爾濟斯的特徵</dt>
+    <dd>白色長毛的小型犬種，性情溫和，外表可愛，撒嬌好客</dd>
+<dt>博美犬的特徵</dt>
+    <dd>體型嬌小，移動快速而輕盈，尾巴向上翹到背上</dd>
+<dt>吉娃娃的特徵</dt>
+    <dd>耳朵很大，於頭上形成一個相當大的鈍角</dd>
 </dl>
 </code></pre>
 
@@ -262,6 +398,9 @@ href="https://wangyifang.com/img/twitter.svg"></code></pre>
 </section><!--end block-->
 
 <section><!--start block-->
+<section data-markdown><script type="text/template">
+# HTML5 新增的標籤
+</script></section>
 <section data-markdown><script type="text/template">
 ## HTML5 新增的標籤元件
 |類別 | 標籤元件 |
@@ -275,18 +414,45 @@ href="https://wangyifang.com/img/twitter.svg"></code></pre>
 |||
 - 有些元件雖然是舊有的標籤元件，例如：input 標籤，HTML5 都賦予他們新的生命與意義
 </script></section>
-</section><!--end block-->
-
-<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## 頁面標籤的結構
 ![](/images/html5/pageStructure.jpg)
-<p>Source from: Searching in Google's Picture</p>
+- 使用 HTML5 新增的頁面標籤所撰寫的[實際的例子](example/layout/)
+- [HTML5](HTML5-cheat-sheet.pdf) and [CSS3 Cheat Sheet](css3-cheat-sheet.pdf)
+</script></section>
+</section><!--end block-->
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Special Character
 </script></section>
 <section data-markdown><script type="text/template">
-## 頁面標籤的範例
-- 請看[實際的例子](example/outline.html)
-- 這是一本書提供的範例(來源：HTML5 The Missing Manual)
+## HTML escape character how to
+- HTML escape character **begin with \& and a ; to end** it.
+    - **\&amp;** is & character
+    - **\&#60;(decimal) or \&#x3c;(hexdecimal)** is &lt; character.
+- Decimal number begin with **#** and hexadecimal number begin with **#x**.
+|Named   	| Decimal 	| Hex 	        | Result 	| Description 	|
+|:---|:---|:---|:---:|:---|
+|\&amp;   	| \&#38; 	| \&#x26;      	| & 	    | Ampersand 	|
+|\&lt; 	    | \&#60;   	| \&#x3C;  	    | < 	    | Less Than 	|
+|\&gt; 	    | \&#62;   	| \&#x3e;  	    | > 	    | Greater Than 	|
+||||||
+- &#x1f3b2; [The Unicode Consortium](https://home.unicode.org/) &#x1f3c4;
+</script></section>
+<section data-markdown><script type="text/template">
+## List of HTML escape character
+|Named   	| Decimal 	| Hex 	        | Result 	| Description 	|
+|:---|:---|:---|:---:|:---|
+|\&quot;   	| \&#34;   	| \&#x22;  	    | " 	    | Double Quote 	|
+|\&apos;   	| \&#39;   	| \&#x27;  	    | ' 	    | Single Quote 	|
+|\&nbsp;   	| \&#160;   | \&#xA0;      	| 	        | Non-Breaking Space 	|
+|\&copy;   	| \&#169;   | \&#xA9;      	| © 	    | Copyright 	|
+|\&reg;   	| \&#174;  	| \&#xAE; 	    | ® 	    | Registered Trademark 	|
+|\&dagger; 	| \&#8224; 	| \&#x2020;    	| † 	    | Dagger 	|
+|\&Dagger; 	| \&#8225; 	| \&#x2021;    	| ‡ 	    | Double dagger 	|
+|\&ddagger; | \&#8225; 	| \&#x2021;    	| ‡ 	    | Double dagger 	|
+|\&trade; 	| \&#8482; 	| \&#x2122;     | ™ 	    | Trademark 	|
+||||||
 </script></section>
 </section><!--end block-->
 

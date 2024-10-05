@@ -1,0 +1,137 @@
+body,html {
+	background-color: #FFF;
+    padding: 5px 10% 0 10%;
+    /* font-family: "Times New Roman", "微軟正黑體", "標楷體";*/
+    font-family: "Times New Roman", "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:1.2em;
+}
+header {
+    background: #7695FE;
+    padding: 20px 30px;
+    max-width: 940px;
+    margin: auto;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+.navbar {
+    overflow: hidden;
+}
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .navbar a.active {
+    background-color: #0c07a4;
+    color: white;
+  }
+.navbar-right{
+    float: right;
+}
+#pageContent {
+    max-width: 1200px;
+    margin: auto;
+    border: none;
+}
+main {
+	float: left;
+	width: 60%;
+}
+aside {
+	float: right;
+	width: 30%;
+    text-decoration: none;
+    vertical-align: middle;
+}
+article {
+    border-bottom: 2px dotted #999;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+article h2 {
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+article p {
+	
+}
+main section {
+	
+}
+footer {
+	background: #7695FE;
+	max-width: 1200px;
+	margin: auto; 
+	clear: both;
+	text-align: right;
+    font-size: smaller;
+}
+footer p {
+    padding: 1em 2em 0px 0px;
+}
+address {
+    padding: 0px 2em 1em 10px;
+}
+aside > div {
+	margin: 10px auto;
+    padding-top: 50px;
+    padding-left: 20px;
+	background: #7695FE;
+	min-height: 80px;
+}
+aside > div a {
+    text-decoration: none;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 700;
+}
+#logo {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+    margin-right: 10px;
+    color: #FFF;
+}
+#logo img {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+body > section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 0px;
+    border-bottom: 1px solid #999;
+    color: #333;
+}
+
+@media screen and (max-width: 1200px) {
+	body > section {
+		padding: 30px 20px;
+	}
+}
+@media screen and (max-width: 600px) {
+	main {
+		float: none;
+		width: 100%;
+	}
+	aside {
+		float: none;
+		width: 100%;
+	}
+
+}

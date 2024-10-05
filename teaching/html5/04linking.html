@@ -2,155 +2,221 @@
 <html lang="zh-Hant-TW">
 
 <head>
-		<meta charset="utf-8">
+<meta charset="utf-8">
 
-		<title>Linking</title>
+<title>Linking</title>
 
-		<meta name="description" content="Tutorial of web design for primer">
-		<meta name="author" content="Elvis Hsieh">
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="/revealjs/dist/reset.css">
-        <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-        <link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
-        <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
-        <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
-        <link rel="stylesheet" href="/css/custom4revealjs.css">
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
-        <link rel="stylesheet" href="/css/style4font.css">
-        <!-- Printing and PDF exports -->
-        <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="reveal-js/lib/js/html5shiv.js"></script>
-        <![endif]-->
-    </head>
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
     
 <body>
 
-    <div class="reveal">
+<div class="reveal">
 
-    <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
-    <section>
-    <section>
-        <h2>目錄結構</h2>
-        <img src="/images/html5/dir.png" alt="dir.png">
-        <ul>
-            <li>上圖是課程投影片的目錄結構，把網頁程式碼、圖檔、CSS、Javascript 等分門別類</li>
-        </ul>
-    </section>
-    <section>
-        <h2>相對位址(1/2)</h2>
-        <img src="/images/html5/dir2.png" alt="dir2.png">
-        <ul>
-            <li>以 01intro.html 檔案為主，相對於其他的目錄下的檔案稱為相對位址</li>
-            <li>例如：01intro.html 檔案與 images 目錄下的 big5.png 檔案，兩者之間存在著相對的位址</li>
-        </ul>
-    </section>
-    <section>
-        <h2>相對位址(2/2)</h2>
-        <ul>
-            <li>在標準規範把 ./ 視為 01intro.html 檔案的位址，要連結到 big5.png 這個檔案，則是<b>./images/big5.png</b></li>
-            <li> <b>/</b> 表示目錄或根目錄； <b>.</b> 表示目前的目錄； <b>..</b> 表示上一層目錄</li>
-            <li>例如：01intro.html 程式碼這樣寫 ./images/big5.png ，就是表示要連結到<b>與目前目錄相同的 images 的 big5.png 檔案</b></li>
-            <li>例如：01intro.html 程式碼這樣寫 ../lecture/index.html ，就是表示要連結到<b>上一層目錄的 lecture 的 index.html 檔案</b></li>
-        </ul>
-    </section>
-    <section>
-        <h2>相對位置的練習</h2>
-        <ul>
-            <li>請同學先在 drill 目錄之下，再建立 <b>css, images, temp </b>三個目錄</li>
-            <li>請先使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該有背景顏色)</b></li>
-            <li>請將 drill03_01.css 檔案移到 drill/css 目錄，請再使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該看不見)</b></li>
-            <li>請修改 drill03_01.html 檔案中的 link 的內容，將 <b>href="drill03_01.css"</b> 改成 <b>href="./css/drill03_01.css"</b></li>
-            <li>請再使用瀏覽器開啟 drill03_01.html 檔案，看看是否看的見背景顏色？<b>(應該可以看見)</b></li>
-        </ul>
-    </section>
-    <section>
-        <h2>絕對位址</h2>
-        <ul>
-            <li><a href="./01intro.html#/3/8">URL 是一個絕對位址</a></li>
-            <li>c: 是一個絕對位址，但是要使用 file:/// 開頭</li>
-            <li>例如：<a href="file:///G:/HTML5/slides/01intro.html">file:///G:/HTML5/slides/01intro.html</a></li>
-            <li>缺點：如果檔案在都在隨身碟，那它如果拿到別台電腦時，會永遠像上面的例子一樣，<b>都是指定到 G: 嗎？</b></li>
-            <li>但是，Google 的網址 <a href="http://www.google.com">http://www.google.com</a> 會改變嗎？</li>
-        </ul>
-    </section>
-    </section>
-    <section>
-    <section>
-        <h2>超連結(Hyper Link)</h2>
-        <ul>
-            <li>超連結(&lt;a&gt;)標籤：<b>a</b>nchor</li>
-           <li><b>使用 URL (絕對位置)連結：</b><br/>&lt;a href="https://www.google.com.tw"&gt;Google 的網站&lt;/a&gt;</li>
-           <li><b>開啟不同頁籤的連結：</b>加入 target="_blank"</li>
-           <li><b>連結 Email ：</b> href="mailto:elvis.hsieh@gmail.com"</li>
-           <li><b>相對位置的連結 ：</b> href="./hw1.html" 或者 href="hw1.html"<br/>(Why? 因為作業系統預設的尋找路徑就是在目前的目錄)</li>
-           <li><b>在同一個網頁內部的連結(&#35;)：</b>
-           <ul>
-               <li>先在要連結的位置命一個名 &lt;a id="goToBottom"&gt;&lt;/a&gt;，</li>
-               <li>然後使用 href="檔名#goToBottom"。</li>
-           </ul>
-           <li><b>連結網頁的某一個位置：</b>
-           <ul>
-               <li>檔名(包括副檔名 .html) + &#35; + id 名稱</li>
-               <li>例如：在 hw2.html 中連結 href="hw1.html&#35;name"</li>
-           </ul>
-        </ul>
-    </section>
-     <section>
-        <h2>超連結的程式碼</h2>
-        <pre><code class="line-numbers">&lt;h1 id="link">超連結的例子&lt;/h1>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 目錄結構
+<pre><code data-trim>|---website
+  |--- index.html, CivetWeb.exe
+  |--- pets, css, images
+     |--- dogs
+        |--- index.html
+     |--- cats
+        |--- index.html
+</code></pre>
+![](/images/html5/path.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Pets 網站的首頁程式碼
+- **目前的目錄: ./**
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>The Pets Website&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;h1>寵物網站&lt;/h1>
+    &lt;p>這是一家寵物網站，可以找到各式各樣的寵物&lt;/p>
+    &lt;ul>
+        &lt;li>&lt;a href="./pets/dogs/index.html">Dogs 相關商品&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="pets/cats/index.html">Cats 相關商品&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Dogs 目錄的首頁程式碼
+- **上一層目錄: ../**
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Dogs Proudct&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;h1>Dogs Proudct&lt;/h1>
+    &lt;p>這是一家寵物網站，可以找到各式各樣的寵物&lt;/p>
+    &lt;ul>
+        &lt;li>&lt;a href="../cats/index.html">連結到 Cats Products 首頁&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="/index.html">連結到首頁&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Cats 目錄的首頁程式碼
+- **回到根目錄: /**
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="zh-Hant-TW">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Cats Proudct&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;h1>Cats Proudct站&lt;/h1>
+    &lt;p>這是一家寵物網站，可以找到各式各樣的寵物&lt;/p>
+    &lt;ul>
+        &lt;li>&lt;a href="../dogs/index.html">連結到 Dogs Products 首頁&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="/index.html">連結到首頁&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 絕對/相對位置的練習
+- 請同學下載 drill 目錄中的 [website.7z](./drill/website.7z) 及 [drill03_01.css](./drill/css/drill03_01.css) 檔案
+- 解壓縮 website.7z 檔案，執行 CivetWeb.exe 網站伺服器程式碼
+- 請將 drill03_01.css 檔案移到 website/css 目錄
+- 請修改 website/index.html 檔案，新增 link 的內容，將 <b>href="#"</b> 改成 <b>href="./css/drill03_01.css"</b>
+- 請再使用瀏覽器開啟 website/index.html 檔案，看看是否看的見背景顏色？<b>(應該可以看見)</b>
+- 修改 dogs/index.html, cats/index.html 檔案?使用同樣的 drill03_01.css 檔案設定背景顏色
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 絕對位址
+- URL 是一個絕對位址
+    - Google 的網址 [https://www.google.com](http://www.google.com) 不會改變
+    - https://www.google.com/css/style.css 是 google 網站的絕對位址內 css 目錄中的 style.css 檔案
+- C: 是一個絕對位址，但要使用 file:/// 開頭
+    - 例如：<a href="file:///C:/HTML5/slides/01intro.html">file:///C:/HTML5/slides/01intro.html</a>
+    - 缺點：如果檔案在都在隨身碟，那它如果拿到別台電腦時，會永遠像上面的例子一樣，<b>都是指定到 C: 嗎？</b>
+- 網站的根目錄(/)是一個絕對位址
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Hyper Link
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結(Hyper Link, 1/3)
+- 超連結(&lt;a&gt;)標籤：<b>a</b>nchor
+- 外部連結
+    - URL 連結：<br />&lt;a href="https://www.google.com.tw"&gt; [Google](https://www.google.com) &lt;/a&gt;
+    - <b>連結 Email ：</b> href="mailto:elvis.hsieh@gmail.com"
+    - 絕對/相對位置連結 ：**href="/cats/index.html"** 或者 **href="../cats/index.html"**
+<pre><code data-trim>&lt;a href="https://www.ntu.edu.tw">台灣大學&lt;/a>
+&lt;a href="mailto:elvis.hsieh@gmail.com">Email to Elvis Hsieh&lt;/a>
+&lt;a href="../cats/index.html">Cat Products&lt;/a>
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結(Hyper Link, 2/3)
+- 內部連結
+<pre><code data-trim><!--- filename: dogs.html -->
+<h1 id="top">Dogs Products</h1>
+...
+<!-- 程式碼很長，網頁超過螢幕長度-->
+<footer><a href="#top">回到頂端</a></footer>
+</code></pre>
+    - 在同一個網頁內部的連結(&#35;)
+        - 在網頁頂端有一個命名為 top 的 id 位址
+        - 底端 footer 標籤內部建立一個超連結，連結到頂端 id="top" 的位址
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結(Hyper Link, 3/3)
+- 內部連結
+<pre><code data-trim><!--- filename: cats.html -->
+<h1 id="topCat">cats Products</h1>
+...
+<!-- 程式碼很長，網頁超過螢幕長度-->
+<p><a href="dog.html#top">連結到 Dogs Products 的頂端</a></p>
+<p><a href="https://www.ntu.edu.tw" target="_blank">台灣大學</a></p>
+</code></pre>
+   - 連結網頁的某一個位置 
+        - **filename.html** + **&#35;** + **id_name**
+- 開啟不同頁籤的連結： target="_blank"
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結的程式碼
+<pre><code data-trim data-line-numbers>
+&lt;h1 id="link">超連結的例子&lt;/h1>
 &lt;ul>
-    &lt;li>&lt;a href="https://www.google.com">Google 首頁&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="https://www.google.com" target="_blank">Google 首頁(開啟頁籤)&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="https://www.google.com" target="_self">Google 首頁(預設值是在自己的頁籤開啟網頁)&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="mailto:elvis.hsieh@gmail.com">我的 Email 位址&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="#link">連結到相同檔案的某一個位置&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="./drill04_01.html">連結到相同目錄下的檔案&lt;/a>&lt;/li>
-    &lt;li>&lt;a href="./drill04_01.html#love">連結到檔案的某一個位置&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.google.com">Google 首頁&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.google.com" target="_blank">Google 首頁(開啟頁籤)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.google.com" target="_self">Google 首頁(預設值是在自己的頁籤開啟網頁)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="mailto:elvis.hsieh@gmail.com">我的 Email 位址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#link">連結到相同檔案的某一個位置&lt;/a>&lt;/li>
+&lt;li>&lt;a href="./drill04_01.html">連結到相同目錄下的檔案&lt;/a>&lt;/li>
+&lt;li>&lt;a href="./drill04_01.html#love">連結到檔案的某一個位置&lt;/a>&lt;/li>
 &lt;/ul></code></pre>
-   <ul>
-       <li>上面程式碼是的檔名為：<a href="./drill/drill03_01.html"><b>drill03_01.html</b></a></li>
-       <li>在 <b>drill03_01.html</b> 的程式碼中有一個標籤命名為：<b>id="link" </b></li>
-       <li>在 <b>drill04_01.html</b> 的程式碼中有一個標籤命名為：<b>id="love" </b></li>
-       <li>linking : <a href="./drill/drill03_01.html#link">#link</a> | <a href="./drill/drill04_01.html">drill04_01.html</a> | <a href="./drill/drill04_01.html#love">drill04_01.html#love</a></li>
-   </ul>
-    </section>
-    <section>
-        <h2>超連結的練習</h2>
-        <ul>
-            <li>在 drill/temp/ 目錄下<b>新增一個 temp.html 檔案</b></li>
-            <li>在 &lt;body&gt; 標籤內建立 5 個超連結，項目符號使用 unorder list，即 ul 標籤包含 5 個項目(lists)及 5 個超連結(a 標籤)</li>
-            <ul>
-                <li>作法：用 Brackets 在 body 中輸入 <b>ul&gt;li*5>a</b> + <b>Tab 鍵</b></li>
-            </ul>
-            <li><b>絕對位置超連結：</b>編輯一個超連結，連結到 Google 首頁</li>
-            <li><b>開啟不同頁籤的連結：</b>開啟新頁籤方式來連到 Google 首頁</li>
-            <li><b>Email 連結：</b>請加入一個自己 Email 位址的連結</li>
-            <li><b>外部檔案位置的連結：</b>編輯一個超連結，連結到 drill04_01.html 檔案中 id="love"的位置</li>
-            <li><b>檔案內部的連結：</b>在 temp.html 檔案中，建立一個&lt;li id="elvis" &gt; 書籤，然後連結到這個書籤</li>
-            <li class="fragment"><b>請複製 drill04_01.html 檔案到 temp 目錄，你能修改相關的連結來恢復網頁的樣子嗎？</b></li>
-        </ul>
-    </section>
-    </section>
-    
-    </div>
-    </div>
+- 上面程式碼是的檔名為：<a href="./drill/drill03_01.html"><b>drill03_01.html</b></a>
+- 在 <b>drill03_01.html</b> 的程式碼中有一個標籤命名為：<b>id="link" </b>
+- 在 <b>drill04_01.html</b> 的程式碼中有一個標籤命名為：<b>id="love" </b>
+- linking : <a href="./drill/drill03_01.html#link">#link</a> | <a href="./drill/drill04_01.html">drill04_01.html</a> | <a href="./drill/drill04_01.html#love">drill04_01.html#love</a>
+</script></section>
 
-    <script src="/revealjs/lib/js/head.min.js"></script>
+<section data-markdown><script type="text/template">
+## 超連結的練習
+- 請建立一個包含下列 5 種不同超連結的網頁，上述 5 種超連結採用 unorder list 標籤列出 
+    - 編輯一個連結到臺中科技大學首頁的**絕對位置超連結**
+    - 點選「台灣大學」的文字可以讓瀏覽器以**開啟新頁籤**方式來連到台灣大學的首頁
+    - 建立一個屬於**自己 Email 位址的超連結**
+    - 在**網頁內部**建立一個 id ， id 的名稱自訂，在建立一個**超連結**，連結到上述 id 名稱的書籤位置
+    - 建立**另一個網頁**，同樣地在此網頁內建一個書籤，書籤的 id 名稱自訂，從上面的網頁連結到這個**書籤位置**
+- 作法： **ul&gt;li*5>a** + **Tab 鍵** 產出 5 個 unorder list 的超連結
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
 <script src="/revealjs/dist/reveal.js"></script>
 <script src="/revealjs/plugin/zoom/zoom.js"></script>
 <script src="/revealjs/plugin/notes/notes.js"></script>
@@ -174,84 +240,84 @@ mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
-	side: 'left',
-	width: 'normal',
-	numbers: false,
-	titleSelector: 'h1, h2, h3, h4, h5, h6',
-	useTextContentForMissingTitles: false,
-	hideMissingTitles: false,
-	markers: true,
-	custom: true,
-	themes: true,
-	themesPath: '/revealjs/dist/theme/',
-	transitions: true,
-	openButton: true,
-	openSlideNumber: false,
-	keyboard: true,
-	sticky: false,
-	autoOpen: true,
-	delayInit: false,
-	openOnInit: false,
-	loadIcons: true,
-	
-	custom: [
-			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
-	]
+side: 'left',
+width: 'normal',
+numbers: false,
+titleSelector: 'h1, h2, h3, h4, h5, h6',
+useTextContentForMissingTitles: false,
+hideMissingTitles: false,
+markers: true,
+custom: true,
+themes: true,
+themesPath: '/revealjs/dist/theme/',
+transitions: true,
+openButton: true,
+openSlideNumber: false,
+keyboard: true,
+sticky: false,
+autoOpen: true,
+delayInit: false,
+openOnInit: false,
+loadIcons: true,
+
+custom: [
+        { title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+        { title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+]
 },
 
 customcontrols: {
-	controls: [
-	{
-		id: 'toggle-overview',
-		title: 'Toggle overview (O)',
-		icon: '<i class="fa fa-th"></i>',
-		action: 'Reveal.toggleOverview();'
-	},
-	{ icon: '<i class="fa fa-pen-square"></i>',
-		title: 'Toggle chalkboard (B)',
-		action: 'RevealChalkboard.toggleChalkboard();'
-	},
-	{ icon: '<i class="fa fa-pen"></i>',
-		title: 'Toggle notes canvas (C)',
-		action: 'RevealChalkboard.toggleNotesCanvas();'
-	}
-	]
+controls: [
+{
+    id: 'toggle-overview',
+    title: 'Toggle overview (O)',
+    icon: '<i class="fa fa-th"></i>',
+    action: 'Reveal.toggleOverview();'
+},
+{ icon: '<i class="fa fa-pen-square"></i>',
+    title: 'Toggle chalkboard (B)',
+    action: 'RevealChalkboard.toggleChalkboard();'
+},
+{ icon: '<i class="fa fa-pen"></i>',
+    title: 'Toggle notes canvas (C)',
+    action: 'RevealChalkboard.toggleNotesCanvas();'
+}
+]
 },
 
 toolbar: {
-	// Specifies where the toolbar will be shown: 'top' or 'bottom'
-	position: 'bottom',
+// Specifies where the toolbar will be shown: 'top' or 'bottom'
+position: 'bottom',
 
-	// Add button to toggle fullscreen mode for the presentation
-	fullscreen: true,
+// Add button to toggle fullscreen mode for the presentation
+fullscreen: true,
 
-	// Add button to toggle the overview mode on and off
-	overview: true,
+// Add button to toggle the overview mode on and off
+overview: true,
 
-	// Add button to pause (hide) the presentation display
-	pause: true,
+// Add button to pause (hide) the presentation display
+pause: true,
 
-	// Add button to show the speaker notes
-	notes: false,
+// Add button to show the speaker notes
+notes: false,
 
-	// Add button to show the help overlay
-	help: false,
+// Add button to show the help overlay
+help: false,
 
-	// If true, the reveal.js-menu will be moved into the toolbar.
-	// Set to false to leave the menu on its own.
-	captureMenu: true,
+// If true, the reveal.js-menu will be moved into the toolbar.
+// Set to false to leave the menu on its own.
+captureMenu: true,
 
-	// If true, the playback control will be moved into the toolbar.
-	// This is only relevant if the presentation is configured to autoSlide.
-	// Set to false to leave the menu on its own.
-	capturePlaybackControl: true,
+// If true, the playback control will be moved into the toolbar.
+// This is only relevant if the presentation is configured to autoSlide.
+// Set to false to leave the menu on its own.
+capturePlaybackControl: true,
 
-	// By default the menu will load it's own font-awesome library
-	// icons. If your presentation needs to load a different
-	// font-awesome library the 'loadIcons' option can be set to false
-	// and the menu will not attempt to load the font-awesome library.
-	loadIcons: true
+// By default the menu will load it's own font-awesome library
+// icons. If your presentation needs to load a different
+// font-awesome library the 'loadIcons' option can be set to false
+// and the menu will not attempt to load the font-awesome library.
+loadIcons: true
 },
 
 // Optional reveal.js plugins
@@ -261,8 +327,8 @@ dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }
 ]
 });
-    
-    </script>
 
-	</body>
+</script>
+
+</body>
 </html>

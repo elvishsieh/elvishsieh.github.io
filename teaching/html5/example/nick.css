@@ -3,15 +3,13 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section, summar
 }
 
 body {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, sans-serif;
-  max-width: 800px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Noto Sans TC", sans-serif;
+  margin: 10px 6em;
 }
 
 header {
   background-color: #7695FE;
   border: thin #336699 solid;
-  padding: 10px;
-  margin: 10px;
   text-align: center;
 }
 
@@ -26,49 +24,53 @@ header h2 {
   font-weight: bold;
 }
 
-header .Teaser {
+header .teaser {
   font-size: large;
   font-weight: bold;
 }
 
-header .Byline {
+header .byline {
   font-style: italic;
   font-size: small;
   margin: 0px;
 }
 
-.Content {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: medium;
+.content {
+  font-family: "Times New Roman", "Cactus Classical Serif", serif;
+  font-size: 1.4em;
   padding-top: 20px;
   padding-bottom: 5px;
-  padding-left: 50px;
-  padding-right: 50px;
   line-height: 120%;
 }
 
-.Content .LeadIn {
+.content .leadIn {
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
   font-variant: small-caps;
+  text-align: center;
+  padding: 16px 0px;
 }
 
-.Content h2 {
+.content h2 {
   color: #24486C;
   margin-bottom: 2px;
   font-size: medium;
 }
 
-.Content p {
+.content p {
   margin-top: 0px;
 }
 
 footer {
+	background: #7695FE;
+	margin: auto; 
+	clear: both;
   text-align: center;
-  font-size: x-small;	
+  font-size: smaller;
+  padding: 2em 0em;
 }
 
-footer .Disclaimer {
+footer .disclaimer {
   font-style: italic;
 }
 
@@ -76,7 +78,7 @@ footer p {
   margin: 3px;
 }
 
-.FloatFigure {
+.floatFigure {
   float: left;
   margin-left: 0px;
   margin-top: 0px;
@@ -84,27 +86,9 @@ footer p {
   margin-bottom: 0px;
 } 
 
-.FloatFigure figcaption {
+.floatFigure figcaption {
   max-width: 200px;
   font-size: small;
   font-style: italic;
   margin-bottom: 5px;
-}
-
-.PullQuote {
-  float: right;
-  max-width: 300px;
-  border-top: thin black solid;
-  border-bottom: thick black solid;
-  font-size: 30px;
-  line-height: 130%;
-  font-style: italic;
-  padding-top: 5px;	
-  padding-bottom: 5px;	
-  margin-left: 15px;
-  margin-bottom: 10px;
-}
-
-.PullQuote img {
-  vertical-align: bottom;
 }
