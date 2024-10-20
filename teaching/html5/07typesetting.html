@@ -2,51 +2,51 @@
 <html lang="zh-Hant-TW">
 
 <head>
-		<meta charset="utf-8">
+<meta charset="utf-8">
 
-		<title>Typesetting in HTML</title>
+<title>Typesetting in HTML</title>
 
-		<meta name="description" content="Tutorial of web design for primer">
-		<meta name="author" content="Elvis Hsieh">
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="/revealjs/dist/reset.css">
-        <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-        <link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
-        <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
-        <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
-        <link rel="stylesheet" href="/css/custom4revealjs.css">
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
-        <link rel="stylesheet" href="/css/style4font.css">
-        <!-- Printing and PDF exports -->
-        <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="reveal-js/lib/js/html5shiv.js"></script>
-        <![endif]-->
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
 
-        <link rel="stylesheet" href="./example/js/modernizr-custom.js">
-        <style>
-           @counter-style kimoji {
-               system: fixed;
-               symbols: ⑴ ⑵;
-            }
-            ul ul.emoji{
-              list-style: kimoji;
-            }
-        </style>
-    </head>
+<link rel="stylesheet" href="./example/js/modernizr-custom.js">
+<style>
+@counter-style kimoji {
+    system: fixed;
+    symbols: ⑴ ⑵;
+}
+ul ul.emoji{
+    list-style: kimoji;
+}
+</style>
+</head>
 
 <body>
 
@@ -54,567 +54,509 @@
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-   <section>
-       <h2>文章排版</h2>
-       <table>
-           <thead>常用的標籤</thead>
-           <tr>
-               <td>標籤名稱</td>
-               <td>簡要說明</td>
-           </tr>
-           <tr>
-               <td>section</td>
-               <td>章節的標籤</td>
-           </tr>
-           <tr>
-               <td>article</td>
-               <td>文章，通常放在 section 內</td>
-           </tr>
-           <tr>
-               <td>p</td>
-               <td>段落(paragraph)，結束標籤後面會自動換行</td>
-           </tr>
-           <tr>
-               <td>br</td>
-               <td>換行標籤，通常在 p 標籤內，單一非成對標籤</td>
-           </tr>
-           <tr>
-               <td>hr</td>
-               <td>水平線，主要是區隔的功能，單一非成對標籤</td>
-           </tr>
-       </table>
-   </section>
-    <section>
-    <section>
-        <h2>Google Fonts</h2>
-        <ul>
-            <li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a> 提供中、英文字型讓 Web Developer 自由、免費使用</li>
-            <li>使用的方法有兩種：</li>
-            <ol>
-                <li><b>網址連結：</b>連結到相對應的字型網址來設定及使用這些字型</li>
-                <li><b>下載字型：</b>透過相對位置連結方式來連結<b>下載字型的CSS設定</b></li>
-            </ol>
-            <li><b>連結到 Google Fonts 字型網址</b>的設定步驟：</li>
-            <ol>
-                <li>選擇你想要的英文字體 &Gt;<b>按右上角紅色的+號</b> &Gt; 點選下方黑色的<b>Family Selected</b> &Gt;</li>
-                <li>在 header 標籤中加入 fonts 網址的連結</li>
-                <li>在 CSS 中加入 font-family 的設定</li>
-            </ol>
-<pre><code>&lt;head>
-&lt;link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-&lt;/head></code></pre>
- <pre><code>font-family: 'Oswald', sans-serif;</code></pre>
-        </ul>
-    </section>
-    <section>
-        <h2>Google Fonts 範例</h2>
-        <pre><code class="line-numbers">&lt;!DOCTYPE html>
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## 文章排版
+| 標籤名稱 | 簡要說明 |
+| --- | --- |
+| header | 頁首的標籤，通常放在網頁的最前面 |
+| nav      |  導覽列的標籤，通常放在 header 內 |
+| main      |  主要內容的標籤 |
+| section   |章節的標籤 |
+| article   |  文章，通常放在 section 內|
+| aside     |  附錄，通常放在 section 內|
+| p         |  段落(paragraph)，結束標籤後面會自動換行|
+| br        |  換行標籤，通常在 p 標籤內，單一非成對標籤|
+| hr        | 水平線，主要是區隔的功能，單一非成對標籤|
+|||
+</script></section>
+<section data-markdown><script type="text/template">
+## Google Fonts
+- [Google Fonts](https://fonts.google.com/) 提供中、英文字型讓 Web Developer 自由、免費使用
+- 使用的方法有兩種：
+    1. **網址連結：**連結到相對應的字型網址來設定及使用這些字型
+    2. **下載字型：**透過相對位置連結方式來連結**下載字設定**
+- 連結到 Google Fonts 字型網址的設定步驟：
+    1. 選擇你想要的英文字體 &Gt;**按右上角紅色的+號** &Gt; 點選下方黑色的 **Family Selected**
+    2. 在 header 標籤中加入 fonts 網址的連結
+    3. 在 CSS 中加入 font-family 的設定
+</script></section>
+<section data-markdown><script type="text/template">
+## Google Fonts 範例
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
 &lt;html lang="zh-TW">
 &lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>這是標題文字&lt;/title>
-    &lt;link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
-    &lt;style>
-        @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
-        body{
-        font-family: 'Oswald', 'cwTeXYen', sans-serif;
-        }
-    &lt;/style>
+&lt;meta charset="UTF-8">
+&lt;title>這是標題文字&lt;/title>
+&lt;link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+&lt;style>
+    @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+    body{font-family: 'Oswald', 'cwTeXYen', sans-serif;}
+&lt;/style>
 &lt;/head>
 &lt;body>
-  
-  ...
-  
+...
 &lt;/body>
 &lt;/html></code></pre>
-   <ul>
-       <li>Line 06: 連結到Google Fonts 網站的 Oswald 字型</li>
-       <li>Line 09 &dash; 11: 設定 body 的英文字型設為 Oswald 字型</li>
-       <li>Line 08, 12: <b>使用 internal 的寫法</b></li>
-   </ul>
-    </section>
-    <section>
-        <h2>Google Fonts 的練習(1/2)</h2>
-        <ul>
-            <li><b>請複製之前練習的 drill/temp/drill03_01.html 檔案到其他目錄</b>，修改檔名為 drill07_01.html，再將它檔案移回 temp 目錄</li>
-            <li>在 head 標籤中加入底下的連結：</li>
-<pre><code>&lt;link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css"></code></pre>
-           <li>在 style 標籤中加入下面的設定：</li>
-<pre><code>/* @import 是在 CSS 中匯入外部設定檔的指令，類似於 HTML 的 link 標籤功能 */
+<ul>
+<li>Line 06: 連結到Google Fonts 網站的 Oswald 字型</li>
+<li>Line 09 &dash; 11: 設定 body 的英文字型設為 Oswald 字型</li>
+<li>Line 08, 09: <b>使用 internal 的寫法</b></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## Google Fonts 的練習(1/2)
+<ul>
+<li><b>請複製之前練習的 drill/temp/drill03_01.html 檔案到其他目錄</b>，修改檔名為 drill07_01.html，再將它檔案移回 temp 目錄</li>
+<li>在 head 標籤中加入底下的連結：</li>
+<pre><code data-trim data-line-numbers>&lt;link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css"></code></pre>
+<li>在 style 標籤中加入下面的設定：</li>
+<pre><code data-trim data-line-numbers>/* @import 是在 CSS 中匯入外部設定檔的指令，類似於 HTML 的 link 標籤功能 */
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);</code></pre>
-           <li>請再次在 style 中加入下面的設定：</li>
-<pre><code>body{
-    font-family: 'Oswald', 'cwTeXYen', sans-serif;
+<li>請再次在 style 中加入下面的設定：</li>
+<pre><code data-trim data-line-numbers>body{
+font-family: 'Oswald', 'cwTeXYen', sans-serif;
 }</code></pre>
-        </ul>
-        <b>&Lt; 接下一張 slide &Gt;</b>
-    </section>
-    <section>
-        <h2>Google Fonts 的練習(2/2)</h2>
-        <ul>
-            <li>最後將 head 標籤的<b> drill03_01.css 連結 comment 掉或移除</b></li>
-<pre><code>&lt;!-- <link rel="stylesheet" href="../css/drill03_01.css" /> --></code></pre>
-        </ul>
-        <hr />
-        <b>&Lt; 將 drill03_01.css 連結 comment 掉或移除的說明 &Gt;</b>
-        <ul>
-            <li>所謂 comment 掉的意思是： <b>使用 &lt;!&dash;&dash;  &nbsp; &nbsp; &dash;&dash;&gt;</b> </li>
-            <li>瀏覽器會依照某種優先順序來檢查 CSS 設定值</li>
-            <li>這些優先順序的規則就是 <a href="./05css.html#/3">CSS Priority</a> 的規則</li>
-            <li>這裡可以看到一種結果：</li>
-            <ul>
-                <li> ../css/drill03_01.css 網站<b>相對位置的連結比網路上連結的字型來得優先</b></li>
-                <li>所以， Google Fonts 的連結沒有作用</li>
-            </ul>
-        </ul> 
-    </section>
-    <section>
-        <h2>下載 Google Fonts 字型</h2>
-        <ul>
-            <li><a href="https://www.google.com/fonts/earlyaccess" target="_blank">Google Fonts &Gt; More script</a></li>
-            <li><b>按 Ctrl + F &Gt; 輸入 chinese </b>，找中文相關的字型</li>
-            <ul>
-            <li>下載五套 cwTeX 字型</li>
-            <ul>
-                <li>Kai(楷書)</li>
-                <li>Yen(圓體)</li>
-                <li>FangSong(仿宋體)</li>
-                <li>Ming(明體)</li>
-                <li>Hei(黑體)</li>
-            </ul>
-            <li>Google's Noto Sans TC 字型</li>
-            </ul>
-            <li><b>下載簡體字型</b>或其他各國語言的字型</li>
-            </ul>
-    </section>
-    <section>
-        <h2>設定下載的字型(1/2)</h2>
-           <ul>
-            <li>檢視並複製字型的設定檔：<b>以 cwTeX's Yen, Oswald 為例</b></li>
-            <ol>
-                <li>連結到 <a href="http://fonts.googleapis.com/earlyaccess/cwtexyen.css" target="_blank">http://fonts.googleapis.com/earlyaccess/cwtexyen.css</a></li>
-                <li>複製所有的 CSS 設定值及<b>修改 src 的路徑</b></li>
-            </ol>
-        <pre><code class="line-numbers">@font-face {
-    font-family: 'cwTeXYen';
-    font-style: normal;
-    src: url('fonts/cwTeX/cwTeXYen-zhonly.ttf') format('truetype');}
+<b>&Lt; 接下一張 slide &Gt;</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## Google Fonts 的練習(2/2)
+<ul>
+<li>最後將 head 標籤的<b> drill03_01.css 連結 comment 掉或移除</b></li>
+<pre><code data-trim>&lt;!-- <link rel="stylesheet" href="../css/drill03_01.css" /> --></code></pre>
+<hr />
+<b>&Lt; 將 drill03_01.css 連結 comment 掉或移除的說明 &Gt;</b>
+<ul>
+<li>所謂 comment 掉的意思是： <b>使用 &lt;!&dash;&dash;  &nbsp; &nbsp; &dash;&dash;&gt;</b> </li>
+<li>瀏覽器會依照某種優先順序來檢查 CSS 設定值</li>
+<li>這些優先順序的規則就是 <a href="./05css.html#/3">CSS Priority</a> 的規則</li>
+<li>這裡可以看到一種結果：</li>
+<ul>
+    <li> ../css/drill03_01.css 網站<b>相對位置的連結比網路上連結的字型來得優先</b></li>
+    <li>所以， Google Fonts 的連結沒有作用</li>
+
+</script></section>
+<section data-markdown><script type="text/template">
+## 下載 Google Fonts 字型
+<ul>
+<li><a href="https://www.google.com/fonts/earlyaccess" target="_blank">Google Fonts &Gt; More script</a></li>
+<li><b>按 Ctrl + F &Gt; 輸入 chinese </b>，找中文相關的字型</li>
+<ul>
+<li>下載五套 cwTeX 字型</li>
+<ul>
+    <li>Kai(楷書)</li>
+    <li>Yen(圓體)</li>
+    <li>FangSong(仿宋體)</li>
+    <li>Ming(明體)</li>
+    <li>Hei(黑體)</li>
+<li>Google's Noto Sans TC 字型</li>
+<li><b>下載簡體字型</b>或其他各國語言的字型</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 設定下載的字型(1/2)
+<ul>
+<li>檢視並複製字型的設定檔：<b>以 cwTeX's Yen, Oswald 為例</b></li>
+<ol>
+    <li>連結到 <a href="http://fonts.googleapis.com/earlyaccess/cwtexyen.css" target="_blank">http://fonts.googleapis.com/earlyaccess/cwtexyen.css</a></li>
+    <li>複製所有的 CSS 設定值及<b>修改 src 的路徑</b></li>
+</ol>
+<pre><code data-trim data-line-numbers>@font-face {
+font-family: 'cwTeXYen';
+font-style: normal;
+src: url('fonts/cwTeX/cwTeXYen-zhonly.ttf') format('truetype');}
 @font-face {
-    font-family: 'Oswald';
-    font-style: normal;
-    font-weight: 200;
-    src: url("fonts/Oswald/Oswald-Regular.ttf");}
+font-family: 'Oswald';
+font-style: normal;
+font-weight: 200;
+src: url("fonts/Oswald/Oswald-Regular.ttf");}
 body{
-    font-family: 'Oswald', 'cwTeXYen', sans-serif;
-    font-size: 2em;}
-    </code></pre>
-    </ul>
-    </section>
-    <section>
-        <h2>設定下載的字型(2/2)</h2>
-      <ul>
-           <li>前一張 slide 的<b> Line 04, 10 </b>原始程式碼<b>都是相對路徑</b>：</li>
-           <ul>
-               <li>src: url('<b>fonts/cwTeX/cwTeXYen-zhonly.ttf</b>');</li>
-               <li>src: url("<b>fonts/Oswald/Oswald-Regular.ttf</b>");</li>
-           </ul>
-            <li>url()內部的寫法：
-                <ul>
-                    <li>可以使用<b>雙引號("")</b> 、<b>單引號('')</b>，或者<b>不需要任何引號</b></li>
-                    <li>如果<b>中間有空白、特殊符號等字元時，就必須要使用單引號或雙引號</b></li>
-                </ul>
-            <li>CSS 字型設定使用<b> internal or external 的寫法兩者皆可</b></li>
-       </ul>
-    </section>
-    <section>
-        <h2>下載字型的管理(1/2)</h2>
-   <ul>
-       <li>將所有下載的字型全部存到 fonts 目錄，目錄結構如下圖：</li>
-       </ul>
-       <img src="/images/html5/fonts.png"  alt="Font Folder">
-    </section>
-    <section>
-        <h2>下載字型的管理(2/2)</h2>
-        <ul>
-           <li>&commat;font-face 的設定檔案全部放在 fonts/fonts.css 檔案內</li>
-           <li><b>再使用 &commat;import 指令把 fonts/fonts.css 匯入</b></li>
-        <pre><code class="line-numbers">@font-face {
-    font-family: 'cwTeXYen';
-    font-style: normal; /* italic, oblique, inherit */
-    font-weight: 500;
-    src: url('cwTeX/cwTeXYen-zhonly.ttf') format('truetype');
+font-family: 'Oswald', 'cwTeXYen', sans-serif;
+font-size: 2em;}
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 設定下載的字型(2/2)
+<ul>
+<li>前一張 slide 的<b> Line 04, 10 </b>原始程式碼<b>都是相對路徑</b>：</li>
+<ul>
+    <li>src: url('<b>fonts/cwTeX/cwTeXYen-zhonly.ttf</b>');</li>
+    <li>src: url("<b>fonts/Oswald/Oswald-Regular.ttf</b>");</li>
+<li>url()內部的寫法：
+    <ul>
+        <li>可以使用<b>雙引號("")</b> 、<b>單引號('')</b>，或者<b>不需要任何引號</b></li>
+        <li>如果<b>中間有空白、特殊符號等字元時，就必須要使用單引號或雙引號</b></li>
+    <li>CSS 字型設定使用<b> internal or external 的寫法兩者皆可</b></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 下載字型的管理(1/2)
+<ul>
+<li>將所有下載的字型全部存到 fonts 目錄，目錄結構如下圖：</li>
+<img src="/images/html5/fonts.png"  alt="Font Folder">
+</script></section>
+<section data-markdown><script type="text/template">
+## 下載字型的管理(2/2)
+<ul>
+<li>&commat;font-face 的設定檔案全部放在 fonts/fonts.css 檔案內</li>
+<li><b>再使用 &commat;import 指令把 fonts/fonts.css 匯入</b></li>
+<pre><code data-trim data-line-numbers>@font-face {
+font-family: 'cwTeXYen';
+font-style: normal; /* italic, oblique, inherit */
+font-weight: 500;
+src: url('cwTeX/cwTeXYen-zhonly.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'cwTeXKai';
-    font-style: normal;
-    font-weight: 500;
-    src: url('cwTeX/cwTeXKai-zhonly.ttf') format('truetype');
+font-family: 'cwTeXKai';
+font-style: normal;
+font-weight: 500;
+src: url('cwTeX/cwTeXKai-zhonly.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'cwTeXHei';
-    font-style: normal;
-    font-weight: 500;
-    src: url('cwTeX/cwTeXHei-zhonly.ttf') format('truetype');
+font-family: 'cwTeXHei';
+font-style: normal;
+font-weight: 500;
+src: url('cwTeX/cwTeXHei-zhonly.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'cwTeXFangSong';
-    font-style: normal;
-    font-weight: 500;
-    src: url('cwTeX/cwTeXFangSong-zhonly.ttf') format('truetype');
+font-family: 'cwTeXFangSong';
+font-style: normal;
+font-weight: 500;
+src: url('cwTeX/cwTeXFangSong-zhonly.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'cwTeXMing';
-    font-style: normal;
-    font-weight: 500;
-    src: url('cwTeX/cwTeXMing-zhonly.ttf') format('truetype');
+font-family: 'cwTeXMing';
+font-style: normal;
+font-weight: 500;
+src: url('cwTeX/cwTeXMing-zhonly.ttf') format('truetype');
 }
 /*
 * Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
- */
+*/
 @font-face {
-  font-family: 'Noto Sans TC';
-  font-style: normal;
-  font-weight: 100;
-  src: url(NotoSansCJKtc/NotoSansTC-Thin.otf) format('opentype');
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 100;
+src: url(NotoSansCJKtc/NotoSansTC-Thin.otf) format('opentype');
 }
 @font-face {
-  font-family: 'Noto Sans TC';
-  font-style: normal;
-  font-weight: 300;
-  src: url(NotoSansCJKtc/NotoSansTC-Light.otf) format('opentype');
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 300;
+src: url(NotoSansCJKtc/NotoSansTC-Light.otf) format('opentype');
 }
 @font-face {
-   font-family: 'Noto Sans TC';
-   font-style: normal;
-   font-weight: 400;
-   src: url(NotoSansCJKtc/NotoSansTC-Regular.otf) format('opentype');
- }
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 400;
+src: url(NotoSansCJKtc/NotoSansTC-Regular.otf) format('opentype');
+}
 @font-face {
-   font-family: 'Noto Sans TC';
-   font-style: normal;
-   font-weight: 500;
-   src: url(NotoSansCJKtc/NotoSansTC-Medium.otf) format('opentype');
- }
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 500;
+src: url(NotoSansCJKtc/NotoSansTC-Medium.otf) format('opentype');
+}
 @font-face {
-   font-family: 'Noto Sans TC';
-   font-style: normal;
-   font-weight: 700;
-   src: url(NotoSansCJKtc/NotoSansTC-Bold.otf) format('opentype');
- }
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 700;
+src: url(NotoSansCJKtc/NotoSansTC-Bold.otf) format('opentype');
+}
 @font-face {
-   font-family: 'Noto Sans TC';
-   font-style: normal;
-   font-weight: 900;
-   src: url(NotoSansCJKtc/NotoSansTC-Black.otf) format('opentype');
- }
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 900;
+src: url(NotoSansCJKtc/NotoSansTC-Black.otf) format('opentype');
+}
 /* 
- *  Google 英文字型 
- */
+*  Google 英文字型 
+*/
 @font-face {
-    font-family: 'Oswald';
-    font-style: normal; 
-    font-weight: 500;
-    src: url(Oswald/Oswald-Regular.ttf);
+font-family: 'Oswald';
+font-style: normal; 
+font-weight: 500;
+src: url(Oswald/Oswald-Regular.ttf);
 }
 @font-face {
-    font-family: 'Oswald';
-    font-weight: 700;
-    src: url(Oswald/Oswald-Bold.ttf);
+font-family: 'Oswald';
+font-weight: 700;
+src: url(Oswald/Oswald-Bold.ttf);
 }
 @font-face {
-    font-family: 'Oswald';
-    font-style: normal;
-    font-weight: 300;
-    src: url(Oswald/Oswald-Light.ttf);
+font-family: 'Oswald';
+font-style: normal;
+font-weight: 300;
+src: url(Oswald/Oswald-Light.ttf);
 }</code></pre>
-</ul>
-    </section>
-    <section>
-        <h2>下載字型設定的範例</h2>
-        <ul>
-            <li>html 的原始程式碼檔(以 drill/fonts.html 為例)</li>
-<pre><code>&lt;head>
-    &lt;meta charset="UTF-8">
-    &lt;title>test&lt;/title>
-    &lt;link rel="stylesheet" href="./css/style.css">
+</script></section>
+<section data-markdown><script type="text/template">
+## 下載字型設定的範例
+<ul>
+<li>html 的原始程式碼檔(以 drill/fonts.html 為例)</li>
+<pre><code data-trim>&lt;head>
+&lt;meta charset="UTF-8">
+&lt;title>test&lt;/title>
+&lt;link rel="stylesheet" href="./css/style.css">
 &lt;/head></code></pre>
-            <li>css 的設定檔(以 drill/css/style.css 為例)</li>
-            <pre><code>@import url("../../fonts/fonts.css");
+<li>css 的設定檔(以 drill/css/style.css 為例)</li>
+<pre><code data-trim>@import url("../../fonts/fonts.css");
 body{
-    font-family: 'cwTeXYen', sans-serif;
-    font-size: 30px;
+font-family: 'cwTeXYen', sans-serif;
+font-size: 30px;
 }</code></pre>
-       <li>fonts 目錄是在 drill 的上一層目錄</li>
-        </ul>
-    </section>
-    <section>
-        <h2>下載字型的設定練習</h2>
-        <ul>
-            <li>請複製 drill07_02.html 到 drill/temp 目錄</li>
-            <li>複製 slides/images/<b>{nick1, nick2, nick3}</b> 的圖檔到 drill/images 目錄</li>
-            <li>請修改 link 連結，連結到 ../css/article.css </li>
-            <li>修改 img 標籤的連結，連結到 ./images/<b>{nick1.jpg, nick2.jpg, nick3.jpg}</b></li>
-            <li>修改 article.css 檔案，使用 &commat;import 將 fonts/fonts.css 設定檔匯入，例如：</li>
-<pre><code>/* 請注意 url 相對位置的連結 */
+<li>fonts 目錄是在 drill 的上一層目錄</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 下載字型的設定練習
+<ul>
+<li>請複製 drill07_02.html 到 drill/temp 目錄</li>
+<li>複製 slides/images/<b>{nick1, nick2, nick3}</b> 的圖檔到 drill/images 目錄</li>
+<li>請修改 link 連結，連結到 ../css/article.css </li>
+<li>修改 img 標籤的連結，連結到 ./images/<b>{nick1.jpg, nick2.jpg, nick3.jpg}</b></li>
+<li>修改 article.css 檔案，使用 &commat;import 將 fonts/fonts.css 設定檔匯入，例如：</li>
+<pre><code data-trim>/* 請注意 url 相對位置的連結 */
 @import url(../../fonts/fonts.css);</code></pre>
-           <li>再次修改 article.css 檔案，在 body{}內部加入</li>
-<pre><code> font-family: 'Oswald', 'cwTeXYen', sans-serif;</code></pre>       
-        </ul>
-    </section>
-    </section>
-    <section>
-    <section>
-        <h2>CSS 中的 &commat; 字元(1/2)</h2>
-        <ul>
-            <li>&commat; 字元的意思是： <b>at-rules</b></li>
-            <li>可以將 at-rules 看成：<b>將某個特有的 CSS 規則封裝起來，然後指定做這個規則的設定</b></li>
-            <li>CSS 標準目前有六個 &commat; at-rules：&commat;import, &commat;page, &commat;media, &commat;font-face, &commat;charset, &commat;namespace</li>
-            <li>例如：&commat;font-face 專指「設定字體」這項事情</li>
-        </ul>
-        </section>
-        <section>
-        <h2>CSS 中的 &commat; 字元(2/2)</h2>
-        <ul>
-            <li>例如：<b>&commat;media</b> 專門針對「判斷設備(media)」這件事物來做 CSS 的設定</li>
-        </ul>
-<pre><code class="line-numbers">@media screen and (max-width: 1440px) /* &lt;= 1440px */
+<li>再次修改 article.css 檔案，在 body{}內部加入</li>
+<pre><code data-trim> font-family: 'Oswald', 'cwTeXYen', sans-serif;</code></pre>       
+</script></section>
+</section><!--end of block-->
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## CSS 中的 &commat; 字元(1/2)
+<ul>
+<li>&commat; 字元的意思是： <b>at-rules</b></li>
+<li>可以將 at-rules 看成：<b>將某個特有的 CSS 規則封裝起來，然後指定做這個規則的設定</b></li>
+<li>CSS 標準目前有六個 &commat; at-rules：&commat;import, &commat;page, &commat;media, &commat;font-face, &commat;charset, &commat;namespace</li>
+<li>例如：&commat;font-face 專指「設定字體」這項事情</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## CSS 中的 &commat; 字元(2/2)
+<ul>
+<li>例如：<b>&commat;media</b> 專門針對「判斷設備(media)」這件事物來做 CSS 的設定</li>
+<pre><code data-trim data-line-numbers>@media screen and (max-width: 1440px) /* &lt;= 1440px */
 {
-    span.sizedImage
-    {
-        height:135px;
-        width: 174px;
-    }
+span.sizedImage
+{
+height:135px;
+width: 174px;
+}
 }    
 
 @media screen and (min-width: 1441px) /* &gt;=1441px */
 {
-    span.sizedImage
-    {
-        height:150px;
-        width: 200px;
-    }
+span.sizedImage
+{
+height:150px;
+width: 200px;
+}
 }</code></pre>
-    </section>
-    <section>
-        <h2 style="text-transform: normal">At-rules in Future</h2>
-        <ul>
-            <li>@charset — 由 CSS 來定義字元編碼方式(charset)
+</script></section>
+<section data-markdown><script type="text/template">
+<h2 style="text-transform: normal">At-rules in Future</h2>
+<ul>
+<li>@charset — 由 CSS 來定義字元編碼方式(charset)
 </li>
-            <li>@import — 匯入外部的 CSS </li>
-            <li>@namespace — 告訴 CSS 引擎在解析所有 CSS 內容時，必須將前置 XML namespace 考量進去</li>
-            <li>條件式規則群:</li>
-            <ul>
-                <li>@media</li>
-                <li>@supports:<pre><code>@supports &lt;supports-condition> {
-  &lt;group-rule-body>
+<li>@import — 匯入外部的 CSS </li>
+<li>@namespace — 告訴 CSS 引擎在解析所有 CSS 內容時，必須將前置 XML namespace 考量進去</li>
+<li>條件式規則群:</li>
+<ul>
+    <li>@media</li>
+    <li>@supports:<pre><code data-trim>@supports &lt;supports-condition> {
+&lt;group-rule-body>
 }</code></pre></li>
-                <li>@document(延期到 Level 4 of CSS 的標準訂定)</li>
-            </ul>
-        </ul>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank">Reference to MDN</a></p>
-    </section>
-    <section>
-        <p style="text-align: left">Nested(巣狀式)的規則群 —  Nested(巣狀式)指令的子集合，可以被使用在 CSS 或者條件式規則群內部</p>
-            <li>@media — 條件式的規則，使用 media query 所定義的準則來判斷 media，例如：print, screen, tty, tv 等 media</li>
-        <ul>
-            <li>@supports  — 條件式的規則，如果瀏覽器判斷到這些情況的準則時，就使用這個 CSS 設定值</li>
-            <li>@document — 條件式的規則，如果文件()判斷到這些情況的準則時，就使用這個 CSS 設定值</li>
-            <li>@page — 設定列印時的頁面及外觀</li>
-            <li>@font-face — 設定由外部下載的字型</li>
-            <li>@keyframes — 設定 CSS 檔案中關於動畫的時間軸及其他相關設定值</li>
-            <li>@viewport — 設定小螢幕觀看結果(目前仍然只是草案階段)</li>
-            <li>@counter-style — 設定項目符號的樣式 (已是建議標準階段)</li>
-        </ul>
-    </section>
-    </section>
-    <section>
-        <h2>Media Queries</h2>
-        <ul>
-            <li><a href="https://www.w3.org/TR/css3-mediaqueries/">CSS3 media query specification</a></li>
-            <li>Media: screen, print, tv, tty, etc...</li>
-<pre><code class="line-numbers">@media (max-width: 767px) {
-    ...
+    <li>@document(延期到 Level 4 of CSS 的標準訂定)</li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank">Reference to MDN</a></p>
+</script></section>
+<section data-markdown><script type="text/template">
+<p style="text-align: left">Nested(巣狀式)的規則群 —  Nested(巣狀式)指令的子集合，可以被使用在 CSS 或者條件式規則群內部</p>
+<li>@media — 條件式的規則，使用 media query 所定義的準則來判斷 media，例如：print, screen, tty, tv 等 media</li>
+<ul>
+<li>@supports  — 條件式的規則，如果瀏覽器判斷到這些情況的準則時，就使用這個 CSS 設定值</li>
+<li>@document — 條件式的規則，如果文件()判斷到這些情況的準則時，就使用這個 CSS 設定值</li>
+<li>@page — 設定列印時的頁面及外觀</li>
+<li>@font-face — 設定由外部下載的字型</li>
+<li>@keyframes — 設定 CSS 檔案中關於動畫的時間軸及其他相關設定值</li>
+<li>@viewport — 設定小螢幕觀看結果(目前仍然只是草案階段)</li>
+<li>@counter-style — 設定項目符號的樣式 (已是建議標準階段)</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## Media Queries
+<ul>
+<li><a href="https://www.w3.org/TR/css3-mediaqueries/">CSS3 media query specification</a></li>
+<li>Media: screen, print, tv, tty, etc...</li>
+<pre><code data-trim data-line-numbers>@media (max-width: 767px) {
+...
 }
 @media (max-width: 480px) {
-    ...
+...
 }
 @media (min-width: 768px) and (max-width: 979px) {
-    ...
+...
 }
 @media (min-width: 980px) {
-    ...
+...
 }
 @media (min-width: 1200px) {
-    ...
+...
 }</code></pre>
-        </ul>
-    </section>
-    <section>
-    <section>
-        <h2>特殊字元(1/2)</h2>
+</script></section>
+</section><!-- end of block-->
+<section><!-- start of block-->
+<section data-markdown><script type="text/template">
+## 特殊字元(1/2)
 
-           <ul>
-            <li>所謂特殊字元是：&lt;!&dash;&dash;(<b>與 &lt;!-- 是否有差別</b>) , &Gt;, >>, &amp;, &#x2614;</li>
-            <li>特殊字元的寫法：</li>
-            <ul>
-                <li>Character Name: <b>&</b>character-name <b>;</b></li>
-                <li>十進制(Decimal): <b>&#</b>decimal-numeric<b>;</b></li>
-                <li>十六進制(Hex)：<b>&#x</b>hex-numeric <b>;</b></li>
-                <li>特殊字元的範例：</li>
-            </ul>
-            <table>
-                <tr>
-                    <td>Character</td>
-                    <td>Unicode</td>
-                    <td>Name</td>
-                    <td>Decimal</td>
-                    <td>Hex</td>
-                </tr>
-                <tr>
-                    <td>&copy;</td>
-                    <td>U+00A9</td>
-                    <td>&amp;copy;</td>
-                    <td>&amp;#169;</td>
-                    <td>&amp;#x00A9;</td>
-                </tr>
-                <tr>
-                    <td>&amp;</td>
-                    <td>U+0026</td>
-                    <td>&amp;amp;</td>
-                    <td>&amp;#0038;</td>
-                    <td>&amp;#x0026</td>
-                </tr>
-                <tr>
-                    <td>&#x2614;</td>
-                    <td>U+2614</td>
-                    <td><b>undefine</b></td>
-                    <td>&amp;#9748;</td>
-                    <td>&amp;#x2614;</td>
-                </tr>
-            </table>
-        </ul>
-    </section>
-    <section>
-        <h2>特殊字元(2/2)</h2>
-        <ul>
-            <li><a href="http://www.unicode.org/charts/" target="_blank">Unicode 8.0 Character Code Charts</a></li>
-            <li><a href="http://www.unicode.org/charts/PDF/U2600.pdf">如何查 Unicode 編號，以 Unicode 2600 為例？</a></li>
-            <ul>
-                <li><b>上面的編號 + 對應到左邊的編號</b></li>
-                <li>例如：上面的編號是 261，對應到左邊的編號是 4，所以 Unicode 的編號是：2614(&#x2614;)</li>
-            </ul>
-            <li><a href="https://dev.w3.org/html5/html-author/charref" target="_blank">W3C 網站的特殊字元表</a></li>
-            <li><a href="http://htmlarrows.com/" target="_blank">特殊字元表分門別類的網站</a></li>
-        </ul>
-    </section>
-    <section>
-        <h2>常用的符號及數字字元</h2>
-        <ul>
-            <li>常用符號：<a href="http://unicode.org/charts/PDF/U2700.pdf"><b>U + 2700</b></a></li>
-            <li>阿拉伯數字系統：
-                <ul>
-                    <li><a href="http://www.unicode.org/charts/script/index.html" target="_blank"> Uincode Script Charts</a> ≫ Ctrl +Ｆ(number) ≫ Number-Decimal or Number-Other 查 Unicode 編碼</li>
-                    <li>到 <a href="http://www.unicode.org/charts/" target="_blank">Code Charts</a> ≫ 輸入 Unicode 編碼</li>
-                </ul>
-            <li>CJK 數字系統：<a href="http://www.unicode.org/charts/PDF/U3200.pdf" target="_blank"><b>U + 3200</b></a></li>
-            <li>羅馬數字系統：<a href="http://www.unicode.org/charts/PDF/U2150.pdf" target="_blank"><b>U + 02150</b></a></li>
-            <li><a href="http://www.unicode.org/Public/">Unicode Standard Document</a> and <a href="http://www.unicode.org/Public/8.0.0/charts/CodeCharts.pdf">The latest set of code charts, Version 8.0.0</a>(99mb)</li>
-        </ul>
-    </section>
-    <section>
-        <h3>Windows 系統中如何輸入 Uincode?</h3>
-        <ul>
-            <li><b>限制：</b>僅在 Windows 作業系統中的<b>微軟注音輸入法</b>，其他系統請參照輸入法的說明文件</li>
-            <li>輸入步驟：</li>
-            <ol>
-                <li>將輸入法<b>切換到微軟注音輸入法</b></li>
-                <li>在中文輸入模式下，<b>輸入： ` + u + Unicode 編號</b></li>
-            </ol>
-            <li>例如：U+00A9 則先輸入`，然後輸入 u，最後輸入編號 00A9，就可以得到 ©</li>
-            <li><b>注意：要使用鍵盤上方的數字鍵來阿拉伯數字，不可以使用數字鍵盤來輸入，這樣會跳出 Unicode 輸入模式</b></li>
-        </ul>
-    </section>
-    <section>
-        <h2>Testing on another one</h2>
-        <ul>
-            <li class="fragment">字型在 <a href="./example/listStyle.html" target="_blank">Firefox(<b>請使用 Shift + Firefox 開啟</b>)</a> 和在 <a href="./example/listStyle.html" target="_blank">Chrome(請使用 Chrome 開啟)</a>不一樣</li>
-            <li class="fragment">但是，這樣卻可以在 <a href="./fontsWorkOnFirefox.html" target="_blank">Firefox(請使用 Firefox 開啟)</a> Work</li>
-            <li class="fragment">這個問題主要是 .html 檔案必須與 fonts 字型在相同的目錄之下，<b>如果 .html 檔案在子目錄之下就會有問題</b></li>
-            <li class="fragment">以上的說明只想告訴同學一件事：<b>當你認為觀念是正確的時候，務必要再使用另一個瀏覽器來做測試</b></li>
-            <li class="fragment">每一個瀏覽器有不一樣的預設值，有一派人士主張要全部將瀏覽器的預設值重設，這個議題可以參考 <a href="http://meyerweb.com/eric/thoughts/2007/04/18/reset-reasoning/" target="_blank">Reset Reasoning</a> 的說明</li>
-            <li class="fragment"><a href="http://meyerweb.com/eric/tools/css/reset/" target="_blank">瀏覽器的預設值重設有兩種樣式，提出 Reset Reasoning 原創者的樣式</a>與目前比較多人用的 <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a> 樣式</li>
-        </ul>
-    </section>
-    </section>
-    <section>
-    <section>
-        <h2>List Style(1/2)</h2>
-        <ul>
-            <li class="fragment"><b>項目符號(ul, ol, li)標籤的樣式通常是使用瀏覽器的預設值</b>，但是有特殊的需求時，可能需要改變成自己國家或自己喜歡的樣式</li>
-            <li class="fragment">Mozilla Developer Network(MDN) 製作的 <a href="https://mdn.github.io/css-counter-style-demo/" target="_blank">List 樣式的範例</a>，<b>注意：有些瀏覽器尚未支援這樣的 CSS 設定</b></li>
-            <li class="fragment"><a href="./example/listStyle.html" target="_blank">這是複製 MDN CSS \@counter-style 的原始程式碼</a>，並且對於程式碼中的 bug 做修正及刪減一些不適合我國國情的樣式</li>
-            <li class="fragment">再次強調，標準尚未確定，同學在撰寫、設定及使用這些項目符號的樣式時，<b>務必要注意瀏覽器是否已經支援？</b></li>
-            <li class="fragment">以下的測試<b>全部都是在 Firefox 46.0.1+ 版本測試，在其他的瀏覽器中，部分功能無法呈現</b></li>
-        </ul>
-    </section>
-    <section>
-        <h2>List Style(2/2)</h2>
-        <ul>
-            <li class="fragment">範例共有 3 個檔案，分別是 <b>listStyle.html, listStyle.css, listStyle.js 檔案</b></li>
-            <li class="fragment">listStyle.css 與 listStyle.js 檔案分別它們放在 css/ 與 js/ 目錄</li>
-            <li class="fragment">listStyle.html 第二個關鍵字使用大寫字母，而不使用 dash 或 underline，<b>這僅是我個人習慣的命名方式，希望同學能有自己喜愛的命名格式</b></li>
-            <li class="fragment">在 MDN 原始程式碼中有 2 個 Bug:</li>
-            <ul class="emoji" >
-                <li class="fragment"><b>fixed: 無法顯示正確的 fixed 字元</b>，請參考 listStyle.css 內部的說明</li>
-                <li class="fragment"><b>symbolic：複製原始程式碼，顯示的結果不是設定的符號樣式</b>，請使用我修正的版本</li>
-            </ul>
-            <li class="fragment"><a href="./example/listStyle.html" target="_blank">修改 MDN CSS @counter-style</a> 後的項目符號樣式</li>
-        </ul> 
-    </section>
-    </section>
-    <section>
-    <section>
-        <h2>Emoji Fonts(1/3)</h2>
-        <ul>
-            <li><a href="http://www.unicode.org/reports/tr51/" target="_blank">Emoji Unicode 標準</a></li>
-            <li><a href="http://getemoji.com/" target="_blank">Emoji 字型的網址</a></li>
-            <li><a href="http://caniemoji.com/microsoft-windows/" target="_blank">Can I Emoji ?</a></li>
-            <li><b>注意： Chrome 不支援 Emoji 字型，所以看不到彩色圖案</b></li>
-        </ul>
-        <p style="font-family: Segoe UI Emoji; font-size: 0.8em">
-        ⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 ⛳️ 🏌 🏓 🏸 🏒 🏑 🏏 🎿 ⛷ 🏂 ⛸ 🏹 🎣 🚣 🏊 🏄
-         🛀 ⛹ 🏋 🚴 🚵 🏇 🕴 🏆 🎽 🏅 🎖 🎗 🏵 🎫 🎟 🎭 🎨 🎪 🎤 🎧 🎼 🎹 🎷 🎺 🎸
-          🎻 🎬 🎮 👾 🎯 🎲 🎰 🎳 🐘 🐐 🐏 🐑 🐎 🐖 🐀 🐁 🐓 🦃 🕊 🐕 🐩 🐈 🐇 🐿 
-          🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘ 🍀 🎍 🎋 🍃 🍂 🍁 🌾 🌺 🌻 🚶🏽 🏃🏽 💃🏽 💪🏽 👈🏽 
-          👉🏽 ☝️🏽 👆🏽 🖕🏽 👇🏽 ✌️🏽 🖖🏽 🤘🏽 🖐🏽 ✊🏽 ✋🏽 👊🏽 👌🏽 👍🏽 👎🏽 👋🏽 👏🏽 👐🏽 ✍🏽 💅🏽 👂🏽 👃🏽 🚣🏽 🛀🏽 🏄🏽 🏇🏽 🏊🏽 
-          ⛹🏽 🏋🏽 🚴🏽 🚵🏽 💅🏻 👂🏻 👃🏻 🚣🏻 🛀🏻 🏄🏻 🏇🏻 🏊🏻 ⛹🏻 🏋🏻 🚴🏻 🚵🏻
-        </p>
-   </section>
-   <section>
-       <h2>Emoji Fonts(2/3)</h2>
-        <p style="font-family: Segoe UI Emoji; font-size: 0.8em">
-        ❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 
-        🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 
-        ☢ ☣ 📴 📳 🈶 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘
-         ⛔️ 📛 🚫 ❌ ⭕️ 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 💯 🔅 🔆 🔱 ⚜ 〽️ ⚠️ 🚸
-          🔰 ♻️ 🈯️ 💹 ❇️ ✳️ ❎ ✅ 💠 🌀 ➿ 🌐 Ⓜ️ 🏧 🈂️ 🛂 🛃 🛄 🛅 ♿️ 🚭 🚾 🅿️ 🚰 🚹 
-          🚺 🚼 🚻 🚮 🎦 📶 🈁 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 
-          ▶️ ⏸ ⏯ ⏹ ⏺ ⏭ ⏮ ⏩ ⏪ 🔀 🔁 🔂 ◀️ 🔼 🔽 ⏫ ⏬ ➡️ ⬅️ ⬆️ ⬇️ ↗️ ↘️ ↙️ ↖️ ↕️ ↔️ 
-          🔄 ↪️ ↩️ ⤴️ ⤵️ #️⃣ *️⃣ ℹ️ 🔤 🔡 🔠 🔣 🎵 🎶 〰️ ➰ ✔️ 🔃 ➕ ➖ ➗ ✖️ 💲 💱 ©️ ®️ ™️ 🔚
-           🔙 🔛 🔝 🔜 ☑️ 🔘 ⚪️ ⚫️ 🔴 🔵 🔸 🔹 🔶 🔷 🔺 ▪️ ▫️ ⬛️ ⬜️ 🔻 ◼️ ◻️ ◾️ ◽️ 🔲 🔳 🔈 🔉 🔊 
-           🔇 📣 📢 🔔 🔕 🃏 🀄️ ♠️ ♣️ ♥️ ♦️ 🎴 👁‍🗨 💭 🗯 💬 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 
-           🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣</p>
-   </section>
-   <section>
-       <h2>Emoji Fonts(3/3)</h2>
-       <ul>
-           <li>How to Use it?</li>
-           <ul>
-               <li><b>Copy and Paste</b></li>
-               <li>加入 style="font-family: Segoe UI Emoji" 的設定，</li>
-           </ul>
-           <li>範例的程式碼：</li>
-<pre><code>&lt;p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+<ul>
+<li>所謂特殊字元是：&lt;!&dash;&dash;(<b>與 &lt;!-- 是否有差別</b>) , &Gt;, >>, &amp;, &#x2614;</li>
+<li>特殊字元的寫法：</li>
+<ul>
+    <li>Character Name: <b>&</b>character-name <b>;</b></li>
+    <li>十進制(Decimal): <b>&#</b>decimal-numeric<b>;</b></li>
+    <li>十六進制(Hex)：<b>&#x</b>hex-numeric <b>;</b></li>
+    <li>特殊字元的範例：</li>
+<table>
+    <tr>
+        <td>Character</td>
+        <td>Unicode</td>
+        <td>Name</td>
+        <td>Decimal</td>
+        <td>Hex</td>
+    </tr>
+    <tr>
+        <td>&copy;</td>
+        <td>U+00A9</td>
+        <td>&amp;copy;</td>
+        <td>&amp;#169;</td>
+        <td>&amp;#x00A9;</td>
+    </tr>
+    <tr>
+        <td>&amp;</td>
+        <td>U+0026</td>
+        <td>&amp;amp;</td>
+        <td>&amp;#0038;</td>
+        <td>&amp;#x0026</td>
+    </tr>
+    <tr>
+        <td>&#x2614;</td>
+        <td>U+2614</td>
+        <td><b>undefine</b></td>
+        <td>&amp;#9748;</td>
+        <td>&amp;#x2614;</td>
+    </tr>
+</table>
+</script></section>
+<section data-markdown><script type="text/template">
+## 特殊字元(2/2)
+<ul>
+<li><a href="http://www.unicode.org/charts/" target="_blank">Unicode 8.0 Character Code Charts</a></li>
+<li><a href="http://www.unicode.org/charts/PDF/U2600.pdf">如何查 Unicode 編號，以 Unicode 2600 為例？</a></li>
+<ul>
+    <li><b>上面的編號 + 對應到左邊的編號</b></li>
+    <li>例如：上面的編號是 261，對應到左邊的編號是 4，所以 Unicode 的編號是：2614(&#x2614;)</li>
+<li><a href="https://dev.w3.org/html5/html-author/charref" target="_blank">W3C 網站的特殊字元表</a></li>
+<li><a href="http://htmlarrows.com/" target="_blank">特殊字元表分門別類的網站</a></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 常用的符號及數字字元
+<ul>
+<li>常用符號：<a href="http://unicode.org/charts/PDF/U2700.pdf"><b>U + 2700</b></a></li>
+<li>阿拉伯數字系統：
+    <ul>
+        <li><a href="http://www.unicode.org/charts/script/index.html" target="_blank"> Uincode Script Charts</a> ≫ Ctrl +Ｆ(number) ≫ Number-Decimal or Number-Other 查 Unicode 編碼</li>
+        <li>到 <a href="http://www.unicode.org/charts/" target="_blank">Code Charts</a> ≫ 輸入 Unicode 編碼</li>
+    <li>CJK 數字系統：<a href="http://www.unicode.org/charts/PDF/U3200.pdf" target="_blank"><b>U + 3200</b></a></li>
+<li>羅馬數字系統：<a href="http://www.unicode.org/charts/PDF/U2150.pdf" target="_blank"><b>U + 02150</b></a></li>
+<li><a href="http://www.unicode.org/Public/">Unicode Standard Document</a> and <a href="http://www.unicode.org/Public/8.0.0/charts/CodeCharts.pdf">The latest set of code charts, Version 8.0.0</a>(99mb)</li>
+</script></section>
+<section data-markdown><script type="text/template">
+<h3>Windows 系統中如何輸入 Uincode?</h3>
+<ul>
+<li><b>限制：</b>僅在 Windows 作業系統中的<b>微軟注音輸入法</b>，其他系統請參照輸入法的說明文件</li>
+<li>輸入步驟：</li>
+<ol>
+    <li>將輸入法<b>切換到微軟注音輸入法</b></li>
+    <li>在中文輸入模式下，<b>輸入： ` + u + Unicode 編號</b></li>
+</ol>
+<li>例如：U+00A9 則先輸入`，然後輸入 u，最後輸入編號 00A9，就可以得到 ©</li>
+<li><b>注意：要使用鍵盤上方的數字鍵來阿拉伯數字，不可以使用數字鍵盤來輸入，這樣會跳出 Unicode 輸入模式</b></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing on another one
+<ul>
+<li class="fragment">字型在 <a href="./example/listStyle.html" target="_blank">Firefox(<b>請使用 Shift + Firefox 開啟</b>)</a> 和在 <a href="./example/listStyle.html" target="_blank">Chrome(請使用 Chrome 開啟)</a>不一樣</li>
+<li class="fragment">但是，這樣卻可以在 <a href="./fontsWorkOnFirefox.html" target="_blank">Firefox(請使用 Firefox 開啟)</a> Work</li>
+<li class="fragment">這個問題主要是 .html 檔案必須與 fonts 字型在相同的目錄之下，<b>如果 .html 檔案在子目錄之下就會有問題</b></li>
+<li class="fragment">以上的說明只想告訴同學一件事：<b>當你認為觀念是正確的時候，務必要再使用另一個瀏覽器來做測試</b></li>
+<li class="fragment">每一個瀏覽器有不一樣的預設值，有一派人士主張要全部將瀏覽器的預設值重設，這個議題可以參考 <a href="http://meyerweb.com/eric/thoughts/2007/04/18/reset-reasoning/" target="_blank">Reset Reasoning</a> 的說明</li>
+<li class="fragment"><a href="http://meyerweb.com/eric/tools/css/reset/" target="_blank">瀏覽器的預設值重設有兩種樣式，提出 Reset Reasoning 原創者的樣式</a>與目前比較多人用的 <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a> 樣式</li>
+</script></section>
+</section><!--end of block-->
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## List Style(1/2)
+<ul>
+<li class="fragment"><b>項目符號(ul, ol, li)標籤的樣式通常是使用瀏覽器的預設值</b>，但是有特殊的需求時，可能需要改變成自己國家或自己喜歡的樣式</li>
+<li class="fragment">Mozilla Developer Network(MDN) 製作的 <a href="https://mdn.github.io/css-counter-style-demo/" target="_blank">List 樣式的範例</a>，<b>注意：有些瀏覽器尚未支援這樣的 CSS 設定</b></li>
+<li class="fragment"><a href="./example/listStyle.html" target="_blank">這是複製 MDN CSS \@counter-style 的原始程式碼</a>，並且對於程式碼中的 bug 做修正及刪減一些不適合我國國情的樣式</li>
+<li class="fragment">再次強調，標準尚未確定，同學在撰寫、設定及使用這些項目符號的樣式時，<b>務必要注意瀏覽器是否已經支援？</b></li>
+<li class="fragment">以下的測試<b>全部都是在 Firefox 46.0.1+ 版本測試，在其他的瀏覽器中，部分功能無法呈現</b></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## List Style(2/2)
+<ul>
+<li class="fragment">範例共有 3 個檔案，分別是 <b>listStyle.html, listStyle.css, listStyle.js 檔案</b></li>
+<li class="fragment">listStyle.css 與 listStyle.js 檔案分別它們放在 css/ 與 js/ 目錄</li>
+<li class="fragment">listStyle.html 第二個關鍵字使用大寫字母，而不使用 dash 或 underline，<b>這僅是我個人習慣的命名方式，希望同學能有自己喜愛的命名格式</b></li>
+<li class="fragment">在 MDN 原始程式碼中有 2 個 Bug:</li>
+<ul class="emoji" >
+    <li class="fragment"><b>fixed: 無法顯示正確的 fixed 字元</b>，請參考 listStyle.css 內部的說明</li>
+    <li class="fragment"><b>symbolic：複製原始程式碼，顯示的結果不是設定的符號樣式</b>，請使用我修正的版本</li>
+<li class="fragment"><a href="./example/listStyle.html" target="_blank">修改 MDN CSS @counter-style</a> 後的項目符號樣式</li>
+
+</script></section>
+</section>
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## Emoji Fonts(1/3)
+<ul>
+<li><a href="http://www.unicode.org/reports/tr51/" target="_blank">Emoji Unicode 標準</a></li>
+<li><a href="http://getemoji.com/" target="_blank">Emoji 字型的網址</a></li>
+<li><a href="http://caniemoji.com/microsoft-windows/" target="_blank">Can I Emoji ?</a></li>
+<li><b>注意： Chrome 不支援 Emoji 字型，所以看不到彩色圖案</b></li>
+<p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+⚽️ 🏀 🏈 ⚾️ 🎾 🏐 🏉 🎱 ⛳️ 🏌 🏓 🏸 🏒 🏑 🏏 🎿 ⛷ 🏂 ⛸ 🏹 🎣 🚣 🏊 🏄
+🛀 ⛹ 🏋 🚴 🚵 🏇 🕴 🏆 🎽 🏅 🎖 🎗 🏵 🎫 🎟 🎭 🎨 🎪 🎤 🎧 🎼 🎹 🎷 🎺 🎸
+🎻 🎬 🎮 👾 🎯 🎲 🎰 🎳 🐘 🐐 🐏 🐑 🐎 🐖 🐀 🐁 🐓 🦃 🕊 🐕 🐩 🐈 🐇 🐿 
+🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘ 🍀 🎍 🎋 🍃 🍂 🍁 🌾 🌺 🌻 🚶🏽 🏃🏽 💃🏽 💪🏽 👈🏽 
+👉🏽 ☝️🏽 👆🏽 🖕🏽 👇🏽 ✌️🏽 🖖🏽 🤘🏽 🖐🏽 ✊🏽 ✋🏽 👊🏽 👌🏽 👍🏽 👎🏽 👋🏽 👏🏽 👐🏽 ✍🏽 💅🏽 👂🏽 👃🏽 🚣🏽 🛀🏽 🏄🏽 🏇🏽 🏊🏽 
+⛹🏽 🏋🏽 🚴🏽 🚵🏽 💅🏻 👂🏻 👃🏻 🚣🏻 🛀🏻 🏄🏻 🏇🏻 🏊🏻 ⛹🏻 🏋🏻 🚴🏻 🚵🏻
+</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Emoji Fonts(2/3)
+<p style="font-family: Segoe UI Emoji; font-size: 0.8em">
+❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 
+🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 
+☢ ☣ 📴 📳 🈶 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘
+⛔️ 📛 🚫 ❌ ⭕️ 💢 ♨️ 🚷 🚯 🚳 🚱 🔞 📵 ❗️ ❕ ❓ ❔ ‼️ ⁉️ 💯 🔅 🔆 🔱 ⚜ 〽️ ⚠️ 🚸
+🔰 ♻️ 🈯️ 💹 ❇️ ✳️ ❎ ✅ 💠 🌀 ➿ 🌐 Ⓜ️ 🏧 🈂️ 🛂 🛃 🛄 🛅 ♿️ 🚭 🚾 🅿️ 🚰 🚹 
+🚺 🚼 🚻 🚮 🎦 📶 🈁 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 
+▶️ ⏸ ⏯ ⏹ ⏺ ⏭ ⏮ ⏩ ⏪ 🔀 🔁 🔂 ◀️ 🔼 🔽 ⏫ ⏬ ➡️ ⬅️ ⬆️ ⬇️ ↗️ ↘️ ↙️ ↖️ ↕️ ↔️ 
+🔄 ↪️ ↩️ ⤴️ ⤵️ #️⃣ *️⃣ ℹ️ 🔤 🔡 🔠 🔣 🎵 🎶 〰️ ➰ ✔️ 🔃 ➕ ➖ ➗ ✖️ 💲 💱 ©️ ®️ ™️ 🔚
+🔙 🔛 🔝 🔜 ☑️ 🔘 ⚪️ ⚫️ 🔴 🔵 🔸 🔹 🔶 🔷 🔺 ▪️ ▫️ ⬛️ ⬜️ 🔻 ◼️ ◻️ ◾️ ◽️ 🔲 🔳 🔈 🔉 🔊 
+🔇 📣 📢 🔔 🔕 🃏 🀄️ ♠️ ♣️ ♥️ ♦️ 🎴 👁‍🗨 💭 🗯 💬 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 
+🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Emoji Fonts(3/3)
+<ul>
+<li>How to Use it?</li>
+<ul>
+    <li><b>Copy and Paste</b></li>
+    <li>加入 style="font-family: Segoe UI Emoji" 的設定，</li>
+<li>範例的程式碼：</li>
+<pre><code data-trim>&lt;p style="font-family: Segoe UI Emoji; font-size: 0.8em">
 ❤️ 💛 💙 💜 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 ☮ ✝️ ☪ 🕉 ☸ ✡️ 🔯 🕎 ☯️ ☦ 🛐 
 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛ 🈳 🈹 ☢ ☣ 📴 📳 🈶 
 🈚️ 🈸 🈺 🈷️ ✴️ 🆚 🉑 💮 🉐 ㊙️ ㊗️ 🈴 🈵 🈲 🅰️ 🅱️ 🆎 🆑 🅾️ 🆘 ⛔️ 📛 🚫 ❌
@@ -626,135 +568,119 @@ body{
 🔸 🔹 🔶 🔷 🔺 ▪️ ▫️ ⬛️ ⬜️ 🔻 ◼️ ◻️ ◾️ ◽️ 🔲 🔳 🔈 🔉 🔊 🔇 📣 📢 🔔 🔕 🃏 🀄️ ♠️ ♣️ ♥️
 ♦️ 🎴 👁‍🗨 💭 🗯 💬 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣
 &lt;/p></code></pre>
-          <li>Emoji 字型相當新，<a href="https://atom.io/">Atom 編輯器</a>部分支援 Emoji 字型</li>
-       </ul>  
-   </section>
-   </section>
-    <section>
-    <section>
-        <h2>字型(Font)的種類</h2>
-        <ul>
-            <li class="fragment"><b>Bitmap:</b> 早期 Dos 作業系統使用的字型，常見的格式有：bdf，pcf，fnt，hbf 等，最大缺點就是字型會失真</li>
-            <li class="fragment"><b>PostScript:</b> Adobe 公司的向量字型，字型平滑、精細</li>
-            <ul>
-                <li class="fragment">.ps : PostScript 字型的副檔名</li>
-                <li class="fragment">TeX, cwTeX 所產出的就是這種字型</li>
-            </ul>
-            <li class="fragment"><b>TrueType</b>: Apple 與 Microsoft 公司所推出的字型，可調整成任何大小，而且不論大小為何都很清晰且容易閱讀。</li>
-            <ul>
-                <li class="fragment">.ttf : TrueType 字型的副檔名</li>
-                <li class="fragment">.tte : 是 TrueTpe 字型，是給使用者自訂定義編碼用，就像作業系統沒有這個字時，使用者可以自行編碼及造字</li>
-            </ul>
-            <li class="fragment"><b>OpenType:</b> 具有 TrueType 字型特性外，還合併較大的基本字元集，像是「字符」與「連寫」等</li>
-            <li class="fragment"><b>ClearType:</b> <a href="http://windows.microsoft.com/zh-tw/windows/make-text-easier-read-cleartype#1TC=windows-7" target="_blank">推 Windows 7 時所出的新字型</a></li>
-        </ul>
-    </section>
-    <section>
-        <h2>網頁字型(Web Font)的種類</h2>
-        <ul>
-            <li class="fragment">請先看 <a href="http://fonts.googleapis.com/earlyaccess/cwtexyen.css" target="_blank">cwTeX Yen Fonts 的設定值</a></li>
-            <li class="fragment"><b>Embedded OpenType:</b> 與 OpenType 字型相容的字型，主要是 Microsoft 公司所設計，要內嵌在網頁上使用的字型</li>
-            <ul>
-                <li class="fragment">.eot: Embedded OpenType 的副檔名</li>
-                <li class="fragment">ttf2eot: <a href="https://code.google.com/archive/p/ttf2eot/downloads" target="_blank">ttf轉 eot 字型的轉檔程式</a></li>
-            </ul>
-                <li class="fragment"><b>Web Open Font Format(WOFF):</b> 是壓縮的 OpenType or TrueType 字型，以及加入一些 meta data 的資訊，目前由 W3C 來主導及制定標準</li>
-            <ul>
-                <li class="fragment">W3C's <a href="https://www.w3.org/standards/techs/webfonts#w3c_all" target="_blank">Web Fonts 的標準</a></li> 
-                <li class="fragment">未來會使用 <a href="https://www.w3.org/TR/WOFF2/" target="_blank">WOFF 2.0 版本的字型</a></li>               
-            </ul>
-        </ul>
-    </section>
-   <section>
-       <h2>WOFF Fonts(1/2)</h2>
-       <ul>
-           <li>WOFF: <b>Web Open Fonts Format</b></li>
-           <li>目前的標準是 <a href="https://www.w3.org/TR/WOFF/" target="_blank">WOFF 1.0 版本</a>，未來將會使用改良壓縮技術的 <a href="https://www.w3.org/TR/WOFF2/" target="_blank">WOFF 2.0 版本</a></li>
-           <li>為何要使用 WOFF 字型？因為考量網路的速度及頻寬，WOFF 可以加速字型的載入</li>
-           <li>WOFF 轉檔工具程式</li>
-            <ul>
-                <li><a href="https://people.mozilla.org/~jkew/woff/sfnt2woff.exe">sfnt2woff.exe</a> 是將 ttf or OpenType 轉成 woff 字型的程式</li>
-                <li>執行轉換的指令：<b>sfnt2woff 字型的檔名</b></li>
-<pre><code>D:\新增資料夾\cwTeX>sfnt2woff cwTeXFangSong-zhonly.ttf</code></pre>
-                <li>目前 WOFF 1.0 版本的壓縮率還是不高(cwTeXFongSong 字體做轉換，約 30&#37;)，所以建議同學未來使用 WOFF 2.0 的技術</li>
-            </ul>
-       </ul>
-   </section>
-   <section>
-       <h2>WOFF Fonts(2/2)</h2>
-       <ul>
-           <li>WOFF2 轉檔程式：</li>
-           <li>現在仍然是在測試的階段，標準尚未成為建議的版本，目前的瀏覽器也沒有全面支援它，請先暫時不要使用 WOFF2 字型</li>
-           <li>Google Fonts 已經有使用 WOFF2 的設定，但是，它也設定了 WOFF 及 TTF 等字型，所以不至於有缺字的情形</li>
-           <li>Google Fonts 釋出的<a href="https://github.com/google/woff2" target="_blank">WOFF2 原始程式碼</a> ，目前在 Unix 系統環境下編譯及使用，Windows 系統中建議在 <a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS | MinGW</a> 中編譯原始程式碼</li>
-            <li><a href="https://everythingfonts.com/" target="_blank">Everything Fonts</a> 是提供線上各種字型轉檔的服務：</li>
-            <ul>
-                <li><a href="https://everythingfonts.com/ttf-to-woff2" target="_blank">ttf2woff2</a></li>
-                <li><a href="https://everythingfonts.com/otf-to-woff2" target="_blank">otf2woff2</a></li>
-            </ul>
-       </ul>
-   </section>
-   </section>
-    <section>
-    <section>
-        <h2>字體架構的分類</h2>
-        <ul>
-            <li>早期印刷技術就是要設計鉛字體，然後使用這些字體來印製書籍、文件，所以，<b>早期的字體是使用鉛字來製作</b></li>
-            <li>鉛字體每一個字的骨架設計有分為 Serifs, Sans serif:</li>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Serif_and_sans-serif_03.svg" target="_blank"><b>Serifs:</b></a> 中文翻譯：襯線字體，<b>有邊邊角角的字體</b></li>
-                <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Serif_and_sans-serif_01.svg" target="_blank"><b>Sans serif:</b></a> 中文翻譯：無襯線字體，<b>沒有邊邊角角的字體</b></li>
-            </ul>
-            <li>字與字之間的排列可以分成 proportional 與 monospaced</li>
-            <ul>
-                <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Proportional-vs-monospace-v4.jpg" target="_blank"><b>Proportional:</b></a> 比例的字體，字的大小有比例的分別</li>
-                <li><b>Monospaced:</b> 無比例或者固定寬度的字體，字與字之間等寬度</li>
-            </ul>
-        </ul>
-    </section>
-    <section>
-       <h2>字體的設計樣式</h2>
-       <ul>
-          <li>羅馬字體的設計樣式</li>
-          <ul>
-               <li><b>Serif:</b>最具代表的字型：Times Roman 與 Garamond</li>
-               <li><b>Sans serif</b>: 有 Helvetica,  Futura, Gill Sans, Univers, Frutiger 等字型</li>
-               <li><b>Script:</b>最具代表的字型： Zapfino</li>
-               <li><b>Monospaced:</b> 有 Courier, Prestige Elite, Fixedsys, Monaco 等字型</li>
-          </ul>
-          <li>CJK 字體的樣式與英文字體不同</li>
-          <ul>
-              <li>明體比較像 Serif，黑體比較像 Sans-serif</li>
-              <li>常用的還有：仿宋體、隸書、楷書</li>
-              <li>古典的有：行書、草書</li>
-              <li>更早的有：甲骨文、篆書(大篆、小篆、鳥蟲篆)等</li>
-          </ul>
-       </ul>
-   </section>
-   <section>
-       <h2>Firefox 預設的字型</h2>
-       <img src="/images/html5/fontSetting3.png" alt="font Setting3">
-   </section>
-   <section>
-       <h2>Chrome 預設的字型</h2>
-       <img src="/images/html5/fontSetting.png" alt="font Setting">
-   </section>
-   <section>
-       <h2>字型的設定值</h2>
-       <ul>
-           <li><a href="#/1/1">Google Fonts 的設定值</a></li>
-           <li>Font-family:family-name | generic family</li>
-           <ul>
-               <li>family-name 就是字族的名稱</li>
-               <li>generic family: Serif, Sans-Serif, Monospace</li>
-               <li>如果找不到 family-name 就使用 generic family 的其中一個字族</li>
-           </ul>
-           <li>Font-style: normal | italic |oblique</li>
-           <li>Font-weight: normal | bold | bolder | lighter | number(100, 200, 300-900)</li>
-           <li>請參考之前所給的 <a href="./CSS3_Reference.pdf">CSS3 Quick Reference Guide </a>資料</li>
-       </ul>
-   </section>
-   </section>
+<li>Emoji 字型相當新，<a href="https://atom.io/">Atom 編輯器</a>部分支援 Emoji 字型</li>
+ 
+</script></section>
+</section><!--end of block-->
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## 字型(Font)的種類
+<ul>
+<li class="fragment"><b>Bitmap:</b> 早期 Dos 作業系統使用的字型，常見的格式有：bdf，pcf，fnt，hbf 等，最大缺點就是字型會失真</li>
+<li class="fragment"><b>PostScript:</b> Adobe 公司的向量字型，字型平滑、精細</li>
+<ul>
+    <li class="fragment">.ps : PostScript 字型的副檔名</li>
+    <li class="fragment">TeX, cwTeX 所產出的就是這種字型</li>
+<li class="fragment"><b>TrueType</b>: Apple 與 Microsoft 公司所推出的字型，可調整成任何大小，而且不論大小為何都很清晰且容易閱讀。</li>
+<ul>
+    <li class="fragment">.ttf : TrueType 字型的副檔名</li>
+    <li class="fragment">.tte : 是 TrueTpe 字型，是給使用者自訂定義編碼用，就像作業系統沒有這個字時，使用者可以自行編碼及造字</li>
+<li class="fragment"><b>OpenType:</b> 具有 TrueType 字型特性外，還合併較大的基本字元集，像是「字符」與「連寫」等</li>
+<li class="fragment"><b>ClearType:</b> <a href="http://windows.microsoft.com/zh-tw/windows/make-text-easier-read-cleartype#1TC=windows-7" target="_blank">推 Windows 7 時所出的新字型</a></li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 網頁字型(Web Font)的種類
+<ul>
+<li class="fragment">請先看 <a href="http://fonts.googleapis.com/earlyaccess/cwtexyen.css" target="_blank">cwTeX Yen Fonts 的設定值</a></li>
+<li class="fragment"><b>Embedded OpenType:</b> 與 OpenType 字型相容的字型，主要是 Microsoft 公司所設計，要內嵌在網頁上使用的字型</li>
+<ul>
+    <li class="fragment">.eot: Embedded OpenType 的副檔名</li>
+    <li class="fragment">ttf2eot: <a href="https://code.google.com/archive/p/ttf2eot/downloads" target="_blank">ttf轉 eot 字型的轉檔程式</a></li>
+    <li class="fragment"><b>Web Open Font Format(WOFF):</b> 是壓縮的 OpenType or TrueType 字型，以及加入一些 meta data 的資訊，目前由 W3C 來主導及制定標準</li>
+<ul>
+    <li class="fragment">W3C's <a href="https://www.w3.org/standards/techs/webfonts#w3c_all" target="_blank">Web Fonts 的標準</a></li> 
+    <li class="fragment">未來會使用 <a href="https://www.w3.org/TR/WOFF2/" target="_blank">WOFF 2.0 版本的字型</a></li>               
+</script></section>
+<section data-markdown><script type="text/template">
+## WOFF Fonts(1/2)
+<ul>
+<li>WOFF: <b>Web Open Fonts Format</b></li>
+<li>目前的標準是 <a href="https://www.w3.org/TR/WOFF/" target="_blank">WOFF 1.0 版本</a>，未來將會使用改良壓縮技術的 <a href="https://www.w3.org/TR/WOFF2/" target="_blank">WOFF 2.0 版本</a></li>
+<li>為何要使用 WOFF 字型？因為考量網路的速度及頻寬，WOFF 可以加速字型的載入</li>
+<li>WOFF 轉檔工具程式</li>
+<ul>
+    <li><a href="https://people.mozilla.org/~jkew/woff/sfnt2woff.exe">sfnt2woff.exe</a> 是將 ttf or OpenType 轉成 woff 字型的程式</li>
+    <li>執行轉換的指令：<b>sfnt2woff 字型的檔名</b></li>
+<pre><code data-trim>D:\新增資料夾\cwTeX>sfnt2woff cwTeXFangSong-zhonly.ttf</code></pre>
+    <li>目前 WOFF 1.0 版本的壓縮率還是不高(cwTeXFongSong 字體做轉換，約 30&#37;)，所以建議同學未來使用 WOFF 2.0 的技術</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## WOFF Fonts(2/2)
+<ul>
+<li>WOFF2 轉檔程式：</li>
+<li>現在仍然是在測試的階段，標準尚未成為建議的版本，目前的瀏覽器也沒有全面支援它，請先暫時不要使用 WOFF2 字型</li>
+<li>Google Fonts 已經有使用 WOFF2 的設定，但是，它也設定了 WOFF 及 TTF 等字型，所以不至於有缺字的情形</li>
+<li>Google Fonts 釋出的<a href="https://github.com/google/woff2" target="_blank">WOFF2 原始程式碼</a> ，目前在 Unix 系統環境下編譯及使用，Windows 系統中建議在 <a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS | MinGW</a> 中編譯原始程式碼</li>
+<li><a href="https://everythingfonts.com/" target="_blank">Everything Fonts</a> 是提供線上各種字型轉檔的服務：</li>
+<ul>
+    <li><a href="https://everythingfonts.com/ttf-to-woff2" target="_blank">ttf2woff2</a></li>
+    <li><a href="https://everythingfonts.com/otf-to-woff2" target="_blank">otf2woff2</a></li>
+</script></section>
+</section><!--end of block-->
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## 字體架構的分類
+<ul>
+<li>早期印刷技術就是要設計鉛字體，然後使用這些字體來印製書籍、文件，所以，<b>早期的字體是使用鉛字來製作</b></li>
+<li>鉛字體每一個字的骨架設計有分為 Serifs, Sans serif:</li>
+<ul>
+    <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Serif_and_sans-serif_03.svg" target="_blank"><b>Serifs:</b></a> 中文翻譯：襯線字體，<b>有邊邊角角的字體</b></li>
+    <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Serif_and_sans-serif_01.svg" target="_blank"><b>Sans serif:</b></a> 中文翻譯：無襯線字體，<b>沒有邊邊角角的字體</b></li>
+<li>字與字之間的排列可以分成 proportional 與 monospaced</li>
+<ul>
+    <li><a href="https://en.wikipedia.org/wiki/Typeface#/media/File:Proportional-vs-monospace-v4.jpg" target="_blank"><b>Proportional:</b></a> 比例的字體，字的大小有比例的分別</li>
+    <li><b>Monospaced:</b> 無比例或者固定寬度的字體，字與字之間等寬度</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## 字體的設計樣式
+<ul>
+<li>羅馬字體的設計樣式</li>
+<ul>
+    <li><b>Serif:</b>最具代表的字型：Times Roman 與 Garamond</li>
+    <li><b>Sans serif</b>: 有 Helvetica,  Futura, Gill Sans, Univers, Frutiger 等字型</li>
+    <li><b>Script:</b>最具代表的字型： Zapfino</li>
+    <li><b>Monospaced:</b> 有 Courier, Prestige Elite, Fixedsys, Monaco 等字型</li>
+<li>CJK 字體的樣式與英文字體不同</li>
+<ul>
+    <li>明體比較像 Serif，黑體比較像 Sans-serif</li>
+    <li>常用的還有：仿宋體、隸書、楷書</li>
+    <li>古典的有：行書、草書</li>
+    <li>更早的有：甲骨文、篆書(大篆、小篆、鳥蟲篆)等</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## Firefox 預設的字型
+<img src="/images/html5/fontSetting3.png" alt="font Setting3">
+</script></section>
+<section data-markdown><script type="text/template">
+## Chrome 預設的字型
+<img src="/images/html5/fontSetting.png" alt="font Setting">
+</script></section>
+<section data-markdown><script type="text/template">
+## 字型的設定值
+<ul>
+<li><a href="#/1/1">Google Fonts 的設定值</a></li>
+<li>Font-family:family-name | generic family</li>
+<ul>
+    <li>family-name 就是字族的名稱</li>
+    <li>generic family: Serif, Sans-Serif, Monospace</li>
+    <li>如果找不到 family-name 就使用 generic family 的其中一個字族</li>
+<li>Font-style: normal | italic |oblique</li>
+<li>Font-weight: normal | bold | bolder | lighter | number(100, 200, 300-900)</li>
+<li>請參考之前所給的 <a href="./CSS3_Reference.pdf">CSS3 Quick Reference Guide </a>資料</li>
+</script></section>
+</section><!--end of block-->
 
 </div>
 </div>

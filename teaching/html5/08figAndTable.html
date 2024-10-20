@@ -2,245 +2,198 @@
 <html lang="zh-Hant-TW">
 
 <head>
-		<meta charset="utf-8">
+<meta charset="utf-8">
 
-		<title>Image and Table</title>
+<title>Image and Table</title>
 
-		<meta name="description" content="Tutorial of web design for primer">
-		<meta name="author" content="Elvis Hsieh">
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="/revealjs/dist/reset.css">
-        <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-        <link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
-        <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
-        <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
-        <link rel="stylesheet" href="/css/custom4revealjs.css">
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
-        <link rel="stylesheet" href="/css/style4font.css">
-        <!-- Printing and PDF exports -->
-        <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="reveal-js/lib/js/html5shiv.js"></script>
-        <![endif]-->
-    </head>
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
 <body>
 
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-   <section>
-   <section>
-       <h2>插入圖檔</h2>
-       <table>
-           <thead>插入圖檔的標籤</thead>
-           <tbody>
-           <tr>
-               <td>標籤名稱</td>
-               <td>簡要說明</td>
-           </tr>
-           <tr>
-               <td>figure</td>
-               <td>插入圖檔</td>
-           </tr>
-           <tr>
-               <td>figcaption</td>
-               <td>圖檔的標題文字</td>
-           </tr>
-           <tr>
-               <td>img</td>
-               <td>設定圖檔的來源及樣式等</td>
-           </tr>
-        </tbody>
-       </table>
-    </section>
-    <section>
-        <h2>插入圖檔的範例</h2>
-        <ul>
-            <li>插入圖檔的程式碼範例</li>
-        <pre><code class="line-numbers">&lt;figure>
-    &lt;img src="/images/html5/kookaburra.jpg" alt="Kooaburra">
-    &lt;img src="/images/html5/pelican.jpg" alt="Pelican stood on the beach">
-    &lt;img src="/images/html5/lorikeet.jpg" alt="Cheeky looking Rainbow Lorikeet">
-    &lt;figcaption>Australian Birds. From left to right, Kookburra, Pelican and Rainbow Lorikeet. Originals by 
-    &lt;a href="http://www.flickr.com/photos/rclark/">Richard Clark&lt;/a>
-    &lt;/figcaption>
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## 插入圖檔
+
+|  | 插入圖檔的標籤|
+|:--- | :--- |
+標籤名稱 | 簡要說明 |
+| figure | 插入圖檔 |
+| figcaption | 圖檔的標題文字 |
+| img | 設定圖檔的來源及樣式等 |
+|||
+</script></section>
+<section data-markdown><script type="text/template">
+## 插入圖檔的範例
+<ul>
+    <li>插入圖檔的程式碼範例</li>
+<pre><code data-trim data-line-numbers>&lt;figure>
+&lt;img src="/images/html5/kookaburra.jpg" alt="Kooaburra">
+&lt;img src="/images/html5/pelican.jpg" alt="Pelican stood on the beach">
+&lt;img src="/images/html5/lorikeet.jpg" alt="Cheeky looking Rainbow Lorikeet">
+&lt;figcaption>Australian Birds. From left to right, Kookburra, Pelican and Rainbow Lorikeet. Originals by 
+&lt;a href="http://www.flickr.com/photos/rclark/">Richard Clark&lt;/a>
+&lt;/figcaption>
 &lt;figure></code></pre>
-       <li><a href="./example/fig.html">這是上面程式碼 + 下面 CSS 設定圖檔樣式的結果</a></li>
-       <pre><code class="line-numbers">img{
-    padding: 0.5em;
-    border-style: solid;
-    border-width: thin;
-    border-radius: 10px;
+<li><a href="./example/fig.html">這是上面程式碼 + 下面 CSS 設定圖檔樣式的結果</a></li>
+<pre><code data-trim data-line-numbers>img{
+padding: 0.5em;
+border-style: solid;
+border-width: thin;
+border-radius: 10px;
 }</code></pre>
-   </ul>
-    </section>
-    <section>
-        <h2>Box Model of Element</h2>
-        <img src="/images/html5/boxModel.gif" alt="box Model">
-        <ul>
-            <li>每一個 html 標籤元件都是一個 Box Model</li>
-            <li>例如： <h4 style="margin: 5px 10px; border: dashed; padding: 5px 20px;">這是 h4 標籤</h4></li>
-        </ul>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## Box Model of Element
+<img src="/images/html5/boxModel.gif" alt="box Model">
+<ul>
+    <li>每一個 html 標籤元件都是一個 Box Model</li>
+    <li>例如： <h4 style="margin: 5px 10px; border: dashed; padding: 5px 20px;">這是 h4 標籤</h4></li>
+</ul>
 <pre><code>&lt;h4 style="margin: 5px 10px; border: dashed; padding: 5px 20px;">這是 h4 標籤&lt;/h4>
 &lt;--        margin: 上下  左右; --></code></pre>
-    </section>
-    </section>
-   <section>
-   <section>
-       <h2>插入表格</h2>
-       <table>
-           <tbody>
-           <tr>
-               <td>標籤名稱</td>
-               <td>簡要說明</td>
-           </tr>
-           <tr>
-               <td>table</td>
-               <td>插入表格</td>
-           </tr>
-           <tr>
-               <td>thead</td>
-               <td>整個表格的表頭</td>
-           </tr>
-           <tr>
-               <td>tbody</td>
-               <td>表格的主體內容</td>
-           </tr>
-           <tr>
-               <td>tfoot</td>
-               <td>整體的表尾</td>
-           </tr>           <tr>
-               <td>tr</td>
-               <td>一列表格</td>
-           </tr> 
-            <tr>
-               <td>td</td>
-               <td>一列表格的一欄</td>
-           </tr>
-            <tr>
-               <td>caption</td>
-               <td>表格的標題文字</td>
-           </tr>
-        </tbody>
-       </table>
-   </section>
-   <section>
-       <h2>表格的範例</h2>
-       <ul>
-           <li><a href="./example/table.html" target="_blank">表格及原始程式碼</a></li>
-           <li>值得注意的是：<b>在第二個例子中，tfoot 標籤寫在 tbody 的前面，網頁卻呈現在後面</b></li>
-           <li>所有表格內的顏色、格線、位置、字型及字體大小等，全部都設在 ./css/table.css</li>
-           <li><a href="./example/css/table.css" target="_blank">table.css</a> 內部有中文的說明，請參考這些設定的說明</li>
-           <li>請自己修改這些設定值，不要擔心會回不去，記得按 Ctrl + z 或者先複製 table.css 檔</li>
-       </ul>
-   </section>
-   </section>
-    <section>
-    <section>
-        <h2>Responsive Web Design</h2>
-        <ul>
-            <li class="fragment"><b>RWD</b>(Responsive Web Design)是<b>現在網頁設計的必要條件</b></li>
-            <li class="fragment">可是，RWD 要考慮的元件及樣式相當繁雜，比如說，<b>在大小不同的螢幕或設備要如何呈現字型大小、版面樣式、圖片及表格大小</b>等等問題?</li>
-            <li class="fragment">目前還有許多 RWD 相關的標準尚未制定完成，在撰寫網頁程式碼<b>要小心、注意瀏覽器是否支援?</b></li>
-            <li class="fragment"> RWD 可以使用 @media 或者撰寫 Javascript 來處理不同設備間網頁呈現的問題</li>
-            <li class="fragment"><a href="http://ricg.io/" target="_blank">RICG(Responsive Issues Community Group)</a>是針對 Responsive 這個議題而成立的組織，他們與 W3C 及 <a href="https://html.spec.whatwg.org/multipage/" target="_blank">HTML Living Standard</a> 是有資訊交流與聯繫</li>            
-        </ul>
-    </section>
-    <section>
-        <h2>Media Query</h2>
-        <ul>
-            <li class="fragment"><b>@media</b> 選項有：all, braille(點字),  embossed(浮雕),  handheld(手持式),  print,  projection(投影設備),  <b>screen</b>, speech(語音),  tty,  and  tv</li>
-<pre class="fragment"><code>@media screen and (max-width: 1440px)
- {
-    ...
- }    
- </code></pre>
-            <li class="fragment">W3C 考慮的不只是手機、平板、螢幕大小的問題，還考慮到網頁要列印、簡報時，所要呈現的結果是什麼樣子？</li>
-            <li class="fragment">braille(點字)：無障礙網頁要達到某種程度才能取得認證</li>
-            <li class="fragment">handheld(手持式)：Google Glasses  是最典型的手持式裝置</li>
-            <li class="fragment">speech(語音)：透過不同 lang 的設定，可以由不同翻譯機播放出不同的語音</li>
-        </ul>
-    </section>
-    <section>
-        <h2>使用 Javascript 套件</h2>
-        <ul>
-            <li class="fragment">網路上有人已經寫了 Javascript 程式碼，<b>讓我們可以先使用這些未來要制定的標籤、屬性與屬性值</b></li>
-            <li class="fragment">換言之，<b>就是目前瀏覽器可能尚未支援這些標籤、屬性與屬性值</b>，所以在這種過渡時期，<b>要先使用這些 Javascript 套件來暫時填補這段空窗期</b></li>
-            <li class="fragment"> <a href="https://modernizr.com/">Modernizr</a> 是 Javascript 的套件，<a href="./03structure.html#/5/2">之前我們有介紹過，</a>它也提供上面所講的功能</li>
-            <ul>
-                <li class="fragment">Add your detects ≫ Ctrl + F ≫ 找 picture, or Emoji ≫ 按 &#x2641; ≫ BUILD ≫ Download</li>
-                <li class="fragment"><a href="./03structure.html#/5/3">下載 .js 後將 script 標籤加入到 head 標籤內</a>，請參考 <a href="./example/modernizr.html">modernizr.html</a>的原始程式碼</li>
-            </ul>
-            <li class="fragment">其他功能的 Javascript 套件<a href="./11resource.html" target="_blank">可以到 CDN 找</a></li>
-        </ul>
-    </section>
-    </section>
-    <section>
-    <section>
-        <h2>Responsive Images (1/2)</h2>
-        <ul>
-            <li>Responsive Image 是其中一種需要特別處理的元件之一</li>
-            <li><a href="https://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a> is a responsive image polyfill，意思就是標準尚未制定完成的一種過渡時期作法</li>
-            <li><b>picturefill.js 讓網頁設計者可以先使用 picture 標籤及屬性</b></li>
-            <li>下載及使用方法：</li>
-            <ul>
-                <li>下載：<a href="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.js">picturefill.js(v3.0.2 Stable)</a> 或 <a href="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js">picturefill.min.js</a></li>
-                <li>使用：在 &lt;head&gt; 標籤中加入</li>
-<pre><code>&lt;head>
-  &lt;script>
-    // Picture element HTML5 shiv
-    document.createElement( "picture" );
-  &lt;/script>
-  &lt;script src="picturefill.min.js" async>&lt;/script>
+</script></section>
+</section><!--end of block-->
+
+<section><!--start of block-->
+<section data-markdown><script type="text/template">
+## 插入表格
+| 標籤名稱 | 簡要說明 |
+|:--- | :--- |
+| table | 插入表格 |
+| thead | 整個表格的表頭 |
+| tbody | 表格的主體內容 |
+| tfoot | 整體的表尾 |
+| tr | 一列表格 |
+| td | 一列表格的一欄 |
+| caption | 表格的標題 |
+|||
+</script></section>
+<section data-markdown><script type="text/template">
+## 表格的範例
+- <a href="./example/table.html" target="_blank">表格及原始程式碼</a>
+- 值得注意的是：<b>在第二個例子中，tfoot 標籤寫在 tbody 的前面，網頁卻呈現在後面</b>
+- 所有表格內的顏色、格線、位置、字型及字體大小等，全部都設在 ./css/table.css
+- <a href="./example/css/table.css" target="_blank">table.css</a> 內部有中文的說明，請參考這些設定的說明
+- 請自己修改這些設定值，不要擔心會回不去，記得按 Ctrl + z 或者先複製 table.css 檔
+</script></section>
+</section><!--end of block-->
+
+<section><!-- start of block-->
+<section data-markdown><script type="text/template">
+## Responsive Web Design
+<ul>
+    <li class="fragment"><b>RWD</b>(Responsive Web Design)是<b>現在網頁設計的必要條件</b></li>
+    <li class="fragment">可是，RWD 要考慮的元件及樣式相當繁雜，比如說，<b>在大小不同的螢幕或設備要如何呈現字型大小、版面樣式、圖片及表格大小</b>等等問題?</li>
+    <li class="fragment">目前還有許多 RWD 相關的標準尚未制定完成，在撰寫網頁程式碼<b>要小心、注意瀏覽器是否支援?</b></li>
+    <li class="fragment"> RWD 可以使用 @media 或者撰寫 Javascript 來處理不同設備間網頁呈現的問題</li>
+    <li class="fragment"><a href="http://ricg.io/" target="_blank">RICG(Responsive Issues Community Group)</a>是針對 Responsive 這個議題而成立的組織，他們與 W3C 及 <a href="https://html.spec.whatwg.org/multipage/" target="_blank">HTML Living Standard</a> 是有資訊交流與聯繫</li>            
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## Media Query
+<ul>
+    <li class="fragment"><b>@media</b> 選項有：all, braille(點字),  embossed(浮雕),  handheld(手持式),  print,  projection(投影設備),  <b>screen</b>, speech(語音),  tty,  and  tv</li>
+<pre class="fragment"><code data-trim>@media screen and (max-width: 1440px)
+{...
+}    
+</code></pre>
+    <li class="fragment">W3C 考慮的不只是手機、平板、螢幕大小的問題，還考慮到網頁要列印、簡報時，所要呈現的結果是什麼樣子？</li>
+    <li class="fragment">braille(點字)：無障礙網頁要達到某種程度才能取得認證</li>
+    <li class="fragment">handheld(手持式)：Google Glasses  是最典型的手持式裝置</li>
+    <li class="fragment">speech(語音)：透過不同 lang 的設定，可以由不同翻譯機播放出不同的語音</li>
+</ul>
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用 Javascript 套件
+<ul>
+    <li class="fragment">網路上有人已經寫了 Javascript 程式碼，<b>讓我們可以先使用這些未來要制定的標籤、屬性與屬性值</b></li>
+    <li class="fragment">換言之，<b>就是目前瀏覽器可能尚未支援這些標籤、屬性與屬性值</b>，所以在這種過渡時期，<b>要先使用這些 Javascript 套件來暫時填補這段空窗期</b></li>
+    <li class="fragment"> <a href="https://modernizr.com/">Modernizr</a> 是 Javascript 的套件，<a href="./03structure.html#/5/2">之前我們有介紹過，</a>它也提供上面所講的功能</li>
+    <ul>
+        <li class="fragment">Add your detects ≫ Ctrl + F ≫ 找 picture, or Emoji ≫ 按 &#x2641; ≫ BUILD ≫ Download</li>
+        <li class="fragment"><a href="./03structure.html#/5/3">下載 .js 後將 script 標籤加入到 head 標籤內</a>，請參考 <a href="./example/modernizr.html">modernizr.html</a>的原始程式碼</li>
+    </ul>
+    <li class="fragment">其他功能的 Javascript 套件<a href="./11resource.html" target="_blank">可以到 CDN 找</a></li>
+</ul>
+</script></section>
+</section><!--end of block-->
+
+<section><!-- start of block-->
+<section data-markdown><script type="text/template">
+## Responsive Images (1/2)
+- Responsive Image 是其中一種需要特別處理的元件之一
+- <a href="https://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a> is a responsive image polyfill，意思就是標準尚未制定完成的一種過渡時期作法
+- <b>picturefill.js 讓網頁設計者可以先使用 picture 標籤及屬性</b>
+- 下載：<a href="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.js">picturefill.js(v3.0.2 Stable)</a> 或 <a href="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js">picturefill.min.js</a>
+- 使用：在 &lt;head&gt; 標籤中加入
+<pre><code data-trim data-line-numbers>&lt;head>
+&lt;script>
+// Picture element HTML5 shiv
+document.createElement( "picture" );
+&lt;/script>
+&lt;script src="picturefill.min.js" async>&lt;/script>
 &lt;/head></code></pre>
-            </ul>
-            <li><a href="./example/picturefill.html" target="_blank">picturefill.js 的範例及原始程式碼</a></li>
-        </ul>
-    </section>
-    <section>
-        <h2>Responsive Images (2/2)</h2>
-        <ul>
-            <li><a href="https://github.com/aFarkas/respimage" target="_blank">respimage</a> 是另一種 responsive images polyfill</li>
-            <li>下載及使用方法：</li>
-            <ul>
-                <li>下載並解壓縮：<a href="https://github.com/aFarkas/respimage/archive/gh-pages.zip">gh-pages.zip</a></li>
-                <li>使用：</li>
-<pre><code>&lt;head>
-    &lt;script src="respimage.min.js" async="">&lt;/script>
+- <a href="./example/picturefill.html" target="_blank">picturefill.js 的範例及原始程式碼</a>
+</script></section>
+<section data-markdown><script type="text/template">
+## Responsive Images (2/2)
+- <a href="https://github.com/aFarkas/respimage" target="_blank">respimage</a> 是另一種 responsive images polyfill
+- 下載並解壓縮：<a href="https://github.com/aFarkas/respimage/archive/gh-pages.zip">gh-pages.zip</a>
+<pre><code data-trim>&lt;head>
+&lt;script src="respimage.min.js" async="">&lt;/script>
 &lt;/head></code></pre>
-                <li>使用<a href="./11resource.html">CDN</a>：</li>
-<pre><code>&lt;script src="https://cdn.jsdelivr.net/respimage/1.4.2/respimage.min.js"> &lt;/script></code></pre>
-            </ul>
-            <li><a href="./example/respimage.html" target="_blank">respimage 的範例及原始程式碼</a></li>
-        </ul>
-    </section>
-    </section>
-   <section>
-       <h2>Rwd Table</h2>
-       <ul>
-           <li class="fragment">目前 RWD Table 的標準是：<a href="https://html.spec.whatwg.org/multipage/tables.html#tables" target="_blank">Tabular data of Living Standard</a></li>
-           <li class="fragment"><a href="http://gergeo.se/RWD-Table-Patterns/#demo">RWD table</a> 也有 Javascritp 套件</li>
-           <ul>
-               <li class="fragment">使用方式與 picturefill.js 與 respimage.js 類似</li>
-               <li class="fragment">都是將相關的 .js 及 css 檔案，分別使用 script 標籤及 link 標籤加入到 head 標籤內</li>
-               <li class="fragment">如何使用，請參考 RWD-Table-Patterns 網站上的 <a href="http://gergeo.se/RWD-Table-Patterns/#demo">Demo</a> 範例</li>
-           </ul>
-       </ul>
-   </section>
+- 使用<a href="./11resource.html">CDN</a>：
+<pre><code data-trim data-line-numbers>&lt;script src="https://cdn.jsdelivr.net/respimage/1.4.2/respimage.min.js"> &lt;/script></code></pre>
+- <a href="./example/respimage.html" target="_blank">respimage 的範例及原始程式碼</a>
+</script></section>
+</section><!--end of block-->
+<section><!-- start of block-->
+<section data-markdown><script type="text/template">
+## Rwd Table
+<ul>
+    <li class="fragment">目前 RWD Table 的標準是：<a href="https://html.spec.whatwg.org/multipage/tables.html#tables" target="_blank">Tabular data of Living Standard</a></li>
+    <li class="fragment"><a href="http://gergeo.se/RWD-Table-Patterns/#demo">RWD table</a> 也有 Javascritp 套件</li>
+    <ul>
+        <li class="fragment">使用方式與 picturefill.js 與 respimage.js 類似</li>
+        <li class="fragment">都是將相關的 .js 及 css 檔案，分別使用 script 標籤及 link 標籤加入到 head 標籤內</li>
+        <li class="fragment">如何使用，請參考 RWD-Table-Patterns 網站上的 <a href="http://gergeo.se/RWD-Table-Patterns/#demo">Demo</a> 範例</li>
+    </ul>
+</ul>
+</script></section>
+</section><!--end of block-->
 
 </div>
 </div>
