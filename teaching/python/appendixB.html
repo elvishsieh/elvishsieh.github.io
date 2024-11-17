@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>Setting Development Environment</title>
+<title>Appendix B</title>
 
-<meta name="description" content="Tutorial of web design for primer">
+<meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/cppLogo.ico" />
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -25,6 +25,7 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -38,110 +39,148 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-<body>
 
+<body>
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# PowerShell
+# Python IDE
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing PowerShell
-- Download the lastest version of release of [PowerShell](https://github.com/PowerShell/PowerShell/releases) and PowerShell.7z from my Google Drive.
-- Extract the archive to C:\Users\Documents\PowerShell folder(文件)
-- Add PowerShell to PATH
-	- PowerShell.exe can be found in C:\Program Files\PowerShell\7
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 C:\Program Files\PowerShell\7 路徑**
+## Introduction to Python IDE
+- Default Python IDLE
+- [PyCharm](https://www.jetbrains.com/pycharm/) by JETBRAINS Software Co.
+- **Python with Visual Studio Code**
+- **Jupyter Notebook** or iPython or Google Colab
+![](/images/python/idle.png)
 </script></section>
 <section data-markdown><script type="text/template">
-# Oh My Posh
+## Start/Stop Python
+![](/images/python/exit.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing Oh My Posh(1/2)
-- Download [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh/releases) and install any directory
-- Rename oh-my-posh.exe to posh-windows-amd64.exe and move it to $HOME\bin
-- Download my [OhMyPosh.7z](https://drive.google.com/file/d/1IqBAjdyvDMJY56zXe36mxRe_bS8goLyW/view?usp=sharing) and [MesloLGS.7z](https://drive.google.com/file/d/1pqxtTnuH_FgU2dOVSy-yqTQ3MKbYYHQv/view?usp=sharing) form my Google Drive which is Oh My Posh themes file
-- Extract the archive to $HOME\\.poththemes folder and install MesloLGS fonts
-- Setup Oh My Posh themes path
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 >> 變數名稱 POSH_THEMES_PATH; 變數值 $HOME\\.poththemes 路徑**
-- Installing [Oh My Posh on Linux](../linux/06filePermission.html#/4) how to
+## Python with VS code
+- Visual Studio Code extension
+	- [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+	- [Codeium](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
+	- [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) (Optional)
+- Function of Python extension in VS code([hello.py](/teaching/src/python/hello.py))
+	- [Autocomplete and IntelliSense](https://code.visualstudio.com/docs/languages/python#_autocomplete-and-intellisense)
+	- [Linting](https://code.visualstudio.com/docs/languages/python#_linting)
+		- Linting analyzes your Python code for **potential errors**, making it easy to navigate to and correct different problems.
+	- [Debugger](https://code.visualstudio.com/docs/languages/python#_debugging)
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing Oh My Posh(2/2)
-![](/images/cpp/ohMyPosh.png)
+## Autocomplete and IntelliSense
+![](/images/python/autoComplete.png)
 </script></section>
 <section data-markdown><script type="text/template">
-# Alacritty
+## Linting
+![](/images/python/linting.png)
 </script></section>
 <section data-markdown><script type="text/template">
-# Alacritty on Windows
-- Alacritty is a cross-platform, OpenGL terminal emulator, which is worked on Windows, Linux and the others Platform.
-- Setting up Alacritty on Windows
-	- Download [Alacritty](https://github.com/alacritty/alacritty/releases) 
-	- Download my allarictty setup file form my Google Drive
-	- Extract the archive to the below folder
-	<pre><code>C:\Users\user_name\AppData\Roaming\alacritty folder</code></pre>
-	- Setup up alacritty bin path where you install it
-- Run Alacritty-v0.13.0-portable in current version
+## Debugger
+![](/images/python/debugger.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting font for [Oh My Posh](/teaching/cpp/appendixA.html#/0/2)
+- Files ≫ Preferences ≫ Settings ≫ typing "terminal.integrated.fontFamily" ≫ MesloLGS NF
+![](/images/python/vsFont.png) 
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Package Manager
+# Virtual Environment
 </script></section>
 <section data-markdown><script type="text/template">
-## Lists of Package Manager
-- Package manager for various platforms
-| Platform | Package manager |
-| :--- | :--- |
-| Windows | [Chocolatey](https://chocolatey.org/), [NuGet](https://www.nuget.org/)|
-| Linux | rpm, deb, [yum](https://man7.org/linux/man-pages/man8/yum.8.html), [APT](https://man7.org/linux/man-pages/man8/apt.8.html), [Pacman](https://man7.org/linux/man-pages/man8/pacman.8.html) |
-| macOS | [Homebrew](https://brew.sh/) |
-| | |
-- Package Managers for Programming languages
-| Language | Package manager |
-| :--- | :--- |
-| C/C++ | [conan](https://github.com/conan-io/conan), [vcpkg](https://vcpkg.io/en/) |
-| Python | [pip](https://pip.pypa.io/en/stable/) |
-| Java | maven, gradle |
-| Javascript | npm, Yarn, or pnpm |
-| | |
+## Python Virtual environment
+- Create virtual environment for project
+	- Create a folder for your project, e.g. **mkdir D:\myproject**
+	- Create a virtual environment for your project, e.g. **python -m venv .pyenv** in myproject directory
+- Update pip and setup tools
+	- **pip list** // list all installed package in venv
+	- **python3 -m pip install -U pip**
+- Activate virtual environment
+	- **.pyenv\Scripts\activate** or source .pyenv/bin/activate
+- Deactivate virtual environment
+	- **deactivate** to exit virtual environment
 </script></section>
 <section data-markdown><script type="text/template">
-## Pacman Package Manager
-- pacman 是 Arch Linux 的 package manager，主要分成 (S)ync, (Q)uery, (R)emove, (D)atabase 參數，Sync 是 remote server 的同步， Reomve 是 local package 的移除， Query 是 local repository 的查詢。
-- pacman command list
-<pre><code data-trim data-line-numbers>pacman -Syuu //更新所有套件
-pacman -Ss  keyword //查詢遠端儲存庫的可用的套件
-pacman -Sc //remove old packages from cache directory (-cc for all)
-pacman -Qs keyword //查詢安裝在本地儲存庫的套件
-pacman -R packageName // 移除 packageName 套件
-pacman -Rsc packageName //移除 packageName 套件及相依性的套件, s=recursive, c=cascade
-pacman -Sy msys2-keyring //更新 msys2 系統的 keying
-pacman -S -h //取得 -S 指令的說明</code></pre>
+## Python venv Practice
+- **source .pyenv/bin/activate** (python 3.12.7 version)
+![](/images/python/venv12.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Vulkan Examples
-- Installing OpenGL/Vulkan development and glm 
-<pre><code data-trim data-line-numbers>pacman -S mingw-w64-clang-x86_64-cmake mingw-w64-clang-x86_64-ninja
-pacman -S mingw-w64-clang-x86_64-vulkan-devel mingw-w64-clang-x86_64-glm </code></pre>
-- Clone Vulkan examples from [git repository](https://github.com/SaschaWillems/Vulkan.git)
-<pre><code data-trim>git clone --recursive https://github.com/SaschaWillems/Vulkan.git</code></pre>
-- Build Vulkan examples
-<pre><code data-trim data-line-numbers>cd Vulkan; mkdir build; cd build
-cmake ../ -G Ninja
-ninja
-cd bin; ./bloom.exe
-</code></pre>
+## Activate venv in Windows System
+- **.pyenv\Scripts\activate**(python 3.13 version)
+![](/images/python/venvWin.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## High Dynamic Range(hdr)
-![](/images/cpp/hdr.png)
+## Activate venv in Unix-like System
+- **source .pyenv/Scripts/activate**
+![](/images/python/venv13.png)
 </script></section>
+<section data-markdown><script type="text/template">
+## Upgrage to new version of Python
+-  pip freeze > requirements.txt
+- **python -m venv .myvenv**
+![](/images/python/venvErr.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Virtual Environment<br /> in VS Code Workspace
+</script></section>
+<section data-markdown><script type="text/template">
+## venv in VS Code Workspace
+- Craate a python virtual environment
+	- Create a folder for your project, e.g. **mkdir D:\myproject**
+	- **python -m venv .pyenv** in myproject directory
+- Activate virtual environment and update pip
+	- **.pyenv\Scripts\activate** or source .pyenv/bin/activate
+	- Update pip command **python3 -m pip install -U pip**
+- New a python file in VS Code
+- Select Python virtual environment into VS Code Workspace
+</script></section>
+<section data-markdown><script type="text/template">
+## Select a have existed venv <br /> in VS Code Workspace(1/5)
+![](/images/python/vsEnv.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Select a have existed venv <br /> in VS Code Workspace(2/5)
+![](/images/python/vsEnv2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Select a have existed venv <br /> in VS Code Workspace(3/5)
+![](/images/python/vsEnv3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Select a have existed venv <br /> in VS Code Workspace(4/5)
+![](/images/python/vsEnv4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Select a have existed venv <br /> in VS Code Workspace(5/5)
+![](/images/python/vsEnv5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Linting Error (1/3)
+![](/images/python/linting.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Linting Error (2/3)
+![](/images/python/pipNumpy.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Linting Error (3/3)
+![](/images/python/vsWorkspace.png)
+</script></section>
+
 </section><!--end block-->
 </div>
 </div>
@@ -154,7 +193,6 @@ cd bin; ./bloom.exe
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
-<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -164,10 +202,10 @@ cd bin; ./bloom.exe
 Reveal.initialize({
 controls: true,
 progress: true,
-history: true,
 center: true,
 slideNumber: true,
-mouseWheel: true,
+mouseWheel: false,
+hash: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
@@ -252,7 +290,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

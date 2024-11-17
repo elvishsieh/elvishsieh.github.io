@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 
-<title>Setting Development Environment</title>
+<title>Appendix A</title>
 
-<meta name="description" content="Tutorial of web design for primer">
+<meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/cppLogo.ico" />
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -25,6 +25,7 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -38,111 +39,152 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-<body>
 
+<body>
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# PowerShell
+# Installation
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing PowerShell
-- Download the lastest version of release of [PowerShell](https://github.com/PowerShell/PowerShell/releases) and PowerShell.7z from my Google Drive.
-- Extract the archive to C:\Users\Documents\PowerShell folder(文件)
-- Add PowerShell to PATH
-	- PowerShell.exe can be found in C:\Program Files\PowerShell\7
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 C:\Program Files\PowerShell\7 路徑**
+## Python Installation
+- Download Python from [Python.org](https://www.python.org/)
+- Iinstalling Python in your computer
+	- **Installing Python on D: driver of Windows System**, if PC classroom does not have installed Python.
+- Setting environment variables for Python
+	- **Add Python and pip executable to PATH environment variable**
+	- The pip program is located in the D:\Python\Scripts\ folder, if Python have been installed in D:\Python folder.
+- Test Python and pip
+	- **python --version** and **pip list**
 </script></section>
 <section data-markdown><script type="text/template">
-# Oh My Posh
+## Installing Python(1/6)
+![](/images/python/pythonInstall.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing Oh My Posh(1/2)
-- Download [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh/releases) and install any directory
-- Rename oh-my-posh.exe to posh-windows-amd64.exe and move it to $HOME\bin
-- Download my [OhMyPosh.7z](https://drive.google.com/file/d/1IqBAjdyvDMJY56zXe36mxRe_bS8goLyW/view?usp=sharing) and [MesloLGS.7z](https://drive.google.com/file/d/1pqxtTnuH_FgU2dOVSy-yqTQ3MKbYYHQv/view?usp=sharing) form my Google Drive which is Oh My Posh themes file
-- Extract the archive to $HOME\\.poththemes folder and install MesloLGS fonts
-- Setup Oh My Posh themes path
-	- Windows 圖示 >> 設定 >> 進階系統設定 >> 環境變數 >> **Path 變數 >> 新增 >> 變數名稱 POSH_THEMES_PATH; 變數值 $HOME\\.poththemes 路徑**
-- Installing [Oh My Posh on Linux](../linux/06filePermission.html#/4) how to
+## Installing Python(2/6)
+![](/images/python/pythonInstall2.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Installing Oh My Posh(2/2)
-![](/images/cpp/ohMyPosh.png)
+## Installing Python(3/6)
+![](/images/python/pythonInstall3.png)
 </script></section>
 <section data-markdown><script type="text/template">
-# Alacritty
+## Installing Python(4/6)
+![](/images/python/pythonInstall4.png)
 </script></section>
 <section data-markdown><script type="text/template">
-# Alacritty on Windows
-- Alacritty is a cross-platform, OpenGL terminal emulator, which is worked on Windows, Linux and the others Platform.
-- Setting up Alacritty on Windows
-	- Download [Alacritty](https://github.com/alacritty/alacritty/releases) 
-	- Download my allarictty setup file form my Google Drive
-	- Extract the archive to the below folder
-	<pre><code>C:\Users\user_name\AppData\Roaming\alacritty folder</code></pre>
-	- Setup up alacritty bin path where you install it
-- Run Alacritty-v0.13.0-portable in current version
+## Installing Python(5/6)
+![](/images/python/pythonInstall5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing Python(6/6)
+![](/images/python/pythonInstall6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Checking PATH variable
+![](/images/python/path.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Checking Python version
+![](/images/python/version.png)
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Package Manager
+# Packages Management
 </script></section>
 <section data-markdown><script type="text/template">
-## Lists of Package Manager
-- Package manager for various platforms
-| Platform | Package manager |
-| :--- | :--- |
-| Windows | [Chocolatey](https://chocolatey.org/), [NuGet](https://www.nuget.org/)|
-| Linux | rpm, deb, [yum](https://man7.org/linux/man-pages/man8/yum.8.html), [APT](https://man7.org/linux/man-pages/man8/apt.8.html), [Pacman](https://man7.org/linux/man-pages/man8/pacman.8.html) |
-| macOS | [Homebrew](https://brew.sh/) |
-| | |
-- Package Managers for Programming languages
-| Language | Package manager |
-| :--- | :--- |
-| C/C++ | [conan](https://github.com/conan-io/conan), [vcpkg](https://vcpkg.io/en/) |
-| Python | [pip](https://pip.pypa.io/en/stable/) |
-| Java | maven, gradle |
-| Javascript | npm, Yarn, or pnpm |
-| | |
+## Python Package Management
+- Install package
+	- **pip install package_name**
+	- **pip install -r requirements.txt**
+- Uninstall package
+	- **pip uninstall package_name**
+- Check package
+	- **pip list**
+	- **pip show package_name**
+	- **pip --version**
+- Update package
+	- **pip install -U package_name**
+	- **python -m pip install -U pip**
 </script></section>
 <section data-markdown><script type="text/template">
-## Pacman Package Manager
-- pacman 是 Arch Linux 的 package manager，主要分成 (S)ync, (Q)uery, (R)emove, (D)atabase 參數，Sync 是 remote server 的同步， Reomve 是 local package 的移除， Query 是 local repository 的查詢。
-- pacman command list
-<pre><code data-trim data-line-numbers>pacman -Syuu //更新所有套件
-pacman -Ss  keyword //查詢遠端儲存庫的可用的套件
-pacman -Sc //remove old packages from cache directory (-cc for all)
-pacman -Qs keyword //查詢安裝在本地儲存庫的套件
-pacman -R packageName // 移除 packageName 套件
-pacman -Rsc packageName //移除 packageName 套件及相依性的套件, s=recursive, c=cascade
-pacman -Sy msys2-keyring //更新 msys2 系統的 keying
-pacman -S -h //取得 -S 指令的說明</code></pre>
+## The PyPI
+- The Python Package Index ([PyPI](http://pypi.python.org/)) is a repository of software for the Python programming language.
+![](/images/python/pypi.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Vulkan Examples
-- Installing OpenGL/Vulkan development and glm 
-<pre><code data-trim data-line-numbers>pacman -S mingw-w64-clang-x86_64-cmake mingw-w64-clang-x86_64-ninja
-pacman -S mingw-w64-clang-x86_64-vulkan-devel mingw-w64-clang-x86_64-glm </code></pre>
-- Clone Vulkan examples from [git repository](https://github.com/SaschaWillems/Vulkan.git)
-<pre><code data-trim>git clone --recursive https://github.com/SaschaWillems/Vulkan.git</code></pre>
-- Build Vulkan examples
-<pre><code data-trim data-line-numbers>cd Vulkan; mkdir build; cd build
-cmake ../ -G Ninja
-ninja
-cd bin; ./bloom.exe
-</code></pre>
-</script></section>
-<section data-markdown><script type="text/template">
-## High Dynamic Range(hdr)
-![](/images/cpp/hdr.png)
+## Python Libraries
+- Scientific computing
+	- [NumPy](https://numpy.org/) and [SciPy](https://www.scipy.org/)
+- Data analysis
+	- [Pandas](https://pandas.pydata.org/)
+- Data visualization
+	- [Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)
+- Machine learning and AI
+	- [Scikit-learn](https://scikit-learn.org/stable/)
+	- [Tensorflow](https://www.tensorflow.org/)
+- Web development
+	- [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/), ..., etc.
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Jypyter Notebook
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing Jypyter Notebook
+- Make sure you have installed Python and the Path of Python.exe and pip.exe is added to PATH environment variable.
+- Install Jypyter Notebook
+	- **pip install notebook**
+	- pip install jupyterlab-language-pack-zh-TW
+- Start Jypyter Notebook
+	- **change directory** to your project folder and run **jupyter notebook**
+- Stop Jypyter Notebook
+	- **Ctrl + c** to stop Jypyter Notebook on command prompt. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(1/8)
+![](/images/python/jupyter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(2/8)
+- View ≫ Open JupyterLab or News ≫ Python 3 (ipykernel)
+![](/images/python/jupyter2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(3/8)
+![](/images/python/jupyter3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(4/8)
+![](/images/python/jupyter4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(5/8)
+![](/images/python/jupyter5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(6/8)
+![](/images/python/jupyter6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(7/8)
+![](/images/python/jupyter7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Jypyter Notebook(8/8)
+![](/images/python/jupyter8.png)
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 
@@ -154,7 +196,6 @@ cd bin; ./bloom.exe
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
-<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -164,10 +205,10 @@ cd bin; ./bloom.exe
 Reveal.initialize({
 controls: true,
 progress: true,
-history: true,
 center: true,
 slideNumber: true,
-mouseWheel: true,
+mouseWheel: false,
+hash: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
@@ -252,7 +293,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

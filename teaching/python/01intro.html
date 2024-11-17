@@ -45,21 +45,147 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# Python <br />virtual environment 
+# What/Why is Python? 
 </script></section>
 <section data-markdown><script type="text/template">
-## Create virtual environment
-- Installing Python on Windows Operation System.
-    - 如果電腦教室沒有安裝 Python，請把 Python 安裝到 D: 槽
-- Create virtual environment for project
-    - make a folder for your project, e.g. **mkdir D:\myproject**
-    - **python -m venv .env** in myproject directory
-- Activate virtual environment
-    - **.env\Scripts\activate** or source .env/bin/activate
-    - **deactivate** to exit virtual environment    
-- Update pip and setup tools
-    - **pip list** // list all installed package in venv
-    - **python3 -m pip install -U pip**
+## What is Python?
+- Python is an **interpreted language**, which can save you considerable time during program development because **no compilation and linking** is necessary.
+- Python has efficient high-level data structures and a simple but effective approach to **object-oriented programming**.
+-  Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it **an ideal language** for scripting and rapid application development **in many areas on most platforms**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why is Python?
+- Python is an **easy to learn, powerful programming language**.
+- The Python interpreter and the extensive standard library are **freely available in source or binary** form for all major platforms.
+- The Python interpreter is **easily extended with new functions and data types** implemented in C or C++ (or other languages callable from C).
+- Python supports **many free third party Python modules**, programs and tools, and additional documentation.
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Python used for?
+-  There's some task you'd like to automate
+	- To perform a **search-and-replace** over a large number of text files.
+	- **Rename and rearrange** a bunch of photo files in a complicated way.
+	- To write **a small custom database, or a specialized GUI application, or a simple game**.
+- Writing a **test suite** for such a library which like C,  C++ or Java.
+- Writing a program that could use an **extension language**, and you **don't want to design and implement a whole new language** for your application.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Python Interpreter
+</script></section>
+<section data-markdown><script type="text/template">
+## Using the Python Interpreter
+- Invoking the Interpreter
+	- **python filename.py**
+	- **./filename.py** in Unix-like systems whick is declared **PATH** of Python as following
+<pre><code data-trim data-line-numbers>#! /usr/bin/python
+# -*- coding: utf-8 -*-
+# program name: utf8.py
+print("Hello, world. 堃𤏩")  </code></pre>
+- Interactive Mode
+![](/images/python/interpreter.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Unicode in Python
+- Source code encoding
+	- The default [source code](/teaching/src/python/utf8.py) encoding in Python is **UTF-8**.
+<pre><code data-trim data-line-numbers>#! /usr/bin/python
+print("Hello, world. 堃𤏩")</code></pre>
+- [Big5 encoding code](/teaching/src/python/big5.py) in Python
+<pre><code data-trim data-line-numbers>#! /usr/bin/python
+# -*- coding: big5 -*-
+print("Hello, world. 堃𤏩")
+</code></pre>
+![](/images/python/big5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Using Python as a Calculator
+![](/images/python/calc.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Syntax and Semantics
+</script></section>
+<section data-markdown><script type="text/template">
+## Python syntax and semantics
+- The **syntax** of the Python programming language is the set of rules that defines **how a Python program will be written and interpreted**.
+- The Python language has many **similarities to Perl, C, and Java**.
+- Python incorporates built-in **data types and structures, control flow mechanisms, first-class functions, and modules** for better code reusability and organization
+- Python also uses **English keywords** where other languages use punctuation, contributing to its uncluttered visual layout.
+</script></section>
+<section data-markdown><script type="text/template">
+## Indentation
+- Python uses **whitespace**(3 spaces recommended) to delimit control flow blocks.
+- Python uses **indentation** to indicate the run of a block.
+<pre><code data-trim data-line-numbers>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+def fib(n):
+	"""Fibonacci sequence."""
+	if n <= 1:
+		return 1
+	else:
+		return fib(n-1) + fib(n-2)
+if __name__ == '__main__':
+	print("hello world")
+	print(fib(5))</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Keywords of Python
+- Python's keywords or reserved words.
+|||||||
+|:---|:----|:-------|:-------|:-------|:-----|
+| and | as  | assert  | async   | await   | break |
+| class  | continue  | def  | del  | elif  | else  |
+| except  | False  | finally  | for  | from  | global  |
+| if  | import  | in  | is  | lambda  | None  |
+| nonlocal  | not  | or  | pass  | raise  | return  |
+| True  | try  | while  | with  | yield|
+||
+- **These keywords are reserved words** only in the limited contexts where interpreting them as keywords would make syntactic sense.
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Types
+</script></section>
+<section data-markdown><script type="text/template">
+## Values and Data Types
+- Python supports **numeric**, **string**, **list**, **tuple**, **set**, and **dictionary** data types.
+- Numeric data types
+	- Python include **int**, **float**, and **complex** data types.
+- String data type is **str**.
+![](/images/python/dataType.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Python's built-in data types(1/2)
+| Type 	|	Description | Examples |
+|:---|:-------|:-------|
+| bool  | 	Boolean value |	True, False |
+| bytes |  	Sequence of bytes |	bytes([119, 7, 105]) |
+| complex  | Complex number with real and imaginary parts |	3+2.7j |
+| **dict** | Associative array (or dictionary) of key and value pairs |	**{'key1': 1.0, 3: False}** |
+| types.EllipsisType | 	An ellipsis placeholder to be used as an index in NumPy arrays | **...** |
+| float  |	**Double-precision** floating-point number.| 1.33333  |
+||
+</script></section>
+<section data-markdown><script type="text/template">
+## Python's built-in data types(2/2)
+| Type 	|	Description | Examples |
+|:---|:-------|:-------|
+| int  	|Integer of unlimited magnitude | 42 |
+| **list** | 	List, can contain mixed types |	[4.0, 'string'] |
+| types.NoneType  |	An object representing the absence of a value |	**None** |
+| range  |	An sequence of numbers commonly used for loops |	range(−1, 10) |
+| **set** | 	Unordered set, contains no duplicates; **can contain mixed types** |	{4.0, 'string', True} |
+| str  |	A character string: sequence of Unicode codepoints 	| **'Wikipedia'** |
+| **tuple**  |	**Can contain mixed types** |	(4.0, 'string', True) |
+||
 </script></section>
 </section><!--end block-->
 
