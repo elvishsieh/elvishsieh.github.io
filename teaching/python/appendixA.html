@@ -109,10 +109,33 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Check package
 	- **pip list**
 	- **pip show package_name**
-	- **pip --version**
+	- *pip freeze > requirements.txt**
 - Update package
 	- **pip install -U package_name**
 	- **python -m pip install -U pip**
+</script></section>
+<section data-markdown><script type="text/template">
+## Examples of pip commands
+- Install Jupyter notebook
+	- **pip install notebook**
+- Output installed packages in requirements format
+	- **pip freeze > requirements.txt**
+- Uninstall all of the installed packages
+	- **pip uninstall -r -y requirements.txt**
+- Update all of the installed packages
+	- **pip install -r requirements.txt**
+- To generate a list of all outdated packages
+	- **pip list --outdated**
+- To get more information about pip command
+	- **pip help** or **pip command --help**
+</script></section>
+<section data-markdown><script type="text/template">
+## Updating Python packages
+- **pip freeze > requirements.txt**
+- Edit requirements.txt, and replace all "==" with ">=".
+![](/images/python/pipUpdate.png)
+- Update all of installed packages
+	- **pip install -r requirements.txt --upgrade**
 </script></section>
 <section data-markdown><script type="text/template">
 ## The PyPI
@@ -182,6 +205,28 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Jypyter Notebook(8/8)
 ![](/images/python/jupyter8.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Code of Textbook
+</script></section>
+<section data-markdown><script type="text/template">
+## Think Python's Source Code
+- [Think Python, 3rd Edition Source Code](https://github.com/AllenDowney/ThinkPythonSolutions) Github Repository.
+- Download the source code and save it in your computer.
+![](/images/python/downloadSrc.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Launching the Source Code how to
+- Change directory to the source code folder where you downloaded and saved the source code.
+	- **d:; cd D:\myProjects\ThinkPythonSolutions\soln**, for example.
+- Start Jypyter Notebook in the source code folder
+	- **jupyter notebook &**
+	- Note : start Jypyter Notebook as a **background task**.
+- View the source code in Jypyter Notebook
+	- **Click the filename** to open the content of the chapter.
 </script></section>
 </section><!--end block-->
 

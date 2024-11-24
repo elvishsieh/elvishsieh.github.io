@@ -4,17 +4,15 @@
 <head>
 <meta charset="utf-8">
 
-<title>Python for Beginner</title>
+<title>Variables and Statements</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -25,7 +23,6 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
-
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -39,8 +36,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
@@ -48,92 +45,68 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Python for Beginner
-
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
-</script>
-</section>
-
+# Variables
+</script></section>
 <section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率：  20%
-- 課程作業： 20%
-- 期中報告： 20%
-- 期末報告： 40%
-</script>
-</section>
+## Variables in Python
+- A variable is a name that refers to a value.
+	-  Setting **a variable n = 34** which n is a value of integer.
+- An assignment statement has three parts: the **name of the variable on the left**, the equals operator, =, and an **expression on the right**.
+- State diagrams
+	- **pip install matplot** to execute the code of State diagrams section of chapter 02.
+![](/images/python/variables.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Variable Names
+- Variable names can be **as long as you like**.
+- They can **contain both letters and numbers, but they can't begin with a number**.
+- The only punctuation that can appear in a variable name is the **underscore character, _**.
+- It turns out that `class` is a **keyword**, which is a special word used to specify the structure of a program. **Keywords can't be used as variable names**.
+- Getting the list of Python keywords as below code
+<pre><code data-trim data-line-numbers>from keyword import kwlist
+kwlist
+len(kwlist)</code></pre>
+</script></section>
 </section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Ch01-Introduction to Python](./01intro.html)
-- [Ch02-Variables and Statements](./02variable.html)
-- [Ch03-Functions](./03function.html)
-- [Ch04-Conditionals and Recursion](./04condition.html)
-- [Ch05-Iteration and Search](./05interation.html)
-- [Ch06-Strings and Regular Expression](./06string.html)
-- [Ch07-Lists](./07list.html)
-- [Ch08-Dictionaries](./08dictionary.html)
-- [Ch09-期中考]
-</script>
-</section>
+# Expressions and statements
+</script></section>
 <section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Ch10-Tuples](./10tuples.html)
-- [Ch11-Text Analysis and Generation](./11text.html)
-- [Ch12-Files and Databases](./12files.html)
-- [Ch13-Classes and Functions](./13class.html)
-- [Ch14-Classes and Methods](./14methods.html)
-- [Ch15-Classes and Objects](./15objects.html)
-- [Ch16-Inheritance](./16inheritance.html)
-- [Ch17-Python Extras](./17extras.html)
-- [Ch18-期末考]  **課程會視教學進度做適度微調**
-- [附錄](appendix.html) 
-</script>
-</section>
-</section>
-
-<section>
+## Expressions and statements
+- Expressions
+	- An expression can be a single value, like an integer, floating-point number, or string.
+	- It can also be a collection of values and operators.
+	- it can include variable names and function calls
+- Statements
+	- A statement is a unit of code that has an effect, but no value. For example, an assignment statement creates a variable and gives it a value, but the statement itself has no value.
+<pre><code data-trim data-line-numbers>import math
+	19 + n + round(math.pi) * 2</code></pre>
+</script></section>
 <section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
+## import statement
+- The **import statement** is used to import a module.
+	- For example, the following statement imports the math module.
+<pre><code data-trim>import math</code></pre>
+- A module is a collection of variables and functions.
+	- The math module provides a variable called pi that contains the value of the mathematical constant denoted π.
+<pre><code data-trim>math.pi
+math.sqrt(25)
+</code></pre>
+</script></section>
 <section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- Textbook
-	- [Think Python: How to Think Like a Computer Scientist](https://allendowney.github.io/ThinkPython/)
-	- Author: Allen B. Downey 	
-	- Publisher: O'Reilly Media; 3rd edition (July 2, 2024) 
-	- ISBN-10: 1098155432
-	- ISBN-13: 978-1098155438 
-- Reference
-	- [Think Python 3rd edition source code](https://github.com/AllenDowney/ThinkPythonSolutions)
-	- [Python official documentation](https://docs.python.org/)
-	- [The Python Standard Library](https://docs.python.org/3/library/index.html#the-python-standard-library)
-	- [Teaching and Learning with Jupyter](https://jupyter4edu.github.io/jupyter-edu-book/)
-</script>
-</section>
-<!--
-<section data-markdown><script type="text/template">
-## 教材與作業
-- 課程投影片及教材
-	- 投影片：[https://elvishsieh.github.io/teaching/stisp/](https://elvishsieh.github.io/teaching/stisp/)
-	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/19pW8c5nBU16wKlOawlj_5_TeqJUY7JXG?usp=sharing)
-</script>
-</section>-->
+## Comments
+- As programs **get bigger and more complicated**, they get more difficult to read.
+- it is a good idea to **add notes to your programs** to explain in natural language what the program is doing.
+These notes are called comments, and they **start with the # symbol**.
+- A comment is a part of a program that **is ignored by the interpreter**.
+<pre><code data-trim>#! /usr/bin/envpython
+# This is a comment
+</code></pre>
+</script></section>
 </section><!--end block-->
+
 </div>
 </div>
 
@@ -154,10 +127,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
