@@ -74,7 +74,7 @@ print(sum)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Call functions
-- we’ll write functions that print the lyrics of “Happy Birthday Song” 
+- we'll write functions that print the lyrics of “Happy Birthday Song” 
 <pre><code data-trim data-line-numbers>def happybirthday(name):
 	print("Happy Birthday to you!")
 	print("Happy Birthday to you!")
@@ -87,14 +87,14 @@ happybirthday("Elvis")
 - What is the problem with the **happybirthday()** function?
 </script></section>
 <section data-markdown><script type="text/template">
-## Happy Birthday Song V2
+## [Happy Birthday Song](/teaching/src/python/birthday.py) V2
 - We can define a function to repeat the lyrics of “Happy Birthday to you”
 <pre><code data-trim data-line-numbers># birthday.py
 def repeat(word, n):
 	print(word * n)
 ## add a empty line
 def happybirthday(name):
-	argWords = "Happy Birthday to you!"
+	argWords = "Happy Birthday to you!\n"
 	repeat(argWords, 2)
 	repeat("Happy Birthday, dear " + name, 1)
 	repeat(argWords, 1)
@@ -103,7 +103,7 @@ happybirthday("Elvis")
 </code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Local and Global Variables
+## [Local and Global Variables](/teaching/src/python/var.py)
 - A variable defined inside a function is called a **local variable(局部變數)**.
 - A variable defined outside of a function is called a **global variable(全域變數)**.
 - Local variables are **not accessible** outside of the function.
@@ -132,26 +132,31 @@ print(string + "x is", x)
 - Well-designed functions are often useful for many programs. Once you write and debug one, **you can reuse it**.
 </script></section>
 <section data-markdown><script type="text/template">
-## Without main function
-<pre><code data-trim data-line-numbers># without main.py
+## [Without main](/teaching/src/python/without_main.py) function
+- The name of code is **without_main.py** which have been defined a **add()** function and call **add(1,2)** function to print the sum.
+<pre><code data-trim data-line-numbers># without_main.py
 def add(a, b):
     return a + b
-
 print("This is title of add function.")
 sum = add(1, 2)
 print(sum)
 </code></pre>
+![](/images/python/withoutMain.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## [Call without main](/teaching/src/python/call_withoutmain.py) function
+- The name of code is **call_withoutmain.py** which import **without_main.py** and call **add(1,2)** function to print the sum.
 <pre><code data-trim data-line-numbers>## call_withoutmain.py
 from without_main import add
 def prtTitle():
 	print("__name__ is " + __name__ + ".")
-
 prtTitle()
 print(add(1, 2))
 </code></pre>
+![](/images/python/callWithoutMain.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## main function
+## main function([add](/teaching/src/python/add.py))
 <pre><code data-trim data-line-numbers># add.py
 def add(a, b):
 	return a + b
@@ -166,19 +171,208 @@ if __name__ == '__main__':
 	sum = add(1, 2)
 	print("sum is ", sum)
 </code></pre>
+![](/images/python/add.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## [call_add](/teaching/src/python/call_add.py) function
+- The name of code is **call_add.py** which import **add.py** and call **add(1,2)** function to print the sum.
+- The  **add.py** code with \_\_main\_\_ name in it.
 <pre><code data-trim data-line-numbers>## call_add.py
 from add import add
 def prtTitle():
 	print("__name__ is " + __name__ + ".")
-	
 prtTitle()
 print(add(1, 2))
 </code></pre>
+![](/images/python/callAdd.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# jupyturtle module
+</script></section>
+<section data-markdown><script type="text/template">
+## The jupyturtle module(1/4)
+- To use the jupyturtle module, we can import it like this.
+<pre><code data-trim data-line-numbers>import jupyturtle</code></pre>
+- Now we can use the functions defined in the module
+<pre><code data-trim data-line-numbers>jupyturtle.make_turtle()
+jupyturtle.forward(100)</code></pre>
+- **make_turtle creates a canvas**, which is a space on the screen where we can draw, and a turtle, which is represented by a **circular shell and a triangular head**.
+- **forward** moves the turtle **a given distance** in the direction it's facing, **drawing a line segment** along the way.
+</script></section>
+<section data-markdown><script type="text/template">
+## The jupyturtle module(2/4)
+- This version of the import statement imports make_turtle and forward from the jupyturtle module so we can call them like this.
+<pre><code data-trim data-line-numbers>from jupyturtle import make_turtle, forward
+make_turtle()
+forward(100)
+</code></pre>
+- Making a square
+<pre><code data-trim data-line-numbers>from jupyturtle import make_turtle, forward, left
+make_turtle()
+for i in range(4):
+	forward(50)
+	left(90)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The jupyturtle module(3/4)
+- Wrapping a piece of code up in it is called **encapsulation**.
+<pre><code data-trim data-line-numbers>def square():
+	for i in range(4):
+		forward(50)
+		left(90)
+make_turtle()
+square()</code></pre>
+- Adding a parameter to a function is called **generalization** because it makes the function more general.
+<pre><code data-trim data-line-numbers>def square(length):
+	for i in range(4):
+		forward(length)
+		left(90)
+make_turtle()
+square(30)
+square(60)
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The jupyturtle module(4/4)
+- The following function draws **regular polygons with a given number of sides**.
+	<pre><code data-trim data-line-numbers>  from jupyturtle import make_turtle
+
+	def polygon(n, length):
+		angle = 360 / n
+		for i in range(n):
+			forward(length)
+			left(angle)
+
+	make_turtle()
+	polygon(7, 30)
+	# polygon(n=7, length=30) # the other way to call the function
+	</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Refactoring
+</script></section>
+<section data-markdown><script type="text/template">
+## What is refactoring?
+- Refactoring is intended to **improve the design, structure, and/or implementation** of the software, while **preserving its functionality**.
+- Potential advantages of refactoring may include **improved code readability** and **reduced complexity**; these can improve the source code's maintainability and create a simpler, cleaner, or more expressive internal architecture or object model to improve extensibility.
+- Another potential goal for refactoring is **improved performance**; software engineers face an ongoing challenge to write programs that perform faster or use less memory.
+</script></section>
+<section data-markdown><script type="text/template">
+## Benefits of Refactoring?
+- Maintainability
+	- It is **easier to fix bugs** because the source code is easy to read and the intent of its author is easy to grasp.
+	- This might be achieved by reducing large monolithic routines into a set of individually concise, well-named, single-purpose methods.
+	- It might be achieved by moving a method to a more appropriate class, or by removing misleading comments.
+- Extensibility
+	- It is **easier to extend the capabilities** of the application if it uses recognizable design patterns, and it provides some flexibility where none before may have existed.
+</script></section>
+<section data-markdown><script type="text/template">
+## Approximating a circle(1/2)
+<pre><code data-trim data-line-numbers>from jupyturtle import make_turtle
+import math
+
+def circle(radius):
+	circumference = 2 * math.pi * radius
+	n = 30
+	length = circumference / n
+	polygon(n, length)
+
+make_turtle(delay=0.02)
+circle(30)</code></pre>
+- circumference(圓周長) = 直徑乘以圓周率 = 2 x pi x radius
+- length(邊長) = circumference / n
+</script></section>
+<section data-markdown><script type="text/template">
+## Approximating a circle(2/2)
+<pre><code data-trim data-line-numbers>def polyline(n, length, angle):
+    for i in range(n):
+        forward(length)
+        left(angle)
+
+def polygon(n, length):
+	angle = 360.0 / n
+	polyline(n, length, angle)
+
+def arc(radius, angle):
+	arc_length = 2 * math.pi * radius * angle / 360
+	n = 30
+	length = arc_length / n
+	step_angle = angle / n
+	polyline(n, length, step_angle)
+
+def circle(radius):
+	arc(radius,  360)
+
+make_turtle(delay=0)
+polygon(n=20, length=9)
+arc(radius=70, angle=70)
+circle(radius=10)
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## A development plan(1/3)
+- A development plan is a process for writing programs.  The steps of this process are:
+	1. **Start by writing a small program with no function definitions**.
+	2. Once you get the program working, **identify a coherent(相干的) piece of it, encapsulate the piece in a function** and give it a name.
+	3. **Generalize the function** by adding appropriate parameters.
+</script></section>
+<section data-markdown><script type="text/template">
+## A development plan(2/3)
+- A development plan is a process for writing programs.  The steps of this process are:
+	4. **Repeat Steps 1 to 3** until you have a set of working functions.
+	5. **Look for opportunities to improve the program by refactoring**. For example, if you have similar code in several places, consider factoring it into an appropriately general function.
+- This process has some drawbacks -- we will see alternatives later -- but it can be useful if you don't know ahead of time how to divide the program into functions.
+</script></section>
+<section data-markdown><script type="text/template">
+## A development plan(3/3)
+- The design of a function has two parts:
+	- **The interface is how the function is used**, including its name, the parameters it takes and what the function is supposed to do.
+	- **The implementation is how the function does** what it's supposed to do.
+- For example, here's the first version of circle.
+<pre><code data-trim data-line-numbers>def circle(radius):
+    circumference = 2 * math.pi * radius
+    n = 30
+    length = circumference / n
+    polygon(n, length)
+def circle(radius):
+    arc(radius,  360)</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Docstrings
+</script></section>
+<section data-markdown><script type="text/template">
+## Document in Python(1/2)
+- A docstring is **a string at the beginning of a function that explains the interface** ("doc" is short for "documentation"). 
+- By convention, **docstrings are triple-quoted strings**, also known as multiline strings because the triple quotes allow the string to span more than one line.
+<pre><code data-trim data-line-numbers>def polyline(n, length, angle):
+    """Draws line segments with the given length and angle between them.
+    
+    n: integer number of line segments
+    length: length of the line segments
+    angle: angle between segments (in degrees)
+    """    
+    for i in range(n):
+        forward(length)
+        left(angle)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Document in Python(2/2)
+- A docstring should:
+	- Explain concisely **what the function does**, without getting into the details of how it works,
+	- Explain **what effect each parameter has on the behavior of the function**, and
+	- Indicate **what type each parameter should be**, if it is not obvious.
+- **Writing this kind of documentation is an important part of interface design**.
+</script></section>
+</section><!--end block-->
 </div>
 </div>
 
