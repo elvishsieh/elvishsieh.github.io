@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Conditionals and Recursion</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Various Expressions
+</script></section>
+<section data-markdown><script type="text/template">
+## Integer division and modulus
+<pre><code data-trim data-line-numbers>minutes = 105
+minutes / 60
+
+# //, divides two numbers and rounds down to an integer.
+hours = minutes // 60
+print(hours)
+
+remainder = minutes - hours * 60
+print(remainder)
+
+remainder = minutes % 60 # % modulus operator
+print(remainder)
+</code></pre>
+<pre><code data-trim data-line-numbers># if an event starts at 11 AM and lasts three hours 
+start = 11
+duration = 3
+end = (start + duration) % 12
+print(end)
+# The event would end at 2 PM.</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Boolean Expressions
+<pre><code data-trim data-line-numbers>x = 5
+y = 7
+x == y # False
+
+## the others relational operators are:
+x != y # True
+x > y # False
+x < y # True
+x >= y  # False
+x <= y # True
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Logical Expressions
+<pre><code data-trim data-line-numbers>x = 5
+y = 7
+# The most common are and,  or, and not. 
+x > 0 and x < 10 # True
+x % 2 == 0 or x % 3 == 0 # False
+not x > y # True
+# Any nonzero number is interpreted as True
+42 and True # True</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Conditional
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Conditional statement
+- **if statement**
+<pre><code data-trim>if condition:
+	statement
+</code></pre>
+<pre><code data-trim data-line-numbers>if x > 0:
+    print('x is positive')</code></pre>
+- The else clause
+<pre><code data-trim data-line-numbers>if x % 2 == 0:
+    print('x is even')
+else:
+    print('x is odd')</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Chained conditionals
+<pre><code data-trim data-line-numbers>if x < y:
+    print('x is less than y')
+elif x > y:
+    print('x is greater than y')
+else:
+    print('x and y are equal')</code></pre>
+<pre><code data-trim data-line-numbers>x = int(input("Please enter an integer: "))
+Please enter an integer: 42
+if x < 0:
+	x = 0
+	print('Negative changed to zero')
+elif x == 0:
+	print('Zero')
+elif x == 1:
+	print('Single')
+else:
+	print('More')</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Nested conditionals
+<pre><code data-trim data-line-numbers>if x == y:
+	print('x and y are equal')
+else:
+	if x < y:
+		print('x is less than y')
+	else:
+		print('x is greater than y')</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Recursion
+</script></section>
+<section data-markdown><script type="text/template">
+## factorial function(1/3)
+- factorial function (階乘函式)
+	`$$ \begin{align*}
+		n! &= n \times (n-1) \times (n-2) \times ... \times 1\\
+		   &= n \times (n-1)! 
+		\end{align*}$$`
+- Example of factorial function
+	`$$ \begin{align*}
+		5! &= 5 \times 4 \times 3 \times 2 \times 1\\
+		   &= 120 
+		\end{align*}$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## factorial function(2/3)
+- A [loop version](/teaching/src/python/loopFactorial.py) code of factorial function
+<pre><code data-trim data-line-numbers># loopFactorial.py
+def  loopFactorial(n):
+    if (n <= 1):
+        return 1
+    else:
+        i = 1
+        result = 1
+        while(i <= n):
+            result = result * i
+            print(i, " 階乘的結果是：  ", result)
+            i = i + 1
+
+        return result
+
+  print(loopFactorial(10))</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## factorial function(1/3)
+- A [recursive version](/teaching/src/python/factorial.py) code of factorial function
+<pre><code data-trim data-line-numbers># factorial.py
+def factorial(n):
+    print("階乘函式 factorial(n) 已經呼叫： " + str(n) + " 階乘")
+    if n == 1:
+        return 1
+    else:
+        result = n * factorial(n-1)
+        print(n, " 階乘呼叫前一次的結果： ", n, " * factorial(" ,n-1, "): ",result)
+        return result
+
+  print(factorial(6))
+</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Fibonacci sequence
+- In mathematics, the Fibonacci sequence is a sequence in which each number is **the sum of the two numbers that precede**.
+- The Fibonacci numbers may be defined
+`$$ \begin{align*}
+	F_1 &= 0, F_2 = 1 \\
+	F_n &= F_{n-1} + F_{n-2}, n > 1
+	\end{align*}$$`
+- The example of fibonacci sequence
+`$$ \begin{align*}
+	F_4 &= F_3 + F_2 = 2, \;\; F_5 = F_4 + F_3 = 3\\
+	F_6 &= F_5 + F_4 = 5, \;\;F_7 = F_6 + F_5 = 8\\
+	\end{align*}$$`
+</script></section>
+<section data-markdown><script type="text/template">
+## Loop code Fibonacci sequence[(v1)](/teaching/src/python/loopFib.py)
+<pre><code data-trim data-line-numbers># loopFib.py
+def  loopFib2(n):
+    if n >= 3:
+        prev2 = 0
+        prev1 = 1
+        for i in range(n):
+            fib = prev1 + prev2
+            prev1 = prev2
+            prev2 = fib
+
+        return fib
+    else:
+        return 1
+
+if __name__ =='__main__':
+    print(loopFib2(1))
+    print(loopFib2(2))
+    print(loopFib2(3))
+    print(loopFib2(4))
+    print(loopFib2(5))
+    print(loopFib2(6))
+    print(loopFib2(7))
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Loop code Fibonacci sequence[(v2)](/teaching/src/python/loopFib2.py)
+<pre><code data-trim data-line-numbers># loopFib2.py
+def loopFib2(n):
+    a, b = 0, 1 # a = 0, b = 1
+    for i in range(n):
+        a, b = b, a + b # a = b, b = a + b
+        print (a)
+        # 當n = 4，for 迴圈做4次
+        # n = 1， 則 a = 1, b = 1;
+        # n = 2， 則 a = 1, b = 2;
+        # n = 3， 則 a = 2, b = 3;
+        # n = 1， 則 a = 3, b = 5
+
+if __name__=='__main__':
+    print(loopFib2(12))</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## [Recursive code](/teaching/src/python/fib.py) of Fibonacci
+<pre><code data-trim data-line-numbers># fib.py
+def fib(n):
+	if n == 0:
+		return 0
+	elif n == 1:
+		return 1
+	else:
+		return fib(n-1) + fib(n-2)
+
+if __name__ == '__main__':
+	month = 1
+	for i in range(12):
+		print(fib(month))
+		month += 1</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## More examples of recursion
+- [The Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) have two further restrictions:
+	- You can only move one disk at a time
+	- A larger disk can never be placed on top of a smaller disk
+	- a code of [Tower of Hanoi](/teaching/src/python/hanoiTower.py) and a [GUI Tower of Hanoi](/teaching/src/python/towerGui.py)
+- More examples of recursion code to be found in [Understanding Recursion Using Python](https://understanding-recursion.readthedocs.io/en/latest/)
+	- [The Sierpinski Triangle](https://understanding-recursion.readthedocs.io/en/latest/14%20Sierpinski.html)
+</script></section>
+<section data-markdown><script type="text/template">
+## 3.13.0 tkinter in windows 11
+- Launching [sierpinskiTriangle.py](/teaching/src/python/sierpinskiTriangle.py) in windows 11 which have error message as below
+
+<pre><code data-trim data-line-numbers>_tkinter.TclError: Can't find a usable init.tcl in the following directories:
+D:/Python/lib/tcl8.6 D:/lib/tcl8.6 D:/lib/tcl8.6 D:/library D:/library D:/tcl8.6.14/library D:/tcl8.6.14/library
+This probably means that Tcl wasn't installed properly.
+</code></pre>
+- It's easy to fix until a new version is released:
+	- Copy the entire tcl8.6 folder from  D:\Python\tcl and paste it into D:\Python\Lib
+	- Copy the entire tk8.6 folder from D:\Python\tcl and paste it into D:\Python\Lib\tcl8.6
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
