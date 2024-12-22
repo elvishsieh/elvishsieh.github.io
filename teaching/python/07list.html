@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Lists</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Lists(Arrays)
+</script></section>
+<section data-markdown><script type="text/template">
+## A list is a sequence
+- Like a string, a list is a sequence of values.
+- In a string, the values are characters; **in a list, they can be any type.**
+- The values in a list **are called elements**.
+- There are several ways to create a new list; **the simplest is to enclose the elements in square brackets ([ and ])**.
+<pre><code data-trim data-line-numbers>numbers = [42, 123]
+cheeses = ['Cheddar', 'Edam', 'Gouda']
+t = ['spam', 2.0, 5, [10, 20]]
+empty = []
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Lists are mutable
+- To read an element of a list, we can use the bracket operator.
+- **The index of the first element is 0**.
+<pre><code data-trim data-line-numbers>cheeses = ['Cheddar', 'Edam', 'Gouda']
+print(cheeses[0]) # Cheddar
+numbers = [42, 123]
+numbers[1] = 17
+print(numbers) # [42, 17]
+%%expect TypeError
+greeting = 'Hello, world!' 
+greeting[0] = 'J' # string is immutable
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## List slices
+- The slice operator works on lists the same way it works on strings.
+<pre><code data-trim>letters = ['a', 'b', 'c', 'd']
+print(letters[1:3])
+print(letters[:2]) # ['a', 'b']
+print(letters[2:]) # ['c', 'd']
+print(letters[:]) # ['a', 'b', 'c', 'd']
+print(list(letters)) # use list() method to make a copy</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## List operations
+- The + operator concatenates lists.
+<pre><code data-trim data-line-numbers>t1 = [1, 2]
+t2 = [3, 4]
+print(t1 + t2) # [1, 2, 3, 4]
+</code></pre>
+- The * operator repeats a list.
+<pre><code data-trim data-line-numbers>['spam'] * 4 # ['spam', 'spam', 'spam', 'spam']
+</code></pre>
+- No other mathematical operators work with lists, but the built-in function sum adds up the elements.
+sum(t1)
+<pre><code data-trim data-line-numbers>sum(t1) # 3
+min(t1) # 1
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## List methods
+- Python provides methods that operate on lists. For example, **append adds a new element to the end of a list**
+- **Extend** takes a list **as an argument** and appends all of the elements:
+<pre><code data-trim data-line-numbers>letters = ['a', 'b', 'c', 'd']
+letters.append('e')
+print(letters) # ['a', 'b', 'c', 'd', 'e']
+letters.extend(['f', 'g'])
+print(letters) # ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+t = ['a', 'b', 'c']
+print(t.pop(1)) # ['a', 'c']
+t = ['a', 'b', 'c']
+t.remove('b') # ['a', 'c']
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Lists and strings
+- A string is a sequence of characters and a list is a sequence of values, but **a list of characters is not the same as a string**.
+- To convert from a string to a list of characters, you can use the list function.
+<pre><code data-trim data-line-numbers>s = 'spam'
+t = list(s)
+print(t) # ['s', 'p', 'a', 'm']
+s = 'pining for the fjords'
+t = s.split()
+print(t) # ['pining', 'for', 'the', 'fjords']
+s = 'ex-parrot'
+t = s.split('-')
+print(t) # ['ex', 'parrot']
+delimiter = ' '
+t = ['pining', 'for', 'the', 'fjords']
+s = delimiter.join(t)
+print(s) # 'pining for the fjords'
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Looping through a list
+- You can use a for statement to loop through the elements of a list.
+<pre><code data-trim data-line-numbers>
+for cheese in cheeses:
+	print(cheese)
+
+  s = 'pining for the fjords'
+
+  for word in s.split():
+	  print(word)
+
+  for x in []:
+      print('This never happens.')
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Sorting lists
+- Python provides a built-in function called sorted that sorts the elements of a list.
+<pre><code data-trim data-line-numbers>scramble = ['c', 'a', 'b']
+print(sorted(scramble)) # ['a', 'b', 'c']
+print(scramble) # ['c', 'a', 'b']
+# sorted 'letters' string
+print(sorted('letters')) # ['e', 'e', 'l', 'r', 's', 't', 't']
+''.join(sorted('letters')) # 'eelrstt'
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Objects and values
+</script></section>
+<section data-markdown><script type="text/template">
+## Objects
+- We know that a and b both refer to a string, but we don't know whether they refer to the same string.
+- In the diagram on the left, a and b refer to **two different objects that have the same value**.
+- In this example, **Python only created one string object, and both a and b refer to it**.
+- The example two lists are equivalent, because they have the same elements, but not identical, because they are not the same object. 
+<pre><code data-trim data-line-numbers>a = 'banana'
+b = 'banana'
+print(a is b) # True
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a is b) # False</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Aliasing
+- If a refers to an object and you assign b = a, then both variables refer to the same object.
+<pre><code data-trim>a = [1, 2, 3]
+b = a
+print(b is a) # True
+b[0] = 5
+print(a) # [5, 2, 3]</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## List arguments
+- When you pass a list to a function, the function gets a reference to the list. If the function modifies the list, the caller sees the change.
+<pre><code data-trim>def pop_first(lst):
+return lst.pop(0)
+
+  letters = ['a', 'b', 'c']
+  print(pop_first(letters)) # 'a'
+  print(letters) # ['b', 'c']
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

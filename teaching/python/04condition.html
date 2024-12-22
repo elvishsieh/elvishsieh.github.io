@@ -184,7 +184,7 @@ def  loopFactorial(n):
   print(loopFactorial(10))</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## factorial function(1/3)
+## factorial function(3/3)
 - A [recursive version](/teaching/src/python/factorial.py) code of factorial function
 <pre><code data-trim data-line-numbers># factorial.py
 def factorial(n):
@@ -223,8 +223,8 @@ def  loopFib2(n):
         prev1 = 1
         for i in range(n):
             fib = prev1 + prev2
-            prev1 = prev2
-            prev2 = fib
+            prev2 = prev1
+            prev1 = fib
 
         return fib
     else:

@@ -44,12 +44,227 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <div class="slides">
 
 <section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+# Strings
+</script></section>
+<section data-markdown><script type="text/template">
+## A string is a sequence
+- A string is a **sequence of characters**. 
+- A character can be **a letter** (in almost any alphabet), **a digit**, **a punctuation mark**, or **white space**.
+- You can select a character from a string **with the bracket operator**.
+<pre><code data-trim data-line-numbers>fruit = 'banana'
+letter = fruit[1]
+print(letter)
+print(fruit[0])
+i = 1
+print(fruit[i])
+print(fruit[i+1])
+print(fruit[-1])</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## String slice
+- **A segment of a string** is called a slice.
+- Selecting a slice is similar to selecting a character.
+<pre><code data-trim data-line-numbers>fruit = 'banana'
+print(fruit[1:4])
+print(fruit[:4]) # from the beginning
+print(fruit[3:]) # to the end
+endStr = len(fruit)
+print(fruit[0:endStr]) # all characters</code></pre>
+- The **operator [n:m]** returns the part of the string from the nth character to the mth character, **including the first but excluding the second**.
+- This behavior is counterintuitive, but it might help to imagine the indices pointing between the characters.
+</script></section>
+<section data-markdown><script type="text/template">
+## Strings are immutable(1/2)
+- The result is a TypeError. In **the error message, the "object" is the string** and the "item" is the character we tried to assign.
+- For now, an object is the same thing as a value, but we will refine that definition later.
+- **The reason for this error is that strings are immutable**, which means you can't change an existing string.
+<pre><code>%%expect TypeError
+greeting = 'Hello, world!'
+greeting[0] = 'J'</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Strings are immutable(2/2)
+- The best you can do is **create a new string** that is a variation of the original.
+<pre><code>greeting = 'Hello, world!'
+new_greeting = 'J' + greeting[1:]
+print(new_greeting)
+print(greeting)
+</code></pre>
+- This example **concatenates a new first letter** onto a slice of greeting.
+- It has no effect on the original string.
+</script></section>
+<section data-markdown><script type="text/template">
+## String comparison
+- The relational operators work on strings.
+- To see if two strings are equal, we can use the == operator.
+<pre><code data-trim data-line-numbers>word = 'banana'
+if word == 'banana':
+	print('All right, banana.')</code></pre>
+<pre><code data-trim data-line-numbers>def compare_word(word):
+	if word < 'banana':
+		print(word, 'comes before banana.')
+	elif word > 'banana':
+		print(word, 'comes after banana.')
+	else:
+		print('All right, banana.')
+# add a new line
+print(compare_word('apple'))</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## String methods
+- Strings provide methods that perform a variety of useful operations.
+- **A method is similar to a function** -- it takes arguments and returns a value -- but the syntax is different.
+<pre><code data-trim data-line-numbers>word = 'banana'
+new_word = word.upper()
+new_word
+newStr = '1,2,3'.split(',')
+print(newStr)
+newStr[0] = '6'
+print(newStr)
+# ['1', '2', '3']
+# ['6', '2', '3']</code></pre>
+- You can refer to the [official document of Python](https://docs.python.org/3/library/stdtypes.html#string-methods) for all of String methods. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Writing files
+<pre><code data-trim data-line-numbers>from os.path import basename, exists
+def download(url):
+	filename = basename(url)
+	if not exists(filename):
+		from urllib.request import urlretrieve
+
+		local, _ = urlretrieve(url, filename)
+		print("Downloaded " + str(local))
+	return filename
+  def is_special_line(line):
+      return line.startswith('*** ') # startswith() method
+
+  if not os.path.exists('pg345.txt'):
+  download('http://www.gutenberg.org/cache/epub/345/pg345.txt')
+
+  reader = open('pg345.txt','r', encoding='utf-8')
+  writer = open('pg345_cleaned.txt', 'w')
+
+  for line in reader:
+  if is_special_line(line):
+	  break
+  writer.write(line) # write() method write into wirter file
+  reader.close()
+  writer.close()</code></pre>
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+# Regular expressions
+</script></section>
+<section data-markdown><script type="text/template">
+## Find and replace
+<pre><code data-trim data-line-numbers>total = 0
+for line in open('pg345_cleaned.txt'):
+	if 'Jonathan' in line:
+		total += 1
+
+total</code></pre>
+<pre><code data-trim data-line-numbers>total = 0
+for line in open('pg345_cleaned.txt'):
+	total += line.count('Jonathan')
+
+totall</code></pre>
+<pre><code data-trim data-line-numbers>writer = open('pg345_replaced.txt', 'w')
+
+for line in open('pg345_cleaned.txt'):
+	line = line.replace('Jonathan', 'Thomas') # replace 'Jonathan' with 'Thomas'
+	writer.write(line)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Regular expressions module(1/3)
+- A module called re provides functions related to regular expressions.
+<pre><code data-trim data-line-numbers>import re
+text = "I am Dracula; and I bid you welcome, Mr. Harker, to my house."
+pattern = 'Dracula'
+result = re.search(pattern, text)
+print(result)
+print(result.string)
+print(result.group())
+print(result.span())</code></pre>
+- If the pattern appears in the text, search returns a Match object that contains the results of the search.
+</script></section>
+<section data-markdown><script type="text/template">
+## Regular expressions module(2/3)
+<pre><code data-trim data-line-numbers>import re
+text = "I am Dracula; and I bid you welcome, Mr. Harker, to my house."
+pattern = 'Dracula'
+result = re.search('Count', text)
+print(result)
+if result == None:
+	print('Not found')
+</code></pre>
+<pre><code data-trim data-line-numbers>import re
+def find_first(pattern):
+for line in open('pg345_cleaned.txt'):
+	result = re.search(pattern, line)
+	if result != None:
+		return result
+
+result = find_first('Harker')
+print(result.string)
+pattern = 'Mina|Murray'
+result = find_first(pattern)
+print(result.string)
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Regular expressions module(4/4)
+- **The special character '^' matches the beginning of a string**, so we can find a line that starts with a given pattern.
+- **The special character '$' matches the end of a string**, so we can find a line that ends with a given pattern (ignoring the newline at the end).
+<pre><code data-trim data-line-numbers>def count_matches(pattern):
+count = 0
+for line in open('pg345_cleaned.txt'):
+	result = re.search(pattern, line)
+	if result != None:
+		count += 1
+return count
+result = find_first('^Dracula')
+print(result.string)
+result = find_first('Harker$')
+print(result.string)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## String substitution(1/2)
+<pre><code data-trim data-line-numbers>def find_first(pattern):
+for line in open('pg345_cleaned.txt'):
+	result = re.search(pattern, line)
+	if result != None:
+		return result
+pattern1 = 'cent(er|re)' # 'cent' followed by 'er' or 're'
+result1 = find_first(pattern1)
+print(result1.string)
+pattern2 = 'colou?r' # 'colou' followed by 'r' zero or one time
+# This pattern matches either "colour" with the 'u' or "color" without it.
+result1 = find_first(patter2)
+print(result2.string)
+</code></pre>
+- This pattern2 **matches either "colour" with the 'u' or "color" without it**, because r'?' means followed by 'r' zero or one time.
+</script></section>
+<section data-markdown><script type="text/template">
+## String substitution(2/2)
+- [The regular expression module how to](https://docs.python.org/3/howto/regex.html)
+<pre><code data-trim data-line-numbers># I used this function to search for lines to use as examples
+def all_matches(pattern):
+	for line in open('pg345_cleaned.txt'):
+		result = re.search(pattern, line)
+		if result:
+			print(line.strip())
+
+  # Here's the pattern I used (which uses some features we haven't seen)
+  names = r'(?&gt;!\.\s)[A-Z][a-zA-Z]+'
+  # ?&gt;! mean "What's before this is not...". \s mean "white space"
+  all_matches(names)
+</code></pre>
+- r'(?&gt;!\\.\s) is nagative lookbehind. It means that the pattern **will not match if there is a period and a space before it**.
+</script></section>
 </section><!--end block-->
 
 </div>
