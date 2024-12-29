@@ -63,8 +63,8 @@ print(numbers) # {'zero': 0, 'one': 1, 'two': 2}</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Creating dictionaries
-- Each item consists of a key and a value separated by a colon. The items are separated by commas and enclosed in curly braces.
-- Another way to create a dictionary is to use the dict function. We can make an empty dictionary like this.
+- **Each item consists of a key and a value separated by a colon**. The items are separated by commas and enclosed in curly braces.
+- **Another way to create a dictionary is to use the dict function**. We can make an empty dictionary like this.
 <pre><code data-trim data-line-numbers>numbers = {'zero': 0, 'one': 1, 'two': 2}
 empty = dict()
 print(empty)
@@ -72,7 +72,16 @@ numbers_copy = dict(numbers)
 print(numbers_copy)
 </code></pre>
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## The in operator
+- The **in operator works on dictionaries, too**; it tells you whether something appears as a key in the dictionary.
+- To see whether something appears as a value in a dictionary, you can use **the method values**, which returns a sequence of values, and then use the in operator.
+<pre><code data-trim data-line-numbers>numbers = {'zero': 0, 'one': 1, 'two': 2}
+'one' in numbers # True
+1 in numbers # False
+1 in numbers.values() # True
+</code></pre>
+</script></section>
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
