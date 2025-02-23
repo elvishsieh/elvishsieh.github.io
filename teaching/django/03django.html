@@ -4,17 +4,15 @@
 <head>
 <meta charset="utf-8">
 
-<title>專案管理實務</title>
+<title>Django Web Framework</title>
 
-<meta name="description" content="Web design for beginner level students">
+<meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -25,7 +23,6 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
-
 <!-- Printing and PDF exports -->
 <script>
 var link = document.createElement( 'link' );
@@ -39,8 +36,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="reveal-js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
-
 <body>
+
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
@@ -48,90 +45,59 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## 專案管理實務<br /> (Project Management)
-
-
-![](/images/pm/pmQRcode.png)
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
-</script>
-</section>
-
+# Django <br />	 Web Framework
+</script></section>
 <section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率：  20%
-- 課程作業： 20%
-- 期中報告： 30%
-- 期末報告： 30%
-</script>
-</section>
+## What is Django?
+- Django is a high-level Python web framework that enables rapid development of secure and maintainable websites.
+- Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel.
+- It is free and open source, has a thriving and active community, great documentation, and many options for free and paid-for support.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Django(1/4)?
+- Complete
+	- Django follows the "Batteries included" philosophy and provides almost everything developers might want to do "out of the box"(開箱即用).
+	- it all works seamlessly together, follows consistent design principles, and has extensive and up-to-date documentation.
+- Versatile(多才多藝)
+	- Django can be (and has been) used to build almost any type of website — from content management systems and wikis, through to social networks and news sites.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Django(2/4)?
+- Versatile(多才多藝)
+	- It can work with any client-side framework, and can deliver content in almost any format (including HTML, RSS feeds, JSON, and XML).
+- Secure
+	- Django helps developers avoid many common security mistakes by providing a framework that has been engineered to "do the right things" to protect the website automatically.
+	- Django can check if an entered password is correct by running it through the hash function and comparing the output to the stored hash value.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Django(3/4)?
+- Scalable
+	- Django uses a component-based "shared-nothing" architecture (each part of the architecture is independent of the others, and can hence be replaced or changed if needed).
+- Maintainable
+	- Django code is written using design principles and patterns that encourage the creation of maintainable and reusable code.
+	- In particular, it makes use of the Don't Repeat Yourself (DRY) principle so there is no unnecessary duplication, reducing the amount of code.
+</script></section>
+<section data-markdown><script type="text/template">
+## Why Django(4/4)?
+- Portable
+	- Django is written in Python, which runs on many platforms. That means that you are not tied to any particular server platform, and can run your applications on many flavors of Linux, Windows, and macOS.
+	- Furthermore, Django is well-supported by many web hosting providers, who often provide specific infrastructure and documentation for hosting Django sites.
+</script></section>
+<section data-markdown><script type="text/template">
+## Where did it come from?
+- Django was initially developed between 2003 and 2005 by a web team who were responsible for creating and maintaining newspaper websites.
+- This common code evolved into a generic web development framework, which was open-sourced as the "Django" project in July 2005.
+- Django has continued to grow and improve, from its first milestone release (1.0) in September 2008 through to the version 5.0 in late 2023.
+- Each release has added new functionality and bug fixes, ranging from support for new types of databases, template engines, and caching, through to the addition of "generic" view functions and classes.
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
-<section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-專案管理導論](./01intro.html)
-- [Week02-專案生命週期](./02lifecycle.html)
-- [Week03-專案組織架構](./03organization.html)
-- [Week04-專案管理流程](./04processing.html)
-- [Week05-整合管理](./05integration.html)
-- [Week06-範疇管理](./06scope.html)
-- [Week07-時程管理](./07schedule.html)
-- [Week08-成本管理](./08cost.html)
-- [Week09-期中考]
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-品質管理](./10quality.html)
-- [Week11-資源管理](./11resource.html)
-- [Week12-溝通管理](./12communication.html)
-- [Week13-風險管理](./13risk.html)
-- [Week14-採購管理](./14procurement.html)
-- [Week15-利害關係人管理](./15stakeholder.html)
-- [Week16-專案倫理與規範](./16ethics.html)
-- [Week17-專案管理思維的改變](./17thought.html)
-- [Week18-期末考] <br /> **課程會視教學進度做適度微調**
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- 專案管理：結合實務與專案管理師認證(第五版)
-	- 作者：劉文良 	
-	- 出版社：碁峰資訊股份有限公司
-	- ISBN：  9786263243767
-	- 出版日期: 2022/12/06 
-- 參考書：
-	- A Guide to the Project Management Body of Knowledge (**PMBOK® Guide**) – Seventh Edition
-	- 學會專案管理的12堂課(第二版), 作者：鍾文武, 出版社：博碩文化股份有限公司, ISBN：9789864349524
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教材與作業
-
-- 課程投影片及教材
-	- 投影片的網址：[https://elvishsieh.github.io/teaching/projectManagement/](https://elvishsieh.github.io/teaching/projectManagement/)
-	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/1DmN3xElw8AEQieUV7tDceMzaqXCZRnVN?usp=sharing)
-</script>
-</section>
+<section><!--start block-->
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
+
 </div>
 </div>
 
@@ -152,10 +118,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {

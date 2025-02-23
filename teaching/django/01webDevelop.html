@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Web Development</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Web Development
+</script></section>
+<section data-markdown><script type="text/template">
+## Client/Server Architecture
+- Often clients and servers **communicate over a computer network** on separate hardware.
+- Clients initiate communication sessions with servers, which await **incoming requests**.
+-  A server host runs **one or more server programs**, for example, a web server, file server, mail server.
+![](/images/django/Client-server-model.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Web Development?(1/2)
+- Web development is the work involved in **developing a web site for the Internet** or an intranet.
+- It can range from developing **a simple page of text to complex web applications**, from small to complex projects, with or without using a database.
+- Front-end web development
+	- **Front-end development** is the process of designing and implementing the **user interface (UI) and user experience (UX)** of a web application.
+	- Markup language **like HTML, CSS and JavaScript** which is used to create client-side web pages.
+</script></section>
+<section data-markdown><script type="text/template">
+## What is Web Development?(2/2)
+- Back-end web development
+	- Back-end development involves building the **server-side logic and database components** of a web application.
+	- It is responsible for processing user requests, managing data, and ensuring the overall functionality of the application.
+	- Server side could be used a progrmming language like PHP, Ruby, Python, Java, C, C++, C# or **Node.js(JavaScript)** to develop web applications.
+</script></section>
+<section data-markdown><script type="text/template">
+## Front-end Development
+- HTML (Hypertext Markup Language)
+	- HTML provides **the structure and organization of content** on a webpage.
+- CSS (Cascading Style Sheet)
+	- Responsible for **styling and layout**, CSS enhances the presentation of HTML elements, making the application visually appealing.
+- **JavaScript**
+	- It is used to add interactions to the web pages.
+	- Advancement in JavaScript has given rise to **many popular front-end frameworks like React, Angular and Vue.js, ..., etc**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Front-end Frameworks
+- React
+	- A JavaScript library for building user interfaces, **maintained by Facebook**. It allows developers to create reusable UI components.
+- Angular
+	- A TypeScript-based front-end framework developed and **maintained by Google**. It provides a comprehensive solution for building dynamic single-page applications.
+- Vue.js was created by **Evan You(尤雨溪)**
+	- A progressive JavaScript framework that is approachable yet **powerful, making it easy to integrate with other libraries or existing projects**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Back-end Development
+- Server/ cloud instance
+	- An essential component of the architecture of a web application is a server or cloud instance.
+	- The server is **responsible for processing requests** from clients and providing responses to them.
+- Databases
+	- Database management is crucial for **storing, retrieving, and managing data** in web applications.
+- Application programming interface (APIs)
+	- **APIs are sets of rules and protocols** that allow different software applications to communicate with each other.
+</script></section>
+<section data-markdown><script type="text/template">
+## Back-end Frameworks
+- Python-based
+	- **Flask, FastApi, Django**, Pyramid, CherryPy
+- Node.js-based
+	- **Angular, React, Vue.js**, [Ember](https://emberjs.com/), [Backbone](https://backbonejs.org/)
+- PHP-based
+	- **Laravel**, CodeIgniter, CakePHP, Symfony, Zend
+- Ruby-based
+	- Sinatra, Ruby on Rails
+- Java-based
+	- Spring, Vaadin, Apache Struts, Struts2
+- More framework, like [Wt](https://www.webtoolkit.eu/wt), [Oat++](https://oatpp.io/) and [drogon](https://github.com/drogonframework/drogon) for C++, web frameworks for **Rust and Go languages**. 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Standard <br />and Libraries
+</script></section>
+<section data-markdown><script type="text/template">
+# Standard
+</script></section>
+<section data-markdown><script type="text/template">
+## Standard for Web Development
+- [W3C web standard](https://www.w3.org/standards/)
+	- W3C publishes recommendations like HTML, CSS, XML, SVG that are considered web standards.
+	- [WHATWG web standard](https://html.spec.whatwg.org/), [CSS specification](https://www.w3.org/TR/CSS/), [XML specification](https://www.w3.org/Style/XSL//)
+- [ECMA International](https://ecma-international.org/)
+	- [ECMA-262](https://tc39.es/ecma262/) is the standard for Javascript
+	- [ECMA-404](https://tc39.es/ecma404/) is the standard for JSON(JavaScript Object Notation)
+- [IETF (Internet Engineering Task Force)](https://www.ietf.org/)
+	- [RFC (Request for Comments)](https://datatracker.ietf.org/) for Internet protocols that include [TCP](https://www.rfc-editor.org/rfc/rfc9293), UDP, [HTTP](https://datatracker.ietf.org/doc/html/rfc9110), [SMTP](https://datatracker.ietf.org/doc/html/rfc7504) etc. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of HTML Schema
+- https URI scheme
+<pre><code data-markdown>https-URI = "https" "://" authority path-abempty [ "?" query ]</code></pre>
+- It is the same URL as follwoing
+<pre><code>http://example.com:80/~smith/home.html
+http://EXAMPLE.com/%7Esmith/home.html 
+http://EXAMPLE.com:/%7esmith/home.html</code></pre>
+- The scheme and host are case-insensitive and normally provided in lowercase.
+- Characters other than those in the "reserved" set are equivalent to their [percent-encoded octets](https://www.eso.org/~ndelmott/url_encode.html).
+</script></section>
+<section data-markdown><script type="text/template">
+# Libraries
+</script></section>
+<section data-markdown><script type="text/template">
+## HTML and CSS
+- HTML (Hypertext Markup Language) frameworks
+	- [Bootstrap](https://getbootstrap.com/), [Semantic UI](https://semantic-ui.com/), [Materialize](https://materializecss.com/), [Foundation](https://foundation.zurb.com/), [HTML5 Up](https://html5up.net/)
+- CSS (Cascading Style Sheet) frameworks
+	- [Bootstrap](https://getbootstrap.com/), [Materialize CSS](https://materializecss.com/), [Puer.CSS](https://puerjs.github.io/), [Bulma](https://bulma.io/), [Tailwind CSS](https://tailwindcss.com/), [SMACSS](https://smacss.com/)
+	- [Animate.css](https://animate.style/), [Animista](https://animista.net/)
+- Others
+	- [lightGallery](https://www.lightgalleryjs.com/), [Justified Gallery](https://miromannino.github.io/Justified-Gallery/), [PhotoSwipe](https://photoswipe.com/), [CSS-Tricks](https://css-tricks.com/)
+	- [Sass](https://sass-lang.com/), [Less](https://lesscss.org/)
+</script></section>
+
+<section data-markdown><script type="text/template">
+##  JavaScript Libraries
+- DOM oriented
+	- [Lit](https://lit.dev/), [jQuery](https://jquery.com/), [MooTools](https://mootools.net/)
+- GUI (Graphical user interface) and widget related
+	- React, Angular, Vue, jQuery-UI, Svelte, Chakra [Bootstrap](https://getbootstrap.com/), [Semantic UI](https://semantic-ui.com/), [Materialize](https://materializecss.com/)
+- Graphical/visualization (canvas, SVG, or WebGL related)
+	- [Three.js](https://threejs.org/), [D3.js](https://d3js.org/), [Babylon.js](https://www.babylonjs.com/), [Chart.js](https://www.chartjs.org/)
+- Web-application related (MVC, MVVM)
+	- [Vue.js](https://vuejs.org/), [React](https://reactjs.org/), [Angular](https://angular.io/), [Backbone](https://backbonejs.org/), [Ember](https://emberjs.com/)
+- Others
+	- [MathJax](https://www.mathjax.org/)[\[1\]](../dataMining/04data.html#/2/2), [Babel.js](https://babeljs.io/), [Webpack](https://webpack.js.org/)
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

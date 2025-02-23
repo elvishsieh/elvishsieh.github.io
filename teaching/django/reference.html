@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>專案管理實務</title>
+<title>Reference</title>
 
 <meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
@@ -13,8 +13,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -31,7 +29,7 @@
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
@@ -46,92 +44,20 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
-## 專案管理實務<br /> (Project Management)
-
-
-![](/images/pm/pmQRcode.png)
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
+## 參考文獻 (Reference)
+- [MDN web docs - Django Web Framework (Python)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django)
+- [Python official documentation](https://docs.python.org/)
+- [Django Girls](https://djangogirls.org/en/)
+- [FastAPI website](https://fastapi.tiangolo.com/)
+- [Uvicorn website](https://www.uvicorn.org/)
+- [SQLAlchemy website](https://www.sqlalchemy.org/)
+- [pydantic website](https://docs.pydantic.dev/)
+- [Boostrap website](https://getbootstrap.com/)
+- [Build a Full-Stack CRUD App using Javascript, Bootstrap, FastAPI, & SQLite](https://www.youtube.com/watch?v=GJDyZqC9ixg)
 </script>
 </section>
 
-<section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率：  20%
-- 課程作業： 20%
-- 期中報告： 30%
-- 期末報告： 30%
-</script>
-</section>
-</section><!--end block-->
-
-<section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week01-專案管理導論](./01intro.html)
-- [Week02-專案生命週期](./02lifecycle.html)
-- [Week03-專案組織架構](./03organization.html)
-- [Week04-專案管理流程](./04processing.html)
-- [Week05-整合管理](./05integration.html)
-- [Week06-範疇管理](./06scope.html)
-- [Week07-時程管理](./07schedule.html)
-- [Week08-成本管理](./08cost.html)
-- [Week09-期中考]
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Week10-品質管理](./10quality.html)
-- [Week11-資源管理](./11resource.html)
-- [Week12-溝通管理](./12communication.html)
-- [Week13-風險管理](./13risk.html)
-- [Week14-採購管理](./14procurement.html)
-- [Week15-利害關係人管理](./15stakeholder.html)
-- [Week16-專案倫理與規範](./16ethics.html)
-- [Week17-專案管理思維的改變](./17thought.html)
-- [Week18-期末考] <br /> **課程會視教學進度做適度微調**
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- 專案管理：結合實務與專案管理師認證(第五版)
-	- 作者：劉文良 	
-	- 出版社：碁峰資訊股份有限公司
-	- ISBN：  9786263243767
-	- 出版日期: 2022/12/06 
-- 參考書：
-	- A Guide to the Project Management Body of Knowledge (**PMBOK® Guide**) – Seventh Edition
-	- 學會專案管理的12堂課(第二版), 作者：鍾文武, 出版社：博碩文化股份有限公司, ISBN：9789864349524
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教材與作業
-
-- 課程投影片及教材
-	- 投影片的網址：[https://elvishsieh.github.io/teaching/projectManagement/](https://elvishsieh.github.io/teaching/projectManagement/)
-	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/1DmN3xElw8AEQieUV7tDceMzaqXCZRnVN?usp=sharing)
-</script>
-</section>
-</section><!--end block-->
 </div>
 </div>
 
@@ -152,10 +78,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {

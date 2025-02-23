@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to REST API</title>
+
+<meta name="description" content="Web design for beginner level students">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# HTTP Method
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP request method(1/2)
+- Internet Engineering Task Force (IETF) [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#name-methods) defines the following HTTP request methods:
+| Method | Description | Section |
+| :--- | :--- | :--- |
+|GET | 	Transfer a current representation of the target resource. |	9.3.1 |
+|POST | 	Perform resource-specific processing on the request content. |	9.3.3 |
+|PUT | 	Replace all current representations of the target resource with the request content. |	9.3.4 |
+|DELETE | 	Remove all current representations of the target resource. |	9.3.5 |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP request method(2/2)
+- Internet Engineering Task Force (IETF) [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#name-methods) defines the following HTTP request methods:
+| Method | Description | Section |
+| :--- | :--- | :--- |
+|HEAD | 	Same as GET, but do not transfer the response content. |	9.3.2 |
+|CONNECT | 	Establish a tunnel to the server identified by the target resource. |	9.3.6 |
+|OPTIONS | 	Describe the communication options for the target resource. |	9.3.7 |
+|TRACE | 	Perform a message loop-back test along the path to the target resource. |	9.3.8 |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## CRUD, HTTP request method <br />and SQL statement
+- In computer programming, **create, read, update, and delete (CRUD)** are the four basic operations (actions) of persistent storage.
+- CRUD also can be maped to HTTP request Method and SQL statement.
+|   |   |   |   |   |   |
+|:---|:---|:---|:---|:---|:---|
+|**CRUD** | **C**reate | **R**ead | **U**pdate | **D**elete | 
+| **HTTP** | POST | GET | PUT | DELETE |
+| **SQL** | INSERT | SELECT | UPDATE | DELETE | 
+||||||
+</script></section>
+<section data-markdown><script type="text/template">
+# cURL
+[![](/images/django/curl-logo.svg)](https://curl.se/windows/)
+</script></section>
+<section data-markdown><script type="text/template">
+## A cmd tool for URLs - curl
+- curl is a command line tool and library for transferring data with URLs
+- Installation
+	- Windows: https://curl.se/windows/
+	- Linux/Mac: https://curl.se/download/
+- curl has a quite rich set of options
+	- -I : Show headers
+	- -h : help information
+	- --help all: Show all options
+	- -X: Specify request method to use
+	- -H: Add request header
+	- -d: Send data in a POST request
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of cURL(1/2)
+- Get header of a web page
+	- curl -I https://www.example.com
+- Get a web page
+	- curl https://www.example.com
+	- curl -X GET https://www.example.com
+- Post data to a web page
+	- [curl --data "name=alice" http://httpbingo.org/post](https://codapi.org/curl/#post-data)
+	- curl -X 'POST'  -H "Content-Type: application/json" 'http://127.0.0.1:8000/Users?user=jenny+hsieh&email=jennyhsieh@hotmail.com'
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of cURL(2/2)
+- Put data to a web page
+	- [curl --request PUT --header "content-type: application/json"	--data '{"name": "alice"}' http://httpbingo.org/put](https://codapi.org/curl/#put-data)
+- Delete data to a web page
+	- [curl -X DELETE https://reqbin.com/echo/delete/json](https://reqbin.com/req/c-1dw4uds4/curl-delete-request-example)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# REST API
+</script></section>
+<section data-markdown><script type="text/template">
+## REST and RESTful
+- REST (Representational State Transfer) is a software architectural style that was created to describe the design and guide the development of the architecture for the World Wide Web.
+- The REST architectural constraints
+	- Client/Server
+	- Stateless - A client does not consume server storage
+	- Cache
+	- Uniform interface
+	- Layered system
+- An application that adheres to **the REST architectural constraints may be informally described as RESTful**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Request for RESTful in practice
+- Python and **fastapi, uvicorn** packages
+	- fastapi is a modern, high performance, **web framework** for building APIs with Python.
+	- uvicorn is **a server for running [ASGI](https://asgi.readthedocs.io/en/latest/index.html) applications**.
+- **cURL** or **Thunder Client extension** of Visual Studio Code
+	- **curl is a command line tool** and library for **transferring data with URLs**.
+	- Thunder Client extension can be installed in Visual Studio Code.
+</script></section>
+<section data-markdown><script type="text/template">
+## Thunder Client
+- Thunder Client is **a lightweight Rest API Client Extension for VS Code**, hand-crafted by Ranga Vadhineni with a focus on simplicity, clean design and local storage.
+![](/images/django/thunder.png) 
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# RESTful in practice
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(1/6)
+- Install fastapi and uvicorn
+	- pip install fastapi uvicorn
+- Create a main.py file which have the code of content as following
+<pre><code data-trim data-line-numbers>from fastapi import FastAPI
+app = FastAPI()	
+Users = [] # a empty list(array)
+@app.get("/")
+async def root():
+	return {"message": "Hello World"}
+</code></pre>
+- Run uvicorn server in project folder
+	- **uvicorn main:app --host 0.0.0.0 --port 8000 --reload**
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(2/6)
+- Testing RESTful API with cURL
+	- curl http://127.0.0.1:8000/
+- Testing RESTful API with Thunder Client
+![](/images/django/helloWorld.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(3/6)
+- Modify the main.py file as following
+<pre><code data-trim data-line-numbers>from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+app = FastAPI()
+Users = [] # a empty list(array)
+@app.get("/")
+async def root():
+	return {"message": "Hello World"}
+@app.post("/Users")
+async def create_user(user: str):
+	Users.append(user) # append() is a list method of python
+	return Users
+@app.get("/Users/{user_id}")
+async def get_user(user_id: int) -> str: # function annotations
+	user = Users[user_id]
+	return user
+</code></pre>
+- Full main.py code is in [src/django folder](../src/django/main.py)
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(4/6)
+- Testing POST method with cURL and Thunder Client
+	- curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8000/Users?user=elvis+hsieh
+![](/images/django/post.png)
+- Browser: http://127.0.0.1:8000/Users/0
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(5/6)
+- Testing PUT method with cURL
+	- curl -X PUT http://127.0.0.1:8000/Users/1?user=Jenny+hsieh
+	- curl -X GET http://127.0.0.1:8000/Users/1
+- Testing PUT method with Thunder Client
+![](/images/django/put.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## RESTful API in practice(6/6)
+- Testing DELETE method with cURL
+	- curl -X DELETE http://127.0.0.1:8000/Users/1?user=Jenny+hsieh
+- Testing DELETE method with Thunder Client
+![](/images/django/delete.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Respone message of RESTful API
+- Browser the URL http://127.0.0.1:8000/User/1 is not found
+![](/images/django/notFound.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# HTTP status codes
+</script></section>
+<section data-markdown><script type="text/template">
+## [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- Informational responses (100 – 199)
+- **Successful responses** (200 – 299)
+- Redirection messages (300 – 399)
+- **Client error responses** (400 – 499)
+- Server error responses (500 – 599)
+- For example
+	- 200: OK
+	- 301: Moved Permanently(永久地)
+	- 404: Not Found
+	- 500: Internal Server Error
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing HTTP status codes(1/2)
+- Modify the main.py file as following
+<pre><code data-trim data-line-numbers>from fastapi import FastAPI, HTTPException
+.
+.
+.
+'''
+@app.get("/Users/{user_id}")
+async def get_user(user_id: int) -> str: # function annotations
+	user = Users[user_id]
+	return user
+'''
+@app.get("/Users/{user_id}")
+async def get_user(user_id: int) -> str: # function annotations
+	if user_id < len(Users):
+		return Users[user_id]
+	else:
+		raise HTTPException(status_code=404, detail="User not found")  
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing HTTP status codes(2/2)
+- Testing response status codes with cURL
+	- curl -X GET http://127.0.0.1:8000/Users/1
+- Testing response status codes with Thunder Client
+![](/images/django/respone.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## List Users in RESTful API
+- Modify the main.py file as following
+<pre><code data-trim data-line-numbers>@app.get("/Users")
+async def list_users(limit: int = 10):
+	return Users[0:limit]</code></pre>
+- Testing list_users() method
+	- curl -X GET http://127.0.0.1:8000/Users
+	![](/images/django/limit.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# FastAPI docs
+</script></section>
+<section data-markdown><script type="text/template">
+## FastAPI docs and API reference
+- Setting up FastAPI docs
+	- pip install fastapi[docs]
+	- FastAPI docs: http://127.0.0.1:8000/docs
+- Launching Uvicorn ASGI server
+	- **uvicorn users:app --host 127.0.0.1 --port 8000 --reload**
+- Create Data for FastAPI docs
+	- curl -X POST -H "Content-Type: application/json" 'http://127.0.0.1:8000/Users?user=Jenny+hsieh&email=jennyhsieh@hotmail.com'
+
+</script></section>
+<section data-markdown><script type="text/template">
+## Testing App with FastAPI docs
+- Browsering http://127.0.0.1:8000/docs in Browser
+![](/images/django/fastapiUsers.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## POST method in FastAPI docs(1/3)
+![](/images/django/postFastapi.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## POST method in FastAPI docs(2/3)
+![](/images/django/postFastapi2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## POST method in FastAPI docs(3/3)
+- Browsering http://127.0.0.1:8000/Users or http://127.0.0.1:8000/Users/0
+![](/images/django/postFastapi3.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## CRUD operations in RESTful API
+- Using [DB Browser](https://sqlitebrowser.org) or [HeidiSQL](https://www.heidisql.com/)  GUI tool for SQLite
+- Request Back-end frameworks for CRUD operations
+	- Request FastAPI, Uvicorn, pyDantic,SQLAlchemy, and fastapi_cors
+	- **pip install fastapi uvicorn pydantic sqlalchemy fastapi_cors**
+- Reuest Front-end framework for CRUD operations
+	- Request Boostrap, jQuery framework
+
+<pre><code data-trim data-line-numbers>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+&lt;script src="https://code.jquery.com/jquery-3.7.1.slim.min.js">&lt;/script>
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js">&lt;/script>	
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+center: true,
+slideNumber: true,
+mouseWheel: false,
+hash: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
