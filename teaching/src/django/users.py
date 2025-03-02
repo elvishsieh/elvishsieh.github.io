@@ -15,12 +15,6 @@ async def create_user(user: str, email: str):
     Email.append(email)
     return Users, Email
 
-'''
-@app.get("/Users/{user_id}")
-async def get_user(user_id: int) -> str: # function annotations, which  is the same as get_user(user_id):
-    user = Users[user_id]
-    return user
-'''
 @app.get("/Users/{user_id}")
 async def get_user(user_id: int) -> str: # function annotations, which  is the same as get_user(user_id):
     if user_id < len(Users):
