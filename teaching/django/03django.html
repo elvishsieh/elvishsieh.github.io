@@ -49,52 +49,113 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## What is Django?
-- Django is a high-level Python web framework that enables rapid development of secure and maintainable websites.
-- Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel.
-- It is free and open source, has a thriving and active community, great documentation, and many options for free and paid-for support.
+- Django is a high-level Python web framework that **enables rapid development of secure and maintainable websites**.
+- Built by experienced developers, Django takes care of much of the hassle of web development, so **you can focus on writing your app without needing to reinvent the wheel**.
+- It is free and open source, has **a thriving and active community, great documentation**, and many options for free and paid-for support.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Why Django(1/4)?
 - Complete
-	- Django follows the "Batteries included" philosophy and provides almost everything developers might want to do "out of the box"(開箱即用).
-	- it all works seamlessly together, follows consistent design principles, and has extensive and up-to-date documentation.
-- Versatile(多才多藝)
-	- Django can be (and has been) used to build almost any type of website — from content management systems and wikis, through to social networks and news sites.
+	- Django follows **the "Batteries included" philosophy** and provides almost everything developers might want to do "out of the box".
+	- it all works seamlessly together, follows **consistent design principles, and has extensive and up-to-date documentation**.
+- Versatile
+	- Django can be (and has been) used to build **almost any type of website** — from content management systems and wikis, through to social networks and news sites.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Why Django(2/4)?
-- Versatile(多才多藝)
-	- It can work with any client-side framework, and can deliver content in almost any format (including HTML, RSS feeds, JSON, and XML).
-- Secure
-	- Django helps developers avoid many common security mistakes by providing a framework that has been engineered to "do the right things" to protect the website automatically.
+- Versatile
+	- **It can work with any client-side framework**, and can deliver content in almost any format (including HTML, RSS feeds, JSON, and XML).
+- **Secure**
+	- Django helps developers avoid many common security mistakes by providing a framework that has been engineered to **"do the right things" to protect the website automatically**.
 	- Django can check if an entered password is correct by running it through the hash function and comparing the output to the stored hash value.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Why Django(3/4)?
-- Scalable
-	- Django uses a component-based "shared-nothing" architecture (each part of the architecture is independent of the others, and can hence be replaced or changed if needed).
-- Maintainable
-	- Django code is written using design principles and patterns that encourage the creation of maintainable and reusable code.
+- **Scalable**
+	- Django uses a **component-based "shared-nothing" architecture** (each part of the architecture is independent of the others, and can hence be replaced or changed if needed).
+- **Maintainable**
+	- Django code is written using **design principles and patterns** that encourage the creation of maintainable and reusable code.
 	- In particular, it makes use of the Don't Repeat Yourself (DRY) principle so there is no unnecessary duplication, reducing the amount of code.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Why Django(4/4)?
-- Portable
-	- Django is written in Python, which runs on many platforms. That means that you are not tied to any particular server platform, and can run your applications on many flavors of Linux, Windows, and macOS.
-	- Furthermore, Django is well-supported by many web hosting providers, who often provide specific infrastructure and documentation for hosting Django sites.
+- **Portable**
+	- Django is **written in Python, which runs on many platforms**. That means that you are not tied to any particular server platform, and can run your applications on many flavors of **Linux, Windows, and macOS**.
+	- Furthermore, Django is **well-supported by many web hosting providers**, who often provide specific infrastructure and documentation for hosting Django sites.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Where did it come from?
-- Django was initially developed between 2003 and 2005 by a web team who were responsible for creating and maintaining newspaper websites.
-- This common code evolved into a generic web development framework, which was open-sourced as the "Django" project in July 2005.
-- Django has continued to grow and improve, from its first milestone release (1.0) in September 2008 through to the version 5.0 in late 2023.
-- Each release has added new functionality and bug fixes, ranging from support for new types of databases, template engines, and caching, through to the addition of "generic" view functions and classes.
+- Django was initially developed between 2003 and 2005 by a web team who were responsible for **creating and maintaining newspaper websites**.
+- This common code evolved into a generic web development framework, which was **open-sourced as the "Django" project in July 2005**.
+- Django has continued to grow and improve, from its first milestone release (1.0) in September 2008 through to **the version 5.0 in late 2023**.
+- Each release has added **new functionality and bug fixes, ranging** from support for new types of databases, template engines, and caching.
 </script></section>
+<section data-markdown><script type="text/template">
+## How popular is Django?
+- There **isn't any readily-available and definitive measurement of popularity** of server-side frameworks.
+- Based on the number of high profile sites that use Django, the number of people contributing to the codebase, and [the number of people providing both free and paid](https://github.com/django/django) for support, then **yes, Django is a popular framework!**
+- High-profile sites that use Django include: **Disqus, Instagram**, Knight Foundation, MacArthur Foundation, **Mozilla**, National Geographic, Open Knowledge Foundation, Pinterest, and Open Stack.
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Hello Django
+</script></section>
+<section data-markdown><script type="text/template">
+## Starting a Django project
+- Installation of Django
+	- **pip install django**
+	- **python -m django --version**
+- Create a Django project
+	- **django-admin startproject hello**
+	- **cd hello**
+	- **python manage.py runserver**
+- Using browser to open the [http://localhost:8000](http://localhost:8000) URL which you should can see "The install worked successfully! Congratulations." page.
+</script></section>
+<section data-markdown><script type="text/template">
+## The files of Django project
+- manage.py file
+- project name folder(hello)
+	- **hello/__init__.py**
+	- **hello/asgi.py**
+	- **hello/settings.py**
+	- **hello/urls.py**
+	- **hello/wsgi.py**
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 <section><!--start block-->
+<section data-markdown><script type="text/template">
+# MVT of Django Code
+</script></section>
+<section data-markdown><script type="text/template">
+## Django project structure(1/3)
+![](/images/django/django-mvt.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Django project structure(2/3)
+- URLs
+	- A URL mapper is used to redirect HTTP requests to the appropriate view based on the request URL.
+	- The URL mapper can also match particular patterns of strings or digits that appear in a URL and pass these to a view function as data.
+- Views
+	- A view is a request handler function, which receives HTTP requests and returns HTTP responses.
+	- Views access the data needed to satisfy requests via models, and delegate the formatting of the response to templates.
+</script></section>
+<section data-markdown><script type="text/template">
+## Django project structure(3/3)
+- Models
+	- Models are Python objects that define the structure of an application's data, and provide mechanisms to manage (add, modify, delete) and query records in the database.
+- Templates
+	- A template is a text file defining the structure or layout of a file, with placeholders used to represent actual content.
+	- A view can dynamically create an HTML page using an HTML template, populating it with data from a model.
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
