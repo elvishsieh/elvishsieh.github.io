@@ -21,11 +21,11 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-db_url = "sqlite:///./database/dbUsers.db"
+db_url = "sqlite:///./database/dbUsers.db" #// Typing file:///d:/ in brower 
 
 engine = create_engine(db_url, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+Base = declarative_base() #
 
 class Customer(Base):
     __tablename__ = "customers"
@@ -39,9 +39,9 @@ class Customer(Base):
 Base.metadata.create_all(bind=engine)
 
 def get_db():
-    db = SessionLocal()
+    db = SessionLocal() # like make a connection with telephone.
     try:
-        yield db
+        yield db # yield.py and return.py programs
     finally:
         db.close()
 

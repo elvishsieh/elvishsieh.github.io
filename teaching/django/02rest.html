@@ -221,7 +221,7 @@ async def get_user(user_id: int) -> str: # function annotations
 </script></section>
 <section data-markdown><script type="text/template">
 ## Respone message of RESTful API
-- Browser the URL http://127.0.0.1:8000/User/1 is not found
+- Using browser to open the URL http://127.0.0.1:8000/User/1 is not found
 ![](/images/django/notFound.png)
 </script></section>
 </section><!--end block-->
@@ -324,7 +324,9 @@ async def list_users(limit: int = 10):
 </script></section>
 <section data-markdown><script type="text/template">
 ## Front-end connect to Back-end
-- The source code can be found [here](../src/django/restAPI.7z)
+- The source code could be founded [here](../src/django/restAPI.7z) which includes index.html,
+ sqlDB.py, database/dbUsers.db, js/users.js, images/background.jpg files and folders.
+	
 ![](/images/django/restAPI.png)
 </script></section>
 <section data-markdown><script type="text/template">
@@ -363,6 +365,10 @@ async def list_users(limit: int = 10):
 	- **uvicorn sqlDB:app --reload**
 - Open the index.html file with Browser
 </script></section>
+
+<section data-markdown><script type="text/template">
+# The Front-end codes
+</script></section>
 <section data-markdown><script type="text/template">
 ## Add New User Button(1/3)
 - Adding New User Button in [index.html file](../src/django/index.html)
@@ -378,25 +384,25 @@ data-bs-target="#userModal">新增使用者&lt;/button>
 ## Add New User Button(2/3)
 - Add New User Button in [users.js file](../src/django/js/users.js)
 <pre><code data-trim data-line-numbers>async function addUser() {
-	// Get the input values
-	const name = document.getElementById('userName').value;
-	const email = document.getElementById('userEmail').value;
-	const userId = document.getElementById('saveUserButton').getAttribute('data-id');
-	// Construct the user object
-	// here we can check first if info are not null before sending data ( you can add that )
-	const newUser = { name: name, email: email };
-	let url = 'http://localhost:8000/Users';
-	let method = 'POST';
-	if (userId) {
-		url += `/${userId}`;
-		method = 'PUT';	}
-	try {
-		// Send the new user data to the server          
-		const response = await fetch(url, {
-			method: method,
-			headers: {
-				'Content-Type': 'application/json',	},
-			body: JSON.stringify(newUser),	});	</code></pre>
+// Get the input values
+const name = document.getElementById('userName').value;
+const email = document.getElementById('userEmail').value;
+const userId = document.getElementById('saveUserButton').getAttribute('data-id');
+// Construct the user object
+// here we can check first if info are not null before sending data ( you can add that )
+const newUser = { name: name, email: email };
+let url = 'http://localhost:8000/Users';
+let method = 'POST';
+if (userId) {
+	url += `/${userId}`;
+	method = 'PUT';	}
+try {
+	// Send the new user data to the server          
+	const response = await fetch(url, {
+		method: method,
+		headers: {
+			'Content-Type': 'application/json',	},
+		body: JSON.stringify(newUser),	});	</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Add New User Button(3/3)
@@ -472,7 +478,154 @@ document.getElementById('userTableBody').addEventListener('click', function(even
 	- Confirm deletion and delete the user
 	- confirm function from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)
 </script></section>
+<section data-markdown><script type="text/template">
+# The Back-end codes
+</script></section>
+<section data-markdown><script type="text/template">
+## Requirements and Import modules
+- Requirement modules of python
+	- fastapi, uvicorn, pydantic, sqlalchemy, fastapi_cors
+	<pre><code data-trim>from fastapi import FastAPI, Response, Depends, APIRouter, HTTPException
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, Session
+from pydantic import BaseModel
+from typing import List, Optional
+from fastapi.middleware.cors import CORSMiddleware</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Connect DB with sqlalchemy
+<pre><code data-trim data-line-numbers>db_url = "sqlite:///./database/dbUsers.db" #// Typing file:///d:/ in brower 
 
+engine = create_engine(db_url, connect_args={"check_same_thread": False})
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base() # Establishing a Declarative Base
+'''
+Create Table customers(
+id INTEGER PRIMARY KEY,
+name TEXT NOT NULL,
+email TEXT
+);
+'''
+class Customer(Base):
+	__tablename__ = "customers"
+	id = Column(Integer, primary_key=True, index=True)
+	name = Column(String, nullable=False, index=True)
+	email = Column(String, unique=True, index=True)
+...
+Base.metadata.create_all(bind=engine)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Creating a session for database
+- A session is a **time-delimited two-way link**, a practical (relatively high) layer in the TCP/IP protocol **enabling interactive expression and information exchange** between two or more communication devices or ends.
+<pre><code data-trim data-line-numbers>def get_db():
+db = SessionLocal() # like make a connection with telephone.
+try:
+	yield db # yield.py and return.py programs
+finally:
+	db.close()</code></pre>
+- What is yield of Python?
+	- A generator is a function that **returns an iterator that produces a sequence of values over time**.
+</script></section>
+<section data-markdown><script type="text/template">
+## yield in Python
+- The file name is yield.py
+<pre><code data-trim>
+	def yieldfn(n):
+		print("start n =", n)
+
+		for i in range(n):
+			yield i*i
+			print("i =", i)
+			print("--------")
+			
+		print("end")
+
+	callyield = yieldfn(5)
+	for iterValue in callyield:
+	print("iterValue = ", iterValue)
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## return in Python
+- The file name is return.py
+<pre><code data-trim>def returnfn(n):
+	print("start n = ", n)
+
+	for i in range(n):
+		return i*i
+		print("i =", i)
+		print("--------")
+		
+	print("end")
+	
+	returnValue = returnfn(5)
+	print("returnValue = ", returnValue)</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Creating classes for CRUD operations
+<pre><code data-trim data-line-numbers>class userCreate(BaseModel): # from pydantic
+    name: str
+    email: str
+
+class userResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    class Config:
+        from_attributes = True
+
+class userUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Get function in FastAPI
+<pre><code data-trim data-line-numbers>@app.get("/Users/", response_model=List[userResponse])
+async def get_customers(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+	Users = db.query(Customer).offset(skip).limit(limit).all()
+	return Users
+
+@app.get("/Users/{user_id}", response_model=userResponse)
+async def get_customer(user_id: int, db: Session = Depends(get_db)):
+	customer = db.query(Customer).filter(Customer.id == user_id).first()
+	if customer is None:
+		raise HTTPException(status_code=404, detail="Customer not found")
+	return customer</code></pre>
+- The first get function for **limiting the number of data** to be returned
+- The second get function for getting a specific user data with user_id
+</script></section>
+<section data-markdown><script type="text/template">
+## Post and Put function in FastAPI
+<pre><code data-trim data-line-numbers>@app.post("/Users/", response_model=userResponse)
+async def create_customer(customer: userCreate, db: Session = Depends(get_db)):
+	db_customer = Customer(name=customer.name, email=customer.email)
+	db.add(db_customer)
+	db.commit()
+	db.refresh(db_customer)
+	return db_customer
+
+@app.put("/Users/{user_id}", response_model=userResponse)
+async def update_customer(user_id: int, customer: userUpdate, db: Session = Depends(get_db)):
+	db_customer = db.query(Customer).filter(Customer.id == user_id).first()
+	if not db_customer:
+		raise HTTPException(status_code=404, detail="Customer not found")
+	db_customer.name = customer.name if customer.name is not None else db_customer.name
+	db_customer.email = customer.email
+	db.commit()
+	return db_customer</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Delete function in FastAPI
+<pre><code data-trim>@app.delete("/Users/{user_id}")
+async def delete_customer(user_id: int, db: Session = Depends(get_db)):
+	db_customer = db.query(Customer).filter(Customer.id == user_id).first()
+	if not db_customer:
+		raise HTTPException(status_code=404, detail="Customer not found")
+	db.delete(db_customer)
+	db.commit()
+	return {"message": "Customer deleted"}</code></pre>
+</script></section>
 </section><!--end block-->
 
 </div>
