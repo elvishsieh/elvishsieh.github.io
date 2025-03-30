@@ -132,9 +132,81 @@ os.path.join(BASE_DIR, 'static'),
 - Open the about page [http://localhost:8000/about](http://localhost:8000/about) and you should can see the following page 
 ![](/images/django/about2.png)
 </script></section>
+</section><!--end block-->
+<section><!-- start block-->
+<section data-markdown><script type="text/template">
+# Migrations
+</script></section>
+<section data-markdown><script type="text/template">
+## Migrations to database(1/2)
+- On the command line, we still see that warning about 18 unapplied migrations.
+![](/images/django/migrate.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Migrations to database(2/2)
+- As a project **grows over time**, there are **often many changes to the Django
+database models** that define the structure of a database and all its tables. 
+- Migrations are special scripts Django **creates automatically to track changes to the database**.
+- The Django **migrations framework** allows developers to track changes over time and **change the database to match the
+configurations within a specific migrations file**.
+- When you start a new project **using the startproject command**, Django includes several built-
+in apps that make changes to the database, including admin, auth, contenttypes, and sessions.
+</script></section>
+<section data-markdown><script type="text/template">
+## Migration command
+- **python manage.py migrate**
+![](/images/django/migrate2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Finally initial setup
+- Restart the development server, and there will **no longer be any warnings**.
+![](/images/django/migrate3.png)
+</script></section>
+</section><!--end block-->
+
+<section><!-- start block-->
+<section data-markdown><script type="text/template">
+# Create An App
+</script></section>
+<section data-markdown><script type="text/template">
+## Create an App with Django(1/2)
+- The example source codes can be downloaded from the [helloV2.7z](../src/django/helloV2.7z)
+- run the command as following 
+	- **python manage.py startapp blog**
+- Create and modifiy file
+	- cd blog; mkdir templates/posts
+	- create blog/urls.py
+	<pre><code data-trim data-line-numbers>from django.urls import path, include
+		from . import views
+		urlpatterns = [
+			path("", views.blog_home),
+		]</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Create an App with Django(2/2)
+- Modify blog/views.py file
+	<pre><code data-trim data-line-numbers>from django.shortcuts import render
+		# Create your views here.
+		def blog_home(request):
+			return render (request, 'posts/post.html')</code></pre>
+- Modify hello/urls.py file
+	<pre><code data-trim data-line-numbers>from django.urls import path, include
+		...
+	urlpatterns = [
+	path('admin/', admin.site.urls),
+	path("", views.home),
+	path("about/", views.about),
+	path("blog/", include('blog.urls')) # new
+]
+	</code></pre>
+</script></section>
+	
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!-- start block-->
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
