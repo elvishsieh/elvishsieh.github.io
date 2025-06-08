@@ -16,13 +16,15 @@
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
 <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
 <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <!-- Printing and PDF exports -->
 <script>
@@ -73,18 +75,7 @@ RA 是公開金鑰基礎設施 (PKI) 的一部分，是能讓公司和使用者�
 - TTP: Trusted Third Party (TTP)是可以對 Alice and Bob 兩位做認證的第三方 
 - VA: a validation authority (VA) is an entity that provides a service used to verify the 
 validity of a digital certificate per the mechanisms described in the X.509 standard and RFC 5280
-
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## simple CA with OpenSSL
-- [Download Win32OpenSSL]()
-
-</script>
-</section>
+</script></section>
 </section>
 
 <section>
@@ -104,7 +95,7 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## GRCA政府憑證總管理中心
+## GRCA政府憑證總管理中心(1/2)
 - 政府憑證總管理中心(Government Root Certification Authority, GRCA)，
 為政府機關公開金鑰基礎建設階層架構的最頂層憑證機構，也是本基礎建 設的信賴起源，
 必須具備最高的公信度
@@ -115,7 +106,7 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## GRCA政府憑證總管理中心
+## GRCA政府憑證總管理中心(2/2)
 - 信賴憑證者(Relying Parties)：係指相信憑證主體名稱與公開金鑰之連結關係的個體，
 必須依據憑證機構的憑證及憑證狀態資訊，檢驗所使用憑證的有效性
 - GRCA 之下屬憑證機構
@@ -127,12 +118,12 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## GRCA 之下屬憑證機構
+## GRCA 之下屬憑證機構(1/3)
 ![GPKI](/images/iSecurity/gpki.png)
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## GRCA 之下屬憑證機構
+## GRCA 之下屬憑證機構(2/3)
 - GCA: 政府憑證管理中心(Government Certification Authority，簡稱GCA)
 屬於政府機關公開金鑰基礎建設階層式架構的第一層下屬憑證機構，
 遵照憑證政策保證等級第3級的規定，簽發之憑證種類包含政府機關(構)、
@@ -144,7 +135,7 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 </script>
 </section>
 <section data-markdown><script type="text/template">
-## GRCA 之下屬憑證機構
+## GRCA 之下屬憑證機構(3/3)
 - MOEACA: 工商憑證管理中心的啟用，將簽發公司商業身分電子憑證，
 公司商業可郵寄申請書或攜帶申請書親臨所屬登記機關辦理。
 這張身分電子憑證IC卡將作為在網路上與政府溝通的身分認證，
@@ -175,11 +166,55 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 |組織及團體憑證管理中心(XCA)|學校、財團法人、社團法人、行政法人、自由職業事務所、其他組織或團體|各類憑證用戶之主管機關|國家發展委員會|
 |醫事憑證管理中心(HCA)|醫事人員、醫事機構及其所屬應用於醫事專門用途的伺服器應用軟體|全國衛生局所|衛生福利部|
 |政府測試憑證管理中心(GTestCA)|GCA、MOEACA、MOICA、XCA之測試憑證|無|國家發展委員會|
-</script>
-</section>
+</script></section>
 </section>
 
 <section>
+<section data-markdown><script type="text/template">
+## Make a CA with OpenSSL(1/2)
+- Download [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html) from Shining Light Productions
+- Make a CA
+	- Setting [ssl.conf file](./15pki.html#/2/1)
+	- Create a CA with OpenSSL
+	
+<pre><code data-trim data-line-numbers>openssl req -x509 -new -nodes -sha256 -utf8 -days 3650 -newkey rsa:2048 -keyout server.key -out server.crt -config ssl.conf</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Make a CA with OpenSSL(2/2)
+- The content of ssl.conf file
+
+<pre><code data-trim data-line-numbers>[req]
+prompt = no
+default_md = sha256
+default_bits = 2048
+distinguished_name = dn
+x509_extensions = v3_req
+[dn]
+C = TW
+ST = Taiwan
+L = Taichung
+O = NUTC
+OU = MIS Department
+emailAddress = elvis@gmail.com
+CN = localhost
+[v3_req]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = *.localhost
+DNS.2 = localhost
+IP.1 = 192.168.2.100
+</code></pre>
+</script></section>
+</section>
+<section data-markdown><script type="text/template">
+## Checksum with OpenSSL
+- 財政部報稅軟體的指紋碼
+	- [報稅軟體](https://tax.nat.gov.tw/alltax-download.html?id=1)使用 SHA256 編碼產出的[指紋碼](https://download.tax.nat.gov.tw/irx/sha2_IRX11300.sum)
+- Chek the IRX11300.EXE file if the same of the checksum code.
+	<pre><code data-trim>openssl dgst -sha256 IRX11300.EXE</code></pre>
+</script></section>
+<section>
+
 <section data-markdown><script type="text/template">
 ## 參考資料
 [1] [GPKI政府機關公開金鑰基礎建設](http://grca.nat.gov.tw/index.html)

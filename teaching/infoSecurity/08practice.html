@@ -16,13 +16,15 @@
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
 <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
 <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <!-- Printing and PDF exports -->
 <script>
@@ -44,12 +46,85 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
+<section>
 <section data-markdown><script type="text/template">
-# Using GPG4Win 金鑰建置與管理
-</script>
+# Public/Private Key
+</script></section>
+<section data-markdown><script type="text/template">
+## Software for Public/Private Key
+- [OpenSSL](https://openssl.org/)
+  - [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html)
+- **[GnuPG](https://www.gnupg.org/index.html)** is a complete and free **implementation of the OpenPGP standard** as defined by [RFC4880](https://www.ietf.org/rfc/rfc4880.txt) (also known as PGP).
+  - **[Gpg4win](https://www.gpg4win.org/)** is a **Windows version of GnuPG** featuring a context menu tool, a crypto manager, and an Outlook plugin to send and receive standard PGP/MIME mails.
+  - Gpg4win enables users to **securely transport emails and files** with the help of **encryption and digital signatures**. 
+</script></section>
+<section data-markdown><script type="text/template">
+## Create Key Pair with OpenSSL
+- Create a private key
+  <pre><code data-trim data-line-numbers>openssl genrsa -out elvisPrivate.pem 2048
+  openssl genpkey -algorithm rsa -out elvisPrivate.pem -pkeyopt rsa_keygen_bits:2048
+  </code></pre>
+- Create a public key with the private key
+  <pre><code data-trim data-line-numbers>openssl rsa -in elvisPrivate.pem -pubout -out elvisPublic.crt</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Encrypt and Decrypt message
+- Encrpyt message with public key
+<pre><code data-trim>openssl pkeyutl -encrypt -inkey elvisPublic.crt -pubin -in plain.txt -out secret.txt</code></pre>
+- Decrypt message
+<pre><code data-trim>openssl  pkeyutl -decrypt -inkey elvisPrivate.pem -in secret.txt</code></pre>
+- Encrypt Chinese message in Windows
+  - The message should be saved with big5 encoding in Windows.
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Key File Encoding(1/2)
+- Binary DER-encoded format
+  - If you try to **view the file with a text editor it is full of "funny" characters**.
+- PEM or base64 format
+  - These files **can be viewed with a text editor** and can be easily transmitted as part of an email message. 
+  - The first character in the base64-encoded part should be a 'M' (U+004D).
+  <pre><code data-trim data-line-numbers>-----BEGIN FOO BAR KEY-----
+MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
+2puRO/Mdt+Y8ceywxiC0cE57nrbmvaTSvBwTg9b/xyd8YC6QK7lrhC9Njgp/
+>-----END FOO BAR KEY-----</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Key File Encoding(2/2)
+- XML format
+<pre><code data-trim data-line-numbers>&lt;RSAKeyPair>
+  &lt;Modulus>4IlzOY3Y9fXoh3Y5f06wBbtTg94Pt6vcfcd1KQ0FLm0S36aGJtTSb6pYKfyX7PqCUQ8wgL6xUJ5GRPEsu9
+    gyz8ZobwfZsGCsvu40CWoT9fcFBZPfXro1Vtlh/xl/yYHm+Gzqh0Bw76xtLHSfLfpVOrmZdwKmSFKMTvNXOFd0V18=
+  &lt;/Modulus>
+  &lt;Exponent>AQAB&lt;/Exponent>
+  &lt;P>9tbgIiFMXwpw/yf85bNQap3lD7WFlsZA+qgKtJubDFXCAR35N4KKFMjykw6SzaVmIbk80ga/tFUxydytypgt0Q==&lt;/P>
+  &lt;Q>6N6wESUJ0gJRAd6K6JhQ9Xd3YaRFk2sIVZZzXfTIWxKTInOLf9Nwf/Wkqrt0/Twiato4kSqGW2wU6K5MnvqOLw==&lt;/Q>
+  &lt;DP>l0zwh5sXf+4bgxsUtgtqkF+GJ1Hht6B/9eSI41m5+R6b0yl3OCJI1yKxJZi6PVlTt/oeILLIURYjdZNR56vN8Q==&lt;/DP>
+  &lt;DQ>LPAkW/qgzYUi6tBuT/pszSHTyOTxhERIZHPXKY9+RozsFd7kUbOU5yyZLVVleyTqo2IfPmxNZ0ERO+G+6YMCgw==&lt;/DQ>
+  &lt;InverseQ>
+    WIjZoVA4hGqrA7y730v0nG+4tCol+/bkBS9u4oiJIW9LJZ7Qq1CTyr9AcewhJcV/+wLpIZa4M83ixpXub41fKA==
+  &lt;/InverseQ>
+  &lt;D>pAPDJ0d2NDRspoa1eUkBSy6K0shissfXSAlqi5H3NvJ11ujNFZBgJzFHNWRNlc1nY860n1asLzduHO4Ovygt9DmQb
+    zTYbghb1WVq2EHzE9ctOV7+M8v/KeQDCz0Foo+38Y6idjeweVfTLyvehwYifQRmXskbr4saw+yRRKt/IQ==
+  &lt;/D>
+&lt;/RSAKeyPair></code></pre>
+</script></section>
 </section>
 
 <section>
+<section data-markdown><script type="text/template">
+# The GnuPG
+</script></section>
+<section data-markdown><script type="text/template">
+## The GNU Privacy Guard
+- **[GnuPG](https://www.gnupg.org/index.html)** is a complete and free **implementation of the OpenPGP standard** as defined by [RFC4880](https://www.ietf.org/rfc/rfc4880.txt) (also known as PGP).
+- **[Gpg4win](https://www.gpg4win.org/)** is a **Windows version of GnuPG** featuring a context menu tool, a crypto manager, and an Outlook plugin to send and receive standard PGP/MIME mails.
+  - Gpg4win enables users to **securely transport emails and files** with the help of **encryption and digital signatures**. 
+</script></section>
+
+<section data-markdown><script type="text/template">
+# Using GPG4Win <br />金鑰建置與管理
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝及(1/9)
 - 選擇安裝介面的語言

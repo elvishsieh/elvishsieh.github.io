@@ -16,13 +16,15 @@
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
-<link rel="stylesheet" href="/revealjs/dist/theme/league.css" id="theme">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
 <link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
 <link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="/css/custom4revealjs.css">
 <!-- Code syntax highlighting -->
-<link rel="stylesheet" href="/highlightjs/styles/zenburn.min.css">   
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
 <link rel="stylesheet" href="/css/style4font.css">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
 
 <!-- Printing and PDF exports -->
 <script>
@@ -129,47 +131,48 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-markdown><script type="text/template">
 ## RSA 的運作過程(1/2)
-* $\forall p, q\in \mathbb Z_p$，則找一個數值 $n = p\times q,\quad n\in \mathbb N$，<br>
+- $\forall p, q\in \mathbb Z_p$，則找一個數值 $n = p\times q,\quad n\in \mathbb N$，
    由 Eurler-totient-function 得 $\phi (n) = (p-1)\cdot(q-1) \cdots (1)$
-* 找一個數值 $e$，且 $gcd(e, \phi (n)) = 1$ (參考資料：斐蜀定理)<br>
+- 找一個數值 $e$，且 $gcd(e, \phi (n)) = 1$ (斐蜀定理(Bézout's lemma))<br>
   $\because e, \phi (n)$ 互質，由輾轉相除法得 $\; e\cdot d - \phi \cdot t = 1\cdots\cdots (2)$ <br>
   由 $(1)$ 式代入 $(2)$ 式得 $e\cdot d = 1 + (p-1)\cdot (q-1)\cdot t$
+
   `$$
-  \begin{align}
-  \therefore (e\cdot d)  \mod \phi (n) & = [1+ (p-1)\cdot (q-1)\cdot t]\mod \phi (n)\\
+  \begin{align*}
+  \therefore (e\cdot d) & \mod \phi (n) = [1+ (p-1)\cdot (q-1)\cdot t]\mod \phi (n)\\
                                           & = [1+ (p-1)\cdot (q-1)\cdot t]\mod (p-1)\cdot (q-1) \\
                                           & = 1
-  \end{align}
+  \end{align*}
   $$`
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## RSA 的運作過程(2/2)
-- 加密： $M^e \equiv C\; mod\; n, \quad \frac{M^e}{n}$ 所得到的餘數值 $C$，再將 $C$ 傳給公鑰的擁有者
-- 解密： 公鑰的擁有者收到傳遞的密文 $C$ 值，對 $C$ 做
-    $C^d \equiv M\;(mod \; n), \quad \frac{C^d}{n}$ 取餘數，就可以得到訊息 $M$
+- 加密： `$M^e \equiv C\; mod\; n, \quad \frac{M^e}{n}$` 所得到的餘數值 `$C$`，再將 `$C$` 傳給公鑰的擁有者
+- 解密： 公鑰的擁有者收到傳遞的密文 `$C$` 值，對 `$C$` 做
+    `$C^d \equiv M\;(mod \; n), \quad \frac{C^d}{n}$` 取餘數，就可以得到訊息 $M$
 
 - 一些符號的說明：
 
 |符號|描述|符號|描述|
 |-------|-------|-----|-------|
-|$e$|公鑰(Encryption)|$d$| 私鑰(Decryption)
-|$M$|訊息(明文)|$M \in\; [0, n-1] $|$gcd(M, n) = 1$|
-|$C$|密文(CipherText)| | |
+|`$e$`|公鑰(Encryption)|`$d$`| 私鑰(Decryption)
+|`$M$`|訊息(明文)|`$M \in\; [0, n-1] $`|`$gcd(M, n) = 1$`|
+|`$C$`|密文(CipherText)| | |
 
 </script>
 </section>
 <section data-markdown><script type="text/template">
 ## RSA 加解密的範例(1/3)
-1. 取 $p, q$ 兩個質數，假設 $p = 3, q = 11$，則 $n = 33, \quad \phi (n) = 20$
-2. 選擇公鑰 $e$，使得 $gcd (e, \phi (n) = 1)\quad \therefore Let\ e = 3$，則
+1. 取 `$p, q$` 兩個質數，假設 `$p = 3, q = 11$`，則 `$n = 33, \quad \phi (n) = 20$`
+2. 選擇公鑰 `$e$`，使得 `$gcd (e, \phi (n) = 1)\quad \therefore Let\ e = 3$`，則
   $gcd (3, 20) = 1$
-3. 求私鑰 $d$， $\because  e\times d\mod \phi (n) = 1$，即 $d$ 是 $e$ 的反元素，換言之， $3\times d \equiv 1\mod \underline{20}$
+3. 求私鑰 `$d$`， `$\because  e\times d\mod \phi (n) = 1$`，即 `$d$` 是 `$e$` 的反元素，換言之， $3\times d \equiv 1\mod \underline{20}$
 
-4. 私鑰 $d$ 的求法
+4. 私鑰 `$d$` 的求法
 | `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n ) = 20$`  |
 | :---: | :---: | :---: | 
-| $1$ | $3\times 1$ | $3$ | 
+| `$1$` | `$3\times 1$` | `$3$` | 
 
 </script>
 </section>
@@ -177,14 +180,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## RSA 加解密的範例(2/3)
 | `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n) = 20$`  |
 | :---: | :---: | :---: | 
-| $2$ | $3\times 2$ | $6$ |
-| $\vdots$ | $\vdots$ | $\vdots$ |
-|$12$|$3\times 12$|$16(36\mod 20)$|
+| `$2$` | `$3\times 2$` | `$6$` |
+| `$\vdots$` | `$\vdots$` | `$\vdots$` |
+|`$12$`|`$3\times 12$`|`$16(36\mod 20)$`|
 
 從上表得知： $(3\times 7)\mod 20 = 1, \quad \therefore $ 可得私鑰 $d = 7$
-- 假設鑰傳送一則訊息 key， key 這個英文字串的英文編碼，
+- 假設鑰傳送一則訊息 **key(明文)** ， key 這個英文字串的英文編碼，
   即 $a ↦ 01, b ↦ 02, c ↦ 03,\cdots, y ↦ 25, z ↦ 26$,
-  所以，訊息 key 對應的數字為 $11, 05, 25$，則對 key 訊息加密，就是對 $11, 05, 25$  數字加密
+  所以，訊息 **key(明文)** 對應的數字為 **`$11, 05, 25$`** ，則對 key 訊息加密，就是對 $11, 05, 25$  數字加密
 </script>
 </section>
 <section data-markdown><script type="text/template">
@@ -196,7 +199,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
    C_2 & \equiv \;\; 5^3 \; mod\; 33 = 26\\
    C_3 & \equiv 25^3 \; mod\; 33 = 16
   \end{align} \right\} \Rightarrow 得到密文 11, 26, 16$$`
-- 對密文($11, 26, 16$)解密($d = 7$)，即 $M \equiv C^d(mod\ n)$則
+- 對密文(`$11, 26, 16$`)解密(`$d = 7$`)，即 `$M \equiv C^d(mod\ n)$`則
   `$$\left.
   \begin{align}
    M_1 & \equiv 11^7 \; mod\; 33 = 11\\
