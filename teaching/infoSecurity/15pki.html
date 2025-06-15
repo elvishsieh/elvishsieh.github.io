@@ -169,70 +169,38 @@ validity of a digital certificate per the mechanisms described in the X.509 stan
 </script></section>
 </section>
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
-## Make a CA with OpenSSL(1/2)
-- Download [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html) from Shining Light Productions
-- Make a CA
-	- Setting [ssl.conf file](./15pki.html#/2/1)
-	- Create a CA with OpenSSL
-	
-<pre><code data-trim data-line-numbers>openssl req -x509 -new -nodes -sha256 -utf8 -days 3650 -newkey rsa:2048 -keyout server.key -out server.crt -config ssl.conf</code></pre>
+# Future of Encryption
 </script></section>
 <section data-markdown><script type="text/template">
-## Make a CA with OpenSSL(2/2)
-- The content of ssl.conf file
-
-<pre><code data-trim data-line-numbers>[req]
-prompt = no
-default_md = sha256
-default_bits = 2048
-distinguished_name = dn
-x509_extensions = v3_req
-[dn]
-C = TW
-ST = Taiwan
-L = Taichung
-O = NUTC
-OU = MIS Department
-emailAddress = elvis@gmail.com
-CN = localhost
-[v3_req]
-subjectAltName = @alt_names
-[alt_names]
-DNS.1 = *.localhost
-DNS.2 = localhost
-IP.1 = 192.168.2.100
-</code></pre>
+## The Future of Encryption(1/2)
+- The future of encryption will see more adaptive and resilient methods emerging, with stronger encryption techniques tailored for **modern challenges like quantum computing and cloud security**.
+- Bring Your Own Encryption (BYOE)
+	- Bring Your Own Encryption (BYOE) is a trend that empowers organizations to **take control of their data security by using their own encryption methods**, rather than relying on the encryption solutions provided by cloud service providers.
 </script></section>
-</section>
 <section data-markdown><script type="text/template">
-## Checksum with OpenSSL
-- 財政部報稅軟體的指紋碼
-	- [報稅軟體](https://tax.nat.gov.tw/alltax-download.html?id=1)使用 SHA256 編碼產出的[指紋碼](https://download.tax.nat.gov.tw/irx/sha2_IRX11300.sum)
-- Chek the IRX11300.EXE file if the same of the checksum code.
-	<pre><code data-trim>openssl dgst -sha256 IRX11300.EXE</code></pre>
+## The Future of Encryption(2/2)
+- Homomorphic(同態) Encryption
+	- Homomorphic encryption allows computations to be performed on **encrypted data without decrypting it**.
+- Quantum Cryptography
+	- Quantum cryptography uses the principles of **quantum mechanics to enhance security**.
+- Honey Encryption
+	- Honey encryption is an innovative approach that generates plausible but **fake data when incorrect decryption keys are used**. This technique confuses attackers, wasting their time and resources on incorrect decryption attempts.
 </script></section>
-<section>
-
 <section data-markdown><script type="text/template">
 ## 參考資料
-[1] [GPKI政府機關公開金鑰基礎建設](http://grca.nat.gov.tw/index.html)
-
-[2] [GCA 憑證相關資料下載](http://gca.nat.gov.tw/web2/form02.html)
-
-[3] [OpenSSL](https://www.openssl.org/)
-
-[4] [The OpenXPKI Project](http://www.openxpki.org/)
-
-[5] [OpenCA Labs](https://www.openca.org/)
-
-[6] [EJBCA PKI CA](https://www.ejbca.org/)
-
-[7] [Mozilla Root Store Policy](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/policy/)
-</script>
-</section>
-</section>
+- [GPKI政府機關公開金鑰基礎建設](http://grca.nat.gov.tw/index.html)
+- [GCA 憑證相關資料下載](http://gca.nat.gov.tw/web2/form02.html)
+- [OpenSSL](https://www.openssl.org/)
+- [The OpenXPKI Project](http://www.openxpki.org/)
+- [OpenCA Labs](https://www.openca.org/)
+- [EJBCA PKI CA](https://www.ejbca.org/)
+- [Mozilla Root Store Policy](https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/policy/)
+- [GeeksforGeeks](https://www.geeksforgeeks.org/)
+- [openssl command how to](https://www.madboa.com/geek/openssl/)
+</script></section>
+</section><!--end block-->
 
 </div>
 </div>

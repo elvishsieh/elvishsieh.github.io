@@ -111,7 +111,7 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 </script></section>
 </section>
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # The GnuPG
 </script></section>
@@ -155,96 +155,86 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
     <li>Gpg4win Compendium: The documentation (for beginner and advanced users), available in English and German.
     </li>
   </ul>
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝(5/9)
 - 按下一步
 ![gpg5](/images/iSecurity/gpg5.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝(6/9)
 - 按下一步
 ![gpg6](/images/iSecurity/gpg6.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝(7/9)
 - 按下一步
 ![gpg7](/images/iSecurity/gpg7.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝(8/9)
 - 按下一步
 ![gpg8](/images/iSecurity/gpg8.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 安裝(9/9)
 - 按下一步
 ![gpg9](/images/iSecurity/gpg9.svg)
-</script>
-</section>
-</section>
+</script></section>
+</section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # 建立自己的金鑰
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(1/8)
 - 開啟 GPG4Win 金鑰管理程式 Kleopatra
     -  Kleopatra (埃及豔后)
 ![createKey.svg](/images/iSecurity/createKey.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(2/8)
 - 按左上角的 File >> New Certificate
 ![createKey.svg](/images/iSecurity/createKey2.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(3/8)
 - 按 Create a personal OpenPGP key pair(建立個人的公開金鑰)，然後再按下一步
     - Pretty Good Privacy: 很好的隱私
 ![createKey.svg](/images/iSecurity/createKey3.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(4/8)
 - 輸入個人資料以及 Email 信箱，然後按下一步
 ![createKey.svg](/images/iSecurity/createKey4.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(5/8)
 - 確認輸入資料是否正確？若正確，則按 Create Key
 ![createKey.svg](/images/iSecurity/createKey5.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(6/8)
 - 輸入 passphrase(通關密語)，然後按 OK
 ![createKey.svg](/images/iSecurity/createKey6.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(7/8)
 - 再次輸入 passphrase(通關密語)，然後按 OK
 ![createKey.svg](/images/iSecurity/createKey7.svg)
-</script>
-</section><section data-markdown><script type="text/template">
+</script></section>
+<section data-markdown><script type="text/template">
 ## GPG4Win 產生金鑰(8/8)
 - 已經建立 Open PGP 金鑰，按 Finish 完成
 ![createKey.svg](/images/iSecurity/createKey8.svg)
-</script>
-</section>
-</section>
+</script></section>
+</section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Keys 的管理
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win Keys 的管理
 - 對於自己 private and public key 以及別人 public key 的管理
@@ -254,8 +244,7 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
   - 可以把自己的 private key 輸出到另外一台電腦，或者上傳到憑證中心
 - key 的交換都使用採用 ASCII 的型式做交換，儲存的附檔名通常設成 .asc
   - An ASC file is an armored ASCII file used by Pretty Good Privacy (PGP)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win Keys 的管理
 - 以 Gnu PG 的 public key 為例，看看加入前、後的差異？
@@ -267,8 +256,7 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 - 把 [Gnu PG 的 public key](https://gnupg.org/signature_key.html) 儲存成 gnupg-2.1.21.tar.bz2.asc
 - 開啟 klelpatra，把 gnupg-2.1.21.tar.bz2.asc 檔案 import 進來
   - File >> import Certificates
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win Keys 的備份與移植
 - 備份個人的 public/private key
@@ -281,8 +269,7 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
      alt="keyFolder.svg">
   - Windows 作業系統儲存 keys 的預設目錄是 C:\Users\使用者名稱\AppData\Roaming\gnupg，
     將目錄下的檔案複製到另外一台電腦的相同目錄
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win Keys 的管理
 - Command Line 做認證：
@@ -291,86 +278,73 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 - 對於未信任的 keys 做信任(trust) 的動作
   - gpg --edit-key 0xkey-id trust
 <img src="/images/iSecurity/signVerify2.svg" style="height: 320px" alt="signVerify2.svg">
-</script>
-</section>
-</section>
+</script></section>
+</section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 對訊息加密
     - 輸入一則訊息，然後複製訊息
 ![gpgMail](/images/iSecurity/gpgMail.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 右下角的工作列中開啟 GPG4Win
     - 點選 Clipboard(剪貼簿) >> Encrypt(加密)
 ![gpgMail2](/images/iSecurity/gpgMail2.svg)
 ![gpgMail3](/images/iSecurity/gpgMail3.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 編輯收件人，點選 Add Recipient
 ![gpgMail4](/images/iSecurity/gpgMail4.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 在 Kleopatra key manager 點選收件人
 ![gpgMail5](/images/iSecurity/gpgMail5.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 已經加入收件人，然後按 Next
 ![gpgMail6](/images/iSecurity/gpgMail6.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 完成訊息加密，此時在剪貼簿內存有加密的訊息
 <img src="/images/iSecurity/gpgMail7.svg" alt="gpgMail7" style="height: 500px">
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 將剪貼簿加密的秘密訊息貼到 Email 上寄出
 <img src="/images/iSecurity/gpgMail8.svg" alt="gpgMail8" style="height: 500px">
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 收件人收到加密的訊息
 <img src="/images/iSecurity/gpgMail9.svg" alt="gpgMail9" style="height: 500px">
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 使用 GPA(The Gnu Privacy Assistant)，在 keys list 中點選自己的 key
 ![gpgMail10](/images/iSecurity/gpgMail10.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 開啟 GPA 剪貼簿，把收到的訊息複製到剪貼簿內，然後按下 Decrypt(解密)
 <img src="/images/iSecurity/gpgMail11.svg" alt="gpgMail11" style="height: 450px">
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 輸入通關密語(passphrase)，按下 OK
 ![gpgMail12](/images/iSecurity/gpgMail12.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## GPG4Win 加解密
 - 得到寄信人原來寄出的訊息
 ![gpgMail13](/images/iSecurity/gpgMail13.svg)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 摘要
 - 必須要先將明文複製，再開啟工作列的 Kleopatra keys 管理程式小圖示，對剪貼簿內的明文加密
@@ -379,11 +353,10 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 - 完成訊息加密以後，把剪貼簿內的秘密訊息 Email 給對方
 - 收件人收到加密的秘密訊息，用自己的 private key 解密
   - 解密有許多種方法，在 GPG4Win 可以使用 Kleopatra 管理程式或者 GPA
-</script>
-</section>
-</section>
-
-<section>
+</script></section>
+<section data-markdown><script type="text/template">
+# 實際操作練習
+</script></section>
 <section data-markdown><script type="text/template">
 ## 建立及管理金鑰的練習
 - 請自行使用 GPG4Win 軟體建立自己的金鑰
@@ -393,8 +366,7 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 - 連結到 Python 網站，下載 [Python public key](https://www.python.org/static/files/pubkeys.txt)，
     將 Python public key import 到 Kleopatra keys manager 內
     - 等一下將使用 Python 的 Public Key ，確認 Python 以 private key 簽章過的檔案
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 訊息加密、解密的練習
 - 請同學互相以對方的公開金鑰，把你/妳要傳送的訊息加密並且傳送給對方
@@ -407,11 +379,10 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
     - 開啟 kelopatra ，File >> Decrypt/Vertify Files >> 選擇檔案
     - 輸入通關密語
     - 在密文的相同目錄下，會產生明文的檔案
-</script>
-</section>
-</section>
+</script></section>
+</section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## 認證數位簽章的訊息(1/2)
 - 數位簽章可以作為訊息認證，以 [Python 檔案](https://www.python.org/downloads/)
@@ -422,16 +393,14 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
   - Python public key 可以
     [點選這裡](https://www.python.org/static/files/pubkeys.txt)下載
 - 下載 public key 以後，將 Python public key import 到 Kleopatra keys manager 內
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 認證數位簽章的訊息(2/2)
 - 將下載的檔案、數位簽章檔都放在相同的目錄，開啟 Kleopatra keys manager，
   然後利用 public key 對簽章及檔案做認證，也就是把訊息解密(Decrypt)
   - File >> Decrypt/Vertify Files
 ![pyVerify](/images/iSecurity/pyVerify.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 數位簽章做訊息認證的練習
@@ -441,74 +410,64 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
   - [數位簽章 gnupg-2.1.21.tar.bz2.sig](https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.21.tar.bz2.sig)<!-- .element: class="fragment" data-fragment-index="1" -->
   - File >> Decrypt/Verify Files 確認檔案<!-- .element: class="fragment" data-fragment-index="2" -->
 <img src="/images/iSecurity/signVerify.svg" style="height: 280px" alt="signVerify.svg">
-</script>
-</section>
+</script></section>
 </section>
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # 製作數位簽章
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(1/5)
 - 開啟 Kleopatra keys manager，把訊息簽章Sign/Encrypt)
   - File >> Sign/EncryptFiles
   ![Signature.png](/images/iSecurity/Signature.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(1/5)
 - 開啟 Kleopatra keys manager，把訊息簽章Sign/Encrypt)
   - File >> Sign/EncryptFiles
   ![Signature.png](/images/iSecurity/Signature.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(2/5)
   - 選取要簽章的檔案
   ![Signature.png](/images/iSecurity/Signature2.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(3/5)
   - 選則 Sign 選項
   ![Signature.png](/images/iSecurity/Signature3.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(4/5)
   - 按下 Sign 按鈕
   ![Signature.png](/images/iSecurity/Signature4.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 對訊息做數位簽章(5/5)
   - 完成數位簽章(在相同的目錄下會產生 .sig 的檔案)
   ![Signature.png](/images/iSecurity/Signature5.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## 製作簽章檔的練習
 - 請先編輯一則訊息，然後存成檔案，再用自己的私鑰做數位簽章<!-- .element: class="fragment" data-fragment-index="1" -->
 - 請同學將訊息及簽章檔 Email 傳送給對方<!-- .element: class="fragment" data-fragment-index="2" -->
 - 收到對方的訊息檔及簽章檔，請使用對方的公鑰來確證是否是對方傳送的訊息及簽章檔案<!-- .element: class="fragment" data-fragment-index="3" -->
-</script>
-</section>
+</script></section>
 </section>
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 # Mailvelope En/Decryption
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## What is Mailvelope?
 - [Mailvelope](https://www.mailvelope.com/en) 是瀏覽器擴充套件
@@ -516,137 +475,321 @@ MIIBgjAcBgoqhkiG9w0BDAEDMA4ECKZesfWLQOiDAgID6ASCAWBu7izm8N4V
 - Gmail, Yahoo Mail, Outlook Mail, ..., etc
 - 容易對傳送的訊息做加解密
 - 提供 Key Handling, Message Encryption/Decryption, File Encryption 功能
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Installing Mailvelope(1/4)
 - [Mailvelope](https://www.mailvelope.com/en) 首頁點選你/妳使用的瀏覽器
     - 以 Firefox 為例 
 ![mailvelope.png](/images/iSecurity/mailvelope.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Installing Mailvelope(2/4)
 - 按下「允許」的選項
 ![mailvelope2.png](/images/iSecurity/mailvelope2.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Installing Mailvelope(3/4)
 - 按下「安裝」的選項
 ![mailvelope3.png](/images/iSecurity/mailvelope3.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Installing Mailvelope(4/4)
 - 完成安裝
 ![mailvelope4.png](/images/iSecurity/mailvelope4.png)
 ![mailvelope5.png](/images/iSecurity/mailvelope5.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Import/Export Key(1/4)
 - 點選劉覽器的 Mailvelope icon，按下 Add
 ![mailvelope6.png](/images/iSecurity/mailvelope6.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Import/Export Key(2/4)
 - 點選 Key Management >> import keys
 ![mailvelope7.png](/images/iSecurity/mailvelope7.png)
-</script>
-</section>
+</script></section>
 
 <section data-markdown><script type="text/template">
 ## Import/Export Key(3/4)
 - 點選 select a key text file to import
 ![mailvelope8.png](/images/iSecurity/mailvelope8.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Import/Export Key(4/4)
 - 選擇你要 import 到 Mailvelope 的 key
 ![mailvelope9.png](/images/iSecurity/mailvelope9.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Import/Export Key(4/4)
 - 點選 Display Key，檢視 import 的 key
 ![mailvelope10.png](/images/iSecurity/mailvelope10.png)
-</script>
-</section>
-</section>
-
-<section>
+</script></section>
+<section data-markdown><script type="text/template">
+# Mailvelope 操作
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 的操作(1/5)
 - 登入你/妳的 Webmail，然後按下 mailvelope 小圖示(icon)
 ![mailvelope10.png](/images/iSecurity/mailvelope11.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 的操作(2/5)
 - 在收件者欄位內輸入收件人的 Email 
 ![mailvelope10.png](/images/iSecurity/mailvelope12.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 的操作(3/5)
 - 當輸入關鍵字時，可以選擇已經匯入公鑰的收件者 Email 
 ![mailvelope10.png](/images/iSecurity/mailvelope13.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 的操作(4/5)
 - 寫信，完成後按下 Encrypt 按鈕 
 ![mailvelope10.png](/images/iSecurity/mailvelope14.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 的操作(5/5)
 - 最後按下 Send 按鈕，送出秘密訊息
 ![mailvelope10.png](/images/iSecurity/mailvelope15.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 收信人的操作(1/4)
 - 請確認你/妳的私鑰是否已經匯入 mailvelope 內部
 ![mailvelope10.png](/images/iSecurity/mailvelope16.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 收信人的操作(2/4)
 - 直接拿鑰匙點選畫面的鎖
 ![mailvelope10.png](/images/iSecurity/mailvelope17.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 收信人的操作(3/4)
 - 輸入建立公鑰/私鑰對時所設定的通關密語
 ![mailvelope10.png](/images/iSecurity/mailvelope18.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## 收信人的操作(4/4)
 - 開啟秘密訊息
 ![mailvelope10.png](/images/iSecurity/mailvelope19.png)
-</script>
-</section>
+</script></section>
 <section data-markdown><script type="text/template">
 ## Mailvelope 實際操作練習
 - 安裝 Mailvelope 套件，並且將你/妳之前使用 GPG4Win 建立的公鑰及私鑰匯入
 - 請尋找一位與你/妳要做秘密通訊的同學，將他/她的公鑰匯入 mailvelope
 - 請同學使用 Mailvelope 對訊息加密，加密後互相傳送秘密訊息給對方
 - 使用 Mailvelope 把對方傳送的訊息解開
-</script>
-</section>
-</section>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Checksum with OpenSSL
+- 財政部報稅軟體的指紋碼
+	- [報稅軟體](https://tax.nat.gov.tw/alltax-download.html?id=1)使用 SHA256 編碼產出的[指紋碼](https://download.tax.nat.gov.tw/irx/sha2_IRX11300.sum)
+	- Chek the IRX11300.EXE file if the same of the checksum code.
+
+<pre><code data-trim>openssl dgst -sha256 IRX11300.EXE</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+# Secure of Website
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTP Access Authentication
+- HTTP Basic Access Authentication
+  - Basic Authentication uses base64 encoding (**not encryption**) for generating our cryptographic string which contains the information of **username and password**.
+- HTTP Digest Access Authentication
+  - Digest Access Authentication **uses the hashing** (i.e digest means cut into small pieces) methodologies to generate the cryptographic result.
+</script></section>
+<section data-markdown><script type="text/template">
+## Digest Authentication Practice
+- Dowloand Web Server
+  - [Civetweb](https://github.com/civetweb/civetweb)
+  - [nginx](https://nginx.org/en/docs/windows.html)
+- Practice digest authentication with Civetweb
+<pre><code data-trim>civetweb -A &lt;htpasswd_fname> &lt;hostname> &lt;user> &lt;password></code></pre>
+  - Download src and .htpasswd file from [my Google Driver](https://drive.google.com/drive/u/1/folders/1YPUsuRY-SJAUamLjt35pA0k-5vzWCu8-)
+  - copy .htpasswd into Civetweb web server and visit the [localhost:8080](localhost:8080)
+</script></section>
+
+<section data-markdown><script type="text/template">
+# SSL and TLS 
+</script></section>
+<section data-markdown><script type="text/template">
+## Secure Socket Layer (SSL)
+- SSL or Secure Sockets Layer, is an Internet security protocol that encrypts data to keep it safe.
+- It was created by Netscape in 1995 to **ensure privacy, authentication, and data integrity in online communications**.
+- **SSL is the older version of what we now call TLS** (Transport Layer Security).
+- Websites using SSL/TLS have "HTTPS" in their URL instead of "HTTP."
+</script></section>
+<section data-markdown><script type="text/template">
+## Working of SSL
+- **Encryption**
+  - SSL **encrypts data transmitted over the web**, ensuring privacy.
+- **Authentication**
+  - SSL **starts an authentication process called a handshake between two devices to confirm their identities**, making sure both parties are who they claim to be.
+- **Data Integrity**
+  - SSL digitally signs data to ensure it hasn't been tampered(竄改) with, verifying that the data received is exactly what was sent by the sender.
+</script></section>
+<section data-markdown><script type="text/template">
+## Transport Layer Security(TLS)
+- Transport Layer Security (TLS) is a cryptographic protocol designed to provide communications security over a computer network.
+- The TLS protocol aims primarily to provide security, **including privacy (confidentiality), integrity, and authenticity** through the use of cryptography, such as the use of certificates, between two or more communicating computer applications.
+- TLS is a proposed Internet Engineering Task Force (IETF) standard, first defined in 1999, and the [current version is TLS 1.3](https://datatracker.ietf.org/doc/html/rfc8446), defined in August 2018.
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTPS Example(1/2)
+- When you visit a secure website like [https://www.bank.com](https://www.bank.com), public key encryption is used behind the scenes to encrypt data between your browser and the bank's server.
+- Bank's Server Has a Key Pair
+  - **Private Key: Secret, stored securely on the server**.
+  - **Public Key: Shared with anyone via an SSL certificate**.
+- You Connect to the Website
+  - Your browser **gets the bank's public key from its SSL certificate**.
+  - It verifies the certificate is valid (issued by a trusted certificate authority).
+</script></section>
+<section data-markdown><script type="text/template">
+## HTTPS Example(2/2)
+- Encrypting the Session Key
+  - **Your browser creates a random symmetric key** (used for actual data encryption).
+  - **It encrypts this key using the bank's public key**.
+  - Only the bank can decrypt it using its private key.
+- Secure Communication Begins
+  - **Now both your browser and the bank share a secret symmetric key**.
+  - All further communication (login info, account data, etc.) is encrypted using this key.
+</script></section>
+<section data-markdown><script type="text/template">
+# HTTPS Web Server
+</script></section>
+<section data-markdown><script type="text/template">
+## Make a Certificate with OpenSSL
+- Download [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html) from Shining Light Productions
+- Create a private key and certificate with OpenSSL
+	- Setting and change the [ssl.conf file](./08practice.html#/8/12)
+	- Create a private key and certificate file with ssl.conf as following command
+	
+<pre><code data-trim data-line-numbers>openssl req -x509 -new -nodes -sha256 -utf8 -days 3650 -newkey rsa:2048 -keyout server.key -out server.crt -config ssl.conf</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## The content of ssl.conf file
+<pre><code data-trim data-line-numbers>[req]
+prompt = no
+default_md = sha256
+default_bits = 2048
+distinguished_name = dn
+x509_extensions = v3_req
+[dn]
+C = TW
+ST = Taiwan
+L = Taichung
+O = NUTC
+OU = MIS Department
+emailAddress = elvis@gmail.com
+CN = localhost
+[v3_req]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = *.localhost
+DNS.2 = localhost
+IP.1 = 192.168.2.100
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Setting Civetweb support HTTPS
+- Create private key and a self-sign certificate for server
+  - It is the same command with the [Make a Certificate with OpenSSL](./08practice.html#/8/11) slide.
+- Merge private and cerfificate in .pem file
+<pre><code data-trim data-line-numbers>copy server.crt server.pem
+type server.key >> server.pem</code></pre>
+- Settup SSL/TLS support in civetweb.conf
+<pre><code data-trim data-line-numbers>listening_ports 443s
+ssl_certificate d:\where\is\certificate\server.pem</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
+## Setting Nginx support HTTPS
+- Download [Nginx for Windows](https://nginx.org/en/download.html) and unzip it.
+- Execute the command as following
+  <pre><code data-trim>cd where\is\unzip\nginx; start nginx</code></pre>
+  - Check Nginx web server whether is running or not?
+  tasklist /fi "imagename eq nginx.exe"
+  - To visit [localhost](http://localhost) if Nginx is running.
+- Set up SSL/TLS of nginx.conf file in conf folder which have a example [configurate file from my google driver](https://drive.google.com/drive/u/1/folders/152_VPiPpymMa2vhz1JKr90cOo96A_Pkc)
+- To visit the [Nginx for Windows](https://nginx.org/en/docs/windows.html) homepage for more information about Nginx's command 
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(1/6)
+![](/images/iSecurity/unsecure.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(2/6)
+![](/images/iSecurity/unsecure2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(3/6)
+![](/images/iSecurity/unsecure3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(4/6)
+![](/images/iSecurity/unsecure4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(5/6)
+![](/images/iSecurity/unsecure5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Not secure webpage(6/6)
+![](/images/iSecurity/unsecure6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+# CA
+</script></section>
+<section data-markdown><script type="text/template">
+## Certificate Authority(CA)
+- **A certificate authority or certification authority (CA) is an entity that stores, signs, and issues digital certificates**.
+- A digital certificate certifies the ownership of a public key by the named subject of the certificate.
+- This allows others (relying parties) to rely upon signatures or on assertions made about the private key that corresponds to the certified public key. 
+- **A CA acts as a trusted third party—trusted** both by the subject (owner) of the certificate and by the party relying upon the certificate.
+-  The format of these certificates is specified by the [X.509](https://datatracker.ietf.org/doc/html/rfc5280).
+</script></section>
+<section data-markdown><script type="text/template">
+## Let's Encrypt
+- [Let's Encrypt](https://letsencrypt.org/getting-started/) is a nonprofit providing free TLS certificates to more than 600M websites.
+- Let’s Encrypt issues certificates through an automated API based on the [ACME protocol](https://datatracker.ietf.org/doc/html/rfc8555).
+  - ACME is an abbreviation of the Automatic Certificate Management Environment.
+- Selecting and operating an ACME client yourself
+  - or most people we recommend the [Certbot ACME client](https://letsencrypt.org/docs/client-options/). The Certbot website has excellent documentation and instructions for operating Certbot.
+  - There are [many more options for ACME client software](https://letsencrypt.org/docs/client-options/) if for some reason Certbot does not meet your needs.
+</script></section>
+<section data-markdown><script type="text/template">
+## ACME Client for Windows(1/2)
+- [Certbot Discontinuing Windows Beta Support in 2024](https://community.letsencrypt.org/t/certbot-discontinuing-windows-beta-support-in-2024/208101/1)
+- Below are options that are already highly popular for Windows users utilizing Let's Encrypt certificates.
+  - [Certify Certificate Manager](https://certifytheweb.com/), [win-acme](https://www.win-acme.com/), [WLS2](https://learn.microsoft.com/en-us/windows/wsl/install) with the Certbot Snap distribution.
+- [Posh-ACME](https://poshac.me/docs/latest/)
+  -  PowerShell module and ACME client to create publicly trusted SSL/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
+  - Install Posh-ACME Module for AllUsers or CurrentUser
+  <pre><code data-trim>Install-Module -Name Posh-ACME -Scope CurrentUser</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## ACME Client for Windows(2/2)
+- [Posh-ACME](https://poshac.me/docs/latest/)
+  - Certificate Domain name 
+<pre><code data-trim>New-PACertificate elvis.nutc.edu.tw -AcceptTOS</code></pre>
+<pre><code data-trim data-line-numbers>Please create the following TXT records:
+_acme-challenge.elvis.nutc.edu.tw -> m3uBLRP12U3Q-qynDRw4HaNUics61KMByNjAEr3ghPE</code></pre>
+- HTTPS Server test
+  - [https://www.ssl.org/](https://www.ssl.org/)
+  - [https://www.sslshopper.com/ssl-checker.html](https://www.sslshopper.com/ssl-checker.html)
+- The last BIND9.17.15.x64 version of [WinBind9](https://www.isc.org/blogs/bind-update-summer2021/)
+
+</script></section>
+</section><!--end block-->
 
 </div>
 </div>
