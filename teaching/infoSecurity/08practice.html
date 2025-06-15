@@ -783,19 +783,23 @@ ssl_certificate d:\where\is\certificate\server.pem</code></pre>
 <pre><code data-trim>New-PACertificate elvis.nutc.edu.tw -AcceptTOS</code></pre>
 <pre><code data-trim data-line-numbers>Please create the following TXT records:
 _acme-challenge.elvis.nutc.edu.tw -> m3uBLRP12U3Q-qynDRw4HaNUics61KMByNjAEr3ghPE</code></pre>
+- HTTPS Server test
+  - [https://www.ssl.org/](https://www.ssl.org/)
+  - [https://www.sslshopper.com/ssl-checker.html](https://www.sslshopper.com/ssl-checker.html)
 - The last BIND9.17.15.x64 version of [WinBind9](https://www.isc.org/blogs/bind-update-summer2021/)
 </script></section>
 <section data-markdown><script type="text/template">
+## Not secure localhost in Windows
+![](/images/iSecurity/unsecurePage.png)
+</script></section>
+<section data-markdown><script type="text/template">
 ## Self-signed Certificate
-- [如何使用 OpenSSL 建立開發測試用途的自簽憑證 (Self-Signed Certificate)](https://blog.miniasp.com/post/2019/02/25/Creating-Self-signed-Certificate-using-OpenSSL)
+- 參考[如何使用 OpenSSL 建立開發測試用途的自簽憑證 (Self-Signed Certificate)](https://blog.miniasp.com/post/2019/02/25/Creating-Self-signed-Certificate-using-OpenSSL)
   - Create a PKCS#12 certificate file
   <pre><code data-trim>openssl pkcs12 -export -in server.crt -inkey server.key -out server.pfx</code></pre>
   - Import PKCS#12 into the Windows certificate store
   <pre><code data-trim># as administrator
   certutil -addstore -f "ROOT" server.crt</code></pre>
-- HTTPS Server test
-  - [https://www.ssl.org/](https://www.ssl.org/)
-  - [https://www.sslshopper.com/ssl-checker.html](https://www.sslshopper.com/ssl-checker.html)
 </script></section>
 </section><!--end block-->
 
