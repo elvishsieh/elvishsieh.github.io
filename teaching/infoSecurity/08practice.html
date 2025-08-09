@@ -801,6 +801,12 @@ _acme-challenge.elvis.nutc.edu.tw -> m3uBLRP12U3Q-qynDRw4HaNUics61KMByNjAEr3ghPE
   <pre><code data-trim># as administrator
   certutil -addstore -f "ROOT" server.crt</code></pre>
 </script></section>
+<section data-markdown><script type="text/template">
+## Remove Self-signed Certificate
+- 按下 Win + R，輸入 certmgr.msc 開啟憑證管理工具程式
+- 憑證 >> 受信任的根憑證授權單位 >> 憑證 >> localhost
+![](/images/iSecurity/removeCA.png)
+</script></section>
 </section><!--end block-->
 
 </div>
