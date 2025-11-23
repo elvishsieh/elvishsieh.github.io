@@ -138,6 +138,72 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **pip install -r requirements.txt --upgrade**
 </script></section>
 <section data-markdown><script type="text/template">
+## [pipx](https://pipx.pypa.io/stable/)
+- pipx — Install and Run Python Applications in Isolated Environments
+- System Requirements
+	- python 3.9+ is required to install pipx. pipx can run binaries from packages with Python 3.3+. 
+- Install pipx
+	- Install via Scoop
+	<pre><code data-trim data-line-numbers>scoop install pipx
+pipx ensurepath</code></pre>
+	- Install via pip (requires pip 19.0 or later)
+	<pre><code data-trim>py -m pip install --user pipx</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+# UV - another PM
+</script></section>
+<section data-markdown><script type="text/template">
+## [UV](https://docs.astral.sh/uv/) - a new PM for Python
+- Installation
+	- In Windows system
+	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+	- If installing from PyPI, we recommend installing uv into an isolated environment
+		- **pipx install uv**
+		- **pip install uv**
+- Alternative installation
+	- Download UV from [UV github reporitory](https://github.com/astral-sh/uv)
+	- Extracted to a new folder which have been make it.
+	- Setup environment variabel in Windows system.
+</script></section>
+<section data-markdown><script type="text/template">
+## uv command(1/2)
+- Initial the project with uv package management
+	- **uv init**
+- Install python package into uv project
+	- **uv add**
+- Install requestment files for uv project
+	- **uv add -r <requestment>**
+- Create a uv.lock file for uv Project
+	- **uv lock**
+- Upgrade all of packages of uv.lock file
+	- **uv lock --upgrade**
+</script></section>
+<section data-markdown><script type="text/template">
+## uv command(2/2)
+- Syncing all of packages of uv.lock from pyproject.toml file
+	- **uv sync**
+- uv packages tree
+	- **uv tree**
+- Uninstall a package and all of dependency packages
+	- **uv remove <pkg_name>** 
+- Install packages with pip command, all of packages will be installed in global environment
+	- **uv pip install <pkg_name>**
+- Uninstall package without confirmation
+	- **uv pip uninstall -y -r <requestment>**
+</script></section>
+<section data-markdown><script type="text/template">
+## Install Python with UV
+- uv installs Python and allows quickly switching between versions
+<pre><code data-trim data-line-numbers>uv python install 3.10 3.11 3.12</code></pre>
+- Download Python versions as needed
+<pre><code data-trim data-line-numbers>uv venv --python 3.12.0
+uv run --python pypy@3.8 -- python
+</code></pre>
+- Use a specific Python version in the current directory
+<pre><code data-trim data-line-numbers>uv python pin 3.11</code></pre>
+</script></section>
+
+<section data-markdown><script type="text/template">
 ## The PyPI
 - The Python Package Index ([PyPI](http://pypi.python.org/)) is a repository of software for the Python programming language.
 ![](/images/python/pypi.png)
