@@ -102,16 +102,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Python Package Management
 - Install package
-	- **pip install package_name**
+	- **pip install \<package_name\>**
 	- **pip install -r requirements.txt**
 - Uninstall package
-	- **pip uninstall package_name**
+	- **pip uninstall \<package_name\>**
 - Check package
 	- **pip list**
-	- **pip show package_name**
-	- *pip freeze > requirements.txt**
+	- **pip show \<package_name\>**
+	- **pip freeze > requirements.txt**
 - Update package
-	- **pip install -U package_name**
+	- **pip install -U \<package_name\>**
 	- **python -m pip install -U pip**
 </script></section>
 <section data-markdown><script type="text/template">
@@ -150,60 +150,6 @@ pipx ensurepath</code></pre>
 	<pre><code data-trim>py -m pip install --user pipx</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-# UV - another PM
-</script></section>
-<section data-markdown><script type="text/template">
-## [UV](https://docs.astral.sh/uv/) - a new PM for Python
-- Installation
-	- In Windows system
-	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
-	- If installing from PyPI, we recommend installing uv into an isolated environment
-		- **pipx install uv**
-		- **pip install uv**
-- Alternative installation
-	- Download UV from [UV github reporitory](https://github.com/astral-sh/uv)
-	- Extracted to a new folder which have been make it.
-	- Setup environment variabel in Windows system.
-</script></section>
-<section data-markdown><script type="text/template">
-## uv command(1/2)
-- Initial the project with uv package management
-	- **uv init**
-- Install python package into uv project
-	- **uv add**
-- Install requestment files for uv project
-	- **uv add -r <requestment>**
-- Create a uv.lock file for uv Project
-	- **uv lock**
-- Upgrade all of packages of uv.lock file
-	- **uv lock --upgrade**
-</script></section>
-<section data-markdown><script type="text/template">
-## uv command(2/2)
-- Syncing all of packages of uv.lock from pyproject.toml file
-	- **uv sync**
-- uv packages tree
-	- **uv tree**
-- Uninstall a package and all of dependency packages
-	- **uv remove <pkg_name>** 
-- Install packages with pip command, all of packages will be installed in global environment
-	- **uv pip install <pkg_name>**
-- Uninstall package without confirmation
-	- **uv pip uninstall -y -r <requestment>**
-</script></section>
-<section data-markdown><script type="text/template">
-## Install Python with UV
-- uv installs Python and allows quickly switching between versions
-<pre><code data-trim data-line-numbers>uv python install 3.10 3.11 3.12</code></pre>
-- Download Python versions as needed
-<pre><code data-trim data-line-numbers>uv venv --python 3.12.0
-uv run --python pypy@3.8 -- python
-</code></pre>
-- Use a specific Python version in the current directory
-<pre><code data-trim data-line-numbers>uv python pin 3.11</code></pre>
-</script></section>
-
-<section data-markdown><script type="text/template">
 ## The PyPI
 - The Python Package Index ([PyPI](http://pypi.python.org/)) is a repository of software for the Python programming language.
 ![](/images/python/pypi.png)
@@ -235,7 +181,7 @@ uv run --python pypy@3.8 -- python
 	- **pip install notebook**
 	- pip install jupyterlab-language-pack-zh-TW
 - Start Jypyter Notebook
-	- **change directory** to your project folder and run **jupyter notebook**
+	- **Change directory** to your project folder and run **jupyter notebook**
 - Stop Jypyter Notebook
 	- **Ctrl + c** to stop Jypyter Notebook on command prompt. 
 </script></section>
@@ -271,6 +217,118 @@ uv run --python pypy@3.8 -- python
 <section data-markdown><script type="text/template">
 ## Jypyter Notebook(8/8)
 ![](/images/python/jupyter8.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# UV - another PM
+</script></section>
+<section data-markdown><script type="text/template">
+## [UV](https://docs.astral.sh/uv/) - a new PM for Python
+- Installation
+	- In Windows system
+	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+	- If installing from PyPI, we recommend installing uv into an isolated environment
+		- **pipx install uv**
+		- **pip install uv**
+- Alternative installation
+	- Download UV from [UV github reporitory](https://github.com/astral-sh/uv)
+	- Extracted to a new folder which have been make it.
+	- Setup environment variable in Windows system.
+</script></section>
+<section data-markdown><script type="text/template">
+## Install Python with UV
+- UV installs Python and allows quickly switching between versions
+<pre><code data-trim data-line-numbers># Install Python current or multiple version
+uv python install
+uv python install 3.10 3.11 3.12</code></pre>
+- Download Python versions as needed
+<pre><code data-trim data-line-numbers>uv venv --python 3.12.0
+uv run --python pypy@3.8 -- python
+</code></pre>
+- **Use a specific Python version** in the current directory
+<pre><code data-trim data-line-numbers>uv python pin 3.11</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Install UV for specific case(1/2)
+- Install UV to specific directory
+	- Download uv from [UV github reporitory](https://github.com/astral-sh/uv) and extracted it to a new folder which have been make it.
+	- Setting **UV_INSTALL_DIR** environment variable to the folder as above it.
+	- For example the **UV_INSTALL_DIR** folder
+	<pre><code data-trim>D:\uv_x64\bin</code></pre>
+- Upgrade UV command: **uv self update**
+</script></section>
+<section data-markdown><script type="text/template">
+## Install UV for specific case(2/2)
+- Install Python with UV to specific directory
+	- Setting **UV_PYTHON_INSTALL_DIR** environment variable what you want to install Python to the folder.
+	- UV install command: **uv python [py_version_no]**
+	- Whereis is installed Python version with UV
+		- **uv python list**
+	- Setting Python executable folder to PATH environment variable
+	- An example Python executable folder as following
+	<pre><code data-trim>D:\uv_x64\python\cpython-3.14.0-windows-x86_64-none</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Install UV for classroom(1/2)
+- Download UV 0.9.11 version for [my Gooogle Driver](https://drive.google.com/file/d/1QxORGMYgDgFbiIVXeWV00uBqqx4Ax8C0/view?usp=sharing)
+- Extract it to d:\uvx64\bin directory
+- Setting UV environment variable
+	- 系統 ⟫ 進階系統設定 ⟫ 環境變數 ⟫ 使用者環境變數 ⟫ 新增 
+<pre><code data-trim>變數名稱 = UV_INSTALL_DIR, 變數值 = D:\uv_x64\bin</code></pre>
+	- 系統 ⟫ 進階系統設定 ⟫ 環境變數 ⟫ 使用者環境變數 ⟫ 新增
+<pre><code data-trim>變數名稱 = UV_PYTHON_INSTALL_DIR, 變數值 = D:\uv_x64\python</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Install UV for classroom(2/2)
+- Upgrade UV to the latest version
+<pre><code data-trim>uv self update</code></pre>
+- Install current Python version with UV
+<pre><code data-trim>uv python install</code></pre>
+- Check Python install directory
+<pre><code data-trim>uv python list</code></pre>
+- Copy Python directory into PATH environment variable
+</script></section>
+<section data-markdown><script type="text/template">
+## Install Jupyter with UV
+- Initial Project with UV
+	- Make a directory for your Python project
+	- Change into your Python project directory
+	<pre><code data-trim>cd d:\pyProject</code></pre>
+	- Initial project with UV: **uv init**
+- Install Jupyter and Notebook with UV
+	- **uv add jupyter notebook**
+- Activate/Deactivate UV virtual environment
+	<pre><code data-trim data-line-numbers>.\.venv\Scripts\activate
+deactivate
+	</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## uv command(1/2)
+- Initial the project with uv package management
+	- **uv init**
+- Install python package into uv project
+	- **uv add**
+- Install requirement files for uv project
+	- **uv add -r requirement.txt**
+- Create a uv.lock file for uv Project
+	- **uv lock**
+- Upgrade all of packages of uv.lock file
+	- **uv lock --upgrade**
+</script></section>
+<section data-markdown><script type="text/template">
+## uv command(2/2)
+- Syncing all of packages of uv.lock from pyproject.toml file
+	- **uv sync**
+- uv packages tree
+	- **uv tree**
+- Uninstall a package and all of dependency packages
+	- **uv remove \<pkg_name\>** 
+- Install packages with pip command, all of packages will be installed in global environment
+	- **uv pip install \<pkg_name\>**
+- Uninstall package without confirmation
+	- **uv pip uninstall -y -r requirements.txt**
 </script></section>
 </section><!--end block-->
 
