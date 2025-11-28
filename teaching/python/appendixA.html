@@ -164,7 +164,7 @@ pipx ensurepath</code></pre>
 	- [Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/)
 - Machine learning and AI
 	- [Scikit-learn](https://scikit-learn.org/stable/)
-	- [Tensorflow](https://www.tensorflow.org/)
+	- [Tensorflow](https://www.tensorflow.org/) and [pyTorch](https://pytorch.org/)
 - Web development
 	- [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/), ..., etc.
 </script></section>
@@ -229,13 +229,11 @@ pipx ensurepath</code></pre>
 - Installation
 	- In Windows system
 	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+	- Request a specific version by including it in the URL
+	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.9.13/install.ps1 | iex"</code></pre>
 	- If installing from PyPI, we recommend installing uv into an isolated environment
 		- **pipx install uv**
 		- **pip install uv**
-- Alternative installation
-	- Download UV from [UV github reporitory](https://github.com/astral-sh/uv)
-	- Extracted to a new folder which have been make it.
-	- Setup environment variable in Windows system.
 </script></section>
 <section data-markdown><script type="text/template">
 ## Install Python with UV
@@ -253,18 +251,20 @@ uv run --python pypy@3.8 -- python
 <section data-markdown><script type="text/template">
 ## Install UV for specific case(1/2)
 - Install UV to specific directory
-	- Download uv from [UV github reporitory](https://github.com/astral-sh/uv) and extracted it to a new folder which have been make it.
-	- Setting **UV_INSTALL_DIR** environment variable to the folder as above it.
+	- Setting **UV_INSTALL_DIR** environment variable
 	- For example the **UV_INSTALL_DIR** folder
 	<pre><code data-trim>D:\uv_x64\bin</code></pre>
-- Upgrade UV command: **uv self update**
+	- In Windows system(current version is 0.9.13)
+	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+	- Download uv 0.9.11 version from [UV github reporitory](https://github.com/astral-sh/uv) and extracted to the folder where is installed it.
+	- Upgrade UV command: **uv self update**
 </script></section>
 <section data-markdown><script type="text/template">
 ## Install UV for specific case(2/2)
 - Install Python with UV to specific directory
 	- Setting **UV_PYTHON_INSTALL_DIR** environment variable what you want to install Python to the folder.
-	- UV install command: **uv python [py_version_no]**
-	- Whereis is installed Python version with UV
+	- UV install command: **uv python [py_version_number]**
+	- Where is is installed Python version with UV
 		- **uv python list**
 	- Setting Python executable folder to PATH environment variable
 	- An example Python executable folder as following
@@ -272,31 +272,35 @@ uv run --python pypy@3.8 -- python
 </script></section>
 <section data-markdown><script type="text/template">
 ## Install UV for classroom(1/2)
-- Download UV 0.9.11 version for [my Gooogle Driver](https://drive.google.com/file/d/1QxORGMYgDgFbiIVXeWV00uBqqx4Ax8C0/view?usp=sharing)
-- Extract it to d:\uvx64\bin directory
 - Setting UV environment variable
 	- 系統 ⟫ 進階系統設定 ⟫ 環境變數 ⟫ 使用者環境變數 ⟫ 新增 
-<pre><code data-trim>變數名稱 = UV_INSTALL_DIR, 變數值 = D:\uv_x64\bin</code></pre>
-	- 系統 ⟫ 進階系統設定 ⟫ 環境變數 ⟫ 使用者環境變數 ⟫ 新增
-<pre><code data-trim>變數名稱 = UV_PYTHON_INSTALL_DIR, 變數值 = D:\uv_x64\python</code></pre>
+<pre><code data-trim data-line-numbers>變數名稱 = UV_INSTALL_DIR, 變數值 = D:\uv_x64\bin
+變數名稱 = UV_PYTHON_INSTALL_DIR, 變數值 = D:\uv_x64\python
+</code></pre>
+- Install UV in Windows system(current version is 0.9.13)
+	<pre><code data-trim>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+- Add **UV executable directory into PATH** environment variable
+- Install current Python version with UV
+<pre><code data-trim>uv python install</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Install UV for classroom(2/2)
-- Upgrade UV to the latest version
-<pre><code data-trim>uv self update</code></pre>
-- Install current Python version with UV
-<pre><code data-trim>uv python install</code></pre>
 - Check Python install directory
-<pre><code data-trim>uv python list</code></pre>
-- Copy Python directory into PATH environment variable
+<pre><code data-trim da>uv python list</code></pre>
+- Add **Python executable directory into PATH** environment variable
+- Download UV 0.9.11 version for [my Gooogle Driver](https://drive.google.com/file/d/1QxORGMYgDgFbiIVXeWV00uBqqx4Ax8C0/view?usp=sharing) and extract it to d:\uvx64\bin directory
+- **Upgrade UV to the latest version**
+<pre><code data-trim>uv self update</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## Install Jupyter with UV
+## Initial Python Project with UV
 - Initial Project with UV
-	- Make a directory for your Python project
-	- Change into your Python project directory
-	<pre><code data-trim>cd d:\pyProject</code></pre>
-	- Initial project with UV: **uv init**
+	- Make and initiate a directory for your Python project
+	<pre><code data-trim data-line-numbers>uv init pyProject
+# Step by step to initiate Python project with uv
+mkdir d:\pyProject
+uv init</code></pre>
+- Change into the directory where is have initiated it
 - Install Jupyter and Notebook with UV
 	- **uv add jupyter notebook**
 - Activate/Deactivate UV virtual environment
@@ -305,11 +309,11 @@ deactivate
 	</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## uv command(1/2)
-- Initial the project with uv package management
+## UV command(1/2)
+- Initial the project withUV package management
 	- **uv init**
 - Install python package into uv project
-	- **uv add**
+	- **uv add \<pkg_name>==pkg_number**
 - Install requirement files for uv project
 	- **uv add -r requirement.txt**
 - Create a uv.lock file for uv Project
@@ -318,10 +322,10 @@ deactivate
 	- **uv lock --upgrade**
 </script></section>
 <section data-markdown><script type="text/template">
-## uv command(2/2)
+## UV command(2/2)
 - Syncing all of packages of uv.lock from pyproject.toml file
 	- **uv sync**
-- uv packages tree
+- UV packages tree
 	- **uv tree**
 - Uninstall a package and all of dependency packages
 	- **uv remove \<pkg_name\>** 
@@ -329,6 +333,43 @@ deactivate
 	- **uv pip install \<pkg_name\>**
 - Uninstall package without confirmation
 	- **uv pip uninstall -y -r requirements.txt**
+</script></section>
+<section data-markdown><script type="text/template">
+## Specific Python version with UV
+- What's current Python version of Project
+<pre><code data-trim>cd d:\pyProject
+cat .python-version #if python-version is 3.14</code></pre>
+- Install and Pin Specific Python versin for Project
+<pre><code data-trim>uv python install 3.13
+uv python pin 3.13
+</code></pre>
+- Check current Python version which project was used
+<pre><code data-trim>cat .python-version</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Running Python scripts
+- Initial hello project
+<pre><code data-trim>uv init hello</code></pre>
+- Modify main.py file as following code
+<pre><code data-trim>def main():
+    print("Hello from type_your_name!")
+if __name__ == "__main__":
+    main()</code></pre>
+- Running main.py scripts
+<pre><code data-trim>uv run main.py</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Running tools
+- Modify main.py file as above slide
+<pre><code data-trim>def main():
+    print("Hello from hell!) #delete "
+if __name__ == "__main__":
+    main()</code></pre>
+- Running uv tools ruff
+<pre><code data-trim>uvx ruff check</code></pre>
+- Correcting the main.py code and run ruff tool again
+<pre><code data-trim>print("Hello from hell!")
+uvx ruff check</code></pre>
 </script></section>
 </section><!--end block-->
 
