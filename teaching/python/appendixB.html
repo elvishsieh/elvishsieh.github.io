@@ -138,7 +138,17 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # Migrating <br />Python Project
 </script></section>
 <section data-markdown><script type="text/template">
-## Migrate the Project using Python
+## Migration the Project Using UV
+- **Delete .venv directory** from project directory
+- Compress all of files in project directory and extract it to another folder or device.
+- Change to the directory what your want to migrate it
+- **Sync UV project**
+<pre><code data-trim>uv sync</code></pre>
+- **Activate Python virtual environment**
+<pre><code data-trim>.\.venv\Scripts\activate</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Migrate the Project using pip
 - The project of Python **without using virtual environment**
 <pre><code data-trim data-line-numbers>pip freeze > requirements.txt
 # change directory to migrate project directory
@@ -151,18 +161,7 @@ pip freeze > requirements.txt
 .\.venv\Scripts\activate
 pip install -r requirements.txt
 </code></pre>
-- The project of Python using virtual environment and **UV package management**
 </script></section>	
-<section data-markdown><script type="text/template">
-## Migration the Project Using UV
-- **Delete .venv directory** from project directory
-- Compress all of files in project directory and extract it to another folder or device.
-- Change to the directory what your want to migrate it
-- **Sync UV project**
-<pre><code data-trim>uv sync</code></pre>
-- **Activate Python virtual environment**
-<pre><code data-trim>.\.venv\Scripts\activate</code></pre>
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->

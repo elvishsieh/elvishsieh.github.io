@@ -384,20 +384,36 @@ uvx ruff check</code></pre>
 ![](/images/python/downloadSrc.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Launching the Source Code how to
+## Launching Textbook's Code(1/2)
 - Change directory to the source code folder where you downloaded and saved the source code.
-	- **d:; cd D:\myProjects\ThinkPythonSolutions\soln**, for example.
+	<pre><code data-trim>cd d:\myProjects
+cd ThinkPythonSolutions-3\soln</code></pre>
+- Initiating the textbook source code with UV
+<pre><code data-trim>uv init .</code></pre>
+- Install Jupyter and Notebook with UV
+<pre><code data-trim>uv add jupyter notebook</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Launching Textbook's Code(2/2)
 - Start Jypyter Notebook in the source code folder
-	- **jupyter notebook &**
+	<pre><code data-trim>jupyter notebook &</code></pre>
 	- Note : start Jypyter Notebook as a **background task**.
 - View the source code in Jypyter Notebook
 	- **Click the filename** to open the content of the chapter.
+- Migrating textbook source code with UV
+<pre><code data-trim data-line-numbers>Remove-Item -Path "d:\myProjects\ThinkPythonSolutions-3\soln\.venv" -Recurse
+Copy-Item -Path "d:\myProjects\ThinkPythonSolutions-3\" -Destination "d:\DestinationFolder\" -Recurse
+cd d:\DestinationFolder\
+uv sync
+</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Notes for code of Textbook(1/4)
 - Installing Libraries for Textbook
-	- **pip install matplotlib jupyturtle**
-	- or **pip install -r requirements.txt**
+<pre><code data-trim data-line-numbers>uv add matplotlib jupyturtle
+uv add -r .\requirements.txt
+</code></pre>
+	- Using "pip install" instead of "uv add", if you would like to launch pip package management.
 - modifying chap08 code
 	- modify cells number [27:28,31] of code as following 
 		<pre><code data-trim data-line-numbers>  import os
