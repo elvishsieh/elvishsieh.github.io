@@ -1,0 +1,4 @@
+jupyter==1.1.1
+notebook==7.5.0
+matplotlib==3.10.7
+jupyturtle==2024.4.1
