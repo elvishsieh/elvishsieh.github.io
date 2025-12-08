@@ -387,7 +387,7 @@ uvx ruff check</code></pre>
 ## Launching Textbook's Code(1/2)
 - Change directory to the source code folder where you downloaded and saved the source code.
 	<pre><code data-trim>cd d:\myProjects
-cd ThinkPythonSolutions-3\soln</code></pre>
+cd ThinkPythonSolutions-3</code></pre>
 - Initiating the textbook source code with UV
 <pre><code data-trim>uv init .</code></pre>
 - Install Jupyter and Notebook with UV
@@ -396,7 +396,8 @@ cd ThinkPythonSolutions-3\soln</code></pre>
 <section data-markdown><script type="text/template">
 ## Launching Textbook's Code(2/2)
 - Start Jypyter Notebook in the source code folder
-	<pre><code data-trim>jupyter notebook &</code></pre>
+	<pre><code data-trim>.\.venv\Scripts\activate
+jupyter notebook &</code></pre>
 	- Note : start Jypyter Notebook as a **background task**.
 - View the source code in Jypyter Notebook
 	- **Click the filename** to open the content of the chapter.
@@ -419,8 +420,7 @@ uv add -r .\requirements.txt
 	- modify cells number [27:28,31] of code as following 
 		<pre><code data-trim data-line-numbers>  import os
 		if not os.path.exists('pg345.txt'):
-			download('http://www.gutenberg.org/cache/epub/345/pg345.txt')
-					
+			download('http://www.gutenberg.org/cache/epub/345/pg345.txt')				
 		reader = open('pg345.txt','r', encoding="utf-8")</code></pre>
 </script></section>
 
