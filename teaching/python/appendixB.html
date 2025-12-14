@@ -135,6 +135,61 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# using <br />Jupyter Notebook 
+</script></section>
+<section data-markdown><script type="text/template">
+## Note for Jupyter Notebook
+- Launching Jupyter Notebook
+<pre><code data-trim data-line-numbers>.\.venv\Scripts\activate
+jupyter notebook &
+</code></pre>
+- Stop Jupyter Notebook
+<pre><code data-trim data-line-numbers>tasklist /fi "imagename eq jupyter-notebook.exe"
+taskkill /F /im  "jupyter-notebook.exe"
+</code></pre>
+- Reloading Jupyter Notebook
+	- Browsing the link which have been shown below
+<pre><code>jupyter server list</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## ShortCut Keys of JT Notebook
+- Download Jupyter note cheat sheet from [Jupyter Notebook Shortcuts PDF](https://github.com/mljar/data-science-cheat-sheets/tree/main/jupyter-notebook-shortcuts-pdf)
+- Most frequently be used of shortcut keys
+<pre><code data-trim data-line-numbers>ENTER: switch to edit mode
+ESC: exit from edit mode to command model
+h : shows all keyboard shortcuts
+Up Arrow: change the selected cell to the above cell
+Down Arrow: change the selected cell to the below cell
+a: insert the code cell above
+b : insert the code cell below
+x: cut the selected cell
+c: copy the selected cell
+v: paste the cell below
+Up Arrow + c : paste the cell above
+Ctrl + Home: go to the cell start
+Ctrl + End: go to the cell end
+Tab: code completion
+Ctrl + Enter: execute current cell
+Ctrl + Alt: execute current cell and insert a code cell below
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Jupyter Notebook themes
+- Jupyter Notebook themes in Github repository
+	- Install [Catppuccin for JupyterLab ](https://github.com/catppuccin/jupyterlab), [Solarized Dark](https://github.com/AllanChain/jupyterlab-theme-solarized-dark) and [theme-darcula](https://github.com/telamonian/theme-darcula)
+	<pre><code data-trim data-line-numbers>uv add catppuccin-jupyterlab
+uv add jupyterlab_theme_solarized_dark
+uv add theme-darcula
+	</code></pre>
+- Change Jupyter Notebook themes
+	- Settings  ≫ Theme ≫ Catppuccin Latte/Frappé/Macchiato/Mocha, Jupyterlab Solarized Dark, darcula
+- Change Font size
+	- Settings  ≫ Theme ≫ Increase/Decrease Code/Content/UI font size
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Migrating <br />Python Project
 </script></section>
 <section data-markdown><script type="text/template">
