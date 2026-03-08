@@ -158,8 +158,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(1/6)
-- Install fastapi and uvicorn
-	- pip install fastapi uvicorn
+- Install fastapi, uvicorn and activate .venv
+	- **mkdir teset; uv init .; uv add fastapi uvicorn**
+	- **.\\.venv\Scripts\activate**
 - Create a main.py file which have the code of content as following
 <pre><code data-trim data-line-numbers>from fastapi import FastAPI
 app = FastAPI()	

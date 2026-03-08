@@ -114,6 +114,7 @@ def varfunction():
 	string = "The local variable "
 	x = 10
 	print(string + "x is", x)
+	
 varfunction()
 print(string + "x is", x)
 </code></pre>
@@ -134,26 +135,56 @@ print(string + "x is", x)
 <section data-markdown><script type="text/template">
 ## [Without main](/teaching/src/python/without_main.py) function
 - The name of code is **without_main.py** which have been defined a **add()** function and call **add(1,2)** function to print the sum.
-<pre><code data-trim data-line-numbers># without_main.py
-def add(a, b):
-    return a + b
-print("This is title of add function.")
-sum = add(1, 2)
-print(sum)
-</code></pre>
+	<pre><code data-trim data-line-numbers># without_main.py
+	def add(a, b):
+		return a + b
+
+	print("This is title of add function.")
+	sum = add(1, 2)
+	print(sum)
+	</code></pre>
 ![](/images/python/withoutMain.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## [Call without main](/teaching/src/python/call_withoutmain.py) function
 - The name of code is **call_withoutmain.py** which import **without_main.py** and call **add(1,2)** function to print the sum.
-<pre><code data-trim data-line-numbers>## call_withoutmain.py
-from without_main import add
-def prtTitle():
-	print("__name__ is " + __name__ + ".")
-prtTitle()
-print(add(1, 2))
-</code></pre>
+	<pre><code data-trim data-line-numbers>## call_withoutmain.py
+	from without_main import add
+	def prtTitle():
+		print("__name__ is " + __name__ + ".")
+		
+	prtTitle()
+	print(add(1, 2))
+	</code></pre>
 ![](/images/python/callWithoutMain.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## [With main](/teaching/src/python/with_main.py) function
+- The name of code is **with_main.py** which have been defined a **add()** function and call **add(1,2)** function to print the sum.
+	<pre><code data-trim data-line-numbers># with_main.py
+	def add(a, b):
+		return a + b
+
+	if __name__ == '__main__':
+		print("This is title of add function.")
+		sum = add(1, 2)
+		print(sum)
+	</code></pre>
+- It was different from the add function of **without_main.py** which was added main statement in it.
+</script></section>
+<section data-markdown><script type="text/template">
+## [Call with main](/teaching/src/python/call_withmain.py) function
+- The name of code is **call_withmain.py** which import **with_main.py** and call **add(1,2)** function to print the sum.
+	<pre><code data-trim data-line-numbers>## call_withmain.py
+	from with_main import add
+	def prtTitle():
+		print("__name__ is " + __name__ + ".")
+
+	if __name__ == '__main__':		
+		prtTitle()
+		print(add(1, 2))
+	</code></pre>
+![](/images/python/callwithMain.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## main function([add](/teaching/src/python/add.py))
@@ -177,13 +208,14 @@ if __name__ == '__main__':
 ## [call_add](/teaching/src/python/call_add.py) function
 - The name of code is **call_add.py** which import **add.py** and call **add(1,2)** function to print the sum.
 - The  **add.py** code with \_\_main\_\_ name in it.
-<pre><code data-trim data-line-numbers>## call_add.py
-from add import add
-def prtTitle():
-	print("__name__ is " + __name__ + ".")
-prtTitle()
-print(add(1, 2))
-</code></pre>
+	<pre><code data-trim data-line-numbers>## call_add.py
+	from add import add
+	def prtTitle():
+		print("__name__ is " + __name__ + ".")
+
+	prtTitle()
+	print(add(1, 2))
+	</code></pre>
 ![](/images/python/callAdd.png)
 </script></section>
 </section><!--end block-->

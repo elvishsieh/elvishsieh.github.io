@@ -1,4 +1,4 @@
-from without_main import add
+from with_main import add
 def prtTitle():
     print("__name__ is " + __name__ + ".")
 
