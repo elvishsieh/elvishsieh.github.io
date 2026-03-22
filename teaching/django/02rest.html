@@ -159,7 +159,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(1/6)
 - Install fastapi, uvicorn and activate .venv
-	- **mkdir teset; uv init .; uv add fastapi uvicorn**
+	- **mkdir rest; cd rest; uv init .; uv add fastapi uvicorn**
 	- **.\\.venv\Scripts\activate**
 - Create a main.py file which have the code of content as following
 <pre><code data-trim data-line-numbers>from fastapi import FastAPI
@@ -291,7 +291,7 @@ async def list_users(limit: int = 10):
 <section data-markdown><script type="text/template">
 ## FastAPI docs and API reference
 - Setting up FastAPI docs
-	- pip install fastapi[docs]
+	- uv add fastapi[docs]
 	- FastAPI docs: http://127.0.0.1:8000/docs
 - Launching Uvicorn ASGI server
 	- **uvicorn users:app --host 127.0.0.1 --port 8000 --reload**
@@ -321,6 +321,56 @@ async def list_users(limit: int = 10):
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# SUMMARY of REST
+</script></section>
+<section data-markdown><script type="text/template">
+## 標準與名詞定義(1/2)
+- 網際網路工程任務小組[(**IETF**:Internet Engineering Task Force)](https://www.ietf.org/) 發布了 **RFC**(Request For Comments) 標準文件
+- **不同程式語言的開發者依照 [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110) 文件開發了關於 HTTP 協定 [(Hypertext Transfer Protocol)](https://httpwg.org/) 的各種不同網際網路應用**
+- RFC 9110 定義許多對於 Client/Server 通訊的標準，包括傳輸時各種傳輸的方式、封包的訊息、狀態等等
+	- 例如 **Get, Post, Put, Delete** method、**HTTP 200, 300, 400, 500** 各種不同的連結狀態
+</script></section>
+<section data-markdown><script type="text/template">
+## 標準與名詞定義(2/2)
+- CRUD(**C**reate, **R**ead, **U**pdate, and **D**elete) 是從程式設計者的角度而言定義的一個名詞，對應 HTTP method 及 SQL 語法的列表如下：
+
+    |   |   |   |   |   |   |
+    |:---|:---|:---|:---|:---|:---|
+    |**CRUD** | **C**reate | **R**ead | **U**pdate | **D**elete | 
+    | **HTTP** | POST | GET | PUT | DELETE |
+    | **SQL** | INSERT | SELECT | UPDATE | DELETE | 
+    ||||||
+</script></section>
+<section data-markdown><script type="text/template">
+## REST 網路架構(1/2)
+- REST 是英文 Representational State Transfer 的縮寫，**可以把它想像與 API 一樣，僅是一種詞彙**，網際網路透過 REST API 開發各種不同的網際網路應用系統
+- REST 架構的限制條件
+    * Client/Server
+    * Stateless - **用戶端的訊息不能被儲存在伺服器內**
+    * Cache(快取)
+    * Uniform interface: 例如 /Users/0, 1, 2, 3
+    * Layered system(分層的系統)
+</script></section>
+<section data-markdown><script type="text/template">
+## REST 網路架構(2/2)
+- 對比於 REST 架構，被常用於比較的有 [GraphQL](https://graphql.org/), [gRPC](https://grpc.io/) 架構
+	- 我們不再談論比較古老的 SOAP（Simple Object Access Protocol）架構
+- **符合 REST 架構**所定義的限制條件，**稱為 Restful 的架構**
+- [GraphQL](https://graphql.org/) 架構是一種**由 Facebook 開發**並開源的 API 查詢語言與執行環境，旨在提供高效、靈活且強大的開發方式
+- [gRPC](https://grpc.io/) 架構是**由 Google 開發**的開源、高效能遠端程序呼叫（RPC）框架，適用於微服務架構和跨平台服務交互
+
+</script></section>
+<section data-markdown><script type="text/template">
+## REST 實作練習
+- **FastAPI 是一種使用 Python 程式語言開發**的網際網路應用程式框架(framework)，我們使用 FastAPI framework 實作各種網際網路的應用系統，**不需要自己再依照 RFC 9110 標準來建造所有的物件**
+- **REST API 是一種 Client/Server 的架構**，我們需要 Client 的軟體，例如: cURL, thunder，Server 端需要 Unicorn server 以及 FastAPI 框架套件
+- 依照 FastAPI framework 提供的 API 撰寫 main.py 程式碼，使用 cURL 或 VS code 的 Thunder 擴充套件連結 Unicorn server 的 main.py 程式碼，實作 CRUD 的運作
+- 所有的應用可以透過 [FastAPI docs: http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) 查看所有應用程式碼的操作
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # CRUD operations
 </script></section>
 <section data-markdown><script type="text/template">
@@ -329,6 +379,18 @@ async def list_users(limit: int = 10):
  sqlDB.py, database/dbUsers.db, js/users.js, images/background.jpg files and folders.
 	
 ![](/images/django/restAPI.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Setup the restAPI src code
+1. Downlload the source code from [here](../src/django/restAPI.7z)
+2  Extract the restAPI.7z into a folder what you want to
+3. Change into the source code folder that have been extracted in it
+4. Typing these commands in command line as following
+	- **uv init .**
+	- **uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors**
+	- **.\\.venv\Scripts\activate**
+	- **uvicorn sqlDB:app --reload**
+5. 使用檔案總管開啟 index.html 檔案
 </script></section>
 <section data-markdown><script type="text/template">
 ## Request Python Pacakges
@@ -344,7 +406,7 @@ async def list_users(limit: int = 10):
 - Using [DB Browser](https://sqlitebrowser.org) or [HeidiSQL](https://www.heidisql.com/)  GUI tool for SQLite
 - Request Back-end frameworks for CRUD operations
 	- Request FastAPI, Uvicorn, pyDantic,SQLAlchemy, and fastapi_cors
-	- **pip install fastapi uvicorn pydantic sqlalchemy fastapi_cors**
+	- **uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors**
 - Request Front-end framework for CRUD operations
 	- Request Boostrap, jQuery framework
 
@@ -356,15 +418,15 @@ async def list_users(limit: int = 10):
 <section data-markdown><script type="text/template">
 ## Setup the IDE for web development
 - Create a virtual environment
-	- **python3 -m venv .pyenv**
+	- **uv init .** or **python3 -m venv .pyenv**
 - Setup virtual environment in VS Code workspace
 	- Refer to the slides of [Virtual Environment	in VS Code Workspace](../python/appendixB.html#/2)
 - Install Python packages
-	- **pip install fastapi uvicorn pydantic sqlalchemy fastapi_cors**
+	- **uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors**
 - Installing the latest version of PowerShell
 - Launching Uvicorn ASGI server
 	- **uvicorn sqlDB:app --reload**
-- Open the index.html file with Browser
+- Using 檔案總管 to open the index.html file in Windows
 </script></section>
 
 <section data-markdown><script type="text/template">
