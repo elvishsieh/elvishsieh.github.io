@@ -50,12 +50,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## Starting a Django project
 - Installation of Django
-	- **pip install django**
-	- **python -m django --version**
+	- **mkdir dj_project; cd dj_project; uv init .; uv add django**
+	- **.\\.venv\\Scripts\activate**
+	- **uv run python -m django --version**
 - Create a Django project([hello source code](../src/django/hello.7z))
 	- **django-admin startproject hello**
-	- **cd hello**
-	- **python manage.py runserver**
+	- **cd hello**; **python manage.py runserver**
+	- uv run python manage.py runserver if deactivate .venv 
 - Using browser to open the URL [http://localhost:8000](http://localhost:8000)  which you should can see "The install worked successfully! Congratulations." page.
 </script></section>
 <section data-markdown><script type="text/template">

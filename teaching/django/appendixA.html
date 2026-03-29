@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Appendix A - Troubleshooting</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Troubleshooting
+</script></section>
+<section data-markdown><script type="text/template">
+## 電腦教室限制安裝軟體 
+- 為了管理電腦教室學生所使用的個人電腦，通常會使用還原卡，將學生在上課期間所安裝個人電腦上的軟體，**重新開機以後，就把上次學生所安裝或對這台個人電腦做任何設定的動作，還原到最初安裝這台電腦所設定及安裝軟體的狀態**
+- 電腦教室的還原卡僅還原 C: 磁碟的所有安裝的軟體以及對系統的設定值，然而，**還原卡不會將儲存在 D: 磁碟所有的檔案、軟體做還原動作**
+- 同學在使用電腦教室的個人電腦需要安裝軟體，例如：[Powershell](../cpp/appendixA.html#/)、[Python 套件管理程式 UV](..//python/appendixA.html#/3)或者 [Alacritty with Oh My Posh](../cpp/appendixA.html#/0/2)，**建議在 D: 磁碟新增一個屬於自己的資料夾，把上述的這些軟體安裝到 D: 磁碟中，避免下次上課需要重新安裝這些軟體**
+</script></section>
+<section data-markdown><script type="text/template">
+## 安裝 PowerShell 到指定磁碟
+- 從 [PowerShell Github Repository](https://github.com/PowerShell/PowerShell) 下載 Windows x64 系統最新版的 .zip 檔案
+- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\\elvis 資料夾為做為範例，請自己更換屬於自己名稱的資料夾
+- 使用「檔案總管」連續點選 d:\\elvis\\PowerShell-7.6.0-win-x64 料夾內的 **pwsh.exe 檔案**二下，執行 PowerShell 軟體
+	- PowerShell-7.6.0-win-x64 是目前 PowerShell 目前的最新版本
+	- 執行 PowerShell 軟體若出現 [PowerShell 安全性問題](./appendixA.html#/0/3)，請參考這個投影片解決此問題
+</script></section>
+<section data-markdown><script type="text/template">
+## PowerShell 安全性問題
+- Windows PowerShell 為了安全性，預設禁止執行任何指令碼(Script)的保護機制
+- 若使用 PowerShell 進入 Python .venv 虛擬環境，出現下圖的錯誤訊息，可以輸入底下的解除限制指令 
+<pre><code data-trim>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+![](/images/django/psLimited.png)
+</script></section>
+
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# UV 程式安裝與啟動
+</script></section>
+<section data-markdown><script type="text/template">
+# 安裝 UV 套件管理程式
+</script></section>
+<section data-markdown><script type="text/template">
+## 安裝 UV 到指定的磁碟(1/2)
+- 從 [UV Github Repository](https://github.com/astral-sh/uv) 下載  Windows x64 系統最新版 .zip 檔案
+- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\elvis 資料夾為做為範例，請自己更換屬於自己名稱的資料夾
+- 設定 UV 安裝及執行的環境變數
+	- 新增 \\uv_x64\\bin 資料夾及設定 **UV_INSTALL_DIR** 環境變數
+	<pre><code data-trim data-line-numbers>mkdir d:\elvis\uv_x64\bin
+UV_INSTALL_DIR=D:\elvis\uv_x64\bin</code></pre>
+- 在 PowerShell 環境執行安裝指令
+	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 安裝 UV 到指定的磁碟(2/2)
+- 設定 UV 執行資料夾到 PATH 環境變數
+	<pre><code data-trim data-line-numbers>PATH=%PATH%;D:\elvis\uv_x64\bin</code></pre>
+- 確認 UV 是否正常執行?
+	<pre><code data-trim data-line-numbers>uv --version</code></pre>
+- 使用 UV 安裝 Python
+	<pre><code data-trim data-line-numbers>uv install python</code></pre>
+- 設定 Python 執行資料夾到 PATH 環境變數
+	<pre><code data-trim data-line-numbers>PATH=%PATH%;D:\elvis\uv_x64\bin;D:\elvis\uv_x64\python\cpython-3.14.2-windows-x86_64-none</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+# 啟動 UV 套件管理程式
+</script></section>
+<section data-markdown><script type="text/template">
+## 使用 UV 程式啟動 Python 開發專案
+- 以 [restAPI.7Z](../src/django/restAPI.7z) 為例，說明如何使用 UV 來啟動及管理專案
+- 請解壓縮並切換到 D:\\elvis\\restAPI資料夾
+- 輸入下面指令啟動 UV 專案
+	<pre><code data-trim>uv init .</code></pre>
+- 使用 UV 加入 restAPI 專案所需要的 Python 套件
+	<pre><code data-trim>uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors</code></pre>
+- 啟動 uv 虛擬環境並執行 unicorn 伺服器
+	<pre><code data-trim data-line-numbers>.\.venv\Scripts\activate
+uvicorn sqlDB:app --reload</code></pre>
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

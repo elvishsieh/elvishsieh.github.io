@@ -382,7 +382,7 @@ async def list_users(limit: int = 10):
 </script></section>
 <section data-markdown><script type="text/template">
 ## Setup the restAPI src code
-1. Downlload the source code from [here](../src/django/restAPI.7z)
+1. Download the source code from [here](../src/django/restAPI.7z)
 2.  Extract the restAPI.7z into a folder what you want to
 3. Change into the source code folder that have been extracted in it
 4. Typing these commands in command line as following
@@ -390,7 +390,17 @@ async def list_users(limit: int = 10):
 	- **uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors**
 	- **.\\.venv\Scripts\activate**
 	- **uvicorn sqlDB:app --reload**
-5. 使用檔案總管開啟 index.html 檔案
+5. 使用「檔案總管」開啟 index.html 檔案
+</script></section>
+<section data-markdown><script type="text/template">
+## What are files in the directory
+- Files and directory for front-end code
+	- The **"index.html"** was main program of front-end which was coded by HTML 
+	- The **"js/user.js"** was requested by index.html code
+	- The **"images/background.jpg"** was background figure of index.html code 
+- Files and directory for back-end code
+	- The **"sqlDB.py"** was main program of back-end which was coded by Python 
+	- The user data was stored in the **"database/dbUser.db"** of SQLite database
 </script></section>
 <section data-markdown><script type="text/template">
 ## Request Python Pacakges

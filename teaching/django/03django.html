@@ -96,7 +96,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Based on the number of high profile sites that use Django, the number of people contributing to the codebase, and [the number of people providing both free and paid](https://github.com/django/django) for support, then **yes, Django is a popular framework!**
 - High-profile sites that use Django include: **Disqus, Instagram**, Knight Foundation, MacArthur Foundation, **Mozilla**, National Geographic, Open Knowledge Foundation, Pinterest, and Open Stack.
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -113,8 +112,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## MVC Model
 - Model-View-Controller (MVC) is a software design pattern that separates an application into three main components: the **model**, the **view**, and the **controller**.
+- Model (**Data & Logic**): Manages the application's data, business rules, and state. It directly interacts with the database to handle retrieval and storage.
+- View (**User Interface**): Displays data from the model to the user and handles user interaction. It is the visualized representation of the model.
+- Controller (**Input & Coordination**): Acts as an intermediary, receiving user input (e.g., button clicks), processing it with the model, and selecting a view to render.
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template">
 ## Django project structure(1/3)
 ![](/images/django/django-mvt.png)
