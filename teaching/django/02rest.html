@@ -159,9 +159,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(1/6)
 - Install fastapi, uvicorn and activate .venv
-	- **mkdir rest; cd rest; uv init .; uv add fastapi uvicorn**
-	- **.\\.venv\Scripts\activate**
-- Create a main.py file which have the code of content as following
+<pre><code data-trim data-line-numbers>mkdir restAPI; cd restAPI; uv init .; uv add fastapi uvicorn
+.\.venv\Scripts\activate</code></pre>
+- Create a helloWorld.py file as following
 <pre><code data-trim data-line-numbers>from fastapi import FastAPI
 app = FastAPI()	
 @app.get("/")
@@ -169,7 +169,7 @@ async def root():
 	return {"message": "Hello World"}
 </code></pre>
 - Run uvicorn server in project folder
-	- **uvicorn main:app --host 0.0.0.0 --port 8000 --reload**
+<pre><code data-trim data-line-numbers>uvicorn helloWorld:app --host 0.0.0.0 --port 8000 --reload</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(2/6)
@@ -180,7 +180,7 @@ async def root():
 </script></section>
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(3/6)
-- Modify the main.py file as following
+- Modify the helloWorld.py code and **save to main.py filename** as following
 <pre><code data-trim data-line-numbers>from fastapi import FastAPI
 app = FastAPI()
 Users = [] # a empty list(array)
@@ -196,7 +196,7 @@ async def get_user(user_id: int) -> str: # function annotations
 	user = Users[user_id]
 	return user
 </code></pre>
-- Full main.py code is in [src/django folder](../src/django/main.py)
+- Full main.py code is in [src/django/main.py](../src/django/main.py)
 </script></section>
 <section data-markdown><script type="text/template">
 ## RESTful API in practice(4/6)
