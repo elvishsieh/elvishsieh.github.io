@@ -49,22 +49,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## 電腦教室限制安裝軟體 
-- 為了管理電腦教室學生所使用的個人電腦，通常會使用還原卡，將學生在上課期間所安裝個人電腦上的軟體，**重新開機以後，就把上次學生所安裝或對這台個人電腦做任何設定的動作，還原到最初安裝這台電腦所設定及安裝軟體的狀態**
-- 電腦教室的還原卡僅還原 C: 磁碟的所有安裝的軟體以及對系統的設定值，然而，**還原卡不會將儲存在 D: 磁碟所有的檔案、軟體做還原動作**
-- 同學在使用電腦教室的個人電腦需要安裝軟體，例如：[Powershell](../cpp/appendixA.html#/)、[Python 套件管理程式 UV](..//python/appendixA.html#/3)或者 [Alacritty with Oh My Posh](../cpp/appendixA.html#/0/2)，**建議在 D: 磁碟新增一個屬於自己的資料夾，把上述的這些軟體安裝到 D: 磁碟中，避免下次上課需要重新安裝這些軟體**
+- 為了管理電腦教室學生所使用的個人電腦，通常會使用還原卡，將學生在上課期間所安裝的軟體及設定，**在每次重新開機以後，把上課學生所安裝的軟體移除，設定值還原到安裝這台電腦最初的初始狀態**
+- 電腦教室的還原卡僅移除 C: 磁碟的所有安裝的軟體以及還原系統設定值，然而，**還原卡不會將儲存在 D: 磁碟所有的軟體及檔案移除**
+- 若同學需要在電腦教室安裝軟體，例如：[Powershell](../cpp/appendixA.html#/), [Python 套件管理程式 UV](..//python/appendixA.html#/3) 或者 [Alacritty with Oh My Posh](../cpp/appendixA.html#/0/2)，**建議在 D: 磁碟新增一個屬於自己的資料夾，把上述的這些軟體安裝到 D: 磁碟中，避免下次上課還要重新安裝這些軟體**
 </script></section>
 <section data-markdown><script type="text/template">
 ## 安裝 PowerShell 到指定磁碟
 - 從 [PowerShell Github Repository](https://github.com/PowerShell/PowerShell) 下載 Windows x64 系統最新版的 .zip 檔案
-- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\\elvis 資料夾為做為範例，請自己更換屬於自己名稱的資料夾
-- 使用「檔案總管」連續點選 d:\\elvis\\PowerShell-7.6.0-win-x64 料夾內的 **pwsh.exe 檔案**二下，執行 PowerShell 軟體
-	- PowerShell-7.6.0-win-x64 是目前 PowerShell 目前的最新版本
-	- 執行 PowerShell 軟體若出現 [PowerShell 安全性問題](./appendixA.html#/0/3)，請參考這個投影片解決此問題
+- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\\elvis 資料夾做為範例，請自己更換屬於自己名稱的資料夾
+- 使用「檔案總管」**連續點選** d:\\elvis\\PowerShell-7.6.0-win-x64 料夾內的 **pwsh.exe 檔案二下**，執行 PowerShell 軟體
+	- PowerShell-7.6.0-win-x64 是目前 PowerShell 的最新版本
+	- 執行 PowerShell 軟體若出現 [PowerShell 安全性問題](./appendixA.html#/0/3)，請連結到這個投影片，參照投影片的做法來解決此問題
+- **電腦教室的 PowerShell 是 Windows 內建的老舊版本**，沒有自動補全功能，建議同學從網路下載最新版本安裝及使用
 </script></section>
 <section data-markdown><script type="text/template">
 ## PowerShell 安全性問題
 - Windows PowerShell 為了安全性，預設禁止執行任何指令碼(Script)的保護機制
-- 若使用 PowerShell 進入 Python .venv 虛擬環境，出現下圖的錯誤訊息，可以輸入底下的解除限制指令 
+- 若執行 PowerShell 指令或進入 Python .venv 虛擬環境出現下圖的錯誤訊息，可以輸入底下的指令解除限制 
 <pre><code data-trim>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
 ![](/images/django/psLimited.png)
 </script></section>
@@ -81,23 +82,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 安裝 UV 到指定的磁碟(1/2)
 - 從 [UV Github Repository](https://github.com/astral-sh/uv) 下載  Windows x64 系統最新版 .zip 檔案
-- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\elvis 資料夾為做為範例，請自己更換屬於自己名稱的資料夾
+- **解壓縮到 D: 磁碟中屬於自己的資料夾內**，以下皆使用 d:\elvis 資料夾做為範例，請自己更換屬於自己名稱的資料夾
 - 設定 UV 安裝及執行的環境變數
 	- 新增 \\uv_x64\\bin 資料夾及設定 **UV_INSTALL_DIR** 環境變數
 	<pre><code data-trim data-line-numbers>mkdir d:\elvis\uv_x64\bin
 UV_INSTALL_DIR=D:\elvis\uv_x64\bin</code></pre>
-- 在 PowerShell 環境執行安裝指令
+- 在 PowerShell 環境執行下面的指令安裝 UV 
 	<pre><code data-trim data-line-numbers>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## 安裝 UV 到指定的磁碟(2/2)
-- 設定 UV 執行資料夾到 PATH 環境變數
+- 設定儲存 UV 指令的資料夾到 PATH 環境變數
 	<pre><code data-trim data-line-numbers>PATH=%PATH%;D:\elvis\uv_x64\bin</code></pre>
-- 確認 UV 是否正常執行?
+- 確認 UV 指令是否正常執行?
 	<pre><code data-trim data-line-numbers>uv --version</code></pre>
 - 使用 UV 安裝 Python
 	<pre><code data-trim data-line-numbers>uv install python</code></pre>
-- 設定 Python 執行資料夾到 PATH 環境變數
+- 設定儲存 Python 指令的資料夾到 PATH 環境變數
 	<pre><code data-trim data-line-numbers>PATH=%PATH%;D:\elvis\uv_x64\bin;D:\elvis\uv_x64\python\cpython-3.14.2-windows-x86_64-none</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
@@ -111,10 +112,67 @@ UV_INSTALL_DIR=D:\elvis\uv_x64\bin</code></pre>
 	<pre><code data-trim>uv init .</code></pre>
 - 使用 UV 加入 restAPI 專案所需要的 Python 套件
 	<pre><code data-trim>uv add fastapi uvicorn pydantic sqlalchemy fastapi_cors</code></pre>
-- 啟動 uv 虛擬環境並執行 unicorn 伺服器
+- 啟用 uv 虛擬環境並執行 unicorn 伺服器
 	<pre><code data-trim data-line-numbers>.\.venv\Scripts\activate
 uvicorn sqlDB:app --reload</code></pre>
 </script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 使用 UV 管理<br />不同的開發專案
+</script></section>
+<section data-markdown><script type="text/template">
+## 不同專案使用不同 UV 虛擬環境的好處
+- 假設 restAPI 是採用 Python **FastAPI web framework** 開發專案， dj_hello 是採用 **Django web framework** 開發專案
+	- restAPI 專案需要使用的 Python 套件
+		- **fastapi uvicorn pydantic sqlalchemy fastapi_cors**
+	- dj_hello 專案需要使用的 Python 套件
+		- **django sqlalchemy django-bootstrap5**
+- 使用相同的 UV 虛擬環境可能產生的問題
+	- **Python 版本新、舊的問題**
+	- **套件與套件之間相依性衝突的問題**
+- 不同專案使用不同 UV 虛擬環境可以**較快速移植到不同電腦**
+	- 開發專案時，切記**要切換到相對應的 UV 虛擬環境**
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary of using UV environment
+-  UV 的安裝與啟動
+	- 設定安裝目錄的環境變數 **UV_INSTALL_DIR**
+	- 啟動開發專案的目錄
+<pre><code data-trim data-line-numbers>cd dj_hello; uv init .
+uv add django
+.\.venv\Scritps\activate</code></pre>
+- 不同專案之間切換 UV 虛擬環境
+![](/images/django/chUV.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 移植 UV 管理的專案
+- 若採用 UV 管理某一個專案的開發，可能需要把整個專案移植到不同電腦上
+	- 例如同學上課所開發的專案，需要帶回到家裡的電腦繼續完成專案
+- UV 移植到不同電腦的操作，假設從 A 電腦移植到 B 電腦
+	1. 刪除 A 電腦中 .venv 目錄的所有檔案
+	2. 複製專案目錄所有檔案到 B 電腦
+	3. 在 B 電腦上執行下面指令
+	<pre><code data-trim>uv sync</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 以移植 restAPI 為例(1/4)
+![](/images/django/uvMigrate.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 以移植 restAPI 為例(2/4)
+![](/images/django/uvMigrate2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 以移植 restAPI 為例(3/4)
+![](/images/django/uvMigrate3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 以移植 restAPI 為例(4/4)
+![](/images/django/uvMigrate4.png)
+</script></section>
+
 </section><!--end block-->
 
 </div>
