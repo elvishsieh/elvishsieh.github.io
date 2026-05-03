@@ -81,14 +81,14 @@ urlpatterns = [
 urlpatterns = [
 	path('', views.homepage),
 	path('about/', views.about),
-]
+]</code></pre>
 - Create the following code in views.py file
 <pre><code data-trim data-line-numbers>from django.http import HttpResponse
-from django.http import HttpResponse
-def homepage(request):
-	return HttpResponse("Hello, world!")
-def about(request):
-	return HttpResponse("This is about page.")</code></pre>
+
+  def homepage(request):
+ 	 return HttpResponse("Hello, world!")
+  def about(request):
+	 return HttpResponse("This is about page.")</code></pre>
 - **python manage.py runserver**
 </script></section>
 <section data-markdown><script type="text/template">
@@ -106,10 +106,11 @@ def about(request):
 ] </code></pre>
 - Modify the following code in view.py file
 <pre><code data-trim data-line-numbers>from django.shortcuts import render
-def homepage(request):
-	return render(request, 'index.html')
-def about(request):
-	return render(request, 'about.html')</code></pre>
+
+  def homepage(request):
+      return render(request, 'index.html')
+  def about(request):
+	  return render(request, 'about.html')</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Create template file(2/3)
@@ -132,7 +133,71 @@ os.path.join(BASE_DIR, 'static'),
 - Open the about page [http://localhost:8000/about](http://localhost:8000/about) and you should can see the following page 
 ![](/images/django/about2.png)
 </script></section>
+<section data-markdown><script type="text/template">
+## Summary of Hello Django(1/3)
+<pre><code data-trim data-line-numbers>helloV1
+	|--- hello/settings.py, url.py, view.py
+	|--- static/css/style.css, static/js/hello.js
+	|--- templates/index.html, about.html
+    |--- db.sqlite3, manage.py
+</code></pre>
+![](/images/django/folder.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary of Hello Django(2/3)
+- hello/settings.py
+<pre><code data-trim data-line-numbers>import os
+TEMPLATES = [
+		'DIRS': ['templates'],
+] 
+# ...
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'static'),
+]</code></pre>
+- hello/url.py
+<pre><code data-trim data-line-numbers>from . import views # 加入
+urlpatterns = [
+	path('admin/', admin.site.urls),
+	path('', views.homepage), # 加入
+	path('about/', views.about), # 加入
+]
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary of Hello Django(3/3)
+- hello/view.py
+<pre><code data-trim data-line-numbers>  from django.shortcuts import render # 這個檔案需要自己建立
+
+	def homepage(request):
+		return render(request, 'index.html')
+	def about(request):
+		return render(request, 'about.html')
+</code></pre>
+- templates/index.html, about.html
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+{% load static %}
+...
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+&lt;script src="{% static 'js/navbar.js' %}" defer>&lt;/script>
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Django's MVT Pattern(1/2)
+- Django follows the [Model-View-Controller(MVC)](./03django.html#/1/2) architecture, but it uses a slightly different naming convention known as **Model-Template-View(MVT)**.
+![](/images/django/mvc.png)
+<p style="font-size:small;text-align:center">source from: <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">Mozilla's MDN</a></p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Django's MVT Pattern(2/2)
+- **Model(The Data Layer)**
+	- Django uses an Object-Relational Mapper(ORM), allowing you to interact with your database using Python classes rather than raw SQL.
+- **View(The Logic Layer)**
+	- In Django, the View is a Python function or class that contains the business logic.
+- **Template(The Presentation Layer)**
+	- Templates are typically HTML files that use the Django Template Language(DTL) to dynamically display data passed to them from the View.
+</script></section>
 </section><!--end block-->
+
 <section><!-- start block-->
 <section data-markdown><script type="text/template">
 # Migrations
@@ -177,28 +242,28 @@ in apps that make changes to the database, including admin, auth, contenttypes, 
 	- cd blog; mkdir templates/posts
 	- create blog/urls.py
 	<pre><code data-trim data-line-numbers>from django.urls import path, include
-		from . import views
-		urlpatterns = [
-			path("", views.blog_home),
-		]</code></pre>
+from . import views
+urlpatterns = [
+	path("", views.blog_home),
+]</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
 ## Create an App with Django(2/2)
 - Modify blog/views.py file
 	<pre><code data-trim data-line-numbers>from django.shortcuts import render
-		# Create your views here.
-		def blog_home(request):
-			return render (request, 'posts/post.html')</code></pre>
+# Create your views here.
+def blog_home(request):
+	return render (request, 'posts/post.html')</code></pre>
 - Modify hello/urls.py file
 	<pre><code data-trim data-line-numbers>from django.urls import path, include
-		...
-	urlpatterns = [
-	path('admin/', admin.site.urls),
-	path("", views.home),
-	path("about/", views.about),
-	path("blog/", include('blog.urls')) # new
+	...
+urlpatterns = [
+path('admin/', admin.site.urls),
+path("", views.home),
+path("about/", views.about),
+path("blog/", include('blog.urls')) # new
 ]
-	</code></pre>
+</code></pre>
 </script></section>
 
 </section><!--end block-->
