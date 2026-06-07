@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to Computer Science</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Algorithm
+</script></section>
+<section data-markdown><script type="text/template">
+## Algorithm, Program and Software
+- What is algorithm(演算法)?
+	- **Algorithm** 是描述某項作業如何被執行的步驟
+	- 例如：食譜、到達陌生城市的路線、洗衣機的操作等
+- What is a **Program**(程式)?
+	- Algorithm 是由 Program 來實現，人們撰寫程式碼(Coding)，產出 Program, 再交給機器執行
+	- 依照機器可以辨認的編碼格式來編輯稱之為 **Programming** or **Coding**.
+		- 例如：機器語言、組合語言、高階程式語言(C, C++, Python, etc ...)
+- 許多 Program**s** 的集合統稱為 a **Software**.
+</script></section>
+<section data-markdown><script type="text/template">
+## Program and Software
+![](/images/cs/software.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Programming Language
+</script></section>
+<section data-markdown><script type="text/template">
+## Low-Level Languages
+- Machine Language(機器語言)
+	- **許多 0 和 1 組成的編碼系統**，編碼系統是按照 CPU(Central Processing Unit) 可辨識與執行的指令所組成
+	- 機器語言分**精簡與複雜指令集，編碼亦依照 CPU 不同而異** 
+- Assembly language(組合語言)
+	- 組合語言是一種低階的程式語言，用**人類可以讀懂的簡略文字來表示**，使用 Assembler(組譯器)轉成機器語言
+![](/images/cs/machineLanguage.jpg)
+<p style="text-align:center">
+<small>Source from <a href="https://en.wikipedia.org/wiki/Machine_code">Wikipedia</a></small>
+</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## High-Level Languages
+- **Compiled** Programming Language(編譯程式語言)
+	- 所有的原始程式碼完全轉成可以被機器執行的機器語言以後，程式才可以被執行
+	- Fortran, C, C++, Java, Rust, Go, C#
+	- 類似於**文學翻譯、點字轉譯**
+- **Interpreted** Programming Language(直譯程式語言)
+	- 每一行原始程式可以在執行期間經由 interpreter 轉譯成可以被執行的程式
+	- Python, PHP, Javascript, Perl
+	- 類似於**現場英文口譯、手語即時轉譯**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Hardware
+</script></section>
+<section data-markdown><script type="text/template">
+## Computer History
+- 算盤
+	- 中國的算盤是**世界上最早的計算機器**
+- 計算機(Calculator)
+	- 從大型機械結構的計算機，再到真空管演進到電晶體組成的計算機
+- 電腦(Computer)
+	- 從真空管、電晶體、積體電路到超大型積體電路，**1970 年發明微處理器 (Microprocessors)，將整個中央處理器 (CPU) 縮小至單一晶片上**，個人電腦 (PC) 時代來臨
+	- [Timeline of Computer History](https://www.computerhistory.org/timeline/computers/)
+</script></section>
+<section data-markdown><script type="text/template">
+# Chip
+</script></section>
+<section data-markdown><script type="text/template">
+## Transistor and VLSI
+- Transistor(電晶體)
+	- MOSFET 電晶體: 它就像一個極微小的電子開關，**透過「閘極」施加電壓來控制電流的通過與否，從而產生 0 和 1 的數位訊號進行運算**
+- VLSI(超大型積體電路, Very-Large-Scale Integration)
+	- VLSI 晶片主要是使用金氧半場效電晶體(MOSFET)將**數百萬到數十億個微型電晶體整合在單一矽晶片上**的技術
+![](/images/cs/transistor.jpg)
+<p style="text-align:center">
+<small>Source from <a href="https://en.wikipedia.org/wiki/Transistor">Wikipedia</a></small>
+</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Von Neumann architecture <br />(馮·諾伊曼系統架構)
+![](/images/cs/VonNeumann.png)
+<p style="text-align:center">
+<small>Source from <a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture#/media/File:Von_Neumann_Architecture.svg">Wikipedia</a></small>
+</p>
+</script></section>
+<section data-markdown><script type="text/template">
+## Centeral Processing Unit(CPU)
+- CPU 是由算術邏輯單元(Arithmetic Logic Unit, ALU)、控制單元及暫存器(Registers)組成，主要是負責處理及運算資料
+	- 英特爾 (Intel) x86、超微 (AMD)、安謀 (ARM)、蘋果公司 (Apple) A, M 系列晶片、**Nvidia Vera, RTX Spark**
+![](/images/cs/cpu.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Memory
+- 揮發性記憶體 (Volatile Memory / RAM)
+	- 隨機存取記憶體 (Random Access Memory, RAM)
+	- 讀寫速度極快，但是**斷電後資料就會完全消失**
+- 非揮發性記憶體 (Non-Volatile Memory / ROM & Flash)
+	- 固態硬碟 (SSD)、快閃記憶體 (Flash Memory)、唯讀記憶體 (ROM)
+	- 讀寫速度較 RAM 慢，但是**斷電後資料依然會儲存**
+- 快取記憶體 (Cache)
+	- **藏於 CPU 晶片內部**，快取記憶體 (Cache) 可分為 L1、L2、L3 快取
+	- 容量很小(通常幾 MB 到幾百 MB)，但速度比一般的 RAM 快上數十倍
+</script></section>
+</section><!--end block-->
+
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Booting Computer 
+</script></section>
+<section data-markdown><script type="text/template">
+## Booting Procss of Computer
+- 電源啟動與硬體自我測試
+	- CPU 開始執行內建在 ROM 中的 UEFI/BIOS 韌體程式，檢測關鍵硬體(如：記憶體容量、顯示卡、硬碟是否異常)
+- 尋找開機驅動裝置
+	- UEFI/BIOS 會根據內部設定的優先順序，依序到固態硬碟(SSD)、傳統硬碟(HDD)、USB 或網路去尋找作業系統
+- 載入開機管理程式 (Bootloader)
+	- CPU 從硬碟的引導磁區讀取一小段名為開機管理程式 (Bootloader)的代碼
+- 載入作業系統內核 (Kernel)
+	- Bootloader 開始在硬碟中尋找作業系統的 **內核(Kernel)** 檔案，並將其大量載入到 RAM 中
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
