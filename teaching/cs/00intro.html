@@ -80,13 +80,67 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## High-Level Languages
 - **Compiled** Programming Language(編譯程式語言)
-	- 所有的原始程式碼完全轉成可以被機器執行的機器語言以後，程式才可以被執行
+	- **原始程式碼必須全部經由 Compiler**(編譯器)轉成可以被機器執行的機器語言，**程式才可以被執行**
 	- Fortran, C, C++, Java, Rust, Go, C#
 	- 類似於**文學翻譯、點字轉譯**
+	- 執行速度快、不容易除錯(debug)
 - **Interpreted** Programming Language(直譯程式語言)
 	- 每一行原始程式可以在執行期間經由 interpreter 轉譯成可以被執行的程式
 	- Python, PHP, Javascript, Perl
 	- 類似於**現場英文口譯、手語即時轉譯**
+	- 執行速度慢、容易 debug
+</script></section>
+<section data-markdown><script type="text/template">
+## Assembly Code
+- Download and install Assembler, Linker, Assembly code
+	- [NASM — The Netwide Assembler](./appendixA.html#/0/1)
+	- [LLVM/Clang Compiler for Windows](./appendixA.html#/0/2)
+	- ['helloWorld' assembly code](../src/cs/helloWorld.asm)
+	- **Setting environment variable** to exceute nasm and clang in command line. 
+- Assemble it into a Windows 64-bit object file
+	- **nasm -f win64 helloWorld.asm -o helloWorld.obj**
+- Link the object file into an executable application using LLVM/Clang
+	- **clang helloWorld.obj -o helloWorld.exe**
+</script></section>
+<section data-markdown><script type="text/template">
+## Assembler and Linker
+![](/images/cs/linkerErr.png)
+- 需要安裝 Visual Studio 的 MSVC static Library(靜態函示庫)
+</script></section>
+<section data-markdown><script type="text/template">
+## Using LLVM Linker
+![](/images/cs/asm2clang.png)
+- 組譯器組譯成 object code 後，使用 CLANG 連結產出執行檔
+</script></section>
+<section data-markdown><script type="text/template">
+## Using MSVC Linker
+![](/images/cs/asm2cl.png)
+- 組譯器組譯成 object code 後，使用 LINK, CL 連結產出執行檔
+</script></section>
+<section data-markdown><script type="text/template">
+## C++ Compiler for Windows(1/2)
+- LLVM/Clang
+	-  **Low-Level Virtual Machine (LLVM)** is a collection of libraries and tools that make it easy to build compilers, **optimizers, Just-In-Time code generators**, and many other compiler-related programs.
+	- Clang is an **"LLVM native" C/C++/Objective-C compiler**.
+![](/images/cs/llvm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## C++ Compiler for Windows(2/2)
+- GCC (**MinGW-w64 / MSYS2**)
+	- [GCC](https://gcc.gnu.org/) was originally written as the compiler for the GNU operating system.
+	- The GNU Compiler Collection includes front ends for C, C++, Objective-C, Objective-C++, Fortran, Ada, **Go**, D, Modula-2, COBOL, **Rust**, and Algol 68 as well as libraries for these languages (libstdc++,...).
+	- [Installing MSYS2/MinGW64](../cpp/01intro.html#/3/6) and Clang or GCC
+- MSVC (Microsoft Visual C++)
+	- [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/) ≫ 02 Tools for Visual Studio ≫ [Build Tools for Visual Studio 2026](https://visualstudio.microsoft.com/downloads/) or [LTSCs](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-history#release-dates-and-build-numbers)
+</script></section>
+<section data-markdown><script type="text/template">
+## HelloCpp of C++
+- 編譯 C++ 原始程式碼
+	- **clang++ -std=c++20 -c helloCpp.cpp -o helloCpp.o**
+- 連結(linking) 相關的 library 產出執行檔
+	- **clang++ helloCpp.o -o helloCpp.exe**
+- Download [helloCpp.cpp](../src/cs/helloCpp.cpp) source code
+![](/images/cs/helloCpp.png)
 </script></section>
 </section><!--end block-->
 
@@ -151,15 +205,50 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # Booting Computer 
 </script></section>
 <section data-markdown><script type="text/template">
-## Booting Procss of Computer
+## 電腦啟動的程序
 - 電源啟動與硬體自我測試
 	- CPU 開始執行內建在 ROM 中的 UEFI/BIOS 韌體程式，檢測關鍵硬體(如：記憶體容量、顯示卡、硬碟是否異常)
 - 尋找開機驅動裝置
 	- UEFI/BIOS 會根據內部設定的優先順序，依序到固態硬碟(SSD)、傳統硬碟(HDD)、USB 或網路去尋找作業系統
 - 載入開機管理程式 (Bootloader)
-	- CPU 從硬碟的引導磁區讀取一小段名為開機管理程式 (Bootloader)的代碼
+	- CPU 從硬碟的引導磁區讀取一小段名為開機管理程式(Bootloader)的代碼
 - 載入作業系統內核 (Kernel)
-	- Bootloader 開始在硬碟中尋找作業系統的 **內核(Kernel)** 檔案，並將其大量載入到 RAM 中
+	- Bootloader 開始在硬碟中尋找作業系統的**內核(Kernel)** 檔案，並將其大量載入到 RAM 中
+</script></section>
+<section data-markdown><script type="text/template">
+## 各知名品牌 UEFI/BIOS 開機選單快捷鍵
+
+| 品牌 (Brand) | UEFI/BIOS 鍵 | 開機選單鍵 |
+| :--- | :--- | :--- |
+| **ASUS (華碩)** | `F2`, `Delete` | `F8` (筆電), `Esc` (桌機) |
+| **Dell (戴爾)** | `F2` | `F12` |
+| **HP (惠普)** | `F10` | `F9` (或先按 `Esc` 再按 `F9`) |
+| **Lenovo (聯想)** | `F2` 或 `Fn + F2`, `F1` | `F12` 或 `Fn + F12` |
+| **Acer (宏碁)** | `F2`, `Delete` | `F12` |
+| **MSI (微星)** | `Delete` | `F11` |
+	- UEFI: Unified Extensible Firmware Interface(統一可延伸韌體介面)
+	- BIOS: Basic Input/Output System(基本輸入輸出系統)
+	- 快速成功進入的小技巧
+		- *連續狂按*：開機或重新啟動的黑畫面瞬間，就要*每秒連續敲擊*對應的快捷鍵，直到畫面出現為止
+		- *Fn 鍵組合*：部分新筆電預設啟動了媒體鍵功能，因此按 `F2` 或 `F12` 時，必須*同時按住 `Fn` 鍵*才有效
+</script></section>
+<section data-markdown><script type="text/template">
+## ASUS UEFI/BIOS 開機截圖
+![](/images/cs/uefi.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 製作開機 USB 磁碟
+- 所需準備的物品、檔案及軟體
+	- 一個 USB 磁碟，**請先將 USB 內的檔案資料到備份其他的硬碟或 USB**
+	- Windows, Linux, MacOS, FreeBSD 等作業系統的 ISO 檔
+	- [Ventoy](https://www.ventoy.net/en/index.html) or [Rufus](https://rufus.ie/zh_TW/) 製作 USB 開機磁碟的軟體
+		- Ventoy 可以**同時放入多個作業系統的 ISO 檔**，建議使用 Ventoy 製作 USB 開機磁碟 
+![](/images/cs/ventoy.webp)
+</script></section>
+<section data-markdown><script type="text/template">
+## 多重系統開機管理程式
+- [The rEFInd Boot Manager](https://www.rodsbooks.com/refind/)
+![](/images/cs/refind.png)
 </script></section>
 </section><!--end block-->
 
