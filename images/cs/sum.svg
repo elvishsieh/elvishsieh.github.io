@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="52.34mm"
+   height="41.634998mm"
+   viewBox="0 0 52.34 41.634998"
+   version="1.1"
+   style="background-color:#cdebff"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="sum.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#cdebff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.69219276"
+     inkscape:cx="89.570425"
+     inkscape:cy="451.46384"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="圖層 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-81.416987,-28.95573)">
+    <g
+       id="g3"
+       transform="translate(4.2046332,5.7335907)">
+      <text
+         xml:space="preserve"
+         style="font-size:9.17222px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;inline-size:40.8921;fill:#000000;stroke-width:0.264583"
+         x="82.945946"
+         y="35.548264"
+         id="text1"><tspan
+           x="82.945946"
+           y="35.548264"
+           id="tspan3">   0 1 0 1
+</tspan><tspan
+           x="82.945946"
+           y="47.013539"
+           id="tspan4">   1 1 0 1
+</tspan><tspan
+           x="82.945946"
+           y="58.478814"
+           id="tspan5">1 0 0 1 0
+</tspan></text>
+      <path
+         style="fill:#0000ae;fill-opacity:0.899999;stroke:#000000;stroke-width:0.865;stroke-dasharray:none;stroke-opacity:1"
+         d="M 81.416987,48.926641 H 125.75676"
+         id="path2" />
+    </g>
+  </g>
+</svg>

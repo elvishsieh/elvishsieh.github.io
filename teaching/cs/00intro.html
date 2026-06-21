@@ -142,6 +142,27 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - Download [helloCpp.cpp](../src/cs/helloCpp.cpp) source code
 ![](/images/cs/helloCpp.png)
 </script></section>
+<section data-markdown><script type="text/template">
+## Summary
+- 我們使用 Algorithm 來描述問題，提供正確解決的執行步驟
+- 我們透過 Program Language 實現 Algorithm 解決真實問題的執行步驟
+- Programming Language 可以分成 Low-level 和 High-Level, Machine and Assembly Language 是
+  屬於 Low-level Programming Language, C, C++, Java, Python, Javascript, etc, ..., 屬於 High-Level Programming Language
+- High-Level Programming Language 又可以分成 Compiled 及 Interpreted Programming Language
+- **因 CPUs 內部設計的架構不同，部分 Compiled Language Codes 需做修改才來能被編譯與執行**
+</script></section>
+<section data-markdown><script type="text/template">
+## Resources on Internet
+- 線上 [MissingSemester](https://www.youtube.com/@MissingSemester/courses) 課程是 programmer 必備的基本功
+- C++ Resources
+	- The creator of C++ talk about programming language: [1](https://www.youtube.com/shorts/eTkeTWAQVUU), [2](https://www.youtube.com/watch?v=aCRPHyRZE6g), [3](https://www.youtube.com/shorts/P1MIIShElgE), [4](https://www.youtube.com/shorts/qXXNMOZnRQY)
+	- [cplusplus.com](https://cplusplus.com/), [cpp reference](https://cppreference.com/), [Standard C++](https://isocpp.org/), [Boost](https://www.boost.org/)
+- Python Resources
+	- The creator of Python  talk about Python: [1](https://www.youtube.com/watch?v=QXE5rEVlu20&t=17s), [2](https://www.youtube.com/watch?v=5fN3JXwer2U)
+	- [python.org](https://www.python.org/), [Python documentation](https://docs.python.org/), [CPython](https://github.com/python/cpython), [PyPy - alternative implementation of Python](https://pypy.org/)
+	- Search "The most popular Python packages" in AI for more inforamtion of Python Libraries
+</script></section>
+
 </section><!--end block-->
 
 <section><!--start block-->
@@ -197,6 +218,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **藏於 CPU 晶片內部**，快取記憶體 (Cache) 可分為 L1、L2、L3 快取
 	- 容量很小(通常幾 MB 到幾百 MB)，但速度比一般的 RAM 快上數十倍
 </script></section>
+<section data-markdown><script type="text/template">
+## Summary
+- 計算機是由五大單元所組成，包括中央處理單元(CPU)、算術邏輯單元、記憶體單元、輸入及輸出單元
+- 常見的中央處理單元(CPU)有 Intel, AMD x86, x64、ARM CPU、Apple iPhone, Mac、Nvidia Vera, RTX Spark 等
+- 算術邏輯單元主要負責計算機運算功能，**加、減、乘、除皆由硬體組成的加法器做運算**
+- 記憶體分**斷電後資料就會完全消失**的揮發性(RAM)記憶體與**斷電後資料依然存在**的非揮發性記憶體(ROM/Flash)， 
+  另外，快取記憶體(Cache)藏於 CPU 晶片內部；**存取速度 Cache 比 RAM 快，RAM 比 ROM/Flash 快**
+- 輸入、輸出設備種類繁多，**經由網路形成物聯網(Internet of Thing, IoT)，輸入及輸出設備更是多元**
+</script></section>
 </section><!--end block-->
 
 
@@ -249,6 +279,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## 多重系統開機管理程式
 - [The rEFInd Boot Manager](https://www.rodsbooks.com/refind/)
 ![](/images/cs/refind.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary
+- 按下開機鍵，電腦從 ROM 中讀取開機程式，開機程式先檢查硬體是否正常？**再交由 UEFI/BIOS 決定開機方式**，指定儲存在不同位置中的作業系統，使用者依照作業系統的權限登入系統
+- 作業系統可以儲存在硬碟、隨身碟(USB)或者**網路上的機器**，透過 UEFI/BIOS 指定給這些儲存在不同儲存體的作業系統開機
+- **製作開機 USB 建議使用 [Ventoy](https://www.ventoy.net/en/index.html) 來製作**，若 USB 容量僅能容納一個作業系統，則可以使用 [Rufus](https://rufus.ie/zh_TW/) 製作
+- 安裝作業系統前，建議先規劃好你的硬碟，至少把硬碟分割(partition)成 2 個 partition，第 1 個 partition 安裝 Windows 系統，第 2 個存放資料
+- 安裝多個作業系統時，建議**先安裝 Windows 系統，再安裝多重系統開機管理程式，最後安裝 Unix-like/MacOS 系統**
 </script></section>
 </section><!--end block-->
 
