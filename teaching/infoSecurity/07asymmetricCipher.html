@@ -134,7 +134,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - $\forall p, q\in \mathbb Z_p$，則找一個數值 $n = p\times q,\quad n\in \mathbb N$，
    由 Eurler-totient-function 得 $\phi (n) = (p-1)\cdot(q-1) \cdots (1)$
 - 找一個數值 $e$，且 $gcd(e, \phi (n)) = 1$ (斐蜀定理(Bézout's lemma))<br>
-  $\because e, \phi (n)$ 互質，由輾轉相除法得 $\; e\cdot d - \phi \cdot t = 1\cdots\cdots (2)$ <br>
+  $\because e, \phi (n)$ 互質，由[輾轉相除法](./appendixA.html#/0/1)得 $\hspace{0.3cm} e\cdot d - \phi \cdot t = 1\cdots\cdots (2)$ <br>
   由 $(1)$ 式代入 $(2)$ 式得 $e\cdot d = 1 + (p-1)\cdot (q-1)\cdot t$
 
   `$$
@@ -206,8 +206,22 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
    M_2 & \equiv 26^7 \; mod\; 33 = \;\; 5\\
    M_3 & \equiv 16^7 \; mod\; 33 = 25
   \end{align} \right\} \Rightarrow \;得到 11, 05, 25(key) 的明文$$`
-</script>
-</section>
+</script></section>
+<section data-markdown><script type="text/template">
+## 以 Python 實作 RSA 加解密
+- Download [RSA source code with Python](../src/iSecurity/rsa.7z) from my Google Driver.
+- 加解密資訊
+| 明文($M$) | $p\times q$ | 公鑰($e$) | 私鑰($d$) | 密文($C$) |
+| :---      | :---:      |  :---:    | :---:     | :---:     |
+| k(11)        | $3\times 11$| 3         |  7       | 11(k)       |
+| e(05)        | $3\times 11$| 3         |  7       | 26(z)       |
+| y(25)        | $3\times 11$| 3         |  7       | 16(p)       |
+||||||
+- RSA 原始程式碼
+  - ras.py, ras_enCryption.py, ras_deCryption
+  - 輸入上面相對應的資料，觀看執行結果是否正確?
+  - 選擇不同的 $p\times q$ 數值，觀看執行結果是否正確?
+</script></section>
 <section data-markdown><script type="text/template">
 ## RSA 的證明
 - 上面 slide 曾經提到：輾轉相除法得到 $e\cdot d = 1 + \phi \cdot t$ <br />

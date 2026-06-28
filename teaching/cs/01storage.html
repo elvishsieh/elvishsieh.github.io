@@ -51,6 +51,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ## 基本邏輯閘(Basic Logic Gate)
 - AND, OR, and NOT logic Gates
 ![AND, OR and NOT Gate](/images/cs/basicGate.svg)
+- [Logic Gates Explained Computer Science 101](https://www.youtube.com/shorts/btdBPai3ppU)
 </script></section>
 <section data-markdown><script type="text/template">
 ## AND/NAND Gate
@@ -61,6 +62,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 |   0   |   1   |       0       | 1 |
 |   1   |   0   |       0       | 1 |
 |   1   |   1   |       1       | 0 |
+|||||
 
 ![AND/NAND Gate](/images/cs/AND.svg)
 </script></section>
@@ -72,6 +74,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 | 0 | 1 | 1 | 0 |
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 1 | 0 |
+|||||
 
 ![OR/NOR Gate](/images/cs/OR.svg)
 </script></section>
@@ -87,6 +90,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 |   0   |   1   |       1       |
 |   1   |   0   |       1       |
 |   1   |   1   |       0       |
+||||
 
 ![NOT and XOR Gate](/images/cs/XOR.svg)
 </script></section>
@@ -172,13 +176,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - N 進制系統
 	- 10 進制是 0-9 數字， 10 是 9 + 1，寫 0 進 1 = 10
 	- 2 進制是 0-1 數字， 2 是 1 + 1，寫 0 進 1 = 10 <br/>
-`$\cdots$`
+$\cdots$
 	- N 進制是 0-(N-1) 數字， N 是 (N-1) + 1，寫 0 進 1 = 10
 - N's 補數(Complement)
 	- 10's 補數是 9's+1; 2's 補數是 1's+1; N's 補數是 (N-1)'s+1
-	- 55 的 9's 補數是 99 - 55 = 44; 0011(3) 的 1's 補數是 **1111 - 0011 = 1100(反轉)**
+	- 55 的 9's 補數是 99 - 55 = 44; $0011_2 (3_{10})$ 的 1's 補數是 **1111 - 0011 = 1100(反轉)**
 	- XX 的 (N-1)'s 補數是 (N-1)(N-1) - XX
-	- 55 的 10's 補數是 45 ; 3(0011) 的 2's 補數是 1101
+	- 55 的 10's 補數是 45 ; $3_{10} (0011_2)$ 的 2's 補數是 $1101_2$
 </script></section>
 <section data-markdown><script type="text/template">
 ## N's Complement System(2/2)
@@ -211,12 +215,135 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - **加、減、乘、除**四則運算都可以轉換成**加法運算**
 	- 加法直接使用加法器直接做運算
 	- 減法是將負數轉換成 2's 補數，再做加法運算
-	- 乘法亦是加法的運算，例如：2x3 = 2+2+2
-	- 除法是減法的運算，例如：6/3 代表從 6 開始，連續減去 3 直到歸零；總共扣除了 2 次，因此 6 ÷ 3 = 2
-- 四則運算可以轉換成加法運算，計算機硬體可以使用全加法器做四則運算
+	- 乘法亦是加法的運算，例如：$2\times 3 = 2 + 2 + 2$
+	- 除法是減法的運算，例如：$6\div 3$ 代表**從 6 開始，連續減去 3 直到歸零；總共扣除了 2 次**，因此 $6\div 3 = 2$
+- **四則運算可以轉換成加法運算**，計算機硬體可以使用全加法器做四則運算
 - 計算機硬體設計加法器，算術邏輯單元負責計算機的計算功能
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Boolean Algebra
+</script></section>
+<section data-markdown><script type="text/template">
+## Laws of Boolean Algebra
+| **Laws** | **Addition(OR)** | **Multiplication(AND)** |
+| :--- | :--- | :--- |
+| 恆等律 | A + 0 = A | A · 1 = A |
+| 降冪律 | A + A = A | A · A = A |
+| 互補律 | A + $\overline{A}$ = 1 | A · $\overline{A}$ = 0 |
+| 交換律 | A + B = B + A | A · B = B · A |
+| 結合律 | (A + B) + C = A + (B + C) | (A · B) · C = A · (B · C) |
+| 分配律 | A + (B · C) = (A + B) · (A + C) | A · (B + C) = (A · B) + (A · C) |
+| 吸收律 | A + (A · B) = A | A · (A + B) = A |
+| 摩爾定理 | $\overline{(A + B)} = \overline{A} \cdot \overline{B}$ | $\overline{(A \cdot B)} = \overline{A} + \overline{B}$ |
+||||
+- OR 記為 $+$(加) ； AND 記為 $\cdot$(點) ； NOT 記為 $\overline {A}$ 或 $A^{'} $
+</script></section>
+<section data-markdown><script type="text/template">
+## Venn Diagrams in Linear Algebra
+![](/images/cs/venn.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## 布林代數定律在線性代數書寫的方式
+
+| **Laws** | **Disjunction(∨)** | **Conjunction(∧)** |
+| :--- | :--- | :--- |
+| **Identity** | A $\vee$ 0 = A | A $\wedge$ 1 = A |
+| **Idempotent** | A $\vee$ A = A | A $\wedge$ A = A |
+| **Complement** | A $\vee$ $\neg A$ = 1 | A $\wedge$ $\neg A$ = 0 |
+| **Commutative** | A $\vee$ B = B $\vee$ A | A $\wedge$ B = B $\wedge$ A |
+| **Associative** | (A $\vee$ B) $\vee$ C = A $\vee$ (B $\vee$ C) | (A $\wedge$ B) $\wedge$ C = A $\wedge$ (B $\wedge$ C) |
+| **Distributive** | A $\vee$ (B $\wedge$ C) = (A $\vee$ B) $\wedge$ (A $\vee$ C) | A $\wedge$ (B $\vee$ C) = (A $\wedge$ B) $\vee$ (A $\wedge$ C) |
+| **Absorption** | A $\vee$ (A $\wedge$ B) = A | A $\wedge$ (A $\vee$ B) = A |
+| **De Morgan’s Theorem** | $\neg (A \vee B)$ = $\neg{A} \wedge \neg B$ | $\neg (A \wedge B)$ = $\neg{A} \vee \neg B$ |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Building basic gates with NAND
+- 用 NAND 閘(反及閘)來實現 NOT 閘(反相器)的布林代數表達式
+	$$\because (A\cdot A) = A (Idempotent) \; \therefore \overline{(A \cdot A)} = \overline {A} $$  
+	- Thinking about **$\overline A$ 需要 2 個輸入端(A)，又必須使用 NAND$\overline{(A\cdot B)}$** 作為 Basic Gate, 因此，形成 $\overline{(A\cdot A)}$
+- The boolean expression of an AND gate implemented using NAND gates
+	$\Rightarrow$ **$\overline{\overline{A \cdot B}} = A \cdot B $**
+- The boolean expression of an OR gate implemented using NAND gates
+	$\Rightarrow$ **$\overline{\overline{A} \cdot \overline{B}} =  \overline{\overline{A}} + \overline{\overline{B}} = A + B $**
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary of Boolean Expression
+
+| Gate | Boolean Expression | NAND-Only |
+| :---: | :---: | :--- |
+| **NOT** | $Y = \overline{A}$ | $Y = \overline{A \cdot A}$ |
+| **AND** | $Y = A \cdot B$ | $Y = \overline{\overline{A \cdot B}}$ |
+| **OR** | $Y = A + B$ | $Y = \overline{\overline{A} \cdot \overline{B}}$ |
+| **XOR** | $Y = A \oplus B$ | $Y = \overline{\overline{A \cdot \overline{B}} \cdot \overline{\overline{A} \cdot B}}$ |
+
+![](/images/cs/allGate.svg)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Encoder/Decoder
+</script></section>
+<section data-markdown><script type="text/template">
+## The Encoder(4-to-2 Example)
+|  | Input |  |  | Ouput |  | Decimal |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| $A_3$ | $A_2$ | $A_1$ | $A_0$ | $Y_1$ | $Y_0$ | |
+| 0 | 0 | 0 | **1** | **0** | **0** | 0 |
+| 0 | 0 | **1** | 0 | **0** | **1** | 1 |
+| 0 | **1** | 0 | 0 | **1** | **0** | 2 |
+| **1** | 0 | 0 | 0 | **1** | **1** | 3 |
+
+![](/images/cs/42encoder.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## $2^{n}$ to $N$ Encoder(編碼器)
+- 4-to-2 Encoder
+	- 內部是 OR gates 組成，4 個輸入 **$A_{0}, A_{1}, A_{2}, A_{3}$ 分別為 1 時輸出($Y_{0}, Y_{1}$)相對應的二進制數值**
+- $2^{n}$ to $N$ Encoder
+	- **$N$ bits 需要 $2^{n}$ 個輸入組合而成 $N$ bits 輸出**
+![](/images/cs/nEncoder.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## 2-to-4 Decoder Truth Table
+| Enable $E$ | Input $A_1$ | Input $A_0$ | Output $Y_3$ | Output $Y_2$ | Output $Y_1$ | Output $Y_0$ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 0 | X | X | **0** | **0** | **0** | **0** |
+| 1 | 0 | 0 | **0** | **0** | **0** | **1** |
+| 1 | 0 | 1 | **0** | **0** | **1** | **0** |
+| 1 | 1 | 0 | **0** | **1** | **0** | **0** |
+| 1 | 1 | 1 | **1** | **0** | **0** | **0** |
+
+- $Y_0 = E \cdot \overline{A_1} \cdot \overline{A_0} \hspace{2cm} Y_2 = E \cdot A_1 \cdot \overline{A_0}$
+- $Y_1 = E \cdot \overline{A_1} \cdot {A_0} \hspace{2cm} Y_3 = E \cdot {A_1} \cdot A{_0}$
+</script></section>
+<section data-markdown><script type="text/template">
+## Logic Diagram of 2-to-4 Decoder
+![](/images/cs/24Decoder.svg)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# BCD
+</script></section>
+<section data-markdown><script type="text/template">
+## BCD Encoding System
+- **B**inary-**C**oded **D**ecimal 是**使用 4 個位元的二進制(0,1)來表示 0-9 的數字系統，但是，進位方式是採用十進制的方式**
+	- 例如：7 的 BCD 碼是 0111, 9 的 BCD 碼是 1001
+	- 因為 BCD 編碼是採 10 進制，所以， **11 的 BCD 碼是 0001 0001**
+- Decimal to BCD Encoder
+	- Decimal to BCD 是將 10 進制數值轉成 BCD 編碼系統的數值，例如： 7 轉 BCD 碼是 0111
+- BCD to Decimal Decoder
+	- 相反地，將 BCD 編碼系統的數值轉成 10 進制數值，例如： 0111 to 7
+- BCD Encoding System 又稱 8421 編碼系統
+</script></section>
+</section><!--end block-->
+
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
@@ -227,7 +354,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## ASCII Codes
-- [ASCII](https://www.ascii-code.com/)(American Standard Code for Information Interchange, 美國標準資訊交換碼)是基於拉丁字母的一套電腦字元編碼標準
+- [ASCII](https://www.ascii-code.com/) Codes (American Standard Code for Information Interchange, 美國標準資訊交換碼)是基於拉丁字母的一套電腦字元編碼標準
 - ASCII 是由[美國國家標準學會](https://www.ansi.org/)(American National Standard Institute, ANSI)制定的，使用標準的單位元組字元編碼方案，用於基於文字的資料
 - ASCII 的局限在於**只能顯示26個基本拉丁字母、阿拉伯數字和英式標點符號**，因此只能用於顯示現代美國英語
 - 採用 7 位元系統，可編碼 128 個字元，包含基本拉丁字母（A-Z、a-z）、數字和基礎標點符號
@@ -246,14 +373,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Specification Standards 
-- Data Representation & Hardware Interfaces
-	- IEEE 754(Floating-Point Arithmetic), **Unicode (UTF-8 / UTF-16)**, PCI Express (PCIe)
-- Operating Systems & Software Execution
-	- **POSIX** (IEEE 1003 / ISO/IEC 9945), ISO Language Specifications(**C, C++, ECMAScript**(ECMA-262), Java)
-- Networking & Internet Protocols
-	- **TCP/IP** (RFC 791 / RFC 793), **HTTP/HTTPS (HTTP/2 & HTTP/3)**, IEEE 802.3 (Ethernet) & IEEE 802.11 (Wi-Fi)
-- Data Exchange, Databases, & Web
-	- **HTML5** & **CSS3**, JSON (ECMA-404), **XML**, SQL (ISO/IEC 9075), TLS (Transport Layer Security)
+- Data Representation and Hardware Interfaces
+	- IEEE 754(Floating-Point Arithmetic), **Unicode (UTF-8/UTF-16)**, PCI Express (PCIe)
+- Operating Systems and Software Execution
+	- **POSIX** (IEEE 1003/ISO/IEC 9945), ISO Language Specifications(**C, C++, ECMAScript**([ECMA-262](https://tc39.es/ecma262/)), Java)
+- Networking and Internet Protocols
+	- **TCP/IP** (RFC 793), **HTTP/HTTPS (HTTP/2 & HTTP/3)**, IEEE 802.3 (Ethernet) & IEEE 802.11 (Wi-Fi)
+- Data Exchange, Databases and Web
+	- **HTML5, XML and CSS3**, JSON (ECMA-404), SQL (ISO/IEC 9075), TLS (Transport Layer Security)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Editing SVG with VS Code(1/3)
@@ -281,6 +408,68 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ||||
 </script></section>
 </section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# I18N and L10N
+</script></section>
+<section data-markdown><script type="text/template">
+## Internationalization
+- i18n 是國際化(Internationalization)的縮寫(Numeronym)，從首字母 i 到尾字母 n，**中間省略的 18 個字母**
+$$ \text{i} + \underbrace{\text{nternationalizatio}}_{18 \text{ 個字母}} + \text{n} \longrightarrow \mathbf{i18n} $$
+- 目的是在開發產品、網站或應用程式時，讓底層架構具備彈性，**不需修改核心程式碼，就能輕鬆適應不同國家、語言與文化的市場需求**
+- **將所有介面看到的文字抽離程式碼，集中存放在獨立的資源檔(ex: JSON,YAML,or PO)中**
+- 當使用者切換語系時，系統會自動根據當前語系，將對應的文字填入介面中
+</script></section>
+<section data-markdown><script type="text/template">
+##  i18n 處理不同語言與文化的特點
+- **文字排列方向**
+	- 支援從左到右(LTR)與從右到左(RTL，如阿拉伯文)的排版
+- **在地化格式變更**
+	- 根據地區動態調整日期格式、時間(24小時或12小時制)、貨幣符號、數字千分位撇號及度量衡單位
+- **介面排版彈性**
+	- 同一個詞在不同語言中的長度差異巨大(例如英文的 "Save" 只有 4 個字母，德文可能變成 "Speichern")，UI 設計必須保留足夠的伸縮空間
+- **複數與文法規則**
+	- 處理不同語言中，因為數量多寡(單數、複數)或陰陽性而改變的句子結構
+</script></section>
+<section data-markdown><script type="text/template">
+## Localization
+- l10n 是在地化(localization)的縮寫，從首字母 l 到尾字母 n，**中間省略的 10 個字母**
+$$ \text{l} + \underbrace{\text{ocalizatio}}_{10 \text{ 個字母}} + \text{n} \longrightarrow \mathbf{l10n} $$
+- l10n 專注於符合當地的文化與習慣
+	- **語言翻譯**
+	- **日期與時間格式**
+	- **貨幣與數字**
+	- 文化與圖示修正
+	- 法律與合規性
+</script></section>
+<section data-markdown><script type="text/template">
+## The example of i18n source codes
+- Download the [i18n source code](../src/cs/i18n.7z) from my Google Driver which wrote in Python.
+- Extract and run the command as following
+	- **python main.py**
+	
+![](/images/cs/i18n.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Structure of i18n source code
+- i18n 原始程式碼 l10n 的目錄結構
+<pre><code>i18n/
+│
+├── main.py                   # Python 程式碼
+└── locales/                  # 語系資料夾
+    ├── zh_TW/                  # 繁體中文
+    │   └── LC_MESSAGES/
+    │       └── messages.po    # 翻譯原始文件（文字檔）
+    └── ja_JP/                  # 日文
+        └── LC_MESSAGES/
+            └── messages.po     # 翻譯原始文件（文字檔）
+</code></pre>
+- Windows 作業系統的 l10n 的目錄位置
+	<pre><code>C:\Windows\System32\[Language-ID]\</code></pre>
+</script></section>
+</section><!--end block-->
+
 
 </div>
 </div>
