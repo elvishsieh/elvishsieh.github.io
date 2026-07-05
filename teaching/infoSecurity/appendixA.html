@@ -62,6 +62,108 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 </section><!--end block-->
 
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# RSA 原始程式碼
+</script></section>
+<section data-markdown><script type="text/template">
+## RSA 原始程式碼的說明
+- inverseElement.py
+	- 輸入 2 個質數及公鑰($p, q, e$)，求得私鑰的程式碼
+- rsa_enCryption.py
+	- 輸入 2 個質數、公鑰及明文($p, q, e, M$)，可以得出密文
+- rsa_deCryption
+	- 輸入 2 個質數、公鑰及密文($p, q, e, C$)，可以得出明文
+- rsa.py
+	- 整合上面 3 個程式碼得出私鑰、明文與明文
+- multiInputRSA.py
+	- 將解密的函數改成可以允許一次完成多輸入的格式，**請 AI 修改加密的函數程式碼，讓加密也可以一次完成多輸入個格式**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 量子計算
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子力學
+- 何謂量子?
+	- 量子不是一種特定的物質或粒子，而是一個物理學概念
+	- 量子力學之父是德國物理學家 Max$\cdot$ Planck(馬克斯$\cdot$普朗克)，他在 1900 年提出了解決黑體輻射問題的假說，**首次帶入能量量子的概念** 
+	- 能量傳遞以波的形式，不連續的量子傳送，推翻了古典物理中**能量是連續變化**的傳統思維
+- 量子力學的應用
+	- 光電效應之所以被稱為**純粹的量子力學應用**是因為古典物理(古典波動說)在這裡徹底翻車，完全無法解釋這個現象
+	- 核磁共振成像(MRI)利用人體內氫原子核的量子自旋(Spin)特性，在強大磁場下產生共振，藉此感應出不同組織的結構
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子微觀世界的三大不可思議特性
+- 波粒二象性(Wave-Particle Duality)
+	- 微觀粒子(如電子、光子)既像固體的**粒子**，又像擴散開的**波**
+	- 移動時像波傳播，被觀測或撞擊時，像粒子固定在一個點上
+- **量子疊加(Superposition)**
+	- 在日常生活中，**一枚硬幣轉動時，不是正面就是反面**
+	- 在量子世界中，**在被觀測之前**，粒子可以同時處於多種狀態
+	- 直到你看它的瞬間，它才會隨機**坍縮**成某種確定的狀態
+- **量子糾纏(Entanglement)**
+	- 兩個相互糾纏的量子，無論彼此距離多遠(哪怕一個在地球，一個在火星)，**只要改變其中一個的狀態，另一個就會瞬間做出相應的改變**
+	- 愛因斯坦曾稱這種現象為**鬼魅般的超距作用**
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子電腦(Quantum Computer)
+- 量子電腦(Quantum Computer)是一種基於量子力學原理運作的全新計算裝置
+- 與傳統電腦非 0 即 1 不同，**量子電腦使用量子疊加的特性，像旋轉中的硬幣，可以同時處於 0 和 1 的疊加狀態**
+- 這代表 **1 個量子位元(Qubit)能同時計算 2 個數值**，$N$ 個位元就能同時並行處理 $2^{N}$ 個數據，算力呈指數級暴增
+- 量子電腦**基於量子糾纏的特性，當一個位元發生變化時，另一個遙遠的位元也會瞬間改變**，這讓量子電腦可以像分身術一樣，同時探索迷宮中的所有路線，迅速找出正確出口
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子計算(Quantum Computing)
+- 量子計算是運行在量子電腦上面的核心算法與運算邏輯，**具有資料處理及平行運算的特性**
+- 以走迷宮為例，傳統電腦必須一條路一條路去試，撞牆了就退回換下一條，直到找到出口；量子計算就像**洪水灌入迷宮**，因為量子的特性，能同時填滿並探索所有可能的路徑，在瞬間找出正確的出口
+- 透過量子疊加、量子糾纏特性，**同時具備 0 與 1 的狀態， $N$ Qubits 能同時進行 $2^{N}$ 的平行運算**
+- 利用量子干涉(Interference)原理，**把錯誤答案的機率像雜訊一樣消去(相消干涉)，並把正確答的機率放大(相長干涉)，最終精準捕捉正確答案**
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子計算對質數的分解(1/3)
+- $N = 33$，目標是找出 3 和 11
+- 找出循環長度(週期)
+	- 我們隨機盲猜一個跟 33 互質的數字，假設我們猜 $a = 5$
+	- 量子電腦開始同時計算 $(5^x \div 33)$ 的餘數如下一頁 slide
+- 驚人的發現：
+	- 這些餘數排起來變成了：1, 5, 25, 26, 31, 23, 1, 5, 25...
+	- 我們可以清楚看到，每經過 6 次，數字就會重新循環一次。
+	- 量子電腦利用量子傅立葉變換(QFT)，直接可以找到循環長度(週期) $r = 6$。
+</script></section>
+<section data-markdown><script type="text/template">
+## 量子計算對質數的分解(2/3)
+| $x$        | $5^x$ 						 |
+| :---:       | :---                          |
+| 當 $x = 0$ | $5^0 = 1 \rightarrow$ **餘數是 1** |
+| 當 $x = 1$ | $5^1 = 5 \rightarrow$ 餘數是 5 |
+| 當 $x = 2$ | $5^2 = 25 \rightarrow$ 餘數是 25 |
+| 當 $x = 3$ | $5^3 = 125 \rightarrow$ 餘數是 26 $(125 = 33 \times 3 + 26)$ |
+| 當 $x = 4$ | $5^4 = 625 \rightarrow$ 餘數是 31 $(625 = 33 \times 18 + 31)$ |
+| 當 $x = 5$ | $5^5 = 3125 \rightarrow$ 餘數是 23 $(3125 = 33 \times 94 + 23)$ |
+| 當 $x = 6$ | $5^6 = 15625 \rightarrow$ **餘數是 1** $(15625 = 33 \times 473 + 1)$ |
+| 當 $x = 7$ | 餘數是 5 |
+| 當 $x = 8$ | 餘數是 25 |
+| ...(以此類推) | |
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 量子計算對質數的分解(3/3)
+<ul>
+	<li>週期 $r = 6$ 之後</li>
+
+1. 將猜的數字做次方週期的一半是 $6 \div 2 = 3$，再把當初猜的數字 $5$ 拿來做 3 次方：$5^3 = 125$
+2. 使用平方差公式[$a^{2} - 1 = (a+1)\times (a-1)$] 把剛才算出的 125，分別做 $\pm 1$ ，得到 $125 + 1 =$ 126, $125 - 1 =$ 124
+3. 使用輾轉相除法求最大公因數，即 126 和 124 分別與目標密碼 33 求最大公因數：
+	- **126 和 33 的 $gcd$ 是 3**, 124 和 33 的 $gcd$ 是 1
+
+<li>$33 \div 3$ 得到了另一個因數 11</li>
+</ul> 
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 

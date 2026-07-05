@@ -170,7 +170,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 3. 求私鑰 `$d$`， `$\because  e\times d\mod \phi (n) = 1$`，即 `$d$` 是 `$e$` 的反元素，換言之， $3\times d \equiv 1\mod \underline{20}$
 
 4. 私鑰 `$d$` 的求法
-| `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n ) = 20$`  |
+| `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n )$`  |
 | :---: | :---: | :---: | 
 | `$1$` | `$3\times 1$` | `$3$` | 
 
@@ -178,7 +178,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-markdown><script type="text/template">
 ## RSA 加解密的範例(2/3)
-| `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n) = 20$`  |
+| `$d$` | `$e\cdot d$` | `$e\cdot d \mod \phi (n)$`  |
 | :---: | :---: | :---: | 
 | `$2$` | `$3\times 2$` | `$6$` |
 | `$\vdots$` | `$\vdots$` | `$\vdots$` |
@@ -209,18 +209,45 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## 以 Python 實作 RSA 加解密
-- Download [RSA source code with Python](../src/iSecurity/rsa.7z) from my Google Driver.
+- Download [RSA source code](../src/iSecurity/rsa.7z) from my Google Driver.
 - 加解密資訊
-| 明文($M$) | $p\times q$ | 公鑰($e$) | 私鑰($d$) | 密文($C$) |
-| :---      | :---:      |  :---:    | :---:     | :---:     |
-| k(11)        | $3\times 11$| 3         |  7       | 11(k)       |
-| e(05)        | $3\times 11$| 3         |  7       | 26(z)       |
-| y(25)        | $3\times 11$| 3         |  7       | 16(p)       |
-||||||
-- RSA 原始程式碼
-  - ras.py, ras_enCryption.py, ras_deCryption
-  - 輸入上面相對應的資料，觀看執行結果是否正確?
-  - 選擇不同的 $p\times q$ 數值，觀看執行結果是否正確?
+ | $p$    | $q$     | $\phi (n)$  | 公鑰($e$) | 私鑰($d$) | 明文($M$)| 密文($C$) |
+ | :---:  | :---:  | :---:       |  :---:    | :---:    | :---:     | :---:     |
+ | 3      | 11    |   20        | 3         |  7       | k(11)    | 11(k)       |
+ | 3      | 11    |   20        | 3         |  7       | e(05)    | 26(z)       |
+ | 3      | 11    |   20        | 3         |  7       | y(25)    | 16(p)       |
+- [RSA 原始程式碼](./appendixA.html#/1)
+  - inverseElement.py, rsa_enCryption.py, rsa_deCryption, **rsa.py**, multiInputRSA.py
+  - 選擇不同的 $p, q, e$ 數值，修改 rsa.py 程式碼的輸入，觀看執行結果是否正確?
+  - 修改明文訊息，觀看執行結果是否正確?
+</script></section>
+<section data-markdown><script type="text/template">
+## Another example of RSA(1/2)
+- 已知的明文與選取的質數、公鑰
+ | 明文($M$)  | $p$    | $q$     | $\phi (n)$ | 公鑰($e$) |
+ | :---:      | :---:  | :---:  | :---:       |  :---:    |
+ | k(11)      | 7      | 11    |   60         | 7         |
+ | e(05)      | 7      | 11    |   60         | 7         |
+ | y(25)      | 7      | 11    |   60         | 7         |
+ - 計算私鑰，即求 $e\cdot d \mod \phi (n) = 1$
+ | 私鑰($d$) | $e\cdot d$   | $e\cdot d \mod \phi (n)$ |
+ | :---:    | :---:         | :---:     |
+ |  1       | $7\times 1$   | $7 \mod 60$       |
+ |  2       | $7\times 2$   | $14 \mod 60$       |
+ |  $\vdots$       | $\vdots$   | $\vdots$       |
+ |  43       | $7\times 43 = 301$   | $301 \mod 60 = 1$    |
+</script></section>
+<section data-markdown><script type="text/template">
+## Another example of RSA(2/2)
+- 計算私鑰的程式碼
+  - 在 rsa.7z 壓縮檔內的 invertElement.py 程式
+  - 輸入 2 個質數($p, q$)及公鑰，即可得出私鑰
+  - 假設 $p = 13, q = 19$, 公鑰是 $e =  p = 13$
+| 私鑰($d$) | $e\cdot d$   | $e\cdot d \mod \phi (n)$ |
+| :---:    | :---:         | :---:     |
+|  1       | $13\times 1$   | $13 \mod 216$       |
+|  $\vdots$       | $\vdots$   | $\vdots$       |
+|  133       | $13\times 133 = 1729$   | $\underline{1729 \mod 216}(\times 8 = 1728)$       |
 </script></section>
 <section data-markdown><script type="text/template">
 ## RSA 的證明
