@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>資訊管理實務專題</title>
+<title>參考文獻</title>
 
 <meta name="description" content="Web design for beginner level students">
 <meta name="author" content="Elvis Hsieh">
@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+<link rel="icon" type="image/x-icon" href="/images/cppLogo.ico" />
 
 <link rel="stylesheet" href="/revealjs/dist/reset.css">
 <link rel="stylesheet" href="/revealjs/dist/reveal.css">
@@ -31,7 +31,7 @@
 var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+link.href = window.location.search.match( /reveal-js/print-pdf/gi ) ? '/reveal-js/css/print/pdf.css' : '/reveal-js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
@@ -46,93 +46,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
-<section><!--start block-->
 <section data-markdown><script type="text/template">
-## 資訊管理實務專題<br /> Special Topics in Information system Practical
-
-<br />
-
-## 謝文仲
-
-<p style="text-align:center">
-    <small> <a href="mailto:elvis.hsieh@gmail.com">Elvis Hsieh</a> / <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
-    </small>
-</p>
+## 參考文獻 (Reference)
+- [AI 時代的教與學：進行式與提議](https://www.youtube.com/watch?v=BuQ8JARvp_s)
 </script>
 </section>
 
-<section data-markdown><script type="text/template">
-## 評分標準(Grading)
-- 出席率：  30%
-- 期中報告： 30%
-- 期末報告： 40%
-</script>
-</section>
-</section><!--end block-->
-
-<section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Ch01-Introduction](./01intro.html)
-- [Ch02-The internet](./02lifecycle.html)
-- [Ch03-Introduction to Web Framework](./03organization.html)
-- [Ch04-HTML 語法(1)](./04processing.html)
-- [Ch05-HTML 語法(2)](./05integration.html)
-- [Ch06-HTML 語法(3)](./06scope.html)
-- [Ch07-CSS 語法(1)](./07schedule.html)
-- [Ch08-CSS 語法(2)](./08cost.html)
-- [Ch09-期中報告]
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 課程大綱(Syllabus)
-- [Ch10-Introduction to Python](./10quality.html)
-- [Ch11-Setup the development envrionment](./11resource.html)
-- [Ch12-Basic syntax of Python(1)](./12communication.html)
-- [Ch13-Basic syntax of Python(2)](./13risk.html)
-- [Ch14-Basic syntax of Python(3)](./14procurement.html)
-- [Ch15-Object Oriented programming using Python(1)](./15stakeholder.html)
-- [Ch16-Object Oriented programming using Python(2)](./16ethics.html)
-- [Ch17-Object Oriented programming using Python(3)](./17thought.html)
-- [Ch18-期末報告]  **課程會視教學進度做適度微調**
-- [附錄](appendix.html) 
-</script>
-</section>
-</section>
-
-<section>
-<section data-markdown><script type="text/template">
-## 注意事項
-- 儘可能不要缺席，缺席可能會跟不上進度
-- 基本觀念務必建立清楚，動手實作才不至於手足無措
-- 實作時間務必要自己實際操作
-- 有任何問題，請隨時舉手發問
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教科書 & 參考書
-- 教科書：
-	- 文科生也學得會的網路爬蟲：Excel VBA + Web Scraper
-	- 作者：陳會安 	
-	- 出版社：旗標科技股份有限公司
-	- ISBN：  9789863126188
-	- 出版日期: 2020/03/05 
-- 參考書：
-	- Web Scraping with Python – Second Edition
-	- Author: Ryan Mitchell
-	- Publisher(s): O'Reilly Media, Inc.
-	- ISBN: 9781491985571
-</script>
-</section>
-<section data-markdown><script type="text/template">
-## 教材與作業
-
-- 課程投影片及教材
-	- 投影片：[https://elvishsieh.github.io/teaching/stisp/](https://elvishsieh.github.io/teaching/stisp/)
-	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/19pW8c5nBU16wKlOawlj_5_TeqJUY7JXG?usp=sharing)
-</script>
-</section>
-</section><!--end block-->
 </div>
 </div>
 
@@ -153,10 +72,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 Reveal.initialize({
 controls: true,
 progress: true,
+history: true,
 center: true,
 slideNumber: true,
-mouseWheel: false,
-hash: true,
+mouseWheel: true,
 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 menu: {
