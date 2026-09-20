@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>附錄 A - VBE 設定</title>
+<title>附錄 A - Web Server</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -51,11 +51,64 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - [Apache HTTP server](https://httpd.apache.org/)
 - Microsoft IIS
 - [Apache tomcat server](https://tomcat.apache.org/)([Spring Boot](https://spring.io/projects/spring-boot) 預設的內嵌伺服器)
-- [Nginx web server]()
+- [Nginx web server for Windows](https://nginx.org/en/docs/windows.html)
 - [CivetWeb](https://github.com/civetweb/civetweb)
 	- CivetWeb is a C/C++ embeddable web server
 - ... More web server on Internet
 </script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Nginx for Windows
+- Download Nginx for Windows from [Nginx for Windows Offical Website](https://nginx.org/en/docs/windows.html)
+- Run Nginx on Windows System
+	- 解壓縮下載的 nginx-x.xx.xx.zip 檔案(假設解壓縮到 D:\nginx-1.31.6 目錄)
+	- 在命令提示列中輸入 cd D:\nginx-1.36.1
+	- 在命令提示列中輸入 start nginx
+	- 在命令提示列中輸入 tasklist /fi "imagename eq nginx.exe"
+	- 開啟瀏覽器，輸入 [http://localhost/](http://localhost/)
+</script></section>
+<section data-markdown><script type="text/template">
+## Configuration of Nginx
+- nginx.conf 設定檔儲存在 D:\nginx-1.31.6\conf 目錄
+- 編輯 [index.html](./appendixA.html#/1/2) 檔案，並儲存在 nginx.conf 所指定 root 的相同的目錄(D:/elvis/www/)
+- 執行 nginx -s reload
+<pre><code data-trim data-line-numbers>    server {
+        listen       80;
+        server_name  localhost;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   D:/elvis/www/;
+            index  index.html index.htm;
+        }
+
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 編輯 index.html 檔
+1. 開啟 VS code
+2. 按下 "Ctrl + n"，然後再按下 "Ctrl + s"
+3. 輸入 index.html 檔名，並將檔案儲存到 與 CivetWeb.exe 檔案相同的目錄
+4. 在 VS code 輸入 html:5，然後按下 Tab 鍵
+5. 在 body 標籤內輸入一些文字
+6. 最後按下 "Ctrl + s" 存檔
+7. 執行 nginx -s reload
+8. 開啟瀏覽器，輸入 [http://localhost:80/](http://localhost:80/)
+</script></section>
+<section data-markdown><script type="text/template">
+## Nginx managed command
+- nginx/Windows runs as a standard console application (not a service), and it can be managed using the following commands:
+|     |      |
+|:--  | :--- |
+| nginx -s stop |	fast shutdown |
+|nginx -s quit |	graceful shutdown |
+|nginx -s reload |	changing configuration, starting new worker processes with a new configuration, graceful shutdown of old worker processes |
+| nginx -s reopen   | re-opening log files |
+</script></section>
+
 </section><!--end block-->
 
 <section><!--start block-->
