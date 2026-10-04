@@ -515,6 +515,50 @@ charset=utf-8" />
 - <b>DTD</b> 是 <b>D</b>ocument <b>T</b>ype <b>D</b>efinition 的縮寫
 <img src="/images/html5/dtd.png" alt="dtd figure">
 </script></section>
+<section data-markdown><script type="text/template">
+## Parsing programming language
+- A very ruff explain to parsing the programming language
+    - book(書), Why did it mean which was a **b,o,o,k**
+    - It was definited in English's dictionary
+    - **The sentence 'This is a book.' is correct or not?**
+- A simple code was compiled with [OneCompiler](https://onecompiler.com/cpp) or [Compiler Explorer](https://godbolt.org/)
+<pre><code data-trim data-line-numbers>#include &lt;iostream>
+using namespace std;
+// null line
+int main(){
+    int x,y,z;
+    x = 3;
+    y = 5;
+    z = x + y;
+    cout << "z = " << z;
+}
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Parsing x+y expression(1/2)
+- Shunting-Yard algorithm
+    - Using a stack to evaluate the expression or convert it from infig(中序式) (x + y) to postfix(後序式) (x y +) rather than parsing a formal grammar.
+| Step | Read | Stack | Output | description |
+| :--- | :--- | :--- | :--- | :--- |
+| **start** | - | [] | null | 準備開始 |
+| **1.** | x | [] | x | 遇到運算元，直接輸出 |
+| **2.** | + | [+] | x | 遇到運算子，壓入堆疊 |
+| **3.** | y | [+] | x y | 遇到運算元，直接輸出 |
+| **end** | null | [] | x y + | 輸入讀取完畢，將堆疊內剩餘的 + 彈出並輸出 |
+
+</script></section>
+<section data-markdown><script type="text/template">
+## Parsing x+y expression(2/2)
+- Shunting-Yard algorithm
+    - Using a stack to evaluate the expression **postfix(x y +)** rather than parsing a formal grammar.
+| Step | Read | Stack | Output | description |
+| :--- | :--- | :--- | :--- | :--- |
+| **start** | - | [] | null | 準備開始 |
+| **1.** | x | [x] | null | 遇到運算元，壓入堆疊 |
+| **2.** | y | [x y] | null | 遇到運算元，壓入堆疊 |
+| **3.** | + | [x y] | null | 遇到運算子，彈出推疊運算元 |
+| **end** | null | [] | x + y | 做運算後輸出 |
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -529,7 +573,6 @@ charset=utf-8" />
     - 一個抽象的名詞(爭論不休)；Web3是由Polkadot創始人兼以太坊聯合創始人Gavin Wood於2014年創造的術語，指的是「基於[區塊鏈](https://www.youtube.com/watch?v=ctN8KUmbKcU)的去中心化線上生態系統」
     - 加入 **3D 虛擬實境及邁向人工智慧進化**的道路
 </script></section>
-
 <section data-markdown><script type="text/template">
 ## 網際網路應用(2/2)
 - Web 2.0 與 Web 1.0 靜態網頁(HTML) **最大差別在於「提供雙向的交流的管道」**

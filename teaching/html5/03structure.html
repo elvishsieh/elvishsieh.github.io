@@ -58,6 +58,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - <a href="https://html.spec.whatwg.org/multipage/" target="_blank">WHATWG: HTML Living Standard</a>
 </script></section>
 <section data-markdown><script type="text/template">
+## Validating the HTML5 codes(1/3)
+- [The example HTML5 code](./example/validate.7z) for validating with <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>
+<pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Test HTML5&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;h1>這是一號大小的字&lt;/h1>
+    &lt;h1>這是一號大小的字，使用 h6 做結束的語法&lt;/h6>
+&lt;/body>
+&lt;/html>
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Validating the HTML5 codes(2/3)
+![](/images/html5/validator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Validating the HTML5 codes(3/3)
+![](/images/html5/validator2.png)
+</script></section>
+<section data-markdown><script type="text/template">
 ## XHTML5 語法的宣告
 <pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
 &lt;html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
@@ -75,6 +100,111 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - <b>XHTML5 標籤都必須是小寫英文字母</b>
 - 每一個標籤都必須<b>要有完整的結束標籤或結束的符號</b>
 </script></section>
+<section data-markdown><script type="text/template">
+## Validating the XHTML5 codes(1/4)
+- [The example HTML5 code](./example/validate.7z) for validating with <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>
+<pre><code data-trim data-line-numbers>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE html>
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW" xml:lang="zh-Hant-TW">
+&lt;head>
+&lt;meta charset="utf-8"/>
+&lt;title>這是標題&lt;/title>
+&lt;link href="styles.css" rel="stylesheet"/>
+&lt;script src="scripts.js">&lt;/script>
+&lt;/head>
+&lt;body>
+    &lt;h1>這是一號大小的字&lt;/h1>
+    &lt;h1>這是一號大小的字，使用 h6 做結束的語法&lt;/h6>
+	&lt;p>這是段落的標籤&lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Validating the XHTML5 codes(2/4)
+![](/images/html5/validator-xhtml5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Validating the XHTML5 codes(3/4)
+![](/images/html5/validator-xhtml5_2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Validating the XHTML5 codes(4/4)
+![](/images/html5/validator-xhtml5_3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## e**X**tensible **M**arkup **L**anguage(XML)
+- SVG (Scalable Vector Graphics) is an XML-based markup language used to describe two-dimensional vector graphics.
+![](/images/cs/AND.svg)
+</script></section>
+<section data-markdown><script type="text/template">
+## AND Gate code
+- 滑鼠移動到上圖上方，按下滑鼠右鍵，點選 "Save Image As"
+<pre><code data-trim data-line-numbers>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;svg
+   width="576"
+   height="258"
+   version="1.1"
+   viewBox="0 0 192 86 "
+   style="background-color: PaleGreen"
+   id="svg2"
+   sodipodi:docname="AND.svg"
+   xml:space="preserve"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   ...
+</code></pre>
+- [Inkscape](https://inkscape.org/) 是一種 SVG 圖檔編輯軟體
+</script></section>
+<section data-markdown><script type="text/template">
+## Whate is token in AI?
+- In Artificial Intelligence(AI), a token is the fundamental unit of data that a Large Language Model (LLM) reads, processes, and generates.
+- 以**今天下午去打球**這句話為例，這段中文包含 7 個中文字，但在 AI的眼裡，它並不是 7 個字，而是會被切分成數個 Token
+- AI 在讀取這句話時，會啟動分詞器(Tokenizer)，這句話通常會被切成 4 個 Token
+    1. 今天(Token 1)
+    2. 下午(Token 2)
+    3. 去(Token 3)
+    4. 打球(Token 3)
+</script></section>
+<section data-markdown><script type="text/template">
+## Using AI to write XML code(1/2)
+- 請幫我寫一支 xml 程式碼畫出 and gate 圖形
+<pre><code data-trim data-line-numbers>&lt;vector xmlns:android="http://android.com"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+    &lt;path
+        android:strokeColor="#000000"
+        android:strokeWidth="4"
+        android:fillColor="#E0E0E0"
+        android:pathData="M 60,35 
+                          L 110,35 
+                          A 40,40 0 0,1 110,115 
+                          L 60,115 
+                          Z" />
+    &lt;path
+        android:strokeColor="#000000"
+        android:strokeWidth="4"
+        android:pathData="M 20,55 L 60,55" />
+    &lt;path
+        android:strokeColor="#000000"
+        android:strokeWidth="4"
+        android:pathData="M 20,95 L 60,95" />
+    &lt;path
+        android:strokeColor="#000000"
+        android:strokeWidth="4"
+        android:pathData="M 150,75 L 180,75" />
+
+&lt;/vector>
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## HTML5 的語法架構
 <pre><code data-trim data-line-numbers>&lt;!DOCTYPE html>
