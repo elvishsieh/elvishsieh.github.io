@@ -468,17 +468,53 @@ width: 200px;
 <li><a href="http://www.unicode.org/Public/">Unicode Standard Document</a> and <a href="http://www.unicode.org/Public/8.0.0/charts/CodeCharts.pdf">The latest set of code charts, Version 8.0.0</a>(99mb)</li>
 </script></section>
 <section data-markdown><script type="text/template">
-<h3>Windows 系統中如何輸入 Uincode?</h3>
-<ul>
-<li><b>限制：</b>僅在 Windows 作業系統中的<b>微軟注音輸入法</b>，其他系統請參照輸入法的說明文件</li>
-<li>輸入步驟：</li>
-<ol>
-    <li>將輸入法<b>切換到微軟注音輸入法</b></li>
-    <li>在中文輸入模式下，<b>輸入： ` + u + Unicode 編號</b></li>
-</ol>
-<li>例如：U+00A9 則先輸入`，然後輸入 u，最後輸入編號 00A9，就可以得到 ©</li>
-<li><b>注意：要使用鍵盤上方的數字鍵來阿拉伯數字，不可以使用數字鍵盤來輸入，這樣會跳出 Unicode 輸入模式</b></li>
+### Windows 系統中如何輸入 Uincode?(1/2)
+- **限制**：僅在 Windows 作業系統中的**微軟注音輸入法**，其他系統請參照輸入法的說明文件
+- 輸入步驟：
+    1. 將輸入法**切換到微軟注音輸入法**
+    2. 在中文輸入模式下，**輸入： ` + u + Unicode 編號**
+- 範例
+    - 切換到注音輸入法，坤，Unicode 是 5764，輸入「`u5764」 按下 enter
+    - U+00A9 則先輸入`，然後輸入 u，最後輸入編號 00A9，就可以得到 ©
+- 注意：要使用鍵盤上方的數字鍵來阿拉伯數字，**不可以使用數字鍵盤來輸入**，這樣會跳出 Unicode 輸入模式
 </script></section>
+<section data-markdown><script type="text/template">
+### Windows 系統中如何輸入 Uincode?(2/2)
+- 反查字型 Unicode 按鍵 **Alt+x**
+    - 要顯示「坤」字型的 Unicode，可以選取坤字或者將游標移動到字型的後方，再按「Alt + x」就可以顯示「坤」字的 Unicode
+    - 請同學開啟 Microsoft Word，**把「壆」這個字的複製到 Word 空白文件，再把游標移動到「壆」字後方，再按「Alt + x」**，看看 Unicode 編碼是否是「58c6」
+    - 請同學再按一次「Alt + x」，是否還原回「壆」字
+    - 請同學反查 a, A, space 的 Unicode 編碼?
+- **請同學比對 a, A 字型的 ASCII 碼的編碼與 Unicode 的編碼是否相同?**
+</script></section>
+<section data-markdown><script type="text/template">
+## 字型工具 FontForge(1/2)
+- Installing [FontForge](https://github.com/fontforge/fontforge/releases/tag/20251009) from FontForge github repository
+![](/images/html5/fontForge.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 字型工具 FontForge(2/2)
+- 下載並解壓縮[芫荽](https://github.com/ButTaiwan/iansui)字體 ≫ 開啟芫荽字體
+![](/images/html5/fontForge2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## FontForge 檢視字型(1/3)
+- View ≫ Goto(Ctrl+Shift)
+![](/images/html5/58c6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## FontForge 檢視字型(2/3)
+- 在搜尋輸入框中貼上**壆**字≫ 按下 OK
+![](/images/html5/58c6_2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## FontForge 檢視字型(3/3)
+- 螢幕左上方可以看到**壆**字的 Unicode 編碼
+![](/images/html5/58c6_3.png)
+</script></section>
+
+</script></section>
+
 <section data-markdown><script type="text/template">
 ## Testing on another one
 <ul>
