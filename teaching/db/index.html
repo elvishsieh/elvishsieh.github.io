@@ -48,9 +48,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Introduction to Database
+## Database Management System 
 
-<br />
+![](/images/qrCode/dbQRcode.png)
 
 ## 謝文仲
 
@@ -63,32 +63,51 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown><script type="text/template">
 ## 評分標準(Grading)
-- 出席率：  20%
-- 課程作業： 20%
-- 期中報告： 20%
-- 期末報告： 40%
+- 出席率：  ~~30%~~ **20%**
+- **課程作業： 20%**
+- 期中考： 30%
+- 期末考： ~~40%~~ **30%**
 </script>
 </section>
 </section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## 課程大綱(Syllabus)
 - [Ch01-Introduction](./01intro.html)
-- [Ch02-SQLite database](./02sqlite.html)
-</script>
-</section>
-</section>
+- [Ch02-Microsoft SQL Server](./02msSQL.html)
+- [Ch03-Relational Database](./03relational.html)
+- ~~[Ch05-E-R Model](./04er.html)~~
+- [Ch06-Normaliazion](./05bnf.html)
+- [Ch07-Introduction to SQL](./07sql.html)
+- [Ch08-Advnced SQL](./08sql.html)
+- [附錄A-SQLlite](./sqlite.html)
+- [附錄B-Access](./access.html)
+</script></section>
+</section><!--end block-->
 
-<section>
+<section><!--start block-->
 <section data-markdown><script type="text/template">
 ## 注意事項
 - 儘可能不要缺席，缺席可能會跟不上進度
 - 基本觀念務必建立清楚，動手實作才不至於手足無措
 - 實作時間務必要自己實際操作
 - 有任何問題，請隨時舉手發問
-</script>
-</section>
+</script></section>
+<section data-markdown><script type="text/template">
+## 教科書 & 參考書
+- Textbook
+	- 圖解資料庫系統理論－使用SQL Server實作
+	- Author: 李春雄
+	- Publisher: 全華圖書股份有限公司; 第5版 修訂版(9 月, 2024)
+	- ISBN-13: 978-626-401-113-6
+- Reference
+	- Database System Concepts
+	- Author: Abraham Silberschatz, Henry F. Korth, S. Sudarshan
+	- Publisher: McGraw Hill Education(7th Edition, 2019)
+</script></section>
+
+<!--
 <section data-markdown><script type="text/template">
 ## 教材與作業
 
@@ -97,6 +116,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- [課程教材(Teaching Materials)](https://drive.google.com/drive/folders/19pW8c5nBU16wKlOawlj_5_TeqJUY7JXG?usp=sharing)
 </script>
 </section>
+-->
 </section><!--end block-->
 </div>
 </div>
@@ -147,7 +167,7 @@ menu: {
 	
 	custom: [
 			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
-			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Database</p>' }
 	]
 },
 

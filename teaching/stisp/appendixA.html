@@ -60,20 +60,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## Nginx for Windows
+## Nginx for Windows(1/3)
 - Download Nginx for Windows from [Nginx for Windows Offical Website](https://nginx.org/en/docs/windows.html)
 - Run Nginx on Windows System
 	- 解壓縮下載的 nginx-x.xx.xx.zip 檔案(假設解壓縮到 D:\nginx-1.31.6 目錄)
-	- 在命令提示列中輸入 cd D:\nginx-1.36.1
+	- 在命令提示列中輸入 cd D:\nginx-1.31.6
 	- 在命令提示列中輸入 start nginx
 	- 在命令提示列中輸入 tasklist /fi "imagename eq nginx.exe"
 	- 開啟瀏覽器，輸入 [http://localhost/](http://localhost/)
 </script></section>
 <section data-markdown><script type="text/template">
+## Nginx for Windows(2/3)
+- 在命令提示列中輸入 **start nginx** 指令
+![](/images/stisp/nginx.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Nginx for Windows(3/3)
+- 命令提示列輸入 **tasklist /fi "imagename eq nginx.exe"** 指令
+![](/images/stisp/nginx2.png)
+</script></section>
+<section data-markdown><script type="text/template">
 ## Configuration of Nginx
-- nginx.conf 設定檔儲存在 D:\nginx-1.31.6\conf 目錄
+- **nginx.conf 設定檔**儲存在 D:\nginx-1.31.6\conf 目錄
 - 編輯 [index.html](./appendixA.html#/1/2) 檔案，並儲存在 nginx.conf 所指定 root 的相同的目錄(D:/elvis/www/)
-- 執行 nginx -s reload
+- 執行 **nginx -s reload**
 <pre><code data-trim data-line-numbers>    server {
         listen       80;
         server_name  localhost;
@@ -81,7 +91,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         #access_log  logs/host.access.log  main;
 
         location / {
-            root   D:/elvis/www/;
+            root   D:/elvis/www;
             index  index.html index.htm;
         }
 
@@ -95,7 +105,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 4. 在 VS code 輸入 html:5，然後按下 Tab 鍵
 5. 在 body 標籤內輸入一些文字
 6. 最後按下 "Ctrl + s" 存檔
-7. 執行 nginx -s reload
+7. 執行 **nginx -s reload**
 8. 開啟瀏覽器，輸入 [http://localhost:80/](http://localhost:80/)
 </script></section>
 <section data-markdown><script type="text/template">

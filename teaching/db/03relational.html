@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Relational Database</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 關聯式資料庫<br />(**R**elation **DBMS**) 
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯式資料庫(RDBMS, 1/2)
+- 以學生繳費資料為例
+![](/images/db/relation2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯式資料庫(RDBMS, 2/2)
+- 以學生的選課為例
+![](/images/db/relation3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Super Key
+- Super Key(超鍵)
+	- 在關係(資料表)中的一個或多個的屬性(欄位)所構成、<b>具有唯一識別性的屬性集合</b>即為 Super Key
+- 以下列的範例而言，<u>學號</u>、<u>身分證字號</u>、<u>(學號、姓名、地址)</u>、<u>(身分別、學制、身分證字號)</u>都具有唯一性
+![](/images/db/sKey.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Candidate Key
+- Candidate Key(候選鍵)
+	- **最少屬性(欄位)集合的 Super Key**
+- Candidate Key 的特性
+	- **具有唯一性**
+	- **具有最小性**
+![](/images/db/cKey.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Primary Key
+- Primary Key( Primary Key或主索引鍵)
+	- 從 Candidate Key 中挑選出一個來當作 Primary Key
+	- Primary Key 同樣**具有唯一性、最小性**
+- Primary Key **不可以是空值(Null 值)**
+- Primary Key **不可以重複**
+- 通常一個關係(資料表)**至少有一個 Primary Key**
+![](/images/db/pKey.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Foreign Key
+- Foreign Key 是**表格中的欄位其屬性值與另一個(或同一個)表格的 Primary Key(or Candidate Key) 的值域相同**，而形成表格間的關聯
+![](/images/db/fkey.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯的種類
+- 一對一(One to One)
+	- **key 值→key 值**作關聯(兩個 table 中共同的欄位，其內容都必須是唯一的)
+- 一對多(One to Many)
+	- **key 值→非 Key 值**
+- 多對多(Many to Many)
+	- **key 值→非 Key 值←key 值** (1→ ∞ →1)
+![](/images/db/relation4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立關聯時的注意事項
+- 建立關聯時，資料表必須要先建立 Primary Key
+- 建立 Primary  Key 的這個欄位資料必須是唯一
+- **一個資料表可以建立多個 Primary Key**
+- **在 Access 中要刪除資料表時，必須先刪除關聯圖，而要刪除關聯圖時，必須先刪除連接線**
+</script></section>
+<section data-markdown><script type="text/template">
+## Composite Key
+- Composite Key(組合鍵) **是一組由兩個或多個資料表欄位組合而成的鍵，用來唯一識別資料表中的每一筆紀錄**
+	- 單獨任一欄位可能重複，但當這些欄位的值合併在一起時，必須具有唯一性
+	- 與單一 Primary Key的差別在於**一般 Primary Key(Simple Primary Key)只包含一個欄位，而 Composite Key 包含多個欄位**
+- 在 SQL 中建立 Composite Key 時，語法如下
+<pre><code data-trim data-line-numbers>CREATE TABLE Student_Course (
+    StudentID INT,
+    CourseID INT,
+    PRIMARY KEY (StudentID, CourseID)
+);
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Compound Key
+- Compound Key 是指由多個欄位組成，且**其中至少一個欄位是 Foreign Key 組合成的 Primary Key**
+- 在資料庫設計中，Compound Key(複合鍵) 與 Composite Key(組合鍵)兩者都由兩個或多個欄位組成，但兩者的**關鍵差異在於欄位本身是否包含 Foreign Key**
+| Property | Composite Key | Compound Key |
+| :---: | :--- | :--- |
+| **定義** | 由多個欄位組成的 Primary Key | 由多個欄位組成，且其中至少一個欄位是 Foreign Key |
+| **欄位屬性** | 組成的欄位可以是單純的資料屬性，**不一定要是 Foreign Key** | 組成的欄位中**必須包含可以對照到其他資料表的 Foreign Key** |
+| **主要關係** | 用於單一資料表內部的唯一識別 | 通常用於**多對多(Many-to-Many)的關聯表中** |
+</script></section>
+<section data-markdown><script type="text/template">
+## Composite Key 應用場景
+- **多對多(Many-to-Many)關聯表**
+	- 選課表(學號+課號)或訂單明細表(訂單編號+產品編號)
+- **組合唯一識別**
+	- 當單一屬性無法區分時(例如：國家代碼+電話號碼)
+- 優點
+	- **不需要額外新增代理鍵**(Surrogate Key，如自動遞增的 ID)，能直接利用現有業務屬性
+	- **強制維護多欄位相依的資料完整性**
+- 缺點
+	- **查詢與進行 Join 關聯時，因需比對多個欄位**，CPU 消耗較高、效能較差
+	- 若業務需求變動，維護 Foreign Key 動會更加複雜
+</script></section>
+<section data-markdown><script type="text/template">
+## Composite/Compound Key 範例
+- Composite Key(組合鍵) 範例
+	- 假設有一個全台住戶的資料表，**路名或門牌號碼可能重複**，必須合併在一起才能唯一識別
+		- 欄位：<b><u>[縣市] + [路名] + [門牌號碼]</u></b>
+		- 這三個欄位只是單純的文字或數字，它們不是對照到其他資料表的Foreign Key 但合併起來具有唯一性
+- Compound Key(複合鍵) 範例
+	- 在學生選課系統中，有學生資料表與課程資料表，而**選課紀錄資料表要記錄哪個學生選了哪門課**
+		- 欄位：<u>[Student ID] + [Course ID]</u>(**課號相同，內碼唯一**)
+		- 這兩個欄位除了合併起來能唯一識別一筆選課紀錄外，它們本身也是**指向其他資料表的 Foreign Key**
+</script></section>
+</section><!--end block-->
+
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

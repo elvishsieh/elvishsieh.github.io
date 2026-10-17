@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to Access</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Introduction to Access
+- [MS Access(or LibreOffice Base) 表單(Form)](#/1)
+- [MS Access(or LibreOffice Base) 報表(Report)](#/2)
+- [MS Access(or LibreOffice Base) 查詢(Query)](#/3)
+- [正規化(Normalization)](#/4)
+- [關聯(Relation)](#/5)
+</script></section>
+<section data-markdown><script type="text/template">
+# Microsoft Access
+</script></section>
+<section data-markdown><script type="text/template">
+## Access 6個主要的物件(1/2)
+<li class="fragment"><b>資料表(table)：</b>定義資料結構以及存放資料的地方，資料表是由各種不同型態的欄位所構成，<b>每一列資料稱為一筆紀錄(Record)，而每筆紀錄則包含一個以上的欄位(field)</b>
+<li class="fragment"><b>查詢(Query)：</b>擷取所需的資訊，且可將查詢結果儲存。查詢有兩種主要的類型，即「選取查詢」與「動作查詢」
+		<li class="fragment"><b>選取查詢：</b>依照查詢規則擷取資料表中的紀錄，並顯示在螢幕上
+	<li class="fragment"><b>動作查詢：</b>會將資料表的內容加以更新、刪除、複製或合併，它會修改資料表的內容
+	<li class="fragment">建置好資料庫以後，大部分都是使用查詢(query)的功能
+	</script></section>
+<section data-markdown><script type="text/template">
+## Access 6個主要的物件(2/2)
+<li class="fragment"><b>表單(Form)：</b>主要用來登錄資料表的一種介面，它能讓資料表中的欄位集中在一個畫面上，以方便輸入資料
+<li class="fragment"><b>報表(Report)：</b>將結果印成報表
+<li class="fragment">模組(Module)：模組是利用 VBA(Visual Basic for Applications)程式語言所撰寫的程式所成的集合
+<li class="fragment">巨集(Macro)：巨集執行的功能
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立資料表(table)的方法
+- 使用Access 空白資料表
+- 使用Microsoft 提供的範本：
+- 本機範本
+- 從網路(micorsoft office online)下載範本
+- 在現有的資料庫中新增資料表
+- 資料庫預設存在「我的文件」(c:\user\user_name\my documents)資料夾內
+</script></section>
+<section data-markdown><script type="text/template">
+## Access 資料表的欄位屬性
+![](images/db/attribute.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 修改資料表
+- <b>新增</b>一筆紀錄(Record)或欄位(Field)
+- <b>刪除</b>一筆紀錄(Record)或欄位(Field)
+- <b>修改紀錄(Record)或欄位中的內容</b>
+- 修改紀錄(Record)或欄位中的<b>資料型態(Data Type)</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 以校務系統的資料庫為例
+- 學生基本資料表
+- 單位(系科)資料表
+- 教職員(老師)資料表
+- 課程資料表
+</script></section>
+<section data-markdown><script type="text/template">
+## 第一次作業
+- 建置個人的通訊錄,其中包含下列資料表：
+- 同學通訊錄
+- 親戚通訊錄
+- 同事通訊錄
+- 朋友通訊錄
+- 每一個通訊錄<b>至少 5 筆紀錄</b>且必須包含下列欄位：
+- <b>主索引鍵(Primary Key)</b>—如學號、員工編號等
+- <b>姓名、性別、手機、電話、e-mail、郵遞區號、地址、備註</b>
+- 非必要欄位：相片、個人網站、生日、建立日期等
+- 資料可以任意填寫，<b>真實的資料不會外洩</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 繳交期限及方式
+- E-mail to <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
+<!--						- DeadLine:  <b id="assignment"></b><b>日 20:00</b> -->
+- DeadLine:  <b>4/4</b><b>日 20:00</b>
+- 檔名為：學號.accdb
+- 請先用壓縮軟體壓縮以後再繳交，用7-zip壓縮的加分(.7z) 
+- <b>使用 LibreOffice base 的加分(odb)</b>
+-  LibreOffice 網址：<a href="http://zh-tw.libreoffice.org/">http://zh-tw.libreoffice.org</a>
+- 參考資料：
+- <a href="http://www.openfoundry.org/">自由軟體鑄工廠</a>
+- <a href="http://ossacc.moe.edu.tw">教育部自由軟體諮詢中心</a>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 表單(Form)
+- 同學心中所認為的<b>表單(Form)</b>是什麼？
+<li class="fragment">在我們的日常生活中曾經接觸過許多表單，表單就是<b>依照某些特定的需求，要求使用者填寫資料的單子(紙張)。</b>
+<li class="fragment"><b>資料表(Table)可以讓一般的使用者任意修改嗎？</b>
+<li class="fragment">如果上一個問題的答案是：<b>可以</b>，對資料庫有什麼影響？
+<li class="fragment">資料表(Table)建立完成後，<b>資料輸入、維護的工作是由誰來負責？</b>DBA 嗎？還是前端的使用者？<a href="01intro.html#/4">System Diagram</a>
+<li class="fragment">表單(Form)：是設計給前端使用者操作資料庫，讓使用者可以輸入/維護資料表(Table)的資料，<b>但不會影響到資料表中的欄位、資料型態、欄位大小等重要的資料。</b>
+<li class="fragment">表單(Form)<b>可以用來輸入資料及查詢或修改資料的地方</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立表單(Form)的步驟
+- 開啟資料庫(database) >>「建立」命令索引標籤 >>「表單」群組 >>「其他表單」>>「表單精靈」
+- 選擇「>>」，將所有欄位加入
+- 選擇表單的配置方式：有單欄式、表格式、資料工作表、對齊
+- 選擇樣式：自行選擇
+- 輸入表單的標題名稱，然後按下「完成」按鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 什麼是切換表單？
+- 切換表單<b>是階層式的目錄選單</b>，讓使用者可以依照選單的項目，選擇所需要的功能項目來維護資料表中的資料。
+![](/images/db/chMenu.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立切換表單(1/2)
+- 建立切換表單的設定步驟：
+- 開啟資料庫(database)，點選「資料庫工具」命令索引標籤
+- 點選「切換表單管理員」，跳出『切換表單管理員』視窗，按「是」
+- 按下「編輯」，再按下「新增」會出現如下圖所示
+- 鍵入所要標示的文字敘述、選取要執行的指令、以及切換表單
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立切換表單(2/2)
+![](/images/db/chForm.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 摘要(Summary)
+- 設定「查閱」的方式:
+- 使用「查閱精靈」來建立
+- 使用查詢(qurey)來建立
+- 自行建立
+- 使用其他資料表(table)來建立
+- 使用「查閱精靈」
+- </b>開啟資料表
+- 「資料工作表/<b>欄位</b>」命令索引標籤 
+- 「查閱/<b>其他欄位>>查閱與關聯</b>」
+</script></section>
+<section data-markdown><script type="text/template">
+## 摘要(Summary)
+- 建立表單(Form)的步驟：
+- 設定：開啟資料庫(database) >>「建立」命令索引標籤 >>「表單」群組 >>「其他表單」 >>「表單精靈」
+- 選擇「>>」，將所有欄位加入
+- 建立切換表單的步驟：
+- 開啟資料庫(database)，點選「資料庫工具」命令索引標籤
+- 點選「切換表單管理員」，跳出『切換表單管理員』視窗，按「是」
+- 按下「編輯」，再按下「新增」會出現如下圖所示
+- 鍵入所要標示的文字敘述、選取要執行的指令、以及切換表單
+</script></section>
+<section data-markdown><script type="text/template">
+## 第二次作業(1/2)
+- 查閱(Lookup)的設定：<br />
+請選擇兩個欄位分別使用下列兩種方式來建立查閱欄
+- <b>「資料表/查詢」方式</b>
+- <b>「自行輸入的清單」方式</b>
+- 輸入遮罩(Input Mark)的設定：<br />請<b>自行選擇一個適當的欄位</b>，作為輸入遮罩的欄位
+- 表單(Form)的建立：
+- 建立一個<b>包含所有欄位的表單(Form)</b>
+- <b>建立一個切換表單</b>，必須含有：
+- 主選單
+- 新增的切換選項
+- 修改的切換選項
+</script></section>
+<section data-markdown><script type="text/template">
+## 第二次作業(2/2)
+- E-mail 繳交 : <a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a>
+- 繳交期限：<b>4/25</b><b>日 20:00</b>
+- 檔名為：<b>你的學號.accdb</b>，例如: 4123567.accdb
+- 請先用壓縮軟體(如：7-zip)壓縮後再繳交
+- 可以使用 LibreOffice Base 製作，檔名為：4123567.odb
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 報表(Report)
+</script></section>
+<section data-markdown><script type="text/template">
+## 報表的定義及資料來源
+- 報表(Report)是把資料庫的資料<b>經過各種運算以後</b>，將出其結果以報告或表列方式呈現的一種資料型態
+<br />
+- 報表(Report)/表單(Form)的資料來源
+- <b>資料表(Table)</b>
+- <b>表單(Form)</b>
+- <b>查詢(Query)</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片報表
+![](/images/db/envelope.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Access 報表的操作步驟
+- <b>開啟資料表(table)</b>，點選「建立」命令索引標籤
+- <b>在「報表」群組中，點選「報表精靈」</b>，跳出「報表精靈」對話框
+- <b>選取製作報表所需的「欄位名稱」</b>，然後按下一步
+- 決定是否要增加「群組層次」 ，然後按下一步
+- 決定「排序」的方式 ，然後按下一步
+- 選擇「版面的配置」及「列印的方向」 ，然後按下一步
+- 選擇「樣式」 ，然後按下一步
+- 按下「完成」即可預覽報表的結果
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片報表
+- 建立一個 Table，Table 的欄位包含
+- 收件人：<b>郵遞區號、地址、公司名稱、姓名、職稱(或稱謂)</b>
+- 寄件人：<b>郵遞區號、地址、姓名</b>
+- 報表的操作步驟：
+- 開啟資料表(table)，點選「建立」命令索引標籤
+- 在「報表」群組中，點選「明信片精靈」，跳出「報表精靈」對話框
+- 選取製作報表所需的「欄位名稱」，然後按下一步
+- 決定「排序」的方式 ，然後按下一步
+- 輸入「報表的名稱」，按下「完成」即可預覽報表的結果
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片精靈(1/4)
+![](/images/db/envelope2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片精靈(2/4)
+![](/images/db/envelope3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片精靈(3/4)
+![](/images/db/envelope4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 明信片精靈(4/4)
+![](/images/db/envelope5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 第三次作業
+- 使用報表精靈<b>製作一份通訊錄報表</b>(可以使用用第一次作業所建立的「通訊錄」資料表來建立)
+- 使用明信片精靈<b>製作一個「明信片」的報表</b>：明信片精靈資料欄位的資料請自行建立
+- <b>繳交期限：6/20日 20:00</b>
+- 繳交的檔名：xxxxxxxx.accdb，請使用 7-zip 壓縮後再繳交
+- <a href="mailto:elvis.hsieh@gmail.com">E-mail : elvis.hsieh@gmail.com</a>
+- 如果使用LibreOffice 的同學，沒有「明信片精靈」，請自己<b>嘗試「在設計檢視中建立報表」來設計</b>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## Access 查詢(Query)的種類
+- <b>選取查詢</b>：依照你設定的「查詢準則」來查詢資料庫中的資料，此種查詢方式<b>不會更動資料表的內容</b>
+- <b>動作查詢</b>：可分為「製成資料表」、「新增」、「更新」、「刪除」，此種查詢方式<b>會更動資料表的內容</b>
+- <b>參數查詢</b>：準則查詢有異動時，必須更新設定準則的內容，沒有效率；<b>參數查詢是在執行查詢時，會跳出對話框，要求輸入查詢的準則內容來查詢</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 函數(function)
+- <b>函數</b>的構成包括<b>指令(instruction)和引數(argument)</b>，例如：sum([學費])
+- <b>指令的英文字母沒有大小寫之分</b>，sum(),Sum(),SUM()都是同一個指令
+- 有些指令不需要引數，有些指令的引數則不只有一個
+- Access 2007 提供了<b>17大類的函數</b>，各個函數的用法，請參考  access 的說明文件(help)
+- <b>查詢函數的用法：在 access 中按F1鍵</b>，會出現說明文件的查詢視窗，在輸入「函數」就可以到所有的函數的用法
+</script></section>
+<section data-markdown><script type="text/template">
+## 常用的函數
+![](/images/db/useful.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 選取查詢(1/3)
+- 利用通訊錄資料表，選擇”姓名”,”性別”,”電話”三個欄位來建立查詢
+- 操作步驟：
+- 開啟資料表
+- 在「建立」索引標籤>>「查詢」群組>>「查詢精靈」
+- 點選「簡單查詢精靈」，按「確定」按鈕
+- 在「可用欄位」清單中，點選”姓名”,”性別”,”電話”，並且分別按「>」鈕，加入到「已選取的欄位」中
+- 你要詳細或摘要查詢，點選「詳細」
+- 輸入查詢的標題名稱，以及點選「開啟查詢以檢視資訊」選項
+- 按「完成」按鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 選取查詢(2/3)
+- 查詢通訊錄的建立日期在2009/1/1～2009/12/31之間的紀錄
+- 操作步驟：
+- 開啟資料表
+- 在「建立」索引標籤>>「查詢」群組>>「查詢精靈」
+- 點選「簡單查詢精靈」，按「確定」按鈕
+- 點選「>>」按鈕，將所有欄位加到「已選取的欄位」中
+- 你要詳細或摘要查詢，點選「詳細」
+- 輸入查詢的標題名稱，及點選「修改查詢的設計」選項
+- 在「建立日期」欄位的下方，有一個「準則」列，在「準則」列輸入「&gt;=#2009/1/1# and &lt;=#2009/12/31#」
+- 按右上角的「關閉」按鈕，然後會出現你是否要儲存的對話框，按「確定」儲存
+</script></section>
+<section data-markdown><script type="text/template">
+## 選取查詢(3/3)
+- 查詢學生資料表中姓”王”或姓”張”同學的聯絡資料
+- 操作步驟：
+- 開啟資料表
+- 在「建立」索引標籤>>「查詢」群組>>「查詢精靈」
+- 點選「簡單查詢精靈」，按「確定」按鈕
+- 在「可用欄位」清單中，點選”姓名”,”性別”,”電話”，並且分別按「>」鈕，加入到「已選取的欄位」中
+- 你要詳細或摘要查詢，點選「詳細」
+- 輸入查詢的標題名稱，及點選「修改查詢的設計」選項
+- 在「姓名」欄位的下方，有一個「準則」列，在「準則」列輸入「like ”王*” or like ”張*” 」
+- 按右上角的「關閉」按鈕，然後會出現你是否要儲存的對話框，按「確定」儲存
+</script></section>
+<section data-markdown><script type="text/template">
+## 交叉資料表查詢(1/2)
+- 「交叉資料表查詢」<b>是一種選取查詢</b>，可用於將摘要資料 (總和、平均、計數及類似的函數)排列成兩個類別配置
+- 「交叉資料表查詢」的好處：<b>讓資料更容易閱讀及瞭解</b>
+- 「交叉資料表查詢」<b>通常使用在需要統計數量的資料表</b>，例如銷售統計表、年齡統計表等等
+- 「交叉資料表查詢」<b>是一種選取查詢，所以不會更動資料表中的紀錄</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 交叉資料表查詢(2/2)
+- <b>查詢上學期選課紀錄資料表中，教室的統計數量</b>
+- 操作步驟：
+- 開啟資料表
+- 在「建立」索引標籤>>「查詢」群組>><b>「查詢精靈」</b>
+- <b>點選「交叉資料表查詢精靈」</b>，按「確定」按鈕
+- 選取「上學期選課紀錄」資料表，按下一步
+- 在「可用欄位」清單中，點選”科目名稱”，並且分別按「>」鈕，加入到「已選取的欄位」中，按下一步
+- <b>你要哪一個欄位值當作欄標題，請點選「教室編號」當作欄標題名稱</b>，按下一步
+- <b>請點選「科目代號」及「計數」</b>
+- 輸入查詢的名稱及選擇「檢視查詢」，按「完成」
+</script></section>
+<section data-markdown><script type="text/template">
+## 參數查詢
+- 與一般查詢最大的差別在於<b>將雙引號(“ ”)改成中括號([ ])</b>
+- 例如：<b>在準則中輸入: like [請輸入科系名稱]，</b>再按「結果/執行」，則會出現「輸入參數」的畫面
+- 準則中輸入: 
+- like “*” &amp; [請輸入科系名稱的關鍵字] &amp; “*”，可以找出包含任何字元的紀錄
+- &gt;=[請輸入起始日期] and &lt;=[請輸入結束日期]，可以找出在起始日期與結束日期之間的紀錄
+
+- 在準則中輸入時，<b>輸入的位置太小</b>，無法看出全部輸入的設定條件，<b>可以按 Shift + F2 來開啟「放大顯示」</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 動作查詢的功能
+- 製作資料表：
+- 作為備份資料表中舊有紀錄之用，例如：90年學生的繳費紀錄
+- 將兩個資料表挑選需要的欄位，重新組成一個新的資料表
+- 新增(Add)：將資料表中的紀錄加入到另一個結構相同的資料表中，例如： 91年學生的繳費紀錄加入到90年學生的繳費紀錄中
+- 更新(Update)：根據「查詢準則」及運算式來更改資料表的內容，例如：學費調整時，可以利用「更新查詢」，先查詢各學院的收費標準，再按照調整的比率來更新收費標準
+- 刪除(Delete)：根據「查詢準則」來刪除資料表中的某些紀錄
+</script></section>
+<section data-markdown><script type="text/template">
+## 動作查詢-製成資料表(1/2)
+- 以學生選課為例，<b>備份上學期學生選課紀錄</b>，製成資料表
+- 重點：
+- <b>先建立選取查詢，</b>然後將其轉換為製成資料表查詢
+- 使用「設計檢視」來修改查詢的準則或其他內容
+- 使用Access 2007 版本，資料庫必須在受信任的位置或已經被簽署時，按下「執行」才可以生成新的資料表，也就是點選將安全警告訊息中的「選項」，在選擇「啟用這個內容」
+- 上學期的日期準則： <b>&gt;=#2009/1/1#  and &lt;=#2009/7/31#</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 動作查詢-製成資料表(2/2)
+- 開啟「選課資料表」
+- 在「建立」索引標籤&gt;&gt;「查詢」群組&gt;&gt;「查詢精靈」
+- 點選「簡單查詢精靈」，按「確定」按鈕
+- 點選按「&gt;&gt;」按鈕，將所有欄位加入到「已選取的欄位」
+- 輸入查詢的標題名稱，以及點選「修改查詢的設計」選項
+- 在「日期」的欄位輸入「<b>&gt;=#2009/1/1#  and &lt;=#2009/7/31#</b>」
+- 在查詢中按滑鼠右鍵&gt;&gt;「設計檢視」&gt;&gt;「查詢類型」群組&gt;&gt;「製成資料表」&gt;&gt;輸入資料表名稱&gt;&gt;按「確定」
+- 「設計檢視」索引標籤&gt;&gt;「結果」群組&gt;&gt;按「執行」按鈕
+- 在對話框中按「確定」
+- 按右上角關閉以後，再按「確定儲存」按鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 動作查詢-新增(1/2)
+- 建立新增查詢的程序需要執行下列基本步驟：
+- 建立選取查詢
+- 開啟所建立的選取查詢，利用查詢物件的「設計檢視」將選取查詢轉換為新增查詢
+- 針對新增查詢中的每一欄選擇目的欄位
+- 執行查詢以新增記錄
+- 將下學期學生選課資料合併到上學期的選課紀錄中
+- 下學期學生選課資料的查詢準則：<b>&gt;=#2009/8/1#  and &lt;=#2009/12/31#</b>」
+</script></section>
+<section data-markdown><script type="text/template">
+## 動作查詢-新增(2/2)
+- 請先以「製成資料」的步驟，建立一個新的「下學期選課紀錄」的資料表
+- 在「建立」索引標籤&gt;&gt;「查詢」群組&gt;&gt;「查詢設計」
+- 在「顯示資料表」對話框中，點選「下學期選課紀錄」，按「新增」按鈕，然後關閉「顯示資料表」對話框
+- 在「下學期選課紀錄」清單中，連續按「*」圖示二下，代表選取所有的欄位，此時會在第一格欄位中顯示「下學期選課紀錄.*」
+- 「查詢工具」&gt;&gt;「設計」索引標籤&gt;&gt;「查詢類型」群組&gt;&gt;「新增」，並在「附加」對話框中選取「上學期選課紀錄」，然後按「確定」按鈕
+- 在「新增至」列中，顯示「 上學期選課紀錄.*」，表示要將「下學期選課紀錄」新增至「上學期選課紀錄」的後面
+- 在「查詢工具」&gt;&gt;「設計」索引標籤&gt;&gt;「結果」群組&gt;&gt;按「執行」按鈕
+- 在對話框中按「是」
+- 按右上角關閉以後，輸入「查詢資料表名稱」，再按「確定儲存」按鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料排序(sort)與篩選
+- 欄位屬性的排序順序(由小到大)：
+- 文字：Null, 0-9, 英文字大寫字母A-Z, 小寫字母a-z,中文字的筆畫順序
+- 邏輯屬性： True, False
+- 備忘：與文字屬性相同
+- 操作步驟：「常用」&gt;&gt;「排序與篩選」&gt;&gt;「A↓Z」遞增排序
+- 多欄位的排序：
+- 多欄位排序是以最左邊的欄位做排序的基準
+- 必須相鄰的二個欄位才能做多欄位排序，若未相鄰，則先將欄位拖曳在一起，使它們相鄰以後，再做排序
+- 多欄位排序「按住右鍵向右拖曳」即可選擇多個欄位
+</script></section>
+<section data-markdown><script type="text/template">
+## 自訂排序
+- 先選擇一個要排序的欄位
+- 「資料表工具」&gt;&gt;「常用」&gt;&gt;「排序與篩選」&gt;&gt;「進階篩選/排序」
+- 將想要的欄位 (如 [地址]、[學校地址] ) 新增至方格
+- 按 shift + F2 放大顯示對話框
+- 在[欄位] 列最右邊的第一個空白欄中，按一下滑鼠右鍵 ，然後按一下 [放大鏡]，再輸入下列運算式：iif([地址]=“台北”,1,  iif([學校地址]=“台中”,2))
+- 在運算式所在欄的 [排序] 列中，按一下 [遞增]
+- 在「常用」索引標籤&gt;&gt;「排序與篩選」 群組&gt;&gt;按一下 「切換篩選」
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料篩選(filter)
+- 篩選「資管科、系」「女生」的學生資料
+- 操作步驟：
+- 「資料表工具」&gt;&gt;「常用」&gt;&gt;「排序與篩選」&gt;&gt;「進階」選項中點選「依表單篩選」
+- 在「科系名稱」欄位中，輸入「like “資管科”」，在「性別」欄位中，輸入「like “女”」
+- 在「常用」&gt;&gt;「排序與篩選」&gt;&gt;「進階」&gt;&gt;「套用篩選」
+- 按「關閉」鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 第四次作業
+- <b>選取查詢：</b>
+- 從「第一次作業」其中的一個資料表中，選擇”姓名”,”性別”,”電話”三個欄位來建立查詢
+- 請自行定義一個「關鍵字」來建立另外一個查詢(例如：在「姓名欄位」中，找出「某一個姓氏」的資料)，查詢結果至少要有二筆以上的紀錄
+- <b>參數查詢：</b>從「第一次作業」其中的一個資料表中，建立一個「姓名關鍵字」的參數查詢
+- <b>動作查詢-製成資料表：</b>從「第一次作業」其中的一個資料表中，新增一個「建立日期」的欄位，並以此欄位的日期區間來製作資料表
+- 繳交期限：<b>7/4日 20:00，E-mail :<a href="mailto:elvis.hsieh@gmail.com">elvis.hsieh@gmail.com</a></b>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 主索引鍵值的建立與刪除
+- 建立/刪除主索引鍵值步驟：
+- 開啟資料表
+- 「常用」索引標籤&gt;&gl;「檢視」群組&gt;&gl;「檢視」
+- 點選要建立索引鍵值的欄位
+- 按「主索引鍵」
+- 刪除則是將「主索引鍵」選項取消
+- 建立多個主索引鍵值：
+- 開啟資料表
+- 「常用」索引標籤&gt;&gl;「檢視」群組&gt;&gl;「檢視」
+- <b>按著 Ctrl 鍵，然後點選要建立索引鍵值的欄位</b>
+- 按「主索引鍵」
+</script></section>
+<section data-markdown><script type="text/template">
+## 參考完整性限制
+- 參考完整性限制的目的是<b>確保關聯資料表中紀錄的正確性</b>，讓使用者不能隨便刪除或變更相關的紀錄
+- 完整性限制條件：
+- 鍵值(Key)限制條件：關聯資料表一定<b>擁有唯一和最小的主鍵(Primary Key)</b>
+- 定義域限制條件：關聯資料表一定是<b>屬於定義域的值</b>
+- 實體完整性：關聯資料表的主鍵(Primary Key)不可以是空值(not Null)
+- 參考完整性：當關聯資料表存在外來鍵時，<b>外來鍵的值一定是來自參考資料表的主鍵值或空值</b>，此為關聯資料表之間的完整性條件，即關聯資料表<b>不可包含無法對應的外來鍵</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立關聯圖的步驟
+- 開啟資料庫
+- 點選「資料庫工具」索引標籤&gt;&gt;「顯示/隱藏」群組&gt;&gt;「資料庫關聯圖」
+- 按住 Ctrl，選取欲關聯的兩個或多個資料表，並拖曳到右邊的「資料關聯圖」中
+- 點選第一個資料表的欄位，然後拖曳到另一個資料表的欄位，放開滑鼠之後，會出現「編輯關聯」的對話框
+- <b>勾選「強迫參考完整性」的選項</b>
+- 按一下「建立」按鈕
+</script></section>
+<section data-markdown><script type="text/template">
+## 「強迫參考完整性」的說明
+- 在上一張投影片的步驟5中，勾選「強迫參考完整性」的作用，是為了<b>保持資料表之間資料的一致性</b>
+- 所謂<b>父資料表就是在一對多關聯中「1」的資料表，子資料表就是「多」的那一個資料表</b>
+- 如果在父資料表中，刪除或更動key 值欄位的任何一筆紀錄(record)，則子資料表中的某些紀錄將失去連結
+- 如果在子資料表中，新增一筆紀錄，而此筆記錄在父資料表中沒有相對的紀錄，則這筆紀錄也不具有連結的功能
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯圖的連接方式(1/3)
+![](/images/db/juction.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯圖的連接方式(2/2)
+- 僅包含兩個資料表連接欄位的資料相同的紀錄：<b>此種連接方式稱為 inner join(內部連結)，只顯示兩個資料表中資料相同的紀錄</b>
+- 包含所有來自’left table_name’的紀錄和只包含那些連接欄位相等的’right table_name’欄位：<b>稱為 left join，以 left table 為主</b>，顯示 left table 的所有紀錄，和 right table 中與 left table 相關的紀錄
+- 包含所有來自’right table_name’的紀錄和只包含那些連接欄位相等的’left table_name’欄位：<b>稱為 right join，以 right table 為主</b>，顯示 right table 的所有紀錄，和 left table 中與 right table 相關的紀錄
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯圖的連接方式(3/3)
+![](/images/db/juction2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 刪除「關聯」的步驟
+- 開啟資料庫
+- 點選「資料庫工具」索引標籤&gt;&gt;「顯示/隱藏」群組&gt;&gt;「資料庫關聯圖」
+- 點選關聯圖中連接線，按滑鼠右鍵，再點選「刪除」
+- 在「設計」索引標籤&gt;&gt;「工具」群組&gt;&gt;「清除版面配置」
+</script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

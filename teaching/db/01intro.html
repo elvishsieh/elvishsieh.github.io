@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# 資料庫簡介
+</script></section>
+<section data-markdown><script type="text/template">
+# What is Database?
+<ul>
+	<li>目前同學心中所想的資料庫是甚麼？</li>
+	<li class="fragment roll-in"><b>未來學習資料庫以後，同學心中所想的資料庫又是甚麼？</b></li>
+	<li class="fragment roll-in"><b>資料庫：存放資料的地方；存放資料的倉庫？</b></li>
+	<li class="fragment roll-in">Excel 表可以存放許多有用的資料，例如：庫存的日常用品，如下表，那麼，<b>它是資料庫嗎？</b></li>
+</ul>
+
+| 部門 | 品項 | 單位 | 數量 |
+| :--- | :--- | :--- | :--- |
+| 百貨部 | 牙膏 | 箱 | 12 |
+| 百貨部 | 牙刷 | 打 | 30 |
+| 食品部 | 麵包 | 條 | 15 |
+| 食品部 | 果醬 | 箱 | 10 |
+|||||
+
+</script></section>
+<section data-markdown><script type="text/template">
+## Excel 表是資料庫?
+<li class="fragment"><b>[資料存放在 Excel 表會有甚麼問題？]</b></li>
+<li class="fragment"><b>只有你(Only You)有</b>這個資料表？</li>
+<li class="fragment"><b>只有你(Only You)能</b>維護這個資料表？</li>
+<li class="fragment">公司的規模如果像家樂福、大買家、7 Eleven 、全家等連鎖企業，每一家分店都有自己的庫存的資料表，那麼，<b>要如何整合？</b></li>
+<li class="fragment">整合的資料<b>如何維護？</b></li>
+<li class="fragment"><b>放在雲端(Cloud)</b>維護這個資料表可行嗎？</li>
+</script></section>
+<section data-markdown><script type="text/template">
+## DataBase Management System
+- 資料(Data)
+	- 有關人、事、物，或是概念、知識等具體的事實例如：某位學生的個人資料有姓名、性別、出生年月日、通訊資料等等
+- 資訊(Information)
+	- 經過處理以後的資料稱為資訊
+- 資料庫(Database)
+	- 就是一些相關資料所組成的檔案櫃，例如：人事系統資料庫、學生個人資料庫、選課系統資料庫等等
+- 資料庫管理系統
+	- 透過程式來存取資料庫內的資料，這種系統就稱為 <b>DataBase Management System (DBMS)</b>，一般也就把它稱為資料庫系統
+</script></section>
+<section data-markdown><script type="text/template">
+## 典型的資料庫系統圖(1/2)
+![](/images/db/db.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 典型的資料庫系統圖(2/2)
+- 用戶群：使用資料庫的人
+- 用戶/系統介面
+	- 使用者操作/存取資料庫的介面，或者程式設計師透過程式語言與資料庫交談的介面
+- <b>資料庫管理系統(DBMS)</b>
+	- 接收並處理各項要求的軟體系統如 dBASE, Access 等
+- 資料庫：儲存所有資料的地方
+- 資料字典/目錄(Data Dictionary/Directory, DD/D)
+	- 儲存所有資料定義的地方，**定義這些資料的資訊稱為 meta data**
+- <b>資料庫管理師(DataBase Administrator,DBA)</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料庫的優點
+- 標準可以確立：
+	- .doc, .xls, .txt **檔案系統是不一致**
+- 易於應用發展
+- 資料較為安全、容易控制
+- **資料的一致性、整合性較好**
+- **資料容易維護**、操作，如新增、刪除、備份資料
+- 減少資料的重複性
+- 資料容易分享
+- **資料獨立：**資料與應用程式分開
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Data Model
+</script></section>
+<section data-markdown><script type="text/template">
+## 建構資料庫的資料模式(1/2)
+- 階層式(hierarchical model)
+	- 就像樹狀結構，如系/科底下分老師、學生、職員，老師底下可分教資料庫、計算機概論、國文、英文的老師
+- 網狀式(network model)
+- <b>關聯式(Relational model)
+![](/images/db/newTable.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 建構資料庫的資料模式(2/2)
+- 實體-關係式(**Entity-Relationship model**)
+	- 依照實體之間的關係來設計資料模式，例如學生與老師的關係，學生與學生證的關係
+- 物件導向式(Object-base model)
+	- 主要是導入物件導向程式語言的概念，將封裝、繼承等觀念來設計資料模式
+- 半結構式(Semi-structured model)
+	- 以XML(eXtensible Markup Language)的資料結構和語法來處理資料庫的資料
+</script></section>
+<section data-markdown><script type="text/template">
+## 常見的**關聯式資料庫**管理系統(RDBMS)
+- [Microsoft SQL server](https://www.microsoft.com/zh-tw/sql-server/sql-server-downloads) (**Standard or Enterprise Developer** Edition)
+- Oracle (甲骨文) Database, MySQL(免費、開放原始程式碼)
+- [IBM DB2 Database](https://www.ibm.com/products/db2)
+- [PostgreSQL](http://www.postgresql.org/) (免費、開放原始程式碼)
+- [MariaDB](https://mariadb.org/) (免費、開放原始程式碼)
+- [SQLite](http://www.sqlite.org/) (免費、開放原始程式碼)
+</script></section>
+<section data-markdown><script type="text/template">
+## RDBMS
+- RDBMS(關聯式資料庫)與NoSQL(非關聯式資料庫)的核心差異在於**資料結構、擴充方式與交易保證**
+- 使用預先定義的表格(Row 與 Column)，透過主鍵與外來鍵建立關聯
+- 嚴格支援 **ACID 特性**(Atomicity、Consistency、Isolation、Durability)，適用於**銀行轉帳、ERP 系統、電商訂單**等對資料精準度要求極高的系統
+- 主要為垂直擴充(向上加強伺服器硬體，成本較高)
+- 使用標準化的 SQL，擅長處理複雜的 JOIN 查詢
+- MySQL/MariaDB, PostgreSQL, Oracle, MS SQL Server
+</script></section>
+<section data-markdown><script type="text/template">
+## NoSQL(Not Only SQL)
+- 採用彈性結構，常見類型包含文件型(Document)、鍵值對(Key-Value)、圖形(Graph)與寬欄(Wide-Column)
+- 通常遵循 BASE 原理(基本可用、彈性狀態、最終一致性)
+- 擅長水平擴充(向外擴展，透過分散式叢集分擔流量與容量)
+- 無統一標準，各自有 API 或類 SQL 語法
+- **MongoDB、Redis**、Cassandra、Neo4j
+- 適用於**即時快取、社群動態、物聯網(IoT)日誌、大數據與非結構化內容**
+</script></section>
+<section data-markdown><script type="text/template">
+## RDBMS 與 NOSQL 比較表
+
+| 比較項目 | RDBMS | NoSQL |
+| :--- | :--- | :--- |
+| **資料格式** | 固定表格(Structured) | 彈性文件/鍵值/圖形等(Unstructured/Semi-structured) |
+| **Schema(綱要)** | 嚴格預先定義 | 動態 / 無綱要 |
+| **擴充性** | 垂直擴充為主 | 水平擴充為主 |
+| **交易處理** | ACID | BASE |
+| **查詢能力** | 支援複雜的 JOIN 關聯查詢 | 單筆查詢極快，複雜關聯較不易處理 |
+||||
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# ACID
+</script></section>
+<section data-markdown><script type="text/template">
+## What is ACID?
+- 在資料庫管理系統中，ACID 指的是一套用來確保資料庫交易(Transaction)在任何情況下都能**正確、安全、可靠**執行 ACID 這 4 個核心特性
+- Atomicity
+	- 主要概念是全有或全無(All or Nothing)
+	- 一個交易中可能包含多個步驟，例如：轉帳包含：A 帳戶扣錢、B 帳戶加錢，**atomicity 是保證這些步驟要麼全部成功執行，要麼全部失敗並復原(Rollback)，絕對不會卡在中間只執行一半**
+- Consistency(一致性)
+	- 交易執行前後，**資料庫都必須符合所有預設的規則**(約束條件、外來鍵、資料型態等)
+</script></section>
+<section data-markdown><script type="text/template">
+- Consistency(一致性)
+	- 例如：轉帳前後，兩個帳戶的**金額總和必須相等**；或是帳戶**餘額絕對不能為負數**；如果違反規則，資料庫會拒絕該變更
+- Isolation(隔離性)
+	- 當多個使用者**同時在操作同一個資料庫(同時進行多筆交易)時**，隔離性確保各個交易在完成前，彼此看不到對方的中間暫存狀態這能避免資料產生讀寫衝突(如髒讀、幻讀等現象)，讓併發執行的結果就像是一個接一個依序執行一樣
+- Durability(持久性)
+	- **一旦交易成功完成(Commit)，它對資料庫所做的變更就會被永久儲存**，即使在交易完成後的下一秒，伺服器突然斷電、當機或硬碟損壞，重啟後資料依然存在，不會遺失
+</script></section>
+<section data-markdown><script type="text/template">
+## 範例：銀行轉帳 1,000 元給朋友
+- Atomicity (A)
+	- 你的帳戶扣 1,000 元，且朋友的帳戶多 1,000 元，**這兩個動作必須同時成功**
+	- **如果中間系統斷線，你的 1,000 元會退回**，不會憑空消失
+- Consistency (C)
+	- 轉帳前後，你和朋友兩個人帳戶的金額總和必須保持不變
+- Isolation (I)
+	- 在你轉帳的過程中，另外一個朋友也同時轉錢給你，這兩筆轉帳會各自分開計算，不會互相覆蓋或干擾
+- Durability (D)
+	- 銀行系統顯示**轉帳成功」後，就**銀行大樓當天晚上突然跳電，隔天查詢時，這筆轉帳紀錄依然會在
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# BASE
+</script></section>
+<section data-markdown><script type="text/template">
+## What is BASE?
+- Basically Available(基本可用)
+	- 系統在大部分時間保證可用，即使部分節點或元件發生故障，整個系統仍能回應請求(但可能不是最新或完整資料)
+- Soft State(軟狀態 / 柔性狀態)
+	- 系統中的資料狀態可以容許一段時間的更新延遲或不一致，不需要隨時保持同步
+- Eventually Consistent(最終一致性)
+	- 系統不保證寫入後立刻在所有節點完全一致，但經過一段時間沒有新的更新後，所有副本最終會達到一致的狀態
+- BASE 是一種 NoSQL 資料庫的設計原則，用來替代傳統關聯式資料庫的 ACID 模型，**著重於高可用性與分散式系統的效能**
+</script></section>
+<section data-markdown><script type="text/template">
+## AICD 與 BASE 的比較
+| 特性 | ACID (傳統 RDBMS) | BASE (多數 NoSQL) |
+| :--- | :--- | :--- |
+| **核心目標** | 強一致性與正確性 | 高可用性與延展性 |
+| **資料一致性** | 立即一致（Immediate Consistency） | 最終一致（Eventually Consistent） |
+| **CAP 定理偏好** | 偏向 CP 或 CA 模型 | 偏向 AP 模型（可用性 + 分割容忍） |
+| **適用情境** | 金融交易、銀行帳戶、訂單系統 | 社群網路貼文、按讚數、快取、IoT 數據 |
+||||
+</script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

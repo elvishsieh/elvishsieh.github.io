@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>Introduction to SQL</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# What is SQL?
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL Background(背景)
+- IBM developed the original version of SQL, originally called Sequel, as part of the System R project in the early 1970.
+- Sequel language name has changed to SQL(Structured Query Language).
+- In 1986, ANSI(American National Standards Institute) and ISO(the International Organization for Standardization) published an SQL.
+- Version: SQL-89 in 1989, SQL-92, SQL-2003
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of SQL
+- 在資料庫建立一個資料表，資料表名稱命名為 customer
+<pre><code data-trim data-line-numbers>create  table customer
+(customer_name   char(20),
+customer_street    char(30),
+customer_city        char(30), primary key  (customer_name));
+</code></pre>
+- 從 customer 資料表中找出客戶字是 jenny 家的街道名稱
+<pre><code data-trim data-line-numbers>select customer_name, customer_street
+from customer
+where  customer_name=‘jenny’;</code></pre>
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+## 何謂查詢(Query)
+- 在中文的文字解釋中，查詢與搜尋意思相近？<br />意思是<b>找</b>資料
+<li class="fragment roll-in">而英文(資料庫)的<b>查詢(Query)與搜尋(Search)不盡相同</b>
+<li class="fragment roll-in"><b>查詢(Query)</b>是資料表的搜尋功能，可以在資料表中<b>找出符合條件的紀錄資料，以便進行分析或計算。</b>
+<li class="fragment roll-in"><b>篩選(Filter)</b>是指在資料表中，<b>只顯示出需要的紀錄</b>，至於那些不符合條件就隱藏起來。
+<li class="fragment roll-in"><b>排序(Sorting)</b>是將一串資料<b>依照特定的方式進行排列</b>，例如：遞增排序、遞減排序；資料結構中應該有介紹各種不同的排序演算法。
+</script></section>
+<section data-markdown><script type="text/template">
+## 查詢準則
+<p>查詢準則是由<b>「欄位」、「常數」和「運算式」所組成</b>，此三種組成元素的意涵為：</p>
+- <b>欄位</b>：即資料表中的<b>欄位(field)</b>
+- <b>常數</b>：包括<b>數字、字串、日期等都是屬於常數</b>，例如：2.5、台中、2010/5/30等
+- <b>運算式</b>：由<b>「函數」、「欄位」、「計算公式」所組成</b>，其運算式中的<b>運算子可分為數學、比較、邏輯運算子和欄位參照等</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 數學運算子
+![](/images/db/mathOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 比較運算子
+![](/images/db/cmpOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 邏輯運算子
+![](/images/db/logicOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 特殊運算子
+![](/images/db/specOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 萬用字元
+![](/images/db/wildcard.png)
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>

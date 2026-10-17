@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+
+<title>SQLite introduction</title>
+
+<meta name="description" content="Tutorial of web design for primer">
+<meta name="author" content="Elvis Hsieh">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="/images/elogo.ico" />
+
+<link rel="stylesheet" href="/revealjs/dist/reset.css">
+<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="/revealjs/dist/theme/black.css" id="theme">
+<link rel="stylesheet" href="/revealjs/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/revealjs/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="/css/custom4revealjs.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="/highlightjs/styles/monokai.min.css">   
+<link rel="stylesheet" href="/css/style4font.css">
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /revealjs/print-pdf/gi ) ? '/revealjs/dist/print/pdf.css' : '/revealjs/dist/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# SQLite Database
+</script></section>
+<section data-markdown><script type="text/template">
+## What is SQLite DB? 
+- SQLite is a C-language library that implements **a small, fast, self-contained, high-reliability, full-featured**, SQL database engine.
+- SQLite Download for Windows how to
+	- Command Line Shell: **sqlite-tools-win-x64-xxxxxxx.zip**
+	- Coding with SQLite: **sqlite-dll-win-x64-xxxxxxx.zip**
+	- Source Code: **sqlite-amalgamation-xxxxxxx.zip**
+- **Compiling SQLite from source code** for Windows
+<pre><code>clang shell.c sqlite3.c -lpthread -lm -o sqlite3
+clang -shared sqlite3.c -o sqlite3.dll
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Download SQLite3
+![](/images/stisp/sqlite3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SQLite
+- Download SQLite from [SQLite website](https://www.sqlite.org/download.html)
+- Extract the zip file what you want to?
+<pre><code>D:\SQLite3
+	 |
+	--- bin\ sqlite3.exe, sqlite3_analyzer.exe, sqldiff.exe
+	--- include\ sqlite3.h sqlite3ext.h
+	--- lib\ sqlite3.dll, sqlite.def
+</code></pre>
+- Setting environment variable for SQLite BIN
+	- Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> Path 變數 >> 新增 D:\SQLite3\bin 路徑
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SQLite on Mac OS
+- Installing Homebrew
+	- Visiting https://brew.sh/
+	- Copy and paste the following command into the terminal
+	<pre><code data-trim data-line-numbers>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+- Installing SQLite and VS Code with Homebrew
+<pre><code data-trim>brew install sqlite3</code></pre>
+	- Searching VS Code in Homebrew website
+	<pre><code data-trim>brew install --cask visual-studio-code</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite Shell Command(1/3)
+- **sqlite3** Path_with_fileName
+- Summary of command list
+| Command | Description |
+| :--- | :--- |
+| .help ?-all? ?PATTERN? | Show help text for PATTERN |
+| .exit | exit sqlite |
+| .quit | exit sqlite |
+| **.open ?OPTIONS? ?FILE?**  | Close existing database and reopen FILE |
+| .cd DIRECTORY     |       Change the working directory to DIRECTORY |
+| .output ?FILE?    |   Send output to FILE or stdout if FILE is omitted |
+| **.excel**            |       Display the output of next command in spreadsheet |
+| | |
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite Shell Command(2/3)
+- Summary of command list
+| Command | Description |
+| :--- | :--- |
+| **.read FILE**        |       Read input from FILE or command output |
+| .restore ?DB? FILE |      Restore content of DB (default "main") from FILE |
+| .save ?OPTIONS? FILE |    Write database to FILE (an alias for .backup ...) |
+| .databases      |     List names and files of attached databases |
+| **.tables ?TABLE?**   |       List names of tables matching LIKE pattern TABLE  |
+| .import FILE TABLE  |     Import data from FILE into TABLE |
+| .schema ?PATTERN?   |     Show the CREATE statements matching PATTERN |
+|  | | 
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite Shell Command(3/3)
+- Input SQLite Command and get output
+<pre><code data-trim data-line-numbers>cd D:\SQLite3\src
+.\insertC.exe
+..\bin\sqlite3
+> .open test.db
+> .tables
+> select * from Cars;
+</code></pre>
+- Create test.db with insertC.exe and run sqlite3 shell
+- open test.db database within current directory(D:\SQLite3\src)
+- run .tables to list table in test.db
+- Select all columns from Cars table which SQL command is end with semicolon ;
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite Shell Command(3/3)
+- Input SQLite Command and get output
+<pre><code data-trim data-line-numbers>cd D:\SQLite3\src
+..\bin\sqlite3
+> .open car.db
+> .read car.sql
+> .tables -- what are tables name in car.db
+> select * from Cars;
+</code></pre>
+- Create a database which name is car.db
+- Read the car.sql query to execute sql command with car.db
+- List all tables in car.db
+- Did the delete command, which was deleted id = 7 row, work or not?
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite with C/ C++
+- Setting MSYS2/MINGW64 on Windows System how to?
+	- Visiting [my C++ website](../cpp/01intro.html#/3) for setting up MSYS2/MINGW64
+- Compiling C/C++ code as following
+	- insertC.c, sqlppExammple.cpp, cppNorthWind.cpp
+	- Compiling statement have been commented in source code respectively
+- Running the command which is compiled from C++ codes
+	- sqlcppExammple.exe to test the C++ and SQLite database
+	- nwQuery.exe to query the chinook database in ../db folder
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Database Administrator Tools
+</script></section>
+<section data-markdown><script type="text/template">
+## GUI DBA Tools
+- [DB Browser for SQLite](https://sqlitebrowser.org/)
+	- C++, 49MB, **AutoComplete**, Syntax highlighting, exort CSV, JSON format
+- [SQLiteStudio](https://sqlitestudio.pl/)
+	- **C++**, 106MB, syntax highlighting and more export format
+- [HeidiSQL](http://www.heidiSQL.com/)
+	- C++, 52 MB, AutoComplete, Syntax highlighting and **more export format**
+- [DBeaver](https://github.com/dbeaver/dbeaver)
+	- Java, 157 MB, AutoComplete, Syntax highlighting and more export format
+</script></section>
+<section data-markdown><script type="text/template">
+## Chinook(奇努克) Database
+- **Download GUI DBA tools** for example the HeidiSQL from [HeidiSQL](http://www.heidiSQL.com/) website
+- **Download Chinook database** from [Chinook github repository](https://github.com/lerocha/chinook-database)
+- **Import Chinook database** into SQLite database with GUI DBA tools
+	- for example, Opne HeidiSQL >> New (rename to northWind) >> NetwrokType: SQLite >> Database Filename: chinook.sqlite >> open button
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL command in Chinook Database
+- Create a view
+<pre><code data-trim data-line-numbers>CREATE VIEW v_tracks 
+AS 
+SELECT	Track.TrackId as 曲目編號, track.name as 歌名, 
+album.Title AS 專輯名稱, MediaType.Name AS 檔案類型, Genre.Name AS 類型
+FROM track
+INNER JOIN album ON Album.AlbumId = track.AlbumId
+INNER JOIN MediaType ON MediaType.MediaTypeId = track.MediaTypeId
+INNER JOIN genre ON genre.GenreId = track.GenreId</code></pre>
+- Query the view
+<pre><code data-trim data-line-numbers>-- DROP VIEW v_tracks;
+SELECT * FROM v_tracks
+WHERE 類型 = 'Rock'</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# FAQ for SQLite
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite FAQ(1/3)
+- Q1. Uincode Error when I user SQLite3 3.45.2 version in MinGW64/Clang?
+![](/images/stisp/sqliteBig5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite FAQ(1/3) cont.
+- A1. Update SQLite3 version to 3.45.3
+![](/images/stisp/sqliteUnicode.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite FAQ(2/3)
+- Q2. Unicode Error when I compile the c/cpp code as following
+	- cppNorthWind.cpp, sqlite3Example.c
+- A1. It can work on cpp code as following
+<pre><code>#include <windows.h>	
+#pragma execution_character_set( "utf-8" )
+...
+int main()
+{
+    SetConsoleOutputCP( 65001 );
+	...
+}
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## SQLite FAQ(3/3)
+- Q3. Compling DLL for all software which use SQLite
+- A3. the compile command is as following
+<pre><code data-trim data-line-numbers>clang -shared -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_RTREE -o2 \
+	-DSQLITE_ENABLE_COLUMN_METADATA sqlite3.c -o sqlite3.dll</code></pre>
+- It is different size to download from the offical website with the compile by myself.
+	- sqlite3.dll: 3,090 KB download from the offical website
+	- sqlite3.dll: 1,635 KB compiled by myself
+</script></section>
+</section><!--end block-->
+	
+</div>
+</div>
+
+<script src="/revealjs/lib/js/head.min.js"></script>
+<script src="/revealjs/dist/reveal.js"></script>
+<script src="/revealjs/plugin/zoom/zoom.js"></script>
+<script src="/revealjs/plugin/notes/notes.js"></script>
+<script src="/revealjs/plugin/search/search.js"></script>
+<script src="/revealjs/plugin/markdown/markdown.js"></script>
+<script src="/revealjs/plugin/highlight/highlight.js"></script>
+<script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
+<script src="/revealjs/plugin/chalkboard/plugin.js"></script>
+<script src="/revealjs/plugin/customcontrols/plugin.js"></script>
+<script src="/revealjs/plugin/animate/svg.min.js"></script>
+<script src="/revealjs/plugin/animate/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+mouseWheel: true,
+transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+menu: {
+	side: 'left',
+	width: 'normal',
+	numbers: false,
+	titleSelector: 'h1, h2, h3, h4, h5, h6',
+	useTextContentForMissingTitles: false,
+	hideMissingTitles: false,
+	markers: true,
+	custom: true,
+	themes: true,
+	themesPath: '/revealjs/dist/theme/',
+	transitions: true,
+	openButton: true,
+	openSlideNumber: false,
+	keyboard: true,
+	sticky: false,
+	autoOpen: true,
+	delayInit: false,
+	openOnInit: false,
+	loadIcons: true,
+	
+	custom: [
+			{ title: 'TOC', icon: '<i class="fa fa-external-link-alt">', src: 'links.html' },
+			{ title: 'About', icon: '<i class="fa fa-info">', content: '<p>Slides for teaching Office Suite Softwar</p>' }
+	]
+},
+
+customcontrols: {
+	controls: [
+	{
+		id: 'toggle-overview',
+		title: 'Toggle overview (O)',
+		icon: '<i class="fa fa-th"></i>',
+		action: 'Reveal.toggleOverview();'
+	},
+	{ icon: '<i class="fa fa-pen-square"></i>',
+		title: 'Toggle chalkboard (B)',
+		action: 'RevealChalkboard.toggleChalkboard();'
+	},
+	{ icon: '<i class="fa fa-pen"></i>',
+		title: 'Toggle notes canvas (C)',
+		action: 'RevealChalkboard.toggleNotesCanvas();'
+	}
+	]
+},
+
+toolbar: {
+	// Specifies where the toolbar will be shown: 'top' or 'bottom'
+	position: 'bottom',
+
+	// Add button to toggle fullscreen mode for the presentation
+	fullscreen: true,
+
+	// Add button to toggle the overview mode on and off
+	overview: true,
+
+	// Add button to pause (hide) the presentation display
+	pause: true,
+
+	// Add button to show the speaker notes
+	notes: false,
+
+	// Add button to show the help overlay
+	help: false,
+
+	// If true, the reveal.js-menu will be moved into the toolbar.
+	// Set to false to leave the menu on its own.
+	captureMenu: true,
+
+	// If true, the playback control will be moved into the toolbar.
+	// This is only relevant if the presentation is configured to autoSlide.
+	// Set to false to leave the menu on its own.
+	capturePlaybackControl: true,
+
+	// By default the menu will load it's own font-awesome library
+	// icons. If your presentation needs to load a different
+	// font-awesome library the 'loadIcons' option can be set to false
+	// and the menu will not attempt to load the font-awesome library.
+	loadIcons: true
+},
+
+// Optional reveal.js plugins
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
+
+dependencies: [
+//{ src: '/revealjs/plugin/toolbar/toolbar.js' }
+]
+});
+
+</script>
+
+</body>
+</html>
