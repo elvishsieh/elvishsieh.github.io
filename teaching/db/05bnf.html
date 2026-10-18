@@ -49,11 +49,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## 正規化(Normalization)
 - 正規化(Normalization)的目的為何？
-- <b>去除資料的重複性(Eliminating Redundancy)</b>
-- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)</b>
-- 沒有正規劃(Normalization)的資料表會造成：
-- 可能形成資料的重複性
-- 插入(insert)、刪除(delete)或更新(update)時可能產生異常
+	- <b>去除資料的重複性(Eliminating Redundancy)</b>
+	- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)</b>
+- 沒有正規化(Normalization)的資料表
+	- 可能形成資料的重複性
+	- 插入(insert)、刪除(delete) 或更新(update) 時可能產生異常
 </script></section>
 <section data-markdown><script type="text/template">
 ## 去除重複性(1/2)
@@ -75,10 +75,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## 結論
-- 正規化的型式必須符合下列兩種條件：
-- <b>去除重複性(Eliminating Redundancy)：</b>建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
-- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)：</b>資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
-- 正規化分析以後，將資料表分成幾個資料表，<b>資料表之間存在某種關聯性</b>，透過<b>外來鍵</b>的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
+- 正規化的型式必須符合下列兩種條件
+	- <b>去除重複性(Eliminating Redundancy)：</b>建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
+	- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)：</b>資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
+- 正規化分析以後，將資料表分成幾個資料表，<b>資料表之間存在某種關聯性</b>，透過<b> Foreign Key</b>的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
 </script></section>
 </section><!--end block-->
 
