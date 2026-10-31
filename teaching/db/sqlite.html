@@ -62,7 +62,13 @@ clang -shared sqlite3.c -o sqlite3.dll
 </script></section>
 <section data-markdown><script type="text/template">
 ## Download SQLite3
-![](/images/stisp/sqlite3.png)
+- 下載 sqlite-dll-win-x64-xxxxxxx.zip, sqlite-tools-win-x64-xxxxxxx.zip
+![](/images/db/sqlite.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Download SQLite3
+- 將下載的壓縮檔解壓縮到自己想要的資料夾內
+![](/images/db/sqlite2.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Installing SQLite
@@ -75,7 +81,7 @@ clang -shared sqlite3.c -o sqlite3.dll
 	--- lib\ sqlite3.dll, sqlite.def
 </code></pre>
 - Setting environment variable for SQLite BIN
-	- Windows 圖示 >> 系統 >> 進階系統設定 >> 環境變數 >> Path 變數 >> 新增 D:\SQLite3\bin 路徑
+	- Windows 圖示 ≫ 系統 ≫ 進階系統設定 ≫ 環境變數 ≫ Path 變數 ≫ 新增 D:\SQLite3\bin 路徑
 </script></section>
 <section data-markdown><script type="text/template">
 ## Installing SQLite on Mac OS
@@ -180,7 +186,7 @@ clang -shared sqlite3.c -o sqlite3.dll
 - **Download GUI DBA tools** for example the HeidiSQL from [HeidiSQL](http://www.heidiSQL.com/) website
 - **Download Chinook database** from [Chinook github repository](https://github.com/lerocha/chinook-database)
 - **Import Chinook database** into SQLite database with GUI DBA tools
-	- for example, Opne HeidiSQL >> New (rename to northWind) >> NetwrokType: SQLite >> Database Filename: chinook.sqlite >> open button
+	- for example, Opne HeidiSQL ≫ New (rename to northWind) ≫ NetwrokType: SQLite ≫ Database Filename: chinook.sqlite ≫ open button
 </script></section>
 <section data-markdown><script type="text/template">
 ## SQL command in Chinook Database
@@ -207,12 +213,12 @@ WHERE 類型 = 'Rock'</code></pre>
 <section data-markdown><script type="text/template">
 ## SQLite FAQ(1/3)
 - Q1. Uincode Error when I user SQLite3 3.45.2 version in MinGW64/Clang?
-![](/images/stisp/sqliteBig5.png)
+![](/images/db/sqliteBig5.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## SQLite FAQ(1/3) cont.
 - A1. Update SQLite3 version to 3.45.3
-![](/images/stisp/sqliteUnicode.png)
+![](/images/db/sqliteUnicode.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## SQLite FAQ(2/3)

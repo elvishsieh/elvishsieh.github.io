@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Introduction to SQL</title>
+<title>HeidiSQL Database Browser</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -44,75 +44,105 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# What is SQL?
+# HeidiSQL Installation
 </script></section>
 <section data-markdown><script type="text/template">
-## SQL Background(背景)
-- IBM developed the original version of SQL, originally called Sequel, as part of the System R project in the early 1970.
-- Sequel language name has changed to SQL(Structured Query Language).
-- In 1986, ANSI(American National Standards Institute) and ISO(the International Organization for Standardization) published an SQL.
-- Version: SQL-89 in 1989, SQL-92, SQL-2003
+## Install HeidiSQL for SQLite(1/8)
+- Download "Windows x64 Portable" version from [HeidiSQL Download Webpage](https://www.heidisql.com/download.php)
+![](/images/db/heidiSQL.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Example of SQL
-- 在資料庫建立一個資料表，資料表名稱命名為 customer
-<pre><code data-trim data-line-numbers>create  table customer
-(customer_name   char(20),
-customer_street    char(30),
-customer_city        char(30), primary key  (customer_name));
-</code></pre>
-- 從 customer 資料表中找出客戶字是 jenny 家的街道名稱
-<pre><code data-trim data-line-numbers>select customer_name, customer_street
-from customer
-where  customer_name=‘jenny’;</code></pre>
+## Install HeidiSQL for SQLite(2/8)
+- 將下載的檔案解壓縮 ≫ 開啟 **heidisql.exe** 執行檔
+![](/images/db/heidiSQL2.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(3/8)
+- 在 HeidiSQL 工作階段管理員按下**新增**按鈕
+![](/images/db/heidiSQL3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(4/8)
+- 命名要連結資料庫的名稱 ≫ 網路類型點選 **SQLite**
+![](/images/db/heidiSQL4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(5/8)
+-  建立一個副檔名為 .db 的資料庫檔案 ≫ 點選這個 .db 檔案 
+![](/images/db/heidiSQL5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(6/8)
+- 按下**開啟**按鈕，連結到儲存在硬碟內的 SQLite 資料庫
+![](/images/db/heidiSQL6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(7/8)
+- 按下**是**按鈕，儲存剛剛命名的連結資料庫
+![](/images/db/heidiSQL7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install HeidiSQL for SQLite(8/8)
+- 可以在**查詢**視窗輸入 SQL 指令，新增、儲存資料庫內的資料
+![](/images/db/heidiSQL8.png)
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## 何謂查詢(Query)
-- 在中文的文字解釋中，查詢與搜尋意思相近？<br />意思是<b>找</b>資料
-<li class="fragment roll-in">而英文(資料庫)的<b>查詢(Query)與搜尋(Search)不盡相同</b>
-<li class="fragment roll-in"><b>查詢(Query)</b>是資料表的搜尋功能，可以在資料表中<b>找出符合條件的紀錄資料，以便進行分析或計算。</b>
-<li class="fragment roll-in"><b>篩選(Filter)</b>是指在資料表中，<b>只顯示出需要的紀錄</b>，至於那些不符合條件就隱藏起來。
-<li class="fragment roll-in"><b>排序(Sorting)</b>是將一串資料<b>依照特定的方式進行排列</b>，例如：遞增排序、遞減排序；資料結構中應該有介紹各種不同的排序演算法。
+# Setting AutoComplete
 </script></section>
 <section data-markdown><script type="text/template">
-## 查詢準則
-<p>查詢準則是由<b>「欄位」、「常數」和「運算式」所組成</b>，此三種組成元素的意涵為：</p>
-- <b>欄位</b>：即資料表中的<b>欄位(field)</b>
-- <b>常數</b>：包括<b>數字、字串、日期等都是屬於常數</b>，例如：2.5、台中、2010/5/30等
-- <b>運算式</b>：由<b>「函數」、「欄位」、「計算公式」所組成</b>，其運算式中的<b>運算子可分為數學、比較、邏輯運算子和欄位參照等</b>
+## Setting AutoComplete(1/4)
+- 工具 ≫ 偏好設定
+![](/images/db/autoComplete.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## 數學運算子
-![](/images/db/mathOperator.png)
+## Setting AutoComplete(2/4)
+- **快速鍵**頁籤 ≫ SQL 選項
+![](/images/db/autoComplete2.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## 比較運算子
-![](/images/db/cmpOperator.png)
+## Setting AutoComplete(3/4)
+- 點選**顯示 SQL 補完建議** ≫ 右邊**快速鍵**輸入欄位按 "Ctrl + Space" 鍵
+![](/images/db/autoComplete3.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## 邏輯運算子
-![](/images/db/logicOperator.png)
+## Setting AutoComplete(4/4)
+- 在查詢視窗中按 **Ctrl + Space** 鍵，測試是否出現補完的建議
+![](/images/db/autoComplete4.png)
 </script></section>
-<section data-markdown><script type="text/template">
-## 特殊運算子
-![](/images/db/specOperator.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## 萬用字元
-![](/images/db/wildcard.png)
-</script></section>
-<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
-	
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Connect SQL Server
+</script></section>
+<section data-markdown><script type="text/template">
+### Connect SQL Server with HeidiSQL(1/4)
+- 新增 ≫ 命名要連結資料庫的名稱(Microsoft SQL Server)
+![](/images/db/connectSQL.png)
+</script></section>
+<section data-markdown><script type="text/template">
+### Connect SQL Server with HeidiSQL(2/4)
+- 選**Microsoft SQL Server(named pipe)** ≫ 主機欄位輸入 localhost ≫ 勾選**使用 Windows 認證** 
+![](/images/db/connectSQL2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+### Connect SQL Server with HeidiSQL(3/4)
+- 成功連結至 Microsoft SQL Server
+![](/images/db/connectSQL3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+### Connect SQL Server with HeidiSQL(4/4)
+- 取消勾選**使用 Windows 認證** ≫ 改以 sa 帳號、密碼連結 Microsoft SQL Server
+![](/images/db/connectSQL4.png)
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 

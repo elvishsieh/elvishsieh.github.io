@@ -278,6 +278,38 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+## 查詢準則
+<p>查詢準則是由<b>「欄位」、「常數」和「運算式」所組成</b>，此三種組成元素的意涵為：</p>
+
+- <b>欄位</b>：即資料表中的<b>欄位(field)</b>
+- <b>常數</b>：包括<b>數字、字串、日期等都是屬於常數</b>，例如：2.5、台中、2010/5/30等
+- <b>運算式</b>：由<b>「函數」、「欄位」、「計算公式」所組成</b>，其運算式中的<b>運算子可分為數學、比較、邏輯運算子和欄位參照等</b>
+</script></section>
+<section data-markdown><script type="text/template">
+## 數學運算子
+![](/images/db/mathOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 比較運算子
+![](/images/db/cmpOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 邏輯運算子
+![](/images/db/logicOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 特殊運算子
+![](/images/db/specOperator.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 萬用字元
+![](/images/db/wildcard.png)
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 ## Access 查詢(Query)的種類
 - <b>選取查詢</b>：依照你設定的「查詢準則」來查詢資料庫中的資料，此種查詢方式<b>不會更動資料表的內容</b>
 - <b>動作查詢</b>：可分為「製成資料表」、「新增」、「更新」、「刪除」，此種查詢方式<b>會更動資料表的內容</b>

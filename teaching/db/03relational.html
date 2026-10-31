@@ -44,19 +44,94 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
+
 <section><!--start block-->
+<section data-markdown><script type="text/template">
+# 資料庫的名詞
+</script></section>
+<section data-markdown><script type="text/template">
+## Excel 表的名詞
+- 活頁簿(Workbook)、工作表(Sheet)、儲存格(Cell)、**儲存格格式**、公式列、資料範圍(A3:F8)、A-Z 行(Column)、N 列(Row)
+![](/images/db/pivot.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯式資料庫的名詞
+- 在關聯式資料庫中，常見 Row、Column、Record 和 Field 這些名詞，它們的詳細解釋如下
+- Column(行) / Field(欄)
+	- 資料表中的**垂直方向**結構，用來定義資料的結構與型態(例如：這欄只能填數字、那欄只能填文字)
+	- 同一個 Column 裡的**所有資料都必須是相同的屬性**
+	- 在資料庫理論中常被稱為 **Attribute(屬性)**
+- Row(列) / Record(紀錄)
+	- 資料表中的**水平方向**結構，代表一個具體存在的獨立個體，它是組成資料庫表的基本資料單位
+	- 在資料庫理論中也常被稱為 **Tuple(元組)**
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料庫理論的名詞(1/2)
+- 資料庫是由數學線性代數推演而成，在資料庫理論書籍中常見名詞如下
+- **Tuple**(元組)
+	- 關係(Relation)中的一個元素，代表一筆獨立的實體資料
+	- 在數學理論中，一個 Table 裡的各個 Tuple(Row)是沒有先後順序之分的，**具有無序性**
+	- 理論上，同一個 Table 裡不能存在兩個完全一模一樣的 Tuple(必須有 Primary Key 來區分)，**具有唯一性**
+- **Attribute**(屬性)
+	- Tuple 中的某一個特徵或維度(即實務上的 Column)
+</script></section>
+<section data-markdown><script type="text/template">
+## 資料庫理論的名詞(2/2)
+- **Attribute**(屬性)
+	- 一個 Tuple 是由多個 Attribute 的值組合而成的，例如：一個**學生 Tuple**包含**學號、姓名、年齡**這三個 Attribute
+- **Domain**(定義域)
+	- 某個 Attribute 所有可能合法取值的集合
+	- 如**年齡這個 Attribute 的 Domain 被定義為 1 到 120 的整數**，填入 150 或 "張三" 就是不合法的，資料庫會拒絕寫入
+- Degree(度 / 元數)
+	- 一個 Relation(表)中所包含的 Attribute(欄位)總數量
+	- 一張員工表有**工號、姓名、部門、薪水 4 個欄位，這個 Relation 的 Degree 是 4**(4-元關係 / Quaternary relation)
+</script></section>
+<section data-markdown><script type="text/template">
+## 檔案、資料庫、模型理論名詞對照表
+
+| 應用程式 | 關聯式資料庫  | 模型理論  | 實際的意義 |
+| :--- | :--- | :--- | :--- |
+| **File** (Excel) | **Table** (資料表) | **Relation**(關係) |  儲存資料的二維結構 |
+| **Row** (列) | **Record** (紀錄) | **Tuple** (元組) | 一筆完整的實體資料 |
+| **Column** (行) | **Field** (欄位) | **Attribute**(屬性) | 資料的特徵或欄位定義 |
+| **Value Range** | **Data Type** (資料型態)  | **Domain**<br/> (定義域) | 某個屬性允許填入的值的集合 |
+|||||
+</script></section>
 <section data-markdown><script type="text/template">
 # 關聯式資料庫<br />(**R**elation **DBMS**) 
 </script></section>
 <section data-markdown><script type="text/template">
 ## 關聯式資料庫(RDBMS, 1/2)
-- 以學生繳費資料為例
+- 以學生繳費資料為例，圖中下方資料表的**學號關聯到學生個人資料、就讀學系等**
 ![](/images/db/relation2.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## 關聯式資料庫(RDBMS, 2/2)
-- 以學生的選課為例
+- 以學生選課為例，課程編號、學號關聯到課程、教師、學生
 ![](/images/db/relation3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 關聯的種類
+- 一對一(One to One)
+	- **key 值→key 值**作關聯(兩個 table 中共同的欄位，其內容都必須是唯一的)
+- 一對多(One to Many)
+	- **key 值→非 Key 值**
+- 多對多(Many to Many)
+	- **key 值→非 Key 值←key 值** (1→ ∞ →1)
+![](/images/db/relation4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 建立關聯時的注意事項
+- 建立關聯時，資料表必須要先建立 Primary Key
+- 建立 Primary  Key 的這個欄位資料必須是唯一
+- **一個資料表可以建立多個 Primary Key**
+- **在 Access 中要刪除資料表時，必須先刪除關聯圖，而要刪除關聯圖時，必須先刪除連接線**
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# KEY
 </script></section>
 <section data-markdown><script type="text/template">
 ## Super Key
@@ -76,35 +151,19 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Primary Key
-- Primary Key( Primary Key或主索引鍵)
+- Primary Key(主鍵或主索引鍵)
 	- 從 Candidate Key 中挑選出一個來當作 Primary Key
 	- Primary Key 同樣**具有唯一性、最小性**
 - Primary Key **不可以是空值(Null 值)**
 - Primary Key **不可以重複**
 - 通常一個關係(資料表)**至少有一個 Primary Key**
+- 資料表中 Primary Key**以下底線標示**
 ![](/images/db/pKey.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Foreign Key
 - Foreign Key 是**表格中的欄位其屬性值與另一個(或同一個)表格的 Primary Key(or Candidate Key) 的值域相同**，而形成表格間的關聯
 ![](/images/db/fkey.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## 關聯的種類
-- 一對一(One to One)
-	- **key 值→key 值**作關聯(兩個 table 中共同的欄位，其內容都必須是唯一的)
-- 一對多(One to Many)
-	- **key 值→非 Key 值**
-- 多對多(Many to Many)
-	- **key 值→非 Key 值←key 值** (1→ ∞ →1)
-![](/images/db/relation4.png)
-</script></section>
-<section data-markdown><script type="text/template">
-## 建立關聯時的注意事項
-- 建立關聯時，資料表必須要先建立 Primary Key
-- 建立 Primary  Key 的這個欄位資料必須是唯一
-- **一個資料表可以建立多個 Primary Key**
-- **在 Access 中要刪除資料表時，必須先刪除關聯圖，而要刪除關聯圖時，必須先刪除連接線**
 </script></section>
 <section data-markdown><script type="text/template">
 ## Composite Key
@@ -128,6 +187,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 | **定義** | 由多個欄位組成的 Primary Key | 由多個欄位組成，且其中至少一個欄位是 Foreign Key |
 | **欄位屬性** | 組成的欄位可以是單純的資料屬性，**不一定要是 Foreign Key** | 組成的欄位中**必須包含可以對照到其他資料表的 Foreign Key** |
 | **主要關係** | 用於單一資料表內部的唯一識別 | 通常用於**多對多(Many-to-Many)的關聯表中** |
+||||
 </script></section>
 <section data-markdown><script type="text/template">
 ## Composite Key 應用場景
@@ -153,6 +213,72 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 		- 欄位：<u>[Student ID] + [Course ID]</u>(**課號相同，內碼唯一**)
 		- 這兩個欄位除了合併起來能唯一識別一筆選課紀錄外，它們本身也是**指向其他資料表的 Foreign Key**
 </script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Normalization
+</script></section>
+<section data-markdown><script type="text/template">
+## 正規化(Normalization)
+- 資料庫正規化這個概念由電腦科學家 Edgar F. Codd 於 1970 年代提出，是關聯式資料庫設計的核心技術，主要**目的是降低資料重複性並避免資料更新異常(Anomalies)，以確保資料的一致性與完整性**
+- 在實務上，正規化會將**一張臃腫的資料表拆解成多張互相有關聯的小表**
+- 正規化的目的
+	- <b>去除資料的重複性(Eliminating Redundancy)</b>
+	- <b>去除不一致相依(Eliminating Inconsistent Dependency)</b>
+- 沒有正規化(Normalization)的資料表
+	- 可能形成資料的重複性
+	- 插入(insert)、刪除(delete)或更新(update)時可能產生異常
+</script></section>
+<section data-markdown><script type="text/template">
+## 去除重複性(1/2)
+- 以公司的薪資為例(<b>一人飾兩角，薪事知多少？</b>)
+![](/images/db/normal.png)
+![](/images/db/normal2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 去除重複性(2/2)
+![](/images/db/normal3.png)
+- 薪資可以透過資料表之間的關聯，建立關聯圖，使用查詢(Query)來取得薪資的報表(Report)
+![](/images/db/normal4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 去除不一致的相依性
+![](/images/db/normal5.png)
+- 張三的個人資料有異動，需要更新(update)資料庫的資料，例如：Email, 地址等資料，<b>因為紀錄(record)不只一筆，可能有些沒有被更新，而造成紀錄不一致</b>
+- <b>刪除(delete)張三的”總務”職務</b>這筆紀錄時，亦可能會刪除”採購”這一筆紀錄
+</script></section>
+<section data-markdown><script type="text/template">
+## 結論(Conclusion)
+- 正規化的型式必須符合下列兩種條件
+	- **去除重複性(Eliminating Redundancy)**
+		- 建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
+	- **去除不一致相依(Eliminating Inconsistent Dependency)**
+		- 資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
+- 正規化分析以後，將資料表分成幾個資料表，**資料表之間存在某種關聯性**，透過 **Foreign Key** 的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Normal Forms
+</script></section>
+<section data-markdown><script type="text/template">
+## 正規化步驟 (Normal Forms)
+</script></section>
+<section data-markdown><script type="text/template">
+
+| 正規形式 | 核心目標 | 簡單口訣與說明 |
+| :--- | :--- | :--- |
+| **第一正規化 (1NF)** | **欄位值原子化** | **欄位不可再分**。每個格子只能存單一值（不能把「多個電話」或「多個課程」用逗號塞在同一個格子裡），且必須定義**主鍵 (Primary Key)**。 |
+| **第二正規化 (2NF)** | **消除部分相依** | **非鍵欄位必須依賴「完整」的主鍵**。如果主鍵是由多個欄位組成的「複合主鍵」，其他欄位不能只跟其中一個欄位有關係。*（通常透過拆表來解決）* |
+| **第三正規化 (3NF)** | **消除遞移相依** | **非鍵欄位之間不能互相依賴**。例如 A 決定 B，B 決定 C，那 A 就會間接（遞移）決定 C。像是「總金額」由「單價 × 數量」算出，或者「部門名稱」依賴「部門代號」，都應該拆開。 |
+| **BC 正規化 (BCNF)** | **修正 3NF 缺陷** | 3NF 的加強版。確保**所有的決定因素都必須是候選鍵 (Candidate Key)**。 |
+||||
+</script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 </div>

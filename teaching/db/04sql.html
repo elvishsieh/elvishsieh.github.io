@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Normalization</title>
+<title>Introduction to SQL</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -44,55 +44,130 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## 正規化(Normalization)
-- 正規化(Normalization)的目的為何？
-	- <b>去除資料的重複性(Eliminating Redundancy)</b>
-	- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)</b>
-- 沒有正規化(Normalization)的資料表
-	- 可能形成資料的重複性
-	- 插入(insert)、刪除(delete) 或更新(update) 時可能產生異常
+# What is SQL?
 </script></section>
 <section data-markdown><script type="text/template">
-## 去除重複性(1/2)
-- 以公司的薪資為例(<b>一人飾兩角，薪事知多少？</b>)
-![](/images/db/normal.png)
-![](/images/db/normal2.png)
+## SQL Background(背景)
+- IBM developed the original version of SQL, originally called Sequel, as part of the System R project in the early 1970.
+- Sequel language name has changed to SQL(Structured Query Language).
+- In 1986, ANSI(American National Standards Institute) and ISO(the International Organization for Standardization) published an SQL.
+- Version: SQL-89 in 1989, SQL-92, SQL-2003
 </script></section>
 <section data-markdown><script type="text/template">
-## 去除重複性(2/2)
-![](/images/db/normal3.png)
-- 薪資可以透過資料表之間的關聯，建立關聯圖，使用查詢（Query）來取得薪資的報表（Report）
-![](/images/db/normal4.png)
+## Example of SQL(1/2)
+- 在資料庫建立一個資料表，資料表名稱命名為 Customers
+<pre><code data-trim data-line-numbers>CREATE TABLE Customers(
+	CustomerID INTEGER PRIMARY KEY NOT NULL,
+	Customers_Name	VARchar(50),
+	City	varchar(50),
+	Adderess varchar(100)
+);
+</code></pre>
+- 從 Customers 資料表中找出客戶 jenny 的城市名稱及地址
+<pre><code data-trim data-line-numbers>SELECT Customer_Name, City, Address
+FROM customers
+WHERE  Customer_Name=‘jenny’;</code></pre>
 </script></section>
 <section data-markdown><script type="text/template">
-## 去除不一致的相依性
-![](/images/db/normal5.png)
-- 張三的個人資料有異動，需要更新(update)資料庫的資料，例如：Email, 地址等資料，<b>因為紀錄(record)不只一筆，可能有些沒有被更新，而造成紀錄不一致</b>
-- <b>刪除(delete)張三的”總務”職務</b>這筆紀錄時，亦可能會刪除”採購”這一筆紀錄
+## Example of SQL(2/2)
+- 請同學使用 HeidiSQL 建立一個 Customers 資料表，插入多筆資料，並查詢某一位客戶的地址
+<pre><code>CREATE TABLE Customers(
+	CustomerID INTEGER PRIMARY KEY NOT NULL,
+	Cname	VARCHAR(50),
+	City	VARCHAR(50),
+	Adderess VARCHAR(100)
+);
+INSERT INTO Customers
+VALUES
+(NULL,'布尚雪', '台中市', '三民路三段129號'),
+(NULL,'柯吉霸', '高雄市', '中山路三段129號'),
+(NULL,'賴吉賽', '台北市', '重慶南路三段129號'),
+(NULL,'布尙頒', '新竹市', '光復路三段129號');</code></pre>
+
 </script></section>
 <section data-markdown><script type="text/template">
-## 結論
-- 正規化的型式必須符合下列兩種條件
-	- <b>去除重複性(Eliminating Redundancy)：</b>建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
-	- <b>去除不一致的相依性(Eliminating Inconsistent Dependency)：</b>資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
-- 正規化分析以後，將資料表分成幾個資料表，<b>資料表之間存在某種關聯性</b>，透過<b> Foreign Key</b>的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
+## 何謂查詢(Query)
+- 在中文的文字解釋中，查詢與搜尋意思相近？<br />意思是<b>找</b>資料
+<li class="fragment roll-in">而英文(資料庫)的<b>查詢(Query)與搜尋(Search)不盡相同</b>
+<li class="fragment roll-in"><b>查詢(Query)</b>是資料表的搜尋功能，可以在資料表中<b>找出符合條件的紀錄資料，以便進行分析或計算。</b>
+<li class="fragment roll-in"><b>篩選(Filter)</b>是指在資料表中，<b>只顯示出需要的紀錄</b>，至於那些不符合條件就隱藏起來。
+<li class="fragment roll-in"><b>排序(Sorting)</b>是將一串資料<b>依照特定的方式進行排列</b>，例如：遞增排序、遞減排序；資料結構中應該有介紹各種不同的排序演算法。
 </script></section>
 </section><!--end block-->
 
 <section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+# Query in Northwind 
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL language
+<pre><code data-trim data-line-numbers>SELECT *
+FROM Customers;
+--- This is comment
+SELECT CustomerID, ShipName, ShipAddress, ShipCity, ShipRegion
+FROM Orders
+WHERE ShipCity = '台中市';
+--- This is comment
+SELECT CustomerID, ShipName, ShipAddress, ShipCity, ShipRegion
+FROM Orders
+WHERE ShipCity = '台中市' AND ShipRegion = '中港';
+--- This is comment
+UPDATE Customers
+SET Country = 'TW'
+WHERE City = '台中市' AND Region = '中港區';
+</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## NULL is not 'NULL'(1/2)
+<pre><code data-trim data-line-numbers>UPDATE Customers
+SET Country = Null
+WHERE City = '台中市' AND Region = '中港區';</code></pre>
+![](/images/db/null.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## NULL is not 'NULL'(2/2)
+<pre><code data-trim data-line-numbers>UPDATE Customers
+SET Country = 'Null'
+WHERE City = '台中市' AND Region = '中港區';</code></pre>
+![](/images/db/null2.png)
+</script></section>
 <section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 <section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+# Loading NorthwindChinese
+</script></section>
+<section data-markdown><script type="text/template">
+## 載入北風中文版(1/5)
+- 新增一個名為**北風中文版**資料庫至 SSMS
+![](/images/db/northTW.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 載入北風中文版(2/5)
+- 拖曳下載的 NorthwindChinese.sql 至 SSMS ≫ 修改 USE [NorthwindChinese] 為 **USE [北風中文版]**
+![](/images/db/northTW2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 載入北風中文版(3/5)
+- 按下上方**執行**按鈕
+![](/images/db/northTW3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 載入北風中文版(4/5)
+- 顯示**已成功執行查詢**
+![](/images/db/northTW4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 載入北風中文版(5/5)
+- 執行查詢指令(**SELECT * FROM Customers;**)，看看是否有中文的資料
+![](/images/db/northTW5.png)
+</script></section>
 </section><!--end block-->
-	
+
 </div>
 </div>
 

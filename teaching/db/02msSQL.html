@@ -54,7 +54,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 主要版本與授權(目前最新主要版本是 SQL Server 2025)
 	- Enterprise 版：提供完整高可用性、記憶體內部(In-Memory)高效能與企業級安全性
 	- Standard 版：適用於部門與中小型組織的基本資料管理
-	- Developer 版：免費的完整功能版本，僅限於非生產環境(開發與測試)使用
+	- **Developer 版**：免費的完整功能版本，僅限於非生產環境(開發與測試)使用
 	- Express 版：免費版本，適合小型桌面、網頁與小型伺服器應用程式
 </script></section>
 <section data-markdown><script type="text/template">
@@ -76,40 +76,252 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- 用於建立與發佈互動式報表的本地端報表伺服器
 </script></section>
 <section data-markdown><script type="text/template">
-## Installation
+# Installation
+</script></section>
+<section data-markdown><script type="text/template">
+## Download SQL Server(1/2)
 - Go to [Microsoft SQL Server](https://www.microsoft.com/zh-tw/sql-server/sql-server-downloads) download webpage.
-![](/images/msSQLdb/install.png)
+![](/images/db/download.png)
 </script></section>
 <section data-markdown><script type="text/template">
-## Installation
+## Download SQL Server(2/2)
 - Download Enterprise Developer Edition
-![](/images/msSQLdb/install2.png)
+![](/images/db/download2.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template">
-## Installation
-- command
-mkdir D:\msSQLdb
+## Make Directory for SQL Server
+- Microsoft SQL Server **資料庫的資料預設是儲存在 C:\Program File\Microsoft SQL Server 資料夾內**，
+我們希望儲存在自己指定的資料夾，因此，在命令提示列輸入下列指令
+<pre><code data-trim data-line-numbers>mkdir D:\msSQLdb
 mkdir D:\msSQLdb\SQLBinary
 mkdir D:\msSQLdb\SQLData
 mkdir D:\msSQLdb\SQLLog
 mkdir D:\msSQLdb\SQLBackup
-mkdir D:\msSQLdb\SQLTemp
+mkdir D:\msSQLdb\SQLTemp</code></pre>
+- 同學可以下載我已經寫好的 [Powershell 程式](./mkSQLdir.ps1)，執行
+<pre><code>.\mkSQLdir.ps1</code></pre>
+- Microsoft SQL Server 安裝的教學影片
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
 <section data-markdown><script type="text/template">
-## SQL Server Management Studio
-- 安裝 [SQL Server Management Studio](https://learn.microsoft.com/zh-tw/ssms/install/install)
-![]()
+## Install SQL Server(1/17)
+![](/images/db/install.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(2/17)
+![](/images/db/install2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(3/17)
+![](/images/db/install3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(4/17)
+![](/images/db/install4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(5/17)
+![](/images/db/install5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(6/17)
+![](/images/db/install6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(7/17)
+![](/images/db/install7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(8/17)
+![](/images/db/install8.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(9/17)
+![](/images/db/install9.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(10/17)
+![](/images/db/install10.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(11/17)
+![](/images/db/install11.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(12/17)
+![](/images/db/install12.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(13/17)
+![](/images/db/install13.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(14/17)
+![](/images/db/install14.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(15/17)
+![](/images/db/install15.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(16/17)
+![](/images/db/install16.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Install SQL Server(17/17)
+- 完整的 Microsoft SQL Server [安裝教學影片](https://drive.google.com/file/d/1jy60bs_sg76rQu9e-pM7Ezl3gQWWnYBe/view?usp=sharing)
+![](/images/db/install17.png)
+</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+# Installation Center
+</script></section>
+<section data-markdown><script type="text/template">
+## Download Media 
+![](/images/db/media.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Mount SQL Server2025 ISO(1/2)
+- 開啟檔案總管 ≫ 在下載的 SQL Server ISO 檔按滑鼠右鍵 ≫ 開啟檔案 ≫ 選取 **Windows 檔案總管**
+![](/images/db/mount.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Mount SQL Server2025 ISO(2/2)
+- 將 下載的 SQL Server ISO 掛載到 E:
+![](/images/db/mount2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 卸載 ISO 檔案
+- 在掛載的 ISO 檔案按滑鼠右鍵 ≫ 點選**退出**
+![](/images/db/unmount.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## 再掛載 ISO 檔案
+- 在下載的 SQL Server ISO 檔按滑鼠右鍵 ≫ 點選**掛接**
+![](/images/db/mount3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL Server 安裝中心(1/4)
+- 開啟 SQL Server Installation Center ≫ 點選**安裝**
+![](/images/db/center.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL Server 安裝中心(2/4)
+- 點選**新的 SQL Server 獨立安裝或將功能新增至現有安裝**
+![](/images/db/center2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL Server 安裝中心(3/4)
+- 瀏覽掛載的 SQL Server2025 的 DVD 安裝媒體
+![](/images/db/center3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## SQL Server 安裝中心(4/4)
+![](/images/db/install6.png)
+</script></section>
 </section><!--end block-->
-	
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Install SSMS
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SSMS(1/4)
+- 下載 [SQL Server Management Studio](https://learn.microsoft.com/zh-tw/ssms/install/install)
+![](/images/db/ssms.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SSMS(2/4)
+![](/images/db/ssms2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SSMS(3/4)
+![](/images/db/ssms3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Installing SSMS(4/4)
+![](/images/db/ssms4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+# Login SQL Server
+</script></section>
+<section data-markdown><script type="text/template">
+## Login SQL Server with SSMS(1/6)
+- 使用 **Windows 驗證**方式登入
+![](/images/db/ssmsLogin.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Login SQL Server with SSMS(2/6)
+![](/images/db/ssmsLogin2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Login SQL Server with SSMS(3/6)
+![](/images/db/ssmsLogin3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Logout SQL Server with SSMS(4/6)
+- **中斷(登出)** SQL Server 連結
+![](/images/db/ssmsLogin4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Login SQL Server with SSMS(5/6)
+- 使用 **SQL Server 驗證**方式登入
+![](/images/db/ssmsLogin5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Login SQL Server with SSMS(6/6)
+- 登入 Microsoft SQL Server [教學影片](https://drive.google.com/file/d/1S9ANEJC3JsRA2SzRKBmJCdOYsb0R-Bfl/view?usp=sharing)
+![](/images/db/ssmsLogin3.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Loading Northwind DB
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(1/8)
+- 下載 [Northwind(北風)](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs) Database or [北風中文版](https://github.com/topcattw/NorthwindChinese)
+![](/images/db/northdb.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(2/8)
+- 登入 SQL Server ≫ 點選**資料庫** ≫ 按滑鼠右鍵 ≫ 新增資料庫
+![](/images/db/northdb2.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(3/8)
+-  輸入 **Northwind** 資料庫名稱 ≫ 按**確定**按鈕
+![](/images/db/northdb3.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(4/8)
+-  點選 **Northwind** 資料庫 ≫ 點選**新增查詢**按鈕
+![](/images/db/northdb4.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(5/8)
+- 將下載的 instnwnd.sql 拖曳到新增查詢畫面中
+![](/images/db/northdb5.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(6/8)
+-  點選上方**執行**按鈕，執行 instnwnd.sql 這個內部的 SQL 指令
+![](/images/db/northdb6.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(7/8)
+- 在**訊息**欄位顯示**命令已成功完成。**就表示已經載入 Northwind 資料庫
+![](/images/db/northdb7.png)
+</script></section>
+<section data-markdown><script type="text/template">
+## Northwind DB with SSMS(8/8)
+-  關閉所有查詢視窗 ≫ 點選左方**資料表**，顯示 Northwind 內的所有資料表
+![](/images/db/northdb8.png)
+</script></section>
+</section><!--end block-->
+
 </div>
 </div>
 
