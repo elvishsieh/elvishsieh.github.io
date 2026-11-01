@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>標題與排版(Heading and Typesetting)</title>
+<title>Heading and Typesetting</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -45,73 +45,148 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# 文字排版(typesettng)
+# Headings
 </script></section>
 <section data-markdown><script type="text/template">
 ## 標題文字(1/2)
-- **```# 標題一```** 的結果是 
-# 標題一
-- **```### 標題三```** 的結果是 
-### 標題三
-- **```###### 標題六```** 的結果是 
-###### 標題六
-</script>
-</section>
+
+| Markdown 語法| HTML 語法 | 實際顯示的效果  |
+| :--- | :--- | :--- |
+| #<sub>▵</sub>標題 1 | `<h1>標題 1</h1>` | <h1> 標題 1</h1> |
+| ##<sub>▵</sub>標題 2 | `<h2>標題 2</h2>` | <h2> 標題 2</h2> |
+| ###<sub>▵</sub>標題 3 | `<h3>標題 3</h3>` | <h3> 標題 3</h3> |
+| ####<sub>▵</sub>標題 4 | `<h4>標題 4</h4>` | <h4> 標題 4</h4> |
+| #####<sub>▵</sub>標題 5 | `<h5>標題 5</h5>` | <h5> 標題 5</h5> |
+| ######<sub>▵</sub>標題 6 | `<h6>標題 6</h6>` | <h6> 標題 6</h6> |
+|||
+</script></section>
 <section data-markdown><script type="text/template">
 ## 標題文字(2/2) 
-| ✅ Do this 		| ❌ Don't do this 	|
-| :--- 		         | :---					|
-| ```# Here's a Heading``` | ```#Here's a Heading``` |
-| ```Try to put a blank line before...```<br /> | Try to put a blank line before...  |
-|									     | \# Heading <br />
-```# Heading```				<br />				 ..and after a heading.<br />		
-							<br />			 									
-```...and after a heading.``` 												|
+- **另一種**標題 1, 2 的 Markdown 寫法
+	- 標題文字 1 **下方使用 = 號**來標註文字
+<pre><code data-trim data-line-numbers>標題文字 1
+==========
+</code></pre>
+
+	- 標題文字 2 **下方使用 - 符號** (dash, 減號) 來標註文字
+	<pre><code data-trim data-line-numbers>標題文字 2
+	  -</code></pre>
+下方只要一個 - 就有標題文字 2 的效果
+-
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template">
-## 文字效果
-- **```**粗體文字與的語法**```** 的結果：  **粗體文字的語法** X<sdown>2</sdown>
-- **```*這是斜體文字的語法*```** 的結果： *這是斜體文字的語法*
-- **```_這是另一種斜體文字的語法_```** 的結果： _這是另一種斜體文字的語法_
-- **```~~這是刪除線的語法~~```** 的結果： ~~這是刪除線的語法~~
-- **```> 這是區塊標示文字```** 的結果：
-> 這是區塊標示文字的結果，讓我們可以標示的些文字是特殊的一段文字片段
-</script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-# 項目符號
+# Lists
 </script></section>
 <section data-markdown><script type="text/template">
-	- 項目符號 1
-- 項目符號 2
-    * 下一層項目符號 1
-    * 下一層項目符號 2
-- 項目符號 3
-
-1. 數字項目符號 1
-2. 數字項目符號 2
+## Unoder/Order List(1/2)
+- 利用 **- 和縮排**來達到 Unorder Lists 效果
+<pre><code data-trim data-line-numbers>- 項目符號 1
+  - 項目符號 2
+	- 利用縮排達到下一層的項目符號 1
+	- 利用縮排達到下一層的項目符號 2
+  - 項目符號 3
+</code></pre>
+- 利用 **\* 和縮排**來達到 Unorder List 的效果
+<pre><code data-trim data-line-numbers>* 項目符號 1
     * 下一層項目符號 1
     * 下一層項目符號 2 
-3. 數字項目符號 3
-
-* 項目符號 1
-    - 下一層項目符號 1
-    - 下一層項目符號 2 
-* 項目符號 2 
+  * 項目符號 2 </code></pre> 
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## Unoder/Order List(2/2)
+- 混和使用 **-, \* 和縮排**來達到 Unorder Lists 效果
+<pre><code data-trim data-line-numbers>- 項目符號 1
+  - 項目符號 2
+	* 利用縮排達到下一層的項目符號 1
+	* 利用縮排達到下一層的項目符號 2
+  - 項目符號 3
+</code></pre>
+- 利用**數字, . 和縮排**來達到 Order/Unorder Lists 效果
+<pre><code data-trim data-line-numbers>1. 編號的項目符號 1
+  2. 編號的項目符號 2
+	 * 下一層項目符號 1
+	 * 下一層項目符號 2 
+  3. 編號的項目符號 3
+</code></pre>
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
+# Typesettng
+</script></section>
+<section data-markdown><script type="text/template">
+## 空格、縮排與空白行(1/2)
+- 標題、項目符號之間空白與縮排
+	<pre><code data-trim data-line-numbers># 標題文字
+  - 第一項文字
+	  1. 編號項目 1
+	  2. 編號符號 2
+  - 第二項文字
+	</code></pre>
+- **結尾多個空格等同於換行**
+	<pre><code data-trim data-line-numbers>這是第一行文字，後面結尾有多個空格形成一行 ▵▵▵
+  第二行文字的開始，起因於前一行最後結尾有多個空格
+
+  第三行**換行也可以使用空白行來形成一行**，與後面結尾有多個空格是相同的效果</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 空格、縮排與空白行(2/2)
+- 段落效果就是在標題文字的前面、後面個留一行空白行
+
+	<pre><code data-trim data-line-numbers>這是一行文字，在標題文字前面，後面若是標題文字，請空一行
+
+  # 第二章 資料處理與備份
+
+  前面若是標題文字，在標題文字後面也留有一行空白行，請空一行
+
+  這是另一個段落，前面留一行空白行，等同於 HTML &lt;p> 標籤段落的效果
+	</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## 文字效果
+| Markdown 語法| HTML 語法 | 顯示的效果  |
+| :--- | :--- | :--- |
+| ```**粗體文字**``` | `<strong>粗體文字</strong>` | **粗體文字** |
+| ```__另一種粗體__``` | `<strong>粗體文字</strong>` | __粗體文字__ |
+| ```*斜體文字*``` | `<em>斜體文字</em>` | *斜體文字* |
+| ```_另一種斜體文字_``` | `<em>斜體文字</em>` | _斜體文字_ |
+| ```~~刪除線~~``` | `<del>刪除線</del>` | ~~刪除線~~ |
+| ```> 區塊文字``` | `<mark>區塊文字</mark>` | <mark>區塊文字</mark> |
+| ```> 第二行區塊文字``` | `<mark>第二行區塊文字</mark>` | <mark>第二行區塊文字</mark> |
+| ```>> 巢狀式區塊文字``` | `<mark>巢狀式區塊文字</mark>` | <mark>巢狀式區塊文字</mark> |
+|||
+- 需要更複雜的文字效果，必須使用其他語言的語法來達成，例如 HTML, **$LaTeX$**, XML, etc... 
+</script></section>
+<section data-markdown><script type="text/template">
+## 巢狀式區塊文字的寫法與效果(1/2)
+<pre><code data-trim data-line-numbers># 古代時期的臺灣
+
+## 前言
+
+> **臺灣**從 17 世紀開始有國家政權的出現，歷史上曾經歷多次遞嬗，最近一次為 1945 年起納入中華民國版圖。中華民國政府於 1949 年 12 月因中國內戰失利而將政府遷至臺灣政經中心台北，使臺灣自 1950 年起成為中華民國的主要國土並延續迄今，因而「臺灣」一詞成為現今中華民國在國際上的主要代稱。
+
+## 13世紀以前
+
+> 臺灣在舊石器時代晚期（50,000 年前 ─ 10,000 年前）已開始有人類居住。較能夠確定的，是新石器時代（始於紀元前 5,000 年）以來的史前文化，是南島語系民族的遺留。主要的文化有舊石器時代的台東長濱文化、苗栗網形文化、台南左鎮人以及新石器時代的大坌坑文化、圓山文化、營埔文化、卑南文化。
+
+>而馬來波里尼西亞土著民族在也於 13 世紀以前就存在於臺灣島上，這些原住民分佈於臺灣全島，屬於南島語系。臺灣原住民的缺齒、紋身、口琴、卉服、織貝、腰機紡織、貫頭衣、親族外婚、父子連名、年齡分級、老人政治、鳥佔、獵首、靈魂崇拜、室內葬等特徵，都屬印度尼西亞古文化特質。
+>>《三國志》記載三國時代吳國曾指派軍隊登陸夷洲，《隋書》則有隋煬帝派兵攻打流求國的記載。但尚未證實這些中國古籍中的記載的地名就是今日的臺灣。</code></pre>
+- 上面 markdown 的原始程式碼可以連結到[我的教學網站(tw.md)](./tw.md) 下載
+	- HTML 的版本請連結到 [[htttps://elvishsieh.github.io/teaching/html5/example/taiwan.html]](/teaching/html5/example/taiwan.html)瀏覽
+</script></section>
+<section data-markdown><script type="text/template">
+## 巢狀式區塊文字的寫法與效果(2/2)
+- 請注意下圖黃色巢狀式區塊文字的效果
+![](/images/md/markTW.png)
+</script></section>
 </section><!--end block-->
 
 </div>
 </div>
-
 <script src="/revealjs/lib/js/head.min.js"></script>
 <script src="/revealjs/dist/reveal.js"></script>
 <script src="/revealjs/plugin/zoom/zoom.js"></script>
@@ -120,6 +195,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -133,7 +209,7 @@ history: true,
 center: true,
 slideNumber: true,
 mouseWheel: true,
-transition: 'slide', // none/fade/slide/convex/concave/zoom
+transition: 'fade', // none/fade/slide/convex/concave/zoom
 
 menu: {
 	side: 'left',
@@ -217,7 +293,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }

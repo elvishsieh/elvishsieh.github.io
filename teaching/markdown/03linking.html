@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>超連結(Hyper Linking)介</title>
+<title>Hyper Linking</title>
 
 <meta name="description" content="Tutorial of web design for primer">
 <meta name="author" content="Elvis Hsieh">
@@ -45,24 +45,42 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
-## 超連結(Hyper Linking)
-- [這是連結到 Google 網站的超連結語法](https://www.google.com)
-```[這是連結到 Google 網站的超連結語法](https://www.google.com)```
-- 連結到圖檔的超連結語法 ![](/images/md/markdownWhite.svg)
-```![](./images/md/markdownWhite.svg)```
-- [Email 超連結的語法](mailto:elvis.hsieh@gmail.com)
-```[Email 超連結的語法](mailto:elvis.hsieh@gmail.com)```
-</script>
-</section>
-</section><!--end block-->
-
-<section><!--start block-->
-<section data-markdown><script type="text/template"></script></section>
+# Hyper Linking
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結(1/2)
+| Markdown 語法 | HTML 語法 | 顯示的效果 |
+| :--- | :--- | :--- |
+| `[Google](https://google.com)` | `<a href="https://google.com">Google</a>` | [Google](https://google.com) |
+| `<user@example.com>` 或 `[寄信給我](mailto:user@example.com)` | `<a href="mailto:user@example.com">寄信給我</a>` | <user@example.com> 或 [寄信給我](mailto:user@example.com) |
+| `[關於我們](/about.html)` | `<a href="/about.html">關於我們</a>` | 關於我們 (連至同網站根目錄下的網頁) |
+| `[下一頁](page2.html)` | `<a href="page2.html">下一頁</a>` | 下一頁 (連至同資料夾下的網頁) |
+| `[讀取圖片](../images/logo.png)` | `<a href="../images/logo.png">讀取圖片</a>` | 讀取圖片 (連至上一層資料夾的圖片) |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## 超連結(2/2)
+| Markdown  | HTML  | 顯示的效果 |
+| :--- | :--- | :--- |
+| `- [第1章](#第1章)`<br>`- [第2章](#第2章)` |  | **TOC 目錄**<br> [第1章](#第1章)<br> [第2章](#第2章) |
+| `[跳到第1章](#第1章)` | `<a href="#第1章">跳到第1章</a>` | [前往目標](#target-id) *(點擊跳轉至指定 ID 位置)* |
+| `# 標題文本` 或 `<div id="target-id">內容</div>` | `<h1 id="標題文本">標題文本</h1>` 或 `<div id="target-id">內容</div>` | 建立一個可供跳轉的**錨點（ID）** |
+| `[我的最愛][1]`<br> | `<a href="https://google.com" title="Google">我的最愛</a>` | [我的最愛][1] *(參考文獻樣式：文內簡潔，網址統一寫在文末)* <br> |
+|||
+<p>[1]: https://google.com "Google"</p>
+</script></section>
+<section data-markdown><script type="text/template">
+# Linking image
+</script></section>
+<section data-markdown><script type="text/template">
+## 連結圖形
+<pre><code data-trim data-line-numbers>![](/images/md/markTW.png)</code></pre>
+![](/images/md/markTW.png)
+</script></section>
 </section><!--end block-->
 
 </div>
 </div>
-
 <script src="/revealjs/lib/js/head.min.js"></script>
 <script src="/revealjs/dist/reveal.js"></script>
 <script src="/revealjs/plugin/zoom/zoom.js"></script>
@@ -71,6 +89,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <script src="/revealjs/plugin/markdown/markdown.js"></script>
 <script src="/revealjs/plugin/highlight/highlight.js"></script>
 <script src="/revealjs/plugin/menu/menu.js"></script>
+<script src="/revealjs/plugin/math/math.js"></script>
 <script src="/revealjs/plugin/chalkboard/plugin.js"></script>
 <script src="/revealjs/plugin/customcontrols/plugin.js"></script>
 <script src="/revealjs/plugin/animate/svg.min.js"></script>
@@ -84,7 +103,7 @@ history: true,
 center: true,
 slideNumber: true,
 mouseWheel: true,
-transition: 'slide', // none/fade/slide/convex/concave/zoom
+transition: 'fade', // none/fade/slide/convex/concave/zoom
 
 menu: {
 	side: 'left',
@@ -168,7 +187,7 @@ toolbar: {
 },
 
 // Optional reveal.js plugins
-plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard ],
+plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealAnimate, RevealMenu, RevealCustomControls, RevealChalkboard, RevealMath.KaTeX ],
 
 dependencies: [
 //{ src: '/revealjs/plugin/toolbar/toolbar.js' }
