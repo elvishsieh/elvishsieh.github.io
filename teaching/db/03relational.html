@@ -117,7 +117,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 一對多(One to Many)
 	- **key 值→非 Key 值**
 - 多對多(Many to Many)
-	- **key 值→非 Key 值←key 值** (1→ ∞ →1)
+	- **key 值→非 Key 值←key 值** (1→ ∞ ←1)
 ![](/images/db/relation4.png)
 </script></section>
 <section data-markdown><script type="text/template">
@@ -125,6 +125,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 建立關聯時，資料表必須要先建立 Primary Key
 - 建立 Primary  Key 的這個欄位資料必須是唯一
 - **一個資料表可以建立多個 Primary Key**
+- 在 Microsoft SQL Server 要刪除 Table(資料表)時，必須要先刪除所有的 Constraint，換言之，必須先刪除 Table(資料表) 的所有 Foreign Key, Composite Key, Primary Key,..., etc. 
 - **在 Access 中要刪除資料表時，必須先刪除關聯圖，而要刪除關聯圖時，必須先刪除連接線**
 </script></section>
 </section><!--end block-->
@@ -162,25 +163,40 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script></section>
 <section data-markdown><script type="text/template">
 ## Foreign Key
-- Foreign Key 是**表格中的欄位其屬性值與另一個(或同一個)表格的 Primary Key(or Candidate Key) 的值域相同**，而形成表格間的關聯
+- Foreign Key 是**資料表中的欄位其屬性值與另一個(或同一個)資料表的 Primary Key(or Candidate Key) 的值域相同**，而形成資料表間的關聯
 ![](/images/db/fkey.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## Composite Key
 - Composite Key(組合鍵) **是一組由兩個或多個資料表欄位組合而成的鍵，用來唯一識別資料表中的每一筆紀錄**
 	- 單獨任一欄位可能重複，但當這些欄位的值合併在一起時，必須具有唯一性
-	- 與單一 Primary Key的差別在於**一般 Primary Key(Simple Primary Key)只包含一個欄位，而 Composite Key 包含多個欄位**
-- 在 SQL 中建立 Composite Key 時，語法如下
-<pre><code data-trim data-line-numbers>CREATE TABLE Student_Course (
-    StudentID INT,
-    CourseID INT,
-    PRIMARY KEY (StudentID, CourseID)
-);
-</code></pre>
+	- **一般 Primary Key(Simple Primary Key)只包含一個欄位，而 Composite Key 包含多個欄位**
+
+| <u>學年</u>  | <u>學期</u> | <u>課號</u>| 課程名稱 | 學號 |學生姓名 | 成績 |
+| :---: | :---: | :---      | :---   | :---    | :---:   | :---: |
+| **113** | 1    | cs103     | 資料庫系統 | 710002 | **賴吉賽** | 90 |
+| 113 | 1    | cs103     | 資料庫系統 | 710005 |顧博明 | 85 |
+| **114** | 1    | cs103     | 資料庫系統 | 710002 |**賴吉賽** | 73 |
+| 114 | 1    | cs103     | 資料庫系統 | 710005 |顧博明 | 60 |
+| 114 | 1    | ac103     | 資料庫系統 | 710012 |柯吉霸 | 65 |
+|||||||
 </script></section>
 <section data-markdown><script type="text/template">
 ## Compound Key
 - Compound Key 是指由多個欄位組成，且**其中至少一個欄位是 Foreign Key 組合成的 Primary Key**
+- 台中科技大學與台中護專合併前，學生資料表的學號都是 Primary Key，**兩校合併後，學號不再是唯一值，不能當成 Primary Key**，
+此時加入校區的欄位，建立一個新的 Compus 資料表，學生資料表參考 campus_id，加入到學生資料表組成 Compound Key
+
+| <u>**campus_id**</u> | campus | <u>**student_id**</u> | name | address | phone |
+| :---      | :---   | :---      | :--- | :---    | :--- |
+| **1001**    | 三民校區 | **710012** | 柯吉霸 | 台北市 | 0922-123456 |
+| 1002    | 民生校區 | 412001 | 布尚雪 | 台中市 | 0928-111365 |
+| 1003    | 南屯校區 | 512031 | 步尚頒 | 新竹市 | 0945-456123 |
+| **1002**    | 民生校區 | **710012** | 柯吉霸 | 高雄市 | 0988-566456 |
+|||||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Composite/Compound Key Summary
 - 在資料庫設計中，Compound Key(複合鍵) 與 Composite Key(組合鍵)兩者都由兩個或多個欄位組成，但兩者的**關鍵差異在於欄位本身是否包含 Foreign Key**
 | Property | Composite Key | Compound Key |
 | :---: | :--- | :--- |
@@ -190,7 +206,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 ||||
 </script></section>
 <section data-markdown><script type="text/template">
-## Composite Key 應用場景
+## Compound Key 應用場景
 - **多對多(Many-to-Many)關聯表**
 	- 選課表(學號+課號)或訂單明細表(訂單編號+產品編號)
 - **組合唯一識別**
@@ -200,14 +216,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	- **強制維護多欄位相依的資料完整性**
 - 缺點
 	- **查詢與進行 Join 關聯時，因需比對多個欄位**，CPU 消耗較高、效能較差
-	- 若業務需求變動，維護 Foreign Key 動會更加複雜
+	- 若業務需求變動，維護 Foreign Key 異動會更加複雜
 </script></section>
 <section data-markdown><script type="text/template">
 ## Composite/Compound Key 範例
 - Composite Key(組合鍵) 範例
 	- 假設有一個全台住戶的資料表，**路名或門牌號碼可能重複**，必須合併在一起才能唯一識別
 		- 欄位：<b><u>[縣市] + [路名] + [門牌號碼]</u></b>
-		- 這三個欄位只是單純的文字或數字，它們不是對照到其他資料表的Foreign Key 但合併起來具有唯一性
+		- 這三個欄位只是單純的文字或數字，它們不是對照到其他資料表的 Foreign Key 但合併起來具有唯一性
 - Compound Key(複合鍵) 範例
 	- 在學生選課系統中，有學生資料表與課程資料表，而**選課紀錄資料表要記錄哪個學生選了哪門課**
 		- 欄位：<u>[Student ID] + [Course ID]</u>(**課號相同，內碼唯一**)
@@ -217,18 +233,91 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+# 功能相依性
+</script></section>
+<section data-markdown><script type="text/template">
+## Functional Dependency(1/2)
+- 已知一個實體關係表 $r(R)$，若 $K$ 是 $R$ 的子集(ie, $K \subseteq R$), 且 $K$ 是 Superkey，
+  在實體 $r(R)$ 中的所有 tuples $t_{1}, t_{2}$，若 $t_{1} \neq t_{2}$ 則 $t_{1}[K] \neq t_{2}[K]$
+	- 上面的關係式意味著在 $r(R)$ 實體關係中，任何屬於 Superkey $K$ 屬性的 tuples 都不相等，都是唯一的一筆 tuple
+- 已知一個實體關係表 $r(R)$ 中所有 tuples $t_{1}, t_{2}$，
+若 $t_{1}[\alpha] =  t_{2}[\alpha]$ 使得  $t_{1}[\beta] =  t_{2}[\beta]$, 則我們稱 $\alpha \rightarrow \beta$ 為 Functional Dependency. 
+- $K$ 是關係表 $r(R)$ 的 Superkey, 且 Functional Dependency $K \rightarrow R$, 則 $t_{1}[K] =  t_{2}[K]$ 使得  $t_{1}[R] =  t_{2}[R]$(ie, $t_{1} =  t_{2}$, explain in reference Book p.339)
+</script></section>
+<section data-markdown><script type="text/template">
+## Functional Dependency(2/2)
+- 在關聯式資料庫中，功能相依性(Functional Dependency, abbv. FD)指的是資料表 $r(R)$ 內**欄位與欄位之間決定與被決定的因果關係**
+- 關聯資料表 $r(\alpha, \beta)$ 的欄位 $\beta$ 功能相依於欄位 $\alpha$，數學符號記作 $\alpha \rightarrow \beta$ 意思是只要 $\alpha$ 的值確定了，$\beta$ 的值就唯一確定，絕對不會有第二種可能
+- 例如<b>姓名$(\beta)$相依於身分證字號$(\alpha)$</b>，只要身分證字號$(\alpha)$確定，就一定能查到唯一對應的姓名$(\beta)$
+- 功能相依性主要分為以下三大類
+	- 完全功能相依 (Full Functional Dependency)
+	- 部分功能相依 (Partial Functional Dependency)
+	- 遞移相依(Transitive Dependency)
+</script></section>
+<section data-markdown><script type="text/template">
+## 完全功能相依(Full FD)
+- **欄位 $\beta$ 必須依賴由多個欄位組成的 Primary Key(Composite/Compound Key**)，**少看任何一個欄位都無法唯一決定 $\beta$ 的值**
+- 例如：大專院校的選課成績表，Primary Key 是由學號與課號組成的 Composite/Compound Key
+	- (學號, 課號) $\rightarrow$ 成績
+	- 如果你只知道學號，不知道他修哪一科，就無法決定成績
+	- 如果你只知道課號，不知道是誰考的，也無法決定成績
+	- **必須同時知道學號與課號**，才能得到唯一的成績，這就是完全功能相依
+</script></section>
+<section data-markdown><script type="text/template">
+## 部分功能相依(Partial FD)
+- 欄位 $\beta$ 不需要整個 Composite Key，它**只依賴 Composite Key 中的某一部分欄位**
+- 在上一張投影片的選課成績表，加入了學生姓名的欄位
+	- (**學號**, 課號) $\rightarrow$ **學生姓名**
+	- 理論上，Compostie Key 可以決定表內的所有欄位(完全功能相依)
+	- 但實際上，我們只要知道學號，就可以決定學生姓名了，根本不需要知道他選了什麼課號
+	- 此時，**學生姓名只相依於 Composite Key 的一半(學號)，這就是部分功能相依**
+	- 資料庫設計中，**第二正規化(2NF)的目的就是要把部分功能相依的欄位切出去獨立成新表**，以避免資料重複與更新異常
+</script></section>
+<section data-markdown><script type="text/template">
+## 遞移相依(Transitive Dependency)
+- 欄位 $\alpha$ 決定了欄位 $\beta$，欄位 $\beta$ 又決定了欄位 $\gamma(\alpha \rightarrow \beta \quad and\quad \beta \rightarrow \gamma)$，非主鍵欄位之間產生了間接的決定關係
+- 若有一張員工基本資料表，Primary Key 是員工編號
+	- 員工編號$(\alpha) \rightarrow$ 部門編號$(\beta)$ (知道員工就知道他在哪部門)
+	- 部門編號$(\beta) \rightarrow$ 部門名稱$(\gamma)$ (知道部門編號就知道部門名稱)
+	- 隱含了員工編號 $(\alpha) \rightarrow$ 部門名稱 $(\gamma)$ 的關係
+	- 雖然 Primary Key(員工編號)可以決定部門名稱，但**它是透過部門編號遞移過去的，這就叫做遞移相依**
+	- **第三正規化(3NF)的目的就是消除遞移相依**，把部門資料單獨拉出一張部門表，避免當同部門有很多員工時，部門名稱被重複存了好幾次
+</script></section>
+<section data-markdown><script type="text/template">
+## 三種相依性總結對照
+
+| 相依性類型 | 主鍵型態 | 相依特徵 | 解決該問題的正規化階段 |
+| :--- | :--- | :--- | :--- |
+| **完全功能相依** | 單一或 Composite Key | 必須靠完整主鍵才能決定該欄位 | 正常且健康的狀態(符合 2NF) |
+| **部分功能相依** | 必定是 Composite Key | 只要主鍵的一部分就能決定該欄位 | 第二正規化 (2NF) 消除此現象 |
+| **遞移相依** | 任何主鍵型態 | 非主鍵欄位之間存在 $\alpha$ → $\beta$ → $\gamma$ 的依存關係 | 第三正規化 (3NF) 消除此現象 |
+||||
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Normalization
 </script></section>
 <section data-markdown><script type="text/template">
 ## 正規化(Normalization)
-- 資料庫正規化這個概念由電腦科學家 Edgar F. Codd 於 1970 年代提出，是關聯式資料庫設計的核心技術，主要**目的是降低資料重複性並避免資料更新異常(Anomalies)，以確保資料的一致性與完整性**
+- 資料庫正規化(Normalization)這個概念由電腦科學家 Edgar F. Codd 於 1970 年代提出，是關聯式資料庫設計的核心技術
+- 正規化是將資料表進行結構化設計的過程，主要目的是**減少資料重複性**(Redundancy)並**消除資料更新異常**(Anomalies)，以確保資料的一致性與完整性
 - 在實務上，正規化會將**一張臃腫的資料表拆解成多張互相有關聯的小表**
-- 正規化的目的
-	- <b>去除資料的重複性(Eliminating Redundancy)</b>
-	- <b>去除不一致相依(Eliminating Inconsistent Dependency)</b>
-- 沒有正規化(Normalization)的資料表
+- 每個階段(1-3 NF, BCNF)**都建立在前一個階段的基礎之上**
+	- 例如：符合 2NF 必須先符合 1NF
+- 沒有正規化的資料表
 	- 可能形成資料的重複性
 	- 插入(insert)、刪除(delete)或更新(update)時可能產生異常
+</script></section>
+<section data-markdown><script type="text/template">
+## 正規化的目的
+- 正規化的型式必須符合下列兩種條件
+	- **去除重複性(Eliminating Redundancy)**
+		- 建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
+	- **去除不一致相依(Eliminating Inconsistent Dependency)**
+		- 資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
+- 正規化分析以後，將資料表分成幾個資料表，**資料表之間存在某種關聯性**，透過 **Foreign Key** 的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
 </script></section>
 <section data-markdown><script type="text/template">
 ## 去除重複性(1/2)
@@ -248,15 +337,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 - 張三的個人資料有異動，需要更新(update)資料庫的資料，例如：Email, 地址等資料，<b>因為紀錄(record)不只一筆，可能有些沒有被更新，而造成紀錄不一致</b>
 - <b>刪除(delete)張三的”總務”職務</b>這筆紀錄時，亦可能會刪除”採購”這一筆紀錄
 </script></section>
-<section data-markdown><script type="text/template">
-## 結論(Conclusion)
-- 正規化的型式必須符合下列兩種條件
-	- **去除重複性(Eliminating Redundancy)**
-		- 建立沒有重複資料的關聯表，因為重複資料不只浪費資料庫的儲存空間，而且會產生資料維護上的問題
-	- **去除不一致相依(Eliminating Inconsistent Dependency)**
-		- 資料相依是指關聯表中的屬性之間擁有關係，關聯表擁有不一致的資料相依，這些屬性就會在新增、刪除或更新資料時，造成異常現象
-- 正規化分析以後，將資料表分成幾個資料表，**資料表之間存在某種關聯性**，透過 **Foreign Key** 的設定，讓不同的資料表之間產生<b>一對一、一對多、多對多關係</b>
-</script></section>
 </section><!--end block-->
 
 <section><!--start block-->
@@ -264,21 +344,171 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 # Normal Forms
 </script></section>
 <section data-markdown><script type="text/template">
-## 正規化步驟 (Normal Forms)
+## 正規化步驟 (Normal Forms, 1/2)
+- **第一正規化 (1NF)**
+	- **一個格子只能存單一值**，例如：不能把多個電話或多個課程**用逗號塞在同一個儲存格裡**
+	- 必須定義 **Primary Key**
+	- 主要目的是**欄位的值可以 Atomic**(單一)
+- **第二正規化 (2NF)**
+	-  如果 Primary Key 是由多個欄位組成的 Composite Key(組合鍵)，其他欄位不能只跟其中一個欄位有關係
+	- 通常透過拆表來解決
+	- 主要目的是**消除部分相依**
 </script></section>
 <section data-markdown><script type="text/template">
+## 正規化步驟 (Normal Forms, 2/2)
+- **第三正規化 (3NF)**
+	-  A 決定 B，B 決定 C，那 A 就會間接(遞移)決定 C
+	- 例如**總金額由單價 × 數量**算出，或者部門名稱依賴部門編號，部門編號依賴員工編號，都應該拆開
+	- 主要目的是**消除遞移相依**
+- **Boyce-Codd 正規化 (BCNF)**
+	-  確保**所有的決定因素都必須是 Candidate Key**
+	- 主要目的是**修正 3NF 缺陷**
+</script></section>
+<section data-markdown><script type="text/template">
+## First Normal Form(1NF, 1/2)
 
-| 正規形式 | 核心目標 | 簡單口訣與說明 |
+- 資料表中的**每個欄位都必須是原子值**(Atomic value)，也就是不可再分割的單一值
+- 資料表**必須有主鍵(Primary Key)，且不允許有重複的群組**
+- 解決欄位內包含複數資料、格式混亂、無法精準檢索的問題 
+
+❌ 違反 1NF 的範例(違反了原子性)
+| 學號 (PK) | 學生姓名 | 聯絡電話 | 課程名稱 |
+| :--- | :---: | :---: | :--- |
+| s001 | 張小明 | 0911-111-111 | Python, Java |
+| s002 | 李小美 | 0922-222-222| 資料庫系統 |
+|||
+</script></section>
+<section data-markdown><script type="text/template">
+## First Normal Form(1NF, 2/2)
+- 將多值欄位拆開，讓每一列(Row)的每個欄位都只包含一個值
+✅ 符合 1NF 的處理結果
+| <u>課程號碼</u> | <u>學號</u>  | 學生姓名 | 聯絡電話      | 課程名稱 |
+| :---:   | :---: | :---: | :--- |  :---      |
+| cs101  | s001  | 張小明 | 0911-111111  | Python    |
+| cs102  | s001  | 張小明 | 0911-111111  | Java      |
+| cs103  | s002 | 李小美 | 0922-222222   | 資料庫系統|
+|||||
+- 可進一步將課程號碼、課程名稱拆成另外一個資料表，透過 Foreign Key 來產生關連
+</script></section>
+<section data-markdown><script type="text/template">
+## Second Normal Form(2NF, 1/2)
+- 必須先符合 1NF，且**非主鍵欄位必須完全相依於整個主鍵**
+	- 不能只相依於主鍵的一部分(**主要目的是消除部份相依**)
+- 如果**資料表的主鍵只有一個欄位，那麼它自動符合 2NF**
+- 2NF 主要是在處理組合主鍵(Composite Key)的情況
+
+❌ 違反 2NF 的範例(符合 1NF，但未符合 2NF)
+| **<u>學號</u>**  | **學生姓名** | 聯絡電話 | **<u>課程號碼</u>**  | **課程名稱** |
+| :---:  | :---: | :---         | :---:   | :---       |
+| s001  | 張小明 | 0911-111111  | cs101 | Python    |
+| s001  | 張小明 | 0911-111111  | cs102 | Java      |
+| s002  | 李小美 | 0922-222222  | cs103 | 資料庫系統|
+|||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Second Normal Form(2NF, 2/2)
+- 將資料表拆分為兩張表，把部分相依於主鍵的欄位抽離出來
+
+✅ 學生基本資料表
+| <u>學號</u> | 學生姓名 | 聯絡電話 |
 | :--- | :--- | :--- |
-| **第一正規化 (1NF)** | **欄位值原子化** | **欄位不可再分**。每個格子只能存單一值（不能把「多個電話」或「多個課程」用逗號塞在同一個格子裡），且必須定義**主鍵 (Primary Key)**。 |
-| **第二正規化 (2NF)** | **消除部分相依** | **非鍵欄位必須依賴「完整」的主鍵**。如果主鍵是由多個欄位組成的「複合主鍵」，其他欄位不能只跟其中一個欄位有關係。*（通常透過拆表來解決）* |
-| **第三正規化 (3NF)** | **消除遞移相依** | **非鍵欄位之間不能互相依賴**。例如 A 決定 B，B 決定 C，那 A 就會間接（遞移）決定 C。像是「總金額」由「單價 × 數量」算出，或者「部門名稱」依賴「部門代號」，都應該拆開。 |
-| **BC 正規化 (BCNF)** | **修正 3NF 缺陷** | 3NF 的加強版。確保**所有的決定因素都必須是候選鍵 (Candidate Key)**。 |
+| s001 | 張小明 | 0911-111111 |
+| s002 | 李小美 | 0922-222222 |
+||||
+
+✅ 學生選課表
+| 學號(FK) | <u>課程號碼</u> | 課程名稱 |
+| :--- | :--- | :--- |
+| s001 | cs101 | Python |
+| s001 | cs102 | Java |
+| s002 | cs103 | 資料庫系統 |
 ||||
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## Third Normal Form(3NF, 1/2)
+- 必須符合 2NF，且**非主鍵欄位之間不能有相依關係**(ie, $\alpha \rightarrow \beta$, 非主鍵欄位 $\alpha$ 決定了非主鍵欄位 $\beta$)
+	- 也就是要消除遞移相依(Transitive Dependency)
+- 消除刪除、新增、修改的異常，例如：如果指導教授離職了，我們不應該連同教授所屬系所的資訊也一起在資料庫中消失
+- 相依關係： 教授所屬系所 $\rightarrow$ 指導教授 $\rightarrow$ 指導的學生姓名 
+
+❌ 違反 3NF 的範例(符合 2NF，但未符合 3NF)
+| <u>學號</u> | 學生姓名 | 指導教授 | 教授所屬系所 |
+| :---: | :---: | :---: | :---: |
+| s001 | 張小明 | 王教授 | 資工系 |
+| s002 | 李小美 | 陳教授 | 電機系 |
+| s003 | 王大同 | 王教授 | 資工系 |
+|||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Third Normal Form(3NF, 2/2)
+- 將存在遞移相依的欄位獨立成另一張表
+- 學生與指導教授資料表
+| <u>學號</u> | 學生姓名 | 指導教授 |
+| :--- | :--- | :--- |
+| s001 | 張小明 | 王教授 |
+| s002 | 李小美 | 陳教授 |
+| s003 | 王大同 | 王教授 |
+||||
+- 系所名稱資料表
+| 系所編號| 系所名稱 | 教職員姓名 |
+| :---: | :---: | :---: |
+| cs01 | 資工系 | 王教授 |
+| ee01 | 電機系 | 陳教授 |
+||||
+</script></section>
+<section data-markdown><script type="text/template">
+## Boyce-Codd Normal Form(1/2)
+- 必須先符合 3NF，且資料表所有的決定因素都必須是候選鍵
+- 它是 3NF 的嚴格修正版，當資料表具有多個重疊的複合候選鍵時，3NF 可能無法解決所有的更新異常，此時就需要 BCNF
+- 消除的異常： 修正 3NF 無法解決的主鍵內部相依問題
+- 假設有一張「學生選課與指導老師表」，規則如下：
+	- 一個學生一門科目只能有一位指導老師、一位老師只教一門科目、一門科目可以有多位老師
+	- 候選鍵(可作為主鍵)：(學號, 科目) 或 (學號, 指導老師)
+		- (學號, 科目) \(\rightarrow \) 指導老師
+		- 指導老師 \(\rightarrow \) 科目 (因為老師只教固定一門課)
+- 指導老師是一個決定決定了科目，但指導老師本身並不是候選鍵，違反了 BCNF。
+此時若發生有新老師加入但還沒有學生選課，資料無法新增(因為主鍵學號不能為空值)
+</script></section>
+<section data-markdown><script type="text/template">
+## Boyce-Codd Normal Form(2/2)
+
+| 學號 (PK) | 科目 (PK) | 指導老師 |
+| :--- | :--- | :--- |
+| S001 | 數學 | 林老師 |
+| S001 | 英文 | 珍妮佛 |
+| S002 | 數學 | 郭老師 |
+| S003 | 數學 | 林老師 |
+
+- 將決定因素單獨拆成一張表，使其在該表中成為主鍵。
+- 老師與科目表 (Teacher_Subject)
+- 主鍵：指導老師(此時指導老師成為這張表的主鍵/候選鍵，符合 BCNF)
+
+- 老師與科目表 (Teacher_Subject)
+| 指導老師 (PK) | 科目 |
+| :--- | :--- |
+| 林老師 | 數學 |
+| 珍妮佛 | 英文 |
+| 郭老師 | 數學 |
+
+- 學生選課老師表 (Student_Teacher)
+
+| 學號 (PK) | 指導老師 (PK) |
+| :--- | :--- |
+| S001 | 林老師 |
+| S001 | 珍妮佛 |
+| S002 | 郭老師 |
+| S003 | 林老師 |
+</script></section>
+<section data-markdown><script type="text/template">
+## Summary of Normal Form
+| 正規形式 | 核心去除目標 | 簡單口訣記憶法 |
+| :--- | :--- | :--- |
+| **第一正規化 (1NF)** | 重複群組、非原子值 | 欄位內不可再有逗號或多筆資料 |
+| **第二正規化 (2NF)**| 部份相依(Partial) | 不能只相依於 Composite Key 的其中一個欄位 |
+| **第三正規化 (3NF)**| 遞移相依(Transitive) | $A \rightarrow B \rightarrow C$, 必須把 $B$ 和 $C$ 抽離出來 |
+| **BCNF** | 修正 3NF 缺陷，非候選鍵的決定因素 | 資料表中能決定別人的欄位，就必須是主鍵(候選鍵) |
+||||
+</script></section>
 </section><!--end block-->
 
 </div>

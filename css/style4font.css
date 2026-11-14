@@ -52,3 +52,7 @@
 .reveal ul ul ul {
     list-style-type: circle; 
     }
+
+.reveal .katex {
+font-size: 0.9em !important;
+}
