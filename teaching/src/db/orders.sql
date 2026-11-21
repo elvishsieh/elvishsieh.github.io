@@ -3,7 +3,7 @@ CREATE TABLE Orders(
     商品編號 INT,
     訂單日期 DATE,
     購買數量 INT,
-    FOREIGN KEY (商品編號) REFERENCES 商品表(商品編號)
+    FOREIGN KEY (商品編號) REFERENCES Products(商品編號)
 );
 
 INSERT INTO Orders VALUES
@@ -596,7 +596,9 @@ INSERT INTO Orders VALUES
 (2587, 845, '2026-10-13', 8),
 (2588, 206, '2026-10-13', 9),
 (2589, 303, '2026-10-15', 20),
-(2590, 257, '2026-10-08', 6),
+(2590, 257, '2026-10-08', 6);
+-- Microsoft SQL Server limit 1000 records to insert in it.
+INSERT INTO Orders VALUES
 (2591, 1075, '2026-11-13', 16),
 (2592, 576, '2026-11-09', 19),
 (2593, 560, '2026-11-09', 20),

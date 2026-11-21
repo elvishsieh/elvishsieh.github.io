@@ -51,41 +51,20 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown><script type="text/template">
 ## SQL Background(背景)
 - IBM developed the original version of SQL, originally called Sequel, as part of the System R project in the early 1970.
-- Sequel language name has changed to SQL(Structured Query Language).
+- Sequel language name has changed to **SQL(Structured Query Language)**.
 - In 1986, ANSI(American National Standards Institute) and ISO(the International Organization for Standardization) published an SQL.
-- Version: SQL-89 in 1989, SQL-92, SQL-2003
+- Version: SQL:89 in 1989, SQL:92, SQL:2003, SQL:2008, SQL:2011, SQL:2016, SQL:2019, SQL:2023[(ISO/IEC 9075:2023)](https://www.iso.org/standard/76583.html)
 </script></section>
-<section data-markdown><script type="text/template">
-## Example of SQL(1/2)
-- 在資料庫建立一個資料表，資料表名稱命名為 Customers
-<pre><code data-trim data-line-numbers>CREATE TABLE Customers(
-	CustomerID INTEGER PRIMARY KEY NOT NULL,
-	Customers_Name	VARchar(50),
-	City	varchar(50),
-	Adderess varchar(100)
-);
-</code></pre>
-- 從 Customers 資料表中找出客戶 jenny 的城市名稱及地址
-<pre><code data-trim data-line-numbers>SELECT Customer_Name, City, Address
-FROM customers
-WHERE  Customer_Name=‘jenny’;</code></pre>
-</script></section>
-<section data-markdown><script type="text/template">
-## Example of SQL(2/2)
-- 請同學使用 HeidiSQL 建立一個 Customers 資料表，插入多筆資料，並查詢某一位客戶的地址
-<pre><code>CREATE TABLE Customers(
-	CustomerID INTEGER PRIMARY KEY NOT NULL,
-	Cname	VARCHAR(50),
-	City	VARCHAR(50),
-	Adderess VARCHAR(100)
-);
-INSERT INTO Customers
-VALUES
-(NULL,'布尚雪', '台中市', '三民路三段129號'),
-(NULL,'柯吉霸', '高雄市', '中山路三段129號'),
-(NULL,'賴吉賽', '台北市', '重慶南路三段129號'),
-(NULL,'布尙頒', '新竹市', '光復路三段129號');</code></pre>
 
+<section data-markdown><script type="text/template">
+## SQL 標準的組成結構
+- Core SQL(核心 SQL)
+	- 規範了資料庫引擎必須滿足的最基本語法與功能要求
+- 四大子語言
+	- DDL(Data Definition Language) 定義資料結構，如 **CREATE、ALTER**
+	- DML(Data Manipulation Language) 操作資料內容 ，如 **INSERT、UPDATE、DELETE**
+	- DQL(Data Query Language) 查詢資料，如 **SELECT**
+	- DCL(Data Control Language) 權限控制，如 GRANT、REVOKE
 </script></section>
 <section data-markdown><script type="text/template">
 ## 何謂查詢(Query)
@@ -94,6 +73,38 @@ VALUES
 <li class="fragment roll-in"><b>查詢(Query)</b>是資料表的搜尋功能，可以在資料表中<b>找出符合條件的紀錄資料，以便進行分析或計算。</b>
 <li class="fragment roll-in"><b>篩選(Filter)</b>是指在資料表中，<b>只顯示出需要的紀錄</b>，至於那些不符合條件就隱藏起來。
 <li class="fragment roll-in"><b>排序(Sorting)</b>是將一串資料<b>依照特定的方式進行排列</b>，例如：遞增排序、遞減排序；資料結構中應該有介紹各種不同的排序演算法。
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of SQL(1/2)
+- 在資料庫建立一個資料表，資料表名稱命名為 tbl_customer
+<pre><code data-trim data-line-numbers>CREATE TABLE tbl_customer (
+    customer_id INTEGER PRIMARY KEY NOT NULL,
+    customer_name VARCHAR(50),
+    city VARCHAR(50),
+    adderess VARCHAR(100)
+);
+</code></pre>
+- 從 tbl_customer 資料表中找出客戶**Jenny**的城市名稱及地址
+<pre><code data-trim data-line-numbers>SELECT customer_name, city, address
+FROM tbl_customer
+WHERE  customer_name=‘Jenny’;</code></pre>
+</script></section>
+<section data-markdown><script type="text/template">
+## Example of SQL(2/2)
+- 請同學使用 HeidiSQL 建立一個 [tbl_customer 資料表](../src/db/customers.sql)，插入多筆資料，並查詢某一位客戶的地址
+<pre><code data-trim data-line-numbers>CREATE TABLE tbl_customer(
+	customer_id INTEGER PRIMARY KEY NOT NULL,
+	customer_name	VARCHAR(50),
+	city	VARCHAR(50),
+	adderess VARCHAR(100)
+);
+INSERT INTO tbl_customer
+VALUES
+(NULL,'布尚雪', '台中市', '三民路三段129號'),
+(NULL,'柯吉霸', '高雄市', '中山路三段129號'),
+(NULL,'賴吉賽', '台北市', '重慶南路三段129號'),
+(NULL,'布尙頒', '新竹市', '光復路三段129號');</code></pre>
+- 建立 [Products](../src/db/products.sql), [Orders](../src/db/orders.sql) 資料表且插入多筆商品及訂單的語法 
 </script></section>
 </section><!--end block-->
 
@@ -104,36 +115,51 @@ VALUES
 <section data-markdown><script type="text/template">
 ## SQL language
 <pre><code data-trim data-line-numbers>SELECT *
-FROM Customers;
+FROM tbl_customers;
 --- This is comment
-SELECT CustomerID, ShipName, ShipAddress, ShipCity, ShipRegion
+SELECT customer_id, ship_name, ship_address, ship_city, ship_region
 FROM Orders
-WHERE ShipCity = '台中市';
---- This is comment
-SELECT CustomerID, ShipName, ShipAddress, ShipCity, ShipRegion
+WHERE ship_city = '台中市';
+--- Thia is comment
+SELECT customer_id, ship_name, ship_address, ship_city, ship_region
 FROM Orders
-WHERE ShipCity = '台中市' AND ShipRegion = '中港';
---- This is comment
-UPDATE Customers
-SET Country = 'TW'
-WHERE City = '台中市' AND Region = '中港區';
+WHERE ship_city = '台中市' AND ship__region = '中港';
+--- Thia is comment
+UPDATE tbl_customers
+SET country 'TW'
+WHERE city = '台中市' AND region = '中港區';
 </code></pre>
 </script></section>
-<section data-markdown><script type="text/template">
+<section data-markdown><script type=atext/template">
 ## NULL is not 'NULL'(1/2)
-<pre><code data-trim data-line-numbers>UPDATE Customers
-SET Country = Null
-WHERE City = '台中市' AND Region = '中港區';</code></pre>
+<pre><code data-trim data-line-numbers>UPDATE tbl_customers
+SET country = Null
+WHERE city = '台中市' AND region = '中港區';</code></pre>
 ![](/images/db/null.png)
 </script></section>
 <section data-markdown><script type="text/template">
 ## NULL is not 'NULL'(2/2)
-<pre><code data-trim data-line-numbers>UPDATE Customers
-SET Country = 'Null'
-WHERE City = '台中市' AND Region = '中港區';</code></pre>
+<pre><code data-trim data-line-numbers>UPDATE tbl_customers
+SET country = 'Null'
+WHERE city = '台中市' AND region = '中港區';</code></pre>
 ![](/images/db/null2.png)
 </script></section>
-<section data-markdown><script type="text/template"></script></section>
+<section data-markdown><script type="text/template">
+## 限制 Query 顯示的筆數
+
+| 資料庫名稱 | SOL 語法 | 語法的位置 |
+| :--- | :--- | :--- |
+| **MySQL / PostgreSQL / SQLite** | `LIMIT 10` | At the end of the query |
+| **SQL Server (T-SQL)** | `SELECT TOP 10 ...` | Immediately after `SELECT` |
+| **Oracle (12c and newer)** | `FETCH FIRST 10 ROWS ONLY` | At the end of the query |
+||||
+<pre><code data-trim data-line-numbers>SELECT TOP 10 訂單編號, Orders.商品編號, 商品名稱, 訂單日期, 購買數量
+-- SELECT 訂單編號, Orders.商品編號, 商品名稱, 訂單日期, 購買數量
+FROM Orders
+INNER JOIN Products ON Orders.商品編號 = Products.商品編號
+ORDER BY 訂單編號
+-- LIMIT 10;</code></pre>
+</script></section>
 <section data-markdown><script type="text/template"></script></section>
 </section><!--end block-->
 

@@ -375,6 +375,23 @@ uvx ruff check</code></pre>
 
 <section><!--start block-->
 <section data-markdown><script type="text/template">
+## 備份使用者的環境變數(1/2)
+- 電腦教室還原卡會將環境變數還原，手動安裝 Powershell, UV, Python 時所設定的環境變數，再每一次關機以後，必須要重新再次設定
+- 使用 regedit 備份使用者的環境變數，減少每一次需要重設環境變數的時間
+- 備份使用者的環境變數的步驟如下
+	1. **Win + R** ≫ 輸入 **regedit** 開啟登錄編輯程式畫面≫ 點選 \HKEY_CURRENT_USER\Environment
+	2. 在 **Environment 上方按滑鼠右鍵** ≫ 點選**匯出** ≫ 自己命名、存檔
+	3. 每一次使用檔案總管開啟備份的存檔，**連續點選檔案 2 次**，再次載入備份的環境變數設定值
+</script></section>
+<section data-markdown><script type="text/template">
+## 備份使用者的環境變數(2/2)
+- 匯出使用者的環境變數的頁面
+![](/images/python/userEnv.png)
+</script></section>
+</section><!--end block-->
+
+<section><!--start block-->
+<section data-markdown><script type="text/template">
 # Code of Textbook
 </script></section>
 <section data-markdown><script type="text/template">
